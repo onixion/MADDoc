@@ -1,0 +1,4 @@
+MADDoc
+======
+
+Documentation for MAD
