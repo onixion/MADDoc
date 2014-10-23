@@ -1,0 +1,49 @@
+Ziel:
+	Das Ziel dieser Dilpomarbeit ist das Erstellen eines Programmes, welche in einem
+	privaten Netzwerk (Privates Netzwerk wird hier als ein Netzwerk mit maximal
+	50 Clients definiert) Serverdienste überwachen kann und bei nicht Einhaltung
+	bestimmter Regeln, eine Benachrichtigung in Form einer E-Mail abschickt kann.
+	Für die Konfiguration und Nutztung dieser Software soll eine grafische Oberfläche 
+	als auch eine text-basierte Schnittstelle angeboten werden.
+
+	Zudem sollen die Resultate der überwachten Dienste in einer Datenbank abgespeichert 
+	werden und auch abrufbar sein.
+
+Umsetzung:
+
+	Bei der Umsetzung wurde darauf geachtet, im Grunddesign wichtige Aspekte wie
+	Modularität, Flexibilität einfließen zu lassen. Um der Fehlerenstehung
+	schon im Ansatz entgegenzusteuern, haben wir das Programm in Teile aufgespalten. 
+	Jeder Teil erfüllt eine wichtige Aufgabe. Somit kann das Programm einfach
+	erweitert werden und auch die Fehlersuche wird vereinfacht.
+
+	Innerhalb dieses Programmes gelten folgende Definitionen:
+
+		die Aufgabe einen Dienst zu bestimmten Zeiten zu überwachen = Job
+		einen Client dem gewisse Aufgaben zugeteilt werden = JobNode / Node
+
+	Ein Job hat die Aufgabe zu einer bestimmten Zeit eine bestimmte Aufgabe
+	auszuführen. Diese Aufgabe ist immer eine Operation im Netzwerk.
+	
+	Der Job hat zwei Möglichkeiten die Zeit zu definieren. Entweder der Job soll
+	in periodischen Abständen ausgeführt werden oder zu bestimmten Zeitpunkten.
+
+	Es können auch Regeln definiert werden, welche Resultate von bestimmten Jobs
+	erwartet werden. Bei nicht Einhaltung dieser Regeln wird eine E-Mail versendet,
+	die die nötigen Informationen beinhalten, weshalb der Job nicht die definierten
+	Resultate erbracht hat.
+
+
+Weitere Vorgangsweisen:
+
+	*) Einbinden der Datenbank im Programm -> Job Resultate sollen in dieser Datenbank gespeichert werden
+	*) das Schreiben und die Implementierung der GUI
+	*) möglicherweise die Überarbeitung des Benachrichtigungssystem
+	*) Clients automatisch im Netzwerk suchen und in das Programm einbinden
+
+	*) das Schreiben der Dokumentation
+
+
+
+
+	

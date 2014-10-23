@@ -1,0 +1,41 @@
+Kryptologie
+
+
+
+
+Verschlüsselungverfahren
+
+
+Verschlüsselungsverfahren sind Algorythmen, die die Aufgabe haben, lesbare Informationen (auch Binärdaten) in nicht-lesbare Information (=Verschlüsselt) und wieder 
+zurück zu transformieren.
+
+
+Die verschiedenen Verschlüsselungsverfahren arbeiten hierbei auf mathematisch höheren Ebenen und machen sich das Problem der Berechnung der Primzahlen zu nutze.
+Denn bis zum heutigen Tage ist es nicht möglich mit einer Gleichung, beliebig große Primzahlen zu errechnen.
+
+
+Die Verschlüsselungsverfahren können grob in zwei Varianten unterteilt werden:
+
+	* Symmetrisches Verschlüsselungsverfahren
+
+		Bei dieser Art von Verschlüsselung wird für die Ver- als auch für die Entschlüsselung der gleiche Schlüssel verwendet.
+
+	* Asymmetrisches Verschlüsselungsverfahren
+
+		Die asymmetrische Verschlüsselung verwendet für Ver- und Entschlüsselung nicht den gleichen Schlüssel. Wenn bei der Verschlüsselung der öffentliche
+		Schlüssel verwendet wurde, muss für die Entschlüsselung der private Schlüssel genutzt werden. Falls aber bei der Verschlüsselung der private
+		Schlüssel angwendet wird, muss für die Entschlüsselung der öffentliche Schlüssel verwendet werden.
+
+Das Problem des Key-Exchange
+
+Der Key-Exchange (=Schlüsselaustausch, "key-establishment") ist eine Methode mithilfe kryptografischer Algorythmen, Informationen, ohne den Gebrauch von zusätzlichen
+Informationskanälen, zwischen zwei Nutzern auszutauschen.
+
+Diese Methode macht sich die asymmetrische Verschlüsselung zu nutze, da für die Ver- und Entschlüsselung zwei verschieden Schlüssel gebraucht werden.
+
+In Abbildung () sehen sie den systematischen Aufbau einer Kommunication zwischen zwei Nutzern.
+
+Leider ist das "Key-Exchange" Problem mit der unsymmetrischen Verschlüsselung immer noch nicht beseitig. Das Problem ist: Woher weiß man das der Schlüsselaustausch
+mit dem richten Server gemacht worden ist? - Lösungen hierfür gibt es einige.
+
+
