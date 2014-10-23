@@ -1,5 +1,8 @@
-# Object file
-*.o
+# Ignore latex generated files
 
-# Ada Library Information
-*.ali
+*.pdf
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+*.aux

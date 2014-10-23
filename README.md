@@ -1,4 +1,4 @@
 MADDoc
 ======
 
-Documentation for MAD
+Documentation for MAD-Project
