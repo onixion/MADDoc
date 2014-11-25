@@ -1,0 +1,262 @@
+/* netplanet 3G Base Sheets */
+
+/* GENERAL DEFINITIONS */
+
+p, h1, h2, h3, h4, caption, td, th, ol, ul, dl, li, div, select {
+	font-family:Verdana,Arial,Helvetica,sans-serif;
+	font-size:12px; line-height:16px;
+}
+tt, pre {
+	font-family:"Courier New",Courier,serif;
+	font-size:10pt;
+}
+caption {
+	font-size:10pt;
+	font-style:italic;
+}
+
+/* PANEL DEFINITIONS */
+
+.content {
+	margin:9px;
+}
+.contintro {
+	font-style:italic;
+	margin-top:7px;
+}
+.contentcell {
+	background-image:url('/images/pcc_back.png');
+	vertical-align:top;
+}
+.navigation {
+	font-size:4px;
+	line-height:4px;
+}
+.navitext {
+	font-size:11px;
+	line-height:13px;
+	margin:5px 7px 0px 10px;
+}
+.copyright {
+	font-size:10px;
+	line-height:12px;
+	margin:3px 9px 3px 9px;
+}
+.cms {
+	font-size:10px;
+	line-height:12px;
+	margin:0px 3px;
+	text-align:left;
+}
+
+/* SPECIAL DEFINITIONS */
+
+a.rubrik {
+	font-weight:bold;
+}
+a.verweis {
+	background-image:url('/images/verweis.png');
+	background-repeat:no-repeat;
+	padding-left:13px;
+}
+h1 {
+	font-size:24px;
+	line-height:32px;
+	font-weight:bold;
+	margin-left:6px;
+	margin-right:6px;
+}
+h2 {
+	font-size:18px;
+	line-height:22px;
+	margin-bottom:-5px;
+	margin-top:20px;
+}
+h2.top {
+	margin-top:7px;
+}
+h3 {
+	font-size:14px;
+	line-height:18px;
+	margin-bottom:-10px;
+	margin-top:16px;
+}
+h4 {
+	font-size:12px;
+	line-height:13px;
+	margin-bottom:-10px;
+	margin-top:10px;
+}
+li {
+	margin-bottom:16px;
+}
+img.content {
+	border:1px outset #AAAAAA;
+}
+img.left {
+	float:left;
+	margin-right:5px;
+}
+img.right {
+	float:right;
+	margin-left:5px;
+}
+img.socbook {
+	border:1px outset;
+}
+input.readonly {
+	background-color:#CCCCCC;
+}
+.exkurs {
+	background-color:#DDDDDD;
+	color:#000000;
+	margin:0px 30px;
+	padding:1px 10px 1px 10px;
+}
+.zitat {
+	background-color:#FFF200;
+	color:#000000;
+	margin:0px 30px;
+	padding:10px;
+}
+.code {
+	background-color:#FFF200;
+	color:#000000;
+	font-family:monospace;
+	margin:0px 30px;
+	padding:10px;
+}
+.emergence {
+	background-color:#FF0000;
+	color:#FFFFFF;
+	padding:10px;
+}
+.echo {
+	background-color:#FFF200;
+	color:#000000;
+	font-size:14px;
+	line-height:16px;
+	width:75%;
+}
+.underline {
+	font-style:italic;
+	margin-top:0px;
+	text-align:center;
+}
+.picframe {
+	align:right;
+	float:right;
+	font-style:italic;
+	margin:10px;
+	text-align:center;
+}
+
+/* LISTING TABLES */
+
+table.book {
+	border-spacing:10px;
+	caption-side:top;
+}
+table.list {
+	border-spacing:1px;
+	caption-side:bottom;
+	padding:5px;
+}
+#list td, th {
+	padding:5px;
+}
+#list th.top {
+	background-color:#FFF200;
+	color:#000000;
+}
+#list td.white {
+	text-align:center;
+}
+#list td.grey {
+	background-color:#E6E6E6;
+	color:#000000;
+	text-align:center;
+}
+#list td.osi1 {
+	background-color:#FF0000;
+	color:#FFFFFF;
+}
+#list td.osi2 {
+	background-color:#FF2B00;
+	color:#FFFFFF;
+}
+#list td.osi3 {
+	background-color:#FF5600;
+	color:#FFFFFF;
+}
+#list td.osi4 {
+	background-color:#FF8100;
+	color:#FFFFFF;
+}
+#list td.osi5 {
+	background-color:#FFAC00;
+	color:#000000;
+}
+#list td.osi6 {
+	background-color:#FFD700;
+	color:#000000;
+}
+#list td.osi7 {
+	background-color:#FFFF00;
+	color:#000000;
+}
+#list td.dod1 {
+	background-color:#FF0000;
+	color:#FFFFFF;
+}
+#list td.dod2 {
+	background-color:#FF5500;
+	color:#FFFFFF;
+}
+#list td.dod3 {
+	background-color:#FFAA00;
+	color:#000000;
+}
+#list td.dod4 {
+	background-color:#FFFF00;
+	color:#000000;
+}
+
+/* COLOR DEFINITIONS */
+
+body {
+	background-color:#FFFFFF;
+	color:#000000;
+}
+a:link {
+	color:#5555FF;
+}
+a:visited {
+	color:#0000C0;
+}
+a:active {
+	color:#FF0000;
+}
+.yes {
+	background-color:#00FF00;
+	color:#000000;
+	font-weight:bold;
+	text-align:center;
+}
+.no {
+	color:#FFFFFF;
+	background-color:#FF0000;
+	font-weight:bold;
+	text-align:center;
+}
+
+/* COM */
+
+td.cmc {
+	border-color:#CCCCCC;
+	border-style:solid;
+	border-width:1px;
+	color:#AAAAAA;
+	font-size:10px;
+	padding:5px;
+}

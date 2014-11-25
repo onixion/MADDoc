@@ -1,32 +1,52 @@
 Kryptologie
 
-
-
-
-Verschlüsselungverfahren
-
+___________________________
+A) Verschlüsselungverfahren
+---------------------------
 
 Verschlüsselungsverfahren sind Algorythmen, die die Aufgabe haben, lesbare Informationen (auch Binärdaten) in nicht-lesbare Information (=Verschlüsselt) und wieder 
 zurück zu transformieren.
 
+___________________________________________
+A.A) Symmetrische Verschlüsselungsverfahren
+-------------------------------------------
 
-Die verschiedenen Verschlüsselungsverfahren arbeiten hierbei auf mathematisch höheren Ebenen und machen sich das Problem der Berechnung der Primzahlen zu nutze.
-Denn bis zum heutigen Tage ist es nicht möglich mit einer Gleichung, beliebig große Primzahlen zu errechnen.
+Bei dieser Art von Verschlüsselung wird für die Ver- als auch für die Entschlüsselung der gleiche Schlüssel verwendet. 
+
+Um diese Verschlüsselung sinnvoll verwenden zu können, müssen beide Kommunikationsparteien den Schlüssel besitzen, daher 
+zählt dieses Verfahren auch zu den klassischen bzw. herkömmlichen Verschlüsselungsverfahren ('secret-key-Verfahren').
+
+Diese Verfahren können bei entsprechenden Schlüssellängen ein hohes Maß an Sicherheit und Effizienz bieten.
+Die symmetrischen Verfahren sind in der Regel sehr schnell in der Berechnung, da sie meistens auf komplizierte
+mathematische Berechnungen verzichten.
+
+Vertraulichkeit und Integrität der Informationen hängt von der Geheimhaltung des Schlüssels ab. Ist mindestens eine Partei kommpromitiert,
+kann die Vertraulichkeit und Integrität nicht sichergestellt werden.
+
+Die Archillesverse dieses Verschlüsselungsverfahren ist der Austausch des Schlüssels, denn dieser muss über einen anderen sicheren
+Informationskanal übertragen werden, um die Vertraulichkeit der Kommunikation gewährleisten zu können.
+
+Nennenswerte Verschlüsselungsverfahren sind:
+
+-> DES: Digital Encryption Standard
+
+DES wurde 1975 von IBM veröffentlicht und basierte auf den Verschlüsselungsalgorithmus 'Lucifer'. DES verwendet für die Verschlüsselung einen 64bit Schlüssel, der jedoch 8bit als Prüfsumme verwendet. Dieses Verschlüsselungsverfahren ist nicht mehr sicher, da die heutigen Computer die 56bit Schlüssel mit Brute-Force-Attacken innerhalb weniger Stunde knacken können. (Brute-Force-Attacken sind Attacken, die alle möglichen Kominationen ausprbieren).
+
+-> 3DES: triple DES
+
+Triple DES ist der Nachfolger des DES-Standarts und wendet für die Ver- und Entschlüsselung DES dreimal an. Hierbei verwendet das Verfahren zwei 64bit Schlüssel, die abwechselend eingesetzt werden. Jedoch werden von den zwei 64bit Schlüssel bei dem Verfahren nur 112bit effektiv eingesetzt, da die restlichen Bits für Prüfzwecke benötigt werden. Dieses Verfahren gilt grundsätzlich noch als sicher,
+doch es wird drigendst geraten auf einen Ersatz umzusteigen.
+
+____________________________________________
+A.B) Asymmetrische Verschlüsselungsverfahren
+--------------------------------------------
+
+Die asymmetrische Verschlüsselung verwendet für Ver- und Entschlüsselung nicht den gleichen Schlüssel.
+
+Mithilfe dieser Verschlüsselungsverfahren ist es möglich einen sicheren Informationskanal zwischen zwei Parteien herzustellen.
 
 
-Die Verschlüsselungsverfahren können grob in zwei Varianten unterteilt werden:
-
-	* Symmetrisches Verschlüsselungsverfahren
-
-		Bei dieser Art von Verschlüsselung wird für die Ver- als auch für die Entschlüsselung der gleiche Schlüssel verwendet.
-
-	* Asymmetrisches Verschlüsselungsverfahren
-
-		Die asymmetrische Verschlüsselung verwendet für Ver- und Entschlüsselung nicht den gleichen Schlüssel. Wenn bei der Verschlüsselung der öffentliche
-		Schlüssel verwendet wurde, muss für die Entschlüsselung der private Schlüssel genutzt werden. Falls aber bei der Verschlüsselung der private
-		Schlüssel angwendet wird, muss für die Entschlüsselung der öffentliche Schlüssel verwendet werden.
-
-Das Problem des Key-Exchange
+B) Das Problem des Key-Exchange
 
 Der Key-Exchange (=Schlüsselaustausch, "key-establishment") ist eine Methode mithilfe kryptografischer Algorythmen, Informationen, ohne den Gebrauch von zusätzlichen
 Informationskanälen, zwischen zwei Nutzern auszutauschen.

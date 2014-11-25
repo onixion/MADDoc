@@ -1,11 +1,10 @@
 Ziel:
 	Das Ziel dieser Dilpomarbeit ist das Erstellen eines Programmes, welche in einem
 	privaten Netzwerk (Privates Netzwerk wird hier als ein Netzwerk mit maximal
-	50 Clients definiert) Serverdienste überwachen kann und bei nicht Einhaltung
+	50 Netzwerkgeräten definiert) Serverdienste überwachen kann und bei nicht Einhaltung
 	bestimmter Regeln, eine Benachrichtigung in Form einer E-Mail abschickt kann.
 	Für die Konfiguration und Nutztung dieser Software soll eine grafische Oberfläche 
 	als auch eine text-basierte Schnittstelle angeboten werden.
-
 	Zudem sollen die Resultate der überwachten Dienste in einer Datenbank abgespeichert 
 	werden und auch abrufbar sein.
 

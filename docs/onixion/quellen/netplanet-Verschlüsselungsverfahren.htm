@@ -1,0 +1,725 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+	<title>netplanet - Kryptografie im Internet - Verschlüsselungsverfahren</title>
+	<meta http-equiv="content-type" content="text/html; charset=ISO-8859-15">
+	<meta name="author" content="Besim Karadeniz">
+	<meta name="description" content="Nahezu alle gängigen Verschlüsselungssysteme basieren auf drei grundlegende Verschlüsselungsverfahren. Das Wissen über diese drei Verfahren und deren Arbeitsweise ist wichtig, um überhaupt die Nützlichkeit eines Verschlüsselungssystems grundlegend beurteilen zu können.">
+	<meta name="keywords" content="netplanet, internet, kryptografie, verschlüsselung, verschluesselung, verschluesselungsverfahren, symmetrisches verschlüsselungsverfahren, asymmetrisches verschlüsselungsverfahren, hybrides verschlüsselungsverfahren, einwegverschlüsselung, fingerprinting">
+	<meta name="language" content="de">
+	<meta name="revisit-after" content="28 days">
+	<meta name="robots" content="index,follow">
+	<link rel="meta" href="http://www.netplanet.org/labels.xml" type="application/rdf+xml" title="ICRA labels">
+	<meta http-equiv="pics-Label" content="(pics-1.1 &quot;http://www.icra.org/pics/vocabularyv03/&quot; l gen true for &quot;http://netplanet.org&quot; r (n 3 s 3 v 3 l 3 oa 2 ob 2 oc 2 od 2 oe 2 of 2 og 2 oh 2 c 3) gen true for &quot;http://www.netplanet.org&quot; r (n 3 s 3 v 3 l 3 oa 2 ob 2 oc 2 od 2 oe 2 of 2 og 2 oh 2 c 3))">
+	<link rel="stylesheet" type="text/css" href="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/netplanet.css">
+	<link rel="icon" href="http://www.netplanet.org/favicon.ico">
+	<link rel="top" href="http://www.netplanet.org/" title="Homepage">
+	<link rel="author" href="http://www.netplanet.org/editorial/feedback.shtml" title="Autoren">
+	<link rel="copyright" href="http://www.netplanet.org/editorial/impressum.shtml" title="Impressum">
+	<link rel="up" href="#top">
+	<link rel="help" href="http://www.netplanet.org/editorial/" title="netplanet - Editorial">
+	<link rel="search" href="http://www.netplanet.org/sitemap.shtml" title="Sitemap">
+	<link rel="bookmark" href="http://blog.netplanet.org/" title="blog@netplanet">
+	<link rel="bookmark" href="http://www.amazon.de/exec/obidos/redirect-home?tag=netplanet0d&amp;site=home" title="In Partnerschaft mit Amazon.de">
+	<link rel="alternate" type="application/rss+xml" title="netplanet RSS-Feed" href="http://www.netplanet.org/editorial/news.xml">
+	<meta property="og:image" content="http://www.netplanet.org/images/stars.png">
+	<meta name="google-site-verification" content="xxSu52g7W1ABSgbxo90bfu95K7238yO_0BhoZwqVz0c">
+<style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}</style></head>
+<body data-twttr-rendered="true" onload="if (window.parent.location != location){window.open(location,'netplanet')}">
+<a name="pagetop"></a>
+<div align="center">
+	<table border="0" cellpadding="0" cellspacing="0" width="900">
+		<tbody><tr>
+			<td height="81" width="145"></td>
+			<td width="590"><h1>Verschlüsselungsverfahren</h1></td>
+			<td width="165"></td>
+		</tr>
+		<tr>
+			<td></td>
+			<td><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/pcc_top.png" alt="netplanet" height="20" width="590"></td>
+			<td><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/werbekennzeichner.png" alt="Werbung" height="10" width="165"></td>
+		</tr>
+		<tr>
+			<td class="navigation" valign="top">
+				<img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/pn_top.png" alt="Navigation" height="20" width="145"><br><br>
+				<a href="http://www.netplanet.org/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/s_home.png" title="Homepage" alt="Homepage" border="0" height="26" width="26"></a><a href="http://www.netplanet.org/sitemap.shtml"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/s_sitemap.png" title="Sitemap" alt="Sitemap" border="0" height="26" width="26"></a><a href="http://www.netplanet.org/editorial/impressum.shtml"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/s_copy.png" title="Impressum" alt="Impressum" border="0" height="26" width="26"></a><a href="http://www.netplanet.org/editorial/feedback.shtml"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/s_mail.png" title="Feedback" alt="Feedback" border="0" height="26" width="26"></a><br><br><br>
+				<a href="http://www.netplanet.org/adressierung/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_adressierung.png" alt="Adressierung im Internet" border="0" height="18" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/aufbau/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_aufbau.png" alt="Aufbau des Internet" border="0" height="18" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/dienste/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_dienste.png" alt="Dienste im Internet" border="0" height="18" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/email/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_email.png" alt="E-Mail" border="0" height="16" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/irc/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_irc.png" alt="Internet Relay Chat" border="0" height="16" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/netnews/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_netnews.png" alt="Netnews" border="0" height="16" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/remotedienste/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_remotedienste.png" alt="Remote-Dienste" border="0" height="16" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/telefonie/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_telefonie.png" alt="Telefonie" border="0" height="16" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/www/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_www.png" alt="World Wide Web" border="0" height="16" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/digitalliving/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_digitalliving.png" alt="Digital Living" border="0" height="18" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/editorial/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_editorial.png" alt="Editorial" border="0" height="18" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/geschichte/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_geschichte.png" alt="Geschichte des Internet" border="0" height="18" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/kryptografie/index.shtml"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/ba_kryptografie.png" alt="Kryptografie im Internet" border="0" height="18" width="145"></a><br><br>
+				<div class="navitext">
+					<a href="http://www.netplanet.org/kryptografie/einfuehrung.shtml">Einführung in die Verschlüsselung</a><br><br>
+					<a href="http://www.netplanet.org/kryptografie/verfahren.shtml">Verschlüsselungs-<br>verfahren</a><br><br>
+					<a href="http://www.netplanet.org/kryptografie/esignatur.shtml">Elektronische Signaturen</a><br><br>
+					<a href="http://www.netplanet.org/kryptografie/vertrauen.shtml">Vertrauen in der Kryptografie</a><br><br>
+					<a href="http://www.netplanet.org/kryptografie/pgp.shtml">Pretty Good Privacy (PGP)</a><br><br>
+				</div>
+				<img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/br_end.png" alt="" height="8" width="145"><br><br>
+				<a href="http://www.netplanet.org/netiquette/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_netiquette.png" alt="Netiquette im Internet" border="0" height="18" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/organisation/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_organisation.png" alt="Organisation im Internet" border="0" height="18" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/recht/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_recht.png" alt="Recht im Internet" border="0" height="18" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/sicherheit/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_sicherheit.png" alt="Sicherheit im Internet" border="0" height="18" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/traditionen/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_traditionen.png" alt="Traditionen im Internet" border="0" height="18" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/zugang/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_zugang.png" alt="Zugang zum Internet" border="0" height="18" width="145"></a><br><br>
+				<img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/pn_middle.png" alt="" height="8" width="145"><br><br>
+				<a href="http://www.netplanet.org/buechertipps/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_buechertipps.png" alt="Büchertipps zum Internet" border="0" height="18" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/netlife/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_netlife.png" alt="netLife" border="0" height="18" width="145"></a><br><br>
+				<a href="http://www.netplanet.org/i-files/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/bi_ifiles.png" alt="The I-Files" border="0" height="18" width="145"></a><br><br>
+				<img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/pn_bottom.png" alt="" height="20" width="145"><br><br><br>
+				<!-- Facebook -->
+				<div class=" fb_reset" id="fb-root"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/7r8gQb8MIqE.htm" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_http" scrolling="no" allowtransparency="true" name="fb_xdm_frame_http" frameborder="0"></iframe><iframe src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/7r8gQb8MIqE_002.htm" style="border: medium none;" tabindex="-1" title="Facebook Cross Domain Communication Frame" aria-hidden="true" id="fb_xdm_frame_https" scrolling="no" allowtransparency="true" name="fb_xdm_frame_https" frameborder="0"></iframe></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div></div>
+				<script async="" src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/cbgapi.loaded_1"></script><script async="" src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/cbgapi.loaded_0"></script><script src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/piwik.js" async="" defer="defer" type="text/javascript"></script><script gapi_processed="true" src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/plusone.js" async="" type="text/javascript"></script><script src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/widgets.js" id="twitter-wjs"></script><script src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/all.js" id="facebook-jssdk"></script><script>(function(d, s, id) {
+					var js, fjs = d.getElementsByTagName(s)[0];
+					if (d.getElementById(id)) return;
+					js = d.createElement(s); js.id = id;
+					js.src = "//connect.facebook.net/de_DE/all.js#xfbml=1";
+					fjs.parentNode.insertBefore(js, fjs);
+				}(document, 'script', 'facebook-jssdk'));</script>
+				<div fb-iframe-plugin-query="app_id=&amp;href=http%3A%2F%2Fwww.netplanet.org%2Fkryptografie%2Fverfahren.shtml&amp;layout=button_count&amp;locale=de_DE&amp;sdk=joey&amp;send=false&amp;show_faces=false&amp;width=140" fb-xfbml-state="rendered" class="fb-like fb_iframe_widget" data-width="140" data-layout="button_count" data-show-faces="false" data-send="false"><span style="vertical-align: bottom; width: 111px; height: 20px;"><iframe class="" src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/like.htm" style="border: medium none; visibility: visible; width: 111px; height: 20px;" title="fb:like Facebook Social Plugin" scrolling="no" allowtransparency="true" name="f16380e8f1c38e4" frameborder="0" height="1000px" width="140px"></iframe></span></div>
+				<br><br>
+				<!-- Twitter -->
+				<iframe style="width: 131px; height: 20px;" data-twttr-rendered="true" title="Twitter Tweet Button" class="twitter-share-button twitter-tweet-button twitter-share-button twitter-count-horizontal" src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/tweet_button.htm" allowtransparency="true" scrolling="no" id="twitter-widget-0" frameborder="0"></iframe>
+				<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+				<br><br>
+				<!-- Google+ -->
+				<div id="___plusone_0" style="text-indent: 0px; margin: 0px; padding: 0px; background: none repeat scroll 0% 0% transparent; border-style: none; float: none; line-height: normal; font-size: 1px; vertical-align: baseline; display: inline-block; width: 106px; height: 24px;"><iframe title="+1" data-gapiattached="true" src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/fastbutton.htm" name="I0_1416941308546" id="I0_1416941308546" vspace="0" tabindex="0" style="position: static; top: 0px; width: 106px; margin: 0px; border-style: none; left: 0px; visibility: visible; height: 24px;" scrolling="no" marginwidth="0" marginheight="0" hspace="0" frameborder="0" width="100%"></iframe></div>
+				<script type="text/javascript">
+					window.___gcfg = {lang: 'de'};
+					(function() {
+						var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+						po.src = 'https://apis.google.com/js/plusone.js';
+						var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+					})();
+				</script>
+				<br><br><br>
+				<img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/pb_top.png" alt="Bookmarking" height="20" width="145"><br><br>
+				<a href="http://del.icio.us/post" title="Diese Seite zu del.icio.us hinzufügen" onclick="window.open('http://del.icio.us/post?v=4&amp;noui&amp;jump=close&amp;url='+encodeURIComponent(location.href)+'&amp;title='+encodeURIComponent(document.title), 'delicious','toolbar=no,scrollbars=yes,width=700,height=400'); return false;" target="_blank"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/delicious.png" alt="Diese Seite zu del.icio.us hinzufügen" class="socbook" height="18" width="18"></a>&nbsp;
+				<a href="http://www.yigg.de/neu" title="Diese Seite zu YiGG.de hinzufügen" onclick="window.open('http://www.yigg.de/neu?exturl='+encodeURIComponent(location.href)+'&amp;exttitle='+encodeURIComponent(document.title), 'yigg','toolbar=no,scrollbars=yes,width=1000,height=800'); return false;" target="_blank"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/yigg.png" alt="Diese Seite zu YiGG.de hinzufügen" class="socbook" height="18" width="18"></a>&nbsp;
+				<a href="http://www.google.com/bookmarks/" title="Diese Seite zu Google Bookmarks hinzufügen" onclick="window.open('http://www.google.com/bookmarks/mark?op=add&amp;hl=de&amp;bkmk='+encodeURIComponent(location.href)+'&amp;annotation=&amp;labels=&amp;title='+encodeURIComponent(document.title)); return false;" target="_blank"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/google.png" alt="Diese Seite zu Google Bookmarks hinzufügen" class="socbook" height="18" width="18"></a>&nbsp;
+				<a href="http://linkarena.com/" title="Diese Seite zu LinkARENA hinzufügen" onclick="window.open('http://linkarena.com/linkadd?url='+encodeURIComponent(location.href), 'linkarena','toolbar=no,scrollbars=yes,width=430, height=600'); return false;" target="_blank"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/linkarena.png" alt="Diese Seite zu LinkARENA hinzufügen" class="socbook" height="18" width="18"></a>
+				<br><br>
+				<div class="navitext">
+					? <a href="http://www.netplanet.org/editorial/bookmark.shtml">Bookmarken, bitte!</a>
+				</div>
+				<img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/pb_bottom.png" alt="" height="20" width="145"><br>
+				<div class="navitext">
+					<style type="text/css">
+					@import url(http://www.google.com/cse/api/branding.css);
+					</style>
+					<div class="cse-branding-bottom" style="background-color:#FFFFFF;color:#000000">
+					  <div class="cse-branding-form">
+					    <form action="http://www.google.de/cse" id="cse-search-box" target="_blank">
+					      <div>
+					        <input name="cx" value="partner-pub-1511920615122498:0133652811" type="hidden">
+					        <input name="ie" value="UTF-8" type="hidden">
+					        <input name="q" size="14" type="text"><br>
+					        <input name="sa" value="Suche" type="submit">
+					      </div>
+					    </form>
+					  </div>
+					  <div class="cse-branding-logo">
+					    <img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/poweredby_FFFFFF.gif" alt="Google">
+					  </div>
+					  <div class="cse-branding-text">
+					    Benutzerdefinierte Suche
+					  </div>
+					</div>
+				</div>
+			</td>
+			<td class="contentcell" height="540" valign="top">
+				<div class="content">
+
+					<img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/9af0f8fe3d754ecab519c8551e29397c.gif" alt="" height="1" width="1">
+					<!-- ###### start content ###### -->
+					<p class="contintro">Nahezu alle gängigen
+					Verschlüsselungssysteme basieren auf drei grundlegenden
+					Verschlüsselungsverfahren. Das Wissen über diese drei
+					Verfahren und deren Arbeitsweise ist wichtig, um überhaupt
+					die Nützlichkeit eines Verschlüsselungssystems grundlegend
+					beurteilen zu können.</p>
+					<h2>Verschlüsselungsverfahren</h2>
+					<p> 
+					Verschlüsselungsverfahren lassen sich in drei Gruppen
+					einteilen: <i>Symmetrische</i>, <i>asymmetrische</i> und <i>
+					hybride Verschlüsselungsverfahren</i>:</p>
+					<h2>Symmetrische Verschlüsselungsverfahren</h2>
+					<p>Symmetrische Verschlüsselungsverfahren arbeiten mit einem
+					einzigen Schlüssel, welcher der ver- und entschlüsselnden
+					Seite bekannt sein muss (deshalb nennt man sie auch <i>
+					Secret-Key-Verfahren</i>). Dieser Schlüssel wird sowohl für
+					die Ver-, als auch für die Entschlüsselung genutzt, weshalb
+					symmetrische Verschlüsselungsverfahren für gewöhnlich auch
+					sehr schnell und effizient arbeiten. Da diese Art der
+					Verschlüsselung der klassischen Verschlüsselung entspricht,
+					spricht man häufig auch von "herkömmlicher" Verschlüsselung.</p>
+					<p align="center">
+					<img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/sym.png" alt="Symmetrische Verschlüsselung" class="content" border="0" height="145" width="307"></p>
+					<p>Symmetrische Verschlüsselungsverfahren bieten bei
+					entsprechender Schlüssellänge ein hohes Maß an Sicherheit,
+					wenn der Schlüssel beim Absender und Empfänger bereits
+					bekannt ist oder die Schlüsselübergabe zwischen Absender und
+					Empfänger sicher erfolgt (zum Beispiel durch persönliche
+					Übergabe). Zudem bietet ein symmetrischer Schlüssel auch die
+					Möglichkeit, einer ganzen Gruppe die sichere Kommunikation
+					zu ermöglichen, wenn jedes Mitglied dieser Gruppe im Besitz
+					des Schlüssels ist.</p>
+					<p>Symmetrische Verschlüsselungsverfahren sind sehr
+					verbreitet, da sie von Hause aus sehr schnell und effizient
+					sind und auch bei starker Verschlüsselung einen schnellen
+					Durchsatz bieten. Ein Anwendungsgebiet&nbsp; ist zum Beispiel Pay-TV.
+					Hier wird das Fernsehsignal durch den Anbieter verschlüsselt
+					gesendet und Kunden können dieses Fernsehsignal wieder
+					entschlüsseln, wenn sie den passenden Schlüssel besitzen.
+					Dazu abonnieren sie das Fernsehprogramm und erhalten den
+					elektronischen Schlüssel per Chipkarte, den sie in ihren
+					Decoder stecken können.</p>
+					<p>Das Problem, dass Pay-TV von vielen "Schwarzsehern"
+					illegal entschlüsselt und kostenlos geschaut wird, beruht
+					auf den Schwachpunkt der Vertraulichkeit bei symmetrischen
+					Verschlüsselungsverfahren: Jeder, der den elektronischen
+					Schlüssel besitzt, kann die damit verschlüsselte Nachricht
+					entschlüsseln. Das kann der Abonnent sein, eben aber auch
+					der Schwarzseher, der den elektronischen Schlüssel von einem
+					Abonnenten erhalten hat, in dem dieser von seiner Chipkarte
+					eine Kopie angefertigt hat.</p>
+					<p>Die Antwort des Anbieters ist, den Schlüssel häufig zu
+					wechseln. Damit nicht bei jedem Schlüsselwechsel an alle
+					Abonnenten eine neue Chipkarte geschickt werden muss, wird
+					der Schlüssel während dem laufenden Betrieb gewechselt und
+					auf dem gleichen Wege wie das Fernsehsignal an die
+					Empfangsgeräte gesendet, die diesen Schlüssel dann auf der
+					Chipkarte hinterlegen.</p>
+					<p>Aber auch hier zeigt sich ein eklatantes und
+					grundsätzliches Problem, denn ja auch die Schwarzseher
+					bekommen diese Schlüsseländerungen mit, da die
+					Vertrauenskette bereits mit dem Kopieren eines früheren
+					Schlüssels gebrochen ist. Die derzeitige Abhilfe ist, die
+					Schlüssel derart gut auf einer Chipkarte unterzubringen,
+					dass er nicht ohne Zerstörung der Karte extrahiert werden
+					kann. Gleichzeitig ist der Schlüssel extrem lang, so dass
+					eine manuelle Suche nach dem richtigen Schlüssel aufgrund
+					der vielen theoretisch möglichen Varianten einer wahren
+					Suche einer Nadel im Heuhaufen gleicht.</p>
+					<h4>Bekannte symmetrische Verschlüsselungsalgorithmen</h4>
+					<p>Diese Auflistung beschränkt sich auf die bekanntesten
+					symmetrischen Verschlüsselungsalgorithmen und stellt mit
+					Sicherheit keine allumfassende Übersicht dar:</p>
+					<ul>
+						<li><b>DES</b> (<b>D</b>igital <b>E</b>ncryption <b>S</b>tandard)<br>
+						DES wurde Mitte der siebziger Jahre des 20. Jahrhunderts
+						von IBM im Rahmen einer öffentlichen Ausschreibung des
+						<i>National Bureau of Standards (NBS)</i> der USA
+						vorgestellt und eingereicht. DES basiert auf dem
+						Verschlüsselungsalgorithmus <i>Lucifer</i>, der einige
+						Jahre zuvor von IBM entwickelt, aber einschneidend
+						verändert wurde. Unter anderem wurde die ursprüngliche
+						Schlüssellänge von 128 auf 64 Bit gekürzt, die effektiv
+						aber nur 56 Bit beträgt, da 8 Bit zu Prüfzwecken
+						benötigt werden. Die große Schwäche ist bei DES deshalb
+						die zu kurze Schlüssellänge, die verschlüsselte
+						Nachrichten angreifbar für Brute-Force-Attacken machen,
+						also Angriffen, bei denen alle möglichen
+						Schlüsselkombinationen systematisch ausprobiert werden.
+						Mit heutiger Computertechnik ist dies inzwischen
+						innerhalb weniger Stunden möglich.</li>
+						<li><b>3DES</b> (Triple DES)<br>
+						3DES stellt eine Verbesserung von DES dar, in dem vom
+						Prinzip her der DES-Algorithmus dreimal angewendet wird;
+						zunächst mit dem ersten Schlüssel chiffriert, danach mit
+						dem zweiten dechiffriert und zuletzt noch einmal mit dem
+						ersten chiffriert. Damit verdoppelt sich die
+						Schlüssellänge auf 128 Bit, von denen 3 mal 8 Bit
+						wiederum für Prüfzwecke benötigt werden. Effektiv
+						beträgt die Schlüssellänge also 112 Bit. Zwar gilt diese
+						Schlüssellänge als stark und 3DES derzeit als sicher,
+						durch die dreimalige Anwendung des DES-Algorithmus ist
+						3DES jedoch nicht sehr performant. In der Zwischenzeit
+						wird von der NSA jedoch offiziell AES als Ersatz
+						empfohlen, da hier größere Schlüssellängen unterstützt
+						werden.</li>
+						<li><b>IDEA</b> (<b>I</b>nternational <b>D</b>ata <b>E</b>ncryption
+						<b>A</b>lgorithm)<br>
+						Entwickelt im Jahre 1990 von James L. Massey und Xueija
+						Lai an der Eidgenössischen Technischen Hochschule
+						Zürich. IDEA arbeitet blockchiffrierend und mit einer
+						Schlüssellänge von 128 Bit, zudem arbeitet es schneller
+						als DES. Da es außerhalb der USA entwickelt wurde, wird
+						es vornehmlich in "politisch kritischen" Umfeldern
+						genutzt. IDEA ist innerhalb Europas durch das
+						schweizerische Unternehmen Ascom patentiert, wobei eine
+						nicht-kommerzielle Nutzung lizenzfrei ist, wenn diese
+						durch eine frei verfügbare Software geschieht.</li>
+						<li><b>CAST</b> ("<b>C</b>arlisle <b>A</b>dams - <b>S</b>tafford
+						<b>T</b>avares")<br>
+						CAST wurde von Carlisle Adams und Stafford Tavares Mitte
+						der neunziger Jahre des 20. Jahrhunderts entwickelt und
+						1996 zum Patent angemeldet. CAST arbeitet ebenfalls
+						blockchiffrierend und mit Schlüssellängen von 40 bis 128
+						Bit. Da CAST erheblich schneller arbeitet als DES und
+						3DES, ist es besonders für zeitkritische
+						Verschlüsselungsanwendungen geeignet.</li>
+						<li><b>RC4</b> (<b>R</b>on's <b>C</b>ipher <b>4</b>)<br>
+						RC4 wurde von Ronald L. Rivest, einem Gründer von RSA
+						Security, 1987 entwickelt. RC4 arbeitet
+						stromchiffrierend und mit variablen Schlüssellängen bis
+						2.048 Bit. Da es auf einem verhältnismäßig einfachen und
+						effizienten Algorithmus basiert, ist es ebenfalls für
+						zeitkritische Anwendungen geeignet.</li>
+						<li><b>RC5, RC5a, RC6</b> (<b>R</b>on's <b>C</b>ipher <b>5</b>
+						bzw. <b>5a</b> bzw. <b>6</b>)<br>
+						RC5, RC5a und RC6 sind keine direkten
+						Weiterentwicklungen von RC4, sondern stellen eigene,
+						unabhängige Entwicklungen dar, die von Ronald L. Rivest
+						stammen. Alle Verfahren arbeiten blockchiffrierend mit
+						variablen Schlüssellängen und sind von US-Patenten
+						geschützt. RC5 wurde 1995 vorgestellt, RC5a stellt eine
+						Verbesserung von RC5 dar. RC6 ist ebenfalls eine
+						Weiterentwicklung von RC5 und war ein AES-Kandidat.</li>
+						<li><b>A5</b><br>
+						Das Verfahren A5 ist ein stromchiffrierender
+						Verschlüsselungsalgorithmus, der mit einer Schlüssellänge
+						von 64 Bit arbeitet. A5 besitzt eine gewisse
+						Berühmtheit, da es im GSM-Standard für die
+						Verschlüsselung genutzt wird und der
+						Verschlüsselungsalgorithmus in der Vergangenheit bereits
+						gebrochen wurde.</li>
+						<li><b>Blowfish</b><br>
+						Der Sicherheitsexperte Bruce Schneier entwickelte
+						Blowfish 1993 und stellte den blockchiffrierenden
+						Algorithmus im April 1994 erstmals vor. Blowfish
+						arbeitet mit variablen Schlüssellängen von 32 bis 448
+						Bit. Da Blowfish patentfrei ist, ist es besonders im
+						nicht-kommerziellen Umfeld und in Open-Source-Software
+						beliebt.</li>
+						<li><b>Twofish</b><br>
+						Twofish wurde von Bruce Schneier mitentwickelt und gilt
+						als Nachfolger von Blowfish. Es arbeitet ebenfalls
+						blockchiffrierend mit Schlüssellängen von 128, 192 oder
+						256 Bit. Twofish wurde als Kandidat für den
+						AES-Wettbewerb (siehe Rijndael) ins Rennen geschickt und
+						erreichte neben den Verfahren <i>Rijndael</i> und <i>
+						Serpent</i> die Runde der letzten drei.</li>
+						<li><b>Rijndael</b> oder <b>AES</b> (<b>A</b>dvanced <b>
+						E</b>ncryption <b>S</b>tandard)<br>
+						Der Verschlüsselungsalgorithmus Rijndael wurde von den
+						Belgiern Joan Daemen und Vincent Rijmen entwickelt, aus
+						deren Nachnamen das Kunstwort "Rijndael" für den
+						Algorithmus entstand. Es wurde für einen
+						Wettbewerb des US-amerikanischen <i>National Institute
+						of Standards and Technology (NIST)</i>, dem Nachfolger
+						des NBS, entwickelt und ging nach zweijähriger Prüfung
+						im Oktober 2000 als Sieger hervor. Seitdem wird Rijndael
+						auch als AES bezeichnet. Rijndael arbeitet ebenfalls
+						blockchiffrierend und mit variablen Schlüssellängen von
+						128, 192 oder 256 Bit und hebt sich besonders bei der
+						Performanz hervor, da es eine sehr kompakte Codebasis
+						besitzt.</li>
+					</ul>
+					<h2>Asymmetrische Verschlüsselungsverfahren</h2>
+					<p>Asymmetrische Verschlüsselungsverfahren arbeiten mit so
+					genannten <i>Keypairs ("Schlüsselpaare")</i>, bestehend aus einem <i>Public Key</i>
+					("Öffentlicher Schlüssel")
+					und einem <i>Private Key</i> ("Privater Schlüssel"). Dieses Schlüsselpaar hängt
+					mathematisch so miteinander zusammen, dass mit dem Public
+					Key verschlüsselte Nachrichten nur noch mit dem
+					dazugehörigen Private Key entschlüsselt werden können.</p>
+					<p align="center">
+					<img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/asym.png" alt="Asymmetrische Verschlüsselung" class="content" border="0" height="144" width="308"></p>
+					<p>Damit eine Nachricht sicher von A nach B transportiert
+					werden kann, benötigt der Absender den Public Key des
+					Empfängers, mit dem er die Nachricht verschlüsselt. Die
+					Verschlüsselung mit dem Public Key ist hierbei eine
+					Einbahnstrasse; mit ihm lässt sich die einmal verschlüsselte
+					Nachricht nicht mehr entschlüsseln. Diese Kryptografie lässt
+					sich nun nur noch mit dem Private Key des Keypairs
+					entschlüsseln, der nur im Besitz des Schlüsselbesitzers sein
+					darf. Allein aus dem Public Key ist nicht der Private Key
+					erzeugbar, es handelt sich tatsächlich um zwei
+					Schlüsselbestandteile, von denen der eine Teil nicht durch
+					den anderen Teil konstruiert werden.</p>
+					<p>Technisch wird dies mit so genannten <i>
+					Einwegfunktionen</i> realisiert:</p>
+					<blockquote>
+					<h3>Exkurs: Einwegfunktionen</h3>
+					<p>Einwegfunktionen sind Funktionen, die eine Information
+					derart verschlüsseln sollen, so dass sie ohne zusätzliche
+					Hinweise nur noch sehr schwer eindeutig zu entschlüsseln
+					sind. Vergleichen können wir Einwegfunktionen mit einem
+					Postbriefkasten. Sie als Briefkunde können einen Brief in
+					den Briefkasten einwerfen, sie kommen jedoch, wenn er einmal
+					eingeworfen ist, nicht mehr an den Brief heran (außer, Sie
+					würden den Briefkasten gewaltsam aufbrechen). Lediglich der
+					Postabholer hat mit dem Schlüssel des Postbriefkastens die
+					Möglichkeit, diesen zu leeren und die Briefe zum
+					Briefverteilzentrum zu bringen. (Diese Abholung wäre
+					eine so genannte <i>Umkehrfunktion</i>, dazu kommen
+					wir gleich.)</p>
+					<p>Neben dem Anwendungszweck in asymmetrischen
+					Verschlüsselungsverfahren werden Einwegfunktionen
+					beispielsweise auch in Umfeldern genutzt, in denen
+					Passwörter sicher abgelegt werden sollen und es zur
+					Authentifizierung nicht im Klartext vorliegen soll. Ein
+					Ergebnis einer sehr einfachen Einwegfunktion kann
+					beispielsweise die Zahl 12 sein. Wenn als einzige Regel
+					dieser Funktion gilt, dass das Ergebnis durch eine
+					Multiplikation ganzer Zahlen entsteht, gibt es folgende
+					Möglichkeiten, das Ergebnis 12 zu erhalten:</p>
+					<p class="zitat" align="center"><b>1 mal 12</b> oder <b>2 mal 6</b>
+					oder <b>3 mal 4</b></p>
+					<p>Der Multiplikand und der Multiplikator können also
+					entweder 1, 2, 3, 4, 6 oder 12 lauten. Ohne den jeweils
+					anderen Faktor ist jedoch ein Faktor nicht eindeutig
+					ermittelbar. Sprich: Wir kennen das Ergebnis, wir kennen die
+					Funktion zur Berechnung des Ergebnisses, wir können jedoch
+					nicht genau sagen, wie die Faktoren lauten, die zum Ergebnis
+					führen. Ein solcher Faktor in unserem (zugegeben recht
+					trivialen und nicht sehr sicheren) Beispiel könnte nun das
+					Passwort sein, das wir verschlüsseln möchten, mehr wissen
+					wir jedoch nicht und könnten dies als Unwissender nur durch
+					Ausprobieren herausfinden.</p>
+					<p>Um an das Passwort zu kommen, das demnach ein Faktor
+					ist, ist es erforderlich, den anderen Faktor zu kennen. Wenn
+					nun diesen geheim zu haltenden Faktor nur der gewünschte
+					Empfänger der verschlüsselten Nachricht ist, kann er anhand
+					einer so genannten Umkehrfunktion den fehlenden Faktor
+					problemlos ermitteln. Wüssten wir als einen Faktor
+					beispielsweise die Zahl 6, so wüssten wir, dass der andere
+					Faktor die 2 sein muss.</p>
+					<p>Einwegfunktionen werden nicht nur in asymmetrischen
+					Verschlüsselungsverfahren verwendet, sondern sind auch die
+					Basis für so genannte Hash-Verfahren (siehe weiter unten),
+					die ebenfalls eine wichtige Rolle in der Kryptografie
+					spielen, vor allem in der Elektronischen Signatur.</p>
+					</blockquote>
+					<p>Die Schlüssellängen von symmetrischen und asymmetrischen
+					Verschlüsselungsverfahren haben übrigens keinerlei
+					Zusammenhang. Während bei symmetrischen Verfahren eine
+					Schlüssellänge von 128 Bit als derzeit ausreichend angesehen
+					wird, ist eine Äquivalenz dieser Schlüssellänge bei
+					asymmetrischen Verfahren bei ungefähr 3.000 Bit.
+					Grundsätzlich gilt bei allen Verschlüsselungsformen immer
+					die Grundregel: Je größer der Schlüssel, desto besser. Die
+					unterschiedlichen Schlüssellängen zwischen symmetrischen und
+					asymmetrischen Verfahren resultieren aber einzig und allein
+					auf die verschiedene Arbeitsweise beider Architekturen.</p>
+					<h4>Bekannte asymmetrische Verschlüsselungsalgorithmen</h4>
+					<ul>
+						<li><b>Diffie-Hellman</b><br>
+						Diffie-Hellman wurde von Whitfield Diffie und Martin
+						Hellman 1976 an der University Stanford in Kalifornien
+						entwickelt und stellte damals den ersten öffentlichen
+						Algorithmus dar, der asymmetrisch verschlüsselte.
+						(Später stellte sich heraus, dass in Großbritannien
+						offenbar bereits in den sechziger Jahren des 20.
+						Jahrhunderts ähnliche Forschungen betrieben, aber
+						jedoch aus Geheimhaltungsgründen damals nicht
+						veröffentlicht wurden.)</li>
+						<li><b>RSA</b> (<b>R</b>ivest - <b>S</b>hamir - <b>A</b>dleman)<br>
+						RSA ist der bekannteste asymmetrische
+						Verschlüsselungsalgorithmus und wurde 1977 von den
+						Mathematikern Ronald Rivest, Adi Shamir und Leonard Adleman
+						entwickelt. Ursprünglich wollten sie mit ihrer Arbeit
+						die Thesen von Whitfield Diffie, Martin Hellman und
+						Ralph Merkle widerlegen, die ihren Algorithmus ein Jahr
+						zuvor veröffentlicht hatten. Aus ihren Ergebnissen
+						entwickelten sie ihren Algorithmus RSA heraus. RSA wurde
+						von den Entwicklern in den USA patentiert und exklusiv
+						an das Unternehmen <i>RSA Data Security Inc.</i>
+						lizenziert, das ursprünglich einmal den Entwicklern
+						gehörte, inzwischen aber privatwirtschaftlich
+						eigenständig operiert. Das Patent ist inzwischen im
+						September 2000 ausgelaufen.</li>
+						<li><b>ElGamal</b><br>
+						ElGamal wurde 1985 von Taher Elgamal (der Buchstabe "g"
+						in seinem Name wird, im Gegensatz zum Namen des
+						Algorithmus, klein geschrieben) entwickelt. ElGamal
+						besitzt gewisse Ähnlichkeiten mit dem Diffie-Hellman-
+						Algorithmus, was die Patentinhaber von Diffie-Hellman
+						zu der Meinung führte, dass der ElGamal-Algorithmus
+						gegen das Diffie-Hellman-Patent verstoße. ElGamal
+						erreichte nie eine ähnlich starke Verbreitung wie
+						Diffie-Hellman oder RSA, da es sehr große Chiffren
+						erzeugte. Es ist jedoch gerade wegen seiner
+						"alternativen" Entstehungsweise in
+						Open-Source-Projekten beliebt, beispielsweise in
+						GnuPG.</li>
+					</ul>
+					<p>Der umgekehrte Weg des <i>Public-Key-Verfahren</i>
+					bietet mit RSA die Möglichkeit der elektronischen Signatur
+					(siehe auch <a class="verweis" href="http://www.netplanet.org/kryptografie/esignatur.shtml">Elektronische
+					Signaturen</a>). Die Eigenschaft des Public-Key-Verfahrens,
+					in beide Richtungen zu funktionieren, macht man sich in
+					Verschlüsselungssystemen zunutze, die neben der
+					Vertraulichkeit und Integrität auch die Authentizität und
+					Verbindlichkeit einer Nachricht sicherstellen müssen.</p>
+					<h2>Hybride Verschlüsselungsverfahren</h2>
+					<p>Hybride Verschlüsselungsverfahren vereinen sowohl
+					symmetrische als auch asymmetrische Verfahren in sich, um
+					die Schnelligkeit von symmetrischen
+					Verschlüsselungsverfahren und die Idee eines
+					Public-Key-Verfahrens zu vereinen, da asymmetrische
+					Verschlüsselungsverfahren von Hause aus erheblich langsamer
+					sind, als symmetrische.</p>
+					<p>In hybriden Verschlüsselungsverfahren wird die zu
+					verschlüsselnde Information zunächst mit einem symmetrischen
+					Verschlüsselungsverfahren bearbeitet. Für diese symmetrische
+					Verschlüsselung wird ein zufällig generierter elektronischer
+					Schlüssel genutzt. Da symmetrische Verschlüsselungsverfahren
+					in der Regel deutlich schneller arbeiten, als asymmetrische,
+					bietet dies gerade bei sehr großen Dateien sehr hohe
+					Geschwindigkeitsvorteile. Als nächstes wird dann dieser
+					Schlüssel mit einem asymmetrischen Verschlüsselungsverfahren
+					verschlüsselt. Diese beiden Informationen werden dann in
+					einer gemeinsamen kryptografischen Nachricht an den
+					Empfänger geschickt.</p>
+					<p>Besitzt der Empfänger den Private Key des Keypairs, mit
+					dem verschlüsselt wurde, kann er mit diesem den Schlüssel
+					des symmetrischen Verschlüsselungsverfahren extrahieren und
+					die chiffrierte Nachricht entschlüsseln. Ist die
+					Schlüssellänge des zufällig generierten Schlüssels lang
+					genug, ist auch ein Angriff über das Ausprobieren aller
+					theoretisch möglichen Schlüssel (eine so genannte
+					Brute-Force-Attacke) ein nahezu hoffnungsloses Unterfangen.
+					Außerordentlich wichtig ist jedoch die Qualität des
+					Schlüsselgenerators für den zufällig zu generierenden,
+					symmetrischen Schlüssel; der so erzeugte Schlüssel darf
+					keine auch nur annähernd herauslesbare Systematik zu
+					anderen, generierten Schlüsseln haben.</p>
+					<p>Faktisch arbeiten fast alle Verschlüsselungsprogramme,
+					die nach dem Public-Key-Verfahren arbeiten, in Wirklichkeit
+					mit hybriden Verfahren, beispielsweise auch PGP (siehe auch
+					<a class="verweis" href="http://www.netplanet.org/kryptografie/pgp.shtml">Pretty Good Privacy</a>).
+					Es ist deshalb um so wichtiger, dass derartige Programme,
+					die verhältnismäßig viele Verschlüsselungsalgorithmen
+					aufeinander aufbauend anwenden, im Quellcode vorliegen,
+					damit die Sicherheit und Zuverlässigkeit von unabhängigen
+					Experten bewertet werden können.</p>
+					<h2>Hash-Verfahren</h2>
+					<p>Hash-Verfahren sind Verfahren, um aus einer beliebig
+					langen Information einen eindeutigen <i>Fingerprint</i>
+					("Fingerabdruck") zu erzeugen, einen so genannten <i>
+					Hash-Wert</i>. Fingerprints sind deshalb von der Idee her
+					nichts anderes als definierte Prüfsummen, wie sie uns
+					tagtäglich beispielsweise im ISBN-Buchcode (als jeweils
+					letzte Ziffer im Code) oder in maschinenlesbaren Ausweisen
+					begegnen, nur das Hash-Werte aus kryptografischen
+					Hash-Verfahren für gewöhnlich erheblich komplexer sein
+					müssen, damit ihre Eindeutigkeit gewahrt bleibt. Sehr
+					wichtig ist auch der grundlegende Unterschied von
+					Hash-Verfahren zu Verschlüsselungsverfahren: Ein erzeugter
+					Hash-Wert ist nur eine eindeutige Prüfsumme einer
+					Information, sie enthält diese aber nicht. Genau genommen
+					sollten wir an dieser Stelle jedoch festhalten, dass die
+					meisten Hash-Verfahren keine einfachen Prüfsummenverfahren
+					sind, da Prüfsummen per Definition immer nur durch
+					Additionen erzeugt werden, die meisten Hash-Verfahren
+					jedoch mit Divisionen arbeiten.</p>
+					<p>Die Idee, die hinter Hash-Verfahren steckt, ist
+					vergleichsweise einfach: Der Absender erzeugt von einer
+					abzusichernden Information den Hash-Wert und sendet
+					sowohl die Information, als auch diesen Hash-Wert an den
+					Empfänger. Dieser berechnet ebenfalls nach dem gleichen
+					Verfahren aus der Information den Hash-Wert und vergleicht
+					beide Werte miteinander. Stimmen die beiden Werte überein,
+					impliziert dies, dass die Information nach der
+					Prüfsummenerzeugung beim Absender unverändert geblieben
+					ist - wenn die Prüfsumme entsprechend komplex ist.</p>
+					<p>Genau hier liegt auch die Schwierigkeit eines
+					zuverlässigen Hash-Verfahrens: Einerseits soll so
+					ein Verfahren möglichst schnell auch mit größeren Dateien
+					arbeiten können, andererseits soll der Hash-Wert aber so
+					eindeutig sein, dass es extrem schwer sein soll, eine
+					Information derart zu manipulieren, so dass der Hash-Wert
+					der manipulierten Information genau derselbe ist, wie bei
+					der Originalinformation. Ist in einem Verfahren eine gewisse
+					Systematik nachvollziehbar, die das gezielte Erstellen einer
+					Information ermöglicht, um einen bestimmten Hash-Wert zu
+					bekommen (eine so genannte <i>Kollision</i>), gilt das
+					Verfahren als potentiell schwach.</p>
+					<p>Hash-Werte werden auch zur sicheren Verwaltung von
+					Passwörtern genutzt. Auf dem Zielsystem, auf dem das
+					Passwort gespeichert werden soll, wird hierbei nicht das
+					Passwort selbst, sondern der Hash-Wert des Passwortes
+					gespeichert, das der Benutzer auf seinem Rechner erzeugt
+					hat. Da aus dem Hash-Wert nicht die Originalinformation
+					extrahierbar ist, ist die Speicherung des Hash-Wertes
+					sicher. Wird dieses Passwort nun zur Authentifizierung
+					benötigt, gibt der Benutzer es auf seinem Rechner ein,
+					erzeugt daraus den Hash-Wert und übermittelt diesen, der
+					dann mit dem hinterlegten Hash-Wert verglichen wird.</p>
+					<p><b>Bekannte Fingerprinting-Verfahren</b><br>
+					Auch hier beschränkt sich die Auflistung auf die
+					bekanntesten Verfahren und stellt keine vollständige
+					Übersicht dar:</p>
+					<ul>
+						<li><b>CRC</b> (<b>C</b>yclic <b>R</b>edundancy <b>C</b>heck)<br>
+						CRC zählt ausdrücklich <b>nicht</b> zu kryptografischen
+						Fingerprint-Verfahren, sondern zu allgemeinen Verfahren
+						und wird in dieser Auflistung nur deshalb aufgeführt, um
+						diesen Umstand zu erläutern. Im Gegensatz zu den
+						kryptografischen Verfahren, sind die Prüfsummen von
+						allgemeinen Verfahren (und damit auch von CRC) sehr
+						einfach gehalten und dienen lediglich dazu, eine
+						Information technisch abzusichern, beispielsweise bei
+						der Datenübertragung. Hier wird CRC (ebenso wie das
+						Quersummenverfahren oder das Modulo-Verfahren bei
+						anderen technischen Absicherungen) dazu genutzt, um die
+						Integrität einzelner, relativ kleiner Datenpakete zu
+						sichern.</li>
+						<li><b>MD2</b>, <b>MD4</b>, <b>MD5</b> (<b>M</b>essage <b>D</b>igest <b>4</b>
+						bzw. <b>5</b>)<br>
+						Ronald L. Rivest gilt als Entwickler von MD2 (im Jahre
+						1989), MD4 (im Jahre 1990) und MD5 (im Jahre 1991), die
+						jeweils einen Fingerprint von 128 Bit Länge erzeugen.
+						MD5 wurde als Ersatz von MD4 entwickelt, da im
+						Algorithmus von MD4 zunächst theoretisch Schwächen
+						gefunden werden, die später tatsächlich nachgewiesen
+						werden konnten. Doch auch bei MD5 wurden im Jahre 2004
+						Schwächen in einer bestimmten Analyseform gefunden, so
+						dass inzwischen dazu geraten wird, im Zweifelsfall auf
+						SHA auszuweichen.</li>
+						<li><b>SHA</b> (<b>S</b>ecure <b>H</b>ash <b>A</b>lgorithm)<br>
+						SHA gehört zu der gebräuchlichsten Familie von
+						Fingerprinting-Verfahren und leitet sich vom Secure Hash
+						Standard ab, der in den USA vom <i>National Institute of
+						Standards and Technology (NIST)</i> und der <i>National
+						Security Agency (NSA)</i> entwickelt wurde. Aus diesem
+						Standard heraus wurde 1993 SHA-0 und 1995 SHA-1
+						entwickelt, die jeweils Fingerprints von 160 Bit Länge
+						produzieren und sich durch eine weitere Berechnungsebene
+						(zusätzliche Rundenoperation bei SHA-1) unterscheiden.
+						Im Jahr 2002 und 2004 veröffentlichte das NIST
+						zusätzlich SHA-256, SHA-384, SHA-512 und im Februar 2004
+						SHA-224. Diese neuen Varianten erzeugen längere
+						Fingerprints (die Zahl steht dabei für die Länge in Bit)
+						und können damit auch bei sehr großen Dateien
+						zuverlässig zur Signatur verwendet werden. Auch bei SHA
+						wurde im Jahre 2004 Schwächen entdeckt, die zwar nur
+						leichter Natur sind und den theoretisch möglichen Raum
+						für Kollisionen lediglich minimal verkleinert. Bei
+						dieser Analyse wurde zudem mit einer modifizierten
+						Version des Algorithmus gearbeitet, so dass derzeit noch
+						keine wirkliche Schwäche nachgewiesen werden konnte.
+						Dennoch wird von der Nutzung von SHA abgeraten, weshalb
+						das NIST einen Nachfolger sucht.</li>
+						<li><b>RIPEMD</b> (<b>R</b>ACE <b>I</b>ntegrity <b>P</b>rimitives
+						<b>E</b>valuation <b>M</b>essage <b>D</b>igest)<br>
+						RIPEMD ist eine Familie von Verfahren, die von Hans
+						Dobbertin, Antoon Bosselaers und Bart Preneel entwickelt
+						und erstmals 1996 veröffentlicht wurden. Sie sind vom
+						Design her MD4 angelehnt. Es existieren ebenfalls
+						mehrere RIPEMD-Versionen, die sich in der Länge des
+						Fingerprints unterscheiden: RIPEMD-128, RIPEMD-160 (am
+						geläufigsten), RIPEMD-256 und RIPEMD-320. Im Gegensatz
+						zu anderen Verfahren geht man bei RIPEMD davon aus, dass
+						es potentiell weniger Schwächen aufweisen dürfte, da die
+						Entwicklung bei RIPEMD offener war, also während der
+						Entwicklung eine größere, einschlägige Diskussion
+						stattfand.</li>
+						<li><b>Tiger</b><br>
+						Tiger ist ein patentfreies Fingerprinting-Verfahren, das
+						1996 von Ross Anderson und Eli Biham entwickelt wurde.
+						Es arbeitet mit einer Fingerprint-Länge von 192 Bit,
+						besitzt aber keine sonderlich starke Verbreitung, da es
+						auf 32-Bit-Prozessorumgebungen im Gegensatz zu anderen
+						Verfahren verhältnismäßig langsam ist.</li>
+					</ul>
+					<h2>Weiterführende Literatur</h2>
+					<p><a href="http://www.netplanet.org/buechertipps/kryptografie.shtml">
+					Buchempfehlungen zum Thema Kryptografie im
+					Internet</a></p>
+					<p><a href="http://www.amazon.de/exec/obidos/redirect-home?tag=netplanet0d&amp;site=home" target="_blank">
+					<img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/logo_amazon.png" alt="In Partnerschaft mit Amazon.de" border="0" height="32" width="90"></a></p>
+					<h2>Weiterführende Links</h2>
+					<p>
+					<a target="_blank" href="http://www.heise.de/security/artikel/39275/">
+					http://www.heise.de/security/artikel/39275/</a><br>
+					Heise Security: Harte Nüsse - Verschlüsselungsverfahren und
+					ihre Anwendungen</p>
+					<!-- ###### content end ###### -->
+
+				</div>
+				<table class="cmc" align="center">
+					<tbody><tr>
+						<td class="cmc">
+							WERBUNG<br>
+							<script type="text/javascript">
+							<!--
+								google_ad_client = "ca-pub-1511920615122498";
+								/* Werbeblock_unten 2 */
+								google_ad_slot = "2243153114";
+								google_ad_width = 468;
+								google_ad_height = 60;
+							//-->
+							</script>
+							<script type="text/javascript" src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/show_ads.js"></script>
+						</td>
+					</tr>
+				</tbody></table></td>
+			<td rowspan="4" height="600" valign="top">
+				<div class="commercial">
+					<script type="text/javascript">
+						<!--
+						google_ad_client = "pub-1511920615122498";
+						google_ad_slot = "9697153589";
+						google_ad_width = 160;
+						google_ad_height = 600;
+						//-->
+					</script>
+					<script type="text/javascript" src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/show_ads.js"></script>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td height="20"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/pcc_middle.png" alt="" height="20" width="590"></td>
+		</tr>
+		<tr>
+			<td align="right" valign="top"><a href="#pagetop">
+			<img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/arrow_gotop.png" alt="Zum Beginn dieser Seite" border="0" height="24" width="24"></a></td>
+			<td class="contentcell">
+				<div class="copyright">
+					<img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/stars.png" alt="Sterne" align="right" height="41" width="80">
+					<a href="http://www.netplanet.org/"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/logo.png" alt="netplanet" border="0" height="18" width="98"></a><br>
+					<a href="http://www.netplanet.org/kryptografie/verfahren.shtml">http://www.netplanet.org/kryptografie/verfahren.shtml</a><br>
+					Copyright © 1998-2014 by <a href="https://plus.google.com/+BesimKaradeniz?rel=author" target="_blank">Besim Karadeniz</a> -
+					<a href="http://www.netplanet.org/editorial/impressum.shtml">Impressum</a>&nbsp;-
+					<a href="http://www.netplanet.org/editorial/feedback.shtml">Feedback</a>&nbsp;-
+					<a href="http://blog.netplanet.org/" target="_blank">blog@netplanet</a>
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td></td>
+			<td valign="top"><img src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/pcc_bottom.png" alt="" height="20" width="590"></td>
+		</tr>
+	</tbody></table>
+</div>
+
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+
+  (function() {
+    var u=(("https:" == document.location.protocol) ? "https" : "http") + "://analyse.netpla.net/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", "1"]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+    g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<!-- End Piwik Code -->
+
+<iframe tabindex="-1" style="width: 1px; height: 1px; position: absolute; top: -100px;" src="netplanet-Verschl%C3%BCsselungsverfahren-Dateien/postmessageRelay.htm" id="oauth2relay723410800" name="oauth2relay723410800"></iframe></body></html>
