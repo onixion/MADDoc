@@ -1,6 +1,5 @@
 # Ignore latex generated files
 
-*.pdf
 *.toc
 *.synctex.gz
 *.fls
