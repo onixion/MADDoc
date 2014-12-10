@@ -1,20 +1,50 @@
 Kryptologie
 
+______________
+A) Allgemeines
+--------------
+
+Kryptologie bezeichnet die Kunst und Wissenschaft, verständliche Informationen zu verschlüsseln und entschlüsseln.
+
 ___________________________
 A) Verschlüsselungverfahren
 ---------------------------
 
-Verschlüsselungsverfahren sind Algorythmen, die die Aufgabe haben, lesbare Informationen (auch Binärdaten) in nicht-lesbare Information (=Verschlüsselt) und wieder 
-zurück zu transformieren.
+Verschlüsselungsverfahren sind Algorythmen, die die Aufgabe haben, lesbare Informationen (auch Binärdaten) in nicht-lesbare Information (=Verschlüsselt) zu transformieren, damit der Wert der Daten erhalten bleibt.
+
+Die Verschlüsselung soll dabei folgendes gewärleisten:
+
+	o) Integrität: Die verschlüsselten Informationen dürfen nicht manipulierbar sein.
+		       Das heißt, dass die verschlüsselten Informationen durch gezieltes Manipulatieren nicht den Sinn der
+		       entschlüsselten Informationen verändern darf.
+
+			z.B. 
+				"Ich überweise Ihnen 1000 Euro." -> VERSCHLÜSSELN -> "olE323loppl2§442fk34l"
+
+				Gezieltes Verändern der verschlüsselten Informationen:
+				"olE323loppl2§442fk34l" -> WIRD VERÄNDERT -> "olE323loppl2§442ZZ34l"
+
+				"olE323loppl2§442ZZ34l" -> ENTSCHLÜSSELN -> "Ich überweise Ihnen 100000 Euro."
+
+			Verschlüsselungsverfahren, die ein hohes Maß an Integrität bieten, müssen bei veränderung der Daten
+			bei der Entschlüsselung nicht-lesbare Informationen ausgeben. Damit können die Kommunikationspartner
+			sicher sein, dass die Daten nicht verändert worden sind.
+
+
+	o) Authenzität: Die Kommunikationsparteien müssen beweisen können, wer sie wirklich sind.
+
+	o) IRGENDWAS
+			
+
+
 
 ___________________________________________
 A.A) Symmetrische Verschlüsselungsverfahren
 -------------------------------------------
 
-Bei dieser Art von Verschlüsselung wird für die Ver- als auch für die Entschlüsselung der gleiche Schlüssel verwendet. 
+Bei dieser Art der Verschlüsselung wird für die Ver- als auch für die Entschlüsselung der gleiche Schlüssel verwendet. 
 
-Um diese Verschlüsselung sinnvoll verwenden zu können, müssen beide Kommunikationsparteien den Schlüssel besitzen, daher 
-zählt dieses Verfahren auch zu den klassischen bzw. herkömmlichen Verschlüsselungsverfahren ('secret-key-Verfahren').
+Um diese Verschlüsselung sinnvoll verwenden zu können, müssen beide Kommunikationsparteien den Schlüssel besitzen, daher zählt dieses Verfahren auch zu den klassischen bzw. herkömmlichen Verschlüsselungsverfahren ('secret-key-Verfahren').
 
 Diese Verfahren können bei entsprechenden Schlüssellängen ein hohes Maß an Sicherheit und Effizienz bieten.
 Die symmetrischen Verfahren sind in der Regel sehr schnell in der Berechnung, da sie meistens auf komplizierte
@@ -30,7 +60,7 @@ Nennenswerte Verschlüsselungsverfahren sind:
 
 -> DES: Digital Encryption Standard
 
-DES wurde 1975 von IBM veröffentlicht und basierte auf den Verschlüsselungsalgorithmus 'Lucifer'. DES verwendet für die Verschlüsselung einen 64bit Schlüssel, der jedoch 8bit als Prüfsumme verwendet. Dieses Verschlüsselungsverfahren ist nicht mehr sicher, da die heutigen Computer die 56bit Schlüssel mit Brute-Force-Attacken innerhalb weniger Stunde knacken können. (Brute-Force-Attacken sind Attacken, die alle möglichen Kominationen ausprbieren).
+DES wurde 1975 von IBM veröffentlicht und basierte auf den Verschlüsselungsalgorithmus 'Lucifer'. DES verwendet für die Verschlüsselung einen 64bit Schlüssel, der jedoch 8bit als Prüfsumme verwendet. Dieses Verschlüsselungsverfahren ist nicht mehr sicher, da die heutigen Computer die 56bit Schlüssel mit Brute-Force-Attacken innerhalb weniger Stunde knacken können. (Brute-Force-Attacken sind Attacken, die alle möglichen Kominationen ausprobieren).
 
 -> 3DES: triple DES
 
@@ -45,8 +75,9 @@ Die asymmetrische Verschlüsselung verwendet für Ver- und Entschlüsselung nicht d
 
 Mithilfe dieser Verschlüsselungsverfahren ist es möglich einen sicheren Informationskanal zwischen zwei Parteien herzustellen.
 
-
+_______________________________
 B) Das Problem des Key-Exchange
+-------------------------------
 
 Der Key-Exchange (=Schlüsselaustausch, "key-establishment") ist eine Methode mithilfe kryptografischer Algorythmen, Informationen, ohne den Gebrauch von zusätzlichen
 Informationskanälen, zwischen zwei Nutzern auszutauschen.
@@ -55,7 +86,20 @@ Diese Methode macht sich die asymmetrische Verschlüsselung zu nutze, da für die 
 
 In Abbildung () sehen sie den systematischen Aufbau einer Kommunication zwischen zwei Nutzern.
 
-Leider ist das "Key-Exchange" Problem mit der unsymmetrischen Verschlüsselung immer noch nicht beseitig. Das Problem ist: Woher weiß man das der Schlüsselaustausch
-mit dem richten Server gemacht worden ist? - Lösungen hierfür gibt es einige.
+Leider ist das "Key-Exchange" Problem mit der unsymmetrischen Verschlüsselung immer noch nicht beseitig. Das Problem ist: Woher weiß man das der Schlüsselaustausch mit dem richten Server gemacht worden ist? - Lösungen hierfür gibt es einige.
+
+________________
+C) Diffi-Hellman
+----------------
+
+______________________
+D) Digitale Signaturen
+----------------------
+
+_____________
+E) Zertifkate
+-------------
+
+
 
 
