@@ -1,0 +1,93 @@
+/* Style Sheet fuer HPs HP  */
+/* Level 1 / Framesets      */
+/* Stand: 13.07.2003        */
+
+body {background-color:#dfdfdf;}
+
+h1 {color:#800000;font-style:bold;}
+h2 {color:#004040;font-style:bold;}
+h3 {color:#004040;font-style:bold;}
+h4 {color:#004040;font-style:bold;}
+
+p {color:#000000;}
+
+a:link    {color:#009090;font-weight:bold;text-decoration:none;}
+a:visited {color:#009090;font-weight:bold;text-decoration:none;}
+a:active  {color:#00cfcf;font-weight:bold;text-decoration:none;}
+a:hover   {color:#00cfcf;font-weight:bold;text-decoration:none;}
+
+a.t:link    {color:#80ffff;font-weight:bold;}
+a.t:visited {color:#00ff40;font-weight:bold;}
+a.t:active  {color:#00ff40;font-weight:bold;}
+a.t:hover   {color:#00ff40;font-weight:bold;}
+
+a.th:link    {color:#00d0d0;font-weight:bold;}
+a.th:visited {color:#00d0d0;font-weight:bold;}
+a.th:active  {color:#80ffff;font-weight:bold;}
+a.th:hover   {color:#80ffff;font-weight:bold;}
+
+a.m:link    {color:#00cfcf;background-color:#0000a0;font-weight:bold;text-decoration:none;}
+a.m:visited {color:#00cfcf;background-color:#0000a0;font-weight:bold;text-decoration:none;}
+a.m:active  {color:#ffffff;background-color:#0000a0;font-weight:bold;text-decoration:none;}
+a.m:hover   {color:#ffffff;background-color:#0000a0;font-weight:bold;text-decoration:none;}
+tr.m        {background-color:#0000a0;}
+
+a.m1:link    {color:#66ff66;background-color:#006600;font-weight:bold;text-decoration:none;}
+a.m1:visited {color:#66ff66;background-color:#006600;font-weight:bold;text-decoration:none;}
+a.m1:active  {color:#ccffff;background-color:#006600;font-weight:bold;text-decoration:none;}
+a.m1:hover   {color:#ccffff;background-color:#006600;font-weight:bold;text-decoration:none;}
+tr.m1        {background-color:#006600;}
+
+a.m2:link    {color:#ffccff;background-color:#990033;font-weight:bold;text-decoration:none;}
+a.m2:visited {color:#ffccff;background-color:#990033;font-weight:bold;text-decoration:none;}
+a.m2:active  {color:#ffffff;background-color:#990033;font-weight:bold;text-decoration:none;}
+a.m2:hover   {color:#ffffff;background-color:#990033;font-weight:bold;text-decoration:none;}
+tr.m2        {background-color:#990033;}
+
+a.m3:link    {color:#00ffff;background-color:#0000ff;font-weight:bold;text-decoration:none;}
+a.m3:visited {color:#00ffff;background-color:#0000ff;font-weight:bold;text-decoration:none;}
+a.m3:active  {color:#ccffff;background-color:#0000ff;font-weight:bold;text-decoration:none;}
+a.m3:hover   {color:#ccffff;background-color:#0000ff;font-weight:bold;text-decoration:none;}
+tr.m3        {background-color:#0000ff;}
+
+a.m4:link    {color:#FFFF99;background-color:#FF9933;font-weight:bold;text-decoration:none;}
+a.m4:visited {color:#FFFF99;background-color:#FF9933;font-weight:bold;text-decoration:none;}
+a.m4:active  {color:#FFFFff;background-color:#FF9933;font-weight:bold;text-decoration:none;}
+a.m4:hover   {color:#FFFFff;background-color:#FF9933;font-weight:bold;text-decoration:none;}
+tr.m4        {background-color:#ff9933;}
+
+a.m5:link    {color:#33ff99;background-color:#333333;font-weight:bold;text-decoration:none;}
+a.m5:visited {color:#33ff99;background-color:#333333;font-weight:bold;text-decoration:none;}
+a.m5:active  {color:#ccffff;background-color:#333333;font-weight:bold;text-decoration:none;}
+a.m5:hover   {color:#ccffff;background-color:#333333;font-weight:bold;text-decoration:none;}
+tr.m5        {background-color:#333333;}
+
+td {color:#000000;}
+td.frame {background-color:#000000;}
+td.content {background-color:#2f2f2f;}
+th {color:#000000;background-color:c0c8c8}
+th.lex1 {color:#000000;background-color:c0c8c8;font-style:bold;font-size:28pt;}
+th.lex2 {color:#000000;background-color:d0d8d8;font-style:bold;font-size:28pt;}
+td.story {background-image:url(../pictures/std/story.gif);}
+td.jt {background-color:#ffffff;}
+td.jh1 {background-color:#ffffa0;}
+td.jh2 {background-color:#a1ffff;}
+td.jh3 {background-color:#ffa0a0;}
+th.jt {color:#000000;background-color:#ffffff;}
+th.jh1 {color:#000000;background-color:#ffffa0;}
+th.jh2 {color:#000000;background-color:#a1ffff;}
+th.jh3 {color:#000000;background-color:#ffa0a0;}
+td.formula{border : 2px solid Red;}
+td.corner {background-image:url(../pictures/std/lu_.gif);}
+th.corner {background-color:#dfdfdf;background-image:url(../pictures/std/lu_.gif);}
+
+ul {color:#000000;}
+ol {color:#000000;}
+
+td.cited {color:#ffffff;font-size:80%;background-color:#3f3f3f;}
+p.cited {color:#ffffff;background-color:#3f3f3f;}
+ul.cited {color:#ffffff;background-color:#3f3f3f;}
+ol.cited {color:#ffffff;background-color:#3f3f3f;}
+li.cited {color:#ffffff;background-color:#3f3f3f;}
+
+/* EOF hpg_L1.css */

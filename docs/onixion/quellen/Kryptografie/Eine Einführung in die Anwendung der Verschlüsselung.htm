@@ -1,0 +1,871 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head><title>Eine Einführung in die Anwendung der Verschlüsselung</title>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<meta name="smb_html_sitemap" content="exclude">
+</head>
+
+<body alink="#FF4CBD" background="Eine%20Einf%C3%BChrung%20in%20die%20Anwendung%20der%20Verschl%C3%BCsselung-Dateien/marb.jpg" bgcolor="#BEE7FF" link="#0000FF" text="#000000" vlink="#8E00FF">
+<blockquote>
+<font face="Trebuchet MS,Arial,Tahoma,Verdana,Sans-serif,Helvetica">
+
+<center><table border="0" cellpadding="0" width="96%"><tbody><tr>
+<td align="left" valign="top" width="20%">&nbsp;
+</td>
+<td align="CENTER">
+<table border="6" cellpadding="6">
+<tbody><tr><td align="center"><font size="+2"><font face="Trebuchet MS,Arial,Tahoma,Verdana,Sans-serif,Helvetica">
+<b>Eine Einführung in die Anwendung<br>der Verschlüsselung</b></font></font></td></tr>
+<tr><td align="center"><font face="Trebuchet MS,Arial,Tahoma,Verdana,Sans-serif,Helvetica">
+<font size="+1">von Peter Meyer</font><br>
+Übersetzung aus dem Englischen von&nbsp;Klaus&nbsp;Scharff</font></td></tr>
+<!-- <TR><TD align=center><font size="-1">Dieser Text entstand im Januar 1994.<BR>Er wurde im Juli 1997 revidiert.</font></TD></TR> -->
+</tbody></table>
+</td>
+<td align="right" valign="top" width="20%">
+<a href="http://www.hermetic.ch/index.html"><img src="Eine%20Einf%C3%BChrung%20in%20die%20Anwendung%20der%20Verschl%C3%BCsselung-Dateien/hs3.gif" alt="Hermetic Systems Home Page" border="0" height="32" width="58"></a>
+</td>
+</tr>
+</tbody></table>
+<br><a href="http://www.hermetic.ch/crypto/intro.htm">English version</a><p></p></center>
+
+Ziel dieses Artikels ist es, Informationen zum Sachgebiet der 
+praktischen Kryptographie für jeden bereit zu stellen, der 
+kryptographische Software einsetzen möchte. Zum grössten Teil habe ich 
+es vermieden, eine zu technische Diskussion zu führen. Es geht um eine 
+allgemeinere Erklärung von dem, was
+jedermann verstehen sollte, der gerade damit beginnt, 
+Verschlüsselungstechniken anzuwenden. Diejenigen, die tiefer in die 
+theoretischen Aspekte eindringen möchten, sollten das Buch von Bruce 
+Schneier konsultieren (siehe Bibliographie am Ende).
+<p>
+
+Kryptographie ist die Kunst oder die Wissenschaft der Geheimschrift, 
+oder
+präziser, die Kunst der Aufbewahrung von Information (über einen mehr 
+oder weniger langen Zeitraum) in einer Form, die es erlaubt, diese 
+Information nur denjenigen zu offenbaren, die sie erfahren sollen, 
+während sie für alle anderen unerreichbar bleibt. Ein Kryptosystem ist 
+eine Methode, die genau dies bewerkstelligen kann.  Kryptoanalyse 
+befasst sich mit der Praxis, derartige Versuche der 
+Informationsverhüllung zu widerlegen. Kryptologie umfasst sowohl die 
+Kryptographie als auch die Kryptoanalyse.
+</p><p>
+Die ursprüngliche Information, die verborgen werden soll, wird als
+Ursprungstext bezeichnet. Die verborgene Information erhält die Bezeichnung
+Chiffriertext. Verschlüsselung oder Chiffrierung ist jede Methode, die
+Ursprungstext in Chiffriertext verwandelt. Entschlüsselung oder
+Dechiffrierung ist jede Methode, die Chiffriertext in Ursprungstext
+zurück verwandelt.
+</p><p>
+Ein Kryptosystem wird normalerweise so entwickelt, dass die Entschlüsselung
+nur von Personen erreicht werden kann, die im Besitz einer Maschine zur
+Entschlüsselung sind (in diesen Tagen ist dies im allgemeinen ein
+Computerprogramm) und die eine zusätzliche Information zur Verfügung haben,
+den sogenannten Dechiffrierschlüssel. Beim Prozess der Entschlüsselung muss
+dieser Schlüssel in die Maschine eingegeben werden.
+</p><p>
+Ursprungstext wird mit einem Chiffriergerät (im allgemeinen ein 
+Computerprogramm) in Chiffriertext umgewandelt. Dabei ist die Operation
+des Chiffriergerätes festgelegt und determiniert (die Methode der
+Verschlüsselung). In der Praxis ist die Arbeitsweise des 
+Chiffriergerätes
+von einer speziellen Information abhängig (dem Chiffrierschlüssel), die
+massgeblichen Einfluss auf die Ausgabe des Verschlüsselungsprozesses 
+hat.
+</p><p>
+Ein Kryptosystem kann entworfen werden, das mehrere unterschiedliche 
+Methoden der Verschlüsselung verwendet. Die besondere Methode, die für 
+einen Prozess der Verschlüsselung gewählt wird, hängt von der Wahl des 
+Schlüssels ab. Die Kombination der Verschlüsselungsmethoden resultiert 
+wiederum n einer Verschlüsselungsmethode, die ebenso determiniert ist, 
+wie ein einfacheres Kryptosystem, obwohl sie für Kryptoanalytiker sehr 
+viel schwieriger durch aufzubrechen ist. Ein gutes Kryptosystem sollte 
+tatsächlich die Details seiner Verschlüsselungsmethode in einer 
+schlüsselabhängigen Weise variieren, obwohl
+hohe Sicherheit die Kombination von unterschiedlichen 
+Verschlüsselungs-algorithmen nicht unbedingt erforderlich macht.
+</p><p>
+Als Resultat der Entschlüsselungsmethode und des Chiffrierschlüssels 
+sollte immer der ursprüngliche Text herauskommen, der zuvor mit der 
+Verschlüsselungsmethode und dem Chiffrierschlüssel in Chiffriertext
+umgewandelt wurde (abgesehen von einigen unerheblichen Differenzen).
+</p><p>
+In diesem Prozess kann der Schlüssel zur Verschlüsselung mit dem Schlüssel
+zur Entschlüsselung identisch sein, oder auch nicht. Wenn die beiden
+Schlüssel übereinstimmen, dann spricht man von einem "symmetrischen"
+Schlüsselsystem, im anderen Fall spricht man von einem "asymmetrischen"
+Schlüsselsystem. Das am meisten bekannte Beispiel eines symmetrischen
+Kryptosystems ist das DES ("Data Encryption Standard"). Das am meisten
+bekannte Beispiel eines asymmetrischen Kryptosystems ist das PGP.
+</p><p>
+Ein Verschlüsselungsalgorithmus (eine präzise Spezifikation der 
+Schritte, die unternommen werden müssen, um einen Ursprungstext zu 
+verschlüsseln, oder um einen Chiffriertext wieder in Ursprungstext zu 
+dechiffrieren) nennt man einen "asymmetrischer Algorithmus" , wenn die 
+Schlüssel, die jeweils für die Entschlüsselung und die Verschlüsselung 
+verwendet werden, unterschiedlich sind;
+im anderen Fall handelt es sich um einen "symmetrischen Algorithmus"
+</p><p>
+Es gibt viele gute Gründe, warum eine Verschlüsselung angewendet wird, 
+(Beispiele werden weiter unten gegeben) und das Kryptosystem, das man 
+selbst verwendet, sollte für die eigenen Zwecke optimal geeignet sein. 
+Ausserdem
+sollte ein Kryptosystem alle Anforderungen, die in bezug auf Sicherheit,
+ Zuverlässigkeit und leichte Handhabung zu stellen sind, voll und ganz 
+erfüllen.
+</p><p>
+</p><ul>
+<li>Leichte Handhabung ist leicht einzusehen
+</li><li>Zuverlässigkeit bedeutet, dass das Kryptosystem bei 
+zielgerichteter Verwendung die verborgene Information immer dann 
+freigibt, wenn es erforderlich ist (in anderen Worten, der Chiffriertext
+ kann in jedem Fall wiederhergestellt werden und die wiederhergestellten
+ Daten stimmen mit den Daten des ursprünglichen Textes exakt überein).
+</li><li>Sicherheit bedeutet, dass das Kryptosystem effektiv in der Lage ist, die
+   Information für alle die Personen verborgen zu halten, für die sie nicht
+   vorgesehen ist, auch wenn Versuche von anderen gemacht werden, das System zu
+   entziffern.
+</li></ul>
+<p>
+Leichte Handhabung ist die Qualität, die noch am Einfachsten abgesichert
+ werden kann. Wenn der Chiffrierschlüssel eine Folge von 64 
+hexadezimalen Ziffern ist (ein 256.Bit-Schüssel) wie etwa:
+</p><p>
+     </p><center><font size="-1" face="Courier New,Courier,Mono">B923A2C98DF3DA34FBC31AC67B4D290CA2ABE78A234BC4D1A67A1A37CDA89</font></center>
+<p>
+Dann könnten sie nicht nur ein Problem mit der Erinnerung haben, sondern
+ auch bei der Anwendung (versuchen Sie diese Folge mehrere Male 
+einzutippen). Bei solch einem Schlüssel ist es notwendig, ihn nieder zu 
+schreiben oder ihn in einer Datei auf einer Diskette zu speichern. In 
+diesem Fall besteht die Gefahr, dass er von jemand entdeckt werden 
+könnte.
+</p><p>
+Ein Kryptosystem, das leicht zu verwenden ist, sollte eine 
+String-Eingabe über die Tastatur zulassen, von 10 bis 60 Zeichen. Auf 
+diese Weise sind Redewendungen gestattet, wie etwa "Lay on MacDuff!" . 
+Zwischenräume sollten keine Bedeutung haben, ebenso wie Gross- und 
+Kleinschreibung, so dass sie sich über Varianten wie "Lay on Mac Duff!" 
+oder "Lay on Macduff" keine Gedanken machen müssen.
+</p><p>
+Zuverlässigkeit ist die Qualität, die als nächste leicht zu testen ist.
+Wenn es nicht möglich ist, einen formalen Beweis darüber zu geben, dass
+die Entschlüsselung der Verschlüsselung eines Ursprungstextes immer
+mit dem Ursprungstext identisch ist, dann sollte es wenigsten möglich 
+sein,
+Software für einen Zuverlässigkeitstest zu entwickeln. Mit dieser 
+Software
+sollten für Testzwecke vielfache Verschlüsselungen und Entschlüsselungen
+ mit
+unterschiedlichen Schlüsseln durchgeführt werden können (obwohl dieses
+Testverfahren nicht alles erfassen kann). Test-Software dieser Art wird 
+bei kommerziellen Verschlüsselungsprogrammen nur selten mitgegeben.
+</p><p>
+Schliesslich stellt sich die Frage nach der Sicherheit. Die Sicherheit 
+eines
+Kryptosystems ist immer relativ in bezug auf die Aufgabe, die das 
+Kryptosystem erfüllen soll, und zu den Bedingungen, unter denen es 
+angewendet wird. Ein theoretisch sicheres System wird spätestens dann 
+unsicher, wenn es von Personen angewendet wird, die ihren 
+Chiffrierschlüssel auf ein Stück Papier schreiben, das sie an ihren 
+Computerterminal heften.
+</p><p>
+Im allgemeinen kann der Nachweis über die Sicherheit niemals vollständig
+ geführt werden, und zwar in dem Sinne, dass es ohne Kenntnis des 
+Dechiffrierschlüssels,
+auch mit stärkstem Computereinsatz, in der realen Welt nicht möglich 
+ist,
+den Ursprungstext in, sagen wir, weniger als 1000 Jahre zu 
+rekonstruieren.
+Es gibt immer etwas, das schief gehen kann, und zukünftige Fortschritte 
+bei der Leistungsfähigkeiten von Computern (um eine kryptoanalytische 
+Attacke leicht führen zu können) sind nicht im voraus bekannt.
+</p><p>
+In der Theorie gibt es nur  ein Kryptosystem, das unter dem Namen 
+"One-Time-Pad" bekannt ist, und das als absolut sicher gilt. Aber in der
+ Praxis ist es eher schwerfällig, da der Schlüssel nur einmal verwendet 
+werden kann, ohne die Sicherheit des Systems bloss zu stellen. Wegen 
+seiner Sicherheit ist es eine
+der Methoden, die von Regierungen angewendet werden, um Geheimnisse zu 
+schützen,
+da  sie sich den Aufwand leisten können, die damit verbundenen 
+Unbequemlichkeiten auszuhalten.
+</p><p>
+In einigen Fällen ist es möglich, den Nachweis darüber zu bringen, dass
+die Auflösung des Kryptosystems gleichwertig mit dem Lösen eines besonderen
+mathematischen Problems ist, wie z.B. das Problem der Faktorisierung von
+grossen Zahlen. (grosse Zahlen bedeutet hier, dass es sich um Zahlen von
+mehreren hundert Stellen handelt). Wenn viele Mathematiker über viele Jahre
+hinweg erfolglos an der Lösung dieses Problems gearbeitet haben, dann gibt
+es Anlass zu der Vermutung, dass ein Kryptosystem, das auf diesem Problem
+basiert, als sicher angesehen werden kann. Wie auch immer, es gibt keine
+Garantie, dass eine Lösung für das mathematische Problem nicht schon morgen
+gefunden wird. In diesem Fall würde die Sicherheit des Kryptosystems über
+Nacht verschwinden (zumindest, wenn es sich herumgesprochen hat).
+</p><p>
+Im Fall von PGP und anderer Verschlüsselungssoftware wie etwa RIPEM, die
+ sich auf einem asymmetrischen Verschlüsselungsalgorithmus wie den RSA 
+Algorithmus verlassen, wird weithin angenommen, dass sie dann und nur 
+dann sicher sind, wenn das Problem der Faktorisierung von grossen Zahlen
+ unlösbar bleibt (d.h.
+mittels Computer nicht erreichbar in realistischen Zeitenräumen). 1994  
+wurde von William H.Üayne die Behauptung aufgestellt (aber 
+offensichtlich nicht bestätigt) dass eine Methode der Kryptoanalyse für 
+den RSA Algorithmus gefunden worden ist, die nicht von einer allgemeinen
+ Lösung des Faktorisierungsproblems für grosse Zahle abhängt. Eine 
+Nachricht aus der USENET-Gruppe sci.crypt (Francis Barrett) bemerkte 
+dazu:
+</p><p>
+</p><blockquote><font size="-1" face="Courier New,Courier,Mono">Although
+ factoring is believed to be hard, and factoring breaks RSA, breaking 
+RSA does not simplify factoring. Trivial non-factoring methods of 
+breaking RSA could therefore exist. Whether this paper [by Payne] is 
+legitimate remains to be seen, but it is certainly not beyond the realm 
+of possiblity.</font></blockquote>
+<p>
+Es wird manchmal behauptet, dass das PGP das sicherste Programm zur
+Verschlüsselung sein soll, das auf PC's verfügbar ist. Diese Behauptung hält
+einer kritischen Überprüfung nicht stand. Wenn zwei Verschlüsselungsprogramme
+gegeben sind, von denen jedes einen Chiffriertext erzeugt, der wie zufällig
+angeordnet aussieht, wie kann man eine Entscheidung darüber treffen, ob eines
+der Programme "sicherer" als das andere ist  —  auch wenn alle Details der
+Verschlüsselungsalgorithmen bekannt sind? Wenn man keine Methode finden
+kann, eines der Systeme zu knacken, dann gibt es keine klare Antwort. Wenn
+keine Kriterien angegeben werden können, die festlegen, ob eine Programm
+sicherer einzustufen ist als eine anderes, dann macht es keinen Sinn, zu
+fragen, welches von beiden das Programm mit mehr Sicherheit ist.
+</p><p>
+Die "Brute Force"-Attacken auf eine Kryptosystem (eine Brute-Force Attacke
+befasst sich mit dem Versuch, alle mögliche Schlüssel zu testen, um irgend
+einen Chiffriertext zu entziffern, und zwar solange, bis der Schlüssel
+gefunden ist, der funktioniert) können verglichen werden, da sich die
+durchschnittliche Zeit, die für eine erfolgreiche Brute-Force-Attacke
+aufgewendet werden muss, aus dem Produkt der  Hälfte der Anzahl aller
+möglichen Schlüssel mit der Zeit ergibt, die für den Test eines einzigen
+Schlüssels nötig ist (indem dieser Schlüssels zur Entzifferung verwendet
+und der daraus resultierenden Text auf irgend einen vernünftigen Inhalt
+überprüft wird). Es ist nur zu klar, dass das Kryptosystem, wenn die Grösse
+des mit dem Kryptosystem assoziierten Schlüsselraumes (d.h. die Menge aller
+möglichen Schlüssel) klein ist (d.h. 2<sup>16</sup> = 65 536), gegenüber einer
+Brute-Force-Attacke anfällig ist. Aber wenn das Kryptosystem einen grossen
+Schlüsselraum besitzt ( ein mit dem Kryptosystem assoziierter Schlüsselraum,
+dessen Grösse etwa bei 10<sup>151</sup> liegt), dann ist eine Brute-Force-Attacke
+nicht mehr möglich, und daher muss jede Schwäche des Systems, sofern eine
+vorhanden ist, irgendwo anders gesucht werden.
+</p><p>
+Im allgemeinen kann die Sicherheit eines Kryptosystems nur durch seinen
+Widerstand gemessen wenn, den es den aktuellen Versuchen in der Praxis
+entgegenstellt, die das System aufbrechen wollen. Diejenigen, die geknackt
+worden sind, haben offensichtlich keine Sicherheit. (Es gibt mehrere
+kommerzielle, für PC erhältliche Verschlüsselungspakete, die entziffert
+wurden; siehe z.B. die Artikel von Kochanski in der Bibliographie am Ende
+diese Anhangs). Diejenigen Systeme, die der Aufmerksamkeit von vielen
+Kryptoanalytikern über viele Jahre Widerstand  geleistet haben, sind zur
+Sicherheit verurteilt, zumindest solange, bis bessere Methoden der
+Krypotanalyse erfunden werden.
+</p><p>
+Im Fall von DES gab es einen lange gehegten Verdacht, dass die U.S. National
+Security Agency (NSA) die Entwickler des Systems bei IBM beeinflusst hat, so
+dass das System stark genug war, die meisten Angriffe auszuhalten, aber nicht
+stark genug, um den Kryptoanalytikern der NSA zu widerstehen.
+</p><p>
+</p><blockquote><font size="-1" face="Courier New,Courier,Mono">The 
+original design submitted by IBM permitted all 16 x 48 = 768 bits of key
+ used in the 16 rounds to be selected independently. A U.S. Senate 
+Select Committee ascertained in 1977 that the U.S. National Security 
+Agency (NSA) was instrumental in reducing the DES secret key to 56 bits 
+that are each used many times, although this had previously been denied 
+by IBM ...</font> <font size="-1">—&nbsp;Massey, p.541.</font></blockquote>
+<p>
+Aber die besten Versuche von Kryptoanalytikern haben über die Jahre nur eher
+magere Resultate produziert (insbesondere, die Demonstration von Adi Shamir,
+dass die Kryptoanalyse von DES-Chiffriertext, im einfachsten DES-Modus
+(Electronic Code Book), mit einem nur geringfügig kleineren Aufwand
+durchgeführt werden kann als der Aufwand, der für eine Brute-Force-Attacke
+erforderlich ist). Aber erst zuletzt ist eine neue Methode für die
+DES-Kryptoanalyse vorgeschlagen worden, die mit einem massiven Einsatz der
+Technik von Parallelverarbeitung verbunden ist (unter der gleichzeitigen
+Verwendung von vielen Rechnern, oder Prozessoren). Es erscheint nun klar, dass
+für einige wenige Millionen Dollar Computer gebaut werden können, die in der
+Lage sind, DES-Chiffriertext in wenigen Stunden aufzubrechen. Da die NSA
+praktisch über unbegrenzte finanzielle Mittel und die höchste Konzentration
+an Computerleistung und mathematischem Talent in der Welt verfügt, ist es
+mehr als wahrscheinlich, dass die NSA die Fähigkeit besitzt, DES-Chiffriertext
+zu entziffern
+</p><p>
+Tatsächlich wurde im Jahr 1997 ein Brute-Force-Attacke (mit Hilfe von 
+vielen Computern, die parallel arbeiteten) unternommen, DES aufzubrechen
+ (obwohl nur in seiner einfachsten Form — dem sogenannten ECB_Modus).</p><p>
+</p><center><img src="Eine%20Einf%C3%BChrung%20in%20die%20Anwendung%20der%20Verschl%C3%BCsselung-Dateien/descrk40.gif" border="0" height="40" hspace="8" width="400"></center><p>
+</p><p>
+NSA hat natürlich niemals bestätigt oder verneint, dass sie fähig sind, 
+DES zu knacken. ("NSA" ist auch eine andere Bezeichnung für "Never Say 
+Anything" und in früheren Jahren "No Such Agency"). Jedoch ist die 
+Abwesenheit von Publikationen über eine Demonstration, wie ein 
+spezielles Kryptosystem aufzubrechen ist, kein Beweis, dass es nicht 
+geschehen ist. Jedermann, der einen Weg entdeckt, wie DES,RSA usw. zu 
+knacken sind, könnte eine Menge Geld damit machen, indem er einen 
+Entschlüsselungsservice anbietet, und nicht indem er die Welt über seine
+ Entdeckung informiert. Wenn er dies tatsächlich bekanntgeben würde, 
+dann würden die Leute schnell aufhören, das Kryptosystem zu verwenden 
+und er würde weniger Klienten haben.
+</p><p>
+Bei der Auswahl eines Kryptosystems, oder einer kryptographischen Software,
+sollten Sie zuerst Überlegungen anstellen, was Sie damit machen wollen. Es
+gibt viele (vollständig legitime) Gründe, warum Sie wünschen könnten, Information zu verbergen, z.B.:
+</p><p>
+</p><ol><li>Firmen besitzen oft Datenbanken über ihre Angestellten, die vertraulichen
+Schutz geniessen, wie etwa medizinische Aufzeichnungen, Gehaltslisten usw.
+Angestellte würden sich sicherer fühlen, wenn sie wissen, dass diese
+Dateien verschlüsselt und für eine beiläufige Inspektion durch
+Büroangestellte, die mit der Aufgabe der Dateneingabe
+betraut sind (die bestochen werden können, mit dem Zweck, Informationen
+über jemand herauszubekommen), nicht zugängig sind.
+</li><li>Personen teilen möglicherweise den Arbeitsplatz mit anderen, über deren
+   Vertrauenswürdigkeit sie sich nicht im Klaren sind, und sie könnten eine
+   Absicherung haben wollen, dass im Fall ihrer Abwesenheit niemand etwas
+   herausfinden kann, indem er in ihrer Festplatte herumschnüffelt.
+</li><li>Eine Firma möchte sensible Geschäftsdaten zwischen zwei Orten,
+   etwa den Zweigstellen, übertragen. Oder sie könnte die Absicht haben,
+   vertrauliche Informationen (z.B. Verhandlungspositionen,
+   Verfahrensweisen oder Eigentumsnachweise) an einen Bereichsagenten
+   (unter Umständen ins Ausland) zu senden. Wenn die Information vor der
+   Versendung verschlüsselt wird, dann braucht sich niemand darüber Sorgen
+   machen, ob diese Sendung abgefangen werden kann, denn die
+   verschlüsselten Daten sind unverständlich (ohne den Dechiffrierschlüssel).
+</li><li>Eine Firma besitzt Information darüber, dass ein Mitkonkurrent
+   Interesse hat, etwas in Erfahrung zu bringen, wie z.B. Informationen,
+   die die legalen und finanziellen Probleme betreffen,
+   Forschungsresultate, wer der Kunden sind, und was sie einkaufen,
+   Informationen, die Verletzungen von staatlichen Auflagen enthüllen,
+   Geheimformeln oder Details über Herstellungsprozesse, zukünftige
+   Expansionspläne oder Pläne für die Entwicklung neuer Produkte.
+</li><li>Eine Person oder eine Firma beabsichtigen, einen Computer, der sensible
+   Informationen enthält, an einen entfernten Ort zu transportieren, ohne
+   sich Gedanken darüber machen zu müssen, ob der Computer während seiner
+   Reise untersucht wird (z.B. durch Zollagenten), so dass Informationen
+   unerwünscht frei werden.
+</li><li>Zwei Personen haben vielleicht die Absicht, eine Korrespondenz
+   mit E-Mail durchzuführen, über Dinge, die sie unter privatem Verschluss
+   halten wollen, und die sie so sichern wollen, dass kein anderer
+   ihre Post lesen kann.
+</li></ol>
+<p>
+Aus den oben genannten Beispielen ist es ersichtlich, dass es zwei allgemeine
+Fälle gibt, in denen Verschlüsselung notwendig ist:
+</p><p>
+(a) Wenn eine einmal verschlüsselte Information an einer Stelle (und
+unverletzlich durch unauthorisierten Zugriff) einfach aufbewahrt
+wird, bis sich die Notwendigkeit eines Zugriffs auf die Information
+ergibt.
+</p><p>
+(b) Wenn Information irgendwohin übertragen werden soll. Dabei sollte sie
+so verschlüsselt werden, dass ein Abfangspezialist, der die Information an
+sich bringt, bevor sie ihre Zielbestimmung erreicht hat, unmöglich
+etwas finden kann, was Sinn ergibt.:
+</p><p>
+Im Fall (b) entsteht das Problem der Sicherheit beim Austausch des
+Schlüssels. Dieses Problem existiert, da die Person, die die Information
+entschlüsseln will, normalerweise nicht die Person ist, die die Information
+verschlüsselt hat. Nehmen wir an, dass der Dechiffrierer im Besitz einer
+Dechiffriermaschine ist (normalerweise ein Softwareprogramm). Wie kann der
+Dechiffrierer in Erfahrung bringen, welchen Schlüssel er verwenden soll?
+Diese Information muss dem Dechiffrierer in irgend einer Form mitgeteilt
+werden. Wenn der Schlüssel im Verlauf dieser Kommunikation durch eine dritte
+Partei abgefangen wird, dann ist diese dritte Partei auch in der Lage,
+einen Chiffriertext abzufangen und zu entziffern, der nachfolgend vom
+Chiffrierer zum Dechiffrierer gesendet wird.
+</p><p>
+Dies ist ein Problem, dem alle Anwender eines symmetrischen Schlüsselsystems
+(z.B. DES und Kryptosystem ME5) begegnen, wenn sie verschlüsselte Daten
+übertragen, da in solchen Systemen der Chiffrierschlüssel mit dem
+Dechiffrierschlüssel übereinstimmen muss. Der Chiffrierer kann sich für einen
+Schlüssel nach freier Wahl entscheiden, aber wie kann dieser Schlüssel dem
+Dechiffrierer auf einem sicheren Weg mitgeteilt werden? Regierungen lösen
+dieses Problem in der Regel so, dass sie den Schlüssel in eine abgeschlossenen
+Aktentasche legen, diese Aktentasche mit Handschellen an das Handgelenk eines
+vertrauenswürdigen Untergebenen ketten, ihn mit mehreren bewaffneten
+Wachleuten umgeben, um die Aktentasche schliesslich persönlich zu überbringen
+(als typisches Beispiel, in eine Botschaft im Ausland). Diese Lösung ist für
+normale Bürger im allgemeinen zu teuer.
+</p><p>
+Wenn Sie wissen, dass ihre Post nicht geöffnet wird, dann können Sie den
+Schlüssel auf diese Weise versenden, aber wer kann sich dafür verbürgen?
+Sogar registrierte Post könnte durch Agenten von Regierungen geöffnet
+werden, die wenig Skrupel haben. Der beste Weg, den Schlüssel an irgend
+eine Person weiterzugeben, der sie verschlüsseltes Material senden wollen,
+ist der persönliche Kontakt, an einem Platz, an dem der Austausch nicht
+beobachtet werden kann. Falls dies nicht möglich ist, dann bieten sich viele
+andere, allerdings weniger sichere Wege an. Falls Sie zum Beispiel für einige
+Jahre in der gleichen Stadt gelebt haben wie die Person, dann könnten Sie die
+Person anrufen und sagen : " Erinnern Sie sich an das Restaurant in Paris,
+wo wir öfters zusammen gefrühstückt haben ? Erinnern Sie sich an den Namen
+der Kellnerin? Wir sollten ihren Namen als gemeinsamen Schlüssel vereinbaren."
+Dann sind Sie im Besitz eines Schlüssels, über den nur zwei Personen Bescheid
+wissen, wenn nicht irgend jemand sonst ausführliche Informationen über Ihre
+Frühstücksgewohnheiten in Paris vor einigen Jahren besitzt, und der den Namen
+der Kellnerin kennt, mit der Sie in Kontakt gekommen sein könnten.
+</p><p>
+Es gibt eine Klasse von Kryptosystemen, die als öffentliche 
+Schlüsselsysteme
+bekannt geworden sind. Diese wurden zuerst in den 70-ziger Jahren 
+entwickelt,
+um das Problem des sicheren Schlüsselaustausches zu lösen. Dies sind 
+Systeme,
+auf die oben als asymmetrische Systeme Bezug genommen wurde und die 
+einen
+Chiffrierschlüssel verwenden, der verschieden vom Dechiffrierschlüssel 
+ist.
+Solche öffentlichen Systeme gehen, bei geeigneter Verwendung, einen eher
+umständlichen Weg zur Lösung des Problems eines sicheren 
+Schlüsselaustausches. Der Chiffrierschlüssel kann der ganzen Welt 
+mitgeteilt werden, ohne dass Gefahr besteht, dass die Sicherheit der 
+Kommunikation gefährdet ist, vorausgesetzt der Dechiffrierschlüssel 
+bleibt geheim.
+</p><p>
+Nehmen wir an, dass wir verschlüsselte E-Mail von unserer Freundin Alice
+ empfangen wollen. Wir senden ihr unseren  bekannten Schlüssel — der, 
+der bei
+der Verschlüsselung verwendet wird. Alice schreibt einen 
+leidenschaftlichen
+Liebesbrief auf ihrem PC, verschlüsselt ihn mit unserem öffentlichen
+Schlüssel und sendet ihn an uns weiter. Sie entschlüsseln den Brief mit
+Ihrem privaten Schlüssel. Wenn Ihre zweite Freundin Karin diesen Brief
+abfängt, dann hat sie keine Möglichkeit, diesen Brief zu entziffern, da 
+der
+öffentliche Schlüssel (von dem angenommen wird, dass er jedermann 
+bekannt ist,
+also auch ihr) für die Entschlüsselung nicht brauchbar ist. Die
+Entschlüsselung lässt sich nur mit dem privaten Schlüssel durchführen, 
+über den
+nur Sie Bescheid wissen (falls Karin ihn nicht bei einer Untersuchung 
+Ihrer
+Festplatte gefunden hat, als Sie gerade unter der Dusche standen).
+</p><p>
+Ein öffentliches Schlüsselsystem verlässt sich auf einige mathematische
+Prozeduren, die öffentliche und private Schlüssel erzeugen. Die
+mathematische Natur dieser Systeme erlaubt gewöhnlich, dass die Sicherheit
+des Systems durch den Schwierigkeitsgrad gemessen wird, mit der einige
+mathematische Problem gelöst werden können. Es gibt eine Vielzahl von
+öffentlichen Kryptosystemen, die bekanntesten sind die, die auf dem oben
+erwähnten RSA-Algorithmus basieren (der nach seinen Erfindern benannt und patentiert worden, Rivest, Shamir and Adelman).
+</p><p>
+Wie wir bereits weiter oben erwähnten verlässt sich seine Sicherheit auf
+ die Schwierigkeit grosse Zahlen zu faktorisieren. Es zwei andere 
+Public-Key-Systeme, die mit Lizenz für kommerzielle Anwendungen 
+erhältlich sind,  eines ist das LUC
+Public-Key-System (von LUC Enryption Technology, Sierra Madre , CA). und
+  eines, das von dem Computerhersteller NEXT, Inc. entwickelt wurde.
+</p><p>
+</p><blockquote><font size="-1" face="Courier New,Courier,Mono">Man 
+sollte wissen, dass RSA sehr empfindlich für Angriffe auf den 
+ausgewählten Text ist. Es gibt eine neue "Timing-Attacke", die verwendet
+ werden kann, um viele Implementationen von RSA aufzubrechen. Man 
+glaubt, dass der RSA-Algorithmus sicher ist, wenn er richtig verwendet 
+wird, aber man muss bei seiner Verwendung sehr sorgfältig sein, um 
+Attacken ausschalten zu können.</font>
+ <font size="-1">—&nbsp;<a href="http://www.cs.hut.fi/crypto/algorithms.html#asymmetric">Public Key Algorithms </a></font></blockquote>
+<p>
+Public-Key Kryptographie hat Anwendungen jenseits der klassischen, die 
+sich mit dem Verstecken von Information befasst. Als eine Konsequenz 
+davon, dass die Schlüssel für Verschlüsselung und Entschlüsselung 
+verschieden sind, ist es möglich, digitale Signaturen zu machen (zur 
+Authentifizierung von Dokumenten) und
+digitale Formen von solchen Aktivitäten wie gleichzeitiges Unterzeichnen
+ eines Kontraktes. Digital Cash ist auch eine Idee, die auf der 
+Verwendung eines asymmetrischen Kryptosystems basiert.
+</p><p>
+Obwohl die Kryptographie des öffentlichen Schlüssels das Problem des
+Schlüsselaustausches in der Theorie löst, hat es im allgemeinen eine 
+Reihe
+von Nachteilen, verglichen mit den symmetrischen (oder geheimen)
+Schlüsselsystemen. Der erste ist die Geschwindigkeit. Im allgemeinen 
+sind
+öffentliche Schlüsselsysteme sehr viel langsamer als die geheimen
+Schlüsselsysteme und daher können sie für die Verschlüsselung von 
+kleinen
+Datenmengen durchaus geeignet sein, wie etwa bei Nachrichten, die über 
+E-Mail
+versendet werden. Sie sind nicht geeignet für grosse Mengen von Daten, 
+die
+sich bei der Verschlüsselung im Bereich von Megabytes befinden. Geheime
+Schlüsselsysteme können sehr schnell sein (besonders dann, wenn sie über
+in Chips codierte Instruktionen implementiert sind, statt im 
+Arbeitsspeicher
+eines Computers abzulaufen). Je komplexer solch ein System ist, umso
+grösser ist die Tendenz zur Langsamkeit, aber auch die komplexen Systeme
+zeigen im allgemeinen akzeptable Geschwindigkeit. Ein Programm, das die 
+Daten 1992 mit einer Geschwindigkeit von 4 KB/s verschlüsselt hat, wird 
+dies bald
+(wenn nicht schon jetzt) mit 100 KB/s tun.
+</p><p>
+Der zweite Nachteil des öffentlichen Schlüsselsystems besteht im Problem
+ der
+Bestätigung des Schlüssels. Wenn Sie verschlüsselte Daten an eine 
+Person,
+sagen wir Frank, schicken wollen, und Sie haben eine Schlüssel erhalten,
+ von
+dem gesagt wird, dass er Frank's öffentlicher Schlüssel ist, wie können 
+Sie
+herausbekommen, dass dies wirklich Frank's Schlüssel ist? Was wäre, wenn
+ eine
+dritte Partei, Jack, gerade dabei, ist einen öffentlichen Schlüssel im
+Namen von Frank bekannt zu geben? Wenn Jack für eine Regierung arbeitet,
+ die an einer genauen Überwachung ihrer Bürger interessiert ist, dann 
+wird sie sicherlich Kommunikationskanäle beobachten, die von Frank 
+benutzt werden.
+So  können die verschlüsselten Daten, die an Frank gehen, jederzeit 
+abgefangen
+werden, Jack kann sie alle entziffern (da er den dazu passenden privaten
+ Schlüssel besitzt). Wenn Jack wirklich schlau wäre, und Franks wahren 
+öffentlichen Schlüssel kennt, dann würde er Ihre Nachricht an Frank neu 
+verschlüsseln, unter Verwendung des öffentlichen Schlüssels (nachdem er 
+wahrscheinlich  die Nachricht verändert hat), und er würde die Nachricht
+ an Frank weitergeleitet haben, als ob sie direkt von Ihnen gekommen 
+wäre. Frank würde dann mit seinem privaten Schlüssel entschlüsseln und 
+eine Nachricht lesen, von der er annimmt, dass sie von Ihnen ist, aber 
+die tatsächlich ziemlich verschieden von dem sein könnte, was Sie 
+abgeschickt haben. Theoretisch könnte Jack in der Mitte einer 
+angenommenen, gegenseitigen E-Mail-Korrespondenz zwischen Ihnen und 
+Frank sitzen, alles lesen, was Sie dem anderen Partner zusenden, an 
+jeden der beiden Partner verfälschte Nachrichten schicken, die irgend 
+etwas anderes aussagen. Dabei lässt er beide im Glauben, dass diese von 
+ihm veränderte Nachricht jeweils vom anderen Partner geschickt worden 
+ist.
+</p><p>
+1993 schrieb ein Teilnehmer der Newsgruppe sci.crypt (Terry Ritter, 1992-11-29):
+</p><p>
+</p><blockquote><font size="-1" face="Courier New,Courier,Mono">
+<p>When we have a secret-key cipher, we have the serious
+problem of transporting a key in absolute secrecy. However,
+after we do this, we can depend on the cipher providing its
+level of technical secrecy as long as the key is not exposed. </p>
+<p>When we have a public-key cipher, we apparently have
+solved the problem of transporting a key. In fact, however,
+we have only done so if we ignore the security requirement to
+validate that key. Now, clearly, validation must be easier
+than secure transport, so it can be a big advantage. But
+validation is not trivial, and many people do not understand
+that it is necessary. </p>
+<p>When we have a public-key cipher and use an unvalidated
+key, our messages could be exposed to a spoofer who has not
+had to "break" the cipher. The spoofer has not had
+to break RSA. The spoofer has not had to break IDEA. Thus,
+discussion of the technical strength of RSA and IDEA are
+insufficient to characterize the overall strength of such a
+cipher. In contrast, discussion of the technical strength of
+a secret-key cipher *IS* sufficient to characterize the
+strength of that cipher. </p>
+<p>Discussion of the strength of public-key cipher mechanisms
+is irrelevant without a discussion of the strength of the
+public-key validation protocol. Private-key ciphers need no
+such protocol, nor any such discussion. And a public-key
+cipher which includes the required key-validation protocol
+can be almost as much trouble as a secret-key cipher which
+needs none. </p></font>
+</blockquote>
+<p>
+Wenn die Verschlüsselung im Fall (a) verwendet wird, mit dem Ziel der
+Aufbewahrung am Ort (und unverletzlich durch unauthorisierten Zugriff),
+bis sich die Notwendigkeit für einen Zugriff auf diese Information 
+ergibt,
+dann ist ein geheimes Schlüsselsystem deutlich vorzuziehen, da ein 
+solches
+System den Vorzug der Geschwindigkeit hat, es gibt kein Problem bei der
+Bestätigung des Schlüssels und es gibt auch kein Problem beim 
+Schlüsselaustausch (da es keine Notwendigkeit gibt, den 
+Chiffrierschlüssel an irgend jemand übertragen, es sei denn die 
+Übertragung geschieht von
+Angesicht zu Angesicht).
+</p><p>
+Wie auch immer, viele Menschen verwenden noch ein Kryptosystem, das relativ
+leicht aufzubrechen ist, da sie kein besseres kennengelernt haben. So erlaubt
+zum Beispiel das Textverarbeitungsprogramm WordPerfect, dass Sie die
+Information in einer Datei mit Hilfe eines Passwortes verschliessen können.
+Ehepartner könnten denken, dass sie, indem sie ihre WordPerfect-Dateien
+verschliessen, schreiben können, was sie wollen, und sich nicht darüber sorgen
+müssen, ob der andere Partner genau dies später gegen sie verwenden könnte.
+Was der eine Partner aber nicht weiss ist, dass es Programme gibt, die
+automatisch (in ein paar Sekunden) das Passwort finden können, das zur
+Abschliessung der WordPerfect-Dateien verwendet wurde.
+</p><p>
+Tatsächlich  wurde der Nachweis erbracht, dass die Verschlüsselungsmethode
+von WordPerfect (zumindest für die Versionen 5.1 und früher) leicht
+aufzubrechen ist. Vollständige Beschreibungen werden in den Artikeln von
+Benett, für die Version 4.2, und von Bergen und Caelli, für die Version 5.0,
+gegeben (siehe Bibliographie weiter unten).
+</p><p>
+Ein anderer Fall ist das Verschlüsselungsschema, das vom 
+Mikrosoft-Programm
+Word verwendet wird. Eine Methode, die Word-Dateien zu knacken, wurde 
+gegen
+Ende des Jahres 1993 über das Usenet veröffentlicht. Daher ist auch 
+diese
+Methode des Informationsschutzes als nun veraltet einzuschätzen. Es gibt
+ sogar eine Firma , Access Data Recovery (in Orem , Utah) die Software 
+verkauft, die automatisch Passwörter entdeckt, die verwendet werden, um 
+Daten in einer Reihe von kommerziellen Softwareanwendungen zu 
+verschlüsseln, einschliesslich Lotus 123.
+</p><p>
+Um ein Kryptosystem als stark einzuschätzen, sollte es die folgenden
+Eigenschaften besitzen:</p><p>
+</p><ol>
+<li>Die Sicherheit der verschlüsselten Daten besteht mehr in der
+   Geheimhaltung des Schlüssels, als in irgend einer Geheimhaltung
+   des Algorithmus. In anderen Worten, selbst wenn ein Angreifer
+   die vollen Einzelheiten der Methode kennt, die sowohl zur Verschlüsselung
+   als auch zur Entschlüsselung verwendet wird, sollte ihm das nicht
+   erlauben, den Chiffriertext zu entziffern, sofern er nichts über den
+   Schlüssel weiss, der bei der Verschlüsselung benutzt wurde ( es ist
+   ausserdem ziemlich offensichtlich, dass seine Aufgabe noch schwieriger wird,
+   wenn er keine Kenntnis von der Methode hat- man könnte anmerken, dass das
+   Pentagon keine Einzelheiten über ihre Verschlüsselungstechniken enthüllt).
+<p>
+</p></li><li>Ein starkes Kryptosystem hat einen grossen Schlüsselraum, d.h. dass es
+sehr viele mögliche Schlüssel gibt. DES scheint in dieser Hinsicht von
+vielen als unzureichend angesehen zu werden, da es nur 2<sup>56</sup> (ungefähr 10<sup>17</sup>)
+mögliche Schlüssel umfasst. Der Schlüsselraum grösser als 10<sup>100</sup> sein, was
+in einem System möglich ist, das 60 Zeichen als Schlüssellänge erlaubt
+(vorausgesetzt, dass es nicht zwei Schlüssel gibt, die gleiche Wirkung auf
+die Verschlüsselung haben)
+<p>
+</p></li><li>Ein starkes Kryptosystem wird Chiffriertext erzeugen, der 
+für alle statistische Standardtests zufällig erscheint. Eine volle 
+Diskussion dieser Testverfahren übersteigt den Rahmen dieser Einführung 
+über die Verwendung von Verschlüsselungssoftware. Aber wir sollten uns 
+einen interessanten Test anschauen, den sogenannten Kappatest, auch als 
+Index des Zusammenfallens (Index der Übereinstimmung)bekannt.<p>
+</p></li></ol>
+Die Idee dahinter ist wie folgt: Wir nehmen an, dass die Elemente des 
+Chiffriertextes aus den 256 möglichen Bytes(0 bis FF) gebildet sind. Der
+ Chiffriertext lässt sich so als eine
+Folge von Bytes (in einer Reihe angeordnet)auffassen. Jetzt verdoppeln 
+wir die Folge und plazieren sie unter der ersten Folge (mit dem ersten 
+Byte der zweiten Folge unter dem ersten Byte der ersten Folge). Wir 
+erhalten so einen Folge aus Paaren von identischen Bytes. Dann 
+verschieben wir die untere Folge nach rechts, sagen wir um 8 Stellen. 
+Danach zählen wir, wie viele Paare es gibt, in denen die Bytes identisch
+ sind. Wenn die Folge der Bytes wirklich zufällig wäre, dann würden wir 
+erwarten, dass 1/256 der Paare aus identischen Bytes bestehen, d.h. 
+ungefähr 0.39% von ihnen. Es ist nicht schwierig, eine Programm zu 
+schreiben, dass eine Ansammlung von Daten analysiert, indem die Indizes 
+der Übereinstimmung
+Für unterschiedliche Verschiebungen gezählt werden (auch als Kappa-Wert 
+bekannt)
+Wenn wir solch ein Programm mit gewöhnlichem englischen Text laufen 
+lassen, dann erhalten wir Werte wie folgt ("IÜ" bedeutet Index der 
+Übereinstimmung):
+<p>
+</p><pre><font face="Courier New,Courier,Mono">               Verschiebung   IÜ       Übereinstimmung
+                      1      5.85%      2397 in 40968
+                      2      6.23%      2551 in 40967
+                      3      9.23%      3780 in 40966
+                      4      8.31%      3406 in 40965
+                      5      7.91%      3240 in 40964
+                      6      7.88%      3227 in 40963
+                      7      7.78%      3187 in 40962
+                      8      7.92%      3244 in 40961
+                      9      8.24%      3377 in 40960
+                     10      7.98%      3268 in 40959
+                     11      8.16%      3341 in 40958
+                     12      8.09%      3315 in 40957
+                     13      8.15%      3337 in 40956
+                     14      7.97%      3264 in 40955
+                     15      7.97%      3265 in 40954
+                     16      8.07%      3306 in 40953
+                     17      8.04%      3293 in 40952
+                     18      7.85%      3214 in 40951</font></pre>
+<p>
+In einer Wortdatei mit englischem Text finden sich in typischer Weise 
+nur um
+die 80 unterschiedliche Bytewerte. Wenn diese Bytewerte zufällig 
+verteilt wären,
+dann würden wir einen Index der Übereinstimmung von 1/80 erwarten, d.h. 
+1.25%.
+Jedoch ist die Verteilung der Buchstaben in englischen Texten nicht 
+zufällig
+("e", "t", und das Leerzeichen ereignen sich mit der grössten 
+Häufigkeit). Das ist der Grund, warum wir die grösseren IÜ-Werte 
+erhalten, wie oben angezeigt.
+</p><p>
+Der Kappatest kann verwendet werden, um schwache Kryptosysteme 
+aufzubrechen, oder um zumindest Hinweise über Möglichkeiten der 
+Entschlüsselung zu erhalten. Der
+Index der Übereinstimmung für die Verschiebung, die der Länge des 
+Chiffrierschlüssels entspricht, wird oft signifikant höher ausfallen als
+ bei anderen Indizes. In diesem Fall lässt sich die Länge des Schlüssels
+ ableiten.
+Als Beispiel sind hier die Indizes des Zusammenfallens für eine Datei 
+aus chiffriertem Text (Grösse: 2048 Bytes) angeführt. Dieser 
+Chiffriertext ist aus einem Text durch Verschlüsselung mit einem 
+schwachen Kryptosystem entstanden (ein System, dass im Dezember 1993 in 
+sci.crypt diskutiert wurde):
+</p><pre><font face="Courier New,Courier,Mono">             Verschiebung     IÜ      Übereinstimmung
+                      1      0.15%     3 in 2047
+                      2      0.34%     7 in 2046
+                      3      0.34%     7 in 2045
+                      4      0.54%     11 in 2044
+                      5      0.44%     9 in 2043
+                      6      0.39%     8 in 2042
+                      7      0.24%     5 in 2041
+                      8      0.49%     10 in 2040
+                      9      0.49%     10 in 2039
+                     10      0.29%     6 in 2038
+                     11      0.15%     3 in 2037
+                     12      0.10%     2 in 2036
+                     13      0.64%     13 in 2035
+                     14      0.74%     15 in 2034
+                     15      0.39%     8 in 2033
+                     16      0.20%     4 in 2032
+                     17      0.30%     6 in 2031
+                     18      0.34%     7 in 2030</font></pre><p>
+In dem Chiffriertext finden sich 256 unterschiedliche Bytewerte. Wenn 
+sie also
+zufällig wären, dann sollte der Kappawert für jede Verschiebung nicht 
+über 0.39% liegen. Aber die Kappawerte für die Verschiebungen 13 und 14 
+sind signifikant höher als die anderen. Dies legt nahe, dass der 
+Schlüssel, der bei der Verschlüsselung verwendet wurde, entweder die 
+Länge 13 oder 14 hat. Dieser Hinweis führte zur Entschlüsselung des 
+Chiffriertextes und es stellte sich heraus, dass die Schlüssellänge 
+tatsächlich 13 war. </p><p>
+
+Als ein Beispiel wie nicht-zufällig einige Chiffriertexte sein können, 
+die von kommerziellen Kryptosystemen erzeugt werden, wollen wir den 
+Verschlüsselungsalgorithmus betrachten, der vom Norton Diskreet Programm
+ verwendet wird. Die Datei mit dem Namen Norton.INI,
+die mit dem Diskreet Programm geliefert wird, enthält 530 Bytes und 41 
+unterschiedliche Bytewerte, einschliesslich 403 Stellen mit dem 
+Nullwert.
+Wenn wir diese Datei verschlüsseln, indem wir die private 
+Diskreet-Verschlüsselkungsmethode und den Schlüssel "ABCDEFGHIJ" 
+verwenden, erhalten wir eine Datei NORTON.SEC, die 2048 Bytes umfasst, 
+einschliesslich 1015 Nullbytes.
+Wenn wir diese Datei mit einem Hex-Editor untersuchen, finden wir, dass 
+sie aus den Buchstaben "PNCICRYPT", sieben 0- oder 1-Bytes, 1024 Bytes, 
+die offensichtlich völlig durcheinander sind (der Chiffriertext) und 
+schliesslich 1008 Null-Bytes. Wir extrahieren die 1024 Bytes des 
+Chiffriertextes. Es gibt
+229 unterschiedliche Bytewerte in diesem Chiffriertext. Wenn er so  
+wirklich zufällig sein würde, dann müssten wir Kappawerte von 1/229 
+erwarten, d.h. ungefähr 0.44%. Was wir finden sieht wie folgt aus:
+</p><pre><font face="Courier New,Courier,Mono">              Verschiebung   IÜ     Übereinstimmung
+                     1      0.29%     3 in 1023
+                     2     21.72%     222 in 1022
+                     3      0.69%     7 in 1021
+                     4      1.08%     11 in 1020
+                     5      0.49%     5 in 1019
+                     6      0.20%     2 in 1018
+                     7      0.39%     4 in 1017
+                     8      0.00%     0 in 1016
+                     9      0.79%     8 in 1015
+                    10      0.39%     4 in 1014
+                    11      0.69%     7 in 1013
+                    12      0.69%     7 in 1012
+                    13      0.30%     3 in 1011
+                    14      0.99%     10 in 1010
+                    15      0.20%     2 in 1009
+                    16      0.30%     3 in 1008
+                    17      0.40%     4 in 1007
+                    18      0.20%     2 in 1006</font></pre>
+Die Zahl von 21.72% für die Verschiebung 2 ist wirklich erstaunlich. 
+Wenn wir uns den Chiffriertext mit einem Hexeditor anschauen, dann sehen
+ wir, dass er viele Zeilen hat, die ein Bytemuster der folgenden Art 
+zeigen:
+<pre><font face="Courier New,Courier,Mono">
+xx yy aa bb aa bb cc dd cc dd ee ff ee ff gg hh
+   gg hh ...
+</font></pre>
+d.h. Zeilen, in den die Paare von Bytes die Neigung haben, sich zu wiederholen.
+z.Beispiel:
+<pre><font face="Courier New,Courier,Mono">
+          4B 25 4B 25 8D 28 8D 28 2D F8 2D F8 21 AC
+    21 AC E8 9E E8 9E F2 FC F2 FC C6 C5 C6 C5 7E 4F
+    7E 4F B2 8B B2 8B 32 EE 32 EE 25 2C 25 2C A5 32
+    A5 32 8D 61 8D 61 E5 C1 E5 C1 D4 F7 D4 F7
+</font></pre><p>
+Dies erklärt, warum das Verschieben des Chiffriertextes gegen sich 
+selbst um zwei Plätze nach rechts solch eine grosse Anzahl von 
+Zusammentreffen erzeugt.
+Dieser Chiffriertext zeigt deutliche Regelmässigkeiten und erscheint 
+daher weit von Zufälligkeit entfernt. Nach solchen Regelmässigkeiten 
+hält der Kryptoanalytiker Ausschau, als Hinweise auf die 
+Verschlüsselungsmethode und den Schlüssel, was ihm ein gutes 
+Kryptosystem verweigern sollte.</p><p>
+
+NORTON.INI lässt sich, unter Verwendung des gleichen Schlüssels,  in 
+eine Datei von einigen hundert Bytes verschlüsseln, mit Kappawerten wie 
+folgt:
+</p><pre><font face="Courier New,Courier,Mono">              Verschiebung    IÜ      Übereinstimmung
+                      1      0.45%     2 in 449
+                      2      0.45%     2 in 448
+                      3      0.00%     0 in 447
+                      4      0.45%     2 in 446
+                      5      0.00%     0 in 445
+                      6      0.23%     1 in 444
+                      7      0.45%     2 in 443
+                      8      0.23%     1 in 442
+                      9      0.23%     1 in 441
+                     10      0.23%     1 in 440
+                     11      0.46%     2 in 439
+                     12      0.23%     1 in 438
+                     13      0.23%     1 in 437
+                     14      0.46%     2 in 436
+                     15      0.23%     1 in 435
+                     16      0.69%     3 in 434
+                     17      0.00%     0 in 433
+                     18      0.46%     2 in 432</font></pre>
+<p>
+Die im Wesentlichen diskrete Verteilung dieser Indizes der 
+Übereinstimmung (0.00,0.23,0.46,0.69) beruht auf der kleinen Grösse des 
+Chiffriertextes
+(400-500 Bytes). Wenn der gleiche Test mit 60 000 Byte eines 
+Chiffriertextes gemacht wird, der von einem guten Kryptosystem 
+produziert wird (in dem alle
+256 mögliche Bytewerte vorhanden sein sollten, was einen Kappawert von 
+0.39% impliziert) erhalten wir ein Resultat der folgende Art:</p><p>
+</p><pre><font face="Courier New,Courier,Mono">              Verschiebung    IÜ      Übereinstimmung
+                      1      0.41%     248 in 60200
+                      2      0.43%     258 in 60199
+                      3      0.44%     263 in 60198
+                      4      0.43%     258 in 60197
+                      5      0.43%     257 in 60196
+                      6      0.34%     205 in 60195
+                      7      0.40%     239 in 60194
+                      8      0.42%     252 in 60193
+                      9      0.40%     241 in 60192
+                     10      0.40%     242 in 60191
+                     11      0.41%     247 in 60190
+                     12      0.36%     216 in 60189
+                     13      0.41%     245 in 60188
+                     14      0.37%     223 in 60187
+                     15      0.36%     219 in 60186
+                     16      0.41%     247 in 60185
+                     17      0.40%     238 in 60184
+                     18      0.37%     222 in 60183</font></pre>
+<p>
+Ein gutes Kryptosystem sollte Chiffriertext erzeugen, der den Kappatest 
+und andere statistische Test besteht, und er sollte keine 
+Regelmässigkeiten oder Muster  welcher Art auch immer zeigen.
+</p><p></p><hr><p>
+</p><h4 align="CENTER"><a href="http://www.hermetic.ch/crypto/bibliogg.htm">Ausgewählte  Bibliographie</a></h4>
+<p>
+
+</p><center>
+<!-- <font size="1">Stand: 2005-12-22 CE</font> -->
+<p align="center"><table border="4" cellpadding="8">
+<tbody><tr>
+<td colspan="2" align="center"><a href="http://www.hermetic.ch/crypto/me6g.htm">Cryptosystem ME6</a><br>Software&nbsp;zur&nbsp;Verschlüsselung von&nbsp;multiplen&nbsp;Dateien</td>
+</tr>
+<!--<TR>
+<TD align="center" colspan="2"><A HREF="../eeel/eeel_g.php">Easy Email Encryption Lite</A><BR>Software zur sichere Email-Verschl&uuml;sselung</TD>
+</TR>-->
+<tr>
+<td align="center"><a href="http://www.hermetic.ch/cryptog.htm">Kryptographie&nbsp;und&nbsp;Sicherheit</a></td>
+<td align="center"><a href="http://www.hermetic.ch/index.php">Hermetic&nbsp;Systems Home&nbsp;Page</a></td>
+</tr>
+</tbody></table></p>
+</center>
+
+</font>
+</blockquote>
+
+</body></html>

@@ -1,4 +1,52 @@
-Kryptologie
+x Kryptologie
+
+x.1 Allgemeines
+x.2 Kryptografie
+	x.2.1 Geschichte der Kryptografie
+		x.2.1.1 Klassische Kryptografie
+		x.2.1.2 Moderne Kryptografie
+	x.2.2 Ziele der Kryptografie
+	x.2.3 Methoden	
+x.3 Kryptoanalyse
+	x.3.1 Geschichte der Kryptoanalyse
+	x.3.2 Ziele der Kryptoanalyse
+	x.3.3 Methoden
+x.4 Verschlüsselungsverfahren
+	x.4.1 Symmetrische Verschlüsselungsverfahren
+		x.4.1.1 Merkmale
+		x.4.1.2 Nennenswerte symmetrische Verschlüsselungssysteme
+			x.4.1.2.1  DES
+			x.4.1.2.2  3DES
+			x.4.1.2.3  IDEA
+			x.4.1.2.4  CAST
+			x.4.1.2.5  RC4
+			x.4.1.2.6  RC5, RC5a, RC6
+			x.4.1.2.7  A5
+			x.4.1.2.8  Blowfish
+			x.4.1.2.9  Twofish
+			x.4.1.2.10 AES
+	x.4.2 Assymmetrische Verschlüsselungsverfahren
+		x.4.2.1 Merkmale
+			x.4.2.1.1 Digitale Signatur
+			x.4.2.1.2 Zertifikat
+		x.4.2.2 Nennenswerte asymmetrische Verschlüsselungssysteme
+			x.4.2.2.1 Diffie-Hellman
+			x.4.2.2.2 RSA
+			x.4.2.2.3 ElGamal
+	x.4.3 Hybride Verschlüsselungsverfahren
+		x.4.3.1 Merkmale
+		x.4.3.2 Nennenswerte hybride Verschlüsselungssysteme
+			x.4.3.2.1 IPsec
+			x.4.3.2.2 TLS/SSL
+			x.4.3.2.3 PGP
+	x.4.4 Hash-Verfahren
+		x.4.4.1 Merkmale
+		x.4.4.2 Nennenswerte Hashsysteme
+			x.4.4.2.1 MD2, MD4, MD5
+			x.4.4.2.2 SHA
+			x.4.4.2.3 RIPEMD
+
+_______________________________________________________________________________________
 
 ______________
 A) Allgemeines
@@ -79,8 +127,7 @@ _______________________________
 B) Das Problem des Key-Exchange
 -------------------------------
 
-Der Key-Exchange (=Schlüsselaustausch, "key-establishment") ist eine Methode mithilfe kryptografischer Algorythmen, Informationen, ohne den Gebrauch von zusätzlichen
-Informationskanälen, zwischen zwei Nutzern auszutauschen.
+Der Key-Exchange (=Schlüsselaustausch, "key-establishment") ist eine Methode mithilfe kryptografischer Algorythmen, Informationen, ohne den Gebrauch von zusätzlichen Informationskanälen, zwischen zwei Nutzern auszutauschen.
 
 Diese Methode macht sich die asymmetrische Verschlüsselung zu nutze, da für die Ver- und Entschlüsselung zwei verschieden Schlüssel gebraucht werden.
 

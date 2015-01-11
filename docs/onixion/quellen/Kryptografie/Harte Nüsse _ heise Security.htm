@@ -1,0 +1,1034 @@
+<!DOCTYPE html>
+<html lang="de"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    
+
+
+
+<meta charset="utf-8">
+<meta name="publisher" content="Heise Zeitschriften Verlag">
+<meta name="viewport" content="width=1175">    <link rel="canonical" href="http://www.heise.de/security/artikel/Harte-Nuesse-Verschluesselungsverfahren-und-ihre-Anwendungen-270266.html">
+<link rel="alternate" media="only screen and (max-width: 640px)" href="http://m.heise.de/security/artikel/Harte-Nuesse-Verschluesselungsverfahren-und-ihre-Anwendungen-270266.html" id="mobil_variante">
+
+<link rel="home" type="text/html" title="Startseite" href="http://www.heise.de/security/">
+<link rel="copyright" title="Copyright" href="http://www.heise.de/security/impressum.html">    <meta name="robots" content="noindex, follow"> <!--googleoff: all-->
+<meta name="generator" content="InterRed V15.2.2, http://www.interred.de/, InterRed GmbH">
+<!--googleon: all-->
+
+    
+<link href="Harte%20N%C3%BCsse%20_%20heise%20Security-Dateien/standard2008.css" rel="stylesheet" type="text/css">
+<link href="Harte%20N%C3%BCsse%20_%20heise%20Security-Dateien/drucken.css" rel="stylesheet" type="text/css" media="print">
+<link href="Harte%20N%C3%BCsse%20_%20heise%20Security-Dateien/gallery.css" rel="stylesheet" type="text/css">
+
+
+    <link href="http://www.heise.de/favicon_security.ico" rel="shortcut icon">
+    <link href="Harte%20N%C3%BCsse%20_%20heise%20Security-Dateien/security2012.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    html, body {
+        background: #fff none;
+    }
+    </style>
+    <title>Harte Nüsse  | heise Security</title>
+    
+    <script type="text/javascript" src="Harte%20N%C3%BCsse%20_%20heise%20Security-Dateien/iam.js"></script>
+
+</head>
+
+<body>
+    <!--googleoff: all-->
+    
+
+
+
+
+    <div class="heisetopnavi no-touch heisetopnavi_relaunch">
+    <div class="heisetopnavi_header">
+        <header role="banner">
+            <div class="heisetopnavi_login">
+                <script type="text/javascript" src="Harte%20N%C3%BCsse%20_%20heise%20Security-Dateien/login.js"></script>
+                <div id="navi_login">
+                    <p><a href="https://www.heise.de/userdb/sso?rm=show_login&amp;dirid=1&amp;objekt=/">Einloggen</a> auf heise online</p>
+                </div>
+            </div>
+            <nav role="navigation">
+                <div class="heisetopnavi_hover_legacy">
+                    <a href="http://www.heise.de/index.html/from/navi_oben_ho" class="heisetopnavi_logo" title="heise online">
+                        <img src="Harte%20N%C3%BCsse%20_%20heise%20Security-Dateien/heise_online_logo_top.gif" alt="heise online" id="heisetopnavi_ho_logo_top_img" height="44" width="200">
+                    </a>
+                    <a href="#heisetopnavi_sub_container" class="heisetopnavi_button" aria-haspopup="true">Menü auf-/zuklappen</a>
+                    <div id="heisetopnavi_sub_container">
+                        <ul id="heisetopnavi_sub">
+                            <li>
+                                <ul>
+                                    <li class="heisetopnavi_ho"><a href="http://www.heise.de/index.html/from/navi_oben_ho" title="heise online – IT-News" name="dachzeile.ho.ho">News</a></li>
+                                    <li class="heisetopnavi_ct"><a href="http://www.heise.de/ct/from/navi_oben_ct" title="c't – Magazin für Computertechnik" name="dachzeile.ho.ct">c't</a></li>
+                                    <li class="heisetopnavi_ix"><a href="http://www.heise.de/ix/from/navi_oben_ix" title="iX – Magazin für professionelle Informationstechnik" name="dachzeile.ho.ix">iX</a></li>
+                                    <li class="heisetopnavi_tr"><a href="http://www.heise.de/tr/from/navi_oben_tr" title="Technology Review – Das M.I.T.-Magazin für Innovation" name="dachzeile.ho.tr">Technology Review</a></li>
+                                    <li class="heisetopnavi_mac"><a href="http://www.heise.de/mac-and-i/from/navi_oben_mac" title="Mac &amp; i – Nachrichten, Tests, Tipps und Meinungen rund um Apple" name="dachzeile.ho.mac-and-i">Mac &amp; i</a></li>
+                                    <li class="heisetopnavi_tp"><a href="http://www.heise.de/tp/from/navi_oben_tp" title="Telepolis" name="dachzeile.ho.tp">Telepolis</a></li>
+                                    <li class="heisetopnavi_hh"><a href="http://www.heise.de/hardware-hacks/from/navi_oben_hh" title="c't Hacks – Kreativ mit Technik" name="dachzeile.ho.hardware-hacks">c't Hacks</a></li>
+                                    <li class="heisetopnavi_df"><a href="http://www.heise.de/foto/special/from/navi_oben_df" title="Digitale Fotografie" name="dachzeile.ho.digitale-fotografie">Digitale Fotografie</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <ul>
+                                    <li class="heisetopnavi_aut"><a href="http://www.heise.de/autos/from/navi_oben_aut" title="heise Autos – News, Tests, Technik, Service rund ums Auto" name="dachzeile.ho.autos">heise Autos</a></li>
+                                    <li class="heisetopnavi_dev"><a href="http://www.heise.de/developer/from/navi_oben_dev" title="heise Developer – Informationen für Entwickler" name="dachzeile.ho.developer">heise Developer</a></li>
+                                    <li class="heisetopnavi_foto"><a href="http://www.heise.de/foto/from/navi_oben_foto" title="heise Foto – Das Online-Magazin rund ums digitale Bild" name="dachzeile.ho.foto">heise Foto</a></li>
+                                    <li class="heisetopnavi_net"><a href="http://www.heise.de/netze/from/navi_oben_net" title="heise Netze – Alles über Netzwerk-Technik" name="dachzeile.ho.netze">heise Netze</a></li>
+                                    <li class="heisetopnavi_op"><a href="http://www.heise.de/open/from/navi_oben_op" title="heise open – Open Source im Unternehmen" name="dachzeile.ho.open">heise Open Source</a></li>
+                                    <li class="heisetopnavi_sec"><a href="http://www.heise.de/security/from/navi_oben_sec" title="heise Security – News, Dienste und Foren zum Thema Computer-Sicherheit" name="dachzeile.ho.security">heise Security</a></li>
+                                    <li class="heisetopnavi_video"><a href="http://www.heise.de/video/from/navi_oben_video" title="heise Video – Clips zu Nachrichten und Artikeln" name="dachzeile.ho.video">heise Video</a></li>
+                                    <li class="heisetopnavi_tech"><a href="http://www.heise.de/redirect-to/techstage/from/navi_oben_techstage" title="TechStage – News, Tests &amp; Praxis zu Smartphones und Tablets mit Android, iOS, Windows Phone &amp; Co." name="dachzeile.ho.techstage">TechStage</a></li>
+                                </ul>
+                            </li>
+                            <li class="heisetopnavi_third">
+                                <ul>
+                                    <li class="heisetopnavi_swv"><a href="http://www.heise.de/download/from/navi_oben_swv" title="Software-Verzeichnis – Software zum Download fuer Windows, Mac, Linux, iPhone, Symbian, Android" name="dachzeile.ho.download">Download</a></li>
+                                    <li class="heisetopnavi_pvg"><a href="http://www.heise.de/preisvergleich/from/navi_oben_pvg" title="Preisvergleich – Günstige Preise, Meinungen und Bewertungen zu vielen Produkten" name="dachzeile.ho.preisvergleich">Preisvergleich</a></li>
+                                    <li class="heisetopnavi_job"><a href="http://www.heise.de/jobs/from/navi_oben_job" title="heise jobs – Jobbörse für qualifizierte Fach- und Führungskräfte aus der IT-Branche" name="dachzeile.ho.jobs">Stellenmarkt</a></li>
+                                    <li class="heisetopnavi_eve"><a href="http://www.heise.de/events/from/navi_oben_eve" title="heise Events – Konferenzen, Seminare, Workshops" name="dachzeile.ho.events">Veranstaltungen</a></li>
+                                    <li class="heisetopnavi_itm"><a href="http://www.heise.de/itmarkt/from/navi_oben_itm" title="IT-Markt – Branchenverzeichnis der IT-Fachhändler" name="dachzeile.ho.itmarkt">IT-Markt</a></li>
+                                    <li class="heisetopnavi_whi"><a href="http://www.heise.de/whitepapers/from/navi_oben_whi" title="heise Whitepapers – Kostenloser Download aktueller Praxisbeispiele, Firmeninfos, Case Studies und Webcasts zu neuen Produkten, Strategien und Lösungen namhafter IT-Hersteller" name="dachzeile.ho.whitepapers">Whitepapers</a></li>
+                                    <li class="heisetopnavi_webcasts"><a href="http://www.heise.de/redirect-to/webcasts/from/navi_oben_webcasts" title="heise Webcasts – Kompakte Firmeninformationen zu komplexen IT-Sachverhalten" name="dachzeile.ho.webcasts">Webcasts</a></li>
+                                    <li class="heisetopnavi_tarifr"><a href="http://www.heise.de/redirect-to/tarifrechner/from/navi_oben_tarifr" title="Tarifrechner – DSL, Mobiles Internet, Handy, Telefon, Strom, Gas" name="dachzeile.ho.tarifrechner">Tarifrechner</a></li>
+                                </ul>
+                            </li>
+                            <li class="heisetopnavi_fourth">
+                                <ul>
+                                    <li class="heisetopnavi_shop"><a href="http://www.heise.de/redirect-to/shop/from/navi_oben_shop" title="heise shop – IT Fachzeitschriften, Bücher, CD/DVD/Blu-ray" name="dachzeile.ho.shop">heise shop</a></li>
+                                    <li class="heisetopnavi_kio"><a href="http://www.heise.de/artikel-archiv/from/navi_oben_kio" title="Artikel-Archiv – c't, iX, Technology Review, Digitale Fotografie, Mac &amp; i, Sonderhefte" name="dachzeile.ho.artikel-archiv">Artikel-Archiv</a></li>
+                                    <li class="heisetopnavi_abo"><a href="http://www.heise.de/redirect-to/abo/from/navi_oben_abo" title="Abo – c't, iX, Technology Review, Digitale Fotografie, Mac &amp; i" name="dachzeile.ho.abo">Zeitschriften-Abo</a></li>
+                                    <li class="heisetopnavi_hmg"><a href="http://www.heise.de/redirect-to/hmg/from/navi_oben_hmg" title="Arbeiten bei heise – Aktuelle Stellenangebote der Heise Medien Gruppe" name="dachzeile.ho.hmg">Arbeiten bei heise</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+
+            
+
+            
+                
+                    
+                    
+            
+
+            <form accept-charset="utf-8" method="get" action="/security/suche/" id="heisetopnavi_search" role="search">
+                <fieldset>
+                    <input class="search_text" name="q" placeholder="in heise Security suchen" type="text"><input src="Harte%20N%C3%BCsse%20_%20heise%20Security-Dateien/heise_online_lupe.gif" alt="Los" class="search_submit" name="search_submit" type="image">
+                    <input class="search_hidden" value="search" name="rm" type="hidden">
+                </fieldset>
+            </form>
+        </header>
+    </div>
+    <div class="clear"></div>
+</div>
+
+<script type="text/javascript">
+if (typeof jQuery !== "undefined") {
+    jQuery(document).ready(function($) {
+        // Support Touch-Devices
+        if ('ontouchstart' in document) {
+            $('.heisetopnavi_relaunch').removeClass('no-touch');
+        }
+        $('.heisetopnavi_button').bind('touchstart', function(e) {
+            e.preventDefault();
+            if ($(e.target).is('a.heisetopnavi_button')) {
+                $(this).toggleClass('active');
+                $('.heisetopnavi header > nav').toggleClass('hover');
+            }
+        });
+
+        $('.heisetopnavi_relaunch .heisetopnavi_button').click(function(e) {
+            e.preventDefault();
+        });
+
+        // Support Keyboard
+        $('.heisetopnavi_relaunch .heisetopnavi_button').keyup(function(e) {
+            if (e.which == 13 && $(e.target).is('a.heisetopnavi_button')) {
+                $('.heisetopnavi_relaunch .heisetopnavi_button').toggleClass('active');
+                $('.heisetopnavi_relaunch header > nav').toggleClass('hover');
+            }
+        });
+
+        /*
+         * Open/Close Menu with JavaScript for more Usability
+         */
+
+        $('.heisetopnavi_relaunch').removeClass('no-touch');
+
+        // Logo + Icon
+        $('.heisetopnavi_relaunch .heisetopnavi_hover_legacy').mouseenter(function() {
+            var timeout_id = window.setTimeout(function() {
+                $('.heisetopnavi_relaunch .heisetopnavi_button').addClass('active');
+                $('.heisetopnavi_relaunch nav').addClass('hover');
+                $('body').addClass('refreshDOM');
+                $('body').removeClass('refreshDOM');
+            }, 300);
+            $(this).data('timeout_id', timeout_id);
+        });
+        $('.heisetopnavi_relaunch .heisetopnavi_hover_legacy').mouseleave(function() {
+            var timeout_id = $(this).data('timeout_id');
+            window.clearTimeout(timeout_id);
+            timeout_id = window.setTimeout(function() {
+                $('.heisetopnavi_relaunch .heisetopnavi_button').removeClass('active');
+                $('.heisetopnavi_relaunch nav').removeClass('hover');
+                $('body').addClass('refreshDOM');
+                $('body').removeClass('refreshDOM');
+            }, 0);
+            $(this).data('timeout_id', timeout_id);
+        });
+    });
+
+    if (typeof heiseLogin != "undefined") {
+        heiseLogin.login_fill_navigation({});
+    }
+}
+</script>
+
+    
+
+
+<div id="artikel">
+    <div class="print_version">
+        <div>
+            <a href="http://www.heise.de/security/"><img src="Harte%20N%C3%BCsse%20_%20heise%20Security-Dateien/security_logo.gif" alt="heise Security" height="75" width="112"></a>
+            
+        </div>
+        
+            <p class="heftausgabe">Dieser Artikel erschien ursprünglich in c't 17/2003, Seite 200</p>
+        
+        <h1>Harte Nüsse </h1>
+        <h2>Verschlüsselungsverfahren und ihre Anwendungen </h2>
+        <h3>Dr. Reinhard Wobst<span class="datum"> - 08.08.2003</span></h3>
+        <p class="vorlauf">Kryptographische Algorithmen bilden ein 
+Fundament der Datensicherheit und sind gleichzeitig ihr am schwierigsten
+ zu bewertender und zu verstehender Teil. Mathematisch sichere 
+Verschlüsselungsverfahren gibt es nur wenige - und selbst diese können 
+aufgrund von Implementierungsfehlern ausgehebelt werden. </p>
+        
+			<p>Wer Daten über einen unsicheren Kanal wie Internet oder 
+Wireless-LAN versendet, kann sich nur durch Verschlüsseln vor dem 
+unbefugten Mithören schützen. Das ist leichter gesagt als getan: Nicht 
+nur der Verschlüsselungsalgorithmus selbst muss Angriffen widerstehen 
+können, sondern auch der Schlüssel. Das kryptographische Protokoll muss 
+ebenso wasserdicht sein wie seine Implementierung, und nicht zuletzt ist
+ oft der Benutzer die größte Sicherheitslücke. </p>
+<p> Aus dieser Kette greift der folgende Artikel nur ein Glied heraus, 
+die kryptographischen Algorithmen. Schon dieses Thema ist verwirrend und
+ schwierig genug: Selbst ein Experte kann die Sicherheit eines 
+Verschlüsselungsalgorithmus allein kaum beurteilen, es sei denn, der 
+Algorithmus ist offensichtlich schwach. Viele Themen können daher nur 
+gestreift werden; mehr erfährt man in der „Bibel“ von Schneier [1] oder 
+dem weniger mathematischen und umfangreichen, aber aktuelleren Buch des 
+Autors [2]. </p>
+<p> Kryptographie, also die Lehre von der Verschlüsselung, ist 
+Jahrtausende alt. Einen historischen Überblick liefert beispielsweise 
+[3]. Eine der wichtigen Lehren aus der Geschichte lautet: „Der Feind 
+kennt immer dein Verfahren.“ Es bringt also nichts, sich irgendwelche 
+obskuren Kodierungen auszudenken, „auf die niemals jemand kommen wird“. 
+Solche Methoden werden üblicherweise als „Snake Oil“ bezeichnet; man 
+erkennt entsprechende Produkte an Formulierungen wie „einzigartiger, 
+patentierter Algorithmus mit nie gekannter Sicherheit“, „Tausende Bit 
+lange Schlüssel“, „beweisbar sichere Algorithmen“. Wenn das Verfahren 
+dann doch einmal offen gelegt und (wie bei fast allen Eigenentwicklungen
+ zu erwarten) als unsicher erkannt wird, lassen sich nachträglich noch 
+alle abgefangenen Nachrichten dechiffrieren. </p>
+<h3 class="subheading">Symmetrische Verfahren </h3>
+<p>In der klassischen Kryptographie vereinbaren die 
+Kommunikationspartner einen gemeinsamen geheimen Schlüssel. Jeder, der 
+diesen Schlüssel besitzt, kann damit chiffrieren wie dechiffrieren. 
+Wegen dieser Symmetrie werden die verwendeten Algorithmen auch 
+symmetrische Verfahren genannt. Dazu zählt der populäre 
+Substitutionsalgorithmus, bei dem jeder Buchstabe nach einer festen 
+Tabelle durch einen anderen ersetzt wird (die Ersetzungstabelle ist 
+dabei als Schlüssel aufzufassen). Dieses Verfahren ist besonders bei 
+Kindern beliebt - und das Sicherheitsniveau dementsprechend [3]. </p>
+<p> Auf einer ähnlichen Methode beruht das Vigen&amp;egravere-Verfahren,
+ das im 16. Jahrhundert entwickelt wurde. Auch heute kommt es teilweise 
+noch zum Einsatz, einige amerikanische Mobiltelefone sollen es angeblich
+ noch verwenden. In der ursprünglichen Form wird der Schlüssel - in 
+diesem Fall ein Passwort - direkt über den Klartext geschrieben: </p>
+<p><code>PATRICKPATRICKPATRICK</code></p>
+<p>DASISTEINGEHEIMERTEXT </p>
+<p>Übereinander liegende Zeichen „addiert“ man, indem man A als 0, B als
+ 1 usw. kodiert und Ergebnisse größer als 25 um 26 verkleinert. Nach 
+Rückkodierung ergibt sich der Geheimtext </p>
+<p><code>SALZAVOXNZVPGSBEKKMZD</code></p>
+<p>Ein so genannter deterministischer Angriff, bei dem man zu einem 
+bekannten Klartext den verschlüsselten Text kennt, liefert sofort den 
+Schlüssel. Aber auch mit statischen Methoden und anderen Tricks lässt 
+sich die Vigen&amp;egravere-Verschlüsselung knacken (auch bei 
+komprimiertem Klartext), mehr dazu findet sich inklusive 
+Beispielprogrammen in [2]. </p>
+<p> Nur in einem Spezialfall ist dieses Verfahren (in der bitweisen 
+Version) sicher: Wenn der Schlüssel genauso lang wie der Geheimtext und 
+obendrein wirklich zufällig ist. Das ist das so genannte One-Time Pad, 
+die einzige bisher beweisbar sichere Verschlüsselungsmethode. Sie ist 
+allerdings hochgradig unpraktisch und daher nur in ganz seltenen Fällen 
+sinnvoll. </p>
+<p> Moderne Algorithmen wie AES, 3DES et cetera arbeiten blockweise. Bei
+ solchen Blockalgorithmen wird der Klartext zum Beispiel in Portionen zu
+ 64 Bit aufgeteilt und aus jeder solchen Portion jeweils ein Geheimtext 
+von 64 Bit Länge erzeugt. Das entspricht in der Theorie einem 
+Substitutionsalgorithmus, dessen Tabelle 2<sup>64</sup> Einträge 
+umfasst. Allein die Größe dieser Zahl verhindert statistische Analysen 
+analog zu den klassischen Verfahren. In der Praxis konstruiert man oft 
+eine Transformation, in die alle Bits aus dem Klartextblock sowie ein 
+Schlüssel mit eingehen und die sowohl statistische Analyse erschwert als
+ auch kompliziert genug ist, um deterministische Angriffe zu verhindern.
+ Diese Transformation wird mehrfach hintereinander angewandt, jedes Mal 
+mit einem anderen Schlüssel. Man spricht von Runden und nennt daher die 
+Teilschlüssel auch Rundenschlüssel. Letztere werden aus dem 
+Verfahrensschlüssel gesondert erzeugt. </p>
+<p> Mathematisch gesehen ist die Transformation eines Klartextblockes in
+ einen Geheimtextblock das Produkt von mehreren Runden-Transformationen,
+ die sich bis auf die verwendeten Rundenschlüssel gleichen. Daher 
+spricht man bei solchen Chiffrierverfahren auch von Produktalgorithmen. 
+Die meisten Algorithmen, die bis heute allen Kryptanalysen erfolgreich 
+widerstanden haben, gehören zu dieser Kategorie. Beispiele dafür sind 
+DES, 3DES, IDEA, AES, Twofish, RC5 und RC6. Bei sorgfältigem Design 
+lassen Produktalgorithmen bekannte statistische Angriffsmethoden ins 
+Leere laufen [1, 2]. </p>
+		
+		<p></p><hr><p></p><h3 class="subheading">Stromchiffrierungen und Chiffriermoden </h3>
+<p>Neben den Blockalgorithmen gibt es noch eine Familie ganz anderer 
+Verschlüsselungsverfahren, die so genannten Stromchiffrierungen. Bei 
+ihnen wird aus einem geheimen Schlüssel ein pseudozufälliger Bitstrom 
+erzeugt und per bitweisem XOR mit dem Klartext verknüpft. Der Empfänger 
+braucht diese Operation nur zu wiederholen, um aus dem Geheimtext den 
+Klartext zu erzeugen. </p>
+<p>Von der Arbeitsweise her entspricht das einem One-Time Pad, 
+allerdings setzt jenes echten Zufall voraus. Die Qualität einer 
+Stromchiffrierung kann daran gemessen werden, wie „zufällig“ der 
+Schlüsselstrom ist. Solche Stromchiffren waren traditionell Domäne des 
+Militärs. Man erzeugt den Schlüsselstrom oft mittels Hardware 
+(rückgekoppelte Schieberegister, vgl. [1, 2]) und erreicht damit sehr 
+hohe Geschwindigkeiten. Eine populäre zivile Anwendung ist der 
+Algorithmus A5, mit dem der Datenverkehr von GSM-Handys chiffriert wird.
+ Es geht aber auch in Software - der unter anderem beim SSL-Protokoll 
+verwendete Algorithmus RC4 ist ein Beispiel hierfür. In Software sind 
+jedoch Blockalgorithmen im Allgemeinen schneller, weil heutige 
+Prozessoren Einheiten von 32 oder 64 Bit parallel verarbeiten und bei 
+kleineren Bitmengen ineffizienter werden. </p>
+<p>	<!-- RSPEAK_STOP -->
+	<span class="bild_links" style="width:250px;">
+		<img src="Harte%20N%C3%BCsse%20_%20heise%20Security-Dateien/0c604e9c0757b9c4.jpg" alt="" height="83" width="250">
+	
+		<br>
+		<span class="bildunterschrift">
+			Beim OFB-Modus (Output Feedback) wird ein zufälliger Block IV immer 
+wieder chiffriert und der so erzeugte Bitstrom per XOR mit dem Klartext 
+verknüpft. Das ist günstig für Echtzeitanwendungen.
+		
+		</span>
+	
+	
+	</span>
+	<!-- RSPEAK_START -->
+Stromchiffrierungen haben den Vorteil, dass man den Schlüsselstrom im 
+Voraus berechnen und daher bit- oder byteweise chiffrieren und sofort 
+übertragen kann. Sie sind also ideal, um etwa Tastendrücke verschlüsselt
+ zu senden (bei einem Blockalgorithmus müsste dazu jeweils auf die 
+Blocklänge „aufgerundet“ werden). Nachteilig ist allerdings, dass der 
+gleiche Schlüsselstrom niemals wiederverwendet werden darf, denn sonst 
+sind gefährliche Angriffe möglich. Außerdem besteht die Gefahr, dass 
+durch so genanntes „Bit umkippen“ gezielt Teile des Klartextes 
+verfälscht werden können: Ändert ein Angreifer ein Bit im Geheimtext, so
+ ändert es sich auch im Klartext. Das liegt in der Natur der 
+XOR-Operation und kann nur durch zusätzliche Prüfsummen erkannt werden. </p>
+<p>	<!-- RSPEAK_STOP -->
+	<span class="bild_rechts" style="width:250px;">
+		<img src="Harte%20N%C3%BCsse%20_%20heise%20Security-Dateien/6e27601305882151.jpg" alt="" height="83" width="250">
+	
+		<br>
+		<span class="bildunterschrift">
+			Beim CBC-Modus (Cipher Block Chain) werden die Klartextblöcke vor dem
+ Chiffrieren per XOR mit dem letzten Geheimtext verknüpft. Das verbirgt 
+Klartextstrukturen und ist zum Beispiel bei Dateiverschlüsselungen 
+üblich. 
+		
+		</span>
+	
+	
+	</span>
+	<!-- RSPEAK_START -->
+Jeder Blockalgorithmus lässt sich ebenso als Stromchiffrierung 
+verwenden, beispielsweise im so genannten OFB-Modus (Output Feedback). 
+Dazu wird ein Block „IV“ immer wieder chiffriert und der entstehende 
+Datenstrom als Schlüsselstrom verwendet. „IV“ steht hier für 
+„Initialisierungsvektor“, eine etwas unglückliche Bezeichnung für einen 
+zufälligen, nicht geheimen Startblock. </p>
+<p>In der Regel wendet man bei Blockalgorithmen allerdings den CBC-Modus
+ (Cipher Block Chain) an. Das Ergebnis der letzten Chiffrierung wird 
+dabei zunächst per XOR mit dem nächsten Klartextblock verknüpft und erst
+ dieses Ergebnis chiffriert. Dadurch wird die Klartextstruktur zerstört,
+ über die man beim simplen blockweisen Verschlüsseln noch Aussagen 
+machen könnte (beispielsweise würde 1 KByte Nullen 128 gleiche 
+64-Bit-Geheimtextblöcke erzeugen). Vor- und Nachteile der bekannten 
+Chiffriermoden sind in <b>[1, Kap. 9.11] [1]</b> detailliert dargelegt. </p>
+		<p></p><hr><p></p><h3 class="subheading">Kryptanalyse </h3>
+<p>Um zu beurteilen, wie sicher ein Verschlüsselungsalgorithmus ist, 
+muss man sich überlegen, wie einfach und mit welchen Mitteln er 
+auszuhebeln ist. Im einfachsten Fall knackt man einen Algorithmus, indem
+ man alle möglichen Schlüssel durchprobiert und testet, ob sich bei 
+Dechiffrierung ein sinnvoller Klartext ergibt. Diese Methode heißt 
+„Brute Force“ und hat ihre Grenzen. Schlüssellängen von 32 oder auch 40 
+Bit sind für heutige PCs keine Hürde mehr. Einen 56-Bit-Schlüssel von 
+DES kann Spezialhardware erraten [5], und 64 Bit sind für weltweit 
+verteilte, parallel arbeitende Rechner noch machbar. Dass das 
+Durchprobieren aller 128 Bit langen Schlüssel in vorstellbarer Zukunft 
+ein Wunschtraum bleiben wird, mag sich jeder selbst ausrechnen. Ein 
+Algorithmus gilt als sicher, wenn Brute Force die effektivste bekannte 
+Angriffsmethode ist. </p>
+<p> Der Begriff „Kryptanalyse“ wird jedoch viel weiter gefasst: Nicht 
+nur die Rekonstruktion des Klartextes aus dem Geheimtext ohne Kenntnis 
+des Schlüssels ist damit gemeint, sondern auch die Gewinnung jeglicher 
+Aussagen über den Klartext (wie etwa die Sprache) oder über den 
+Schlüssel (Wert einzelner Bits) zählt dazu. Oft kennt man auch einige 
+Bytes des Klartextes (bekannte Headerstrukturen bei Word-Dokumenten) und
+ versucht nur, damit die Zahl möglicher Schlüssel zu verringern. Ebenso 
+interessant kann es sein, bekannte oder gar ausgewählte Klartexte 
+unterzuschieben und den erzeugten Geheimtext zu analysieren. Im zweiten 
+Weltkrieg bombardierten Alliierte zu diesem Zweck Leuchtbojen, weil 
+daraufhin „erloschen ist Leuchttonne“ chiffriert und gefunkt wurde [3]. 
+Manchmal gelingt es auch einem Angreifer, einzelne Bits des Klartextes 
+beziehungsweise des Schlüssels (in Smartcards) umzukippen und die 
+Chiffrierung wiederholen zu lassen. Gegenüber dem letzteren Angriff 
+zeigte sich zum Beispiel DES empfindlich. Weitere kryptanalytische 
+Methoden finden sich in [1] und [2]. </p>
+<p> Wie man sieht, ist in der Kryptanalyse alles erlaubt - Hauptsache, 
+es ist praktizierbar und führt zum Ziel. Nicht einmal mathematische 
+Strenge ist gefordert, sogar Computersimulationen werden eingesetzt. Das
+ alles bringt die Designer der Algorithmen, die Kryptographen, in eine 
+schwierige Lage. Formulierungen wie „resistent gegen alle bekannten 
+Angriffe“ belegen schon ihr Dilemma. Bis auf das fast nie anwendbare 
+One-Time Pad ist bisher die Sicherheit nicht eines Algorithmus 
+beweisbar. Vermutlich wird sich daran auch nicht so schnell etwas 
+ändern. </p>
+<p> Dennoch besteht kein Grund zum Verzweifeln. Die Kryptanalyse hat in 
+den letzten zehn Jahren große Fortschritte gemacht, aber die 
+Kryptographen ebenfalls. Eine erfolgreiche Kryptanalyse muss noch lange 
+keinen praktikablen Angriff bedeuten. Ein gutes Beispiel hierfür liefert
+ DES: Die beste bekannte Analyse setzt 2<sup>43</sup> bekannte 
+Klartextblöcke voraus, das entspricht etwa 70 Terabyte. Die 
+anschließende Rechenarbeit auf zwölf Workstations HP 9735 würde dann 
+noch 50 Tage dauern (mit heutigen Rechnern sicherlich kürzer). Gegenüber
+ dieser Methode ist Brute Force mit Deep Crack [5] um Größenordnungen 
+gefährlicher. Analog sind die für Theoretiker beunruhigenden Ergebnisse 
+zu AES zu sehen [7]. Allerdings darf man einem Algorithmus erst 
+vertrauen, wenn er offen gelegt wurde und über viele Jahre hinweg das 
+Interesse zahlreicher Kryptanalytiker fand. Flops wie die Chiffrierungen
+ von WordPerfect und PKZIP belegen dies [2]. </p>
+		<p></p><hr><p></p><h3 class="subheading">Asymmetrische Verfahren </h3>
+<p>Ein grundsätzliches Problem der verschlüsselten Kommunikation besteht
+ im Austausch des Schlüssels: Da dieser geheim bleiben muss, sollte er 
+nicht im Klartext über einen unsicheren Kanal wie das Internet versendet
+ werden. Die erste praktikable Lösung für den Schlüsseltransfer 
+publizierten Diffie und Hellman 1976. Sie beruht auf dem Problem, 
+diskrete Logarithmen zu ermitteln: Die Berechnung des üblichen 
+Logarithmus, also des Exponenten x aus bekannten Größen a und a<sup>x</sup>,
+ gehört zum Schulstoff. Anders verhält es sich, wenn man nur mit ganzen 
+Zahlen arbeitet und die Reste bei Teilung durch eine Primzahl p 
+betrachtet. Es ist für große p (typischerweise 1024 oder 2048 Bit lang) 
+im Allgemeinen nicht möglich, aus dem Teilungsrest a<sup>x</sup> mod p 
+bei bekannter Basis a die Größe x zu ermitteln. Zumindest hat man in den
+ letzten Jahrzehnten trotz größter Anstrengungen keine praktikable 
+Methode gefunden. Nach Diffie und Hellman vereinbaren die 
+Kommunikationspartner (in der Kryptographie traditionell Alice und Bob 
+genannt) zwei gemeinsame Zahlen a und p, und jeder wählt für sich 
+zufällige (geheime) Exponenten x und y. Schickt Alice an Bob </p>
+<p><code>X = ax mod p</code></p>
+<p>und Bob an Alice </p>
+<p><code>Y = ay mod p</code></p>
+<p>können beide ein gemeinsames Geheimnis errechnen, ohne dass es über das Netz übertragen werden muss, nämlich </p>
+<p><code>axy mod p</code></p>
+<p>Dieses Geheimnis kann jetzt als Schlüssel in einem symmetrischen Verfahren genutzt werden. </p>
+<p>Der Diffie-Hellman-Schlüsseltausch ist beispielsweise Grundlage für 
+das Protokoll der Secure Shell (SSH2, OpenSSH) und ebenso für IPSec. 
+Weil es jedoch eine Interaktion beider Parteien voraussetzt, kann es 
+beispielsweise nicht bei der Mail-Verschlüsselung eingesetzt werden. </p>
+<p>Dazu dienen asymmetrische oder auch Public-Key-Verfahren, bei denen 
+es zwei Schlüssel gibt: einen öffentlichen, der nur zum Chiffrieren 
+dient, und einen geheimen (privaten) - ausschließlich mit ihm kann man 
+wieder dechiffrieren. Jeder kann also chiffrieren, doch nur der Besitzer
+ des privaten Schlüssels kann den Geheimtext wieder entschlüsseln. Damit
+ braucht kein geheimer Schlüssel mehr transportiert zu werden. Die 
+bekanntesten solchen Public-Key-Verfahren sind ElGamal und vor allem 
+RSA. </p>
+<p>Der wichtigste asymmetrische Algorithmus RSA beruht darauf, dass es 
+mathematisch extrem schwierig ist, große Zahlen zu faktorisieren, also 
+etwa aus dem Produkt pq zweier sehr großer Primzahlen die beiden 
+Faktoren p und q zu ermitteln. Zur Anwendung wählt man zufällig zwei 
+Primzahlen p und q, von denen nur das Produkt pq bekannt gegeben wird, 
+und konstruiert zwei spezielle Exponenten, einen „öffentlichen“ d und 
+einen „privaten“ e. Bei der Chiffrierung einer Zahl (Nachricht) m 
+berechnet man </p>
+<p><code>c = md mod pq ,</code></p>
+<p>und e ist so gewählt, dass </p>
+<p><code>de = 1 mod (p-1)(q-1) und</code> </p>
+<p><code>m = ce mod pq</code></p>
+<p>gilt. Dabei lässt sich e nicht aus d berechnen, ohne die Primzahlen p
+ und q zu kennen. Ließen sich diese aus pq bestimmen, dann wäre der 
+diskrete Algorithmus und damit RSA geknackt. </p>
+<p>Eine Übersicht symmetrischer und asymmetrischer Krypto-Verfahren finden sie in der <b>Tabelle Verschlüsselungs-Algorithmen [2]</b>.</p>
+		<p></p><hr><p></p><h3 class="subheading">Weitere Gefahren </h3>
+<p>Die Schlüssellänge bei solchen Verfahren beschreibt die Anzahl der 
+Bit der Zahl p beziehungsweise pq, typischerweise 512, 1024 oder 2048. 
+Diese Zahlen sind allerdings nicht mit den Schlüssellängen bei 
+symmetrischen Verschlüsselungsverfahren vergleichbar; 128 Bit bei AES 
+bieten beispielsweise deutlich mehr Sicherheit als 512 Bit bei RSA. 
+Welche Schlüssellängen für welches Verfahren zu empfehlen sind, können 
+Sie der Tabelle am Ende des Artikels entnehmen. </p>
+<p> In der Praxis werden asymmetrische Verfahren normalerweise nur 
+eingesetzt, um pseudozufällige Klartexte wie Sitzungsschlüssel oder 
+Hashes zu chiffrieren. Asymmetrische Verschlüsselungsverfahren sind im 
+Vergleich zu symmetrischen recht langsam - das ist aber nur ein 
+nebensächlicher Grund. Entscheidender ist, dass asymmetrische Verfahren 
+sehr anfällig gegenüber Implementierungsfehlern sind. Klartexte werden 
+daher niemals direkt mit asymmetrischen Verfahren verschlüsselt, sondern
+ nur Sitzungsschlüssel oder Ähnliches - die Gefahr einer erfolgreichen 
+Kryptanalyse wäre einfach zu hoch. </p>
+<p> Auch die asymmetrischen Verfahren setzen auf das Prinzip Hoffnung. 
+Es ist nicht sehr wahrscheinlich, doch ein genialer Trick zur Berechnung
+ des diskreten Logarithmus könnte Verfahren wie ElGamal und vor allem 
+RSA mit einem Schlag unsicher machen. Schon die Entdeckung einer 
+praktikablen Faktorisierungsmethode wäre für die Wirtschaft 
+verhängnisvoll. </p>
+<p> Die größte Gefahr jedoch könnten die noch hypothetischen 
+Quantencomputer darstellen [6] (nicht zu verwechseln mit der 
+Quantenkryptographie). Man spricht oft davon, dass diese in 
+realistischer Zeit faktorisieren könnten. Auch andere Verfahren, die 
+diskrete Logarithmen in abstrakten Strukturen benutzen, könnten dadurch 
+gebrochen werden, zum Beispiel Kryptographie, die auf so genannten 
+elliptischen Kurven beruht. </p>
+<p> Zwar bestreiten viele Physiker heftig, dass solche Computer in 
+realistischer Größe überhaupt möglich sind, andere wiederum arbeiten 
+umso intensiver daran. Die Forschung zu Quantencomputern wird an neun 
+großen Hochschulen und Firmen in den USA nicht ohne Grund gerade vom 
+Geheimdienst NSA gesponsert, und zahlreiche wissenschaftliche 
+Konferenzen belegen die Fortschritte auf diesem Gebiet. Nach 
+Einschätzung der NSA könnte es durchaus noch 20 Jahre dauern, bis 
+Quantencomputer RSA knacken. Allerdings darf man nicht vergessen, dass 
+alle sicheren asymmetrischen Verfahren der letzten 30 Jahre auf 
+Faktorisierung beziehungsweise diskretem Logarithmus beruhen und immer 
+noch kein anderes Prinzip in Sicht ist. </p>
+		<p></p><hr><p></p><h3 class="subheading">Angriffe in der Praxis </h3>
+<p>Moderne, gut untersuchte Algorithmen bieten in der Regel kaum 
+praktisch ausnutzbare Schwächen. Angreifer werden daher an anderer 
+Stelle ansetzen, zum Beispiel beim kryptographischen Protokoll, der 
+Schlüsselwahl, der zu kurzen Passphrase zur Absicherung privater 
+Schlüssel und so weiter. Ein lehrreiches Beispiel für einen 
+Protokollangriff lieferte eine Attacke auf OpenPGP, wie in [2, 7.1.4] 
+beschrieben. Private Schlüssel werden bei PGP und GnuPG im CFB-Modus 
+chiffriert (Cipher Feedback), bei dem man ähnlich wie beim erwähnten 
+OFB-Modus (Output-Feedback) leicht bestimmte Bits umklappen kann, 
+genauer: Ein in den Rechner eingedrungener Angreifer ändert ein Bit im 
+verschlüsselten Secret Key und weiß, welches Bit sich nach 
+Dechiffrierung beim Klartext ändern wird. Wer mit einem solchen 
+„gestörten“ Schlüssel signiert, hat verloren: Aus der falschen Signatur 
+lässt sich der private Schlüssel berechnen. Der Angriff wurde möglich, 
+weil die Designer von OpenPGP nur CRC-Prüfsummen implementierten, deren 
+Verhalten bei solchen Störungen vorhersagbar ist. Die Attacke ist sehr 
+eng mit dem Algorithmus selbst verquickt und nutzt kryptanalytische 
+Erkenntnisse aus. Ähnliche Effekte hätte übrigens ein Bitfehler bei der 
+Berechnung digitaler Signaturen. Die Software sollte Letztere also immer
+ nochmals auf Korrektheit prüfen. </p>
+<p>Besonders hinterhältig sind so genannte Seitenangriffe auf 
+Smartcards, bei denen die Taktzeiten zur Chiffrierung untergeschobener 
+Klartexte gemessen werden (timing attack) oder auch der zeitliche 
+Verlauf des Stromverbrauchs (DPA = differential power attack). Nicht nur
+ die Smartcard-Hersteller, sondern ebenso die Algorithmendesigner müssen
+ an diese Möglichkeiten denken. </p>
+<p>Angesichts der beschriebenen Schwierigkeiten sollte es klar sein, 
+dass man mit Eigenentwicklungen den Angreifern eine Freude macht. 
+Kryptanalytiker sind Mathematiker, und wer ihnen widerstehen will, muss 
+ihr Handwerkszeug kennen und beherrschen. Ein Blick in ein „echtes“ 
+Kryptographiebuch wie [4] oder noch besser in CRYPTO-Proceedings aus der
+ LNCS-Reihe des Springer-Verlages zeigt, welches Niveau dazu 
+erforderlich ist. </p>
+<p>Doch auch gute Kenntnis gängiger Methoden reicht nicht: Eigene 
+erfolgreiche Kryptanalysen sind Voraussetzung, um einen guten 
+Algorithmus beziehungsweise ein sicheres kryptographisches Protokoll 
+überhaupt entwickeln zu können. Sichere Kryptographie beruht auf 
+mathematisch anspruchsvollen Überlegungen - ein Mathematikstudium ist 
+fast schon ein Muss für seriöse Kryptologen. Zudem muss gutes 
+Verständnis über Computer und Software vorhanden sein, damit keine 
+Implementierungsfehler passieren. Aber auch von den mathematischen und 
+technischen Schwierigkeiten ganz abgesehen, sollte man sich bei der 
+Entwicklung eines Krypto-Algorithmus die Frage stellen, ob es wirklich 
+nötig ist, das Rad ein zweites Mal zu erfinden. Der bekannte Kryptograph
+ Schneier schreibt in seinem lesenswerten „Memo to the Amateur Cipher 
+Designer“ [9]: „Es ist leicht, einen Algorithmus zu entwerfen, den man 
+selbst nicht knacken kann. Schwierig wird es, wenn ihn auch andere nicht
+ knacken können sollen. Und selbst bei einem guten Algorithmus muss sich
+ sein Designer die Frage gefallen lassen, welche Vorzüge dieser zum 
+Beispiel gegenüber AES oder Twofish haben soll.“ 
+		
+			
+				
+					(pab)<br>
+				
+			
+	
+	 </p>
+<h3 class="subheading">Literatur</h3>
+<p>[1] Bruce Schneier: Angewandte Kryptographie, Addison-Wesley 1996 </p>
+<p>[2] Dr. Reinhard Wobst: Abenteuer Kryptologie, Addison-Wesley 2000 </p>
+<p>[3] Friedrich L. Bauer: Kryptologie - Methoden und Maximen (2. Auflage), Springer New York 1994 </p>
+<p>[4] Douglas Stinson: Cryptography - Theory and Practice, CRC Press 1995 </p>
+<p>[5] EFF: Cracking DES, O’Reilly 1998 </p>
+<p>[6] Dr. Reinhard Wobst: Mythos Quantencomputer, UNIX/open 2/02, S. 28-30 und 3/02, S. 22-24 </p>
+<p>[7] Dr. Reinhard Wobst: AES unter Beschuss, c't 21/02, S. 38 </p>
+<p>[8] Dr. Reinhard Wobst: Von DES zu AES, iX 10/01, S. 92-96 </p>
+<p>[9] <b>Bruce Schneier: Memo to the Amateur Cipher Designer [3]</b> </p>
+<p>[10] <b>Kryptanalyse von RC4 [4]</b> </p>
+		<p></p><hr><p></p><h3 class="subheading">Verschlüsselungs-Algorithmen</h3>
+<p>
+	
+		</p><table class="heise-table"><tbody><tr>
+<td rowspan="1" colspan="1" class="heise-table-title" style="text-align:left;"><strong>Name</strong></td>
+
+<td rowspan="1" colspan="1" class="heise-table-title" style="text-align:left;"><strong>Art</strong></td>
+
+<td rowspan="1" colspan="1" class="heise-table-title" style="text-align:left;"><strong>Schlüssel-<br>länge</strong></td>
+
+<td rowspan="1" colspan="1" class="heise-table-title" style="text-align:left;"><strong>Geschwindigkeit</strong></td>
+
+<td rowspan="1" colspan="1" class="heise-table-title" style="text-align:left;"><strong>Sicherheit</strong></td>
+
+<td rowspan="1" colspan="1" class="heise-table-title" style="text-align:left;"><strong>Anwendung</strong></td>
+
+<td rowspan="1" colspan="1" class="heise-table-title" style="text-align:left;"><strong>Bemerkungen</strong></td>
+</tr><tr>
+<td rowspan="1" colspan="7" class="heise-table-subtitle" style="text-align:left;"><strong>Symmetrische Algorithmen</strong></td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">One-Time-Pad</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Strom</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Klartextlänge</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">hoch</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">perfekt</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">nur in Sonderfällen</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">einziger beweisbar sicherer Algorithmus</td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">Substitutionschiffre</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">zeichen-<br>weise</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">theoretisch 88
+			Bit (=26!)</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">uninteressant</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">extrem niedrig</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">historisch, Denkaufgaben</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">bei Rätseln noch beliebt</td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">Vigenère</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">zeichen-<br>weise</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">variabel</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">hoch</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">sehr niedrig</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">historisch, vereinzelt noch heute</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">sehr leicht zu brechen</td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">DES</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Block</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">56 Bit</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Hardware: hoch<br>Software: niedrig</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">mit Spezialhardware angreifbar (hoher Aufwand)</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">verbreitet, war 20 Jahre lang Standard</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Schlüssellänge ist einziger praktisch ausnutzbarer Schwachpunkt</td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">3DES</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Block</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">112 Bit</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Hardware: hoch<br>Software: sehr niedrig</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">kein Angriff bekannt</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">verbreitet</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">zu langsam in Software, veraltet</td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">IDEA</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Block</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">128 Bit</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">schneller als DES</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">sehr hoch</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">verbreitet</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">patentiert, auch in Europa</td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">RC4</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Strom</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">variabel</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Software: hoch</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">bei richtiger Anwendung hoch, Angriffspunkte bekannt [10]</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">in vielen Produkten (SSL, Windows-Applikationen)</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">bei drahtloser Datenübertragung mit WEP sind effektive Angriffe möglich (schlechte Implementierung)</td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">pkzip-Chiffrierung</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Strom</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">variabel</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Software: hoch</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">wurde gebrochen</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">in PKZIP</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Eigenbau-Algorithmus”, Crackprogramm in [3]</td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">A5</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Strom</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">64 Bit</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Hardware: sehr hoch</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">wurde gebrochen</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">in allen GSM Handys</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">eine Sekunde Rechenzeit reicht zum Knacken [3]</td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">Kasumi</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Block</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">128 Bit</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Hardware: hoch</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">kein Angriff bekannt</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">in allen UMTS-Handys</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Anwendung als Stromchiffre [3]</td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">RC5</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Block</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">variabel</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Software: hoch</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">praktisch sicher</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">in einigen Produkten</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">beruht auf neuem Prinzip variabler Rotation, US-Patent</td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">RC5a</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Block</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">variabel</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Software: hoch</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">sicherer als RC5</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">eine Anwendung im Bankwesen</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Verbesserung von RC5, vgl. [3], fällt auch unter RC5-Patent</td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">RC6</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Block</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">variabel</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Software: hoch</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">kein Angriff bekannt</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">?</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Weiterentwicklung von RC5, AES-Endkandidat [8], US-Patent</td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">Blowfish</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Block</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">variabel</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Software: hoch</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">kein Angriff bekannt</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">verbreitet, u.a. in OpenSource-Software</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">frei verfügbar für jede Nutzung</td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">Twofish</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Block</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">variabel</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Software und Hardware: hoch</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">kein Angriff bekannt, noch sicherer als Blowfish</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">?</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">frei verfügbar wie Blowfish, AES-Endkanditat</td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">AES (Rijndael)</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Block</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">128-256 Bit</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Software und Hardware: sehr hoch</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">bisher nur theoretische Schwächen [7]</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">schon sehr verbreitet, Standardalgorithmus</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">Nachfolger von DES [8]</td>
+</tr><tr>
+<td rowspan="1" colspan="7" class="heise-table-subtitle" style="text-align:left;"><strong>Asymmetrische Algorithmen</strong></td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">RSA</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">-</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">oft 1024 oder 2048 Bit</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">sehr niedrig</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">bis heute sicher</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">wichtigstes Public-Key-Verfahren</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">basiert auf Problem der Faktorisierung (s.Text)</td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">EIGamal</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">-</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">wie RSA</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">sehr niedrig </td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">bis heute sicher</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">sehr verbreitet</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">basiert auf diskretem Logarithmus</td>
+</tr><tr>
+<td rowspan="1" colspan="1" style="text-align:left;">Diffie-Hellmann</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">-</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">keine</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">sehr niedrig</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">bis heute sicher</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">sehr verbreitet (z.B. Ipsec, SSH)</td>
+
+<td rowspan="1" colspan="1" style="text-align:left;">wie ElGamal, einfach und robust, nur bei Interaktion</td>
+</tr></tbody></table>
+
+	
+	<p></p>
+		
+        <hr>
+        <p class="size80">
+            <strong>URL dieses Artikels:</strong><br>
+            http://www.heise.de/security/artikel/Harte-Nuesse-Verschluesselungsverfahren-und-ihre-Anwendungen-270266.html
+        </p>
+        
+            <p class="size80">
+                <strong>Links in diesem Artikel:</strong><br>
+                
+                    &nbsp;&nbsp;[1]&nbsp;http://www.heise.de/security/artikel/Angriffe-in-der-Praxis-271158.html<br>
+                
+                    &nbsp;&nbsp;[2]&nbsp;http://www.heise.de/security/artikel/Verschluesselungs-Algorithmen-271160.html<br>
+                
+                    &nbsp;&nbsp;[3]&nbsp;http://www.counterpane.com/crypto-gram-9810.html#cipherdesign<br>
+                
+                    &nbsp;&nbsp;[4]&nbsp;http://www.wisdom.weizmann.ac.il/~itsik/RC4/rc4.html<br>
+                
+            </p>
+        
+    </div>
+</div>
+
+
+    
+
+
+
+
+
+<!-- Webtrekk 3.2.2, (c) www.webtrekk.com -->
+    <script type="text/javascript" src="Harte%20N%C3%BCsse%20_%20heise%20Security-Dateien/webtrekk-v3-bundle-heise-2013-01-21.js"></script>
+    <script type="text/javascript">
+    <!--
+    var pageConfig = {
+        linkTrack : "standard", // Activate Link Tracking    [link or standard]
+        heatmap : "0",          // Activate Heatmap Tracking [1 = on | 0 = off]
+        form : "0",             // Activate Form Tracking    [1 = on | 0 = off]
+        trackId : "288689636920174",
+        pixelSampling : "",
+        contentId: "www.heise.de.security.artikel.harte-nuesse-verschluesselungsverfahren-und-ihre-anwendungen-270266"
+    };
+    var wt = new webtrekkV3(pageConfig);
+    wt.contentGroup = {};
+    wt.contentGroup['1']  = "www.heise.de";
+    wt.contentGroup['2']  = "security";
+    wt.contentGroup['3']  = "artikel";
+    wt.contentGroup['4']  = "harte-nuesse-verschluesselungsverfahren-und-ihre-anwendungen-270266";
+    
+    
+    
+    
+    wt.contentGroup['9']  = "harte-nuesse-verschluesselungsverfahren-und-ihre-anwendungen-270266";
+    wt.contentGroup['10'] = "artikel";
+
+    wt.customParameter = {};
+    
+    
+    
+    
+    
+    
+    
+    wt.customParameter['8']  = "2003-08-08T13:01:00";
+    wt.customParameter['9']  = "security";
+    
+
+    
+    
+
+    
+    
+
+    wt.heatmapRefpoint = 'container_content';
+    wt.sendinfo();
+
+    //-->
+    </script>
+    <noscript><div><img src="//prophet.heise.de/288689636920174/wt.pl?p=322,www.heise.de.security.artikel.harte-nuesse-verschluesselungsverfahren-und-ihre-anwendungen-270266&cg1=www.heise.de&cg10=artikel&cg2=security&cg3=artikel&cg4=harte-nuesse-verschluesselungsverfahren-und-ihre-anwendungen-270266&cg9=harte-nuesse-verschluesselungsverfahren-und-ihre-anwendungen-270266&cp8=2003-08-08T13%3A01%3A00&cp9=security" height="1" width="1" alt="" /></div></noscript>
+
+
+<!-- /Webtrekk -->
+
+
+
+    
+    <script type="text/javascript">
+        <!--//--><![CDATA[//><!--
+        // VGWORT-CROP-MARKER
+        var vgwort_token='f1ba183bdcc041a2ad5d5c5a707b7930';
+                document.write('<div style="display: inline;"><img src="http://heise.met.vgwort.de/na/' +  vgwort_token);
+        document.write('" width="1" height="1" alt="" /><' + '/div>');
+        //--><!]]>
+    </script><div style="display: inline;"><img src="Harte%20N%C3%BCsse%20_%20heise%20Security-Dateien/f1ba183bdcc041a2ad5d5c5a707b7930.gif" alt="" height="1" width="1"></div>
+
+
+    
+        
+
+	<ul id="navi_bottom">
+
+	
+		<li class="left"><a href="http://www.heise.de/Privacy-Policy-der-Heise-Zeitschriften-Verlag-GmbH-Co-KG-4860.html">Datenschutzhinweis</a> </li>
+	
+
+	
+		<li class="left"><a href="http://www.heise.de/security/impressum.html">Impressum</a></li>
+	
+
+	
+		<li class="left"><a href="http://www.heise.de/security/kontakt/">Kontakt</a></li>
+	
+
+	
+		<li class="left"><a href="http://www.heise.de/mediadaten/online/">Mediadaten</a> </li>
+	
+
+	
+		<li class="left"><a href="http://m.heise.de/security/">News mobil</a></li>
+	
+
+
+<li class="bid_anzeige">
+244866
+</li>
+
+
+    
+        <li class="right"><a href="http://www.interred.de/" rel="external" style="margin-right: 0;">Content Management</a> by <b style="margin-right: 0.5em;">Inter<span class="tx_red">Red</span></b></li>
+    
+
+	
+		
+		<li class="right"><a href="http://www.heise-medien.de/zeitschriften/">Copyright © 2015 Heise Zeitschriften Verlag</a></li>
+		
+	
+
+	
+		
+	
+</ul>
+
+    
+
+
+
+
+
+
+
+</body></html>
+<!-- Created with InterRed V14.0-x.x.x.x, http://www.interred.de/, by InterRed GmbH -->
+<!-- BID: 244866, iBID: 577015, CID: 270266, iCID: 1099590 -->
+<!-- Link: $(LB244866:Linktext)$ $(LC270266:Linktext)$ -->
+<!-- Generiert: 2014-05-08 16:21:45 -->
