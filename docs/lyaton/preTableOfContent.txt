@@ -1,0 +1,46 @@
+x E-Mail 
+
+x.1 Allgemein E-Mail und Notificaiton
+	x.1.1 Senden
+		x.1.1.1 Bildliche Erklärung 
+	x.1.2 Empfangen
+		x.1.2.1 IMAP
+		x.1.2.2 POP
+x.2 E-Mail
+	x.2.1 Ursprung/Entstehung
+	x.2.2 Bedeutung Heute
+		x.2.2.1 Zukünftig
+	x.2.3 Probleme
+		x.2.3.1 Kleine Probleme
+		x.2.3.2 Große Probleme - Gefahren
+	x.2.4 Sicherheit
+		x.2.4.1 Versuche
+		x.2.4.2 Was kann ich tun ?
+
+//Konkreter im Moment nicht möglich.
+//Könnte noch was dazu kommen,
+//aber diese Punkte werden ziemlich sicher
+//bleiben (mindestens).
+
+x Oberfläche
+
+x.1. Allgmein UI
+	x.1.1 Geschichte
+	x.1.2 UIs
+	x.1.3 Zukünftig
+x.2 GUI - Graphical User Interface
+	x.2.1 Beudeutung
+	x.2.2 Wichtigkeit
+	x.2.3 Vergleich GUI/CLI
+		x.2.3.1 Marktführende 
+		x.2.3.2 Wichtige OS-GUIs
+	x.2.4 Vor/Nachteile
+	x.2.5 Möglichkeiten der Realisierung
+	x.2.6 Genauer
+		x.2.6.1 Realisierung
+		x.2.6.2 Grafikkarte oder Prozessor
+
+//Gilt das selbe wie oben. Logischerweise werden
+//sich bei der Dokumentation dann mehr Unterpunkte
+//ergeben.
+	
