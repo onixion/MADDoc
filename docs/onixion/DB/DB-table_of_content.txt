@@ -1,0 +1,43 @@
+w Datenbank
+============
+
+w.1 Allgemeines
+	w.1.1 Geschichte
+	w.1.2 Definitionen
+	w.1.3 Effizienz
+	w.1.4 Funktionen
+	w.1.5 Anwendungen
+w.2 Datenbanksystem
+	w.2.1 Datenbankmanagementsystem
+	w.2.2 Datenbank
+w.3 Relationales Datenbankmanagementsystem (RDMS)
+	w.3.1 Prinzip eines RDBMS
+	w.3.2 Tabellen
+	w.3.3 Alternative Datenbankmanagementsysteme
+		w.3.2.1 Information Management System
+		w.3.2.2 Netzwerkdatenbankmodell
+		w.3.2.3 Hierarchisches Datenbankmodell
+w.4 Zugriffe
+	w.4.1 Zugriffsmöglichkeiten
+	w.4.2 Sicherheit
+	w.4.3 Gleichzeitige Zugriffe
+w.5 Sprachen
+	w.5.1 Verwaltungsgetrennte Sprachen
+		w.5.1.1 Abfragen und Manipulationen der Daten
+		w.5.1.2 Datenbankstruktur
+		w.5.1.3 Berechtigungen
+	w.5.2 SQL
+w.6 SQLite
+	w.6.1 Geschichte
+	w.6.2 Eigenschaften
+	w.6.3 Datentypen
+	w.6.4 Syntax
+	w.6.5 Befehle
+	w.6.6 Vor- und Nachteile
+		w.6.6.1 Vorteile
+		w.6.6.2 Nachteile
+w.7 Ausführung
+	w.7.1 MAD-DB
+		w.7.1.1 Erklärung
+		w.7.1.2 Grafisch Übersicht
+	w.7.2 Programmcode
