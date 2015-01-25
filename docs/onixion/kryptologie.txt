@@ -1,43 +1,40 @@
+-------------
 x Kryptologie
+-------------
 
+---------------
 x.1 Allgemeines
+---------------
 
-Die Kryptologie, eine sehr alte Kunst, die sich mit der Verbergung von Information befasst, hat in der heutigen moderenen Zeit 
-einen sehr wichtigen Stellenwert eingenommen und ist nicht mehr wegzudenken. Unzählige Informationen werden weltweit kreuz und 
-quer ausgetauscht und dabei kommt es öfters vor, dass die zu übertragenen Informationen einen bestimmten Wert haben. Der Wert 
-dieser Informationen geht dann verloren, wenn ein Unbefugter den Sinn bzw. die Aussage dieser Informationen verstehen kann. 
-Damit das nicht passiert, werden kryptographische Systeme entwickelt, um die Lesbarkeit von Informationen zu verhindern oder 
-wenigstens zu erschweren.
+Die Kryptologie, eine sehr alte Kunst, die sich mit der Verbergung von Information befasst, hat in der heutigen moderenen Zeit einen sehr wichtigen Stellenwert eingenommen und ist nicht mehr wegzudenken. Unzählige Informationen werden weltweit kreuz und quer ausgetauscht und dabei kommt es öfters vor, dass die zu übertragenen Informationen einen bestimmten Wert haben. Der Wert dieser Informationen geht dann verloren, wenn ein Unbefugter den Sinn bzw. die Aussage dieser Informationen verstehen kann. Damit das nicht passiert, werden kryptographische Systeme entwickelt, um die Lesbarkeit von Informationen zu verhindern bzw. zu erschweren.
 
-Kein kryptographisches System ist perfekt. Da die Rechenleistung der Computer stetig ansteigt, verlieren diese Systeme über die
-Zeit an Sicherheit und daher müssen sie immer wieder überarbeitet oder von Grund auf neu entwickelt werden, um den 
-Anforderungen des heutigen Zeitalters gerecht zu werden.
+Kein kryptographisches System ist perfekt. Da die Rechenleistung der Computer stetig ansteigt, verlieren diese Systeme über die Zeit an Sicherheit und daher müssen sie immer wieder überarbeitet oder von Grund auf neu entwickelt werden, um den Anforderungen des heutigen Zeitalters gerecht zu werden.
 
-Die Kryptologie reicht weit in die Vergangenheit der Menschheit zurück - schon seit 2500 Jahren sind Methoden bekannt, die die
-Lesbarkeit von Informationen erschwert. In Sparta hat die Regierung ein Pergament Band um einen Zylinder spiralförmig aufgespannt 
-und die zu ermittelnde Nachricht über die verschiedenen Ringe des Pergaments geschrieben. Die Entschlüsselung gelang nur dann, wenn
-man einen Zylinder mit dem gleichem Durchmesser besaß und wusste wie man das Pergament auf den Zylinder spannen musste.
+Die Kryptologie darf nicht mit der Steganographie verwechelt werden. Die Steganographie befasst sich mit der Kunst Informationen im Trägermedium zu verstecken. Anders wie bei der Kryptologie, versucht die Steganographie die Informationen nicht durch mathematische Verfahren zu verändern, sondern die Informationen im Träger (z.B. ein Bild) zu verstecken.
 
-Caesar verwendete einen sogennante Verschiebechiffre. Er verschob die Buchstaben des Alphabets um 
-drei Zeichen. Nur die Personen, die Lesen konnten und wussten wie oft die Buchstaben verschoben werden mussten, konnten den Sinn 
-hinter dem verschlüsseltem Text interpretieren.
+Die Kryptologie reicht weit in die Vergangenheit der Menschheit zurück - schon seit 2500 Jahren sind Methoden bekannt, die die Lesbarkeit von Informationen erschwert. In Sparta hat die Regierung ein Pergament Band um einen Zylinder spiralförmig aufgespannt und die zu ermittelnde Nachricht über die verschiedenen Ringe des Pergaments geschrieben. Die Entschlüsselung gelang nur dann, wenn man einen Zylinder mit dem gleichem Durchmesser besaß und wusste wie man das Pergament auf den Zylinder spannen musste.
 
-Auch im Zweiten Weltkrieg war die Verschlüsselung das A und O. Der Funk war zu dieser Zeit ein sehr wichtiges Übertragungsmedium
-und jeder konnte alles mithören. Daher benötigte man starke Systeme, um die Vertraulichkeit der Kommunikation zu bewerkstelligen.
-Die Alliierten knackten den ENIGMA-Code der Deutschen und konnten daher alle Funksprüche im Klartext mithören.
+Caesar verwendete einen sogennante Verschiebechiffre. Er verschob die Buchstaben des Alphabets um drei Zeichen. Nur die Personen, die Lesen konnten und wussten wie oft die Buchstaben verschoben werden mussten, konnten den Sinn hinter dem verschlüsseltem Text interpretieren.
 
-Heute verlassen sich Milliarden Menschen auf kryptographische Verfahren Informationen zu verschlüsseln,  oder Indentitäten zu bestätigen.
+Auch im Zweiten Weltkrieg war die Verschlüsselung das A und O. Der Funk war zu dieser Zeit ein sehr wichtiges Übertragungsmedium und jeder konnte alles mithören. Daher benötigte man starke Systeme, um die Vertraulichkeit der Kommunikation zu bewerkstelligen. Die Alliierten knackten den ENIGMA-Code der Deutschen und konnten daher alle Funksprüche im Klartext mithören.
 
+Heute verlassen sich Milliarden Menschen auf kryptographische Verfahren, ohne es zu wissen. Das einfache Surfen im Internet, das Absenden einer E-Mail, das Herunterladen von Dateien, das Verbinden auf den Server oder sogar die Abspeicherung von Passwörtern erfolgen alle unter komplizierten kryptographischen Verfahren.
 
+________________
 x.2 Kryptografie
+----------------
 
-Die Entwicklung von kryptografsichen Systemen wird als Kryptografie bezeichnet. Die Kunst ist es, eine Methode zu Entwickeln, 
-die die Informationen so verändern, dass nur befugte Personen die Informationen aus dem kryptographischen System extrahieren 
-können. Hierbei können verschiedenste Methoden angewendet werden, die die Vertraulichkeit der Informationen sicherstellen sollen.
+Die Entwicklung von kryptografsichen Systemen wird als Kryptografie bezeichnet. Die Kunst ist es, eine Methode zu Entwickeln, die die Informationen so verändern, dass nur befugte Personen die Informationen aus dem kryptographischen System extrahieren können. Hierbei können verschiedenste Methoden angewendet werden, die die Vertraulichkeit der Informationen sicherstellen sollen.
 
 Viele kryptografische Systeme richten sich nach mathematisch ungelösten Problemen.
 
-Kryptograpfische Systeme müssen drei Kriterien erfüllen, damit ein System als sicher gilt: Vertraulichkeit, Integrität und Authenzität.
+Bei allen kryptographischen Systemen versucht man diese drei Kriterien zu erfüllen:
+
+    *) Vertraulichkeit
+    *) Integrität
+    *) Authenzität
+
+Diese drei Kriterien müssen eingehalten sein, denn dan spricht man von einem sicherem Verfahren.
 
 	x.2.1 Geschichte der Kryptografie
 		x.2.1.1 Klassische Kryptografie
@@ -122,11 +119,8 @@ Die Verschlüsselung soll dabei folgendes gewärleisten:
 
 	o) Authenzität: Die Kommunikationsparteien müssen beweisen können, wer sie wirklich sind.
 
-	o) IRGENDWAS
+	o) Vertraulichkeit
 			
-
-
-
 ___________________________________________
 A.A) Symmetrische Verschlüsselungsverfahren
 -------------------------------------------
