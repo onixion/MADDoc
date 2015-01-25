@@ -1,0 +1,8 @@
+CLI steht für 'Command Line Interface' (zu Deutsch: Zeilen-basierende Schnittstelle).
+Sie ist einer der ersten Schnittstellen, die für Computer eingesetzt wurden, und
+findet heute immer noch seinen Einsatz.
+
+Spezielle bei unix-ähnlichen Server ist die text-basieredne Schnittstelle nicht mehr
+wegzudenken und wird oft für administrative Operationen verwendet.
+
+
