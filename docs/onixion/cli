@@ -1,8 +1,13 @@
-CLI steht für 'Command Line Interface' (zu Deutsch: Zeilen-basierende Schnittstelle).
-Sie ist einer der ersten Schnittstellen, die für Computer eingesetzt wurden, und
-findet heute immer noch seinen Einsatz.
 
-Spezielle bei unix-ähnlichen Server ist die text-basieredne Schnittstelle nicht mehr
-wegzudenken und wird oft für administrative Operationen verwendet.
+ALLGMEINES
 
+CLI steht für 'Command Line Interface' (text-basierede Schnittstelle) und darunter versteht man Schnittstellen, die die Eingabe des Benutzers in Form von Text interpretieren und diese ausführen. Diese Form von Schnittstellen wurde für die Kommunikation mit den ersten Computer-Systemen weitläufig verwendet und findet auch heute noch Einsatz. 
+
+Kommandzeileninterpreter finden auch heute noch einen Nutzen.
+
+
+
+GESCHICHTE
+
+Spezielle bei unix-ähnlichen Betriebssystemen aber auch bei vielen andere Systemen sind text-basieredne Schnittstelle in unterschiedlichster Form implementiert.
 
