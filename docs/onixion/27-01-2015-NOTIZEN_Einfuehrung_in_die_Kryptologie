@@ -1,0 +1,22 @@
+
+
+Kryptologie = Kunst/Wissenschaft der Ermittlung von Methoden den Inhalt von Nachrichten/Informationen zu verheimlichen
+
+Unterscheidung zwischen Kryptographie und Kryptanalyse
+	       -> Kryptographie
+	       -> Kryptoanalyse
+
+Vergleich Kryptologie und Steganographie
+
+Verschlüsselungsarten
+
+Monoalabethische Chiffrierung -
+		 -> Klartextalphabet permutieren / Buchstaben vertauschen
+		 -> Verschiebechiffre: jeder Buchstabe der Nachricht wird um bestimmte Stellen verschoben
+		 -> Tauschchiffre: jeder Buchstabe wird verschieden verschoben z.B. A wird zu C, B wird zu F, C wird zu I, ...
+		 -> Schlüsselwort und Schlüsselbuchstabe: man vereinbart sich ein Schlüsselwort und Schüsselbuchstabe, man entfert alle mehrfach vorkommenden Buchstaben aus dem Schlüsselwort, dann setz man im Alphabet das Schlüsselwort an der stelle des Schlüsselbuchstabes und füllt die Restlichen Buchstaben auf
+		 
+Polyalphabetische Chiffrierung - Diese Chiffrierung funktioniert im Prinzip genau wie die monoalphabetische Chiffrierung, nur dass der Schlüssel öfters oder für jeden Buchstaben verändert wird. Damit sind gleiche Buchstaben im Verschlüsselten Text nicht gleich.
+		  -> Vigenère-Chiffrierung: das Schüsselwort wird periodisch über dem zu verschlüsselten Text geschrieben, dann wird in der Vigenère-Chiffrierung-Tabelle nachgesehen, welcher Buchstabe aus dem Klartext-Buchstabe wird. Der SChlüselbuchstabe entscheidet welche Spalte in der Tabelle und der zu verschlüsselnde Buchstabe gibt die Zeile an. Dort wo sich die beiden Linien kreuzen, ist der verschlüsselte Buchstabe.
+
+
