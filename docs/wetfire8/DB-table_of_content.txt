@@ -41,3 +41,25 @@ w.7 Ausführung
 		w.7.1.1 Erklärung
 		w.7.1.2 Grafisch Übersicht
 	w.7.2 Programmcode
+
+==================================================================
+
+i Informatik
+============
+
+i.1 Programmiersprachen
+	i.1.1 Was ist eine Programmiersprache?
+	i.1.2 C#
+		i.1.2.1 Wie funktioniert C#?
+		i.1.2.2 Vor- und Nachteile
+	i.1.3 Vergleich anderer möglicher Programmiersprachen 
+i.2 Multithreading
+	i.2.1 Was ist ein Thread?
+	i.2.2 Konzept von Multithreading
+		i.2.2.1 Wie funktioniert Multithreading?
+		i.2.2.2 Software
+		i.2.2.3 Hardware
+		i.2.2.4 Arten von Multithreading
+		i.2.2.5 Vor- und Nachteile
+
+==================================================================
