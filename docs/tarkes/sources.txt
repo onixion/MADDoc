@@ -1,0 +1,4 @@
+de.wikipedia.org/wiki/Ethernet
+
+de.wikipedia.org/wiki/MAC-Adresse
+en.wikipedia.org/wiki/MAC_address
