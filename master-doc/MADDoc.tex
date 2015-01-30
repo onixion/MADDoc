@@ -1,4 +1,4 @@
-\documentclass[10pt,a4paper]{report}
+\documentclass[12pt,a4paper]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
 \usepackage{amsmath}
@@ -7,8 +7,20 @@
 \usepackage{graphicx}
 \usepackage{fancyhdr}
 \usepackage{geometry}
+\usepackage{nameref}
 \geometry{a4paper, left=25mm, right=25mm, top=20mm, bottom=30mm}
 
+\parindent 0px % Zeileneinschub bei Absätzen
+
+\renewcommand{\headrulewidth}{1pt} % Trennunslinien für Kopf- und Fußzeilen
+\renewcommand{\footrulewidth}{1pt}
+
+\lhead{} % Kopf- und Fußzeilen
+\chead{}
+\rhead{\chaptername \hspace{5mm} \thesection}
+\lfoot{}
+\cfoot{}
+\rfoot{\thepage}
 
 \title{MAD-Network Monitoring\\
 Diplomarbeit 2014/15}
@@ -20,14 +32,22 @@ Abteilung Höhere Elektronik und Technische Informatik\\
 
 \begin{document}
 \maketitle
+\newpage
+
 %\setcounter{tocdepth}{6}
 \tableofcontents
 \newpage
-\chapter{Abstract von Singh Manpreet}
+
+\pagestyle{fancy}
+
+\chapter{Abstract}
+\thispagestyle{fancy}
+
 lorem ipsum
 
-
 \chapter{Einleitung}
+\thispagestyle{fancy}
+
 lorem ipsum
 
 \section{Aufgabenstellung}
@@ -36,11 +56,12 @@ lorem ipsum
 \section{Aufteilung}
 lorem ipsum 
 
-
 \chapter{Theorie zu den einzelnen Gebieten der Arbeit}
+lorem ipsum
 
 \section{Informatik von Stojanovic Marko}
 lorem ipsum
+
 \subsection{Programmiersprachen}
 lorem ipsum
 \subsubsection{Was ist eine Programmiersprache?}
@@ -195,12 +216,15 @@ lorem ipsum
 \subsection{Command Line Interface (CLI) von Alin Porcic}
 lorem ipsum
 \subsubsection{Allgemeines}
-lorem ipsum
+
+CLI steht für 'Command Line Interface' (text-basierende Schnittstelle) und darunter versteht man Schnittstellen, die die Eingabe eines Nutzers in Form von Text interpretiert und diese dann ausführt.
+
 \subsubsection{Geschichte}
-lorem ipsum
+
+Speziell bei unix-ähnlichen Betriebssystemen, aber auch bei vielen anderen Systemen, sind text-basierende Schnittstellen in unterschiedlichster Form implementiert.
+
 \subsubsection{Vor- und Nachteile}
 lorem ipsum
-
 \section{Datenbank von Stojanovic Marko}
 lorem ipsum
 \subsection{Allgemeines}
@@ -276,7 +300,15 @@ lorem ipsum
 
 \section{Kryptologie von Porcic Alin}
 \subsection{Allgemeines}
-lorem ipsum
+
+Die Kryptologie, eine sehr alte Kunst, die sich mit der Verbergung von Information befasst, hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen und ist nicht mehr wegzudenken. Unzählige Informationen werden weltweit kreuz und quer ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen bestimmten Wert haben können. Der Wert dieser Informationen geht dann verloren, wenn ein Unbefugter den Sinn bzw. die Aussage dieser Informationen verstehen kann. Damit das nicht passiert, werden kryptogrphische Systeme entwickelt, um die Lesbarkeit von Informationen zu verhindern bzw. zu erschweren.\\\\
+Kein kryptographisches System ist perfekt - die Rechenleistung der Computer steigt stetig weiter an und daher verlieren Systemen über die Zeit an Sicherheit. Daher werden immer neue kryptographische Systeme gebraucht, die den Anforderungen des heutigen modernen Zeitalters gerecht werden.\\\\
+Es kommt öfter vor, dass die Kryptologie mit der Steganographie gleichgesetzt wird. Jedoch ist die Steganographie die Kunst Informationenim Trägermedium selber zu verstecken. Anders wie in der Kryptologie, wendet die Steganographie keine mathematische Verfahren an, um die Informationen zu verstecken, sondern verstecken die Informationen im Träger selbst (z.B. Grashalbe im Bild).\\\\
+Die Kryptologie reicht weit in die Vergangenheit der Menschheit zurück - schon seit 2500 Jahren sind Methoden bekannt, die die Lesbarkeit von Informationen erschwert. In Sparta zum Beispiel hat die Regierung ein Pergament Band um einen Zylinder spiralförmig aufgespannt und die zu ermittelnde Nachricht über die verschiedenen Ringe der Pergaments geschrieben. Die Entschlüsselung gelang nur dann, wenn man einen Zylinder mit dem gleichem Durchmesser besaß.\\\\
+Caesar, als Beispiel, verwendete einen sogenannten Verschiebechiffre. Er verschob die Buchstaben des Alphabets um drei Zeichnen. Nur die Personen, die Lesen klnnten und wussten wie oft die Buchstaben verschoben werden mussten, konnten den Sinn hinter dem verschlüsseltem Text interpretieren.\\\\
+Auch im Zweiten Weltkrieg war die Verschlüsselung das A und O. Der Funkt war zu dieser Zeit ein sehr wichtiges Übertragungsmedium und jeder konnte alles mithören. Daher benötigte man starke Systeme, um die Vertraulichkeit der Kommunikation zu bewerkstelligen. Die Allierten konnten den Enigma-Code der Deutschen knacken und gewannen den Krieg.\\\\
+Heute verlassen sich Milliarden Menschen auf kryptographische Verfahen, ohne es zu wissen. Das einfache Surfen im Interne, das Absenden einer E-Mail, das Herunterladen von Dateien oder die Abspeicherung von Passwörtern erfolgen alle unter komplizierten kryptographischen Verfahren.
+
 \subsection{Kryprographie}
 lorem ipsum
 \subsubsection{Geschichte der Kryptographie}
