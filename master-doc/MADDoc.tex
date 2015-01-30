@@ -308,12 +308,18 @@ lorem ipsum
 \section{Kryptologie von Porcic Alin}
 \subsection{Allgemeines}
 
-Die Kryptologie, eine sehr alte Kunst, die sich mit der Verbergung von Information befasst, hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen und ist nicht mehr wegzudenken. Unzählige Informationen werden weltweit kreuz und quer ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen bestimmten Wert haben können. Der Wert dieser Informationen geht dann verloren, wenn ein Unbefugter den Sinn bzw. die Aussage dieser Informationen verstehen kann. Damit das nicht passiert, werden kryptogrphische Systeme entwickelt, um die Lesbarkeit von Informationen zu verhindern bzw. zu erschweren.\\\\
+Die Kryptologie, eine sehr alte Kunst und Wissenschaft, die sich mit der Verbergung von Information befasst, hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen und ist nicht mehr wegzudenken. Unzählige Informationen werden weltweit kreuz und quer ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen bestimmten Wert haben können. Der Wert dieser Informationen geht dann verloren, wenn ein Unbefugter den Sinn bzw. die Aussage dieser Informationen verstehen kann. Damit das nicht passiert, werden kryptogrphische Systeme entwickelt, um die Lesbarkeit von Informationen zu verhindern bzw. zu erschweren.\\\\
+
 Kein kryptographisches System ist perfekt - die Rechenleistung der Computer steigt stetig weiter an und daher verlieren Systemen über die Zeit an Sicherheit. Daher werden immer neue kryptographische Systeme gebraucht, die den Anforderungen des heutigen modernen Zeitalters gerecht werden.\\\\
+
 Es kommt öfter vor, dass die Kryptologie mit der Steganographie gleichgesetzt wird. Jedoch ist die Steganographie die Kunst Informationenim Trägermedium selber zu verstecken. Anders wie in der Kryptologie, wendet die Steganographie keine mathematische Verfahren an, um die Informationen zu verstecken, sondern verstecken die Informationen im Träger selbst (z.B. Grashalbe im Bild).\\\\
+
 Die Kryptologie reicht weit in die Vergangenheit der Menschheit zurück - schon seit 2500 Jahren sind Methoden bekannt, die die Lesbarkeit von Informationen erschwert. In Sparta zum Beispiel hat die Regierung ein Pergament Band um einen Zylinder spiralförmig aufgespannt und die zu ermittelnde Nachricht über die verschiedenen Ringe der Pergaments geschrieben. Die Entschlüsselung gelang nur dann, wenn man einen Zylinder mit dem gleichem Durchmesser besaß.\\\\
+
 Caesar, als Beispiel, verwendete einen sogenannten Verschiebechiffre. Er verschob die Buchstaben des Alphabets um drei Zeichnen. Nur die Personen, die Lesen klnnten und wussten wie oft die Buchstaben verschoben werden mussten, konnten den Sinn hinter dem verschlüsseltem Text interpretieren.\\\\
+
 Auch im Zweiten Weltkrieg war die Verschlüsselung das A und O. Der Funkt war zu dieser Zeit ein sehr wichtiges Übertragungsmedium und jeder konnte alles mithören. Daher benötigte man starke Systeme, um die Vertraulichkeit der Kommunikation zu bewerkstelligen. Die Allierten konnten den Enigma-Code der Deutschen knacken und gewannen den Krieg.\\\\
+
 Heute verlassen sich Milliarden Menschen auf kryptographische Verfahen, ohne es zu wissen. Das einfache Surfen im Interne, das Absenden einer E-Mail, das Herunterladen von Dateien oder die Abspeicherung von Passwörtern erfolgen alle unter komplizierten kryptographischen Verfahren.
 
 \subsection{Kryprographie}
@@ -434,9 +440,28 @@ lorem ipsum
 
 
 \chapter{User Manual von Procic Alin}
-lorem ipsum 
 
+\section{CLI}
 
-\chapter{Quellenverzeichnis}
-lorem ipsum 
+Das Programm bietet eine text-basierende Schnittstelle an, die für die Verwendung des Programmes verwendet werden kann. Der Syntax der Eingaben sieht wie folgt aus:\\\\
+Durch das Drücken der ENTER-Taste wird der Befehlt interpretiert und bei gültiger Eingabe ausgeführt. Mit der Linken-Pfeiltaste und Rechten-Pfeiltaste kann die Position des Cursors in der Eingabe verändert werden. Mit der Oben-Pfeiltaste und Unten-Pfeiltaste können die letzten Eingaben eingefügt werden.
+
+\subsection{Grundlegende Befehle}
+
+\subsection{JobSystem Befehle}
+
+\subsection{Datenbank Befehle}
+
+\section{CLIClient}
+
+Der CLI-Client erstellt bei der ersten Ausführung eine Konfigurationsdatei im gleichen Ordner wie die Ausführbare Datei. Dort kann der Zieladresse und Authentifikations-Passwort eingegeben werden. Sobald die Verbindung steht, kann die CLI ganz normal verwendet werden.\\\\
+Warnung: es können sich mehrere Clients gleichzeitig anmelden. Das Programm müsste in der Theorie trotzdem funktionieren, jedoch wurde dieses Szenario nicht gründlich genug getestet und ist daher nicht empfohlen.
+
+\section{CLIServer}
+
+Der CLI-Server ist im Hauptprogramm integriert und kann mit dem Argument '-cliserver' gestartet werden. Der Port lässt sich über die Konfigurationsdatei 'data/mad.conf' verändern. Standardmäßig läuft er auf Port 2222. Das Passwort mit dem sich der CLIClient authentifizeren muss, kann im Feld 'AES-PASS' ebenfalls eingerichtet werden.
+
+\chapter{Quellverzeichnis}
+lorem ipsum
+
 \end{document}
