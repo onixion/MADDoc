@@ -442,6 +442,22 @@ Netzwerkknoten sind Netzwerkgeräte, die als Ziel für bestimmte Netzwerkaufgabe
 
 Netzwerkaufgaben können an Netzwerkknoten drangehängt werden. Wenn eine bestimmte Netzwerkaufgabe ausgeführt wird, wird die Operation auf den Netzwerkknoten ausgeführt.
 
+\subsubsection{Jobtypen}
+
+Das JobSystem unterscheidet die Jobs in verschiedene Typen. Jeder Typ erledigt eine ganz spezielle Aufgabe im Netzwerk und kann daher verschiedene Resultate erbringen.
+
+\paragraph{Ping} Dieser Job führt einen Ping-Anfrage auf den jeweiligen Netzwerkknoten aus.
+
+\paragraph{HTTP} Dieser Job führt eine HTTP-Anfrage auf den jeweiligen Netzwerkknoten aus.
+
+\paragraph{Port} Diesr Job baut eine TCP-Verbindung zu den jeweiligen Netzwerkknoten auf.
+
+\paragraph{FOLGEN NOCH}
+
+\subsection{Funktionsweise}
+
+Das JobSystem besitzt einen Zeitplaner, der ein- und ausgeschalten werden kann. Dieser Zeitplaner behält die Netzwerkknoten und Aufgaben im Auge und ermittelt, wann eine Aufgabe bereit für die Ausführung ist. Falls ein Netzwerkknoten 'inaktiv' ist, wird dieser vom Zeitplaner ignoriert. Auch Netzwerkaufgaben können 'inaktiv' sein und werden dann vom Zeitplaner ebenfalls ignoriert. Wenn eine Aufgabe für die Ausführung bereit ist, startet der Zeitplaner den Job in einem eigenen Thread aus dem internen Threadpool. Nach der Ausführung der Jobs, schreibt der Zeitplaner die Resultate der Operation in die Datenbank (in die JobTable). Während der Ausführung der Aufgabe kann der Netzwerkknoten nicht entfernt werden. Die Änderung der IP-Adresse der Netzwerkknotens während der Ausführung hat keinen Einfluss auf die Ausführung. Erst in der neuen Ausführung wird die neue IP-Adresse für das Ziel verwendet.
+
 \section{Notification von Singh Manpreet}
 lorem ipsum
 
@@ -509,7 +525,11 @@ Die Ausführung diese Befehls gibt eine Tabelle der initalisierten Netzwerkopera
 
 \paragraph{schedule start}
 
+Dieser Befehl startet den Zeitplaner des JobSystems. Nach der Ausführung von diesem Befehl werden die Netzwerkknoten und Netzwerkaufgaben analisiert und bei passender Zeitangabe ausgeführt.
+
 \paragraph{schedule stop}
+
+Dieser Befehlt stopptet den Zeitplaner des JobSystems.
 
 \paragraph{node add}
 
@@ -521,9 +541,19 @@ Dieser Befehl entfernt einen Netzwerkknoten und die angehängten Netzwerkoperati
 
 \paragraph{node edit}
 
+Hiermit können bereits erstellte Netzwerkknoten editiert werden. Dieser Befehl besitzt die gleichen Parameter wie der \textbf{node add} Befehl.
+
 \paragraph{node start}
 
+Dieser Befehl ändert den Status eines Netzwerkknotens auf 'Aktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl des Netzwerkknotens muss angegeben werden.
+
 \paragraph{node stop}
+
+Dieser Befehl ändert den Status eines Netzwerkknotens auf 'Inaktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl des Netzwerkknotens muss angegeben werden.
+
+\paragraph{job info}
+
+Mithilfe dieses Befehles können Informationen zu einem bestimmten Job ausgegeben werden.
 
 \paragraph{job add}
 
@@ -544,15 +574,25 @@ Jeder Aufgabentyp den ein Netzwerkknoten haben kann, definiert einen eigenen Bef
 
 \paragraph{job remove}
 
+Dieser Befehl benötigt \textbf{-id} als Parameter. Als Argument muss die Indentikiationszahl des Jobs angegeben werden. Jobs, die während der Ausführung dieses Befehls in Ausführung sind, können nicht entfernt werden.
+
 \paragraph{job edit}
+
+Diese Befehl kann bereits erstellte Jobs modifizieren. 
 
 \paragraph{job start}
 
+Dieser Befehl ändert den Status einer Netzwerkaufgabe auf 'Aktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl der Netzwerkaufgabe muss angegeben werden.
+
 \paragraph{job stop}
+
+Dieser Befehl ändert den Status einer Netzwerkaufgabe auf 'Inaktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl der Netzwerkaufgabe muss angegeben werden.
 
 \subsection{Datenbank Befehle}
 
 \paragraph{db}
+
+Dieser Befehl gibt die Datenbank-Tabellen aus. Falls der Befehl ohne Parameter gestartet wird, wird eine Liste mit allen Tabellen ausgegeben.
 
 \paragraph{db jobs}
 
