@@ -431,7 +431,16 @@ lorem ipsum
 lorem ipsum
 
 \section{JobSystem von Porcic Alin und Ranalter Daniel}
-lorem ipsum
+
+Für das Management der Netzwerkgeräte und Netzwerkknoten ist das JobSystem zuständig. Das JobSystem verfügt über einen Zeitplaner, der entscheidet wann eine Netzwerkaufgabe gestartet werden soll.
+
+\subsection{Netzwerkknoten (=Nodes)}
+
+Netzwerkknoten sind Netzwerkgeräte, die als Ziel für bestimmte Netzwerkaufgaben definiert sind.
+
+\subsection{Netzwerkaufgaben (=Jobs)}
+
+Netzwerkaufgaben können an Netzwerkknoten drangehängt werden. Wenn eine bestimmte Netzwerkaufgabe ausgeführt wird, wird die Operation auf den Netzwerkknoten ausgeführt.
 
 \section{Notification von Singh Manpreet}
 lorem ipsum
@@ -454,14 +463,116 @@ lorem ipsum
 
 \section{CLI}
 
-Das Programm bietet eine text-basierende Schnittstelle an, die für die Verwendung des Programmes verwendet werden kann. Der Syntax der Eingaben sieht wie folgt aus:\\\\
-Durch das Drücken der ENTER-Taste wird der Befehlt interpretiert und bei gültiger Eingabe ausgeführt. Mit der Linken-Pfeiltaste und Rechten-Pfeiltaste kann die Position des Cursors in der Eingabe verändert werden. Mit der Oben-Pfeiltaste und Unten-Pfeiltaste können die letzten Eingaben eingefügt werden.
+Der Syntax der CLI-Eingagben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jeder Befehl definiert einen Hauptbefehl über den dieser gestartet werden kann. Jeder Hauptbefehl kann Parameter definieren und jeder dieser Parameter können Argumente definieren. Nach Drücken der ENTER-Taster wird die CLI-Eingabe eingelesen und interpretiert. Kann die CLI die Eingabe nicht interpretieren,  gibt die CLI eine Fehlermeldung aus.\\\\
+Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Obligatorische Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden, müssen aber nicht. Die Anordnung der Parameter ist für die CLI irrelevant.\\\\
+Mit der Linken- und Rechten-Pfeiltaste kann die Position des Cursors in der Eingabe verändert werden. Die CLI führt eine Liste der zuletzt eingegeben Befehle. Diese können mit der Oben- und Unten-Pfeiltaste angezeigt werden.
 
 \subsection{Grundlegende Befehle}
 
+\paragraph{help}
+
+Durch den Aufruf diese Befehls ohne Parameter, werden alle von der CLI bekannten Befehle aufgelistet. Jeder Befehl hat eine eindeutige Identifikationszahl. Mit dem Parameter \textbf{-id} können Informationen zu einem bestimmten Befehl angefragt werden. Der \textbf{-id} Parameter benötigt die Indentifikationszahl des Befehls als Argument.
+
+\paragraph{colortest}
+
+Dieser Befehl gibt alle möglichen Farben auf der jeweiligen Konsole aus. Viele Konsolen unterstützen nicht alle Farben, deshalb kann mit diesem Befehl herausgefunden werden, wie bestimmte Farben dargestellt werden.
+
+\paragraph{info}
+
+Gibt eine kurze Informationen über das Programm aus.
+
+\paragraph{exit}
+
+Beendet das Programm.
+
 \subsection{JobSystem Befehle}
 
+\paragraph{js}
+
+Dieser Befehl gibt eine kurze Übersicht über das aktuell geladene Jobsystem aus. Die Ausgabe enthält Informationen über die Netzwerkknoten, Aufgaben, aktive Knoten, aktive Aufgaben und Kapazitäten des JobSystems.
+
+\paragraph{js save}
+
+Diese Befehl erlaubt das Abspeichern des JobSystems als JSON-Datei. Der Dateipfad für die Abspeicherung kann als Argument mit dem Parameter \textbf{-f} mitgeteilt werden.
+
+\paragraph{js load}
+
+Mit dieser Funktion kann ein zuvor abgespeichertes Abbild des JobSystems geladen werden. Der Parameter \textbf{-f} gibt das Abbild an, welches geladen werden soll.
+
+\paragraph{js nodes}
+
+Dieser Befehl gibt eine Tabelle der initalisierten Netzwerkknoten auf die Konsole aus.
+
+\paragraph{js jobs}
+
+Die Ausführung diese Befehls gibt eine Tabelle der initalisierten Netzwerkoperationen aus.
+
+\paragraph{schedule start}
+
+\paragraph{schedule stop}
+
+\paragraph{node add}
+
+Netzwerkknoten können manuell mit diesem Befehl eingebunden werden. Dieser Befehl hat ingesamt drei Parameter: Name, IP-Adresse und MAC-Adresse. Der Name kann als Argument des Parameter \textbf{-n} mitgeteilt werden, die IP-Adresse mit \textbf{-ip} und die MAC-Adresse mit \textbf{-mac}. Bei der Ausführung des Befehls, erhält der Knoten eine automatisch zugewiesene Indentifikationszahl und eine globale eindeutige Indentifkationszahl (GUID).
+
+\paragraph{node remove}
+
+Dieser Befehl entfernt einen Netzwerkknoten und die angehängten Netzwerkoperationen. Mit dem Parameter \textbf{-id} kann die Indentifkationszahl des Knoten mitgeteilt werden.
+
+\paragraph{node edit}
+
+\paragraph{node start}
+
+\paragraph{node stop}
+
+\paragraph{job add}
+
+Jeder Aufgabentyp den ein Netzwerkknoten haben kann, definiert einen eigenen Befehl. Jeder \textbf{job add}-Befehl hat folgende Parameter:
+
+\begin{itemize}
+\item \textbf{-n}: Dieser Parameter gibt den Jobnamen an. Daher benötigt dieser Befehl den Namen als Argument.
+\item \textbf{-id}: Die ID des Netzwerkknoten an dem diese Aufgabe drangehängt werden soll. Der Netzwerkknoten muss existieren, sonst kann der Job nicht hinzugefügt werden.
+\item \textbf{-t}: Diese Parameter ist optional, sollte aber trotzdem definiert werden. Das Argument bzw. die Argumente dieses Parameters gibt an, wann der Job ausgeführt werden soll. Möchte man zum Beispiel, dass der Job alle 2000ms ausgeführt wird gibt man '2000' als Argument an. Möchte man einen bestimmen Zeitpunkt oder mehrer Zeitpunkte angeben, so kann man das mit den folgenden Argumenten erreichen:
+  \begin{itemize}
+  \item 20:15 $\rightarrow$ startet den Job jeden Tag um 20:15 Uhr.
+  \item 20:15 21:00 $\rightarrow$ startet den Job jeden Tag um 20:15 und 21:00 Uhr.
+  \item 5;20:15 $\rightarrow$ startet den Job jeden Monat am Fünften um 20:15 Uhr.
+  \item 5.2;20:15 $\rightarrow$ startet den Job jedes Jahr am Fünften Febuar um 20:15 Uhr.
+  \item 5.2.2015;20:15 $\rightarrow$ startet den Job am Fünften Febuar 2015 um 20:15 Uhr.
+  \end{itemize}
+\end{itemize}
+
+\paragraph{job remove}
+
+\paragraph{job edit}
+
+\paragraph{job start}
+
+\paragraph{job stop}
+
 \subsection{Datenbank Befehle}
+
+\paragraph{db}
+
+\paragraph{db jobs}
+
+\paragraph{db jobs remove}
+
+\paragraph{db jobs remove all}
+
+\paragraph{db summary}
+
+\paragraph{db summary create}
+
+\paragraph{db summary remove}
+
+\paragraph{db summary remove all}
+
+\paragraph{db memo}
+
+\paragraph{db memo add}
+
+\paragraph{db memo remove}
 
 \section{CLIClient}
 
