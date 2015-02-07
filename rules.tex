@@ -1,0 +1,60 @@
+\documentclass[10pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
+\usepackage{geometry}
+\usepackage{hyperref}
+\geometry{a4paper, left=25mm, right=25mm, top=20mm, bottom=30mm}
+
+
+\title{Doku Richtlinien}
+\author{Ranalter Daniel}
+
+\begin{document}
+
+\chapter{Richtlinien für Doku}
+\begin{itemize}
+\item Wortwiederholungen: Fachbegriffe so oft wie nötig, andere Wörter mit ca. 20 wörtern abstand.
+\item Keine Farben
+\item Für Hervorhebung: \textbf{Bold} verwenden (kein \textit{italics} oder \underline{underline})
+\item Schriftart: (Sans-Serif)
+\item keine persönlichen Formulierungen (ich, wir, sie, ..)
+\item möglichst hoher sprach standart 
+\item Einzugslose Absätze (doppelter Backslash) für zusammenhängende Dinge innerhalb einer Argumentation, bei neuem Gedankengang oä Absatz mit Abstand (zwei x 'Enter') (sorry an mani und stoj i han des falsch verstanden, is koa horizontaler abstand sondern a vertikaler x:)
+\item Stoj: Mathematischen dinger Zentriert und mit begin/end equation
+\item grafiken zentriert und mit begin/end figure
+\item grafiken dürfen nicht den Textfluss unterbrechen
+\item grafiken kein rahmen
+\item grafiken selbst zeichnen soweit wie möglich, ansonnsten auf die lizenz achten
+\item alle grafik formate solang latex sie unterstützt
+\item später dann abstände korrigieren (3,5 links 2,5 rechts)
+\item bibtex für Quellen von Bildern und Anderem angeben anleitungs link: \url{http://de.wikibooks.org/wiki/LaTeX-Kompendium:_Zitieren_mit_BibTeX}
+\item Kopfzeile links: LAN-Monitoring rechts: Kapitel
+\item Fußteile links: Autor (vor jedem Kapitel neu definieren) rechts: seite
+\item referenzieren: neben zu referenzierendem Kapitel/Section/whatev: (Backslash)label(Geschweifte Klammer auf)xxx:irgendeinNameDerNurEinmalExistiert(Geschweifte Klammer zu)\\
+Wobei xxx für folgendes stehen kann:\\
+\begin{center}
+\begin{tabular}{|c|c|}
+In Ref & Formatierungshierarchisches Equivalent\\
+\hline
+sec & section\\
+itm & item\\
+chap & chapter\\
+part & part\\
+p oder para & paragraph\\
+lst & listing\\
+fig & figure\\
+tab & tabular\\
+eq & equation\\
+s... & sub...
+\end{tabular}
+\end{center}
+
+zum einfügen der referenz: (Backslash)ref(GeschweifteKlammer auf)ZuvorBestimmterName(Geschweifte Klammer zu) für Kapitel Nr oder das ganze mit pageref für Seite auf welcher die Referenz zu finden ist. (Beispiel in meiner Teil der Doku)
+\item für Code: begin/end lstlisting aus usepackage listings
+\end{itemize}
+\end{document}

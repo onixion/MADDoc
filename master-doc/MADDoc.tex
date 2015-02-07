@@ -10,21 +10,18 @@
 \usepackage{nameref}
 \geometry{a4paper, left=25mm, right=25mm, top=20mm, bottom=30mm}
 
-\parindent 0px % Zeileneinschub bei Absätzen
 
 \renewcommand{\headrulewidth}{1pt} % Trennunslinien für Kopf- und Fußzeilen
 \renewcommand{\footrulewidth}{1pt}
 
-\lhead{} % Kopf- und Fußzeilen
-\chead{}
+\lhead{LAN-Monitoring} % Kopf- und Fußzeilen
 \rhead{\chaptername \hspace{5mm} \thesection}
-\lfoot{}
-\cfoot{}
+\lfoot{Du hasch deinen Namen vergessen}
 \rfoot{\thepage}
 
 \title{MAD-Network Monitoring\\
 Diplomarbeit 2014/15}
-\author{Porcic Alin, Ranalter Daniel, Singh Manpreet\\
+\author{Porcic Alin, Ranalter Daniel, Singh Manpreet, Stojanovi\'{c} Marko\\
 Betreuer: Dr. Michael Weiss\\
 Höhere Technische Bundes Lehr- und Versuchsanstalt Anichstraße\\
 Abteilung Höhere Elektronik und Technische Informatik\\
@@ -39,285 +36,285 @@ Abteilung Höhere Elektronik und Technische Informatik\\
 \newpage
 
 \pagestyle{fancy}
-
+\part{Abstract}
 \chapter{Abstract}
 \thispagestyle{fancy}
 
 lorem ipsum
 
-\chapter{Einleitung}
+\part{Einleitung}
 \thispagestyle{fancy}
 
 lorem ipsum
 
-\section{Aufgabenstellung}
+\chapter{Aufgabenstellung}
 lorem ipsum
 
-\section{Aufteilung}
+\chapter{Aufteilung}
 lorem ipsum 
 
-\chapter{Theorie zu den einzelnen Gebieten der Arbeit}
+\part{Theorie zu den einzelnen Gebieten der Arbeit}
 lorem ipsum
 
-\section{Informatik von Stojanovic Marko}
+\chapter{Informatik von Stojanovic Marko}
 lorem ipsum
 
-\subsection{Programmiersprachen}
+\section{Programmiersprachen}
 lorem ipsum
-\subsubsection{Was ist eine Programmiersprache?}
+\subsection{Was ist eine Programmiersprache?}
 lorem ipsum
-\subsubsection{C\#}
+\subsection{C\#}
 lorem ipsum
-\paragraph{Wie funktioniert C\#}
+\subsubsection{Wie funktioniert C\#}
 lorem ipsum
-\paragraph{Vor- und Nachteile}
+\subsubsection{Vor- und Nachteile}
 lorem ipsum
-%\subsubsection{Vergleich anderer möglicher Programmiersprachen}
+%\subsection{Vergleich anderer möglicher Programmiersprachen}
 %lorem ipsum
-\subsection{Multithreading}
+\section{Multithreading}
 lorem ipsum
-\subsubsection{Was ist ein Thread}
+\subsection{Was ist ein Thread}
 lorem ipsum
-\subsubsection{Konzept von Multithreading}
+\subsection{Konzept von Multithreading}
 lorem ipsum
-\paragraph{Wie funktioniert Multithreading}
+\subsubsection{Wie funktioniert Multithreading}
 lorem ipsum
-\paragraph{Hardware}
+\subsubsection{Hardware}
 lorem ipsum
-\paragraph{Software}
+\subsubsection{Software}
 lorem ipsum
-\paragraph{Arten von Multithreading}
+\subsubsection{Arten von Multithreading}
 lorem ipsum
-\paragraph{Vor- und Nachteile}
+\subsubsection{Vor- und Nachteile}
 
 
-\section{Protokolle und Netzwerkgrundlagen von Ranalter Daniel}
+\chapter{Protokolle und Netzwerkgrundlagen von Ranalter Daniel}
 Diese Abhandlung wird die Netzwerkgrundlagen welche auf das \glqq Ethernet\grqq Protokoll (siehe Kapitel \ref{sssec:eth}  Seite \pageref{sssec:eth}) aufsetzen besprochen. Es gibt noch diverse andere, wie zum Beispiel \glqq Token Ring\grqq , auf welche hier im folgenden jedoch nicht näher eingegangen wird, da, abgesehen davon, dass Ethernet auch bei der praktischen Durchführung verwendet wurde, Ethernet das am häufigsten genutzte Layer 1 Protokoll darstellt. 
-\subsection{Grundlagen}
+\section{Grundlagen}
 In der Netzwerktechnik gibt es mehrere verschiedene grundlegende Konzepte auf welche hier eingegangen werden soll.
-\subsubsection{Der Host}
+\subsection{Der Host}
 Mit dem Term \glqq Host\grqq , wird, in dem Zusammenhang der Netzwerktechnik, ein Gerät beschrieben, welches über das Netzwerk mit anderen Hosts verbunden ist und theoretisch in der Lage ist an der Kommunikation teilzunehmen. Damit ein Host zur Kommunikation in der Lage ist, benötigt er mehrere Dinge.\\
 Zu diesen gehört Hardware technisch gesehen, mindestens eine Netzwerkkarte mit einer Art von Möglichkeit sich in das Netz einzuklinken. Diese Möglichkeit kann aus einem Ethernet Anschluss oder einer Antenne, welche in der Lage ist, das 2,4 GHz Band und/oder das 5GHz Band zu empfangen und in diesem Band zu senden.\\
 Auf der Softwareseite benötigt ein Host im Grunde drei Dinge welche ihn dazu ermöglichen eine Konversation mit einem anderen Host zu führen.
-\paragraph{MAC-Adressen}
+\subsubsection{MAC-Adressen}
 MAC-Adresse steht für Media Access Controll Adresse und ist dem Layer 2 zugewiesen. Die MAC-Adresse heißt in Apple Systemen auch \glqq Ethernet-ID\grqq , \glqq Airport-ID\grqq oder \glqq Wi-Fi-Adresse\grqq . Sie sollte theoretisch jedes Netzwerkinterface eindeutig kennzeichnen, jedoch ist es mit moderner Software möglich diese zu ändern. Da die MAC-Adresse nicht mehr, wie ursprünglich gedacht, in die Netzwerkkarte \glqq eingebrannt\grqq ist, kann sie von Hackern eingesetzt werden um Schaden anzurichten (siehe Kapitel \ref{sssec:mspoof} und \ref{sssec:mflood} auf Seiten \pageref{sssec:mspoof} und \pageref{sssec:mflood})\\
 Die MAC-Adresse besteht aus sechs Byte (oder 48 bit) und wird normalerweise in hexadezimaler Notation dargestellt. Oft wird sie zur besseren Lesbarkeit byteweise durch einen Doppelpunkt oder einen Bindestrich getrennt, zum Beispiel a3:99:2f:9b:cc:00 oder eben a3-99-2f-9b-cc-00.\\
 Ohne Kenntnis über die MAC-Adresse, wäre es nicht möglich in einem Netzwerk zu kommunizieren, da das Ethernetframe die Sender und die Empfänger MAC-Adresse verlangt. Für den Fall, dass sich der Zielhost nicht im gleichen Netz befindet, sich also in einem durch einen Router getrennten, anderen Netz befindet, würde für die Ziel MAC-Adresse, jene des Routers angegeben. Sollte sich die Adresse des Ziels nicht im Cache des Rechners befinden, wird das Protokoll ARP verwendet (siehe Kapitel\ref{sssec:arp} Seite \pageref{sssec:arp}). 
-\paragraph{IP-Adressen}
+\subsubsection{IP-Adressen}
 Im folgenden wird nur auf IP version 4 eingegangen. Informationen zu IP version 6 können in Kapitel \ref{sssec:ip} auf Seite \pageref{sssec:ip} gefunden werden.\\
 Die zweite Adresse die ein Host benötigt um mit anderen zu kommunizieren oder Daten auszutauschen ist die IP-Adresse, was für Internet Protokoll Adresse steht. Diese wird dem Layer 3 des OSI-Schichtenmodells zugewiesen. Es gibt auch noch einige andere Protokolle auf dem Layer 3, jedoch setzen Netzwerke, wie sie im Projekt bearbeitet wurden, sowie das Internet hauptsächlich auf IP auf.\\
 Die IP-Adresse besteht aus 32 bit oder 4 byte, welche in der Regel in vier Oktete aufgeteilt und mit einem Punkt getrennt wird. Man hat also vier, durch einen Punkt getrennte Zahlen, welche sich alle im Bereich zwischen inklusive 0 und 255 befinden.\\
 Wie bereits zuvor beschrieben wird die MAC-Adresse verwendet um im gleichen Netz adressieren zu können und für den Fall, dass das Ziel sich in einem logisch getrennten Netz befindet, wird die MAC-Adresse des Routers verwendet. Damit man trotzdem weiß zu welchem Host das Paket muss, verwendet man die IP-Adresse welches Netze übergreift.\\
 Eine IP-Adresse wird normal ein zwei Teile gespalten. Es gibt den Netzteil und den Hostteil einer IP-Adresse. Der Netzteil einer Adresse kennzeichnet, wie der Name bereits sagt, in welchen Netz sich ein Host befindet. Der Hostteil hingegen kennzeichnet einen einzelnen Host in diesem Netz.\\
 Um zu erkennen welcher Teil einer IP-Adresse der Netzteil und welcher der Hostteil ist, verwendet man sogenannte Subnetzmasken. Die Subnetzmaske besteht aus einer dezimalen Zahl zwischen 1 und (theoretisch) 32 und gibt an wieviele bits der IP-Addresse zum Netzteil gehören. So wäre zum Beispiel bei der Adresse \textit{192.168.1.1/24} ein Anteil von 24 bit dem Netzteil zugehörig. 24 bit entsprechen 3 byte, also die ersten 3 dezimalen Zahlen 192.168.1 sind das Netz und .1 ist der Host.
-\paragraph{Ports}
+\subsubsection{Ports}
 lorem ipsum
-\subsubsection{Schichtenmodel}
+\subsection{Schichtenmodel}
 lorem ipsum
-\paragraph{OSI}
+\subsubsection{OSI}
 lorem ipsum
-\paragraph{TCP/IP}
+\subsubsection{TCP/IP}
 lorem ipsum
-\subsubsection{Beispiel für Kommunikationsablauf}
+\subsection{Beispiel für Kommunikationsablauf}
 lorem ipsum
-\subsubsection{Client-Server Verhältnis}
+\subsection{Client-Server Verhältnis}
 lorem ipsum
-\subsection{Protokolle}
+\section{Protokolle}
 lorem ipsum
-\subsubsection{Ethernet}\label{sssec:eth}
+\subsection{Ethernet}\label{sssec:eth}
 lorem ipsum
-\subsubsection{Address Resolution Protocol - ARP}\label{sssec:arp}
+\subsection{Address Resolution Protocol - ARP}\label{sssec:arp}
 lorem ipsum
-\paragraph{Sicherheitsaspekte}
+\subsubsection{Sicherheitsaspekte}
 lorem ipsum
-\subsubsection{Internet Protocol - IP}\label{sssec:ip}
+\subsection{Internet Protocol - IP}\label{sssec:ip}
 lorem ipsum
-\paragraph{IPv4}
+\subsubsection{IPv4}
 lorem ipsum
-\paragraph{IPv6}
-\subsubsection{User Datagram Protocol - UDP}
+\subsubsection{IPv6}
+\subsection{User Datagram Protocol - UDP}
 lorem ipsum
-\subsubsection{Transmission Control Protocol - TCP}
+\subsection{Transmission Control Protocol - TCP}
 lorem ipsum
-\subsubsection{Dynamic Host Configuration Protocol - DHCP}
+\subsection{Dynamic Host Configuration Protocol - DHCP}
 lorem ipsum
-\subsubsection{Domain Name System - DNS}
+\subsection{Domain Name System - DNS}
 lorem ipsum
-\subsubsection{Internet Control Message Protocol - ICMP}
+\subsection{Internet Control Message Protocol - ICMP}
 lorem ipsum 
-\paragraph{ICMP Echo Request/Response - Ping}
+\subsubsection{ICMP Echo Request/Response - Ping}
 lorem ipsum
-\subsubsection{File Transport Protcol - FTP}
+\subsection{File Transport Protcol - FTP}
 lorem ipsum
-\subsubsection{Simple Network Managing Prorocol - SNMP}
+\subsection{Simple Network Managing Prorocol - SNMP}
 lorem ipsum
-\paragraph{Management Information Base}
+\subsubsection{Management Information Base}
 lorem ipsum
-\paragraph{SNMPv2/SNMPv2c}
+\subsubsection{SNMPv2/SNMPv2c}
 lorem ipsum
-\paragraph{SNMPv3}
+\subsubsection{SNMPv3}
 lorem ispum
-\subsubsection{Hypertext Transfer Protcol - HTTP}
+\subsection{Hypertext Transfer Protcol - HTTP}
 lorem ipsum
-\subsection{Netzwerksicherheit}
+\section{Netzwerksicherheit}
 lorem ipsum
-\subsubsection{MAC-Spoofing}\label{sssec:mspoof}
+\subsection{MAC-Spoofing}\label{sssec:mspoof}
 lorem ipsum
-\subsubsection{MAC-Flooding}\label{sssec:mflood}
-lorem ipsum
-
-\section{E-Mail von Singh Manpreet}
-lorem ipsum
-\subsection{Allgemein E-Mail und Notification}
-lorem ipsum
-\subsubsection{Senden}
-lorem ipsum
-\paragraph{Graphische Erklärung}
-lorem ipsum
-\subsubsection{Empfangen}
-lorem ipsum
-\paragraph{IMAP}
-lorem ipsum
-\paragraph{POP}
-lorem ipsum
-\subsection{E-Mail}
-lorem ipsum
-\subsubsection{Ursprung/Entstehung}
-lorem ipsum
-\subsubsection{Bedeutung heute}
-lorem ipsum
-\paragraph{Zukünftig}
-lorem ipsum
-\subsubsection{Probleme}
-lorem ipsum
-\paragraph{Kleine Probleme}
-lorem ipsum
-\paragraph{Große Probleme - Gefahren}
-lorem ipsum
-\subsubsection{Sicherheit}
-lorem ipsum
-\paragraph{Versuche}
-lorem ipsum
-\paragraph{Was kann ich tun?}
+\subsection{MAC-Flooding}\label{sssec:mflood}
 lorem ipsum
 
-\section{Oberfläche}
+\chapter{E-Mail von Singh Manpreet}
 lorem ipsum
-\subsection{Allgemein User Interface (UI) von Manpreet Singh}
+\section{Allgemein E-Mail und Notification}
 lorem ipsum
-\subsubsection{Geschichte}
+\subsection{Senden}
 lorem ipsum
-\subsubsection{UIs}
-lorem ipsum 
+\subsubsection{Graphische Erklärung}
+lorem ipsum
+\subsection{Empfangen}
+lorem ipsum
+\subsubsection{IMAP}
+lorem ipsum
+\subsubsection{POP}
+lorem ipsum
+\section{E-Mail}
+lorem ipsum
+\subsection{Ursprung/Entstehung}
+lorem ipsum
+\subsection{Bedeutung heute}
+lorem ipsum
 \subsubsection{Zukünftig}
+lorem ipsum
+\subsection{Probleme}
+lorem ipsum
+\subsubsection{Kleine Probleme}
+lorem ipsum
+\subsubsection{Große Probleme - Gefahren}
+lorem ipsum
+\subsection{Sicherheit}
+lorem ipsum
+\subsubsection{Versuche}
+lorem ipsum
+\subsubsection{Was kann ich tun?}
+lorem ipsum
+
+\chapter{Oberfläche}
+lorem ipsum
+\section{Allgemein User Interface (UI) von Manpreet Singh}
+lorem ipsum
+\subsection{Geschichte}
+lorem ipsum
+\subsection{UIs}
 lorem ipsum 
-\subsection{Grahpical User Interface (GUI) von Manpreet Singh}
+\subsection{Zukünftig}
+lorem ipsum 
+\section{Grahpical User Interface (GUI) von Manpreet Singh}
 lorem ipsum
-\subsubsection{Bedeutung}
+\subsection{Bedeutung}
 lorem ipsum
-\subsubsection{Wichtigkeit}
+\subsection{Wichtigkeit}
 lorem ipsum
-\paragraph{Marktführende}
+\subsubsection{Marktführende}
 lorem ipsum
-\paragraph{Wichtige Operating System GUIs}
+\subsubsection{Wichtige Operating System GUIs}
 lorem ipsum
-\subsubsection{Vor- und Nachteile}
+\subsection{Vor- und Nachteile}
 lorem ipsum
-\subsubsection{Möglichkeiten der Realisierung}
+\subsection{Möglichkeiten der Realisierung}
 lorem ipsum
-\subsubsection{Genauer}
+\subsection{Genauer}
 lorem ipsum
-\paragraph{Realisierung}
+\subsubsection{Realisierung}
 lorem ipsum
-\paragraph{Graphikkarte oder Prozessor}
+\subsubsection{Graphikkarte oder Prozessor}
 lorem ipsum
-\subsection{Command Line Interface (CLI) von Alin Porcic}
+\section{Command Line Interface (CLI) von Alin Porcic}
 lorem ipsum
-\subsubsection{Allgemeines}
+\subsection{Allgemeines}
 
 CLI steht für 'Command Line Interface' (text-basierende Schnittstelle) und darunter versteht man Schnittstellen, die die Eingabe eines Nutzers in Form von Text interpretiert und diese dann ausführt.
 
-\subsubsection{Geschichte}
+\subsection{Geschichte}
 
 Speziell bei unix-ähnlichen Betriebssystemen, aber auch bei vielen anderen Systemen, sind text-basierende Schnittstellen in unterschiedlichster Form implementiert.
 
-\subsubsection{Vor- und Nachteile}
+\subsection{Vor- und Nachteile}
 lorem ipsum
-\section{Datenbank von Stojanovic Marko}
+\chapter{Datenbank von Stojanovic Marko}
 lorem ipsum
-\subsection{Allgemeines}
+\section{Allgemeines}
 lorem ipsum
-\subsubsection{Geschichte}
+\subsection{Geschichte}
 lorem ipsum
-\subsubsection{Definitionen}
+\subsection{Definitionen}
 lorem ipsum
-\subsubsection{Effizienz}
+\subsection{Effizienz}
 lorem ipsum
-\subsubsection{Funktionen}
+\subsection{Funktionen}
 lorem ipsum
-\subsubsection{Anwendungen}
+\subsection{Anwendungen}
 lorem ipsum
-\subsection{Datenbanksysteme}
+\section{Datenbanksysteme}
 lorem ispum
-\subsubsection{Datenbankmanagementsysteme}
+\subsection{Datenbankmanagementsysteme}
 lorem ipsum
-\subsubsection{Datenbank}
+\subsection{Datenbank}
 lorem ipsum
-\subsection{Relationales Datenbankmanagementsystem (RDBMS)}
+\section{Relationales Datenbankmanagementsystem (RDBMS)}
 lorem ipsum
-\subsubsection{Prinzip eines RDBMS}
+\subsection{Prinzip eines RDBMS}
 lorem ipsum
-\subsubsection{Tabellen}
+\subsection{Tabellen}
 lorem ipsum
-\subsubsection{Alternative Datenbankmanagementsysteme}
+\subsection{Alternative Datenbankmanagementsysteme}
 lorem ipsum
-\paragraph{Information Management System}
+\subsubsection{Information Management System}
 lorem ipsum
-\paragraph{Netzwerkdatenbankmodell}
+\subsubsection{Netzwerkdatenbankmodell}
 lorem ipsum
-\paragraph{Hierarchisches Datenbankmodell}
+\subsubsection{Hierarchisches Datenbankmodell}
 lorem ipsum
-\subsection{Zugriffe}
+\section{Zugriffe}
 lorem ipsum
-\subsubsection{Zugriffsmöglichkeiten}
+\subsection{Zugriffsmöglichkeiten}
 lorem ipsum
-\subsubsection{Sicherheit}
+\subsection{Sicherheit}
 lorem ipsum
-\subsubsection{Gleichzeitige Zugriffe}
+\subsection{Gleichzeitige Zugriffe}
 lorem ipsum 
-\subsection{Sprachen}
+\section{Sprachen}
 lorem ipsum
-\subsubsection{Verwaltungsgetrennte Sprachen}
+\subsection{Verwaltungsgetrennte Sprachen}
 lorem ipsum
-\paragraph{Abfragen und Manipulieren der Daten}
+\subsubsection{Abfragen und Manipulieren der Daten}
 lorem ipsum
-\paragraph{Datenbankstruktur}
+\subsubsection{Datenbankstruktur}
 lorem ipsum
-\paragraph{Berechtigungen}
+\subsubsection{Berechtigungen}
 lorem ipsum
-\subsubsection{SQL}
+\subsection{SQL}
 lorem ipsum
-\subsection{SQLite}
+\section{SQLite}
 lorem ipsum
-\subsubsection{Geschichte}
+\subsection{Geschichte}
 lorem ipsum
-\subsubsection{Eigenschaften}
+\subsection{Eigenschaften}
 lorem ipsum
-\subsubsection{Datentypen}
+\subsection{Datentypen}
 lorem ipsum
-\subsubsection{Syntax}
+\subsection{Syntax}
 lorem ipsum 
-\subsubsection{Befehle}
+\subsection{Befehle}
 lorem ipsum
-\subsubsection{Vor- und Nachteile}
+\subsection{Vor- und Nachteile}
 lorem ipsum
-\paragraph{Vorteile}
+\subsubsection{Vorteile}
 lorem ipsum
-\paragraph{Nachteile}
+\subsubsection{Nachteile}
 lorem ipsum
 
-\section{Kryptologie von Porcic Alin}
-\subsection{Allgemeines}
+\chapter{Kryptologie von Porcic Alin}
+\section{Allgemeines}
 
 Die Kryptologie, eine sehr alte Kunst und Wissenschaft, die sich mit der Verbergung von Information befasst, hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen und ist nicht mehr wegzudenken. Unzählige Informationen werden weltweit kreuz und quer ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen bestimmten Wert haben können. Der Wert dieser Informationen geht dann verloren, wenn ein Unbefugter den Sinn bzw. die Aussage dieser Informationen verstehen kann. Damit das nicht passiert, werden kryptogrphische Systeme entwickelt, um die Lesbarkeit von Informationen zu verhindern bzw. zu erschweren.\\\\
 
@@ -333,229 +330,229 @@ Auch im Zweiten Weltkrieg war die Verschlüsselung das A und O. Der Funkt war zu
 
 Heute verlassen sich Milliarden Menschen auf kryptographische Verfahen, ohne es zu wissen. Das einfache Surfen im Interne, das Absenden einer E-Mail, das Herunterladen von Dateien oder die Abspeicherung von Passwörtern erfolgen alle unter komplizierten kryptographischen Verfahren.
 
-\subsection{Kryprographie}
+\section{Kryprographie}
 lorem ipsum
-\subsubsection{Geschichte der Kryptographie}
+\subsection{Geschichte der Kryptographie}
 lorem ipsum
-\paragraph{Klassische Kryptographie}
+\subsubsection{Klassische Kryptographie}
 lorem ipsum
-\paragraph{Moderne Kryptographie}
+\subsubsection{Moderne Kryptographie}
 lorem ipsum
-\subsubsection{Ziele der Kryptographie}
+\subsection{Ziele der Kryptographie}
 lorem ipsum
-\subsubsection{Methoden}
+\subsection{Methoden}
 lorem ipsum
-\subsection{Kryptoanalyse}
+\section{Kryptoanalyse}
 lorem ipsum
-\subsubsection{Geschichte der Kryptoanalyse}
+\subsection{Geschichte der Kryptoanalyse}
 lorem ispum
-\subsubsection{Ziele der Kryptoanalyse}
+\subsection{Ziele der Kryptoanalyse}
 lorem ipsum
-\subsubsection{Methoden}
+\subsection{Methoden}
 lorem ipsum
-\subsection{Verschlüsselungsverfahren}
+\section{Verschlüsselungsverfahren}
 lorem ipsum
-\subsubsection{Symmetrische Verschlüsselungsverfahren}
+\subsection{Symmetrische Verschlüsselungsverfahren}
 lorem ipsum
-\paragraph{Merkmale}
+\subsubsection{Merkmale}
 lorem ipsum
-\paragraph{Nennenswerte symmetrische Verschlüsselungssysteme}
+\subsubsection{Nennenswerte symmetrische Verschlüsselungssysteme}
 lorem ipsum
-\subparagraph{DES}
+\paragraph{DES}
 lorem ipsum
-\subparagraph{3DES}
+\paragraph{3DES}
 lorem ipsum
-\subparagraph{IDEA}
+\paragraph{IDEA}
 lorem ipsum
-\subparagraph{CAST}
+\paragraph{CAST}
 lorem ipsum
-\subparagraph{RC4}
+\paragraph{RC4}
 lorem ipsum
-\subparagraph{RC5, RC5a, RC6}
+\paragraph{RC5, RC5a, RC6}
 lorem ipsum
-\subparagraph{A5}
+\paragraph{A5}
 lorem ipsum
-\subparagraph{Blowfish}
+\paragraph{Blowfish}
 lorem ipsum
-\subparagraph{Twofish}
+\paragraph{Twofish}
 lorem ipsum
-\subparagraph{AES}
+\paragraph{AES}
 lorem ipsum
-\subsubsection{Asymmetrische Verschlüsselungsverfahren}
+\subsection{Asymmetrische Verschlüsselungsverfahren}
 lorem ipsum
-\paragraph{Merkmale}
+\subsubsection{Merkmale}
 lorem ipsum
-\subparagraph{Digitale Signatur}
+\paragraph{Digitale Signatur}
 lorem ipsum
-\subparagraph{Zertifikate}
+\paragraph{Zertifikate}
 lorem ipsum
-\paragraph{Nennenswerte asymmetrische Verschlüsselungssysteme}
+\subsubsection{Nennenswerte asymmetrische Verschlüsselungssysteme}
 lorem ipsum
-\subparagraph{Diffie-Hellman}
+\paragraph{Diffie-Hellman}
 lorem ipsum
-\subparagraph{RSA}
+\paragraph{RSA}
 lorem ispum
-\subparagraph{ElGamal}
+\paragraph{ElGamal}
 lorem ipsum
-\subsubsection{Hybride Verschlüsselungsverfahren}
+\subsection{Hybride Verschlüsselungsverfahren}
 lorem ipsum
-\paragraph{Merkmale}
+\subsubsection{Merkmale}
 lorem ipsum
-\paragraph{Nenneswerte hybride Verschlüsselungssysteme}
+\subsubsection{Nenneswerte hybride Verschlüsselungssysteme}
 lorem ipsum
-\subparagraph{IPsec}
+\paragraph{IPsec}
 lorem ipsum
-\subparagraph{TLS/SSL}
+\paragraph{TLS/SSL}
 lorem ipsum
-\subparagraph{PGP}
+\paragraph{PGP}
 lorem ipsum
-\subsubsection{Hash-Verfahren}
+\subsection{Hash-Verfahren}
 lorem ipsum
-\paragraph{Merkmale}
+\subsubsection{Merkmale}
 lorem ipsum
-\paragraph{Nennenswerte Hashsysteme}
+\subsubsection{Nennenswerte Hashsysteme}
 lorem ipsum
-\subparagraph{MD2, MD4, MD5}
+\paragraph{MD2, MD4, MD5}
 lorem ipsum
-\subparagraph{SHA}
+\paragraph{SHA}
 lorem ipsum
-\subparagraph{RIPEMD}
-lorem ipsum
-
-
-\chapter{Möglichkeiten der Realisierung Allgemein von Ranalter Daniel}
+\paragraph{RIPEMD}
 lorem ipsum
 
 
-\chapter{Programmrealisierung}
+\part{Möglichkeiten der Realisierung Allgemein von Ranalter Daniel}
 lorem ipsum
 
-\section{JobSystem von Porcic Alin und Ranalter Daniel}
+
+\part{Programmrealisierung}
+lorem ipsum
+
+\chapter{JobSystem von Porcic Alin und Ranalter Daniel}
 
 Für das Management der Netzwerkgeräte und Netzwerkknoten ist das JobSystem zuständig. Das JobSystem verfügt über einen Zeitplaner, der entscheidet wann eine Netzwerkaufgabe gestartet werden soll.
 
-\subsection{Netzwerkknoten (=Nodes)}
+\section{Netzwerkknoten (=Nodes)}
 
 Netzwerkknoten sind Netzwerkgeräte, die als Ziel für bestimmte Netzwerkaufgaben definiert sind.
 
-\subsection{Netzwerkaufgaben (=Jobs)}
+\section{Netzwerkaufgaben (=Jobs)}
 
 Netzwerkaufgaben können an Netzwerkknoten drangehängt werden. Wenn eine bestimmte Netzwerkaufgabe ausgeführt wird, wird die Operation auf den Netzwerkknoten ausgeführt.
 
-\subsubsection{Jobtypen}
+\subsection{Jobtypen}
 
 Das JobSystem unterscheidet die Jobs in verschiedene Typen. Jeder Typ erledigt eine ganz spezielle Aufgabe im Netzwerk und kann daher verschiedene Resultate erbringen.
 
-\paragraph{Ping} Dieser Job führt einen Ping-Anfrage auf den jeweiligen Netzwerkknoten aus.
+\subsubsection{Ping} Dieser Job führt einen Ping-Anfrage auf den jeweiligen Netzwerkknoten aus.
 
-\paragraph{HTTP} Dieser Job führt eine HTTP-Anfrage auf den jeweiligen Netzwerkknoten aus.
+\subsubsection{HTTP} Dieser Job führt eine HTTP-Anfrage auf den jeweiligen Netzwerkknoten aus.
 
-\paragraph{Port} Diesr Job baut eine TCP-Verbindung zu den jeweiligen Netzwerkknoten auf.
+\subsubsection{Port} Diesr Job baut eine TCP-Verbindung zu den jeweiligen Netzwerkknoten auf.
 
-\paragraph{FOLGEN NOCH}
+\subsubsection{FOLGEN NOCH}
 
-\subsection{Funktionsweise}
+\section{Funktionsweise}
 
 Das JobSystem besitzt einen Zeitplaner, der ein- und ausgeschalten werden kann. Dieser Zeitplaner behält die Netzwerkknoten und Aufgaben im Auge und ermittelt, wann eine Aufgabe bereit für die Ausführung ist. Falls ein Netzwerkknoten 'inaktiv' ist, wird dieser vom Zeitplaner ignoriert. Auch Netzwerkaufgaben können 'inaktiv' sein und werden dann vom Zeitplaner ebenfalls ignoriert. Wenn eine Aufgabe für die Ausführung bereit ist, startet der Zeitplaner den Job in einem eigenen Thread aus dem internen Threadpool. Nach der Ausführung der Jobs, schreibt der Zeitplaner die Resultate der Operation in die Datenbank (in die JobTable). Während der Ausführung der Aufgabe kann der Netzwerkknoten nicht entfernt werden. Die Änderung der IP-Adresse der Netzwerkknotens während der Ausführung hat keinen Einfluss auf die Ausführung. Erst in der neuen Ausführung wird die neue IP-Adresse für das Ziel verwendet.
 
-\section{Notification von Singh Manpreet}
+\chapter{Notification von Singh Manpreet}
 lorem ipsum
 
-\section{Database von Stojanovic Marko}
-\subsection{MAD-DB}
+\chapter{Database von Stojanovic Marko}
+\section{MAD-DB}
 lorem ipsum
-\subsubsection{Erklärung}
+\subsection{Erklärung}
 lorem ipsum
-\subsubsection{Grafische Übersicht}
+\subsection{Grafische Übersicht}
 lorem ipsum
-\subsection{Programmcode}
-lorem ipsum
-
-\section{Logging von Ranalter Daniel}
+\section{Programmcode}
 lorem ipsum
 
+\chapter{Logging von Ranalter Daniel}
+lorem ipsum
 
-\chapter{User Manual von Procic Alin}
 
-\section{CLI}
+\part{User Manual von Procic Alin}
+
+\chapter{CLI}
 
 Der Syntax der CLI-Eingagben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jeder Befehl definiert einen Hauptbefehl über den dieser gestartet werden kann. Jeder Hauptbefehl kann Parameter definieren und jeder dieser Parameter können Argumente definieren. Nach Drücken der ENTER-Taster wird die CLI-Eingabe eingelesen und interpretiert. Kann die CLI die Eingabe nicht interpretieren,  gibt die CLI eine Fehlermeldung aus.\\\\
 Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Obligatorische Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden, müssen aber nicht. Die Anordnung der Parameter ist für die CLI irrelevant.\\\\
 Mit der Linken- und Rechten-Pfeiltaste kann die Position des Cursors in der Eingabe verändert werden. Die CLI führt eine Liste der zuletzt eingegeben Befehle. Diese können mit der Oben- und Unten-Pfeiltaste angezeigt werden.
 
-\subsection{Grundlegende Befehle}
+\section{Grundlegende Befehle}
 
-\paragraph{help}
+\subsubsection{help}
 
 Durch den Aufruf diese Befehls ohne Parameter, werden alle von der CLI bekannten Befehle aufgelistet. Jeder Befehl hat eine eindeutige Identifikationszahl. Mit dem Parameter \textbf{-id} können Informationen zu einem bestimmten Befehl angefragt werden. Der \textbf{-id} Parameter benötigt die Indentifikationszahl des Befehls als Argument.
 
-\paragraph{colortest}
+\subsubsection{colortest}
 
 Dieser Befehl gibt alle möglichen Farben auf der jeweiligen Konsole aus. Viele Konsolen unterstützen nicht alle Farben, deshalb kann mit diesem Befehl herausgefunden werden, wie bestimmte Farben dargestellt werden.
 
-\paragraph{info}
+\subsubsection{info}
 
 Gibt eine kurze Informationen über das Programm aus.
 
-\paragraph{exit}
+\subsubsection{exit}
 
 Beendet das Programm.
 
-\subsection{JobSystem Befehle}
+\section{JobSystem Befehle}
 
-\paragraph{js}
+\subsubsection{js}
 
 Dieser Befehl gibt eine kurze Übersicht über das aktuell geladene Jobsystem aus. Die Ausgabe enthält Informationen über die Netzwerkknoten, Aufgaben, aktive Knoten, aktive Aufgaben und Kapazitäten des JobSystems.
 
-\paragraph{js save}
+\subsubsection{js save}
 
 Diese Befehl erlaubt das Abspeichern des JobSystems als JSON-Datei. Der Dateipfad für die Abspeicherung kann als Argument mit dem Parameter \textbf{-f} mitgeteilt werden.
 
-\paragraph{js load}
+\subsubsection{js load}
 
 Mit dieser Funktion kann ein zuvor abgespeichertes Abbild des JobSystems geladen werden. Der Parameter \textbf{-f} gibt das Abbild an, welches geladen werden soll.
 
-\paragraph{js nodes}
+\subsubsection{js nodes}
 
 Dieser Befehl gibt eine Tabelle der initalisierten Netzwerkknoten auf die Konsole aus.
 
-\paragraph{js jobs}
+\subsubsection{js jobs}
 
 Die Ausführung diese Befehls gibt eine Tabelle der initalisierten Netzwerkoperationen aus.
 
-\paragraph{schedule start}
+\subsubsection{schedule start}
 
 Dieser Befehl startet den Zeitplaner des JobSystems. Nach der Ausführung von diesem Befehl werden die Netzwerkknoten und Netzwerkaufgaben analisiert und bei passender Zeitangabe ausgeführt.
 
-\paragraph{schedule stop}
+\subsubsection{schedule stop}
 
 Dieser Befehlt stopptet den Zeitplaner des JobSystems.
 
-\paragraph{node add}
+\subsubsection{node add}
 
 Netzwerkknoten können manuell mit diesem Befehl eingebunden werden. Dieser Befehl hat ingesamt drei Parameter: Name, IP-Adresse und MAC-Adresse. Der Name kann als Argument des Parameter \textbf{-n} mitgeteilt werden, die IP-Adresse mit \textbf{-ip} und die MAC-Adresse mit \textbf{-mac}. Bei der Ausführung des Befehls, erhält der Knoten eine automatisch zugewiesene Indentifikationszahl und eine globale eindeutige Indentifkationszahl (GUID).
 
-\paragraph{node remove}
+\subsubsection{node remove}
 
 Dieser Befehl entfernt einen Netzwerkknoten und die angehängten Netzwerkoperationen. Mit dem Parameter \textbf{-id} kann die Indentifkationszahl des Knoten mitgeteilt werden.
 
-\paragraph{node edit}
+\subsubsection{node edit}
 
 Hiermit können bereits erstellte Netzwerkknoten editiert werden. Dieser Befehl besitzt die gleichen Parameter wie der \textbf{node add} Befehl.
 
-\paragraph{node start}
+\subsubsection{node start}
 
 Dieser Befehl ändert den Status eines Netzwerkknotens auf 'Aktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl des Netzwerkknotens muss angegeben werden.
 
-\paragraph{node stop}
+\subsubsection{node stop}
 
 Dieser Befehl ändert den Status eines Netzwerkknotens auf 'Inaktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl des Netzwerkknotens muss angegeben werden.
 
-\paragraph{job info}
+\subsubsection{job info}
 
 Mithilfe dieses Befehles können Informationen zu einem bestimmten Job ausgegeben werden.
 
-\paragraph{job add}
+\subsubsection{job add}
 
 Jeder Aufgabentyp den ein Netzwerkknoten haben kann, definiert einen eigenen Befehl. Jeder \textbf{job add}-Befehl hat folgende Parameter:
 
@@ -572,58 +569,58 @@ Jeder Aufgabentyp den ein Netzwerkknoten haben kann, definiert einen eigenen Bef
   \end{itemize}
 \end{itemize}
 
-\paragraph{job remove}
+\subsubsection{job remove}
 
 Dieser Befehl benötigt \textbf{-id} als Parameter. Als Argument muss die Indentikiationszahl des Jobs angegeben werden. Jobs, die während der Ausführung dieses Befehls in Ausführung sind, können nicht entfernt werden.
 
-\paragraph{job edit}
+\subsubsection{job edit}
 
 Diese Befehl kann bereits erstellte Jobs modifizieren. 
 
-\paragraph{job start}
+\subsubsection{job start}
 
 Dieser Befehl ändert den Status einer Netzwerkaufgabe auf 'Aktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl der Netzwerkaufgabe muss angegeben werden.
 
-\paragraph{job stop}
+\subsubsection{job stop}
 
 Dieser Befehl ändert den Status einer Netzwerkaufgabe auf 'Inaktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl der Netzwerkaufgabe muss angegeben werden.
 
-\subsection{Datenbank Befehle}
+\section{Datenbank Befehle}
 
-\paragraph{db}
+\subsubsection{db}
 
 Dieser Befehl gibt die Datenbank-Tabellen aus. Falls der Befehl ohne Parameter gestartet wird, wird eine Liste mit allen Tabellen ausgegeben.
 
-\paragraph{db jobs}
+\subsubsection{db jobs}
 
-\paragraph{db jobs remove}
+\subsubsection{db jobs remove}
 
-\paragraph{db jobs remove all}
+\subsubsection{db jobs remove all}
 
-\paragraph{db summary}
+\subsubsection{db summary}
 
-\paragraph{db summary create}
+\subsubsection{db summary create}
 
-\paragraph{db summary remove}
+\subsubsection{db summary remove}
 
-\paragraph{db summary remove all}
+\subsubsection{db summary remove all}
 
-\paragraph{db memo}
+\subsubsection{db memo}
 
-\paragraph{db memo add}
+\subsubsection{db memo add}
 
-\paragraph{db memo remove}
+\subsubsection{db memo remove}
 
-\section{CLIClient}
+\chapter{CLIClient}
 
 Der CLI-Client erstellt bei der ersten Ausführung eine Konfigurationsdatei im gleichen Ordner wie die Ausführbare Datei. Dort kann der Zieladresse und Authentifikations-Passwort eingegeben werden. Sobald die Verbindung steht, kann die CLI ganz normal verwendet werden.\\\\
 Warnung: es können sich mehrere Clients gleichzeitig anmelden. Das Programm müsste in der Theorie trotzdem funktionieren, jedoch wurde dieses Szenario nicht gründlich genug getestet und ist daher nicht empfohlen.
 
-\section{CLIServer}
+\chapter{CLIServer}
 
 Der CLI-Server ist im Hauptprogramm integriert und kann mit dem Argument '-cliserver' gestartet werden. Der Port lässt sich über die Konfigurationsdatei 'data/mad.conf' verändern. Standardmäßig läuft er auf Port 2222. Das Passwort mit dem sich der CLIClient authentifizeren muss, kann im Feld 'AES-PASS' ebenfalls eingerichtet werden.
 
-\chapter{Quellverzeichnis}
+\part{Quellverzeichnis}
 lorem ipsum
 
 \end{document}
