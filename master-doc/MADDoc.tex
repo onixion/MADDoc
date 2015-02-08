@@ -89,31 +89,41 @@ lorem ipsum
 
 
 \chapter{Protokolle und Netzwerkgrundlagen von Ranalter Daniel}
-Diese Abhandlung wird die Netzwerkgrundlagen welche auf das \glqq Ethernet\grqq Protokoll (siehe Kapitel \ref{sssec:eth}  Seite \pageref{sssec:eth}) aufsetzen besprochen. Es gibt noch diverse andere, wie zum Beispiel \glqq Token Ring\grqq , auf welche hier im folgenden jedoch nicht näher eingegangen wird, da, abgesehen davon, dass Ethernet auch bei der praktischen Durchführung verwendet wurde, Ethernet das am häufigsten genutzte Layer 1 Protokoll darstellt. 
+Diese Abhandlung wird die Netzwerkgrundlagen welche auf das \glqq Ethernet\grqq Protokoll (siehe Kapitel \ref{ssec:eth}  Seite \pageref{ssec:eth}) aufsetzen besprochen. Es gibt noch diverse andere, wie zum Beispiel \glqq Token Ring\grqq , auf welche hier im folgenden jedoch nicht näher eingegangen wird, da, abgesehen davon, dass Ethernet auch bei der praktischen Durchführung verwendet wurde, Ethernet das am häufigsten genutzte Layer 1 Protokoll darstellt. 
 \section{Grundlagen}
 In der Netzwerktechnik gibt es mehrere verschiedene grundlegende Konzepte auf welche hier eingegangen werden soll.
 \subsection{Der Host}
 Mit dem Term \glqq Host\grqq , wird, in dem Zusammenhang der Netzwerktechnik, ein Gerät beschrieben, welches über das Netzwerk mit anderen Hosts verbunden ist und theoretisch in der Lage ist an der Kommunikation teilzunehmen. Damit ein Host zur Kommunikation in der Lage ist, benötigt er mehrere Dinge.\\
 Zu diesen gehört Hardware technisch gesehen, mindestens eine Netzwerkkarte mit einer Art von Möglichkeit sich in das Netz einzuklinken. Diese Möglichkeit kann aus einem Ethernet Anschluss oder einer Antenne, welche in der Lage ist, das 2,4 GHz Band und/oder das 5GHz Band zu empfangen und in diesem Band zu senden.\\
-Auf der Softwareseite benötigt ein Host im Grunde drei Dinge welche ihn dazu ermöglichen eine Konversation mit einem anderen Host zu führen.
+Auf der Softwareseite benötigt ein Host im Grunde drei Dinge welche ihn dazu ermöglichen eine Konversation mit einem anderen Host, über das Internet, zu führen. Es gibt natürlich auch andere Arten von Kommunikation in Netzwerken, jedoch ist das TCP/IP (siehe \ref{sssec:tcpip} auf Seite \pageref{sssec:tcpip}) Modell das am häufigsten vorkommende. 
 \subsubsection{MAC-Adressen}
-MAC-Adresse steht für Media Access Controll Adresse und ist dem Layer 2 zugewiesen. Die MAC-Adresse heißt in Apple Systemen auch \glqq Ethernet-ID\grqq , \glqq Airport-ID\grqq oder \glqq Wi-Fi-Adresse\grqq . Sie sollte theoretisch jedes Netzwerkinterface eindeutig kennzeichnen, jedoch ist es mit moderner Software möglich diese zu ändern. Da die MAC-Adresse nicht mehr, wie ursprünglich gedacht, in die Netzwerkkarte \glqq eingebrannt\grqq ist, kann sie von Hackern eingesetzt werden um Schaden anzurichten (siehe Kapitel \ref{sssec:mspoof} und \ref{sssec:mflood} auf Seiten \pageref{sssec:mspoof} und \pageref{sssec:mflood})\\
+MAC-Adresse steht für Media Access Controll Adresse und ist dem Layer 2 zugewiesen. Die MAC-Adresse heißt in Apple Systemen auch \glqq Ethernet-ID\grqq , \glqq Airport-ID\grqq oder \glqq Wi-Fi-Adresse\grqq . Sie sollte theoretisch jedes Netzwerkinterface eindeutig kennzeichnen, jedoch ist es mit moderner Software möglich die MAC-Adresse zu ändern. Da die MAC-Adresse nicht mehr, wie ursprünglich gedacht, in die Netzwerkkarte \glqq eingebrannt\grqq ist, kann sie von Hackern eingesetzt werden um Schaden anzurichten (siehe Kapitel \ref{ssec:mspoof} und \ref{ssec:mflood} auf Seiten \pageref{ssec:mspoof} und \pageref{ssec:mflood})\\
 Die MAC-Adresse besteht aus sechs Byte (oder 48 bit) und wird normalerweise in hexadezimaler Notation dargestellt. Oft wird sie zur besseren Lesbarkeit byteweise durch einen Doppelpunkt oder einen Bindestrich getrennt, zum Beispiel a3:99:2f:9b:cc:00 oder eben a3-99-2f-9b-cc-00.\\
-Ohne Kenntnis über die MAC-Adresse, wäre es nicht möglich in einem Netzwerk zu kommunizieren, da das Ethernetframe die Sender und die Empfänger MAC-Adresse verlangt. Für den Fall, dass sich der Zielhost nicht im gleichen Netz befindet, sich also in einem durch einen Router getrennten, anderen Netz befindet, würde für die Ziel MAC-Adresse, jene des Routers angegeben. Sollte sich die Adresse des Ziels nicht im Cache des Rechners befinden, wird das Protokoll ARP verwendet (siehe Kapitel\ref{sssec:arp} Seite \pageref{sssec:arp}). 
+Ohne Kenntnis über die MAC-Adresse, wäre es nicht möglich in einem Netzwerk zu kommunizieren, da das Ethernetframe die Sender und die Empfänger MAC-Adresse verlangt. Für den Fall, dass sich der Zielhost nicht im gleichen Netz befindet, sich also in einem durch einen Router getrennten, anderen Netz befindet, würde für die Ziel MAC-Adresse, jene des Routers angegeben. Sollte sich die Adresse des Ziels nicht im Cache des Rechners befinden, wird das Protokoll ARP verwendet (siehe Kapitel\ref{ssec:arp} Seite \pageref{ssec:arp}). 
 \subsubsection{IP-Adressen}
-Im folgenden wird nur auf IP version 4 eingegangen. Informationen zu IP version 6 können in Kapitel \ref{sssec:ip} auf Seite \pageref{sssec:ip} gefunden werden.\\
+Im folgenden wird nur auf IP version 4 eingegangen. Informationen zu IP version 6 können in Kapitel \ref{ssec:ip} auf Seite \pageref{ssec:ip} gefunden werden.\\
 Die zweite Adresse die ein Host benötigt um mit anderen zu kommunizieren oder Daten auszutauschen ist die IP-Adresse, was für Internet Protokoll Adresse steht. Diese wird dem Layer 3 des OSI-Schichtenmodells zugewiesen. Es gibt auch noch einige andere Protokolle auf dem Layer 3, jedoch setzen Netzwerke, wie sie im Projekt bearbeitet wurden, sowie das Internet hauptsächlich auf IP auf.\\
 Die IP-Adresse besteht aus 32 bit oder 4 byte, welche in der Regel in vier Oktete aufgeteilt und mit einem Punkt getrennt wird. Man hat also vier, durch einen Punkt getrennte Zahlen, welche sich alle im Bereich zwischen inklusive 0 und 255 befinden.\\
 Wie bereits zuvor beschrieben wird die MAC-Adresse verwendet um im gleichen Netz adressieren zu können und für den Fall, dass das Ziel sich in einem logisch getrennten Netz befindet, wird die MAC-Adresse des Routers verwendet. Damit man trotzdem weiß zu welchem Host das Paket muss, verwendet man die IP-Adresse welches Netze übergreift.\\
 Eine IP-Adresse wird normal ein zwei Teile gespalten. Es gibt den Netzteil und den Hostteil einer IP-Adresse. Der Netzteil einer Adresse kennzeichnet, wie der Name bereits sagt, in welchen Netz sich ein Host befindet. Der Hostteil hingegen kennzeichnet einen einzelnen Host in diesem Netz.\\
 Um zu erkennen welcher Teil einer IP-Adresse der Netzteil und welcher der Hostteil ist, verwendet man sogenannte Subnetzmasken. Die Subnetzmaske besteht aus einer dezimalen Zahl zwischen 1 und (theoretisch) 32 und gibt an wieviele bits der IP-Addresse zum Netzteil gehören. So wäre zum Beispiel bei der Adresse \textit{192.168.1.1/24} ein Anteil von 24 bit dem Netzteil zugehörig. 24 bit entsprechen 3 byte, also die ersten 3 dezimalen Zahlen 192.168.1 sind das Netz und .1 ist der Host.
 \subsubsection{Ports}
-lorem ipsum
+Werden auf der Transportschicht, also Layer 4, die Protokolle TCP oder UDP verwendet, werden jedem Host, zusätzlich zu dem zuvorgenannten Werten, auch noch sogenannte Ports zugewiesen. Es gibt immer einen Source-Port und einen Destination-Port.\\
+Ports bewegen sich in einem Raum von 0 bis 65535. Dieser immense Bereich wird aufgeteilt in drei kleinere Bereiche.\\
+Ersterer sind die sogenannten well-known Ports, also jene welche von allen gekannt und anerkannt werden. Er erstreckt sich von den Nummern 1 bis 1024. Ports in diesem Bereich sind von der IETF (Internet Engineering Task Force) mit bestimmten, wichtigen Anwendungen verknüpft worden. So ist das File Transport Protocol ftp auf Port 21 zu finden.\\
+Zweiter Bereich sind die Registered Ports. Sie stellen eine Art Übergangsbereich dar, denn sind hier zwar registrierte Anwendungen zu finden, kann man auch ohne Einverständnis der IETF Ports in diesem Bereich belegen. Der Bereich geht von 1024 bis 49151.\\
+Der dritte Bereich, Dynamic Ports, sind alle restlichen über 49151 und stehen dem Betriebssystem frei zur Verfügung um sie den Clientprogrammen zu geben.\\
+
+Ohne Ports wäre es nicht möglich mehrere Netzwerkanwendungen gleichzeitig zu betreiben, da der Client nicht mehr in der Lage wäre, die eingehenden Netzwerk Pakete den entsprechenden Anwendungen zuzuordnen. So ist er in der Lage, mehrere Verbindungen zu verschiedenen Server offen zu halten, da er sich jedesmal einen neuen Source-Port aufmacht. Ansonsten wäre zum Beispiel das offen haben von Facebook, Youtube und Reddit gleichzeitig garnicht möglich, geschweige denn mehrere Downloads von Servern.\\
+
+Wie erwähnt gibt es, wie bei den zuvor genannten Werten, auch hier Source und Destination. Während der Destination Port bei einem Client meistens anhand der Art von Anwendung vorbestimmt ist, ist der Source Port frei zu wählen solang er über 1024 liegt. Meistens wird jedoch ein Port über 30000 verwendet. 
 \subsection{Schichtenmodel}
-lorem ipsum
+Das Schichtenmodel ist ein im Bereich der Softwarearchitektur häufig verwendetes Strukturierungsprinzip. In der Netzwerktechnik gibt es zwei Schichtenmodelle.\\
+Das erste ist das von der International Organization for Standardization gemachten OSI Schichtenmodell. OSI steht dabei für Open Systems Interconnection.\\
+Das zweite Modell ist das TCP/IP Schichten Modell, wurde von dem Amerikanischen Department of Defense entwickelt und heißt eigentlich Internet protocol suite. Es stellt eine Sammlung von 500 verschiedenen Protokollen dar, der Name TCP/IP kommt von der Tatsache dass diese die beiden wichtigsten Protokolle für das Internet sind. 
 \subsubsection{OSI}
 lorem ipsum
-\subsubsection{TCP/IP}
+\subsubsection{TCP/IP}\label{sssec:tcpip}
 lorem ipsum
 \subsection{Beispiel für Kommunikationsablauf}
 lorem ipsum
@@ -121,13 +131,13 @@ lorem ipsum
 lorem ipsum
 \section{Protokolle}
 lorem ipsum
-\subsection{Ethernet}\label{sssec:eth}
+\subsection{Ethernet}\label{ssec:eth}
 lorem ipsum
-\subsection{Address Resolution Protocol - ARP}\label{sssec:arp}
+\subsection{Address Resolution Protocol - ARP}\label{ssec:arp}
 lorem ipsum
 \subsubsection{Sicherheitsaspekte}
 lorem ipsum
-\subsection{Internet Protocol - IP}\label{sssec:ip}
+\subsection{Internet Protocol - IP}\label{ssec:ip}
 lorem ipsum
 \subsubsection{IPv4}
 lorem ipsum
@@ -158,9 +168,9 @@ lorem ispum
 lorem ipsum
 \section{Netzwerksicherheit}
 lorem ipsum
-\subsection{MAC-Spoofing}\label{sssec:mspoof}
+\subsection{MAC-Spoofing}\label{ssec:mspoof}
 lorem ipsum
-\subsection{MAC-Flooding}\label{sssec:mflood}
+\subsection{MAC-Flooding}\label{ssec:mflood}
 lorem ipsum
 
 \chapter{E-Mail von Singh Manpreet}

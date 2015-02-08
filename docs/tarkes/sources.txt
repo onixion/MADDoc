@@ -8,3 +8,16 @@ www.elektronik-kompendium.de/sites/net/1406201.htm 30.1
 IP-Adresse
 en.wikipedia.org/wiki/IP_address 31.1
 de.wikipedia.org/wiki/IP-Adresse 31.1
+
+Ports
+en.wikipedia.org/wiki/Port_(computer_networking)
+de.wikipedia.org/wiki/Port_(Protokoll)
+RFC 3232
+
+Schichtenmodelle
+de.wikipedia.org/wiki/OSI-Modell
+de.wikipedia.org/wiki/Internetprotokollfamilie
+de.wikipedia.org/wiki/Schichtenarchitektur
+en.wikipedia.org/wiki/Multitier_architecture
+en.wikipedia.org/wiki/OSI_model
+en.wikipedia.org/wiki/TCP/IP_model
