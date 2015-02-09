@@ -1,4 +1,5 @@
-de.wikipedia.org/wiki/Ethernet
+The Art Of Exploitation
+en.wikibooks.org/wiki/CCNA_Certification
 
 MAC-Adresse
 de.wikipedia.org/wiki/MAC-Adresse 30.1
@@ -21,3 +22,7 @@ de.wikipedia.org/wiki/Schichtenarchitektur
 en.wikipedia.org/wiki/Multitier_architecture
 en.wikipedia.org/wiki/OSI_model
 en.wikipedia.org/wiki/TCP/IP_model
+
+en.wikipedia.org/wiki/Physical_layer
+en.wikipedia.org/wiki/Data_link_layer
+en.wikipedia.org/wiki/Network_layer

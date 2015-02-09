@@ -88,10 +88,18 @@ lorem ipsum
 \subsubsection{Vor- und Nachteile}
 
 
-\chapter{Protokolle und Netzwerkgrundlagen von Ranalter Daniel}
+\chapter{Netzwerkgrundlagen und Protokolle von Ranalter Daniel}
 Diese Abhandlung wird die Netzwerkgrundlagen welche auf das \glqq Ethernet\grqq Protokoll (siehe Kapitel \ref{ssec:eth}  Seite \pageref{ssec:eth}) aufsetzen besprochen. Es gibt noch diverse andere, wie zum Beispiel \glqq Token Ring\grqq , auf welche hier im folgenden jedoch nicht näher eingegangen wird, da, abgesehen davon, dass Ethernet auch bei der praktischen Durchführung verwendet wurde, Ethernet das am häufigsten genutzte Layer 1 Protokoll darstellt. 
 \section{Grundlagen}
 In der Netzwerktechnik gibt es mehrere verschiedene grundlegende Konzepte auf welche hier eingegangen werden soll.
+\subsection{Netzwerkdevices}
+lorem ipsum
+\subsubsection{Router}
+lorem ipsum
+\subsection{Switch}
+lorem ipsum
+\subsection{Firewall}
+lorem ipsum 
 \subsection{Der Host}
 Mit dem Term \glqq Host\grqq , wird, in dem Zusammenhang der Netzwerktechnik, ein Gerät beschrieben, welches über das Netzwerk mit anderen Hosts verbunden ist und theoretisch in der Lage ist an der Kommunikation teilzunehmen. Damit ein Host zur Kommunikation in der Lage ist, benötigt er mehrere Dinge.\\
 Zu diesen gehört Hardware technisch gesehen, mindestens eine Netzwerkkarte mit einer Art von Möglichkeit sich in das Netz einzuklinken. Diese Möglichkeit kann aus einem Ethernet Anschluss oder einer Antenne, welche in der Lage ist, das 2,4 GHz Band und/oder das 5GHz Band zu empfangen und in diesem Band zu senden.\\
@@ -122,6 +130,44 @@ Das Schichtenmodel ist ein im Bereich der Softwarearchitektur häufig verwendete
 Das erste ist das von der International Organization for Standardization gemachten OSI Schichtenmodell. OSI steht dabei für Open Systems Interconnection.\\
 Das zweite Modell ist das TCP/IP Schichten Modell, wurde von dem Amerikanischen Department of Defense entwickelt und heißt eigentlich Internet protocol suite. Es stellt eine Sammlung von 500 verschiedenen Protokollen dar, der Name TCP/IP kommt von der Tatsache dass diese die beiden wichtigsten Protokolle für das Internet sind. 
 \subsubsection{OSI}
+Wie bereits erwähnt wurde das OSI-Layer Modell von der ISO als das standardisierte Referenzmodell für Kommunikation in einem Netzwerk bestimmt. Das OSI-Layer Modell teilt die gesamte Kommunikation in einem Netzwerk in 7 Schichten auf, welche nach oben hin immer weiter abstrahieren, wobei eine Ebene immer die Ebene über sich bedient und von der unteren Ebene bedient wird.\\
+\paragraph{Layer 1 - Physical Layer}
+Die erste Ebene ist auch die am wenigsten abstrahierte Ebene. Wie der Name schon andeutet geht es beim Physical Layer um die physikalischen Eigenschaften der Verbindung. Dazu gehören Pin Layout, Leitungsimpedanzen oder welche Art der Verbindung (Koaxial Kabel, Lichtwellenleiter, ..) verwendet wird. Auch die Art der verwendeten Modulation oder das umwandeln von Daten in Spannungen wird auf diesem Layer festgelegt. Hier ist noch nicht festgelegt wie die einzelnen Bits von einem Host zum anderen finden, sondern eher wie ein Bit auf einer Leitung überhaupt dargestellt wird und wie es transportiert wird.\\
+
+Beispielhafte Protokolle auf dieser Ebene sind:
+\begin{itemize}
+\item Ethernet mit seinen Varianten
+\item DSL 
+\item Varianten vom 802.11 Wireless standart
+\item Bluetooth
+\item CAN bus
+\item ...
+\end{itemize}
+\paragraph{Layer 2 - Data Link Layer}
+Der zweite Layer im OSI-Modell ist der Data Link Layer. Er ermöglicht die Kommunikation zwischen zwei benachbarten Netzwerkgeräten in einem Netzwerk. Weiters kann er Mittel zur Verfügung stellen, Fehler welche auf dem Physical Layer auftreten können, zu beheben. So tritt hier auch die erste Adresse auf, die MAC-Adresse.\\
+
+Beispielhafte Protokolle auf dieser Ebene sind:
+\begin{itemize}
+\item Ethernet
+\item Token Ring
+\item Spanning Tree 
+\item Point-to-Point PPP
+\item Multiprotocol Label Switching MLPS
+\item ...
+\end{itemize}
+\paragraph{Layer 3 - Network Layer}
+Die nächst höhere Ebene ist der Network Layer. Während der Data Link Layer für die Kommunikation von zwei benachbarten Netzwerkgeräten zuständig ist, ist der Network Layer für die End-to-End Verbindung zuständig, welche auch über mehrere Netzwerkgeräte laufen kann, also auch über mehrere Netze hinweg. Damit müssen die Protokolle auf diesem Layer eine Möglichkeit zur Adressierung bereitstellen welche auch auf große Entfernungen, im logischen Sinne, eindeutig sind. Eine Möglichkeit sind die bereits besprochenen IP-Adressen.\\
+
+Beispielhafte Protokolle auf dieser Ebene sind:
+\begin{itemize}
+\item Internet Protocol IP
+\item Routing Information Protocol ARP
+\item Internet Control Message Protocol ICMP
+\item Internet Protocol Security IPsec
+\item ...
+\end{itemize}
+
+\paragraph{Layer 4 - Transport Layer}
 lorem ipsum
 \subsubsection{TCP/IP}\label{sssec:tcpip}
 lorem ipsum
