@@ -532,9 +532,9 @@ lorem ipsum
 
 \chapter{CLI}
 
-Der Syntax der CLI-Eingagben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jeder Befehl definiert einen Hauptbefehl über den dieser gestartet werden kann. Jeder Hauptbefehl kann Parameter definieren und jeder dieser Parameter können Argumente definieren. Nach Drücken der ENTER-Taster wird die CLI-Eingabe eingelesen und interpretiert. Kann die CLI die Eingabe nicht interpretieren,  gibt die CLI eine Fehlermeldung aus.\\\\
-Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Obligatorische Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden, müssen aber nicht. Die Anordnung der Parameter ist für die CLI irrelevant.\\\\
-Mit der Linken- und Rechten-Pfeiltaste kann die Position des Cursors in der Eingabe verändert werden. Die CLI führt eine Liste der zuletzt eingegeben Befehle. Diese können mit der Oben- und Unten-Pfeiltaste angezeigt werden.
+Der Syntax der CLI-Eingagben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert. Kann die CLI die Eingabe nicht interpretieren, so gibt sie eine passende Fehlermeldung aus.\\\\
+Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorische Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden, müssen aber nicht. Die Anordnung der Parameter und Argumente ist für die CLI irrelevant.\\\\
+Mit der Linken- und Rechten-Pfeiltaste kann die Position des Cursors im Eingabefeld verändert werden. Die CLI führt eine Liste der zuletzt eingegeben Befehle. Diese können mit der Oben- und Unten-Pfeiltaste angezeigt werden.
 
 \section{Grundlegende Befehle}
 
@@ -649,23 +649,88 @@ Dieser Befehl gibt die Datenbank-Tabellen aus. Falls der Befehl ohne Parameter g
 
 \subsubsection{db jobs}
 
+Durch die Eingabe dieses Befehles wird die Datenbank-Tabelle der ausgeführten Operationen ausgegeben.
+
 \subsubsection{db jobs remove}
+
+Dieser Befehl erlaubt das Löschen von bestimmten Datensätze aus der 'JobTable'.
 
 \subsubsection{db jobs remove all}
 
+Dieser Befehl löscht alle Datensätze aus der 'JobTable'.
+
 \subsubsection{db summary}
+
+Die Eingabe dieses Befehls bewirkt die Ausgabe einer Datenbank-Tabelle der 'SummaryTable'.
 
 \subsubsection{db summary create}
 
+Die Berechnung und das Schreiben der Zusammenfassung kann durch eingeben dieses Befehls erreicht werden.
+
 \subsubsection{db summary remove}
+
+Das Entfernen von Datensätze aus der 'SummaryTable' erfolgt durch die Ausführung von diesem Befehl.
 
 \subsubsection{db summary remove all}
 
+Entfernt alle Datensätze aus der 'SummaryTable'.
+
 \subsubsection{db memo}
+
+Gibt den Inhalt der Memos aus der Datenbank auf die Konsole aus.
 
 \subsubsection{db memo add}
 
+In der Datenbank steht für jeden Netzwerkknoten zwei Felder für Memos frei. Ein kurzes Memo-Feld und ein längeres Memo-Feld. Durch die Ausführung dieses Befehls können Memos hinzugefügt werden.
+
 \subsubsection{db memo remove}
+
+Dieser Befehl entfernt Memos aus der Datenbank.
+
+\section{Anwendungsbeispiele}
+
+\subsection{Netzwerkknoten und Netzwerkaufgaben}
+
+Es soll manuell ein Netzwerkknoten hinzugefügt werden. Der Netzwerkknoten sieht wie folgt aus:
+
+\begin{itemize}
+  \item Hostname = MeinPC
+  \item IP-Adresse = 10.0.0.120
+  \item MAC-Adresse = FF:00:00:00:11
+\end{itemize}
+
+Um einen Netzwerkknoten hinzuzufügen muss der Befehl 'node add' ausgeführt werden. Dieser Befehl besitzt drei obligatorische Parameter mit jeweils einem Argument. Die Eingabe sieht wie folgt aus:\\\\
+
+\textbf{node add -n MeinPC -ip 10.0.0.120 -mac FF:00:00:00:11}\\\\
+
+Nach der Bestätigung mit der ENTER-Taste wird der Knoten erstellt und in das JobSystem eingebunden. Es sollen nun drei Netzwerkoperationen auf diesen Knoten ausgeführt werden:
+
+\begin{itemize}
+\item Ping-Anfrage alle 10s
+\item Port-Scan auf Port 443 jeden Tag um 19:30
+\item HTTP-Anfrage auf Port 80 jeden Monat am ersten Tag um 20:00
+\end{itemize}
+
+Das wird mithilfe der folgenden Befehle erreicht:
+
+\begin{itemize}
+\item \textbf{job add ping -n MeinPing -id 0 -t 10000}
+\item \textbf{job add port -n MeinPortScan -id 0 -t 19:30 -p 443}
+\item \textbf{job add http -n MeinHttp -id 0 -t 1;20:00 -p 80}
+\end{itemize}
+
+Das Argument des Parameters '-id' gibt die ID des Netzwerkknoten an, an dem die Aufgabe drangehängt werden soll. Der Parameter '-t' definiert wann diese Aufgabe ausgeführt werden soll. Port-Scans und HTTP-Anfragen können auch einen Port über den Parameter '-p' definieren.\\\\
+Zurzeit ist der Zeitplaner des JobSystems ausgeschalten, der Netzwerkknoten ist 'inaktive' und die drei Aufgaben ebenfalls. Damit die Aufgaben ausgeführt werden können muss der Zeitplaner aktiviert werden. Das geschieht durch den folgenden Befehl:\\\\
+\textbf{schedule start}\\\\
+Nun läuft der Zeitplaner, jedoch ignoriert er den Netzwerkknoten und alle darunterliegenden Aufgaben, da der Netzwerkknoten inaktive ist. Um einen Netzwerkknoten zu aktivieren reicht die Ausführung des folgenen Befehls:\\\\
+\textbf{node start -id 0}\\\\
+Damit der Zeitplaner die Aufgaben des jeweiligen Netzwerkknoten zur richtigen Zeit ausführen kann, müssen die Aufgaben aktiviert werden. Das kann durch die folgende Eingabe erreicht werden:\\\\
+\textbf{job start -id 0}\\
+\textbf{job start -id 1}\\
+\textbf{job start -id 2}\\\\
+Der Parameter '-id' gibt nicht den Knoten an, sondern die Identifikationszahl der Aufgabe an. Jeder Knoten hat eine ID, aber auch jede Aufgabe hat eine eindeutige Zuweisung. Nun werden die Aufgaben zu den definierten Zeitpunkten ausgeführt und die Ergebnisse der Ausführung werden in die Datenbank geschrieben. Mit diesem Befehl können die Aufgaben angesehen werden: \\\\
+\textbf{js jobs}\\\\
+Nach der Ausführung wird eine Tabelle mit den Aufgaben ausgegeben.
 
 \chapter{CLIClient}
 
