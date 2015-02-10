@@ -168,7 +168,53 @@ Beispielhafte Protokolle auf dieser Ebene sind:
 \end{itemize}
 
 \paragraph{Layer 4 - Transport Layer}
-lorem ipsum
+Die Aufgabe des vierten Layers ist die Aufteilung eines Datenstromes in Segmente. Damit ermöglicht er es Daten die größer sind als nur ein Paket zu verschicken. Des weiteren ist diese Schicht für das Aufrechterhalten des Quality of Service wichtig. Besonders wichtig sind die Protokolle TCP und UDP auf dieser Schicht. Auch werden auf dieser Ebene die Ports in die Adressen mithineingenommen.\\
+
+Beispielhafte Protokolle auf dieser Ebene sind:
+\begin{itemize}
+\item Transmission Control Protocol TCP
+\item User Datagramm Protocol UDP
+\item AppleTalk Trasaction Protocol ATP
+\item Fibre Channel Protocol FCP
+\item Stream Control Transmission Protocol SCTP
+\item ...
+\end{itemize}
+
+\paragraph{Layer 5 - Session Layer}
+Die fünfte Schicht des OSI-Schichtenmodelles ist für das Aufrechterhalten der einzelnen Sessions, also die Gespräche zwischen zwei Endgeräten miteinander zuständig. Er verwendet die unter ihm liegenden Ebenen um seine Gespräche auf die vorhandene Netzstruktur aufzubauen und hält diese dann am Leben.\\
+
+Beispielhafte Protokolle auf dieser Ebene sind:
+\begin{itemize}
+\item Net-BIOS
+\item AppleTalk Session Protocol ASP
+\item Point-to-Point Tunneling Protocol PPTP
+\item Password Authentification Protocol PAP
+\item ...
+\end{itemize}
+
+\paragraph{Layer 6 - Presentation Layer}
+Die Darstellungsschicht wirkt als reiner Übersetzer. Sie nimmt die Daten der Anwendungsschicht und bereitet sie so auf, dass sie für untere Schichten brauchbar werden. Falls es notwendig ist, übersetzt sie auch Dateiformate in andere Codierungen. Außerdem ist diese Ebene für die Serialisierung von komplexen Datenstrukturen in einfache \glqq flache\grqq Byteketten, wie sie zum Beispiel in XML verwendet werden, zuständig.\\
+
+Beispielhafte Protokolle auf dieser Ebene sind:
+\begin{itemize}
+\item telnet
+\item Lightweight Presentation Protocol LPP
+\item Independent Computing Architecture ICA (verwendet in Citrix)
+\item ...
+\end{itemize}
+
+\paragraph{Layer 7 - Application Layer}
+Der Application Layer, oder Anwendungsschicht, stellt das Interface dar welches schlussendlich unter der, von dem User verwendeten, Applikation liegt. Sie ist die am meisten abstrakte Schicht und damit auch dem User am nächsten. Protokolle in dieser Schicht kümmern sich ausschließlich um die Aufgabe welches jedes einzelne ganz speziell hat.\\
+
+Beispielhafte Protokolle auf dieser Ebene sind:
+\begin{itemize}
+\item Hypertext Transfer Protocol HTTP
+\item Simple Mail Transfer Protocol SMTP
+\item Simple Network Management Protocol SNMP
+\item Network Time Protocol NTP
+\item Lightweight Directory Access Protocol LDAP
+\item ...
+\end{itemize}
 \subsubsection{TCP/IP}\label{sssec:tcpip}
 lorem ipsum
 \subsection{Beispiel für Kommunikationsablauf}
