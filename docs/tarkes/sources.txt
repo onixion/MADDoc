@@ -30,3 +30,6 @@ en.wikipedia.org/wiki/Transport_layer 10.2
 en.wikipedia.org/wiki/Session_layer 10.2
 en.wikipedia.org/wiki/Presentation_layer 10.2
 en.wikipedia.org/wiki/Application_layer 10.2
+
+de.wikipedia.org/wiki/Internetprotokollfamilie 11.2
+en.wikipedia.org/wiki/Internet_protocol_suite 11.2

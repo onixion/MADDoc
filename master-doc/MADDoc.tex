@@ -93,12 +93,12 @@ Diese Abhandlung wird die Netzwerkgrundlagen welche auf das \glqq Ethernet\grqq 
 \section{Grundlagen}
 In der Netzwerktechnik gibt es mehrere verschiedene grundlegende Konzepte auf welche hier eingegangen werden soll.
 \subsection{Netzwerkdevices}
-lorem ipsum
+Um ein Netzwerk aufzubauen werden verschiedene Devices benötigt. Je nach Größe und Art des Netzwerkes kann man auch auf einzelne Komponenten verzichten. 
 \subsubsection{Router}
+Ein Router kommt in so gut wie jedem Netzwerk vor. 
+\subsubsection{Switch}
 lorem ipsum
-\subsection{Switch}
-lorem ipsum
-\subsection{Firewall}
+\subsubsection{Firewall}
 lorem ipsum 
 \subsection{Der Host}
 Mit dem Term \glqq Host\grqq , wird, in dem Zusammenhang der Netzwerktechnik, ein Gerät beschrieben, welches über das Netzwerk mit anderen Hosts verbunden ist und theoretisch in der Lage ist an der Kommunikation teilzunehmen. Damit ein Host zur Kommunikation in der Lage ist, benötigt er mehrere Dinge.\\
@@ -126,9 +126,7 @@ Ohne Ports wäre es nicht möglich mehrere Netzwerkanwendungen gleichzeitig zu b
 
 Wie erwähnt gibt es, wie bei den zuvor genannten Werten, auch hier Source und Destination. Während der Destination Port bei einem Client meistens anhand der Art von Anwendung vorbestimmt ist, ist der Source Port frei zu wählen solang er über 1024 liegt. Meistens wird jedoch ein Port über 30000 verwendet. 
 \subsection{Schichtenmodel}
-Das Schichtenmodel ist ein im Bereich der Softwarearchitektur häufig verwendetes Strukturierungsprinzip. In der Netzwerktechnik gibt es zwei Schichtenmodelle.\\
-Das erste ist das von der International Organization for Standardization gemachten OSI Schichtenmodell. OSI steht dabei für Open Systems Interconnection.\\
-Das zweite Modell ist das TCP/IP Schichten Modell, wurde von dem Amerikanischen Department of Defense entwickelt und heißt eigentlich Internet protocol suite. Es stellt eine Sammlung von 500 verschiedenen Protokollen dar, der Name TCP/IP kommt von der Tatsache dass diese die beiden wichtigsten Protokolle für das Internet sind. 
+Das Schichtenmodel ist ein im Bereich der Softwarearchitektur häufig verwendetes Strukturierungsprinzip. In der Netzwerktechnik gibt es zwei Schichtenmodelle.
 \subsubsection{OSI}
 Wie bereits erwähnt wurde das OSI-Layer Modell von der ISO als das standardisierte Referenzmodell für Kommunikation in einem Netzwerk bestimmt. Das OSI-Layer Modell teilt die gesamte Kommunikation in einem Netzwerk in 7 Schichten auf, welche nach oben hin immer weiter abstrahieren, wobei eine Ebene immer die Ebene über sich bedient und von der unteren Ebene bedient wird.\\
 \paragraph{Layer 1 - Physical Layer}
@@ -216,7 +214,27 @@ Beispielhafte Protokolle auf dieser Ebene sind:
 \item ...
 \end{itemize}
 \subsubsection{TCP/IP}\label{sssec:tcpip}
-lorem ipsum
+Das TCP/IP Schichtenmodell heißt eigentlich die \glqq Internetprotokollfamilie\grqq oder \glqq Internet Protocol Suite\grqq . Seinen umgangssprachlichen Namen hat es von den beiden Protokollen TCP und IP, die beiden wichtigsten Protokolle des Internets, welche auch als erste in die Sammlung an Protokollen aufgenommen wurden. Doch eigentlich umfasst die Internet Protocol Suite über 500 verschiedene Protokolle.\\
+Die Internet Protocol Suite wurde von dem amerikanischen Department of Defense (DOD) entwickelt.\\
+
+
+Die Internet Protocol Suite bestimmt das TCP/IP-Referenzmodel, welches ebenso wie das OSI-Schichtenmodel auf mehrere Schichten aufbaut.\\
+Während das OSI-Layer Modell 7 Schichten bestimmt, verwendet das TCP/IP-Referenzmodell nur 4 Schichten. Diese wären:\\
+
+\paragraph{Layer 1 - Link Layer}
+Der Link Layer im Referenzmodell vereinigt die OSI-Schichten 1 und 2 in sich. Er ist also sowohl für die physikalischen Eigenschaften des Netzes zuständig als auch für die grundlegende Übermittlung von Daten.
+
+\paragraph{Layer 2 - Internet Layer}
+Die zweite Schicht entspricht dem Network-Layer im OSI-Schichtenmodell. Bis auf die Namensänderung gibt es jedoch keinen Unterschied, wichtigstes Protokoll ist auch hier das namensgebende Internet Protokoll.
+
+\paragraph{Layer 3 - Transport Layer}
+Der Transport Layer im TCP/IP Modell entspricht seinem gleichnamigen Bruder im OSI-Modell. 
+
+\paragraph{Layer 4 - Application Layer}
+Alle Schichten die danach folgen würden, werden im TCP/IP-Modell zusammengefasst zum Application Layer.\\
+
+Nun ist relativ ersichtlich, dass sich das TCP/IP-Referenzmodell sich sehr stark auf den Internet und den Transport Layer konzentriert, während die Layer darunter und darüber beinahe vernachlässigt werden. Dies ist auch der größte Kritikpunkt an diesem Modell.\\
+In der Praxis wird das TCP/IP-Modell verwendet solange die Abstrahierung nicht zu weit geht, sollte man jedoch genauer arbeiten wird meistens auf das genormte und genauere OSI-Schichtenmodell zurückgegriffen.
 \subsection{Beispiel für Kommunikationsablauf}
 lorem ipsum
 \subsection{Client-Server Verhältnis}
