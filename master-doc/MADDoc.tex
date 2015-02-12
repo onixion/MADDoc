@@ -10,7 +10,6 @@
 \usepackage{nameref}
 \geometry{a4paper, left=25mm, right=25mm, top=20mm, bottom=30mm}
 
-
 \renewcommand{\headrulewidth}{1pt} % Trennunslinien für Kopf- und Fußzeilen
 \renewcommand{\footrulewidth}{1pt}
 
@@ -349,17 +348,22 @@ lorem ipsum
 \subsubsection{Graphikkarte oder Prozessor}
 lorem ipsum
 \section{Command Line Interface (CLI) von Alin Porcic}
-lorem ipsum
+
 \subsection{Allgemeines}
 
 CLI steht für 'Command Line Interface' (text-basierende Schnittstelle) und darunter versteht man Schnittstellen, die die Eingabe eines Nutzers in Form von Text interpretiert und diese dann ausführt.
 
 \subsection{Geschichte}
 
-Speziell bei unix-ähnlichen Betriebssystemen, aber auch bei vielen anderen Systemen, sind text-basierende Schnittstellen in unterschiedlichster Form implementiert.
+Die Interaktion mit Computerv vor der Erfindung der Video-Display-Terminals wurde außschließlich über text-basierende Schnittstellen implentiert. Auch nach der Einführung der Video-Display-Terminals wurden die CLIs weiter verwendet, speziell bei unix-ähnlichen Betriebssystemen und anderen Systemen, wie z.B. MS-DOS, CP/M und Apple DOS. Die CLI wurde als eine sogenannte 'Command-Line-Shell' implementiert. Die Shell war ein Programm, dass die Benutzereingaben einliest und in Betriebssytem-Funktionen umwandelt.\\
+Die gewöhnlichen Benutzer bevorzugen die grafischen Schnittstellen als die text-basierende. Erfahrene Anwender greifen auch heute immer noch zur CLI, da sie oftmals eine mächtigerer Kontrolle über Programme und dem Betriebssystem bietet als grafische Schnittstellen. (vgl. Wikipedia CLI)\\
 
 \subsection{Vor- und Nachteile}
-lorem ipsum
+
+In CLI-Anwendungen lassen sich viel mehr Einstellungen vornehmen als bei grafischen Anwendungen, ein gutes Beispiel hierführ ist der C/C++ Compiler 'gcc'. Eine grafische Oberfläche für die Benutztung dieses Compilers müsste enorm viele Einstellungen und Textfelder bieten, um den Compiler bis ins Detail zu konfigurieren. Da die Umsetztung einer Oberfläche für den 'gcc' seh schwierig und auch sinnlos ist, werden in moderenen IDEs einfach eine Konsole eingebaut, die für die Verwendung des Compilers verwendet wird.\\
+
+Der sicherlich größte Nachteil der CLI ist das der Benutzer die Befehle, die Parameter und die Argumente kennen muss. In seltenen Fällen müssen sogar die Parameter in der richtigen Reihenfolge eingeben werden. Multimedia-Daten lassen sich nur schwer über die Konsole verwenden, auch das Surfen im Internet weißt sich als schierig heraus.
+
 \chapter{Datenbank von Stojanovic Marko}
 lorem ipsum
 \section{Allgemeines}
@@ -436,30 +440,62 @@ lorem ipsum
 \chapter{Kryptologie von Porcic Alin}
 \section{Allgemeines}
 
-Die Kryptologie, eine sehr alte Kunst und Wissenschaft, die sich mit der Verbergung von Information befasst, hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen und ist nicht mehr wegzudenken. Unzählige Informationen werden weltweit kreuz und quer ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen bestimmten Wert haben können. Der Wert dieser Informationen geht dann verloren, wenn ein Unbefugter den Sinn bzw. die Aussage dieser Informationen verstehen kann. Damit das nicht passiert, werden kryptogrphische Systeme entwickelt, um die Lesbarkeit von Informationen zu verhindern bzw. zu erschweren.\\\\
+Die Kryptologie, eine sehr alte Kunst und Wissenschaft, die sich mit der Verbergung von Information befasst, hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen und ist nicht mehr wegzudenken. Unzählige Informationen werden weltweit kreuz und quer ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen bestimmten Wert haben können. Der Wert dieser Informationen geht dann verloren, wenn ein Unbefugter den Sinn bzw. die Aussage dieser Informationen verstehen kann. Damit das nicht passiert, werden kryptogrphische Systeme entwickelt, um die Lesbarkeit von Informationen zu verhindern bzw. zu erschweren. Kryptographische Systeme verlieren über die Zeit an Sicherheit, da die Computerleistung steigt, können die kryptographischen Systeme durch bloßes Ausprobieren geknackt werden. Daher sind immer wieder neue kryptographisch starke Systeme gesucht, die den Anfordernungen des heutigen modernen Zeitalters gerecht werden.\\\\
 
-Kein kryptographisches System ist perfekt - die Rechenleistung der Computer steigt stetig weiter an und daher verlieren Systemen über die Zeit an Sicherheit. Daher werden immer neue kryptographische Systeme gebraucht, die den Anforderungen des heutigen modernen Zeitalters gerecht werden.\\\\
+Die Kryptologie reicht weit in die Vergangenheit der Menschheit zurück - schon seit 2500 Jahren sind Methoden bekannt, die die Lesbarkeit von Informationen erschweren. In Sparta hat die Regierung ein Pergament Band um einen Zylinder spiralförmig aufgespannt und die zu ermittelnde Nachricht über die verschiedenen Ringe des Pergaments geschrieben. Die Entschlüsselung gelang nur dann, wenn man einen Zylinder mit dem gleichem Durchmesser besaß. (vgl. Einführung in die Kryptologie (1995), Tino Hempel, Seite 1)\\\\
 
-Es kommt öfter vor, dass die Kryptologie mit der Steganographie gleichgesetzt wird. Jedoch ist die Steganographie die Kunst Informationenim Trägermedium selber zu verstecken. Anders wie in der Kryptologie, wendet die Steganographie keine mathematische Verfahren an, um die Informationen zu verstecken, sondern verstecken die Informationen im Träger selbst (z.B. Grashalbe im Bild).\\\\
+Caesar, als Beispiel, verwendete eine sogenannte Verschiebechiffre. Er verschob die Buchstaben des Alphabets um drei Zeichnen und nur die Personen, die Lesen konnten und wussten wie oft die Buchstaben verschoben werden mussten, konnten den Sinn hinter dem verschlüsseltem Text interpretieren. Da für das Entschlüsseln der Nachricht die Zahl drei gebraucht wird, wird die Zahl drei in diesem Verfahren als der Schlüssle bezeichnet. Wer über den Schlüssel verfügt kann die Nachricht entschlüsseln, sofern dieser weiß wie er den Schlüssel auf den verschlüsselten Text anwenden muss, damit der Klartext herauskommt. Die Verschiebechiffre gehört in die Gruppe der \textbf{monoalphabetische Verschlüsselungsverfahen} und können mit Häufigkeitsberechnungen leicht entschlüsselt werden. (vgl. Einführung in die Kryptologie (1995), Tino Hempel, Seite 1-6)\\\\
 
-Die Kryptologie reicht weit in die Vergangenheit der Menschheit zurück - schon seit 2500 Jahren sind Methoden bekannt, die die Lesbarkeit von Informationen erschwert. In Sparta zum Beispiel hat die Regierung ein Pergament Band um einen Zylinder spiralförmig aufgespannt und die zu ermittelnde Nachricht über die verschiedenen Ringe der Pergaments geschrieben. Die Entschlüsselung gelang nur dann, wenn man einen Zylinder mit dem gleichem Durchmesser besaß.\\\\
+Die \textbf{polyalphabetischen} Verfahren verändern nach jedem Buchstaben automatisch den Schlüssel. Nun können keine Häufigkeitsberechnungen durchgeführt werden, da gleiche Buchstaben nicht gleich verschlüsselt werden. Eine bekanntes polyalphabetisches Verschlüsselungsverfahren war die 'ENIGMA', die nach dem Ersten Weltkrieg von den Deutschen entwickelt wurden. Der Funk war zu dieser Zeit das wichtigste Medium für die Übertragung von Informationen war und jeder den Funk mithören konnten. Daher war die Nachfrage nach sicheren kryptographischen Verfahren sehr hoch.
 
-Caesar, als Beispiel, verwendete einen sogenannten Verschiebechiffre. Er verschob die Buchstaben des Alphabets um drei Zeichnen. Nur die Personen, die Lesen klnnten und wussten wie oft die Buchstaben verschoben werden mussten, konnten den Sinn hinter dem verschlüsseltem Text interpretieren.\\\\
-
-Auch im Zweiten Weltkrieg war die Verschlüsselung das A und O. Der Funkt war zu dieser Zeit ein sehr wichtiges Übertragungsmedium und jeder konnte alles mithören. Daher benötigte man starke Systeme, um die Vertraulichkeit der Kommunikation zu bewerkstelligen. Die Allierten konnten den Enigma-Code der Deutschen knacken und gewannen den Krieg.\\\\
-
-Heute verlassen sich Milliarden Menschen auf kryptographische Verfahen, ohne es zu wissen. Das einfache Surfen im Interne, das Absenden einer E-Mail, das Herunterladen von Dateien oder die Abspeicherung von Passwörtern erfolgen alle unter komplizierten kryptographischen Verfahren.
+Heute verlassen sich Milliarden Menschen auf kryptographische Verfahen, ohne es zu wissen. Das einfache Surfen im Internet, das Absenden einer E-Mail, das Herunterladen von Dateien oder die Abspeicherung von Passwörtern erfolgen alle unter komplizierten kryptographischen Verfahren.
 
 \section{Kryprographie}
-lorem ipsum
+
+Die Kryptographie befasst sich mit der Entwicklung von krypographischen Systemen.
+
+
 \subsection{Geschichte der Kryptographie}
 lorem ipsum
 \subsubsection{Klassische Kryptographie}
-lorem ipsum
+
+\paragraph{Monoalphabetische Chiffrierung}
+
+Vor mehr als 2500 Jahren hat man einen \textbf{Skytale} für die Verschlüsselung von Informationen verwendet. Man hat ein Pergamentband oder einen Lederstreifen spiralförmig um den Skytale gewickelt und die zu verschlüsselnde Nachricht über die einzelnen Ringe der Streifen geschreiben. Nun konnte man das Band bei der Übermittlung abgefangen werden, doch ohne den richten Skytale nicht entschlüsselt werden. Nur der Empfänger, der im Besitz eines Skytales mit gleichem Durchmesser war, kann die für ihn bestimmte Nachricht entschlüsseln. Dieses Verschlüsselungssystem ist symmetrisch, da für die Ver- und Entschlüsselung der Durchmesser des Skytales unverändert bleibt. Der Durchmesser des Skytales wird in diesem Verfahren als der Schlüssel bezeichnet. Kennt man den Schlüssel, so kann man, sofern das kryptografische System bekannt ist, entschlüsselt werden. (vgl. Kryptologie, Thomas Imboden, Seite 15-16)\\\\
+
+Ein weiteres monoalphabetisches Verfahren ist die \textbf{Caesar-Verschlüsselung}. Dieses Verfahren verschiebt die Buchstaben des Klartextalphabets. Für die Entschlüsselung muss die Anzahl der Verschobenen Buchstaben bekannt sein, diese Information wird über einen sicheren Kanal übertragen.
+
+Die Tauschchiffre funktioniert ähnlich wie das Caesar-Verfahren, wurde aber ein bisschen erweitert. Die Buchstaben werden als Zahlen dargestellt, da das Rechnen mit Zahlen einfache ist (LOL). Der Buchstabe 'A' wird meistens mit der Zahl 1 repräsentiert, 'B' mit der Zahl 2, 'X' mit der Zahl 25 und 'Z' mit 0. Die Verschiebung der Buchstaben um drei Stellen, erfolgt durch eine Addition mit 3. Der Tauschchiffre geht wie folgt vor, um einen Klartext in Geheimtext zu übersetzten:
+
+\begin{itemize}
+  \item Klartextalphabet in Zahlen übersetzten
+  \item die Zahlen mit einer konstanten Zahl addieren (z.B. 3)
+  \item die neue Zahl durch die Anzahl der Buchstaben dividiert
+  \item der Rest dieser Division (modulo) stellt den Buchstabe des verschlüsselten Textes dar
+\end{itemize}
+
+Dieses Verfahren ist deutlich schwieriger zu Entschlüsseln als die Caesar-Verschlüsselung. Jedoch kann dieses Verfahren auch über Häufigkeitsberechnungen entschlüsselt werden, da jeder Buchstabe gleich verschlüsselt wird.\\\\
+
+Eine andere Art von monoalphabetische Chiffre sind die Schlüsselwörter. Für die Verschlüsselung wird ein Schlüsselwort und Schlüsselbuchstabe definiert. Nun werden gleiche Buchstaben aus dem Schlüsselwort herausgenommen und das Schlüsselwort wird in das Klartextalphabet an der Stelle des Schlüsselbuchstabe hineingesetzt. \\\\
+
+\paragraph{Polyalphabetische Chiffrierung}
+
+Die Vigernère Verschlüsselung benützt mehrere monoalphabetische Chiffrierungen.  
+
+Eine sehr bekannte polyalphabetische Chiffrierung ist 'ENIGMA'. ENIGMA wurde von den Deutschen nach dem Ersten Weltkrieg entwickelt, um die Funksprüche zu verschlüsseln. Jedoch konnten die Alliierten den 'ENIGMA'-Code durch die Turing-Bombe entschlüssel.
+
+
+
+
 \subsubsection{Moderne Kryptographie}
-lorem ipsum
+
+
+
 \subsection{Ziele der Kryptographie}
-lorem ipsum
+
+
+
+
 \subsection{Methoden}
 lorem ipsum
 \section{Kryptoanalyse}
@@ -470,7 +506,7 @@ lorem ispum
 lorem ipsum
 \subsection{Methoden}
 lorem ipsum
-\section{Verschlüsselungsverfahren}
+\section{Heutige Verschlüsselungsverfahren}
 lorem ipsum
 \subsection{Symmetrische Verschlüsselungsverfahren}
 lorem ipsum
