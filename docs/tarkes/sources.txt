@@ -33,3 +33,13 @@ en.wikipedia.org/wiki/Application_layer 10.2
 
 de.wikipedia.org/wiki/Internetprotokollfamilie 11.2
 en.wikipedia.org/wiki/Internet_protocol_suite 11.2
+
+Netzwerkdevies
+de.wikipedia.org/wiki/Router 12.2
+en.wikipedia.org/wiki/Router_(computing) 12.2
+
+de.wikipedia.org/wiki/Open_Shortest_Path_First 12.2
+en.wikipedia.org/wiki/Open_Shortest_Path_First 12.2
+
+de.wikipedia.org/wiki/Routing_Information_Protocol 12.2
+en.wikipedia.org/wiki/Rouring_Information_Protocol 12.2

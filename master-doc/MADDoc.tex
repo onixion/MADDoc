@@ -89,13 +89,41 @@ lorem ipsum
 
 
 \chapter{Netzwerkgrundlagen und Protokolle von Ranalter Daniel}
-Diese Abhandlung wird die Netzwerkgrundlagen welche auf das \glqq Ethernet\grqq Protokoll (siehe Kapitel \ref{ssec:eth}  Seite \pageref{ssec:eth}) aufsetzen besprochen. Es gibt noch diverse andere, wie zum Beispiel \glqq Token Ring\grqq , auf welche hier im folgenden jedoch nicht näher eingegangen wird, da, abgesehen davon, dass Ethernet auch bei der praktischen Durchführung verwendet wurde, Ethernet das am häufigsten genutzte Layer 1 Protokoll darstellt. 
+Diese Abhandlung wird die Netzwerkgrundlagen welche auf das Ethernet Protokoll (siehe Kapitel \ref{ssec:eth}  Seite \pageref{ssec:eth}) aufsetzen besprochen. Es gibt noch diverse andere, wie zum Beispiel Token Ring, auf welche hier im folgenden jedoch nicht näher eingegangen wird, da, abgesehen davon, dass Ethernet auch bei der praktischen Durchführung verwendet wurde, Ethernet das am häufigsten genutzte Layer 1 Protokoll darstellt. 
 \section{Grundlagen}
 In der Netzwerktechnik gibt es mehrere verschiedene grundlegende Konzepte auf welche hier eingegangen werden soll.
 \subsection{Netzwerkdevices}
 Um ein Netzwerk aufzubauen werden verschiedene Devices benötigt. Je nach Größe und Art des Netzwerkes kann man auch auf einzelne Komponenten verzichten. 
 \subsubsection{Router}
-Ein Router kommt in so gut wie jedem Netzwerk vor. 
+Ein Router kommt in so gut wie jedem Netzwerk vor. Er operiert auf dem Layer 3 im OSI-Schichtenmodell, indem er Packete welche an seine seiner Interfaces reinkommen, anhand der IP-Adresse an einem anderen Interface wieder hinaus schickt. Dadurch verbindet er logisch getrennte Netze.\\
+
+%\begin{center}
+%\begin{frame}
+%Bild hier \includegraphics[scale=0.5]{./docs/tarkes/pics/RouterNetwork.jpg}
+%\end{frame}
+%\end{center}
+
+Das Wissen, welches Packet wohin muss, zieht er aus einer lokalen Routingtabelle. Diese Tabelle kann auf drei unterschiedlichen Arten entstehen\\
+\begin{itemize}
+\item \textbf{Direkt angeschlossene Netze}\\
+Netze welche direkt an einem seiner eigenen Interfaces hängen, erkennt er.\\
+Auf dem Bild wären die Netze 192.168.11.0 192.168.12.0 und 192.168.22.0 dem Router1 also ohne weiteres bekannt und er könnte Anfragen von Host221 an Host211 ohne Probleme weiterleiten.
+\item \textbf{Statisches Routen}\\
+Es ist dem Admin eines Netzwerkes möglich alle möglichen Routen von einem Netz zum anderen händisch am Router einzutragen. Vorteilhaft daran ist die hohe Sicherheit und Kontrolle über das Netzwerk, nachteilig jedoch, dass es bei größeren Netzwerken sehr schnell unmöglich wird das durchzuziehen da es sehr viel Arbeit darstellt jede mögliche Route händisch einzutragen ohne dabei einen Fehler zu machen.\\
+Anhand des Bildes wäre es dem Administrator des Netzwerkes zum Beispiel möglich Router1 zu sagen, dass, wenn er zu Host212 kommen will, über das Netz 192.168.22.0 gehen muss. 
+\item \textbf{Dynamisches Routen}\\
+Beim Dynamischen Routen lernt der Router anhand von eigenen Routing Protokollen wie er zu welchem Netz kommt. Es gibt einige verschiedene, welche alle verschiedene Prioritäten setzen. So versucht das Protokoll OSPF (Open Shortest Path First) immer so wenig Hops, also Netzwerkwechsel/Router, wie möglich passieren zu müssen. RIP (Routing Information Protocol) und dessen Nachfolger RIP2 wird zwar noch verwendet, aber als veraltet angesehen.\\
+Würde man diese Protokolle an den Routern im Bild konfigurieren würden diese sich selbst die Wege beibringen.
+\end{itemize}
+
+Des weiteren gibt es verschiedenste Arten an Routern. Ihre Grundfunktionalitäten sind zwar immer die gleichen, jedoch würde das kleine Kästchen das zuhause steht, nie ausreichen um den Traffic der Backboneleitungen, also der großen Glasfaserleitung welche die Kontinente verbindet, zu routen. Dafür würde diesem Router einfach die Leistung fehlen.\\
+Deshalb gibt es verschiedene Arten von Routern:\\
+\begin{itemize}
+\item Backbone-Router\\
+Hochgradig auf Datendurchsatz optimiert, werden sie, wie der Name schon sagt, für das Routen an der Backbone verwendet.
+\item Edge-Router, Border-Router\\
+Wird von ISPs (Internet Service Providers wie UPC oder Telekom) verwendet um die Netzwerke ihrer Clienten zu verbinden. Sie verwenden normalerweise das Routing Protokoll BGP (Border Gateway Protocol) welches für diese Aufgabe ausgelegt ist.
+\end{itemize}
 \subsubsection{Switch}
 lorem ipsum
 \subsubsection{Firewall}
