@@ -1,0 +1,165 @@
+/* Style-Angaben fuer meine Homepage http://cryptolounge.cjb.net */
+/* Basierend auf den Style-Sheet-Angaben in SelfHTML */
+
+/* Sie koennen die folgenden Werte aendern, wenn Ihnen irgendetwas
+/* nicht passt. */
+
+
+/* Style-Definitionen: */
+/* =================== */
+
+
+body {
+  margin-left:5%;
+  margin-right:5%;
+  background-color:#FFFFFF
+}
+
+@media print {
+  body {
+    margin-left:0;
+    margin-right:0;
+  }
+}
+
+p,ul,ol,li,div,td,th,blockquote,dt,dd {
+  font-family:"Times New Roman",Times,serif;
+}
+
+p,ul,ol,li,div,td,th {
+  font-size:medium;
+}
+
+h1,h2,h3,h4,.header {
+  font-family:"Book Antiqua","Times New Roman",Times,serif;
+}
+
+h1 {
+  font-size:xx-large;
+  font-weight:bold;
+  color:#2F4F4F;
+}
+
+h2 {
+  font-size:x-large;
+  font-weight:bold;
+  color:#2F4F4F;
+}
+
+h3 {
+  font-size:large;
+  font-weight:bold;
+  color:#2F4F4F;
+}
+
+h4 {
+  font-size:medium;
+  font-weight:bold;
+  color:#007000;
+}
+
+.header {
+  font-size:20pt;
+  font-weight:bold;
+  color:#909090;
+  text-align:center;
+  letter-spacing:10pt;
+  font-variant:small-caps;
+  border-top-style:solid;
+  border-top-width:1px;
+  border-bottom-style:solid;
+  border-bottom-width:1px;
+  border-color:#000000;
+  background-color:#F0F0F0;
+  padding:10pt;
+  margin:0px;
+}
+
+@media print {
+  .header {
+    color:#000000;
+    background-color:#FFFFFF;
+  }
+}
+
+.small {
+  font-size:small;
+}
+
+.attention {
+  color:#007070;
+  font-weight:bold;
+}
+
+.loc {
+  font-size:11pt;
+  text-align:center;
+}
+
+hr.navigator {
+  margin-top:4pt;
+}
+
+table.navigator {
+  margin-top:4pt;
+  background-color:#FFFFFF;
+}
+
+.subnav {
+  background-color:#F0F0F0;
+  padding:1pt;
+}
+
+.navtext {
+  font-size:13pt;
+}
+
+.copyright {
+  margin-top:14pt;
+  margin-right:-5%;
+  text-align:right;
+  font-size:8pt;
+  font-style:italic;
+}
+
+pre,tt {
+  font-family:"Courier New",Courier,monospace;
+  font-size:small;
+}
+
+ul,ol,dd {
+  margin-left:2.5em;
+}
+
+pre,blockquote,.indent {
+  margin-left:2.0em;
+}
+
+li {
+  margin-bottom:2pt;
+}
+
+blockquote {
+  font-size:small;
+}
+
+.subtitle {
+  font-size:small;
+  font-style:italic;
+  text-align:center;
+}
+
+a:link {
+  color:#0000A0;
+  text-decoration:underline;
+}
+
+a:visited {
+  color:#800000;
+  text-decoration:underline;
+}
+
+a:active,a:hover {
+  color:#FF0000;
+  text-decoration:underline;
+}
