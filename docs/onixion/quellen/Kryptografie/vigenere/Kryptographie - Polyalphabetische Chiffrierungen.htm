@@ -1,0 +1,214 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html><head>
+<title>Kryptographie - Polyalphabetische Chiffrierungen</title>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+<meta name="author" content="Christian Thöing">
+<meta name="generator" content="Ulli Meybohms HTML EDITOR">
+<meta name="description" content="Informationen über polyalphabetische Verfahren">
+<meta name="keywords" content="polyalphabetisch, Vigenère, Kasiski">
+<link rel="stylesheet" href="Kryptographie%20-%20Polyalphabetische%20Chiffrierungen_files/format.css" type="text/css">
+</head>
+<body link="#0000A0" text="#000000" vlink="#800000" bgcolor="#FFFFFF" alink="#FF0000">
+
+<p class="loc"><a href="http://www.kuno-kohn.de/crypto/index.htm">Home</a> &gt; <a href="http://www.kuno-kohn.de/crypto/crypto/index.htm">Kryptographie</a> &gt; <a href="http://www.kuno-kohn.de/crypto/crypto/classic.htm">Klassische Kryptographie</a> &gt; <a name="top">Polyalphabetische Chiffrierungen</a></p>
+
+<!--INC:"crypto.inc"-->
+<p class="header">Kryptographie</p>
+<!--/INC:"crypto.inc"-->
+
+<div class="layout">
+
+<h3>3.4 Polyalphabetische Chiffrierungen</h3>
+
+<p>Bei den sog. <i>polyalphabetischen</i> Chiffrierungen wird derselbe 
+Klartextbuchstabe nicht stets mit demselben Geheimtextbuchstaben 
+verschlüsselt. Bei dieser Technik kommen mehrere <a href="http://www.kuno-kohn.de/crypto/crypto/monoalph.htm">monoalphabetische</a>
+ Chiffrierungen zum Einsatz (poly [gr.] = viele). In diesem Kapitel 
+werden wir sog. homophone Chiffren, welche die Buchstabenhäufigkeiten 
+verschleiert, und die wichtigste polyalphabetische Chiffrierung, die 
+Vigenère-Chiffre, kennen lernen.</p>
+
+<ul>
+ <li><a href="#bottom"><img src="Kryptographie%20-%20Polyalphabetische%20Chiffrierungen_files/down.gif" alt="nach unten" height="10" width="14" border="0"></a></li>
+ <li><a href="#Homophon">Homophone Chiffren</a></li>
+ <li><a href="#Vigenere">Die Vigenère-Chiffre</a></li>
+ <li><a href="#Kryptoanalyse">Kryptoanalyse</a></li>
+</ul>
+
+<!--INC:"subnav.inc"-->
+<p class="subnav">
+&nbsp;<a href="#top"><img src="Kryptographie%20-%20Polyalphabetische%20Chiffrierungen_files/up.gif" alt="nach oben" height="10" width="14" border="0"></a><a href="#bottom"><img src="Kryptographie%20-%20Polyalphabetische%20Chiffrierungen_files/down.gif" alt="nach unten" height="10" width="14" border="0"></a>
+</p>
+<!--/INC:"subnav.inc"-->
+
+<h4 id="Homophon">Homophone Chiffren</h4>
+
+<p>(Für eine Kurzzusammenfassung siehe auch den <a href="http://www.kuno-kohn.de/crypto/crypto/minidict.htm#Homophon">Eintrag im Mini-Lexikon</a>.)</p>
+
+<p>Der entscheidende Nachteil bei <a href="http://www.kuno-kohn.de/crypto/crypto/monoalph.htm">monoalphabetischen Chiffren</a>
+ ist, wie wir eben gesehen haben, die leidige Tatsache, dass 
+Buchstabenhäufigkeiten nicht verborgen werden. So wird die Kryptoanalyse
+ kinderleicht. Wie kann man nun erreichen, dass eben diese Häufigkeiten 
+verborgen werden, so dass alle Geheimtextzeichen mit der gleichen 
+Wahrscheinlichkeit auftreten? Nun, wir ordnen einem Klartextbuchstaben 
+einfach nicht nur <i>ein</i>, sondern <i>mehrere</i> Geheimtextzeicnen 
+zu! Die Anzahl der Geheimtextzeichen sollte dabei der allgemeinen 
+Häufigkeit des Klartextbuchstabens entsprechen. Das bedeutet, dass 
+z.&nbsp;B. das e (Häufigkeit: ca. 17%) 17 Geheimtextzeichen von 100 
+Paaren 00 bis 99 zugewiesen bekäme. Ein Beispiel hierfür gestaltete sich
+ wie folgt:</p>
+
+<pre><b>a:</b>  10 21 52 59 71
+<b>b:</b>  20 34
+<b>c:</b>  28 06 80
+<b>d:</b>  04 19 70 81 87
+<b>e:</b>  09 18 33 38 40 42 53 54 55 60 66 75 85 86 92 93 99
+<b>f:</b>  00 41
+<b>g:</b>  08 12 97
+<b>h:</b>  07 24 47 89
+<b>i:</b>  14 39 46 50 65 76 88 94
+<b>j:</b>  57
+<b>k:</b>  23
+<b>l:</b>  16 03 84
+<b>m:</b>  27 11 49
+<b>n:</b>  30 35 43 62 63 67 68 72 77 79
+<b>o:</b>  02 05 82
+<b>p:</b>  31
+<b>q:</b>  25
+<b>r:</b>  17 36 51 69 74 78 83
+<b>s:</b>  15 26 45 56 61 73 96
+<b>t:</b>  13 32 90 91 95 98
+<b>u:</b>  29 01 58
+<b>v:</b>  37
+<b>w:</b>  22
+<b>x:</b>  44
+<b>y:</b>  48
+<b>z:</b>  64
+</pre>
+
+<p class="subtitle">aus: <a href="http://www.kuno-kohn.de/crypto/crypto/lit.htm#Beutelspacher">Albrecht Beutelspacher, Kryptologie</a></p>
+
+<p>Um eine Nachricht zu chiffrieren, ordnet man jedem Klartextbuchstaben
+ ein zufällig gewähltes Zeichen aus der Menge der möglichen 
+Geheimtextzeichen für diesen Buchstaben zu. Da nun jeder Buchstabe mit 
+etwa der gleichen Häufigkeit auftritt, wird die Kryptoanalyse mit 
+"herkömmlichen" Methoden nun viel schwieriger. Allerdings ist auch bei 
+dieser Chiffre eine Kryptoanalyse möglich: Zwar werden die Häufigkeiten <i>einzelner</i> Buchstaben verschleiert, Buchstaben<i>gruppen</i>
+ wie st, sch, ck bleiben jedoch erhalten. Ein Kryptoanalytiker kann den 
+Geheimtext z.&nbsp;B. daraufhin analysieren, welche Geheimtextzeichen 
+ganz bestimmte Nachfolger oder Vorgänger haben; z.&nbsp;B. das c mit 
+Nachfolgern wie h und k, oder das e mit Nachfolger oder Vorgänger i (ei,
+ ie). Diese Methoden sind natürlich noch keine richtige Kryptoanalyse, 
+aber zeigen die Ansätze, wie ein Kryptoanalytiker an einen solchen Text 
+herangehen kann.</p>
+
+<!--INC:"subnav.inc"-->
+<p class="subnav">
+&nbsp;<a href="#top"><img src="Kryptographie%20-%20Polyalphabetische%20Chiffrierungen_files/up.gif" alt="nach oben" height="10" width="14" border="0"></a><a href="#bottom"><img src="Kryptographie%20-%20Polyalphabetische%20Chiffrierungen_files/down.gif" alt="nach unten" height="10" width="14" border="0"></a>
+</p>
+<!--/INC:"subnav.inc"-->
+
+<h4 id="Vigenere">Die Vigenère-Chiffre</h4>
+
+<p>Diese Chiffrierung stammt vom Franzosen <a href="http://www.kuno-kohn.de/crypto/crypto/minidict.htm#Vigenere">Blaise de Vigenère</a> und wurde 1586 veröffentlicht. Um mit dem Vigenère-Algorithmus chiffrieren zu können, benötigt man (a) ein <b>Schlüsselwort</b> und (b) das <b>Vigenère-Quadrat</b> (<a href="http://www.kuno-kohn.de/crypto/crypto/vigquad.gif">hier</a> gibt's noch eine Version mit "authentischem Flair"):</p>
+
+<table border="1" cellpadding="6" align="center">
+<tbody><tr>
+<td nowrap="nowrap" bgcolor="#FFF8E0">
+<tt>
+A B C D E F G H I J K L M N O P Q R S T U V W X Y Z<br>
+B C D E F G H I J K L M N O P Q R S T U V W X Y Z A<br>
+C D E F G H I J K L M N O P Q R S T U V W X Y Z A B<br>
+D E F G H I J K L M N O P Q R S T U V W X Y Z A B C<br>
+E F G H I J K L M N O P Q R S T U V W X Y Z A B C D<br>
+F G H I J K L M N O P Q R S T U V W X Y Z A B C D E<br>
+G H I J K L M N O P Q R S T U V W X Y Z A B C D E F<br>
+H I J K L M N O P Q R S T U V W X Y Z A B C D E F G<br>
+I J K L M N O P Q R S T U V W X Y Z A B C D E F G H<br>
+J K L M N O P Q R S T U V W X Y Z A B C D E F G H I<br>
+K L M N O P Q R S T U V W X Y Z A B C D E F G H I J<br>
+L M N O P Q R S T U V W X Y Z A B C D E F G H I J K<br>
+M N O P Q R S T U V W X Y Z A B C D E F G H I J K L<br>
+N O P Q R S T U V W X Y Z A B C D E F G H I J K L M<br>
+O P Q R S T U V W X Y Z A B C D E F G H I J K L M N<br>
+P Q R S T U V W X Y Z A B C D E F G H I J K L M N O<br>
+Q R S T U V W X Y Z A B C D E F G H I J K L M N O P<br>
+R S T U V W X Y Z A B C D E F G H I J K L M N O P Q<br>
+S T U V W X Y Z A B C D E F G H I J K L M N O P Q R<br>
+T U V W X Y Z A B C D E F G H I J K L M N O P Q R S<br>
+U V W X Y Z A B C D E F G H I J K L M N O P Q R S T<br>
+V W X Y Z A B C D E F G H I J K L M N O P Q R S T U<br>
+W X Y Z A B C D E F G H I J K L M N O P Q R S T U V<br>
+X Y Z A B C D E F G H I J K L M N O P Q R S T U V W<br>
+Y Z A B C D E F G H I J K L M N O P Q R S T U V W X<br>
+Z A B C D E F G H I J K L M N O P Q R S T U V W X Y
+</tt>
+</td>
+</tr>
+</tbody></table>
+
+<p>Das Quadrat besteht aus 26 Alphabeten, wobei die erste Zeile das um 0
+ Stellen verschobene Alphabet darstellt, die zweite das um 1 Stelle 
+verschobene und die letzte das um 25 Stellen verschobene Alphabet. Das 
+Schlüsselwort kann eine beliebige Buchstabenfolge sein, z.&nbsp;B. das 
+Wort <tt>KRYPTO</tt>. Wir schreiben nun dieses Schlüsselwort unter den Klartext und wiederholen es, wenn nötig:</p>
+
+<pre>Klartext:      p o l y a l p h a b e t i s c h
+Schlüsselwort: K R Y P T O K R Y P T O K R Y P
+</pre>
+
+<p>Der Schlüsselbuchstabe, der unter einem Klartextbuchstaben steht, 
+bestimmt das Alphabet. Um den ersten Geheimtextbuchstaben zu erhalten, 
+sehen wir nach, was in der Zeile K (d.&nbsp;h. die Zeile, die mit K 
+anfängt) und in der Spalte p steht – es ist das Z. Allgemein 
+ausgedrückt: Um einen Klartextbuchstaben <i>p</i> mit dem Schlüsselbuchstaben <i>k</i> zu verschlüsseln, sieht man im Vigenère-Quadrat nach, was in der Zeile <i>k</i> und in der Spalte <i>p</i> steht. Das ist der Geheimtext-Buchstabe. Insgesamt ergibt sich bei uns also:</p>
+
+<pre>Klartext:      p o l y a l p h a b e t i s c h
+Schlüsselwort: K R Y P T O K R Y P T O K R Y P
+Geheimtext:    Z F J N T Z Z Y Y Q X H S J A W
+</pre>
+
+<p>Um den Geheimtext wieder zu entschlüsseln, suchen wir in der Zeile <i>k</i> nach dem Geheimtextbuchstaben <i>c</i>. Nun schauen wir, in welcher Spalte dieses <i>c</i>
+ steht. Dies ist der Klartextbuchstabe. Die Häufigkeit der Buchstaben 
+ist jetzt viel gleichmäßiger verteilt: Die beiden Buchstaben a im 
+Klartext werden zu unterschiedlichen Geheimtextbuchstaben verschlüsselt 
+(nämlich T und Y).</p>
+
+<!--INC:"subnav.inc"-->
+<p class="subnav">
+&nbsp;<a href="#top"><img src="Kryptographie%20-%20Polyalphabetische%20Chiffrierungen_files/up.gif" alt="nach oben" height="10" width="14" border="0"></a><a href="#bottom"><img src="Kryptographie%20-%20Polyalphabetische%20Chiffrierungen_files/down.gif" alt="nach unten" height="10" width="14" border="0"></a>
+</p>
+<!--/INC:"subnav.inc"-->
+
+<h4 id="Kryptoanalyse">Kryptoanalyse</h4>
+
+<p>Obwohl die Vigenère-Chiffrierung erheblich sicherer gegenüber den 
+anderen bereits besprochenen Chiffren ist, ist auch dieses Verfahren mit
+ heutigen Methoden zu knacken. Der Geheimtext weist immer noch bestimmte
+ <i>Muster</i> auf, die es oft ermöglichen, das Schlüsselwort zu erschließen. Die Tests von <a href="http://www.kuno-kohn.de/crypto/crypto/minidict.htm#Kasiski">Kasiski</a> und <a href="http://www.kuno-kohn.de/crypto/crypto/minidict.htm#Friedman">Friedman</a>
+ können die Länge des Schlüsselwortes bestimmen. Ist die Länge erst 
+einmal bekannt, ist es nicht mehr schwer, das gesamte Wort zu bestimmen.
+ Dies gilt nicht, wenn der Schlüssel lang genug ist (exakt genauso lang 
+wie der Klartext) und einige weitere Eigenschaften erfüllt (dann nämlich
+ würde es sich um ein sog. <i>One-Time-Pad</i> handeln). Mehr darüber im <a href="http://www.kuno-kohn.de/crypto/crypto/otp.htm">nächsten Kapitel</a>.</p>
+
+<!--INC:"nav1.inc"-->
+<hr style="navigator" size="1">
+<table class="navigator" border="0" cellpadding="6" align="center">
+<tbody><tr>
+<!--/INC:"nav1.inc"-->
+  <td class="navtext"><a href="http://www.kuno-kohn.de/crypto/crypto/monoalph.htm"><img src="Kryptographie%20-%20Polyalphabetische%20Chiffrierungen_files/prev.gif" alt="Zurück zu: Monoalphabetische Chiffrierungen" height="10" width="10" border="0"></a>&nbsp;&nbsp;<a href="http://www.kuno-kohn.de/crypto/crypto/monoalph.htm">Zurück</a></td>
+  <td class="navtext"><a href="#top">nach&nbsp;oben</a>&nbsp;&nbsp;<a href="#top"><img src="Kryptographie%20-%20Polyalphabetische%20Chiffrierungen_files/up.gif" alt="nach oben" height="10" width="14" border="0"></a></td>
+  <td class="navtext"><a href="http://www.kuno-kohn.de/crypto/index.htm"><img src="Kryptographie%20-%20Polyalphabetische%20Chiffrierungen_files/logo_s.gif" alt="Home" height="22" width="128" border="0"></a></td>
+  <td class="navtext"><a href="http://www.kuno-kohn.de/crypto/crypto/index.htm#Uebersicht"><img src="Kryptographie%20-%20Polyalphabetische%20Chiffrierungen_files/uebers.gif" alt="Übersicht" height="16" width="20" border="0"></a>&nbsp;&nbsp;<a href="http://www.kuno-kohn.de/crypto/crypto/index.htm#Uebersicht">Übersicht</a></td>
+  <td class="navtext"><a href="http://www.kuno-kohn.de/crypto/crypto/otp.htm">Weiter</a>&nbsp;&nbsp;<a href="http://www.kuno-kohn.de/crypto/crypto/otp.htm"><img src="Kryptographie%20-%20Polyalphabetische%20Chiffrierungen_files/next.gif" alt="Weiter zu: Das One-Time-Pad" height="10" width="10" border="0"></a></td>
+<!--INC:"nav2.inc"-->
+</tr>
+</tbody></table>
+<!--/INC:"nav2.inc"-->
+
+<p id="bottom" class="copyright">Letzte Änderung: <!--DATE-->25.03.2002<!--/DATE--><br>
+© 2002 by <a href="mailto:c.thoeing@web.de">Christian Thöing</a></p>
+
+
+</div></body></html>
