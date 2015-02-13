@@ -96,17 +96,17 @@ Um ein Netzwerk aufzubauen werden verschiedene Devices benötigt. Je nach Größ
 \subsubsection{Router}
 Ein Router kommt in so gut wie jedem Netzwerk vor. Er operiert auf dem Layer 3 im OSI-Schichtenmodell, indem er Packete welche an seine seiner Interfaces reinkommen, anhand der IP-Adresse an einem anderen Interface wieder hinaus schickt. Dadurch verbindet er logisch getrennte Netze.\\
 
-%\begin{center}
-%\begin{frame}
-%Bild hier \includegraphics[scale=0.5]{./docs/tarkes/pics/RouterNetwork.jpg}
-%\end{frame}
-%\end{center}
+\begin{center}
+\begin{frame}
+Beispielnetzwerk\\ \includegraphics[scale=0.5]{../docs/tarkes/pics/RouterNetwork.jpg}
+\end{frame}
+\end{center}
 
 Das Wissen, welches Packet wohin muss, zieht er aus einer lokalen Routingtabelle. Diese Tabelle kann auf drei unterschiedlichen Arten entstehen\\
 \begin{itemize}
 \item \textbf{Direkt angeschlossene Netze}\\
 Netze welche direkt an einem seiner eigenen Interfaces hängen, erkennt er.\\
-Auf dem Bild wären die Netze 192.168.11.0 192.168.12.0 und 192.168.22.0 dem Router1 also ohne weiteres bekannt und er könnte Anfragen von Host221 an Host211 ohne Probleme weiterleiten.
+Auf dem Bild wären die Netze 192.168.11.0 192.168.12.0 und 192.168.22.0 dem Router1 also ohne weiteres bekannt und er könnte Anfragen von Host121 an Host111 ohne Probleme weiterleiten.
 \item \textbf{Statisches Routen}\\
 Es ist dem Admin eines Netzwerkes möglich alle möglichen Routen von einem Netz zum anderen händisch am Router einzutragen. Vorteilhaft daran ist die hohe Sicherheit und Kontrolle über das Netzwerk, nachteilig jedoch, dass es bei größeren Netzwerken sehr schnell unmöglich wird das durchzuziehen da es sehr viel Arbeit darstellt jede mögliche Route händisch einzutragen ohne dabei einen Fehler zu machen.\\
 Anhand des Bildes wäre es dem Administrator des Netzwerkes zum Beispiel möglich Router1 zu sagen, dass, wenn er zu Host212 kommen will, über das Netz 192.168.22.0 gehen muss. 
