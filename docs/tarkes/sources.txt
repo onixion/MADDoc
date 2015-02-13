@@ -42,4 +42,7 @@ de.wikipedia.org/wiki/Open_Shortest_Path_First 12.2
 en.wikipedia.org/wiki/Open_Shortest_Path_First 12.2
 
 de.wikipedia.org/wiki/Routing_Information_Protocol 12.2
-en.wikipedia.org/wiki/Rouring_Information_Protocol 12.2
+en.wikipedia.org/wiki/Routing_Information_Protocol 12.2
+
+de.wikipedia.org/wiki/Switch_(Netzwerktechnik) 
+en.wikipedia.org/wiki/Network_switch
