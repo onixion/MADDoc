@@ -96,13 +96,9 @@ Um ein Netzwerk aufzubauen werden verschiedene Devices benötigt. Je nach Größ
 \subsubsection{Router}
 Ein Router kommt in so gut wie jedem Netzwerk vor. Er operiert auf dem Layer 3 im OSI-Schichtenmodell, indem er Packete welche an seine seiner Interfaces reinkommen, anhand der IP-Adresse an einem anderen Interface wieder hinaus schickt. Dadurch verbindet er logisch getrennte Netze.\\
 
-
-\begin{figure}
 \begin{center}
 \includegraphics[scale=0.5]{../docs/tarkes/pics/RouterNetwork.jpg}\label{fig:bspNetwork}
 \end{center}
-\end{figure}
-
 
 Das Wissen, welches Packet wohin muss, zieht er aus einer lokalen Routingtabelle. Diese Tabelle kann auf drei unterschiedliche Arten entstehen\\
 \begin{itemize}
@@ -305,9 +301,25 @@ Alle Schichten die danach folgen würden, werden im TCP/IP-Modell zusammengefass
 
 Nun ist relativ ersichtlich, dass sich das TCP/IP-Referenzmodell sich sehr stark auf den Internet und den Transport Layer konzentriert, während die Layer darunter und darüber beinahe vernachlässigt werden. Dies ist auch der größte Kritikpunkt an diesem Modell.\\
 In der Praxis wird das TCP/IP-Modell verwendet solange die Abstrahierung nicht zu weit geht, sollte man jedoch genauer arbeiten wird meistens auf das genormte und genauere OSI-Schichtenmodell zurückgegriffen.
-\subsection{Beispiel für Kommunikationsablauf}
-lorem ipsum
 \subsection{Client-Server Verhältnis}
+Das Client-Server Modell ist das bekannteste und am öftesten verwendete Muster für Aufgabenverteilung in einem Netzwerk.\\ 
+Bei diesem Modell gibt es denjenigen der die Dienste anbietet, den Server, und denjenigen der die Dienste nutzt, den Client.\\
+
+Mit dem Begriff \glqq Server\grqq können sowohl die Hardware als auch die Software gemeint sein.\\
+Hardware-Server unterscheiden sich meistens nicht sehr von normalen Desktop-PCs, bis auf ihre Leistung welche meistens auf ihre Aufgabe abgestimmt ist. Oft wird weniger Rechenleistung benötigt als RAM ein anderes mal umgekehrt. Manchmal wird auch viel Speicherplatz gebraucht.\\
+Auch die Abmessungen variieren deutlich. Bei kleinen Servern, wie sie manche auch zuhause stehen haben, ist es oft nur ein normaler Tower, nur halt ohne Bildschirm, während große Firmen oder Organisationen häufig sogenannte \glqq Racks\grqq vollgestopft mit Blade-Servern stehen haben.\\
+Ein Rack ist ein Gestell in welches man Blade-Server einfach hineinschieben kann. Blade-Server (Blade deutsch: Klinge) haben ihren Namen von ihrem sehr schlanken Design.\\
+
+\begin{center}
+\includegraphics[scale=0.8]{../docs/tarkes/pics/ServerRack.jpg}\\
+Ein Rack mit mehreren Blade-Servern 
+\end{center}
+
+Als Software-Server werden Programme bezeichnet welche Dienste anbieten. Zu solchen zählt zum Beispiel der Webserver Apache, der FTP-Server Filezilla oder auch bind, die Referenzimplementierung eines DNS-Servers.\\
+Software-Server werden häufig als Dienste oder Deamons bezeichnet. Sie laufen im Hintergrund, haben häufig, vorallem auf unixoiden Betriebssystemen, keine grafische Oberfläche sondern lediglich mehr oder weniger viele Konfigurationsdateien, und müssen so programmiert sein, dass sie großen Mengen an Anfragen begegnen können ohne, dass sie der Maschine auf welcher sie laufen ihre gesamten Resourcen wegfressen.\\
+
+Clients sind ebenso vielfältig. Zu den Clients zählt jeder, der einen Dienst eines Servers in Anspruch nimmt. 
+\subsection{Beispiel für Kommunikationsablauf}
 lorem ipsum
 \section{Protokolle}
 lorem ipsum
