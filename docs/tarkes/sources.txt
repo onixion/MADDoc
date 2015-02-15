@@ -44,5 +44,23 @@ en.wikipedia.org/wiki/Open_Shortest_Path_First 12.2
 de.wikipedia.org/wiki/Routing_Information_Protocol 12.2
 en.wikipedia.org/wiki/Routing_Information_Protocol 12.2
 
-de.wikipedia.org/wiki/Switch_(Netzwerktechnik) 
-en.wikipedia.org/wiki/Network_switch
+de.wikipedia.org/wiki/Switch_(Netzwerktechnik) 13.2 
+en.wikipedia.org/wiki/Network_switch 13.2
+
+de.wikipedia.org/wiki/Firewall 13.2
+en.wikipedia.org/wiki/Firewall_(computing) 13.2
+ 
+de.wikipedia.org/wiki/Deep_Packet_Inspection 13.2
+en.wikipedia.org/wiki/Deep_packet_inspection 13.2
+
+de.wikipedia.org/wiki/Virtual_Local_Area_Network 13.2
+en.wikipedia.org/wiki/Virtual_LAN 13.2
+
+de.wikipedia.org/wiki/Host_(Informationstechnik) 14.2
+
+de.wikipedia.org/wiki/Rack 14.2
+en.wikipedia.org/wiki/19-inch-rack 14.2
+ 
+de.wikipedia.org/wiki/Client-Server_Modell 14.2
+en.wikipedia.org/wiki/Client-server_model 14.2
+
