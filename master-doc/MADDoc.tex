@@ -527,7 +527,7 @@ Die Kryptologie, eine sehr alte Kunst und Wissenschaft, die sich mit der Verberg
 
 Die Sicherheit eines kryptographischen Systems darf nicht von der Geheimhaltung des Algorithmus abhängen. Nur die Geheimhaltung der Eingangsgrößen des Algorithmus soll die Sicherheit gewehrleisten. \textbf{Security through obscurity} (= Sicherheit durch Obskurität) ist einer der wichtigsten Leitgedanken für kryptographische Systeme nach dem Kerckhoffs' Prinzip (oder Kerckhoffs' Maxime). Das Kerckhoffs' Prinzip definiert weiter wichtige Grundsätze, die ein modernes kryptographisches System erfüllen sollte. (vgl. Wikipedia - Kerckhoffs' Prinzip)\\\\
 
-(WEG) Die Lebensdauer von kryptographischen Systemen hängt von vielen Faktoren ab, wie zum Beispiel Schlüssellänge, Algorithmus, Schlüsselraum aber auch die Computerleistung bestimmt die Lebensdauer eines Systems.  verlieren über die Zeit an Sicherheit, da die Computerleistung steigt, können verschlüsselten Inhalte durch bloßes Ausprobierent entschlüsselt werden. Daher ist die Nachfrage nach starken kryptographisch Systeme immer gegeben, damit die Vertraulichkeit der verschlüsselten Informationen gegeben ist. (WEG)\\\\
+Kryptographische Systeme haben eine Lebensdauer - kein System kann ewig sicher sein. Da die Rechenleistung der Computer Jahr für Jahr zunimmt, können diese System durch bloßes Ausprobieren von verschiedenen Schlüssel aufgebrochen werden. Die Länge des Schlüssels muss lang genug gewählt werden, da sonst die Sicherheit der Verschlüsselung nicht gewehrleistet werden kann.\\\\
 
 Die ersten Ansätze und Anwendungen von kryptographischen Systmen reichen weit in die Vergangenheit der Menschheit zurück - schon seit 2500 Jahren sind Methoden bekannt, die die Lesbarkeit von Informationen erschweren. In Sparta hat die Regierung ein Pergament Band um einen Zylinder spiralförmig aufgespannt und die zu ermittelnde Nachricht über die verschiedenen Ringe des Pergaments geschrieben. Die Entschlüsselung gelang nur dann, wenn man einen Zylinder mit dem gleichem Durchmesser besaß. (vgl. Einführung in die Kryptologie (1995), Tino Hempel, Seite 1)\\\\
 
@@ -654,47 +654,61 @@ AES, der ausgewählte Nachfolger von DES), wurde im Oktober 2000 vom 'National I
 
 \subsection{Asymmetrische Verschlüsselungsverfahren}
 
-Asymmetrische Verschlüsselungsverfahren benötigten jeweils zwei verschiedene Schlüssel.
+Asymmetrische Verschlüsselungsverfahren benötigten jeweils zwei verschiedene Schlüssel. Man unterscheidet zwischen zwei Schlüssel: den öffentlichen Schlüssel, den jeder haben darf, und den privaten Schlüssel, den nur der Erzeuger des Schlüsselpaars haben darf. Der öffentliche Schlüssel und private Schlüssel sind identisch, d.h. es kann auch der private Schlüssel veröffentlicht werden und der öffentliche Schlüssel als privater genutzt werden.
 
 \subsubsection{Merkmale}
 
-\paragraph{Digitale Signatur}
+\paragraph{Digitale Signaturen}
 
-Digitale-Signaturen sind
+Eine digitale Signatur (=digitale Unterschrift) ist eine Methode basierend auf den asymmetrischen Verschlüsselungsmethoden, die die Integrität und Nichtabstreitbarkeit im Netzwerk sicherstellt. Eine digitale Signatur kann nur mit dem Privat-Key erzeugt werden und die Entschlüsselung daher nur mit dem Public-Key. Kann die Signatur entschlüsselt werden, so weiß man, dass der Sender im Besitz des Privaten SChlüssels ist und derjenige ist für den er sich ausgibt. (vgl. http://de.wikipedia.org/wiki/Digitale-Signatur)
 
-\paragraph{Zertifikate}
+\paragraph{Digitale Zertifikate}
+
+Digitale Zertifikate sind Ansammlungen von Daten, die mithilfe von kryptographischen Methoden die Authenzität und Integrität der enthaltenen Informationen sicherstellen. Der weitverbreitete X.509-Zertifikat Standard z.B. bestätigt die Intentität des Inhabers, Richtigkeit des öffentlichen Schlüssels und nocht weiteren Informationen. Diese Zertifikate finden großen Einsatz in Webbrowsern. (vgl. wiki)
 
 \subsubsection{Nennenswerte asymmetrische Verschlüsselungssysteme}
 
 \paragraph{Diffie-Hellman}
 
-
+Diffie-Hellman ist ein Austauschprotkoll, welches den Austausch eines geheimen Schlüssels erlaubt. Es ist praktisch unmöglich aus den gesendeten Informationen den Schlüssel zu berechen - dieses Problem wird als das Diffie-Hellman-Problem bezeichnet.
 
 \paragraph{RSA}
-lorem ispum
+
+RAS (Rivest-Shamir-Adleman) wird für Verschlüsselungen und digitale Signaturen verwendet.
+
 \paragraph{ElGamal}
+
+
 
 \subsection{Hybride Verschlüsselungsverfahren}
 
 \subsubsection{Merkmale}
 
+Hybride Verschlüsselungssysteme nutzen die Vorteile der symmetrischen und asymetrischen Systeme aus. Bei diesen Verfahren wird ein geheimer Schlüssel zwischen den Parntern mithilfe eines asymmetrischen Systems ausgemacht. Dieser Vorgang ist oftmals sehr rechenintensiv und wird daher nur einmal pro Sitzung durchgeführt. Nachdem der Schlüssel ausgetauscht wurde wird mit einem symmetischen System gearbeite, da diese sehr viel weniger Leistung vüf die Ver- und Entschlüsselungen benötigen.
+
 \subsubsection{Nenneswerte hybride Verschlüsselungssysteme}
 
 \paragraph{IPsec}
 
+IPsec ist ein Sammlung an Protokollen und Verschlüsselungssystemen, die modular verwendet werden können, um eine sichere Kommunikation in einem unsicherem Netzwerk bieten soll. Im IP-Netzwerk können Rechner, die Packete weiterleiten, die Inhalte lesen und verändern. IPsec verhindert dies, indem es die IP-Packete kapselt und verschlüsselt. Damit kann kein Netzwerkgerät dazwischen die Inhalte lesen oder verändern. Desweiteren können Geräte nicht sehen an wen oder von wem das Paket stammt.
+
 \paragraph{TLS/SSL}
+
+TLS steht für \textbf{Transport Security Layer} (alte Bezeichnung: SSL, Secure-Socket-Layer) und wird bei HTTPS eingesetzt.
 
 \paragraph{PGP}
 
+PGP steht für \textbf{Pretty-Good-Privacy} und ist ein Programm, welches die Verschlüsselung und Entschlüsselung von Daten erlaubt. Der Sender erzeugt einen Schlüssel und verschlüsselt die Daten mit diesem Schlüssel. Nun verschlüsselt er den Schlüssel mit dem öffentlichen Schlüssel des Empfängers und sendet die verschüsselten Daten mit dem verschlüsselten Schlüssel an den Empfänger. Dieser braucht nur den Schüssel mit seinem privaten Schlüssel entschlüsseln und kann die Daten mithilfe des Schlüssels entschlüsseln. (LOL)
+
 \subsection{Hash-Verfahren}
 
-\subsubsection{Merkmale}
+\paragraph{MD5}
 
-\subsubsection{Nennenswerte Hashsysteme}
-
-\paragraph{MD2, MD4, MD5}
+MD5 steht für \textbf{Message-Digest Algorithm 5} und gibt bei beliebiger Eingangsgröße einen 128 Bit langen Hashwert aus. Diese Methode wird oft für die Bestätigung der Vollständigkeit von Daten verwendet.
 
 \paragraph{SHA}
+
+SHA steht für \textbf{Seucre-Hash-Algorithm} und sind mehrere standarisierte Hashverfahren, die für digitale Signaturen und Prüfsummer verwendet werden.
 
 \part{Möglichkeiten der Realisierung Allgemein von Ranalter Daniel}
 lorem ipsum
