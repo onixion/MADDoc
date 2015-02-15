@@ -478,27 +478,90 @@ In CLI-Anwendungen lassen sich viel mehr Einstellungen vornehmen als bei grafisc
 
 Der sicherlich größte Nachteil der CLI ist das der Benutzer die Befehle, die Parameter und die Argumente kennen muss. In seltenen Fällen müssen sogar die Parameter in der richtigen Reihenfolge eingeben werden. Multimedia-Daten lassen sich nur schwer über die Konsole verwenden, auch das Surfen im Internet weißt sich als schierig heraus.
 
-\chapter{Datenbank von Stojanovic Marko}
-lorem ipsum
+\chapter{Datenbank von Stojanovi\'{c} Marko}
+
 \section{Allgemeines}
+Datenbanken sind für die Verwaltung von digitalen Daten zuständig. Heute stellen Datenbanksysteme einen zentralen Punkt im IT-Bereich der Unternehemen. Dadurch ist ein Unternehmen auf die Verfügbarkeit, Vollständigkeit und Richtigkeit der Daten angewiesen. Dadurch ist sicher zu stellen, dass die Datensicherheit gewährleistet ist, dies wird gesetzlich oder durch eine Behörde vorgeschieben.\\
+
+Zum Aufgabenbereich eines Datenbanksystems gehören speichern, lesen, löschen und ändern von Dateien. Dies muss für große Datenmentgen effizient, widerspruchsfrei und dauerhaft gewährleistet sein. Auch geforderte Teilmengen müssen für Benutzer und Anwendungsprogramme in verschiedensten Darstellungsformaten bereitgestellt werden können.
+
+Datenbanksysteme setzen sich grundsätzlich aus zwei Teilsystemen zusammen.
+
+\begin{itemize}
+\item Datenmanagementsystem (DBMS)\\
+Dieses System ist für jegliche Organisationen zuständig.
+\item Datenbank\\
+Als Datenbank wird die Menge bzw. Sammlung aller Daten bezeichnet.
+\end{itemize} 
+
+Es gibt verschiedene Datenbankmanagementsystemmodelle.
+\begin{itemize}
+\item ralatinales DBMS
+\item netzwerkartiges DBMS
+\item hierarchisches DBMS
+\item objektorientiertes DBMS usw.
+\end{itemize}
+
+Datenbanken werden für alle Webseiten zur Datenverwaltung verwendet ( z.B.: Regristrierungen, Einkäufe wie bei z.B.: ebay, amazon ).
+Microsoft Access und OpenOfficeBase eignen sich gut für kleinere Datenbanken (z.B.: kleinere Büros), weil die Handhabung durch die grafische Darstellung sehr leicht zu bedienen ist und den Mitarbeitern Schulungen erspart bleiben.
+Diese eignen sich jedoch nicht als Datenbanken für Webdienste ( z.B. Facebook, Twitter, ebay, ... ).\\
+
+Häufig wird die Porgrammiersprache SQL (Structured Query Language) zur Erstellung einer Datenbank verwendet. Dabei ist bei der Erstellung von einer Datenbank zu beachten, dass keine Information mehrfach angegeben wird. Jede Information darf nur einmal vorkommen!
+
+\section{Geschichte}
+Bereits in den 1960er Jahren gab es Probleme beim Verarbeiten von Daten in einfachen Dateien. Damals wurde eine eine Lösung entwickelt, bei der eine weitere Softwareschicht eingeschoben wurde. Diese lag zwischen der Dateiverwaltung (Betriebssystem) und den Anwendugsprogrammen. Dieser Lösungsversuch setzte sich jedoch nicht durch, da Datenspeicher in Form von Dateien individuell für einzelne Anwendungen erstellt wurden. Die Folge war, dass viel Zeit und Leistung zum Umkopieren, Mischen und Restrukturieren der Dateien in Anspruch genommen werden musste.\\
+
+In den 1966 bis 1968 wurde IMS (Information Management System) von IBM, North American Rockwell und Caterpillar Tractors für das Apollo-Mondprogramm entwickelt, zur Verwaltung der Stücklisten, die verwalteten Datenbanken waren hierarchisch strukturiert. IMS gehört zu den ersten großen Datenbankmanagementsystemen (DBMS) mit der Sprache DL/I (Data Language One). IMS wurde vom Entwickulungsstart bis 1969 unter dem Name  ICS (Information Control System) geführt. Heute wird IMS hauptsächlich für Banken und Versicherungen eingesetzt.\\
+
+Zur gleichen Zeit wurde von CODASYL (COnference on DAta SYstems Languages) ein Nerwerk- Datenbanksystem entwickelt.\\
+
+1970 wurde ein weiterer Fortschritt von Edgar Frank Codd erzielt. Im Rahmen einer Forschungsarbeit am IBM Almaden Research Center wurden die Grundlagen des ersten relationalen Datenbanksystems (System R) von Codd vorgestellt. Mit Open Source relationalem Datenbanksystem Ingres ( interactive graphics retrieval system) und der Abfragesprache QUEL folgte die Berkeley Groupe.\\
+
+Oracle (damals SDL und RSI) nutzte Ergebnisse von System R und brachte SQL den Erfolgt. SQL/DS und DB2 folgen von IBM.\\
+
+Trotz einiger Kritikpunkte wurden in den 1980er Jahren hierarchische und netzwerkartige Systeme von vielen Behörden, Konzenen, Instituten und auch kleineren Unternehmen durch das relationale Modell ersetzt. Bis zu den 2000er Jahren als Open-Source-Datenbankmanagementsysteme an Bedeutung erlangen gab es keine großen Veränderungen. Die größten Markanteile wurden von MySQL und PostgreSQL erzielt.
+Als Reaktion von führenden Herstellern wurden gratis Versionen ihrer Datenbank-Programme angeboten.\\
+
+Seit 2001 wurde  NoSQL bekannter und erzielte ebenfalls an Bedeutung, da sich mit einem nicht-relationalen Konzept durchsetzt.
+\section{Definitionen}
+\begin{itemize}
+\item Datenfeld
+\item Datensatz
+\item Schlüssel
+\item Primärschlüssel
+\item Sekundärschlüssel
+\item Stellvertretende Schlüssel
+\item Fremdschlüssel
+
+\end{itemize}
+\section{Effizienz}
 lorem ipsum
-\subsection{Geschichte}
-lorem ipsum
-\subsection{Definitionen}
-lorem ipsum
-\subsection{Effizienz}
-lorem ipsum
-\subsection{Funktionen}
+\section{Funktionen}
 lorem ipsum
 \subsection{Anwendungen}
 lorem ipsum
 \section{Datenbanksysteme}
-lorem ispum
+Ein Datenbanksystem besteht immer aus einem DBMS und der dazugehörigen Datenbank. Ein Datenbanksystem muss gewähleisten, dass auf Festspeichern abgespeicherte Daten auch nach einem unvorhergesehenen Ausfalls des Systems (z.B.: Stromausfall) wieder ohne Veränderungen und Verluste aufgerufen werden.\\
+Es bietet eine Schnittschnelle zwischen dem DBMS und der Datenbankanwendung zur  Abfrage, Auswertung, Veränderung und Verwaltung an.
+
 \subsection{Datenbankmanagementsysteme}
-lorem ipsum
+Das DBMS ist die Verwaltunssoftware, welche für die Organisation der stukturiertten  Speicherung der Daten und zur Kontrolle der gesamten Lese, Lösch- und Schreibzugriffe auf die Datenbank zuständig ist.
+Diese Software wird für das Datenbanksystem installiert und konfigureiert und durch diese Software wird auch das Datenbankmodell bestimmt.
+Da die Funktonalität und die Geschwindigkeit von DBMS abhängen ist die Auswahl oftmals gut zu durchdenken.
+DBMS sind hochkoplexe Softwaresysteme.\\
+
+RDBMS wird oft als Abkürzung verwendet, weil das relationale DBMS am meisten Verwendung findet.
+
 \subsection{Datenbank}
-lorem ipsum
+Theoretisch ist eine Datenbank ein zusammgehöriger Datenbestand. 
+Diese Datenmenge wird auf einen Festspeicher abgelegt und für alle Anwendungen für den Benutzer von einem DBMS zur Verfügung gestellt.
+
+Zu beachten ist, dass unter Datenbank oft das DBMS und die Daten gemeint werden, nicht die dazugehörige Dantenbankanwendungssoftware. Diese besteht oft aus Computerprogrammen, welche über ein Datenbanksystem ihre notwendigen Daten speichern.
+\\"Beispiele: Auftragsverwaltung und Bestellwesen, Kunden- und Adressverwaltung, Rechnungserstellung."
+
 \section{Relationales Datenbankmanagementsystem (RDBMS)}
+Das relationale Datenbanksystem findet in der Praxis am häufigsten Verwendung.
+Bei Relatinalen Datenbanksystemen können Felder aus verschiedenen Tabellen durch einen Primärschlüssel verbunden werden.
 lorem ipsum
 \subsection{Prinzip eines RDBMS}
 lorem ipsum
@@ -509,6 +572,7 @@ lorem ipsum
 \subsubsection{Information Management System}
 lorem ipsum
 \subsubsection{Netzwerkdatenbankmodell}
+CODASYL war Entwickler von standardisierten Verfahren zur Definition der Struktur und Bearbeitungaußerdem die Programmiertsprache COBOL. 
 lorem ipsum
 \subsubsection{Hierarchisches Datenbankmodell}
 lorem ipsum
