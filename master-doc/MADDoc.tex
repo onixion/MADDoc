@@ -8,6 +8,7 @@
 \usepackage{fancyhdr}
 \usepackage{geometry}
 \usepackage{nameref}
+\usepackage{listings}
 \geometry{a4paper, left=25mm, right=25mm, top=20mm, bottom=30mm}
 
 \renewcommand{\headrulewidth}{1pt} % Trennunslinien für Kopf- und Fußzeilen
@@ -320,7 +321,37 @@ Software-Server werden häufig als Dienste oder Deamons bezeichnet. Sie laufen i
 
 Clients sind ebenso vielfältig. Zu den Clients zählt jeder, der einen Dienst eines Servers in Anspruch nimmt. 
 \subsection{Beispiel für Kommunikationsablauf}
-lorem ipsum
+Im folgenden soll das Abrufen einer Seite von einem Web-Server, welcher in einem anderen Netzwerk steht, aus netzwerktechnischer Sicht, Schritt für Schritt besprochen werden.\\
+\begin{enumerate}
+\item Schritt:\\
+Der User öffnet den Browser seiner Wahl und tippt die URL (Unified Resource Locater) in die Adressenleiste. Der Computer kann mit diesem Namen ansich nichts anfangen, also versucht er zuallererst in der Datei \glqq hosts\grqq , welche unter Windows im Dateipfad
+\begin{lstlisting} 
+C:\Windows\System32\drivers\etc\ 
+\end{lstlisting} zu finden ist, und unter Unixoiden Betriebssystemen meistens unter 
+\begin{lstlisting} 
+\etc\ 
+\end{lstlisting} liegt, nach einer zugewiesenen IP-Adresse für diesen Namen zu suchen.\\
+Findet er eine IP-Adresse fährt er mit Schritt 2 fort, ansonsten prüft der Rechner als nächstes seinen DNS-Cache nach einem entsprechenden Eintrag. Wurde die Seite bereits vor nicht allzu langer Zeit aufgerufen, besteht eine gute Chance, das der entsprechende DNS Eintrag noch im Cache zu finden ist.\\
+Auch hier fährt er bei Erfolg mit Schritt 2 fort. Sollte jedoch weder im Cache noch in der hosts Datei ein Eintrag zu dieser Seite stehen, muss der Rechner eine DNS-Anfrage durchführen.\\
+\begin{enumerate}
+\item Um eine DNS anfrage zu machen benötigt der Rechner zuerst die IP-Adresse des DNS-Servers. Die hat er entweder statisch eingetragen bekommen oder zusammen mit seiner IP-Adresse, dem Standart Gateway und anderem Zeug beim DHCP bekommen.
+\item Die IP-Adresse welche er nun hat, vergleicht er mit seinem Netz indem er die Subnetzadresse mit der IP-Adresse des Zieles und seiner eigenen bitweise UND verknüpft. Nun gibt es zwei Möglichkeiten: 
+\begin{itemize}
+\item Der DNS-Server befindet sich in seinem Netz
+\item Der DNS-Server befindet sich nicht in seinem Netz
+\end{itemize}
+\item Für den Fall, dass sie sich im gleichen Netz befinden:\\
+Der PC braucht nun die MAC-Adresse zu der IP-Adresse. Zuerst sieht er wieder nach, ob er sie gecached hat. Sollte er sie nicht im Cache liegen haben, schickt er einen ARP-Request raus. Dieses Protokoll frägt wer denn eine bestimmte IP-Adresse hat, und ob derjenige ihm seine MAC-Adresse verraten würde. 
+\item Für den Fall, dass sie sich nicht im gleichen Netz befinden:\\
+Wenn der PC erkennt, dass sich das Ziel außerhalb seines Netzes befindet, also schickt er es an den Default Gateway.\\
+Der Default Gateway ist jene IP-Adresse an die alles von allen geschickt wird, was sich nicht in ihrem Netz befindet, also muss auch jedes Netz einen Default Gateway haben. Die Gateway-Adresse gehört meistens zu einem Router, welcher dann anhand der IP-Adresse, das Paket weiterleitet bis es schlussendlich sein Ziel erreicht.\\
+\item Nun verfügt der PC um alle Parameter die er braucht um das DNS-Paket zusammenzubauen. TCP/IP Layer 1 hat die MAC-Adresse, TCP/IP Layer 2 hat die IP-Adresse, der Rechner weiß, dass DNS normalerweise auf UDP aufsetzt und kann deshalb Layer 3 den UDP Port 53 bestimmen und das DNS Paket selbst auf der Anwendungsschicht, dem TCP/IP Layer 4. Er öffnen noch einen Port über den 49151 als Source-Port, trägt diesen in das Paket auf dem Layer 3 ein, schickt das Paket ab und muss nur noch auf die Antwort, mit der IP-Adresse der Seite warten.
+\end{enumerate}
+\item Schritt:\\
+Nun, da er über die IP-Adresse des Webservers verfügt, durchläuft der Rechner alle Schritte, welche er bei der DNS-Anfrage durchlaufen hat, nocheinmal, nur diesesmal mit der IP-Adresse des Web-Servers, anstatt der des DNS-Servers.
+\item Schritt:\\
+Wenn er wieder die Informationen die er benötigt hat für diese Anfrage gesammelt hat, baut er wieder das HTTP-Request Paket zusammen, mit MAC- und IP-Adresse, diesesmal TCP Port 80, und der Seite im HTTP Teil des Paketes. Er wartet auf die Antwort Pakete, baut die Seite im Browser auf und der User bekommt was er will.
+\end{enumerate}
 \section{Protokolle}
 lorem ipsum
 \subsection{Ethernet}\label{ssec:eth}
