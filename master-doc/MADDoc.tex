@@ -355,6 +355,41 @@ Wenn er wieder die Informationen die er benötigt hat für diese Anfrage gesamme
 \section{Protokolle}
 Es gibt unzählige verschiedene Protokolle, hier soll nur auf ein paar wenige wichtige eingegangen werden, welche auch Verwendung im praktischen Teil der Diplomarbeit gefunden haben.
 \subsection{Ethernet}\label{ssec:eth}
+Ethernet ist ein wowohl ein Layer1 als auch ein Layer2 Protokoll im OSI-Modell und damit für die unterste Schicht und den grundlegenden Kommunikationsmöglichkeiten zuständig.\\
+
+Ethernet wurde ursprünglich für Lokale Netzwerke erdacht, weshalb es häufig als LAN-Technologie bezeichnet wird. Da das Protokoll vor über 30 Jahren begann zu existieren, wäre es natürlich nicht mehr ausreichend für heutige Anwendungen, doch es ist mit der Entwicklung des Internets mitgewachsen.\\
+Während es anfangs nur für einzelne Häuser gedacht war, können inzwischen mittels Lichtwellenleitern Entfernungen von über 10 Kilometern überbrückt werden.\\
+
+Auch die Datenrate wuchs zusammen mit dem Rest. Anfangs lief es nur über Twisted Pair oder Koaxial Kabel, während inzwischen der Lichtwellenleiter bis zum Endbenutzer in den Haushalt gefunden hat.\\
+
+Da Ethernet über die Zeit so gewachsen ist, gibt es auch sehr viele verschiedene Standards. Hier soll nur auf ein paar der neuesten Eingegangen werden, da dies den Rahmen ansonsten sprengen würde.\\
+\begin{itemize}
+\item 10Gbit/s:
+\begin{itemize}
+\item Lichtwellenleiter Multimode:\\
+10GBASE-SR\\
+Zur Überbrückung kurzer Strecken mit langwelligem Licht, Reichweite je nach Leitungstyp zwischen 26 und 300 Metern.
+\item Lichtwellenleiter Singlemode:\\
+10GBASE-LW4\\
+Zur Überbrückung langer Strecken mit Distanzen bis zu 10 Kilometern.
+\end{itemize}
+\item 40Gbit/s:
+\begin{itemize}
+\item 40GBASE-CR4\\
+4 x Kufper Twinax Kabel für Reichweiten von mindestens 4 Metern.
+\item 40GBASE-LR4\\
+Vier Farben Multimoden Lichtwellenleiter für Reichweiten von mindestens 10 Kilometern.
+\end{itemize}
+\item 100Gbit/s:
+\begin{itemize}
+\item 100GBASE-CR10\\
+10 x Kufper Twinax Kabel für Reichweiten von mindestens 7 Metern.
+\item 100GBASE-ER4\\
+4 Farben Singlemoden Lichtwellenleiter für Reichweiten von über 40 Kilometern.
+\end{itemize}
+\end{itemize}
+Seit 2013 wird jedoch von einer Arbeitsgruppe der IEEE an einem Standart für 1TBit/s gearbeitet, der circa 2017 fertiggestellt werden soll.\\
+
 
 \subsection{Address Resolution Protocol - ARP}\label{ssec:arp}
 lorem ipsum
