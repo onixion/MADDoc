@@ -92,6 +92,27 @@ lorem ipsum
 Diese Abhandlung wird die Netzwerkgrundlagen welche auf das Ethernet Protokoll (siehe Kapitel \ref{ssec:eth}  Seite \pageref{ssec:eth}) aufsetzen besprochen. Es gibt noch diverse andere, wie zum Beispiel Token Ring, auf welche hier im folgenden jedoch nicht näher eingegangen wird, da, abgesehen davon, dass Ethernet auch bei der praktischen Durchführung verwendet wurde, Ethernet das am häufigsten genutzte Layer 1 Protokoll darstellt. 
 \section{Grundlagen}
 In der Netzwerktechnik gibt es mehrere verschiedene grundlegende Konzepte auf welche hier eingegangen werden soll.
+\subsection{Übersicht: Netzwerktypen}
+Hier soll auf die wichtigsten Netzwerktypen kurz eingegangen werden. Es gibt einige mehr als jene die im Folgenden erwähnt werden, jedoch sollten sie die wichtigsten abdecken.
+\subsubsection{LAN}
+Das LAN, oder Local Area Network, bezeichnet ein Netzwerk welches von seinen Ausdehnungen her nicht mehr als 500 Metern überschreitet. Als LANs werden zum Beispiel Heimnetzwerke, Netzwerke in Schulen oder Arbeitsplätzen, besonders Büros, oder Bürogebäuden.
+\subsubsection{W-LAN}
+Das W-LAN erweitert das LAN um die im Namen (Wireless-LAN) steckende Freiheit von Kabeln. Dafür werden im Normalfall Router benötigt welche über die Möglichkeit verfügen im 2,4 oder 5 GHz Netz zu kommunizieren.
+\subsubsection{WAN}
+Das WAN, ausgeschrieben Wide Area Network, bezeichnet ein Netzwerk welches über ein sehr großes geographisches Gebiet verteilt ist. Es hat kein Limit an daran angeschlossenen Netzwerkgeräten. WANs werden beispielsweise von großen Firmen aber auch von Internetanbietern verwendet. Das Netzwerk mit welches ein Router den Enduser verbindet ist beispielsweise ein WAN des ISPs (Internet Service Providers wie UPC oder Telekom). 
+\subsubsection{VLAN}\label{sssec:vlan}
+VLANs (Virtual Local Area Network) sind im Grunde LANs welche logisch auf mehrere kleine Netzwerke aufgeteilt werden. Logisch deshalb, weil sie sich nicht physikalisch, also durch Router getrennt sind oder über eigene Kabel verfügen sondern nur dadurch getrennt sind, dass Switches Pakete von einem VLAN nicht in ein anderes lassen.\\
+Es gibt mehrere unterschiedliche Arten von VLANs:\\
+\begin{itemize}
+\item Getaggtes VLAN\\
+Bei dieser Art von VLAN weiß der Switch anhand ein paar Bytes im Ethernetframe selbst zu welchem VLAN es gehört, und damit auch wohin es überall kann.
+\item Portbasierendes VLAN\\
+Hierbei wird ein Switch selbst in mehrere logisch getrennte Sub-Switches aufgeteilt. Die Switches kommunizieren untereinander nicht.
+\item Statisches VLAN\\
+Beim statischen VLAN werden einzelne Ports an einem Switch dediziert einem VLAN zugeordnet. Nachteilig ist der große Aufwand ein solches VLAN zu verwalten.
+\item Dynamisches VLAN\\
+Beim dynamischen VLAN versucht der Switch anhand von Zusammenhängen im Datenverkehr zu entscheiden in welches VLAN ein Paket gehört. 
+\end{itemize}
 \subsection{Netzwerkdevices}
 Um ein Netzwerk aufzubauen werden verschiedene Devices benötigt. Je nach Größe und Art des Netzwerkes kann man auch auf einzelne Komponenten verzichten. 
 \subsubsection{Router}
@@ -120,7 +141,7 @@ Deshalb gibt es verschiedene Arten von Routern. Ein paar wichtige sind:\\
 \item Backbone-Router\\
 Hochgradig auf Datendurchsatz optimiert, werden sie, wie der Name schon sagt, für das Routen an der Backbone verwendet.
 \item Edge-Router, Border-Router\\
-Wird von ISPs (Internet Service Providers wie UPC oder Telekom) verwendet um die Netzwerke ihrer Clienten zu verbinden. Sie verwenden normalerweise das Routing Protokoll BGP (Border Gateway Protocol) welches für diese Aufgabe ausgelegt ist.
+Wird von ISPs verwendet um die Netzwerke ihrer Clienten zu verbinden. Sie verwenden normalerweise das Routing Protokoll BGP (Border Gateway Protocol) welches für diese Aufgabe ausgelegt ist.
 \item WLAN-Router\\
 Im Grunde ganz normale Router, welche jedoch zusätzlich die Möglichkeit besitzen nicht nur kabelgebunden zu kommunizieren sondern auf über das Funkband. In Österreich sind die Bänder 2,4 GHz und 5 GHz in Verwendung.
 \item Customer-Edge-Router\\
@@ -159,11 +180,15 @@ Vorteilhaft daran ist die relativ hohe Sicherheit, da auch Pakete welche auf ein
 Mit dem Term \glqq Host\grqq , wird, in dem Zusammenhang der Netzwerktechnik, ein Gerät beschrieben, welches über das Netzwerk mit anderen Hosts verbunden ist und theoretisch in der Lage ist an der Kommunikation teilzunehmen. Damit ein Host zur Kommunikation in der Lage ist, benötigt er mehrere Dinge.\\
 Zu diesen gehört Hardware technisch gesehen, mindestens eine Netzwerkkarte mit einer Art von Möglichkeit sich in das Netz einzuklinken. Diese Möglichkeit kann aus einem Ethernet Anschluss oder einer Antenne, welche in der Lage ist, das 2,4 GHz Band und/oder das 5GHz Band zu empfangen und in diesem Band zu senden.\\
 Auf der Softwareseite benötigt ein Host im Grunde drei Dinge welche ihn dazu ermöglichen eine Konversation mit einem anderen Host, über das Internet, zu führen. Es gibt natürlich auch andere Arten von Kommunikation in Netzwerken, jedoch ist das TCP/IP (siehe \ref{sssec:tcpip} auf Seite \pageref{sssec:tcpip}) Modell das am häufigsten vorkommende. 
-\subsubsection{MAC-Adressen}
+
+\subsubsection{MAC-Adressen}\label{sssec:macaddr}
 MAC-Adresse steht für Media Access Controll Adresse und ist dem Layer 2 zugewiesen. Die MAC-Adresse heißt in Apple Systemen auch \glqq Ethernet-ID\grqq , \glqq Airport-ID\grqq oder \glqq Wi-Fi-Adresse\grqq . Sie sollte theoretisch jedes Netzwerkinterface eindeutig kennzeichnen, jedoch ist es mit moderner Software möglich die MAC-Adresse zu ändern.\\
 Da die MAC-Adresse nicht mehr, wie ursprünglich gedacht, in die Netzwerkkarte \glqq eingebrannt\grqq ist, kann sie von Hackern eingesetzt werden um Schaden anzurichten (siehe Kapitel \ref{ssec:mspoof} und \ref{ssec:mflood} auf Seiten \pageref{ssec:mspoof} und \pageref{ssec:mflood})\\
 
 Die MAC-Adresse besteht aus sechs Byte (oder 48 bit) und wird normalerweise in hexadezimaler Notation dargestellt. Oft wird sie zur besseren Lesbarkeit byteweise durch einen Doppelpunkt oder einen Bindestrich getrennt, zum Beispiel a3:99:2f:9b:cc:00 oder eben a3-99-2f-9b-cc-00.\\
+
+Die ersten zwei Bits des ersten Bytes bestimmen außerdem die Art der MAC-Adresse. Das erste Bit des ersten Bytes signalisiert ob es eine Unicast- (0, Adresse die für ein Device steht), eine Multicast- (1, Adresse die für mehrere Devices steht) oder sogar Broadcast Adresse(1, Adresse die für alle Devices in einer Broadcast Domain steht) ist.\\
+Das zweite Bit steht dafür ob es eine global administrierte(0) oder eine lokal administrierte Adresse(1) handelt, was aussagt ob die Adresse weltweit eindeutig ist, wie es normalerweise bei gekauften Netzwerkkarten der Fall sein sollte, oder ob der Administrator die MAC-Adresse selbst vergibt um Eindeutigkeit zu wahren.
 
 Ohne Kenntnis über die MAC-Adresse, wäre es nicht möglich in einem Netzwerk zu kommunizieren, da das Ethernetframe die Sender und die Empfänger MAC-Adresse verlangt.\\
 Für den Fall, dass sich der Zielhost nicht im gleichen Netz befindet, sich also in einem durch einen Router getrennten, anderen Netz befindet, würde für die Ziel MAC-Adresse, jene des Routers angegeben. Sollte sich die Adresse des Ziels nicht im Cache des Rechners befinden, wird das Protokoll ARP verwendet (siehe Kapitel\ref{ssec:arp} Seite \pageref{ssec:arp}). 
@@ -390,6 +415,42 @@ Vier Farben Multimoden Lichtwellenleiter für Reichweiten von mindestens 10 Kilo
 \end{itemize}
 Seit 2013 wird jedoch von einer Arbeitsgruppe der IEEE an einem Standart für 1TBit/s gearbeitet, der circa 2017 fertiggestellt werden soll.\\
 
+Da die Wurzeln dieses Protokolls, in einem gemeinsam genutzten Koaxial Kupfer Kabel liegen, war eines der Probleme sogenannte Kollisionen, also wenn zwei Rechner zur gleichen Zeit sprechen wollten.\\
+Diesem Problem wurde mit dem CSMA/CD Algorithmus zu Leibe gerückt. CSMA/CD, was für Carrier Sense Multiple Access/Collision Detection steht, ist eine Weiterentwicklung des, in den 1960 Jahren, auf Hawaii verwendeten ALOHAnet Protokolls.\\
+Dabei warten Teilnehmer des Netzwerkes immer, bis die Leitung nicht mehr belegt ist, bevor sie anfangen Daten zu übermitteln. Sollten jedoch zwei Rechner gleichzeitig beginnen zu reden, stoppen beide und warten eine zufällige Zeitdauer bis sie es erneut versuchen.\\
+Obwohl nun seit einigen Jahren sowohl Full-Duplex Modus und Switches verwendet werden, welche Kollisionen verhindern indem sie End-to-End Verbindungen erzeugen, befindet sich der Algorithmus bis zu den 10Gbit/s Standards immer noch zu den verwendeten Algorithmen.\\
+Bei den höheren Netzen, wo CSMA/CD nicht mehr verwendet wird, wird ein extra Flowcontrol System verwendet. Bei CSMA/CD war das nicht notwendig, da eine Kollision sowieso eine Pause im Datenfluss hervorgerufen hat. Nun, ohne diesen Algorithmus, muss es jedoch trotzdem eine Möglichkeit geben, anderen zu vermitteln, dass eine Sendepause vonnöten ist. Dies wird bei Ethernet über 10Gbit/s mit einem bestimmten PAUSE Paket geregelt, in welchem die gewünschte Wartezeit notiert ist.\\
+
+Ebenfalls in den Wurzeln des Protokolls verankert, ist das Broadcast Problem.\\
+Das Ethernet Protokoll hat sich nie um zielgerichtete Kommunikation gekümmert, weshalb es ohne weiteres alles an alle schickt. Das kann zu einem Problem werden, wenn ein Mensch mit böswilligen Absichten mitschreiben will was im Netzwerk so passiert, denn das kann er dann tun.\\
+Als noch Hubs verwendet wurden, was da Problem viel drastischer, denn ein Hub repliziert die Pakete die er empfängt und schickt diese an alle Interfaces raus.\\
+Switches dahingegen schicken, wie bereits besprochen, Pakete nur an jenen Interfaces raus, wo auch das Ziel ist. Sie verhindern damit das sogenannte \glqq sniffen\grqq im Netzwerk.\\
+Eine andere Option ist Verschlüsselung auf welchen im Kapitel \ref{chap:krypto} auf Seite \pageref{chap:krypto} noch näher eingegangen wird.\\
+
+\begin{center}
+\includegraphics[scale=0.35]{../docs/tarkes/pics/Ethernetpaket.png}
+Ethernetpaket
+\end{center}
+
+Das Paket wird serialisiert und mit dem niederwertigsten Bit zuerst übertragen. Das Ethernetpaket besteht aus folgenden Teilen:
+\begin{itemize}
+\item Präambel und SFD\\
+Dieser Teil des Paketes sind im Grunde nur Überbleibseln aus den alten Tagen. Die Präambel hat ein alternierendes Bitmuster über 7 Byte, während der SFD (Start Frame Delimeter) das Muster 10101011 trägt.\\
+Diese Felder wurden früher benötigt um den einzelnen Devices eine Möglichkeit zu geben sich auf die Bitabstände zu synchronisieren.\\
+Die große Länge der Präambel liegt darin begründet, dass beim passieren eines Repeaters oder Hubs immer ein Teil verloren ging. Um zu gewährleisten, dass auch bei maximal großen Netzwerken die Devices noch ein Minimum an Zeit haben sich zu synchronisieren, wurde die Länge auf 7 Bytes festgesetzt. 
+\item Source- und Destination MAC-Adresse\\
+Stehen für Quelle des Paketes und Empfänger des Paketes. (siehe Kapitel \ref{sssec:macaddr} auf Seite \pageref{sssec:macaddr})
+\item VLAN-Tag\\
+Der VLAN-Tag ermöglicht das auseinanderhalten von verschiedenen VLANs (siehe Kapitel \ref{sssec:vlan} Seite \pageref{sssec:vlan})
+\item Typ Feld\\
+Das Typ Feld oder EtherType Feld legt fest welches Protokoll sich in der Payload befindet. So steht zum Beispiel der Wert 0x0800 für IP oder 0x0806 für ARP.
+\item Payload\\
+Die Payload oder Nutzlast ist die Nachricht die das Ethernetframe mit sich nimmt. Diese kann nicht größer als 1500 bytes sein.
+\item Pad bytes\\
+Die Pad oder Padding bytes sind dazu da das Ethernet Paket auf eine minimale Größe von 64 bytes zu bringen, da es bei den früheren Varianten ansonsten zu Problemen mit der Collissiondetection gegeben hätte.
+\item FCS feld\\
+Das FCS (Frame Check Sequence) Feld beinhaltet eine 32 bit CRC Prüfsumme welche aus den Werten des reinen Layer2 Frames besteht. Also den bits von der MAC-Adresse bis hierher.
+\end{itemize}
 
 \subsection{Address Resolution Protocol - ARP}\label{ssec:arp}
 lorem ipsum
@@ -650,7 +711,7 @@ lorem ipsum
 \subsubsection{Nachteile}
 lorem ipsum
 
-\chapter{Kryptologie von Porcic Alin}
+\chapter{Kryptologie von Porcic Alin}\label{chap:krypto}
 \section{Allgemeines}
 
 Die Kryptologie, eine sehr alte Kunst und Wissenschaft, die sich mit der Verbergung von Information befasst, hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen und ist nicht mehr wegzudenken. Unzählige Informationen werden weltweit kreuz und quer ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen hohen Wert haben können. Der Wert dieser Informationen geht dann verloren, wenn ein Unbefugter den Sinn bzw. die Aussage dieser Informationen verstehen kann. Damit das nicht passiert, werden kryptogrphische Systeme entwickelt, um die Lesbarkeit von Informationen zu verhindern bzw. zu erschweren.\\\\

@@ -64,3 +64,18 @@ en.wikipedia.org/wiki/19-inch-rack 14.2
 de.wikipedia.org/wiki/Client-Server_Modell 14.2
 en.wikipedia.org/wiki/Client-server_model 14.2
 
+ServerRack.jpg
+http://upload.wikipedia.org/wikipdia/commons/7/70/Enclosure_proliant.jpg
+
+de.wikipedia.org/wiki/Ethernet 16.2
+en.wikipedia.org/wiki/Ethernet 16.2
+en.wikipedia.org/wiki/Ethernet_frame 17.2
+
+de.wikipedia.org/wiki/Wide_Area_Network 17.2
+en.wikipedia.org/wiki/Wide_area_network 17.2
+
+de.wikipedia.org/wiki/Local_Area_Network 17.2
+en.wikipedia.org/wiki/Local_area_network 17.2
+
+de.wikipedia.org/wiki/Wireless_Local_Area_Network 17.2
+en.wikipedia.org/wiki/Wireless_LAN 17.2
