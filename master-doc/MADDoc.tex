@@ -453,9 +453,29 @@ Das FCS (Frame Check Sequence) Feld beinhaltet eine 32 bit CRC Prüfsumme welche
 \end{itemize}
 
 \subsection{Address Resolution Protocol - ARP}\label{ssec:arp}
-lorem ipsum
-\subsubsection{Sicherheitsaspekte}\label{sssec:security}
-lorem ipsum
+ARP ist ein essentielles Protokoll für die Kommunikation in einem Netzwerk. Da, damit Kommunikation stattfinden kann, die MAC-Adresse bekannt sein muss, wurde dieses Protokoll eingestellt.\\
+Es funktioniert indem ein Broadcast in das Netz geschickt wird, indem die Bitte steht, dass ein Host mit einer gewissen IP doch seine MAC-Adresse übermitteln soll. Diese speichert der PC der die Anfrage gestellt hat, in seinen lokalen Cache damit er nicht jedes mal nachfragen muss.\\
+Dieses Protokoll wird mit der Verbreitung von IPv6 aussterben da in IPv6 das sogenannte Neighbour Discovery Protocol NDP diese Aufgabe übernimmt.\\
+
+Das ARP Paket befindet sich gleichzeitig auf Layer 2 und 3 und sieht wie folgt aus:\\
+\begin{itemize}
+\item Hardwareadresstyp, 2 bytes\\
+Die Zahl in diesem Feld bestimmt den Typen der MAC-Adresse. Dies ist meistens Ethernet, was mit einer 1 repräsentiert wird.
+\item Protokolladresstyp, 2 bytes\\
+Der Adresstyp für den die MAC-Adresse angefordert wird. Im Falle von IP ist dies 0x0800. Die Zahlen in diesem Feld teilen sich ihre Nummern mit dem EtherType beim Ethernet Protokoll.
+\item Hardwareadresslänge, 1 byte\\
+Die Länge der aufgelösten Adresse. Für Ethernet ist sie 6.
+\item Protokolladresslänge, 1 byte\\
+Die Länge der Adresse die aufgelöst werden soll. Für IPv4 lautet sie 4.
+\item Operation, 2 bytes\\
+Enthält eine Zahl, die angibt ob das Paket ein Request (1) oder eine Response (2) ist.
+\item Quell MAC-Adresse, 6 bytes
+\item Quell IP-Adresse, 4 bytes
+\item Ziel MAC-Adresse, 6 bytes\\
+Enthält FF:FF:FF:FF:FF:FF, die Layer2 Broadcast Adresse.
+\item Ziel IP-Adresse, 4 bytes
+\end{itemize}
+Es gibt jedoch auch noch andere Arten von ARP Paketen. Dazu zählen der Reverse ARP welcher die MAC- in eine IP-Adresse auflösen kann oder der Gratuitos ARP, welche eine Nachricht darstellt, die unaufgefordert bekannt macht, welche MAC-Adresse man selbst hat.
 \subsection{Internet Protocol - IP}\label{ssec:ip}
 lorem ipsum
 \subsubsection{IPv4}
