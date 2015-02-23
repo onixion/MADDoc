@@ -477,7 +477,13 @@ Enthält FF:FF:FF:FF:FF:FF, die Layer2 Broadcast Adresse.
 \end{itemize}
 Es gibt jedoch auch noch andere Arten von ARP Paketen. Dazu zählen der Reverse ARP welcher die MAC- in eine IP-Adresse auflösen kann oder der Gratuitos ARP, welche eine Nachricht darstellt, die unaufgefordert bekannt macht, welche MAC-Adresse man selbst hat.
 \subsection{Internet Protocol - IP}\label{ssec:ip}
-lorem ipsum
+Das Internet Protokoll hat zwei Hauptaufgaben:
+\begin{itemize}
+\item Adressierung\\
+Das Ziel der Adressierung auf dieser Ebene ist es, wie bereits zuvor besprochen, ein Gerät über mehrere Netzwerke hinweg eindeutig zu machen, um Pakete nicht nur innerhalb eines Netzwerkes sonder über mehrere Netzwerke hinweg ansprechen zu können.
+\item Fragmentierung\\
+Da Kommunikation sich ja meistens nicht mit nur einem Paket ausgeht, ist es wichtig, dass Kommunikationsstränge aufgeteilt werden können in mehrere kleine Pakete. Dies nennt man dann Fragmentierung. IP ist dafür zuständig, dass fragmentierte Pakete wieder zusammenfinden können, da es ja nicht heißen muss, dass nur eine einzige Kommunikation gerade am laufen ist. 
+\end{itemize}
 \subsubsection{IPv4}
 lorem ipsum
 \subsubsection{IPv6}
