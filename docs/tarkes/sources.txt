@@ -79,3 +79,21 @@ en.wikipedia.org/wiki/Local_area_network 17.2
 
 de.wikipedia.org/wiki/Wireless_Local_Area_Network 17.2
 en.wikipedia.org/wiki/Wireless_LAN 17.2
+
+de.wikipedia.org/wiki/Internet_Protocol 20.2
+en.wikipedia.org/wiki/Internet_Protocol 20.2
+
+de.wikipedia.org/wiki/IPv6 23.2
+en.wikipedia.org/wiki/IPv6 23.2
+
+en.wikipedia.org/wiki/IPv6_address 23.2
+
+de.wikipedia.org/wiki/IP-Framentierung 23.2
+en.wikipedia.org/wiki/IP_fragmentation 23.2
+
+RFC 791
+RFC 1918
+RFC 2460
+RFC 6598
+RFC 6890
+

@@ -192,7 +192,7 @@ Das zweite Bit steht dafür ob es eine global administrierte(0) oder eine lokal 
 
 Ohne Kenntnis über die MAC-Adresse, wäre es nicht möglich in einem Netzwerk zu kommunizieren, da das Ethernetframe die Sender und die Empfänger MAC-Adresse verlangt.\\
 Für den Fall, dass sich der Zielhost nicht im gleichen Netz befindet, sich also in einem durch einen Router getrennten, anderen Netz befindet, würde für die Ziel MAC-Adresse, jene des Routers angegeben. Sollte sich die Adresse des Ziels nicht im Cache des Rechners befinden, wird das Protokoll ARP verwendet (siehe Kapitel\ref{ssec:arp} Seite \pageref{ssec:arp}). 
-\subsubsection{IP-Adressen}
+\subsubsection{IP-Adressen}\label{sssec:ipaddr}
 Im folgenden wird nur auf IP version 4 eingegangen. Informationen zu IP version 6 können in Kapitel \ref{ssec:ip} auf Seite \pageref{ssec:ip} gefunden werden.\\
 
 Die zweite Adresse die ein Host benötigt um mit anderen zu kommunizieren oder Daten auszutauschen ist die IP-Adresse, was für Internet Protokoll Adresse steht. Diese wird dem Layer 3 des OSI-Schichtenmodells zugewiesen. Es gibt auch noch einige andere Protokolle auf Layer 3, jedoch setzen Netzwerke, wie sie im Projekt bearbeitet wurden, sowie das Internet hauptsächlich auf IP auf.\\
@@ -482,13 +482,102 @@ Das Internet Protokoll hat zwei Hauptaufgaben:
 \item Adressierung\\
 Das Ziel der Adressierung auf dieser Ebene ist es, wie bereits zuvor besprochen, ein Gerät über mehrere Netzwerke hinweg eindeutig zu machen, um Pakete nicht nur innerhalb eines Netzwerkes sonder über mehrere Netzwerke hinweg ansprechen zu können.
 \item Fragmentierung\\
-Da Kommunikation sich ja meistens nicht mit nur einem Paket ausgeht, ist es wichtig, dass Kommunikationsstränge aufgeteilt werden können in mehrere kleine Pakete. Dies nennt man dann Fragmentierung. IP ist dafür zuständig, dass fragmentierte Pakete wieder zusammenfinden können, da es ja nicht heißen muss, dass nur eine einzige Kommunikation gerade am laufen ist. 
+Da Kommunikation sich ja meistens nicht mit nur einem Paket ausgeht, ist es wichtig, dass Kommunikationsstränge aufgeteilt werden können in mehrere kleine Pakete. Dies nennt man dann Fragmentierung. IP ist dafür zuständig, dass fragmentierte Pakete wieder zusammenfinden können, da es ja nicht heißen muss, dass nur eine einzige Kommunikation gerade am laufen ist.\\
+Dies gilt jedoch nur mehr für IPv4, denn in IPv6 ist es nicht mehr vorgesehen, dass Pakete fragmentieren.
 \end{itemize}
 \subsubsection{IPv4}
-lorem ipsum
+IP Version 4 war der erste offizielle Standard des Internet Protocols.\\
+Adressierung im Schema von IPv4 wurde bereits in Kapitel \ref{sssec:ipaddr} auf Seite \pageref{sssec:ipaddr} besprochen.\\
+
+Es gibt einige gesonderte Adressbereiche in IPv4 welche nicht für die Öffentliche Nutzung Verwendbar sind. Dazu zählt:
+\begin{itemize}
+\item 10.0.0.0/8\\
+Sogenanntes Class A Netz: 1 Netz mit 16.777.216 Adressen (erstreckt sich bis 10.255.255.255/8)
+\item 172.16.0.0/12\\
+Sogenanntes Class B Netz: 16 Netze mit jeweils 65.536 Adressen (erstreckt sich von 172.16.0.0/16 über 172.17.0.0/16 usw. bis 172.32.0.0/16)
+\item 192.168.0.0/16\\
+Sogenanntes Class C Netz: 256 Netze mit je 256 Adressen (erstreckt sich von 192.168.0.0/24 über 192.168.1.0/24 usw. bis 192.168.255.0/24)
+\item 100.64.0.0/10\\
+Der Sogenannte Shared Adress Range. Er ist speziell für Internet Service Provider und ihre Anforderungen beim NAT bestimmt und nicht für den normalen User gedacht.
+\item 169.254.0.0/16\\
+Link Local Adressbereich. Er wird verwendet wenn keine spezifische IP-Adresse einem Rechner zugewiesen wird. Damit sind auch zwei Clients in der Lage miteinander zu reden, wenn sie unkonfiguriert und ohne DHCP-Server entweder direkt durch Kabel oder über einen Switch verbunden sind.
+\item 127.0.0.0/8\\
+LoopBack. Dieser Adressbereich wird für Interfaces des Hosts selbst verwendet. 
+\item ...\\
+Es gibt noch einige Bereiche mehr aber es würde hier zu weit führen alle aufzuzählen. Sie können in der RFC6890 (zum Zeitpunkt des Schreibens aktuelle Version) nachgelesen werden.
+\end{itemize}
+
+Obwohl IPv4 im Grunde schon seit mehrere Jahren von IPv6 abgelöst wurde, sind bis heute die wenigsten Firmen und noch weniger Heimnetzwerke auf IPv6 umgestellt. Es wird also im Grunde noch überall IPv4 verwendet obwohl der Adressbereich ($2^{32} = 4.294.967.296$, abzüglich reservierter Adressen = 3.707.764.736) in dieser Version bereits vollständig aufgebraucht ist.\\
+
+Dieser Problematik wurde mit einigen Zwischenlösungen begegnet. Das Protokoll NAT (Network Address Translation) ist eines dieser Behilfsmittel.\\
+Der IPv4 Standard sie eine Aufteilung in öffentliche und private Netzwerke vor. Adressen welche aus dem Bereich der Privaten Netzwerke kommen, müssen nicht eindeutig sein und können so oft wie gewünscht verwendet werden. Durch ihre Mehrdeutigkeit sind sie jedoch auch nicht dazu geeignet, im Internet verwendet zu werden, sondern sie sind für den privaten Gebrauch gedacht, daher auch Privates Netzwerk.\\
+Will man nun aus seinem privaten Netz raus in das Internet, wendet jener Router welcher das private Netz mit dem des Providers verbindet, NAT an.\\
+Er legt dabei eine Tabelle an in welcher die private Adresse sowie der Port steht, und ersetzt diese durch eine öffentliche Adresse und einen beliebigen anderen High Port. Die Antworten weißt er anhand des Ports dann wieder der richtigen privaten Adresse zu und leitet diese vom Internet zu dem Host der die Anfrage abschickte.\\
+Dadurch scheint es als würden mehrere Hosts die gleiche IP-Adresse haben, nämlich jeder welcher über diesen Router das private Netzwerk verlässt.\\
+
+Eine andere Art mit der das unausweichliche versiegen an Adressen versucht wurde hinauszuzögern, ist die dynamische Adressenvergabe von Providern an ihre Kunden.\\
+Sieht man sich mithilfe von externen Tools die Adresse, welche man nach außen hat, an zwei verschiedenen Tagen an, kann es sein, dass sich diese unterscheiden.\\
+Der Provider verwendet diese Methode um mehrere Kunden mit Adressen zu versorgen, als er eigentlich hat. Er geht dabei davon aus, dass zu keiner Zeit alle seine Kunden gleichzeitig online sind.\\
+
+Das Problem entwickelte sich daraus, dass anfangs die Meinung geläufig war, es seien weitaus genug Adressen verfügbar. Deshalb hat man große Adressbereiche billig an Universitäten und Organisationen oder Firmen verkauft, ohne einen Gedanken daran zu verschwenden, dass womöglich irgendwann keine Adressen mehr übrig sein könnten.\\
+Offiziell wurden im Januar 2011 die letzten beiden verfügbaren IPv4 Netze der RIR (Regional Internet Registry) von der IANA (Internet Assigned Numbers Authority) zugewiesen, welche diese nun an die einzelnen Länder aufteilen.\\
+
+Warum die Verwendung des IPv6 Standards trotzdem soweit hinausgezögert wird, liegt an der Starre der Firmen. Die Umstellung auf IPv6 bedeutet viele Probleme, da, obwohl er bereits von fast jeglicher Hardware unterstützt, immernoch Kompatibilitätsprobleme mit sich bringt. Firmen sehen keinen Sinn darin viel Geld zu investieren um etwas zu implementieren was doch sowieso funktioniert.\\
 \subsubsection{IPv6}
+IPv6 ist der offizielle Nachfolger von IPv4. Er ist seit 1998 von der IETF standardisiert und bringt einige Neuerungen in das Internet Protocol welche die Fehler, welche durch das unterschätzte Wachstum des Internets hervorgerufen wurden aufheben soll.\\
+
+Eine dieser Neuerungen, wahrscheinlich auch die wichtigste, ist der vergrößerte Adressbereich. Während IPv4 $2^{32}$, also etwas mehr als 4 Milliarden Adressen hat, verfügt IPv6 über $2^{128}$, umgerechnet über 340 Sextillionen oder $3,4 \cdot 10^{38}$ Adressen.\\
+Ein anschaulicheres Beispiel bietet folgender Vergleich: Das Alter der Erde wird auf etwa 4,5 Milliarden Jahre geschätzt. Hätte man gleichzeitig mit der Entstehung der Erde begonnen mit einer Rate von 1 Milliarde Adressen pro Sekunde IPv6 Adressen aus dem vorhandenen Adressraum zu verteilen, wäre bis heute nur weniger als ein Billionstel des vorhandenen Adressraums vergeben.\\
+Damit dürfte das Problem des Adressenmangels vorübergehend gelöst sein.\\
+
+Weitere Vorteile sind das Anpassen der Headers an die neuen Anforderungen.\\
+So ist Beispielsweise IPsec bereits im IPv6 selbst implementiert. Auch der Rechenaufwand für Router soll damit minimiert werden.\\
+
+Eine Aufgabe die IPv6 nicht länger vollbringt wird das zuvor erwähnte Fragmentieren sein. Wenn ein Router ein Paket bekommt welches größer ist als sein MTU (Maximal Transition Unit), verwirft er das Paket und sendet ein ICMPv6 Paket mit der Meldung \glqq Too Big\grqq . Es ist nun die Aufgabe der Schichten darüber dafür zu sorgen, dass die Pakete welche sie versenden wollen nicht zu groß sind.\\
+
+Die Adressnotation in IPv6 ist deutlich anderst als bei IPv4. Es gibt aufgrund der länge und schweren Handhabbarkeit der Adressen einige Vereinfachungsregeln, welche darauf abzielen die Adressen zu kürzen. Da die Adressen sehr viel länger sind, kommt eine dezimale Notation wie sie vorher Verwendung fand nicht mehr in Frage.\\
+IPv6 verwendet daher Hexadezimale Notation, teilt die Adresse in 8 Blöcke auf und fasst in jedem Block 16 bit (=4Hexadezimalstellen) zusammen. Die Blöcke werden durch Doppelpunkte getrennt: \textbf{2001:0db8:85a3:08d3:2219:8a2e:0370:7344}\\
+Führende Nullen dürfen dabei ausgelassen werden. \textbf{2001:0db8:85a3:08d3:0000:8a2e:0070:7344} entspricht also \textbf{2001:db8:85a3:8d3:0:8a2e:70:7344}\\
+Kontinuierliche Blöcke aus 0 dürfen komplett ausgelassen werden und durch einen doppelten Doppelpunkt markiert werden. Diese Maßnahme darf jedoch nur einmal verwendet werden, da es sonst zu Mehrdeutigkeiten kommen kann. Beispiel: \textbf{2001:0db8:85a3:0:0:8a2e:0:0} darf entweder als \textbf{2001:0db8:85a3::8a2e:0:0} oder als \textbf{2001:0db8:85a3:0:0:8a2e::} geschrieben werden.\\
+
+Die 128 bit lange Adresse wird in zwei 64 bit große Teile aufgeteilt. Ersterer ist der sogenannte Präfix.\\
+Die letzten 64 bit jedoch sind der, für jede Netzwerkschnittstelle eindeutige \textbf{Network-Identifier}. Dieser wird anhand der MAC-Adresse ausgerechnet.\\
+Daraufhin wurde Kritik aus der Internetgemeinde laut, da so die Anonymität des Internets vollständig verloren gehen würde. Die IETF hat daraufhin mit der RFC4941 die \textbf{Privacy Extensions} eingeführt, welche den Host selbstständig zufällig generierte Network Identifiers machen lässt. Dieser ist in den meisten Betriebssystemen standardmäßig aktiv.\\
+Dies erhöht die Anonymität zwar, reicht aber noch nicht solang der Präfix, welcher meistens vom ISP vorgegeben wird, ebenso eindeutig ist. Sollte dieser ebenso dynamisch vergeben werden, ist ein guter Teil der Anonymität welche IPv4 hatte wieder gegeben.\\
+
+Wenn eine IPv6 Adresse als URL verwendet werden soll, wird sie in eckige Klammern geschrieben, damit einer Verwechslung mit der Portnummer als Teil der Adresse vorgebeugt wird.\\
+
+Da es keine privaten Netze mehr gibt, fallen viele reservierte Adressbereiche weg. Ein paar wesentliche sollen trotzdem genannt werden:
+\begin{itemize}
+\item ::1/128\\
+Die LoopBack Adresse, entspricht 127.0.0.1 bei IPv4
+\item fe80::/10\\
+Link Local, entspricht 169.254.0.0 bei IPv4, wird verwendet für die Neighbour-Discovery und Autoadresszuweisungen.
+\item 2000::/3 - 3fff::/3\\
+Momentaner Bereich für global eindeutige Adressen.
+\item 2001::\\
+Werden den ISPs für ihre Kunden gegeben.
+\item 2001:0db8::/32\\
+Für Dokumentationszwecke
+\item ...\\
+Auch hier kann wieder in der RFC 6890 nachgelesen werden, um mehr zu erfahren.
+\end{itemize}
 \subsection{User Datagram Protocol - UDP}
-lorem ipsum
+Mit der Entwicklung von UDP wurde 1977 begonnen, als ersichtlich wurde, dass es notwendig ist ein Übertragungsprotokoll zu spezifizieren welches schneller war als TCP. UDP setzt auf IP auf und implementiert, gleich wie TCP, Ports.\\
+
+Durch den Fokus auf die Geschwindigkeit der Datenübertragung wurden dafür an einigen anderen Punkten Abstriche gemacht. So ist es im Gegensatz zu TCP nicht Verbindungsorientiert, was bedeutet, dass es von sich aus nicht dafür Sorge trägt ob Pakete welche über das Netzwerk geschickt werden auch am anderen Ende ankommen, noch ob sie in da richtigen Reihenfolge ankommen.\\
+Auch Sicherheitstechnisch ist keine Absicherung vorhanden. UDP ansich hat keine Vorkehrungen dafür getroffen, dass der Inhalt der Pakete geheim bleibt, bzw. dass er unverändert ankommt.\\
+
+UDP hat trotz dieser Mängel große Bedeutung. Anwendungen bei denen das Fehlen von einzelnen Paketen nicht allzu schlimm ist wie zB VoIP (Voice over IP) oder bei denen nur kurze Paketwechsel stattfinden, ein Verbindungsaufbau also nur übermäßig Traffic erzeugen würde, wie zB DNS.\\
+
+Der UDP Header beinhaltet folgende Werte: 
+\begin{itemize}
+\item Source Port
+\item Destination Port
+\item Länge
+\item Checksum\\
+In diesem Feld wird eine Prüfsumme vom Header und dem Paket erzeugt. In IPv4 ist dies noch optional, bei IPv6 nicht mehr.
+\end{itemize}
 \subsection{Transmission Control Protocol - TCP}
 lorem ipsum
 \subsection{Dynamic Host Configuration Protocol - DHCP}
