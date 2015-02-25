@@ -627,9 +627,41 @@ Der Client wählt nun eine der angebotenen Konfigurationen, und teilt das dem Ne
 Der Server, welchem der Request giltet, kann dieser nun mit DHCPACK für Acknowledge zustimmen oder mit DHCPNACK für Not Acknowledge ablehnen.\\
 
 \subsection{Domain Name System - DNS}
-lorem ipsum
+DNS ist ein Protokoll welches zwar nicht zwangsweise notwendig ist für das Funktionieren des Internets, es aber uns Menschen sehr komfortabel macht es zu benützen.\\
+Jeder ist heutzutage gewohnt, durch simples eintippen eines Namens, zu einer Seite zu kommen. Dies wird jedoch erst durch DNS möglich. Ein PC selbst kann mit dem Namen nichts anfangen, er muss ihn auflösen. Dafür schickt er den Namen zu seinem eingetragenen DNS Server und bittet ihn um die zugehörige IP-Adresse.\\
+
+Würde nun jedoch jeder DNS Server jeden Namen mit dazugehöriger IP-Adresse speichern, würde es sehr schnell außer Hand geraten. Deshalb ist DNS hierarchisch designed. Das bedeutet, dass ein DNS-Server nur für einen gewissen Bereich zuständig ist. Weiß er nicht weiter, geht er die Leiter solange hinauf bis er schließlich jemanden findet der, wenn er auch vielleicht den Namen nicht weiß, ihn zu dem führen kann der ihn weiß.\\
+Das kann schlimmsten Falls bei einem der Root Namens Server enden, der höchsten Autorität.\\
+
+Zum besseren Verständnis sollte eine typische URL erklärt werden:\\
+\textbf{www.example.com} besteht aus mehreren Bestandteilen.
+\begin{itemize}
+\item .\\
+Nach dem kompletten Namen ist eigentlich ein Punkt der jedoch inzwischen ausgelassen werden kann
+\item com\\
+Die Top Level Domain \glqq com\grqq . Zu den Top Level Domains gehören auch die Länder Domains wie zum Beispiel at, us, jp und so weiter. Eine Domain ist eine Zusammenfassung von mehreren verschiedenen Untergruppen. So indiziert die Länder Domain at, dass alle URLs welche auf diese Top Level Domain enden, in Österreich ihren Standpunkt haben.
+\item example\\
+example wäre in diesem Beispiel eine Subdomain. Häufig werden Subdomains von Firmen und Organisationen gekauft. 
+\item www\\
+Obwohl das dreifache w im Internet immer mehr verloren geht, haben sie eigentlich eine wichtige Bedeutung. Sie sind der Host in dieser Gruppe an Hosts welche sich in einer Domain befinden, auf den man zugreift. Erst hier spitzt sich der Name auf einen Server zu. 
+\end{itemize}
+Nun wird auch ersichtlich warum ein hierarchisches System sinnvoll ist.\\
+
+Dies wird auch vom Staat genutzt um Zensur zu betreiben. Die Filme und Serien Streaming Seite kinox.to wurde aus den DNS Servern in Deutschland gelöscht, als Konsequenz auf die Urheberrechtsverletzungen.
 \subsection{Internet Control Message Protocol - ICMP}
-lorem ipsum 
+Das Internet Control Message Protocol bewegt sich auf Layer 3 zusammen mit IP. Es dient dazu anderen Geräten Informationen über beispielsweise ihren Status zukommen zu lassen. Es gibt eine Variante für IPv6 das sogenannte ICMPv6. Es verwendet zum Transport IP obwohl es auf dem gleichen Layer liegt, da es sich als ein Protokoll höherer Ebene interpretiert.\\
+
+Der Header des ICMP Paketes ist sehr klein. Er besteht lediglich aus:
+\begin{itemize}
+\item Type\\
+Stellt die Art des ICMP dar. Kann zB 3 für \glqq Ziel nicht erreichbar\grqq  sein.
+\item Code\\
+Bietet eine genauere Auflösung der Art. Wenn der Typ zB 3 ist, gibt es die Codes 0 für Netzwerk nicht erreichbar, 1 für Host nicht erreichbar, 2 für Protokoll nicht erreichbar und noch einige andere
+\item Checksum
+\item Daten
+\end{itemize}
+
+Wichtige Beispiele für seine Funktionen sind die Meldungen Host Unreachable oder Destination Port Unreachable für die Berichterstattung, es gibt aber auch Analysefunktionen wie traceroute oder den ICMP Echo Request. 
 \subsubsection{ICMP Echo Request/Response - Ping}
 lorem ipsum
 \subsection{File Transport Protcol - FTP}
