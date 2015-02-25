@@ -97,3 +97,11 @@ RFC 2460
 RFC 6598
 RFC 6890
 
+de.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol
+en.wikipedia.org/wiki/Dynamic_Host_Configuration_Protocol
+
+de.wikipedia.org/wiki/Transmission_Control_Protocol
+en.wikipedia.org/wiki/Transmission_Control_Protocol
+
+RFC 793
+RFC 2131

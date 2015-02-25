@@ -459,21 +459,21 @@ Dieses Protokoll wird mit der Verbreitung von IPv6 aussterben da in IPv6 das sog
 
 Das ARP Paket befindet sich gleichzeitig auf Layer 2 und 3 und sieht wie folgt aus:\\
 \begin{itemize}
-\item Hardwareadresstyp, 2 bytes\\
+\item Hardwareadresstyp\\
 Die Zahl in diesem Feld bestimmt den Typen der MAC-Adresse. Dies ist meistens Ethernet, was mit einer 1 repräsentiert wird.
-\item Protokolladresstyp, 2 bytes\\
+\item Protokolladresstyp\\
 Der Adresstyp für den die MAC-Adresse angefordert wird. Im Falle von IP ist dies 0x0800. Die Zahlen in diesem Feld teilen sich ihre Nummern mit dem EtherType beim Ethernet Protokoll.
-\item Hardwareadresslänge, 1 byte\\
+\item Hardwareadresslänge\\
 Die Länge der aufgelösten Adresse. Für Ethernet ist sie 6.
-\item Protokolladresslänge, 1 byte\\
+\item Protokolladresslänge\\
 Die Länge der Adresse die aufgelöst werden soll. Für IPv4 lautet sie 4.
-\item Operation, 2 bytes\\
+\item Operation\\
 Enthält eine Zahl, die angibt ob das Paket ein Request (1) oder eine Response (2) ist.
-\item Quell MAC-Adresse, 6 bytes
-\item Quell IP-Adresse, 4 bytes
-\item Ziel MAC-Adresse, 6 bytes\\
+\item Quell MAC-Adresse
+\item Quell IP-Adresse
+\item Ziel MAC-Adresse\\
 Enthält FF:FF:FF:FF:FF:FF, die Layer2 Broadcast Adresse.
-\item Ziel IP-Adresse, 4 bytes
+\item Ziel IP-Adresse
 \end{itemize}
 Es gibt jedoch auch noch andere Arten von ARP Paketen. Dazu zählen der Reverse ARP welcher die MAC- in eine IP-Adresse auflösen kann oder der Gratuitos ARP, welche eine Nachricht darstellt, die unaufgefordert bekannt macht, welche MAC-Adresse man selbst hat.
 \subsection{Internet Protocol - IP}\label{ssec:ip}
@@ -579,9 +579,53 @@ Der UDP Header beinhaltet folgende Werte:
 In diesem Feld wird eine Prüfsumme vom Header und dem Paket erzeugt. In IPv4 ist dies noch optional, bei IPv6 nicht mehr.
 \end{itemize}
 \subsection{Transmission Control Protocol - TCP}
-lorem ipsum
+Die Entwicklung von TCP dauerte einige Jahre. Es begann bereits 1973 endete aber erst 1981 mit der Veröffentlichung der RFC 793. TCP ist ein zuverlässiges, verbindungsorientiertes Protokoll. Es stellt damit sowohl Flusssteuerung und Staukontrolle als auch das vorhanden sein aller Daten in der richtigen Reihenfolge sicher.\\
+
+\begin{center}
+\includegraphics[scale=0.6]{../docs/tarkes/pics/TcpHandshake.png}
+\end{center}
+
+Da TCP ein verbindungsorientiertes Protokoll ist, gibt es auch einen Verbindungsaufbau.\\
+Dieser findet mittels eines \textbf{Three-Way-Handshake} statt: Zuerst wird vom Client ein SYN Paket (ein Paket bei welchem das SYN-Flag im Header gesetzt ist) an den Server geschickt. Der Wert im Sequence-Feld ist dabei zufällig gewählt.\\
+Der Server schickt dann ein SYN-ACK Paket zurück, indem zusätzlich zu der SYN-Flag auch noch das ACK-Flag gesetzt ist. Im Acknowledge-Feld steht dabei der Wert des Sequence-Feldes des SYN-Paketes des Clients, während im Sequence Feld des SYN-ACK Paketes eine neue zufällige Zahl steht.\\
+Das dritte Paket des Verbidnungsaufbaus ist dann das ACK-Paket des Clients an den Server. Darin ist nur noch das ACK-Flag gesetzt, im Sequence Feld steht der Wert des ersten Paketes + 1 und im Acknowledge Feld steht der Wert aus dem Sequence Feld des vorherigen Paketes.\\
+
+Daraufhin ist der Verbindungsaufbau abgeschlossen und die Datenübertragung kann beginnen.\\
+Dabei wird die Ordnung und Sicherheit, dass jedes Paket auch wirklich ankommt, dadurch erreicht, dass der Empfänger jedes Paket welches ihm in seiner Liste fehlt nocheinmal anfordert und das so oft bis er es auch bekommt. Ob ihm eines fehlt erkennt er anhand des Sequence Feldes.\\
+Er buffert diese Pakete dann eine gewisse Zeit, um fehlende Pakete nachzuholen, doppelte zu Verwerfen und sie in Reihenfolge zu bringen.\\
+
+Der TCP Header:\\
+\begin{itemize}
+\item Source Port
+\item Destination Port
+\item Sequence Number\\
+Wie bereits zuvor erwähnt, dient diese dazu Ordnung halten zu können und um zu sehen ob doppelte oder vermisste Pakete existieren
+\item Acknowledge Number\\
+Für den Verbindungsaufbau
+\item Data Offset\\
+Größe des Headers, gibt den beginn der Nutzdaten an
+\item Reserved\\
+Wird nicht verwendet und muss 0 sein
+\item Control Flags\\
+Es gibt einige verschiedene Control Flags. Zwei davon, SYN und ACK wurden bereits erwähnt. Des weiteren gibt es noch beispielsweise FIN für den Verbindungsabbau, URG für urgent, also dringende Pakete oder RST für Reset.
+\item Window \\
+Die Menge an Daten die der Client zu empfangen bereit ist.
+\item Checksum
+\item Urgent Pointer\\
+nur wichtig falls das URG Flag gesetzt ist
+\item Options\\
+Hier kann noch alles mögliche ausgemacht werden welches nicht im Standartheader steht.
+\end{itemize}
 \subsection{Dynamic Host Configuration Protocol - DHCP}
-lorem ipsum
+DHCP dient, wie der Name bereits aussagt, der dynamischen Konfiguration von Hosts. Standardmäßig hat jeder normale Enduser in dem WLAN Router, welchen er von dem ISP bereitgestellt bekommt, einen DHCP-Server. Dieser nutzt jedoch nur die grundlegendsten Funktionen des DHCP Protokolls, die Vergabe einer IP-Adresse und eines Standard Gateways.\\
+DHCP ist jedoch zu weit mehr in der Lage. Die Optionen reichen von hostnamen über Proxy Einstellungen bis zu Zeitservern. Im Grunde sind die Optionen zur Konfiguration jedoch sogar unbegrenzt, da im Optionen Feld des Paketes eigene Dinge spezifiziert werden können.\\
+
+Der Ablauf einer Kommunikation zwischen Host und DHCP-Server sieht wie folgt aus:\\
+Ein Client, ahnungslos und ohne eigene Adresse, schreit in das Netzwerk, ob denn ein DHCP Server existiert welcher ihm eine Konfiguration anbieten möchte. Dieses Paket ist das DHCPDISCOVER.\\
+Niemand, einer oder mehrere Server, je nach Bestückung des Netzwerkes, antworten nun mit einem DHCPOFFER in denen sie eine Konfiguration anbieten.\\
+Der Client wählt nun eine der angebotenen Konfigurationen, und teilt das dem Netzwerk mit einem DHCPREQUEST mit.\\
+Der Server, welchem der Request giltet, kann dieser nun mit DHCPACK für Acknowledge zustimmen oder mit DHCPNACK für Not Acknowledge ablehnen.\\
+
 \subsection{Domain Name System - DNS}
 lorem ipsum
 \subsection{Internet Control Message Protocol - ICMP}
