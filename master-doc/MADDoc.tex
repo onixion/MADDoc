@@ -686,13 +686,12 @@ Um dies zu umgehen gibt es einige Varianten von FTP welche Sicherheit garantiere
 Transport Protocol) welche trotz des ähnichen Namens unterschiedlich realisiert sind. 
  
 \subsection{Simple Network Managing Prorocol - SNMP}
-Das Simple Network Managing Protocol ist dazu erschaffen worden, Informationen aller Art über Geräte in einem Netzwerk auslesen, und einige auch setzen zu können. 
-\subsubsection{Management Information Base}
-lorem ipsum
-\subsubsection{SNMPv2/SNMPv2c}
-lorem ipsum
-\subsubsection{SNMPv3}
-lorem ispum
+Das SNMP dient dazu die Pakete zu beschreiben, mit welchen Informationen zwischen verschiedenen Netzwerkgeräten ausgetauscht werden können. Diese Informationen finden sich in einer MIB. Es setzt auf UDP auf.\\
+
+MIBs oder Management Information Bases sind Tabellen mit beschreibenden Werten. Diese Werte sind in einer Baumstruktur angeordnet. Der für SNMP interessante Bereich beginnt bei 1.3.6.1, dem Internet Zweig. Was in der MIB steht ist von der IETF vorgegeben. SNMP weiß jedoch nicht mit welchem Device es gerade redet, weshalb es nur als \glqq Bote\grqq für die Informationen dient.\\
+Die Informationen welche damit abgerufen werden können sind unglaublich vielfältig und umschließen sogar Dinge wie Fehlerpakete auf einem bestimmten Interface auf einem Host.\\
+
+Es gibt inzwischen drei Versionen von SNMP. Der Hauptkritikpunkt an den ersten Versionen war die Unsicherheit. Es ging so weit, dass im Scherz behauptet wurde, SNMP stehe eigentlich für Security? Not my Problem. Dies wurde auch erst mit der letzten Version, Version 3 wirklich ausgebessert. 
 \subsection{Hypertext Transfer Protcol - HTTP}
 lorem ipsum
 \section{Netzwerksicherheit}
