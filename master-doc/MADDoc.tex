@@ -662,8 +662,12 @@ Bietet eine genauere Auflösung der Art. Wenn der Typ zB 3 ist, gibt es die Code
 \end{itemize}
 
 Wichtige Beispiele für seine Funktionen sind die Meldungen Host Unreachable oder Destination Port Unreachable für die Berichterstattung, es gibt aber auch Analysefunktionen wie traceroute oder den ICMP Echo Request. 
-\subsubsection{ICMP Echo Request/Response - Ping}
-lorem ipsum
+\paragraph{Echo Request/Response - Ping}
+Der ICMP Echo hat die Typen Nummer 0. Er wurde durch das Netzwerkprogramm Ping auch unter diesem Namen bekannt.\\
+Es wird verwendet um zu Überprüfen ob ein gewisser Host im Netzwerk ist oder nicht. Wenn ein Host ein Echo Paket empfängt antwortet er mit einem Response Paket, genannt Pong.\\
+
+Die Namensgebung kommt vom Sonar in U-booten, die jedes Mal ein Ping vonsich geben wenn sie ihre Schallwellen aussenden, und ein Pong wenn die Schallwellen von etwas reflektiert werden.\\ 
+Gleich wie beim Sonar, kann aus dem Echo Paket einiges an Information ausgelesen werden. So gut wie immer ist die Round-Trip Time, also die Zeit, die ein Paket benötigt um vom Sender zum Ziel und wieder zurück zu kommen, dabei, sowie der Wert aus dem Time To Live Feld, also wie viele Hops es noch passieren kann bevor es verworfen wird.
 \subsection{File Transport Protcol - FTP}
 lorem ipsum
 \subsection{Simple Network Managing Prorocol - SNMP}
