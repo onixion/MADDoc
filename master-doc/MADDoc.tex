@@ -669,9 +669,24 @@ Es wird verwendet um zu Überprüfen ob ein gewisser Host im Netzwerk ist oder n
 Die Namensgebung kommt vom Sonar in U-booten, die jedes Mal ein Ping vonsich geben wenn sie ihre Schallwellen aussenden, und ein Pong wenn die Schallwellen von etwas reflektiert werden.\\ 
 Gleich wie beim Sonar, kann aus dem Echo Paket einiges an Information ausgelesen werden. So gut wie immer ist die Round-Trip Time, also die Zeit, die ein Paket benötigt um vom Sender zum Ziel und wieder zurück zu kommen, dabei, sowie der Wert aus dem Time To Live Feld, also wie viele Hops es noch passieren kann bevor es verworfen wird.
 \subsection{File Transport Protcol - FTP}
-lorem ipsum
+Das File Transport Protocol ist wie der Name schon sagt, ein Protokoll zum Übertragen von Datein. Es setzt auf TCP auf, da es sich nicht erlauben kann, dass 
+Pakete verloren gehen da sonst die gesamten Daten unbrauchbar werden können. TCP verwendet getrennte Verbindungen für Data Transfer und Command Transfer. FTP 
+antwortet auf Commands mit Dreistelligen Zahlen Codes wie 200 für OK.\\
+
+Um eine Verbindung aufzubauen, öffnet ein Client eine TCP Verbindung zum Port 21 von einem zufälligen Port N aus. Von da an kommt es darauf an ob der FTP Server 
+als \glqq aktive\grqq oder als \glqq passive\grqq betrieben wird.\\
+Bei einem als aktiv konfigurierten Server, wartet der Client nun auf dem Port N+1 auf eine einkommende Datenverbindung. Damit der Server weiß auf welchen Port er 
+die Verbindung aufbauen soll, wird in der Command Verbindung ein PORT Befehl gesendet.\\
+Sollte der Server als passiv konfiguriert sein, was häufig bei Servern hinter einer Firewall gemacht wird, sendet der Client ein PASV Paket über die Command 
+Verbindung und bekommt daraufhin vom Server eine IP und einen Port auf welchen daraufhin die Datenverbindung aufgebaut wird.\\
+
+Ein großes Problem von FTP ist, dass, auch wenn es durch Username und Passwort geschützt werden kann, alles in Klartext überträgt. Es ist also für einen 
+unerwünschten Mithörer im Netzwerk nicht sehr schwer alles mitzubekommen was zwischen FTP Client und Server an Kommunikation passiert.\\
+Um dies zu umgehen gibt es einige Varianten von FTP welche Sicherheit garantieren sollen, wie u.a. FTPS (File Transport Protocol SSL/TLS) oder SFTP(SSH File 
+Transport Protocol) welche trotz des ähnichen Namens unterschiedlich realisiert sind. 
+ 
 \subsection{Simple Network Managing Prorocol - SNMP}
-lorem ipsum
+Das Simple Network Managing Protocol ist dazu erschaffen worden, Informationen aller Art über Geräte in einem Netzwerk auslesen, und einige auch setzen zu können. 
 \subsubsection{Management Information Base}
 lorem ipsum
 \subsubsection{SNMPv2/SNMPv2c}
