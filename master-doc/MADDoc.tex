@@ -691,9 +691,33 @@ Das SNMP dient dazu die Pakete zu beschreiben, mit welchen Informationen zwische
 MIBs oder Management Information Bases sind Tabellen mit beschreibenden Werten. Diese Werte sind in einer Baumstruktur angeordnet. Der für SNMP interessante Bereich beginnt bei 1.3.6.1, dem Internet Zweig. Was in der MIB steht ist von der IETF vorgegeben. SNMP weiß jedoch nicht mit welchem Device es gerade redet, weshalb es nur als \glqq Bote\grqq für die Informationen dient.\\
 Die Informationen welche damit abgerufen werden können sind unglaublich vielfältig und umschließen sogar Dinge wie Fehlerpakete auf einem bestimmten Interface auf einem Host.\\
 
-Es gibt inzwischen drei Versionen von SNMP. Der Hauptkritikpunkt an den ersten Versionen war die Unsicherheit. Es ging so weit, dass im Scherz behauptet wurde, SNMP stehe eigentlich für Security? Not my Problem. Dies wurde auch erst mit der letzten Version, Version 3 wirklich ausgebessert. 
+Es gibt inzwischen drei Versionen von SNMP. Der Hauptkritikpunkt an den ersten Versionen war die Unsicherheit. Es ging so weit, dass im Scherz behauptet wurde, SNMP stehe eigentlich für \textbf{S}ecurity? \textbf{N}ot \textbf{m}y \textbf{P}roblem. Dies wurde auch erst mit der letzten Version, Version 3 wirklich ausgebessert.\\
+Davor wurde nur mit einem sogenannten Community String, welches eine Art Passwort darstellt, gesichert und selbst dieser wurde in Klartext übermittelt.\\
+Dies wurde in Version 3 dann verbessert und mit zwei zusätzlichen Passphrasen, genannt Authentification und Privacy, welche mit verschiedenen Verschlüsselungen versehen werden können.\\
+
+Es gibt mehrere Möglichkeiten wie SNMP Informationen aus einer MIB bekommt. Der Standart ist die GET Methode bei der er ein Feld abfrägt. Doch gibt es auch die Methoden GETNEXT und GETBULK.\\
+Bei ersterer Methode wandert er eine spezifizierte Anzahl an Werten ab. Diese Methode wurde erst in Version 2 dazugenommen.\\
+Bei zweiterer Methode erfrägt er einen gesamten Unterbaum.\\
+
+Des Weiteren gibt es noch eine Sonderform, in welcher nicht der Agent, so wird derjenige genannt, welcher die SNMP Abfragen durchführt, sondern das zu managende Device selbst sich meldet.\\
+Diese sogenannten Traps können auf bestimmte Events gesetzt werden, wie zB eine Änderung eines kritischen Wertes. Bei weitem öfters wird es jedoch verwendet, wenn eine der Zähler Variablen überläuft. Dabei setzen MIBs meist ein flag in einem bestimmten Unterbaum auf welches die Traps dann reagieren.\\
+
+Obwohl das Protokoll sich selbst als \glqq Simple\grqq bezeichnet, ist es hoch komplex und, obwohl es von einem großen Teil ernstzunehmender Administratoren genutzt wird, bringt auch extreme Sicherheitsprobleme mit wenn man es nicht vorsichtig implementiert.\\
+Vorallem die Tatsache, dass SNMPv3 Support, obwohl es ein Standart ist, so gut wie nirgends gegeben ist (unter anderem unterstützt Windows bis jetzt nur SNMPv2(c)), macht große Probleme. 
 \subsection{Hypertext Transfer Protcol - HTTP}
-lorem ipsum
+HTTP ist wohl eines der Protokolle welches der Standartuser mit am häufigsten verwendet, auch wenn er sich dessen unter Umständen garnicht bewusst ist. Es wird verwendet um Webseiten über ein Netzwerk zu transportieren. HTTP befindet sich auf den Layern 5 bis 7 und setzt auf TCP auf, da sich vermisste oder Fehlerhafte Pakete doch deutlich in der Seitendarstellung auswirken.\\
+Momentan wird HTTP/1.1 verwendet, wobei die HTTP-Entwicklergruppe der IETF bereits dabei ist, Version 2 zu spezifizieren. Ziele der neuen Version sind bessere Datenkomprimierung, effizientere Kommunikation und erhöhte Sicherheit.\\
+
+Sicherheitstechnisch ist HTTP nicht sehr ausgefeilt. Es verwendet keine Verschlüsselung von sich aus, überträgt alles in Klartext. Dafür wurden diverse Erweiterungen geschrieben wie zB HTTPS welche Pakete mit SSL verfahren sichert.\\
+
+Aufgrund diverser Erweiterungen in den Anfragenpaketen ist HTTP inzwischen über den bloßen Transport von Hypertext hinaus, es kann bereits genauso zur Übertragung von zB Datein verwendet werden.\\
+
+Eine Kommunikation mit HTTP läuft immer nach einem gewissen Schema ab:\\
+Ein Client schickt eine Anfrage an eine URL wie zB www.example.com ab. Dieser Name wird wie bereits besprochen über DNS aufgelöst, sollte er nicht in er hosts Datei stehen.\\
+Der Webbrowser setzt an die URL normalerweise immer noch \glqq \textbackslash index.html \grqq .\\
+Dies wandelt der Browser dann in ein HTTP GET Paket um, indem neben der verwendeten HTTP Version, steht was man von welchem Client bekommen will.\\
+Der Server antwortet darauf hin zuerst mit einem Statuscode. Dieser beschreibt ob die Anfrage erfolgreich war oder nicht. Der Statuscode den die meisten User kennen ist 404, was für Side not found steht.\\
+Ist die Anfrage jedoch erfolgreich bekommt der Client den Code 200 zurück, zusammen mit einigen Informationen zum Server, wie Sprache, welcher Server läuft und/oder Content type.
 \section{Netzwerksicherheit}
 lorem ipsum
 \subsection{MAC-Spoofing}\label{ssec:mspoof}
