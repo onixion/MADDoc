@@ -95,13 +95,13 @@ In der Netzwerktechnik gibt es mehrere verschiedene grundlegende Konzepte auf we
 \subsection{Übersicht: Netzwerktypen}
 Hier soll auf die wichtigsten Netzwerktypen kurz eingegangen werden. Es gibt einige mehr als jene die im Folgenden erwähnt werden, jedoch sollten sie die wichtigsten abdecken.
 \subsubsection{LAN}
-Das LAN, oder Local Area Network, bezeichnet ein Netzwerk welches von seinen Ausdehnungen her nicht mehr als 500 Metern überschreitet. Als LANs werden zum Beispiel Heimnetzwerke, Netzwerke in Schulen oder Arbeitsplätzen, besonders Büros, oder Bürogebäuden.
+Das \textbf{LAN}, oder Local Area Network, bezeichnet ein Netzwerk welches von seinen Ausdehnungen her nicht mehr als 500 Metern überschreitet. Als LANs werden zum Beispiel Heimnetzwerke, Netzwerke in Schulen oder Arbeitsplätzen, besonders Büros, oder Bürogebäuden.
 \subsubsection{W-LAN}
-Das W-LAN erweitert das LAN um die im Namen (Wireless-LAN) steckende Freiheit von Kabeln. Dafür werden im Normalfall Router benötigt welche über die Möglichkeit verfügen im 2,4 oder 5 GHz Netz zu kommunizieren.
+Das \textbf{W-LAN} erweitert das LAN um die im Namen (Wireless-LAN) steckende Freiheit von Kabeln. Dafür werden im Normalfall Router benötigt welche über die Möglichkeit verfügen im 2,4 oder 5 GHz Netz zu kommunizieren.
 \subsubsection{WAN}
-Das WAN, ausgeschrieben Wide Area Network, bezeichnet ein Netzwerk welches über ein sehr großes geographisches Gebiet verteilt ist. Es hat kein Limit an daran angeschlossenen Netzwerkgeräten. WANs werden beispielsweise von großen Firmen aber auch von Internetanbietern verwendet. Das Netzwerk mit welches ein Router den Enduser verbindet ist beispielsweise ein WAN des ISPs (Internet Service Providers wie UPC oder Telekom). 
+Das \textbf{WAN}, ausgeschrieben Wide Area Network, bezeichnet ein Netzwerk welches über ein sehr großes geographisches Gebiet verteilt ist. Es hat kein Limit an daran angeschlossenen Netzwerkgeräten. WANs werden beispielsweise von großen Firmen aber auch von Internetanbietern verwendet. Das Netzwerk mit welches ein Router den Enduser verbindet ist beispielsweise ein WAN des ISPs (Internet Service Providers wie UPC oder Telekom). 
 \subsubsection{VLAN}\label{sssec:vlan}
-VLANs (Virtual Local Area Network) sind im Grunde LANs welche logisch auf mehrere kleine Netzwerke aufgeteilt werden. Logisch deshalb, weil sie sich nicht physikalisch, also durch Router getrennt sind oder über eigene Kabel verfügen sondern nur dadurch getrennt sind, dass Switches Pakete von einem VLAN nicht in ein anderes lassen.\\
+\textbf{VLANs} (Virtual Local Area Network) sind im Grunde LANs welche logisch auf mehrere kleine Netzwerke aufgeteilt werden. Logisch deshalb, weil sie sich nicht physikalisch, also durch Router getrennt sind oder über eigene Kabel verfügen sondern nur dadurch getrennt sind, dass Switches Pakete von einem VLAN nicht in ein anderes lassen.\\
 Es gibt mehrere unterschiedliche Arten von VLANs:\\
 \begin{itemize}
 \item Getaggtes VLAN\\
@@ -113,16 +113,16 @@ Beim statischen VLAN werden einzelne Ports an einem Switch dediziert einem VLAN 
 \item Dynamisches VLAN\\
 Beim dynamischen VLAN versucht der Switch anhand von Zusammenhängen im Datenverkehr zu entscheiden in welches VLAN ein Paket gehört. 
 \end{itemize}
-\subsection{Netzwerkdevices}
+\subsection{Übersicht: Netzwerkdevices}
 Um ein Netzwerk aufzubauen werden verschiedene Devices benötigt. Je nach Größe und Art des Netzwerkes kann man auch auf einzelne Komponenten verzichten. 
 \subsubsection{Router}
-Ein Router kommt in so gut wie jedem Netzwerk vor. Er operiert auf dem Layer 3 im OSI-Schichtenmodell, indem er Packete welche an seine seiner Interfaces reinkommen, anhand der IP-Adresse an einem anderen Interface wieder hinaus schickt. Dadurch verbindet er logisch getrennte Netze.\\
+Ein \textbf{Router} kommt in so gut wie jedem Netzwerk vor. Er operiert auf dem \textbf{Layer 3} im OSI-Schichtenmodell, indem er Pakete welche an seine seiner Interfaces reinkommen, anhand der IP-Adresse an einem anderen Interface wieder hinaus schickt. Dadurch verbindet er logisch getrennte Netze.\\
 
 \begin{center}
 \includegraphics[scale=0.5]{../docs/tarkes/pics/RouterNetwork.jpg}\label{fig:bspNetwork}
 \end{center}
 
-Das Wissen, welches Packet wohin muss, zieht er aus einer lokalen Routingtabelle. Diese Tabelle kann auf drei unterschiedliche Arten entstehen\\
+Das Wissen, welches Paket wohin muss, zieht er aus einer \textbf{lokalen Routingtabelle}. Diese Tabelle kann auf drei unterschiedliche Arten entstehen\\
 \begin{itemize}
 \item \textbf{Direkt angeschlossene Netze}\\
 Netze welche direkt an einem seiner eigenen Interfaces hängen, erkennt er ohne weiteres zutun.\\
@@ -148,9 +148,9 @@ Im Grunde ganz normale Router, welche jedoch zusätzlich die Möglichkeit besitz
 Werden meistens von den ISPs den Kunden zur Verfügung gestellt. Die meisten unterstützen heutzutage auch WLAN.
 \end{itemize}
 \subsubsection{Switch}
-Ein Switch ermöglicht die Kommunikation zwischen mehreren Hosts. Einfache Switches agieren hauptsächlich auf dem Layer2: Sie schreiben sich auf an welchem Port welche MAC-Adresse hängt und wissen dann durch Source und Destination MAC-Adresse, an welchen Interface das Paket wieder raus muss.\\
+Ein \textbf{Switch} ermöglicht die Kommunikation zwischen mehreren Hosts. Einfache Switches agieren hauptsächlich auf dem \textbf{Layer 2}: Sie schreiben sich auf an welchem Port welche MAC-Adresse hängt und wissen dann durch Source und Destination MAC-Adresse, an welchen Interface das Paket wieder raus muss.\\
 
-Im Gegensatz zu ihren Vorgängern, den Hubs, sind sie damit in der Lage, Pakete zielgerichtet weiter zu leiten. Hubs lenken einkommenden traffic nicht, sie schicken die Pakete immer an alle Interfaces. Switches legen dazu eine lokale Switching Tabelle an in welcher sie stehen haben, an welchem Interface welche MAC-Adresse liegt.\\
+Im Gegensatz zu ihren Vorgängern, den \textbf{Hubs}, sind sie damit in der Lage, Pakete zielgerichtet weiter zu leiten. Hubs lenken einkommenden traffic nicht, sie schicken die Pakete immer an alle Interfaces. Switches legen dazu eine \textbf{lokale Switching Tabelle} an in welcher sie stehen haben, an welchem Interface welche MAC-Adresse liegt.\\
 Darin findet sich jedoch auch die größte Sicherheitslücke, wie später in Kapitel \ref{sssec:security} auf Seite \pageref{sssec:security} noch besprochen wird.\\
 
 
@@ -161,31 +161,31 @@ Auch hier gibt es wieder verschiedene Ausführungen. Die wichtigsten sind die St
 Als nächste große Gruppe gibt es die sogenannten Layer 3 Swichtes. Diese, wie der Name bereits andeutet, verfügen über Funktionalitäten auf dem 3. Layer der OSI-Schicht. So sind sie in der Lage zu routen, was vorallem bei VLANs benötigt wird, oder auch die Priorisierung von bestimmten Paketen um Quality of Service zu gewährleisten.\\
 Es gibt auch noch Switches welche höheren Layers zugeordnet werden, diese sind jedoch nicht einheitlich, sondern definiert jeder Hersteller das etwas anders.
 \subsubsection{Firewall}
-Die Firewall ist eine Sonderform des Routers.\\
+Die \textbf{Firewall} ist eine \textbf{Sonderform des Routers}.\\
 Eigentlich ist die Firewall ansich nur eine Software welche nach zugrunde liegenden Bestimmungen entscheidet welche Pakete durch dürfen und welche nicht. Jedoch wird dies in großen Firmen häufig von einem dafür spezialisieren Router erledigt, welcher dann als Firewall bezeichnet wird.\\
-Diese Router haben dann meistens nur 2 Ports, da ihre einzige Aufgabe ja darin besteht Pakete zu blockieren oder durchzulassen. Dafür sind sie sehr stark auf ihren Datendurchsatz optimiert, da sie so gut wie immer den Flaschenhals eines Netzes darstellen.\\
+Firewalls haben dann meistens nur 2 Ports, da ihre einzige Aufgabe ja darin besteht Pakete zu blockieren oder durchzulassen. Dafür sind sie sehr stark auf ihren Datendurchsatz optimiert, da sie so gut wie immer den Flaschenhals eines Netzes darstellen.\\
 Es gibt auch hier unterschiedliche Arten von Firewalls:\\
 \begin{itemize}
 \item \textbf{Packet Filters}\\
-Packet Filters sind die primitivste Art von Firewalls. Sie entscheiden anhand der Source- und Destination IP, Source- und Destination Port sowie UDP/TCP parameter ob ein Paket als Vertrauenswürdig eingestuft wird oder nicht.
+Packet Filters sind die primitivste Art von Firewalls. Sie entscheiden anhand der \textbf{Source- und Destination IP, Source- und Destination Port sowie UDP/TCP parameter} ob ein Paket als Vertrauenswürdig eingestuft wird oder nicht.
 \item \textbf{Stateful Inspection}\\
-Dies stellt eine Erweiterung zu dem Packet Filter dar. Die Firewall speichert nun auch den State, also den Zustand, eines Paketes oder einer Kommunikation. So kann man der Firewall zum Beispiel sagen, dass Pakete welcher zu einer bestehenden Kommunikation gehören durchgelassen werden dürfen. 
+Dies stellt eine Erweiterung zu dem Packet Filter dar. Die Firewall speichert nun auch den \textbf{State}, also den Zustand, eines Paketes oder einer Kommunikation. So kann man der Firewall zum Beispiel sagen, dass Pakete welcher zu einer bestehenden Kommunikation gehören durchgelassen werden dürfen. 
 \item \textbf{Application Level Firewall}
 Der Vorteil dieser Art an Firewall ist, dass sie in der Lage ist bestimmte Protokolle und Anwendungen zu \glqq verstehen\grqq . Das bietet den Vorteil, dass sie erkennen kann ob ein ungewolltes Protokoll über einen offenen Port kommt.
 \item \textbf{Deep Inspection}\\
-Während Stateful Inspection sich nur den Header des Paketes ansieht, greift die Deep Inspection in die Payload, also die Nutzdaten, ein um genaue Informationen über den Inhalt zu erlangen. Dies geht sogar soweit, dass die Firewalls Verschlüsselungen versuchen aufzubrechen.\\
+Während Stateful Inspection sich nur den Header des Paketes ansieht, greift die Deep Inspection in die \textbf{Payload}, also die Nutzdaten, ein um genaue Informationen über den Inhalt zu erlangen. Dies geht sogar soweit, dass die Firewalls Verschlüsselungen versuchen aufzubrechen.\\
 Vorteilhaft daran ist die relativ hohe Sicherheit, da auch Pakete welche auf einem scheinbar harmlosen Port kommen und auch das passende Protokoll haben, manipuliert sein können, Nachteilig jedoch, dass die Firewall damit in der Lage ist, absolut alles an Informationen über den Netzwerkverkehr aufsammeln zu können was sie will. Die Anonymität ist damit nicht länger gewährleistet.
 \end{itemize}
 \subsection{Der Host}
-Mit dem Term \glqq Host\grqq , wird, in dem Zusammenhang der Netzwerktechnik, ein Gerät beschrieben, welches über das Netzwerk mit anderen Hosts verbunden ist und theoretisch in der Lage ist an der Kommunikation teilzunehmen. Damit ein Host zur Kommunikation in der Lage ist, benötigt er mehrere Dinge.\\
-Zu diesen gehört Hardware technisch gesehen, mindestens eine Netzwerkkarte mit einer Art von Möglichkeit sich in das Netz einzuklinken. Diese Möglichkeit kann aus einem Ethernet Anschluss oder einer Antenne, welche in der Lage ist, das 2,4 GHz Band und/oder das 5GHz Band zu empfangen und in diesem Band zu senden.\\
+Mit dem Term \textbf{Host} , wird, in dem Zusammenhang der Netzwerktechnik, ein Gerät beschrieben, welches über das Netzwerk mit anderen Hosts verbunden ist und theoretisch in der Lage ist an der Kommunikation teilzunehmen. Damit ein Host zur Kommunikation in der Lage ist, benötigt er mehrere Dinge.\\
+Zu diesen gehört Hardware technisch gesehen, mindestens eine \textbf{Netzwerkkarte} mit einer Art von Möglichkeit sich in das Netz einzuklinken. Diese Möglichkeit kann aus einem Ethernet Anschluss oder einer Antenne, welche in der Lage ist, das 2,4 GHz Band und/oder das 5GHz Band zu empfangen und in diesem Band zu senden.\\
 Auf der Softwareseite benötigt ein Host im Grunde drei Dinge welche ihn dazu ermöglichen eine Konversation mit einem anderen Host, über das Internet, zu führen. Es gibt natürlich auch andere Arten von Kommunikation in Netzwerken, jedoch ist das TCP/IP (siehe \ref{sssec:tcpip} auf Seite \pageref{sssec:tcpip}) Modell das am häufigsten vorkommende. 
 
 \subsubsection{MAC-Adressen}\label{sssec:macaddr}
-MAC-Adresse steht für Media Access Controll Adresse und ist dem Layer 2 zugewiesen. Die MAC-Adresse heißt in Apple Systemen auch \glqq Ethernet-ID\grqq , \glqq Airport-ID\grqq oder \glqq Wi-Fi-Adresse\grqq . Sie sollte theoretisch jedes Netzwerkinterface eindeutig kennzeichnen, jedoch ist es mit moderner Software möglich die MAC-Adresse zu ändern.\\
+\textbf{MAC-Adresse} steht für Media Access Controll Adresse und ist dem \textbf{Layer 2} zugewiesen. Die MAC-Adresse heißt in Apple Systemen auch \glqq Ethernet-ID\grqq , \glqq Airport-ID\grqq oder \glqq Wi-Fi-Adresse\grqq . Sie sollte theoretisch jedes Netzwerkinterface eindeutig kennzeichnen, jedoch ist es mit moderner Software möglich die MAC-Adresse zu ändern.\\
 Da die MAC-Adresse nicht mehr, wie ursprünglich gedacht, in die Netzwerkkarte \glqq eingebrannt\grqq ist, kann sie von Hackern eingesetzt werden um Schaden anzurichten (siehe Kapitel \ref{ssec:mspoof} und \ref{ssec:mflood} auf Seiten \pageref{ssec:mspoof} und \pageref{ssec:mflood})\\
 
-Die MAC-Adresse besteht aus sechs Byte (oder 48 bit) und wird normalerweise in hexadezimaler Notation dargestellt. Oft wird sie zur besseren Lesbarkeit byteweise durch einen Doppelpunkt oder einen Bindestrich getrennt, zum Beispiel a3:99:2f:9b:cc:00 oder eben a3-99-2f-9b-cc-00.\\
+Die MAC-Adresse besteht aus \textbf{sechs Byte (oder 48 bit)} und wird normalerweise in \textbf{hexadezimaler Notation} dargestellt. Oft wird sie zur besseren Lesbarkeit byteweise durch einen Doppelpunkt oder einen Bindestrich getrennt, zum Beispiel \textbf{a3:99:2f:9b:cc:00} oder eben \textbf{a3-99-2f-9b-cc-00}.\\
 
 Die ersten zwei Bits des ersten Bytes bestimmen außerdem die Art der MAC-Adresse. Das erste Bit des ersten Bytes signalisiert ob es eine Unicast- (0, Adresse die für ein Device steht), eine Multicast- (1, Adresse die für mehrere Devices steht) oder sogar Broadcast Adresse(1, Adresse die für alle Devices in einer Broadcast Domain steht) ist.\\
 Das zweite Bit steht dafür ob es eine global administrierte(0) oder eine lokal administrierte Adresse(1) handelt, was aussagt ob die Adresse weltweit eindeutig ist, wie es normalerweise bei gekauften Netzwerkkarten der Fall sein sollte, oder ob der Administrator die MAC-Adresse selbst vergibt um Eindeutigkeit zu wahren.
@@ -195,32 +195,33 @@ Für den Fall, dass sich der Zielhost nicht im gleichen Netz befindet, sich also
 \subsubsection{IP-Adressen}\label{sssec:ipaddr}
 Im folgenden wird nur auf IP version 4 eingegangen. Informationen zu IP version 6 können in Kapitel \ref{ssec:ip} auf Seite \pageref{ssec:ip} gefunden werden.\\
 
-Die zweite Adresse die ein Host benötigt um mit anderen zu kommunizieren oder Daten auszutauschen ist die IP-Adresse, was für Internet Protokoll Adresse steht. Diese wird dem Layer 3 des OSI-Schichtenmodells zugewiesen. Es gibt auch noch einige andere Protokolle auf Layer 3, jedoch setzen Netzwerke, wie sie im Projekt bearbeitet wurden, sowie das Internet hauptsächlich auf IP auf.\\
+Die zweite Adresse die ein Host benötigt um mit anderen zu kommunizieren oder Daten auszutauschen ist die \textbf{IP-Adresse}, was für Internet Protokoll Adresse steht. Diese wird dem \textbf{Layer 3} des OSI-Schichtenmodells zugewiesen. Es gibt auch noch einige andere Protokolle auf Layer 3, jedoch setzen Netzwerke, wie sie im Projekt bearbeitet wurden, sowie das Internet hauptsächlich auf IP auf.\\
 
-Die IP-Adresse besteht aus 32 bit oder 4 byte, welche in der Regel in vier Oktete aufgeteilt und mit einem Punkt getrennt wird. Man hat also vier, durch einen Punkt getrennte Zahlen, welche sich alle im Bereich zwischen inklusive 0 und 255 befinden.\\
+Die IP-Adresse besteht aus \textbf{32 bit oder 4 byte}, welche in der Regel in vier Oktete aufgeteilt und mit einem Punkt getrennt wird. Man hat also vier, durch einen Punkt getrennte Zahlen, welche sich alle im Bereich zwischen inklusive 0 und 255 befinden, zum Beispiel \textbf{192.168.0.254}\\
 
 Wie bereits zuvor beschrieben wird die MAC-Adresse verwendet um im gleichen Netz adressieren zu können und für den Fall, dass das Ziel sich in einem logisch getrennten Netz befindet, wird die MAC-Adresse des Routers verwendet. Damit man trotzdem weiß zu welchem Host das Paket muss, verwendet man die IP-Adresse welches Netze übergreift.\\
 
-Eine IP-Adresse wird normal ein zwei Teile gespalten. Es gibt den Netzteil und den Hostteil einer IP-Adresse. Der Netzteil einer Adresse kennzeichnet, wie der Name bereits sagt, in welchen Netz sich ein Host befindet. Der Hostteil hingegen kennzeichnet einen einzelnen Host in diesem Netz.\\
-Um zu erkennen welcher Teil einer IP-Adresse der Netzteil und welcher der Hostteil ist, verwendet man sogenannte Subnetzmasken. Die Subnetzmaske besteht aus einer dezimalen Zahl zwischen 1 und (theoretisch) 32 und gibt an wieviele bits der IP-Addresse zum Netzteil gehören. So wäre zum Beispiel bei der Adresse \textit{192.168.1.1/24} ein Anteil von 24 bit dem Netzteil zugehörig. 24 bit entsprechen 3 byte, also die ersten 3 dezimalen Zahlen 192.168.1 sind das Netz und .1 ist der Host.
+Eine IP-Adresse wird normal ein zwei Teile gespalten. Es gibt den \textbf{Netzteil} und den \textbf{Hostteil} einer IP-Adresse. Der Netzteil einer Adresse kennzeichnet, wie der Name bereits sagt, in welchen Netz sich ein Host befindet. Der Hostteil hingegen kennzeichnet einen einzelnen Host in diesem Netz.\\
+Um zu erkennen welcher Teil einer IP-Adresse der Netzteil und welcher der Hostteil ist, verwendet man sogenannte \textbf{Subnetzmasken}. Die Subnetzmaske besteht aus einer dezimalen Zahl zwischen 1 und (theoretisch) 32 und gibt an wieviele Bits der IP-Addresse zum Netzteil gehören. So wäre zum Beispiel bei der Adresse \textit{192.168.1.1/24} ein Anteil von 24 bit dem Netzteil zugehörig. 24 bit entsprechen 3 byte, also die ersten 3 dezimalen Zahlen 192.168.1 sind das Netz und .1 ist der Host.
 \subsubsection{Ports}
-Werden auf der Transportschicht, also Layer 4, die Protokolle TCP oder UDP verwendet, werden jedem Host, zusätzlich zu dem zuvorgenannten Werten, auch noch sogenannte Ports zugewiesen. Es gibt immer einen Source-Port und einen Destination-Port.\\
+Werden auf der Transportschicht, also \textbf{Layer 4}, die Protokolle \textbf{TCP oder UDP} verwendet, werden jedem Host, zusätzlich zu dem zuvorgenannten Werten, auch noch sogenannte Ports zugewiesen. Diese kennzeichnen \textbf{zu welcher Anwendung} ein Paket gehört. Es gibt immer einen Source-Port und einen Destination-Port.\\
 Ports bewegen sich in einem Raum von 0 bis 65535. Dieser Bereich wird aufgeteilt in drei kleinere Bereiche.\\
-Ersterer sind die sogenannten well-known Ports, also jene welche von allen gekannt und anerkannt werden. Er erstreckt sich von den Nummern 0 bis 1023. Ports in diesem Bereich sind von der IETF (Internet Engineering Task Force) mit bestimmten, wichtigen Anwendungen verknüpft worden. So ist das File Transport Protocol ftp auf Port 21 zu finden.\\
-Zweiter Bereich sind die Registered Ports. Sie stellen eine Art Übergangsbereich dar, denn sind hier zwar registrierte Anwendungen zu finden, kann man auch ohne Einverständnis der IETF Ports in diesem Bereich belegen. Der Bereich geht von 1024 bis 49151.\\
-Der dritte Bereich, Dynamic Ports, sind alle restlichen über 49151 und stehen dem Betriebssystem frei zur Verfügung um sie den Clientprogrammen zu geben.\\
+Ersterer sind die sogenannten \textbf{well-known Ports}, also jene welche von allen gekannt und anerkannt werden. Er erstreckt sich von den Nummern 0 bis 1023. Ports in diesem Bereich sind von der IETF (Internet Engineering Task Force) mit bestimmten, wichtigen Anwendungen verknüpft worden. So ist das File Transport Protocol ftp auf Port 21 zu finden.\\
+Die Ports darüber werden, obwohl sie nocheinmal unterteilt werden, häufig als die sogenannten \textbf{High Ports} bezeichnet.\\
+Zweiter Bereich sind die \textbf{Registered Ports}. Sie stellen eine Art Übergangsbereich dar, denn sind hier zwar registrierte Anwendungen zu finden, kann man auch ohne Einverständnis der IETF Ports in diesem Bereich belegen. Der Bereich geht von 1024 bis 49151.\\
+Der dritte Bereich, \textbf{Dynamic Ports}, sind alle restlichen über 49151 und stehen dem Betriebssystem frei zur Verfügung um sie den Clientprogrammen zu geben.\\
 
 Ohne Ports wäre es nicht möglich mehrere Netzwerkanwendungen gleichzeitig zu betreiben, da der Client nicht mehr in der Lage wäre, die eingehenden Netzwerk Pakete den entsprechenden Anwendungen zuzuordnen. So ist er in der Lage, mehrere Verbindungen zu verschiedenen Server offen zu halten, da er sich jedesmal einen neuen Source-Port aufmacht. Ansonsten wäre zum Beispiel das offen haben von Facebook, Youtube und Reddit gleichzeitig garnicht möglich, geschweige denn mehrere Downloads von Servern.\\
 
 Wie erwähnt gibt es, wie bei den zuvor genannten Werten, auch hier Source und Destination. Während der Destination Port bei einem Client meistens anhand der Art von Anwendung vorbestimmt ist, ist der Source Port frei zu wählen solang er über 1024 liegt. Meistens wird jedoch ein Port über 30000 verwendet. 
 \subsection{Schichtenmodel}
-Das Schichtenmodel ist ein im Bereich der Softwarearchitektur häufig verwendetes Strukturierungsprinzip, indem Schichten immer auf die Resourcen der unteren Schicht zugreifen können, ohne sich Gedanken um deren Format oder ähnliches machen zu müssen, während sie selbst oberen Schichten fixierte Objekte zur Verfüfung stellen. In der Netzwerktechnik gibt es zwei Schichtenmodelle.
+Das \textbf{Schichtenmodel} ist ein im Bereich der Softwarearchitektur häufig verwendetes Strukturierungsprinzip, indem Schichten immer auf die Resourcen der unteren Schicht zugreifen können, ohne sich Gedanken um deren Format oder ähnliches machen zu müssen, während sie selbst oberen Schichten fixierte Objekte zur Verfüfung stellen. In der Netzwerktechnik gibt es zwei Schichtenmodelle.
 \subsubsection{OSI}
-Das OSI-Layer Modell wurde 1984 von der International Organization for Standardization (ISO) als Standardreferenzmodell für Telekommunikation in Netzwerken festgelegt.\\
+Das \textbf{OSI-Layer Modell} wurde 1984 von der International Organization for Standardization (ISO) als Standardreferenzmodell für Telekommunikation in Netzwerken festgelegt.\\
 Das OSI-Layer Modell teilt die gesamte Kommunikation in einem Netzwerk in 7 Schichten auf, welche nach oben hin immer weiter abstrahieren, wobei eine Ebene immer die Ebene über sich bedient und von der unteren Ebene bedient wird.\\
 \paragraph{Layer 1 - Physical Layer}
 Die erste Ebene ist auch die am wenigsten abstrahierte Ebene.\\
-Wie der Name schon andeutet geht es beim Physical Layer um die physikalischen Eigenschaften der Verbindung. Dazu gehören Pin Layout, Leitungsimpedanzen oder welche Art der Verbindung (Koaxial Kabel, Lichtwellenleiter, ..) verwendet wird. Auch die Art der verwendeten Modulation oder das umwandeln von Daten in Spannungen wird auf diesem Layer festgelegt.\\ Hier ist noch nicht festgelegt wie die einzelnen Bits von einem Host zum anderen finden, sondern eher wie ein Bit auf einer Leitung überhaupt dargestellt wird und wie es transportiert wird.\\
+Wie der Name schon andeutet geht es beim \textbf{Physical Layer} um die \textbf{physikalischen Eigenschaften} der Verbindung. Dazu gehören Pin Layout, Leitungsimpedanzen oder welche Art der Verbindung (Koaxial Kabel, Lichtwellenleiter, ..) verwendet wird. Auch die Art der verwendeten Modulation oder das umwandeln von Daten in Spannungen wird auf diesem Layer festgelegt.\\ Hier ist noch nicht festgelegt wie die einzelnen Bits von einem Host zum anderen finden, sondern eher wie ein Bit auf einer Leitung überhaupt dargestellt wird und wie es transportiert wird.\\
 
 Beispielhafte Protokolle auf dieser Ebene sind:
 \begin{itemize}
@@ -232,8 +233,8 @@ Beispielhafte Protokolle auf dieser Ebene sind:
 \item ...
 \end{itemize}
 \paragraph{Layer 2 - Data Link Layer}
-Der zweite Layer im OSI-Modell ist der Data Link Layer.\\
-Er ermöglicht die Kommunikation zwischen zwei benachbarten Netzwerkgeräten in einem Netzwerk. Weiters kann er Mittel zur Verfügung stellen, Fehler welche auf dem Physical Layer auftreten können, zu beheben. So tritt hier auch die erste Adresse auf, die MAC-Adresse.\\
+Der zweite Layer im OSI-Modell ist der \textbf{Data Link Layer}.\\
+Er ermöglicht die \textbf{Kommunikation zwischen zwei benachbarten Netzwerkgeräten in einem Netzwerk}. Weiters kann er Mittel zur Verfügung stellen, Fehler welche auf dem Physical Layer auftreten können, zu beheben. So tritt hier auch die erste Adresse auf, die MAC-Adresse.\\
 
 Beispielhafte Protokolle auf dieser Ebene sind:
 \begin{itemize}
@@ -245,8 +246,8 @@ Beispielhafte Protokolle auf dieser Ebene sind:
 \item ...
 \end{itemize}
 \paragraph{Layer 3 - Network Layer}
-Die nächst höhere Ebene ist der Network Layer.\\
-Während der Data Link Layer für die Kommunikation von zwei benachbarten Netzwerkgeräten zuständig ist, ist der Network Layer für die End-to-End Verbindung zuständig, welche auch über mehrere Netzwerkgeräte laufen kann, also auch über mehrere Netze hinweg. Damit müssen die Protokolle auf diesem Layer eine Möglichkeit zur Adressierung bereitstellen welche auch auf große Entfernungen, im logischen Sinne, eindeutig sind. Eine Möglichkeit sind die bereits besprochenen IP-Adressen.\\
+Die nächst höhere Ebene ist der \textbf{Network Layer}.\\
+Während der Data Link Layer für die Kommunikation von zwei benachbarten Netzwerkgeräten zuständig ist, ist der Network Layer für die \textbf{End-to-End Verbindung} zuständig, welche auch über mehrere Netzwerkgeräte laufen kann, also auch über mehrere Netze hinweg. Damit müssen die Protokolle auf diesem Layer eine Möglichkeit zur Adressierung bereitstellen welche auch auf große Entfernungen, im logischen Sinne, eindeutig sind. Eine Möglichkeit sind die bereits besprochenen IP-Adressen.\\
 
 Beispielhafte Protokolle auf dieser Ebene sind:
 \begin{itemize}
@@ -258,7 +259,7 @@ Beispielhafte Protokolle auf dieser Ebene sind:
 \end{itemize}
 
 \paragraph{Layer 4 - Transport Layer}
-Die Aufgabe des vierten Layers ist die Aufteilung eines Datenstromes in Segmente. Damit ermöglicht er es Daten die größer sind als nur ein Paket zu verschicken. Des weiteren ist diese Schicht für das Aufrechterhalten des Quality of Service wichtig. Besonders wichtig sind die Protokolle TCP und UDP auf dieser Schicht. Auch werden auf dieser Ebene die Ports in die Adressen mithineingenommen.\\
+Die Aufgabe des vierten Layers, des \textbf{Transport Layers}, ist die \textbf{Aufteilung eines Datenstromes in Segmente}. Damit ermöglicht er es Daten die größer sind als nur ein Paket zu verschicken. Des weiteren ist diese Schicht für das Aufrechterhalten des Quality of Service wichtig. Besonders wichtig sind die Protokolle TCP und UDP auf dieser Schicht. Auch werden auf dieser Ebene die Ports in die Adressen mithineingenommen.\\
 
 Beispielhafte Protokolle auf dieser Ebene sind:
 \begin{itemize}
@@ -271,7 +272,7 @@ Beispielhafte Protokolle auf dieser Ebene sind:
 \end{itemize}
 
 \paragraph{Layer 5 - Session Layer}
-Die fünfte Schicht des OSI-Schichtenmodelles ist für das Aufrechterhalten der einzelnen Sessions, also die Gespräche zwischen zwei Endgeräten miteinander zuständig. Er verwendet die unter ihm liegenden Ebenen um seine Gespräche auf die vorhandene Netzstruktur aufzubauen und hält diese dann am Leben.\\
+Die fünfte Schicht des OSI-Schichtenmodelles ist der \textbf{Session Layer} und für das \textbf{Aufrechterhalten der einzelnen Sessions}, also die Gespräche zwischen zwei Endgeräten miteinander zuständig. Er verwendet die unter ihm liegenden Ebenen um seine Gespräche auf die vorhandene Netzstruktur aufzubauen und hält diese dann am Leben.\\
 
 Beispielhafte Protokolle auf dieser Ebene sind:
 \begin{itemize}
@@ -283,7 +284,7 @@ Beispielhafte Protokolle auf dieser Ebene sind:
 \end{itemize}
 
 \paragraph{Layer 6 - Presentation Layer}
-Die Darstellungsschicht wirkt als reiner Übersetzer. Sie nimmt die Daten der Anwendungsschicht und bereitet sie so auf, dass sie für untere Schichten brauchbar werden. Falls es notwendig ist, übersetzt sie auch Dateiformate in andere Codierungen. Außerdem ist diese Ebene für die Serialisierung von komplexen Datenstrukturen in einfache \glqq flache\grqq Byteketten, wie sie zum Beispiel in XML verwendet werden, zuständig.\\
+Die \textbf{Darstellungsschicht, oder Presentation Layer}, wirkt als reiner Übersetzer. Sie nimmt die Daten der Anwendungsschicht und bereitet sie so auf, dass sie für untere Schichten brauchbar werden. Falls es notwendig ist, übersetzt sie auch Dateiformate in andere Codierungen. Außerdem ist diese Ebene für die Serialisierung von komplexen Datenstrukturen in einfache \glqq flache\grqq  Byteketten, wie sie zum Beispiel in XML verwendet werden, zuständig.\\
 
 Beispielhafte Protokolle auf dieser Ebene sind:
 \begin{itemize}
@@ -294,7 +295,7 @@ Beispielhafte Protokolle auf dieser Ebene sind:
 \end{itemize}
 
 \paragraph{Layer 7 - Application Layer}
-Der Application Layer, oder Anwendungsschicht, stellt das Interface dar welches schlussendlich unter der, von dem User verwendeten, Applikation liegt. Sie ist die am meisten abstrakte Schicht und damit auch dem User am nächsten. Protokolle in dieser Schicht kümmern sich ausschließlich um die Aufgabe welches jedes einzelne ganz speziell hat.\\
+Der \textbf{Application Layer, oder Anwendungsschicht}, stellt das Interface dar welches schlussendlich unter der, von dem User verwendeten, Applikation liegt. Sie ist die am meisten abstrakte Schicht und damit auch dem User am nächsten. Protokolle in dieser Schicht kümmern sich ausschließlich um die Aufgabe welches jedes einzelne ganz speziell hat.\\
 
 Beispielhafte Protokolle auf dieser Ebene sind:
 \begin{itemize}
@@ -306,7 +307,7 @@ Beispielhafte Protokolle auf dieser Ebene sind:
 \item ...
 \end{itemize}
 \subsubsection{TCP/IP}\label{sssec:tcpip}
-Das TCP/IP Schichtenmodell heißt eigentlich die \glqq Internetprotokollfamilie\grqq oder \glqq Internet Protocol Suite\grqq . Seinen umgangssprachlichen Namen hat es von den beiden Protokollen TCP und IP, die beiden wichtigsten Protokolle des Internets, welche auch als erste in die Sammlung an Protokollen aufgenommen wurden. Doch eigentlich umfasst die Internet Protocol Suite über 500 verschiedene Protokolle.\\
+Das \textbf{TCP/IP Schichtenmodell} heißt eigentlich die \glqq \textbf{Internetprotokollfamilie}\grqq  oder \glqq \textbf{Internet Protocol Suite}\grqq . Seinen umgangssprachlichen Namen hat es von den beiden Protokollen TCP und IP, die beiden wichtigsten Protokolle des Internets, welche auch als erste in die Sammlung an Protokollen aufgenommen wurden. Doch eigentlich umfasst die Internet Protocol Suite über \textbf{500 verschiedene Protokolle}.\\
 Die Internet Protocol Suite wurde von dem amerikanischen Department of Defense (DOD) entwickelt.\\
 
 
@@ -325,24 +326,24 @@ Der Transport Layer im TCP/IP Modell entspricht seinem gleichnamigen Bruder im O
 \paragraph{Layer 4 - Application Layer}
 Alle Schichten die danach folgen würden, werden im TCP/IP-Modell zusammengefasst zum Application Layer.\\
 
-Nun ist relativ ersichtlich, dass sich das TCP/IP-Referenzmodell sich sehr stark auf den Internet und den Transport Layer konzentriert, während die Layer darunter und darüber beinahe vernachlässigt werden. Dies ist auch der größte Kritikpunkt an diesem Modell.\\
+Nun ist relativ ersichtlich, dass sich das TCP/IP-Referenzmodell sich sehr stark auf den Internet und den Transport Layer konzentriert, während die Layer darunter und darüber eher beinahe vernachlässigt werden. Dies ist auch der größte Kritikpunkt an diesem Modell.\\
 In der Praxis wird das TCP/IP-Modell verwendet solange die Abstrahierung nicht zu weit geht, sollte man jedoch genauer arbeiten wird meistens auf das genormte und genauere OSI-Schichtenmodell zurückgegriffen.
 \subsection{Client-Server Verhältnis}
 Das Client-Server Modell ist das bekannteste und am öftesten verwendete Muster für Aufgabenverteilung in einem Netzwerk.\\ 
-Bei diesem Modell gibt es denjenigen der die Dienste anbietet, den Server, und denjenigen der die Dienste nutzt, den Client.\\
+Bei diesem Modell gibt es denjenigen der die \textbf{Dienste anbietet, den Server}, und denjenigen der die \textbf{Dienste nutzt, den Client}.\\
 
 Mit dem Begriff \glqq Server\grqq können sowohl die Hardware als auch die Software gemeint sein.\\
-Hardware-Server unterscheiden sich meistens nicht sehr von normalen Desktop-PCs, bis auf ihre Leistung welche meistens auf ihre Aufgabe abgestimmt ist. Oft wird weniger Rechenleistung benötigt als RAM ein anderes mal umgekehrt. Manchmal wird auch viel Speicherplatz gebraucht.\\
-Auch die Abmessungen variieren deutlich. Bei kleinen Servern, wie sie manche auch zuhause stehen haben, ist es oft nur ein normaler Tower, nur halt ohne Bildschirm, während große Firmen oder Organisationen häufig sogenannte \glqq Racks\grqq vollgestopft mit Blade-Servern stehen haben.\\
-Ein Rack ist ein Gestell in welches man Blade-Server einfach hineinschieben kann. Blade-Server (Blade deutsch: Klinge) haben ihren Namen von ihrem sehr schlanken Design.\\
+\textbf{Hardware-Server} unterscheiden sich meistens nicht sehr von normalen Desktop-PCs, bis auf ihre Leistung welche meistens auf ihre Aufgabe abgestimmt ist. Oft wird weniger Rechenleistung benötigt als RAM ein anderes mal umgekehrt. Manchmal wird auch viel Speicherplatz gebraucht.\\
+Auch die Abmessungen variieren deutlich. Bei kleinen Servern, wie sie manche auch zuhause stehen haben, ist es oft nur ein normaler Tower, nur ohne Bildschirm, während große Firmen oder Organisationen häufig sogenannte \glqq Racks\grqq vollgestopft mit Blade-Servern stehen haben.\\
+Ein Rack ist ein Gestell in welches man Blade-Server einfach hineinschieben kann. Blade-Server (Blade deutsch: Klinge) haben ihren Namen von ihrem überaus schlanken Design.\\
 
 \begin{center}
 \includegraphics[scale=0.8]{../docs/tarkes/pics/ServerRack.jpg}\\
 Ein Rack mit mehreren Blade-Servern 
 \end{center}
 
-Als Software-Server werden Programme bezeichnet welche Dienste anbieten. Zu solchen zählt zum Beispiel der Webserver Apache, der FTP-Server Filezilla oder auch bind, die Referenzimplementierung eines DNS-Servers.\\
-Software-Server werden häufig als Dienste oder Deamons bezeichnet. Sie laufen im Hintergrund, haben häufig, vorallem auf unixoiden Betriebssystemen, keine grafische Oberfläche sondern lediglich mehr oder weniger viele Konfigurationsdateien, und müssen so programmiert sein, dass sie großen Mengen an Anfragen begegnen können ohne, dass sie der Maschine auf welcher sie laufen ihre gesamten Resourcen wegfressen.\\
+Als \textbf{Software-Server} werden Programme bezeichnet welche Dienste anbieten. Zu solchen zählt zum Beispiel der Webserver Apache, der FTP-Server Filezilla oder auch bind, die Referenzimplementierung eines DNS-Servers.\\
+Software-Server werden häufig als \textbf{Dienste} oder \textbf{Deamons} bezeichnet. Sie laufen im Hintergrund, haben häufig, vorallem auf unixoiden Betriebssystemen, keine grafische Oberfläche sondern lediglich mehr oder weniger viele Konfigurationsdateien, und müssen so programmiert sein, dass sie großen Mengen an Anfragen begegnen können, ohne dass sie der Maschine auf welcher sie laufen ihre gesamten Resourcen wegfressen.\\
 
 Clients sind ebenso vielfältig. Zu den Clients zählt jeder, der einen Dienst eines Servers in Anspruch nimmt. 
 \subsection{Beispiel für Kommunikationsablauf}
@@ -380,7 +381,7 @@ Wenn er wieder die Informationen die er benötigt hat für diese Anfrage gesamme
 \section{Protokolle}
 Es gibt unzählige verschiedene Protokolle, hier soll nur auf ein paar wenige wichtige eingegangen werden, welche auch Verwendung im praktischen Teil der Diplomarbeit gefunden haben.
 \subsection{Ethernet}\label{ssec:eth}
-Ethernet ist ein wowohl ein Layer1 als auch ein Layer2 Protokoll im OSI-Modell und damit für die unterste Schicht und den grundlegenden Kommunikationsmöglichkeiten zuständig.\\
+\textbf{Ethernet} ist ein sowohl ein Layer1 als auch ein Layer2 Protokoll im OSI-Modell und damit für die unterste Schicht und den grundlegenden Kommunikationsmöglichkeiten zuständig.\\
 
 Ethernet wurde ursprünglich für Lokale Netzwerke erdacht, weshalb es häufig als LAN-Technologie bezeichnet wird. Da das Protokoll vor über 30 Jahren begann zu existieren, wäre es natürlich nicht mehr ausreichend für heutige Anwendungen, doch es ist mit der Entwicklung des Internets mitgewachsen.\\
 Während es anfangs nur für einzelne Häuser gedacht war, können inzwischen mittels Lichtwellenleitern Entfernungen von über 10 Kilometern überbrückt werden.\\
@@ -416,12 +417,12 @@ Vier Farben Multimoden Lichtwellenleiter für Reichweiten von mindestens 10 Kilo
 Seit 2013 wird jedoch von einer Arbeitsgruppe der IEEE an einem Standart für 1TBit/s gearbeitet, der circa 2017 fertiggestellt werden soll.\\
 
 Da die Wurzeln dieses Protokolls, in einem gemeinsam genutzten Koaxial Kupfer Kabel liegen, war eines der Probleme sogenannte Kollisionen, also wenn zwei Rechner zur gleichen Zeit sprechen wollten.\\
-Diesem Problem wurde mit dem CSMA/CD Algorithmus zu Leibe gerückt. CSMA/CD, was für Carrier Sense Multiple Access/Collision Detection steht, ist eine Weiterentwicklung des, in den 1960 Jahren, auf Hawaii verwendeten ALOHAnet Protokolls.\\
+Diesem Problem wurde mit dem \textbf{CSMA/CD} Algorithmus zu Leibe gerückt. CSMA/CD, was für Carrier Sense Multiple Access/Collision Detection steht, ist eine Weiterentwicklung des, in den 1960 Jahren, auf Hawaii verwendeten \textbf{ALOHAnet} Protokolls.\\
 Dabei warten Teilnehmer des Netzwerkes immer, bis die Leitung nicht mehr belegt ist, bevor sie anfangen Daten zu übermitteln. Sollten jedoch zwei Rechner gleichzeitig beginnen zu reden, stoppen beide und warten eine zufällige Zeitdauer bis sie es erneut versuchen.\\
 Obwohl nun seit einigen Jahren sowohl Full-Duplex Modus und Switches verwendet werden, welche Kollisionen verhindern indem sie End-to-End Verbindungen erzeugen, befindet sich der Algorithmus bis zu den 10Gbit/s Standards immer noch zu den verwendeten Algorithmen.\\
 Bei den höheren Netzen, wo CSMA/CD nicht mehr verwendet wird, wird ein extra Flowcontrol System verwendet. Bei CSMA/CD war das nicht notwendig, da eine Kollision sowieso eine Pause im Datenfluss hervorgerufen hat. Nun, ohne diesen Algorithmus, muss es jedoch trotzdem eine Möglichkeit geben, anderen zu vermitteln, dass eine Sendepause vonnöten ist. Dies wird bei Ethernet über 10Gbit/s mit einem bestimmten PAUSE Paket geregelt, in welchem die gewünschte Wartezeit notiert ist.\\
 
-Ebenfalls in den Wurzeln des Protokolls verankert, ist das Broadcast Problem.\\
+Ebenfalls in den Wurzeln des Protokolls verankert, ist das \textbf{Broadcast Problem}.\\
 Das Ethernet Protokoll hat sich nie um zielgerichtete Kommunikation gekümmert, weshalb es ohne weiteres alles an alle schickt. Das kann zu einem Problem werden, wenn ein Mensch mit böswilligen Absichten mitschreiben will was im Netzwerk so passiert, denn das kann er dann tun.\\
 Als noch Hubs verwendet wurden, was da Problem viel drastischer, denn ein Hub repliziert die Pakete die er empfängt und schickt diese an alle Interfaces raus.\\
 Switches dahingegen schicken, wie bereits besprochen, Pakete nur an jenen Interfaces raus, wo auch das Ziel ist. Sie verhindern damit das sogenannte \glqq sniffen\grqq im Netzwerk.\\
@@ -453,9 +454,9 @@ Das FCS (Frame Check Sequence) Feld beinhaltet eine 32 bit CRC Prüfsumme welche
 \end{itemize}
 
 \subsection{Address Resolution Protocol - ARP}\label{ssec:arp}
-ARP ist ein essentielles Protokoll für die Kommunikation in einem Netzwerk. Da, damit Kommunikation stattfinden kann, die MAC-Adresse bekannt sein muss, wurde dieses Protokoll eingestellt.\\
+\textbf{ARP} ist ein essentielles Protokoll für die Kommunikation in einem Netzwerk. Da, damit Kommunikation stattfinden kann, die MAC-Adresse bekannt sein muss, wurde dieses Protokoll eingestellt.\\
 Es funktioniert indem ein Broadcast in das Netz geschickt wird, indem die Bitte steht, dass ein Host mit einer gewissen IP doch seine MAC-Adresse übermitteln soll. Diese speichert der PC der die Anfrage gestellt hat, in seinen lokalen Cache damit er nicht jedes mal nachfragen muss.\\
-Dieses Protokoll wird mit der Verbreitung von IPv6 aussterben da in IPv6 das sogenannte Neighbour Discovery Protocol NDP diese Aufgabe übernimmt.\\
+Dieses Protokoll wird mit der Verbreitung von IPv6 aussterben da in IPv6 das sogenannte \textbf{Neighbour Discovery Protocol NDP} diese Aufgabe übernimmt.\\
 
 Das ARP Paket befindet sich gleichzeitig auf Layer 2 und 3 und sieht wie folgt aus:\\
 \begin{itemize}
@@ -477,11 +478,11 @@ Enthält FF:FF:FF:FF:FF:FF, die Layer2 Broadcast Adresse.
 \end{itemize}
 Es gibt jedoch auch noch andere Arten von ARP Paketen. Dazu zählen der Reverse ARP welcher die MAC- in eine IP-Adresse auflösen kann oder der Gratuitos ARP, welche eine Nachricht darstellt, die unaufgefordert bekannt macht, welche MAC-Adresse man selbst hat.
 \subsection{Internet Protocol - IP}\label{ssec:ip}
-Das Internet Protokoll hat zwei Hauptaufgaben:
+Das \textbf{Internet Protokoll} hat zwei Hauptaufgaben:
 \begin{itemize}
-\item Adressierung\\
+\item \textbf{Adressierung}\\
 Das Ziel der Adressierung auf dieser Ebene ist es, wie bereits zuvor besprochen, ein Gerät über mehrere Netzwerke hinweg eindeutig zu machen, um Pakete nicht nur innerhalb eines Netzwerkes sonder über mehrere Netzwerke hinweg ansprechen zu können.
-\item Fragmentierung\\
+\item \textbf{Fragmentierung}\\
 Da Kommunikation sich ja meistens nicht mit nur einem Paket ausgeht, ist es wichtig, dass Kommunikationsstränge aufgeteilt werden können in mehrere kleine Pakete. Dies nennt man dann Fragmentierung. IP ist dafür zuständig, dass fragmentierte Pakete wieder zusammenfinden können, da es ja nicht heißen muss, dass nur eine einzige Kommunikation gerade am laufen ist.\\
 Dies gilt jedoch nur mehr für IPv4, denn in IPv6 ist es nicht mehr vorgesehen, dass Pakete fragmentieren.
 \end{itemize}
@@ -507,26 +508,26 @@ LoopBack. Dieser Adressbereich wird für Interfaces des Hosts selbst verwendet.
 Es gibt noch einige Bereiche mehr aber es würde hier zu weit führen alle aufzuzählen. Sie können in der RFC6890 (zum Zeitpunkt des Schreibens aktuelle Version) nachgelesen werden.
 \end{itemize}
 
-Obwohl IPv4 im Grunde schon seit mehrere Jahren von IPv6 abgelöst wurde, sind bis heute die wenigsten Firmen und noch weniger Heimnetzwerke auf IPv6 umgestellt. Es wird also im Grunde noch überall IPv4 verwendet obwohl der Adressbereich ($2^{32} = 4.294.967.296$, abzüglich reservierter Adressen = 3.707.764.736) in dieser Version bereits vollständig aufgebraucht ist.\\
+Obwohl IPv4 im Grunde schon seit mehrere Jahren von IPv6 abgelöst wurde, sind bis heute die wenigsten Firmen und noch weniger Heimnetzwerke auf IPv6 umgestellt. Es wird also im Grunde noch überall IPv4 verwendet obwohl der Adressbereich ($2^{32} = 4.294.967.296$, abzüglich reservierter Adressen = 3.707.764.736) in dieser Version bereits \textbf{vollständig aufgebraucht} ist.\\
 
-Dieser Problematik wurde mit einigen Zwischenlösungen begegnet. Das Protokoll NAT (Network Address Translation) ist eines dieser Behilfsmittel.\\
+Dieser Problematik wurde mit einigen Zwischenlösungen begegnet. Das Protokoll \textbf{NAT (Network Address Translation)} ist eines dieser Behilfsmittel.\\
 Der IPv4 Standard sie eine Aufteilung in öffentliche und private Netzwerke vor. Adressen welche aus dem Bereich der Privaten Netzwerke kommen, müssen nicht eindeutig sein und können so oft wie gewünscht verwendet werden. Durch ihre Mehrdeutigkeit sind sie jedoch auch nicht dazu geeignet, im Internet verwendet zu werden, sondern sie sind für den privaten Gebrauch gedacht, daher auch Privates Netzwerk.\\
 Will man nun aus seinem privaten Netz raus in das Internet, wendet jener Router welcher das private Netz mit dem des Providers verbindet, NAT an.\\
 Er legt dabei eine Tabelle an in welcher die private Adresse sowie der Port steht, und ersetzt diese durch eine öffentliche Adresse und einen beliebigen anderen High Port. Die Antworten weißt er anhand des Ports dann wieder der richtigen privaten Adresse zu und leitet diese vom Internet zu dem Host der die Anfrage abschickte.\\
 Dadurch scheint es als würden mehrere Hosts die gleiche IP-Adresse haben, nämlich jeder welcher über diesen Router das private Netzwerk verlässt.\\
 
-Eine andere Art mit der das unausweichliche versiegen an Adressen versucht wurde hinauszuzögern, ist die dynamische Adressenvergabe von Providern an ihre Kunden.\\
+Eine andere Art mit der das unausweichliche versiegen an Adressen versucht wurde hinauszuzögern, ist die \textbf{dynamische Adressenvergabe von Providern an ihre Kunden}.\\
 Sieht man sich mithilfe von externen Tools die Adresse, welche man nach außen hat, an zwei verschiedenen Tagen an, kann es sein, dass sich diese unterscheiden.\\
 Der Provider verwendet diese Methode um mehrere Kunden mit Adressen zu versorgen, als er eigentlich hat. Er geht dabei davon aus, dass zu keiner Zeit alle seine Kunden gleichzeitig online sind.\\
 
 Das Problem entwickelte sich daraus, dass anfangs die Meinung geläufig war, es seien weitaus genug Adressen verfügbar. Deshalb hat man große Adressbereiche billig an Universitäten und Organisationen oder Firmen verkauft, ohne einen Gedanken daran zu verschwenden, dass womöglich irgendwann keine Adressen mehr übrig sein könnten.\\
-Offiziell wurden im Januar 2011 die letzten beiden verfügbaren IPv4 Netze der RIR (Regional Internet Registry) von der IANA (Internet Assigned Numbers Authority) zugewiesen, welche diese nun an die einzelnen Länder aufteilen.\\
+Offiziell wurden im \textbf{Januar 2011} die letzten beiden verfügbaren IPv4 Netze der RIR (Regional Internet Registry) von der IANA (Internet Assigned Numbers Authority) zugewiesen, welche diese nun an die einzelnen Länder aufteilen.\\
 
 Warum die Verwendung des IPv6 Standards trotzdem soweit hinausgezögert wird, liegt an der Starre der Firmen. Die Umstellung auf IPv6 bedeutet viele Probleme, da, obwohl er bereits von fast jeglicher Hardware unterstützt, immernoch Kompatibilitätsprobleme mit sich bringt. Firmen sehen keinen Sinn darin viel Geld zu investieren um etwas zu implementieren was doch sowieso funktioniert.\\
 \subsubsection{IPv6}
 IPv6 ist der offizielle Nachfolger von IPv4. Er ist seit 1998 von der IETF standardisiert und bringt einige Neuerungen in das Internet Protocol welche die Fehler, welche durch das unterschätzte Wachstum des Internets hervorgerufen wurden aufheben soll.\\
 
-Eine dieser Neuerungen, wahrscheinlich auch die wichtigste, ist der vergrößerte Adressbereich. Während IPv4 $2^{32}$, also etwas mehr als 4 Milliarden Adressen hat, verfügt IPv6 über $2^{128}$, umgerechnet über 340 Sextillionen oder $3,4 \cdot 10^{38}$ Adressen.\\
+Eine dieser Neuerungen, wahrscheinlich auch die wichtigste, ist der \textbf{vergrößerte Adressbereich}. Während IPv4 $2^{32}$, also etwas mehr als 4 Milliarden Adressen hat, verfügt IPv6 über $2^{128}$, umgerechnet über 340 Sextillionen oder $3,4 \cdot 10^{38}$ Adressen.\\
 Ein anschaulicheres Beispiel bietet folgender Vergleich: Das Alter der Erde wird auf etwa 4,5 Milliarden Jahre geschätzt. Hätte man gleichzeitig mit der Entstehung der Erde begonnen mit einer Rate von 1 Milliarde Adressen pro Sekunde IPv6 Adressen aus dem vorhandenen Adressraum zu verteilen, wäre bis heute nur weniger als ein Billionstel des vorhandenen Adressraums vergeben.\\
 Damit dürfte das Problem des Adressenmangels vorübergehend gelöst sein.\\
 
@@ -540,7 +541,7 @@ IPv6 verwendet daher Hexadezimale Notation, teilt die Adresse in 8 Blöcke auf u
 Führende Nullen dürfen dabei ausgelassen werden. \textbf{2001:0db8:85a3:08d3:0000:8a2e:0070:7344} entspricht also \textbf{2001:db8:85a3:8d3:0:8a2e:70:7344}\\
 Kontinuierliche Blöcke aus 0 dürfen komplett ausgelassen werden und durch einen doppelten Doppelpunkt markiert werden. Diese Maßnahme darf jedoch nur einmal verwendet werden, da es sonst zu Mehrdeutigkeiten kommen kann. Beispiel: \textbf{2001:0db8:85a3:0:0:8a2e:0:0} darf entweder als \textbf{2001:0db8:85a3::8a2e:0:0} oder als \textbf{2001:0db8:85a3:0:0:8a2e::} geschrieben werden.\\
 
-Die 128 bit lange Adresse wird in zwei 64 bit große Teile aufgeteilt. Ersterer ist der sogenannte Präfix.\\
+Die \textbf{128 bit} lange Adresse wird in \textbf{zwei 64 bit} große Teile aufgeteilt. Ersterer ist der sogenannte \textbf{Präfix}.\\
 Die letzten 64 bit jedoch sind der, für jede Netzwerkschnittstelle eindeutige \textbf{Network-Identifier}. Dieser wird anhand der MAC-Adresse ausgerechnet.\\
 Daraufhin wurde Kritik aus der Internetgemeinde laut, da so die Anonymität des Internets vollständig verloren gehen würde. Die IETF hat daraufhin mit der RFC4941 die \textbf{Privacy Extensions} eingeführt, welche den Host selbstständig zufällig generierte Network Identifiers machen lässt. Dieser ist in den meisten Betriebssystemen standardmäßig aktiv.\\
 Dies erhöht die Anonymität zwar, reicht aber noch nicht solang der Präfix, welcher meistens vom ISP vorgegeben wird, ebenso eindeutig ist. Sollte dieser ebenso dynamisch vergeben werden, ist ein guter Teil der Anonymität welche IPv4 hatte wieder gegeben.\\
@@ -563,10 +564,10 @@ Für Dokumentationszwecke
 Auch hier kann wieder in der RFC 6890 nachgelesen werden, um mehr zu erfahren.
 \end{itemize}
 \subsection{User Datagram Protocol - UDP}
-Mit der Entwicklung von UDP wurde 1977 begonnen, als ersichtlich wurde, dass es notwendig ist ein Übertragungsprotokoll zu spezifizieren welches schneller war als TCP. UDP setzt auf IP auf und implementiert, gleich wie TCP, Ports.\\
+Mit der Entwicklung von UDP wurde 1977 begonnen, als ersichtlich wurde, dass es notwendig ist ein Übertragungsprotokoll zu spezifizieren welches \textbf{schneller war als TCP}. UDP setzt auf IP auf und implementiert, gleich wie TCP, Ports.\\
 
-Durch den Fokus auf die Geschwindigkeit der Datenübertragung wurden dafür an einigen anderen Punkten Abstriche gemacht. So ist es im Gegensatz zu TCP nicht Verbindungsorientiert, was bedeutet, dass es von sich aus nicht dafür Sorge trägt ob Pakete welche über das Netzwerk geschickt werden auch am anderen Ende ankommen, noch ob sie in da richtigen Reihenfolge ankommen.\\
-Auch Sicherheitstechnisch ist keine Absicherung vorhanden. UDP ansich hat keine Vorkehrungen dafür getroffen, dass der Inhalt der Pakete geheim bleibt, bzw. dass er unverändert ankommt.\\
+Durch den Fokus auf die Geschwindigkeit der Datenübertragung wurden dafür an einigen anderen Punkten Abstriche gemacht. So ist es im Gegensatz zu TCP \textbf{nicht Verbindungsorientiert}, was bedeutet, dass es von sich aus nicht dafür Sorge trägt ob Pakete welche über das Netzwerk geschickt werden auch am anderen Ende ankommen, noch ob sie in da richtigen Reihenfolge ankommen.\\
+Auch \textbf{Sicherheitstechnisch ist keine Absicherung vorhanden}. UDP ansich hat keine Vorkehrungen dafür getroffen, dass der Inhalt der Pakete geheim bleibt, bzw. dass er unverändert ankommt.\\
 
 UDP hat trotz dieser Mängel große Bedeutung. Anwendungen bei denen das Fehlen von einzelnen Paketen nicht allzu schlimm ist wie zB VoIP (Voice over IP) oder bei denen nur kurze Paketwechsel stattfinden, ein Verbindungsaufbau also nur übermäßig Traffic erzeugen würde, wie zB DNS.\\
 
@@ -579,16 +580,16 @@ Der UDP Header beinhaltet folgende Werte:
 In diesem Feld wird eine Prüfsumme vom Header und dem Paket erzeugt. In IPv4 ist dies noch optional, bei IPv6 nicht mehr.
 \end{itemize}
 \subsection{Transmission Control Protocol - TCP}
-Die Entwicklung von TCP dauerte einige Jahre. Es begann bereits 1973 endete aber erst 1981 mit der Veröffentlichung der RFC 793. TCP ist ein zuverlässiges, verbindungsorientiertes Protokoll. Es stellt damit sowohl Flusssteuerung und Staukontrolle als auch das vorhanden sein aller Daten in der richtigen Reihenfolge sicher.\\
+Die Entwicklung von TCP dauerte einige Jahre. Es begann bereits 1973 endete aber erst 1981 mit der Veröffentlichung der RFC 793. TCP ist ein \textbf{zuverlässiges, verbindungsorientiertes Protokoll}. Es stellt damit sowohl Flusssteuerung und Staukontrolle als auch das vorhanden sein aller Daten in der richtigen Reihenfolge sicher.\\
 
 \begin{center}
 \includegraphics[scale=0.6]{../docs/tarkes/pics/TcpHandshake.png}
 \end{center}
 
 Da TCP ein verbindungsorientiertes Protokoll ist, gibt es auch einen Verbindungsaufbau.\\
-Dieser findet mittels eines \textbf{Three-Way-Handshake} statt: Zuerst wird vom Client ein SYN Paket (ein Paket bei welchem das SYN-Flag im Header gesetzt ist) an den Server geschickt. Der Wert im Sequence-Feld ist dabei zufällig gewählt.\\
-Der Server schickt dann ein SYN-ACK Paket zurück, indem zusätzlich zu der SYN-Flag auch noch das ACK-Flag gesetzt ist. Im Acknowledge-Feld steht dabei der Wert des Sequence-Feldes des SYN-Paketes des Clients, während im Sequence Feld des SYN-ACK Paketes eine neue zufällige Zahl steht.\\
-Das dritte Paket des Verbidnungsaufbaus ist dann das ACK-Paket des Clients an den Server. Darin ist nur noch das ACK-Flag gesetzt, im Sequence Feld steht der Wert des ersten Paketes + 1 und im Acknowledge Feld steht der Wert aus dem Sequence Feld des vorherigen Paketes.\\
+Dieser findet mittels eines \textbf{Three-Way-Handshake} statt: Zuerst wird vom Client ein \textbf{SYN Paket} (ein Paket bei welchem das SYN-Flag im Header gesetzt ist) an den Server geschickt. Der Wert im Sequence-Feld ist dabei zufällig gewählt.\\
+Der Server schickt dann ein \textbf{SYN-ACK Paket} zurück, indem zusätzlich zu der SYN-Flag auch noch das ACK-Flag gesetzt ist. Im Acknowledge-Feld steht dabei der Wert des Sequence-Feldes des SYN-Paketes des Clients, während im Sequence Feld des SYN-ACK Paketes eine neue zufällige Zahl steht.\\
+Das dritte Paket des Verbidnungsaufbaus ist dann das \textbf{ACK-Paket} des Clients an den Server. Darin ist nur noch das ACK-Flag gesetzt, im Sequence Feld steht der Wert des ersten Paketes + 1 und im Acknowledge Feld steht der Wert aus dem Sequence Feld des vorherigen Paketes.\\
 
 Daraufhin ist der Verbindungsaufbau abgeschlossen und die Datenübertragung kann beginnen.\\
 Dabei wird die Ordnung und Sicherheit, dass jedes Paket auch wirklich ankommt, dadurch erreicht, dass der Empfänger jedes Paket welches ihm in seiner Liste fehlt nocheinmal anfordert und das so oft bis er es auch bekommt. Ob ihm eines fehlt erkennt er anhand des Sequence Feldes.\\
@@ -617,20 +618,20 @@ nur wichtig falls das URG Flag gesetzt ist
 Hier kann noch alles mögliche ausgemacht werden welches nicht im Standartheader steht.
 \end{itemize}
 \subsection{Dynamic Host Configuration Protocol - DHCP}
-DHCP dient, wie der Name bereits aussagt, der dynamischen Konfiguration von Hosts. Standardmäßig hat jeder normale Enduser in dem WLAN Router, welchen er von dem ISP bereitgestellt bekommt, einen DHCP-Server. Dieser nutzt jedoch nur die grundlegendsten Funktionen des DHCP Protokolls, die Vergabe einer IP-Adresse und eines Standard Gateways.\\
+DHCP dient, wie der Name bereits aussagt, der \textbf{dynamischen Konfiguration} von Hosts. Standardmäßig hat jeder normale Enduser in dem WLAN Router, welchen er von dem ISP bereitgestellt bekommt, einen DHCP-Server. Dieser nutzt jedoch nur die grundlegendsten Funktionen des DHCP Protokolls, die Vergabe einer \textbf{IP-Adresse und eines Standard Gateways}.\\
 DHCP ist jedoch zu weit mehr in der Lage. Die Optionen reichen von hostnamen über Proxy Einstellungen bis zu Zeitservern. Im Grunde sind die Optionen zur Konfiguration jedoch sogar unbegrenzt, da im Optionen Feld des Paketes eigene Dinge spezifiziert werden können.\\
 
 Der Ablauf einer Kommunikation zwischen Host und DHCP-Server sieht wie folgt aus:\\
-Ein Client, ahnungslos und ohne eigene Adresse, schreit in das Netzwerk, ob denn ein DHCP Server existiert welcher ihm eine Konfiguration anbieten möchte. Dieses Paket ist das DHCPDISCOVER.\\
-Niemand, einer oder mehrere Server, je nach Bestückung des Netzwerkes, antworten nun mit einem DHCPOFFER in denen sie eine Konfiguration anbieten.\\
-Der Client wählt nun eine der angebotenen Konfigurationen, und teilt das dem Netzwerk mit einem DHCPREQUEST mit.\\
-Der Server, welchem der Request giltet, kann dieser nun mit DHCPACK für Acknowledge zustimmen oder mit DHCPNACK für Not Acknowledge ablehnen.\\
+Ein Client, ahnungslos und ohne eigene Adresse, schreit in das Netzwerk, ob denn ein DHCP Server existiert welcher ihm eine Konfiguration anbieten möchte. Dieses Paket ist das \textbf{DHCPDISCOVER}.\\
+Niemand, einer oder mehrere Server, je nach Bestückung des Netzwerkes, antworten nun mit einem \textbf{DHCPOFFER} in denen sie eine Konfiguration anbieten.\\
+Der Client wählt nun eine der angebotenen Konfigurationen, und teilt das dem Netzwerk mit einem \textbf{DHCPREQUEST} mit.\\
+Der Server, welchem der Request giltet, kann dieser nun mit \textbf{DHCPACK} für Acknowledge zustimmen oder mit \textbf{DHCPNACK} für Not Acknowledge ablehnen.\\
 
 \subsection{Domain Name System - DNS}
 DNS ist ein Protokoll welches zwar nicht zwangsweise notwendig ist für das Funktionieren des Internets, es aber uns Menschen sehr komfortabel macht es zu benützen.\\
-Jeder ist heutzutage gewohnt, durch simples eintippen eines Namens, zu einer Seite zu kommen. Dies wird jedoch erst durch DNS möglich. Ein PC selbst kann mit dem Namen nichts anfangen, er muss ihn auflösen. Dafür schickt er den Namen zu seinem eingetragenen DNS Server und bittet ihn um die zugehörige IP-Adresse.\\
+Jeder ist heutzutage gewohnt, durch simples eintippen eines Namens, zu einer Seite zu kommen. Dies wird jedoch erst durch DNS möglich. Ein PC selbst \textbf{kann mit dem Namen nichts anfangen, er muss ihn auflösen}. Dafür schickt er den Namen zu seinem eingetragenen DNS Server und bittet ihn um die zugehörige IP-Adresse.\\
 
-Würde nun jedoch jeder DNS Server jeden Namen mit dazugehöriger IP-Adresse speichern, würde es sehr schnell außer Hand geraten. Deshalb ist DNS hierarchisch designed. Das bedeutet, dass ein DNS-Server nur für einen gewissen Bereich zuständig ist. Weiß er nicht weiter, geht er die Leiter solange hinauf bis er schließlich jemanden findet der, wenn er auch vielleicht den Namen nicht weiß, ihn zu dem führen kann der ihn weiß.\\
+Würde nun jedoch jeder DNS Server jeden Namen mit dazugehöriger IP-Adresse speichern, würde es sehr schnell außer Hand geraten. Deshalb ist DNS \textbf{hierarchisch} designed. Das bedeutet, dass ein DNS-Server nur für einen gewissen Bereich zuständig ist. Weiß er nicht weiter, geht er die Leiter solange hinauf bis er schließlich jemanden findet der, wenn er auch vielleicht den Namen nicht weiß, ihn zu dem führen kann der ihn weiß.\\
 Das kann schlimmsten Falls bei einem der Root Namens Server enden, der höchsten Autorität.\\
 
 Zum besseren Verständnis sollte eine typische URL erklärt werden:\\
@@ -649,7 +650,7 @@ Nun wird auch ersichtlich warum ein hierarchisches System sinnvoll ist.\\
 
 Dies wird auch vom Staat genutzt um Zensur zu betreiben. Die Filme und Serien Streaming Seite kinox.to wurde aus den DNS Servern in Deutschland gelöscht, als Konsequenz auf die Urheberrechtsverletzungen.
 \subsection{Internet Control Message Protocol - ICMP}
-Das Internet Control Message Protocol bewegt sich auf Layer 3 zusammen mit IP. Es dient dazu anderen Geräten Informationen über beispielsweise ihren Status zukommen zu lassen. Es gibt eine Variante für IPv6 das sogenannte ICMPv6. Es verwendet zum Transport IP obwohl es auf dem gleichen Layer liegt, da es sich als ein Protokoll höherer Ebene interpretiert.\\
+Das Internet Control Message Protocol bewegt sich auf Layer 3 zusammen mit IP. Es dient dazu anderen Geräten \textbf{Informationen über ihren Status} zukommen zu lassen. Es gibt eine Variante für IPv6 das sogenannte ICMPv6. Es verwendet zum Transport IP obwohl es auf dem gleichen Layer liegt, da es sich als ein Protokoll höherer Ebene interpretiert.\\
 
 Der Header des ICMP Paketes ist sehr klein. Er besteht lediglich aus:
 \begin{itemize}
@@ -661,65 +662,77 @@ Bietet eine genauere Auflösung der Art. Wenn der Typ zB 3 ist, gibt es die Code
 \item Daten
 \end{itemize}
 
-Wichtige Beispiele für seine Funktionen sind die Meldungen Host Unreachable oder Destination Port Unreachable für die Berichterstattung, es gibt aber auch Analysefunktionen wie traceroute oder den ICMP Echo Request. 
+Wichtige Beispiele für seine Funktionen sind die Meldungen \textbf{Host Unreachable} oder \textbf{Destination Port Unreachable} für die Berichterstattung, es gibt aber auch Analysefunktionen wie traceroute oder den ICMP Echo Request. 
 \paragraph{Echo Request/Response - Ping}
-Der ICMP Echo hat die Typen Nummer 0. Er wurde durch das Netzwerkprogramm Ping auch unter diesem Namen bekannt.\\
+Der ICMP Echo hat die Typen Nummer 0. Er wurde durch das \textbf{Netzwerkprogramm Ping} auch unter diesem Namen bekannt.\\
 Es wird verwendet um zu Überprüfen ob ein gewisser Host im Netzwerk ist oder nicht. Wenn ein Host ein Echo Paket empfängt antwortet er mit einem Response Paket, genannt Pong.\\
 
-Die Namensgebung kommt vom Sonar in U-booten, die jedes Mal ein Ping vonsich geben wenn sie ihre Schallwellen aussenden, und ein Pong wenn die Schallwellen von etwas reflektiert werden.\\ 
+Die Namensgebung kommt vom Sonar in U-Booten, die jedes Mal ein Ping von sich geben wenn sie ihre Schallwellen aussenden, und ein Pong wenn die Schallwellen von etwas reflektiert werden.\\ 
 Gleich wie beim Sonar, kann aus dem Echo Paket einiges an Information ausgelesen werden. So gut wie immer ist die Round-Trip Time, also die Zeit, die ein Paket benötigt um vom Sender zum Ziel und wieder zurück zu kommen, dabei, sowie der Wert aus dem Time To Live Feld, also wie viele Hops es noch passieren kann bevor es verworfen wird.
 \subsection{File Transport Protcol - FTP}
-Das File Transport Protocol ist wie der Name schon sagt, ein Protokoll zum Übertragen von Datein. Es setzt auf TCP auf, da es sich nicht erlauben kann, dass 
-Pakete verloren gehen da sonst die gesamten Daten unbrauchbar werden können. TCP verwendet getrennte Verbindungen für Data Transfer und Command Transfer. FTP 
-antwortet auf Commands mit Dreistelligen Zahlen Codes wie 200 für OK.\\
+Das File Transport Protocol ist wie der Name schon sagt, ein Protokoll zum \textbf{Übertragen von Dateien}. Es setzt auf TCP auf, da es sich nicht erlauben kann, dass Pakete verloren gehen da sonst die gesamten Daten unbrauchbar werden können. TCP verwendet \textbf{getrennte Verbindungen} für Data Transfer und Command Transfer. FTP antwortet auf Commands mit \textbf{dreistelligen Zahlen Codes} wie 200 für OK.\\
 
-Um eine Verbindung aufzubauen, öffnet ein Client eine TCP Verbindung zum Port 21 von einem zufälligen Port N aus. Von da an kommt es darauf an ob der FTP Server 
-als \glqq aktive\grqq oder als \glqq passive\grqq betrieben wird.\\
-Bei einem als aktiv konfigurierten Server, wartet der Client nun auf dem Port N+1 auf eine einkommende Datenverbindung. Damit der Server weiß auf welchen Port er 
-die Verbindung aufbauen soll, wird in der Command Verbindung ein PORT Befehl gesendet.\\
-Sollte der Server als passiv konfiguriert sein, was häufig bei Servern hinter einer Firewall gemacht wird, sendet der Client ein PASV Paket über die Command 
-Verbindung und bekommt daraufhin vom Server eine IP und einen Port auf welchen daraufhin die Datenverbindung aufgebaut wird.\\
+Um eine Verbindung aufzubauen, öffnet ein Client eine TCP Verbindung zum Port 21 von einem zufälligen Port N aus. Von da an kommt es darauf an ob der FTP Server als \glqq aktive\grqq oder als \glqq passive\grqq betrieben wird.\\
+Bei einem als aktiv konfigurierten Server, wartet der Client nun auf dem Port N+1 auf eine einkommende Datenverbindung. Damit der Server weiß auf welchen Port er die Verbindung aufbauen soll, wird in der Command Verbindung ein PORT Befehl gesendet.\\
+Sollte der Server als passiv konfiguriert sein, was häufig bei Servern hinter einer Firewall gemacht wird, sendet der Client ein PASV Paket über die Command Verbindung und bekommt daraufhin vom Server eine IP und einen Port auf welchen daraufhin die Datenverbindung aufgebaut wird.\\
 
-Ein großes Problem von FTP ist, dass, auch wenn es durch Username und Passwort geschützt werden kann, alles in Klartext überträgt. Es ist also für einen 
-unerwünschten Mithörer im Netzwerk nicht sehr schwer alles mitzubekommen was zwischen FTP Client und Server an Kommunikation passiert.\\
-Um dies zu umgehen gibt es einige Varianten von FTP welche Sicherheit garantieren sollen, wie u.a. FTPS (File Transport Protocol SSL/TLS) oder SFTP(SSH File 
-Transport Protocol) welche trotz des ähnichen Namens unterschiedlich realisiert sind. 
+Ein großes Problem von FTP ist, dass, auch wenn es durch Username und Passwort geschützt werden kann, alles in Klartext überträgt. Es ist also für einen unerwünschten Mithörer im Netzwerk nicht sehr schwer alles mitzubekommen was zwischen FTP Client und Server an Kommunikation passiert.\\
+Um dies zu umgehen gibt es einige Varianten von FTP welche Sicherheit garantieren sollen, wie u.a. \textbf{FTPS (File Transport Protocol SSL/TLS) oder SFTP(SSH File Transport Protocol)} welche trotz des ähnichen Namens unterschiedlich realisiert sind. 
  
 \subsection{Simple Network Managing Prorocol - SNMP}
-Das SNMP dient dazu die Pakete zu beschreiben, mit welchen Informationen zwischen verschiedenen Netzwerkgeräten ausgetauscht werden können. Diese Informationen finden sich in einer MIB. Es setzt auf UDP auf.\\
+Das SNMP dient dazu die Pakete zu beschreiben, mit welchen Informationen zwischen verschiedenen Netzwerkgeräten ausgetauscht werden können. Diese Informationen finden sich in einer \textbf{MIB}. Es setzt auf UDP auf.\\
 
-MIBs oder Management Information Bases sind Tabellen mit beschreibenden Werten. Diese Werte sind in einer Baumstruktur angeordnet. Der für SNMP interessante Bereich beginnt bei 1.3.6.1, dem Internet Zweig. Was in der MIB steht ist von der IETF vorgegeben. SNMP weiß jedoch nicht mit welchem Device es gerade redet, weshalb es nur als \glqq Bote\grqq für die Informationen dient.\\
+MIBs oder Management Information Bases sind \textbf{Tabellen mit beschreibenden Werten}. Diese Werte sind in einer \textbf{Baumstruktur} angeordnet. Der für SNMP interessante Bereich beginnt bei 1.3.6.1, dem Internet Zweig. Was in der MIB steht ist von der IETF vorgegeben. SNMP weiß jedoch nicht mit welchem Device es gerade redet, weshalb es nur als \glqq Bote\grqq für die Informationen dient.\\
 Die Informationen welche damit abgerufen werden können sind unglaublich vielfältig und umschließen sogar Dinge wie Fehlerpakete auf einem bestimmten Interface auf einem Host.\\
 
-Es gibt inzwischen drei Versionen von SNMP. Der Hauptkritikpunkt an den ersten Versionen war die Unsicherheit. Es ging so weit, dass im Scherz behauptet wurde, SNMP stehe eigentlich für \textbf{S}ecurity? \textbf{N}ot \textbf{m}y \textbf{P}roblem. Dies wurde auch erst mit der letzten Version, Version 3 wirklich ausgebessert.\\
-Davor wurde nur mit einem sogenannten Community String, welches eine Art Passwort darstellt, gesichert und selbst dieser wurde in Klartext übermittelt.\\
-Dies wurde in Version 3 dann verbessert und mit zwei zusätzlichen Passphrasen, genannt Authentification und Privacy, welche mit verschiedenen Verschlüsselungen versehen werden können.\\
+Es gibt inzwischen \textbf{drei Versionen} von SNMP. Der Hauptkritikpunkt an den ersten Versionen war die Unsicherheit. Es ging so weit, dass im Scherz behauptet wurde, SNMP stehe eigentlich für \textbf{S}ecurity? \textbf{N}ot \textbf{m}y \textbf{P}roblem. Dies wurde auch erst mit der letzten Version, Version 3 wirklich ausgebessert.\\
+Davor wurde nur mit einem sogenannten \textbf{Community String}, welches eine Art Passwort darstellt, gesichert und selbst dieser wurde in Klartext übermittelt.\\
+Dies wurde in Version 3 dann verbessert und mit zwei zusätzlichen Passphrasen, genannt \textbf{Authentification und Privacy}, welche mit verschiedenen Verschlüsselungen versehen werden können.\\
 
-Es gibt mehrere Möglichkeiten wie SNMP Informationen aus einer MIB bekommt. Der Standart ist die GET Methode bei der er ein Feld abfrägt. Doch gibt es auch die Methoden GETNEXT und GETBULK.\\
+Es gibt mehrere Möglichkeiten wie SNMP Informationen aus einer MIB bekommt. Der Standart ist die \textbf{GET Methode} bei der er ein Feld abfrägt. Doch gibt es auch die Methoden \textbf{GETNEXT und GETBULK}.\\
 Bei ersterer Methode wandert er eine spezifizierte Anzahl an Werten ab. Diese Methode wurde erst in Version 2 dazugenommen.\\
 Bei zweiterer Methode erfrägt er einen gesamten Unterbaum.\\
 
 Des Weiteren gibt es noch eine Sonderform, in welcher nicht der Agent, so wird derjenige genannt, welcher die SNMP Abfragen durchführt, sondern das zu managende Device selbst sich meldet.\\
-Diese sogenannten Traps können auf bestimmte Events gesetzt werden, wie zB eine Änderung eines kritischen Wertes. Bei weitem öfters wird es jedoch verwendet, wenn eine der Zähler Variablen überläuft. Dabei setzen MIBs meist ein flag in einem bestimmten Unterbaum auf welches die Traps dann reagieren.\\
+Diese sogenannten \textbf{Traps} können auf bestimmte Events gesetzt werden, wie zB eine Änderung eines kritischen Wertes. Bei weitem öfters wird es jedoch verwendet, wenn eine der Zähler Variablen überläuft. Dabei setzen MIBs meist ein flag in einem bestimmten Unterbaum auf welches die Traps dann reagieren.\\
 
 Obwohl das Protokoll sich selbst als \glqq Simple\grqq bezeichnet, ist es hoch komplex und, obwohl es von einem großen Teil ernstzunehmender Administratoren genutzt wird, bringt auch extreme Sicherheitsprobleme mit wenn man es nicht vorsichtig implementiert.\\
-Vorallem die Tatsache, dass SNMPv3 Support, obwohl es ein Standart ist, so gut wie nirgends gegeben ist (unter anderem unterstützt Windows bis jetzt nur SNMPv2(c)), macht große Probleme. 
+Vorallem die Tatsache, dass SNMPv3 Support, obwohl es ein Standard ist, so gut wie nirgends gegeben ist (unter anderem unterstützt Windows bis jetzt nur SNMPv2(c)), macht große Probleme. 
 \subsection{Hypertext Transfer Protcol - HTTP}
-HTTP ist wohl eines der Protokolle welches der Standartuser mit am häufigsten verwendet, auch wenn er sich dessen unter Umständen garnicht bewusst ist. Es wird verwendet um Webseiten über ein Netzwerk zu transportieren. HTTP befindet sich auf den Layern 5 bis 7 und setzt auf TCP auf, da sich vermisste oder Fehlerhafte Pakete doch deutlich in der Seitendarstellung auswirken.\\
-Momentan wird HTTP/1.1 verwendet, wobei die HTTP-Entwicklergruppe der IETF bereits dabei ist, Version 2 zu spezifizieren. Ziele der neuen Version sind bessere Datenkomprimierung, effizientere Kommunikation und erhöhte Sicherheit.\\
+HTTP ist wohl eines der Protokolle welches der Standartuser mit am häufigsten verwendet, auch wenn er sich dessen unter Umständen garnicht bewusst ist. Es wird verwendet um \textbf{Webseiten über ein Netzwerk zu transportieren}. HTTP befindet sich auf den Layern 5 bis 7 und setzt auf TCP auf, da sich vermisste oder Fehlerhafte Pakete doch deutlich in der Seitendarstellung auswirken.\\
+Momentan wird \textbf{HTTP/1.1} verwendet, wobei die HTTP-Entwicklergruppe der IETF bereits dabei ist, Version 2 zu spezifizieren. Ziele der neuen Version sind bessere Datenkomprimierung, effizientere Kommunikation und erhöhte Sicherheit.\\
 
-Sicherheitstechnisch ist HTTP nicht sehr ausgefeilt. Es verwendet keine Verschlüsselung von sich aus, überträgt alles in Klartext. Dafür wurden diverse Erweiterungen geschrieben wie zB HTTPS welche Pakete mit SSL verfahren sichert.\\
+Sicherheitstechnisch ist HTTP nicht sehr ausgefeilt. Es verwendet keine Verschlüsselung von sich aus, überträgt alles in Klartext. Dafür wurden diverse Erweiterungen geschrieben wie zum Beispiel \textbf{HTTPS welches Pakete mit SSL verfahren sichert}.\\
 
-Aufgrund diverser Erweiterungen in den Anfragenpaketen ist HTTP inzwischen über den bloßen Transport von Hypertext hinaus, es kann bereits genauso zur Übertragung von zB Datein verwendet werden.\\
+Aufgrund diverser Erweiterungen in den Anfragenpaketen ist HTTP inzwischen über den bloßen Transport von Hypertext hinaus, es kann bereits genauso zur Übertragung von zB Dateien verwendet werden.\\
 
 Eine Kommunikation mit HTTP läuft immer nach einem gewissen Schema ab:\\
 Ein Client schickt eine Anfrage an eine URL wie zB www.example.com ab. Dieser Name wird wie bereits besprochen über DNS aufgelöst, sollte er nicht in er hosts Datei stehen.\\
 Der Webbrowser setzt an die URL normalerweise immer noch \glqq \textbackslash index.html \grqq .\\
 Dies wandelt der Browser dann in ein HTTP GET Paket um, indem neben der verwendeten HTTP Version, steht was man von welchem Client bekommen will.\\
-Der Server antwortet darauf hin zuerst mit einem Statuscode. Dieser beschreibt ob die Anfrage erfolgreich war oder nicht. Der Statuscode den die meisten User kennen ist 404, was für Side not found steht.\\
-Ist die Anfrage jedoch erfolgreich bekommt der Client den Code 200 zurück, zusammen mit einigen Informationen zum Server, wie Sprache, welcher Server läuft und/oder Content type.
+Der Server antwortet darauf hin zuerst mit einem \textbf{Statuscode}. Dieser beschreibt ob die Anfrage erfolgreich war oder nicht. Der Statuscode den die meisten User kennen ist \textbf{Error 404}, was für \textbf{Side not found} steht.\\
+Ist die Anfrage jedoch erfolgreich bekommt der Client den \textbf{Code 200} zurück, zusammen mit einigen Informationen zum Server, wie Sprache, welcher Server läuft und/oder Content type.
 \section{Netzwerksicherheit}
-lorem ipsum
+Ein immer wiederkehrender Punkt in den besprochenen Protokollen war die Sicherheit. Seit beginn des Internets gibt es auch jene welche versuchen ihren Gewinn daraus zu ziehen. Ob sie dies nun auf legalem Wege machen oder sich illegal Zutritt verschaffen macht da keinen Unterschied.\\
+
+Durch die überaus essentielle Bedeutung der Sicherheit in Netzwerken wird nun im Folgenden auf einige verbreitete Praktiken, Bezeichnungen oder Aspekte eingegangen, welche im direkten Zusammenhang mit diesem Bereich stehen.
+\subsection{Der Hacker/Cracker}
+Häufig werden diejenigen, welche sich durch das Ausnutzen von Netzwerkschwachstellen Zutritt zu Dingen verschaffen die nicht für sie bestimmt sind, umgangssprachlich als \textbf{Hacker} bezeichnet. Dies ist jedoch eigentlich der falsche Term.\\
+
+Die ursprüngliche Bedeutung des \glqq hackens\grqq kommt aus dem Programmiertechnischen und steht für das finden von, nicht unbedingt schönen, jedoch sehr effektiven Lösungsmöglichkeiten um ein gewisses Problem zu lösen oder eine gewisse Zielstellung zu erreichen. Das Programm welches solches erfüllt wird als \glqq Hack\grqq bezeichnet.\\
+Durch ein Missverständnis der Medien wurde dieser Ausdruck jedoch sehr schnell für Leute verwendet, die ebendiese Praktiken anwenden um jemand anderen Schaden zuzufügen. Der richtige Ausdruck, welcher ursprünglich für diese Gruppe von Menschen verwendet wurde war \textbf{Cracker}.\\
+
+Heute werden zwischen drei Arten von Hackern unterschieden:
+\begin{itemize}
+\item Black Hat Hacker\\
+Der \glqq Black Hat\grqq ist derjenige der nur an seine persönliche Bereicherung denkt. Er verwendet sein Wissen um Schaden anzurichten, Menschen ihr Geld oder sogar ihre Identität zu stehlen. 
+\item White Hat Hacker\\
+Die \glqq White Hats\grqq sind die \glqq Guten\grqq . Sie verwenden die erworbenen Fähigkeiten um sich beispielsweise als Penetration Tester zu verdingen. Penetration Tester, oder umgangssprachlich auch Pentester, sind Menschen die dafür bezahlt werden, die Sicherheit eines Netzwerkes auszuloten. Sie versuchen also ein Netzwerk zu hacken, gleich den Black Hats, mit dem Unterschied dass sie die Erlaubnis haben.
+\item Gray Hat Hacker\\
+Die \glqq Gray Hats\grqq sind, wie der Name bereits aussagt, eine Grauzone. Sie verwenden ihre Fähigkeiten um anderen zu helfen, schrecken jedoch auch nicht davor zurück ihre Fähigkeiten für unlautere Aktivitäten zu verwenden.
+\end{itemize}
+
+Eine weitere Form des Hackens, welche erst kürzlich besondere Aufmerksamkeit erlangt hat, ist der sogenannte \textbf{Hacktivism}. Das Wort ist ein Kofferwort aus den englischen Begriffen \textbf{to hack} und \textbf{Aktivism}. Dies sind Gruppierungen von Hackern welche politische Ziele mit ihrer Arbeit verfolgen. So hat sich die inzwischen berühmte Hacktivism Gruppe Anonymous einen Namen damit gemacht, Firmen zu \glqq bestrafen\grqq wenn sie Datenschutz und Anonymität im Internet bedrohen.
 \subsection{MAC-Spoofing}\label{ssec:mspoof}
 lorem ipsum
 \subsection{MAC-Flooding}\label{ssec:mflood}
