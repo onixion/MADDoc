@@ -732,11 +732,30 @@ Die \glqq White Hats\grqq sind die \glqq Guten\grqq . Sie verwenden die erworben
 Die \glqq Gray Hats\grqq sind, wie der Name bereits aussagt, eine Grauzone. Sie verwenden ihre Fähigkeiten um anderen zu helfen, schrecken jedoch auch nicht davor zurück ihre Fähigkeiten für unlautere Aktivitäten zu verwenden.
 \end{itemize}
 
-Eine weitere Form des Hackens, welche erst kürzlich besondere Aufmerksamkeit erlangt hat, ist der sogenannte \textbf{Hacktivism}. Das Wort ist ein Kofferwort aus den englischen Begriffen \textbf{to hack} und \textbf{Aktivism}. Dies sind Gruppierungen von Hackern welche politische Ziele mit ihrer Arbeit verfolgen. So hat sich die inzwischen berühmte Hacktivism Gruppe Anonymous einen Namen damit gemacht, Firmen zu \glqq bestrafen\grqq wenn sie Datenschutz und Anonymität im Internet bedrohen.
-\subsection{MAC-Spoofing}\label{ssec:mspoof}
-lorem ipsum
+Eine weitere Form des Hackens, welche erst kürzlich besondere Aufmerksamkeit erlangt hat, ist der sogenannte \textbf{Hacktivism}. Das Wort ist ein Kofferwort aus den englischen Begriffen \textbf{to hack} und \textbf{Aktivism}. Dies sind Gruppierungen von Hackern welche politische Ziele mit ihrer Arbeit verfolgen. So hat sich die inzwischen berühmte Hacktivism Gruppe Anonymous einen Namen damit gemacht, Firmen zu \glqq bestrafen\grqq wenn sie Datenschutz und Anonymität im Internet bedrohen.\\
+
+\glqq Richtige\grqq Hacker gibt es jedoch nur sehr sehr wenige. Die meisten sind sogenannte \textbf{Scriptkiddies}, welche sich zwar als Hacker bezeichnen jedoch keine Ahnung von der Materie haben. Sie greifen auf Programme zu welche von richtigen Hackern geschrieben worden sind, bei denen sie nicht wissen müssen was sie tun, und versuchen dann damit jemanden Schaden zuzufügen. Von denen geht, bei adequat gesicherten Netzwerken, normalerweise keine Gefahr aus, da sie meist mit guten Passwörtern oder einem verschlüsselten W-LAN Zugang bereits überfordert sind.
+
 \subsection{MAC-Flooding}\label{ssec:mflood}
-lorem ipsum
+Eines der Hauptziele eines jeden Hackers ist es normalerweise Informationen zu sammeln. Er kommt in ein Netzwerk und hört dann mit, ob er unter Umständen in der Lage ist Passwörter zu hören. Passwörter sind ein wichtiges gut für jeden Hacker.\\
+Nun stehen diese aber heute vor dem Problem, dass sogut wie jedes Netzwerk \textbf{geswitched} ist, es also Switches anstatt von Hubs verwendet. Diese speichern, wie bereits besprochen, die MAC-Adressen der angeschlossenen Geräte, und weisen sie einem ihrer Interfaces zu.\\
+Somit ist ein Hacker schoneinmal nicht mehr in der Lage, ohne irgend einen Eingriff in das Netzwerk, zu hören was wer zu wem sagt.\\
+
+Nun haben Hacker eine Methode gefunden um dies zu umgehen, das sogenannte \textbf{MAC-Flooding} was übersetzt soviel wie MAC Überflutung bedeutet. Dabei verwendet der Hacker das Gratuitous ARP Paket. Dieses ist dazu da seine eigene MAC-Adresse bekannt zu machen.\\
+Der Hacker schickt nun hunderte solcher Pakete, immer mit falschen MAC-Adressen und falschen IP-Adressen und fährt damit solange fort bis sich die Tabelle des Switches überfüllt und er sie fallen lassen muss. Wenn dies eintritt, fällt der Switch in einen Modus zurück indem er, bis er sich von der Überlastung regeneriert hat, sich wie ein Hub verhält und alle Pakete an alle Interfaces sendet. Nun kann der Hacker lesen was in den Paketen steht.\\
+
+\subsection{Man-in-the-Middle anhand von MAC-Spoofing}\label{ssec:mspoof}
+Eine andere Art an Informationen zu gelangen ist der sogenannte \textbf{Man-in-the-Middle} Angriff.\\
+Dabei versucht ein Hacker sein Ziel dahingehend zu manipulieren, dass dieser seine Pakete nicht dorthin schickt wo sein Ziel sie haben will, sondern alles zuerst über des Hackers PC geht. Dies erreicht er durch sogenanntes \textbf{spoofen}.\\
+
+Dabei gibt er vor eine andere MAC und eine andere IP zu haben. Welche diese Adresse ist hängt von den Gegebenheiten ab. Will er sehen was man in das Internet schickt, wird es meistens der Gateway sein, da über diesen ja alles drüber muss wenn es in das Internet will.\\
+Dies hat den Vorteil, dass er auch in der Lage ist Verschlüsselungen aufzubrechen, da sein Ziel ja nicht mit der angefragten Webseite eine Verbindung aufbaut, sondern eigentlich mit dem Bösewicht. 
+
+\subsection{DOS}
+DOS steht für \textbf{Denial of Service} und ist ein weiteres Ziel für Hacker. Der Ausdruck fasst eine große Gruppe von Angriffsarten zusammen welche alle zum Ziel haben, einen Dienst, also ein Service, zu unterbinden.\\
+Dies wird meistens durch übermäßiges beanspruchen eines Services bewerkstelligt. Das Problem hierbei ist dann, dass man sich nicht gegen etwas wehren kann, was genau den Vorgaben entspricht. Das System ist ja dazu ausgelegt Anfragen aufzunehmen.\\
+
+Da jedoch normalerweise ein einzelner nicht in der Lage ist die Rechenleistung eiens ganzen Servers in die Knie zu zwingen, wird der DOS Angriff immer häufiger mit seinem Nachfolger, dem \textbf{DDOS} oder \textbf{Distributed Denial of Service} ersetzt. Dies bedeutet nicht mehr, als dass der Angriff jetzt nicht nur von einem ausgeht sondern von vielen verschiedenen Rechnern. Diese Methode wird auch von der Gruppe Anonymous verwendet.
 
 \chapter{E-Mail von Singh Manpreet}
 lorem ipsum
@@ -1183,11 +1202,35 @@ Das JobSystem unterscheidet die Jobs in verschiedene Typen. Jeder Typ erledigt e
 
 \subsubsection{Port} Diesr Job baut eine TCP-Verbindung zu den jeweiligen Netzwerkknoten auf.
 
-\subsubsection{FOLGEN NOCH}
+\lfoot{Ranalter Daniel}%--------------------------------------------------------------------------------------------
+
+\subsubsection{Traffic auslesen über SNMP}
+lorem ipsum
+
+\subsubsection{Internet Verbindungs Check}
+lorem ipsum
+
+\subsubsection{Check Jobs}
+Es gibt eine Untergruppierung von Jobs deren Aufgabe darin besteht, Dienste zu überprüfen. Zwar ist das auch mit dem Port Scan möglich, manchmal gibt es jedoch Fälle bei denen ein Dienst in einen unkontrolierten Zustand verfällt.\\
+Ein Beispiel ist ein nicht sauber heruntergefahrener Dienst. Der Port ist dann zwar noch offen, jedoch liegt keiner dahinter welcher Anfragen beantworten würde. Ein solcher fehlerhafter Dienst wird als \textbf{Zombie} bezeichnet.\\
+
+Es gibt drei verschiedene Check Jobs:\\
+\paragraph{DNS}
+Der DNS Check funktioniert über eine Methode welchen eine zuvor bestimmte Domain aufzulösen versucht. Sollte kein Name angegeben werden, wird www.google.com versucht aufzulösen. Dies kann jedoch zu Problemen führen wenn man einen lokalen DNS Server überprüfen will, weshalb es die Option gibt den Namen selbst anzugeben.
+
+\paragraph{SNMP}
+Da SNMP ein so sensibles Protokoll ist, gibt es auch die Möglichkeit zu überprüfen ob SNMP läuft. Dafür wird an die zu überprüfende Maschine ein GET Request für seinen Namen gestellt. Bei SNMP wird, wie bei dem traffic check auch, nur SNMP Version größer gleich 2 unterstützt.
+
+\paragraph{FTP}
+Bei dem FTP Check wird im Grunde einfach nur das momentane Arbeitsverzeichnis abgefragt. Es ist zu beachten dass ein passwort und ein username benötigt werden. 
 
 \section{Funktionsweise}
 
 Das JobSystem besitzt einen Zeitplaner, der ein- und ausgeschalten werden kann. Dieser Zeitplaner behält die Netzwerkknoten und Aufgaben im Auge und ermittelt, wann eine Aufgabe bereit für die Ausführung ist. Falls ein Netzwerkknoten 'inaktiv' ist, wird dieser vom Zeitplaner ignoriert. Auch Netzwerkaufgaben können 'inaktiv' sein und werden dann vom Zeitplaner ebenfalls ignoriert. Wenn eine Aufgabe für die Ausführung bereit ist, startet der Zeitplaner den Job in einem eigenen Thread aus dem internen Threadpool. Nach der Ausführung der Jobs, schreibt der Zeitplaner die Resultate der Operation in die Datenbank (in die JobTable). Während der Ausführung der Aufgabe kann der Netzwerkknoten nicht entfernt werden. Die Änderung der IP-Adresse der Netzwerkknotens während der Ausführung hat keinen Einfluss auf die Ausführung. Erst in der neuen Ausführung wird die neue IP-Adresse für das Ziel verwendet.
+
+\chapter{Devicefinder von Ranalter Daniel}
+
+lorem ipsum
 
 \chapter{Notification von Singh Manpreet}
 lorem ipsum
