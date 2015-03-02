@@ -1,4 +1,4 @@
-\documentclass[11pt,a4paper]{report}
+\documentclass[12pt,a4paper]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
 \usepackage{amsmath}
@@ -1208,7 +1208,22 @@ Das JobSystem unterscheidet die Jobs in verschiedene Typen. Jeder Typ erledigt e
 lorem ipsum
 
 \subsubsection{Internet Verbindungs Check}
-lorem ipsum
+Es gibt die Möglichkeit, durch ein Command den Connectivity Check zu starten, der sich von den herkömmlichen Jobs insoweit unterscheidet, dass er nicht an eine Node gebunden ist, sondern direkt auf dem Rechner auf dem MAD läuft, ausgeführt wird.\\
+Wie der Name vermuten lässt, überprüft er ob eine Verbindung zum Internet besteht. Dies kann er auf 5 verschiedenen Intensitätsstufen machen.\\
+\begin{itemize}
+\item Stufe 1:\\
+Hierbei wird ein ICMP Echo Request an die IP 8.8.8.8 geschickt. Dies ist der Google Primary DNS Server welcher sehr zuverlässig immer erreichbar sein sollte.
+\item Stufe 2:\\
+Stufe 1 + ICMP Echo Request an die IP 8.8.4.4 . Sollte der Primary DNS einmal so überlastet sein, dass Google beschließt ihn zu ganz oder auch nur für ICMP zu sperren, gibt es immer noch den Secondary DNS.
+\item Stufe 3:\\
+Stufe 2 + ICMP Echo Request an die IP 194.232.104.140, der Seite der amerikanischen Regierung. 
+\item Stufe 4:\\
+Da rein ICMP etwas unzuverlässig ist, wird in der Stufe 4 alles der Stufe 3 versucht + einen Request auf die Seite www.orf.at . Damit ist sichergestellt, dass, sollte ICMP blockiert sein, immernoch eine Möglichkeit gibt, zu überprüfen ob eine Internetverbindung besteht.
+\item Stufe 5:\\
+Stufe 4 + einen HTTP Request auf eine vom User selbst bestimmte Seite. Damit sollten alle Eventualitäten ausgeschlossen werden. 
+\end{itemize}
+
+Es gibt die verschiedenen Stufen aus dem Grund, falls sich in der Struktur des Netzwerkes einmal so viel ändern sollte, dass einzelne Dinge nicht mehr funktionieren, immernoch immer etwas dabei ist das funktioniert.
 
 \subsubsection{Check Jobs}
 Es gibt eine Untergruppierung von Jobs deren Aufgabe darin besteht, Dienste zu überprüfen. Zwar ist das auch mit dem Port Scan möglich, manchmal gibt es jedoch Fälle bei denen ein Dienst in einen unkontrolierten Zustand verfällt.\\
@@ -1228,9 +1243,16 @@ Bei dem FTP Check wird im Grunde einfach nur das momentane Arbeitsverzeichnis ab
 
 Das JobSystem besitzt einen Zeitplaner, der ein- und ausgeschalten werden kann. Dieser Zeitplaner behält die Netzwerkknoten und Aufgaben im Auge und ermittelt, wann eine Aufgabe bereit für die Ausführung ist. Falls ein Netzwerkknoten 'inaktiv' ist, wird dieser vom Zeitplaner ignoriert. Auch Netzwerkaufgaben können 'inaktiv' sein und werden dann vom Zeitplaner ebenfalls ignoriert. Wenn eine Aufgabe für die Ausführung bereit ist, startet der Zeitplaner den Job in einem eigenen Thread aus dem internen Threadpool. Nach der Ausführung der Jobs, schreibt der Zeitplaner die Resultate der Operation in die Datenbank (in die JobTable). Während der Ausführung der Aufgabe kann der Netzwerkknoten nicht entfernt werden. Die Änderung der IP-Adresse der Netzwerkknotens während der Ausführung hat keinen Einfluss auf die Ausführung. Erst in der neuen Ausführung wird die neue IP-Adresse für das Ziel verwendet.
 
+\lfoot{Ranalter Daniel}
 \chapter{Devicefinder von Ranalter Daniel}
+Der Programmteil, welcher das Netzwerk auf Geräte überprüft, ist jener den ich persönlich wohl am öftesten neu geschrieben habe. Im folgenden wird auf alle drei Versionen die durchlaufen worden sind eingegangen. Sie alle befinden sich weiterhin im Projekt, werden jedoch nicht verwendet.\\
+Im Projekt selbst, werden sie ab der zweiten Version als \glqq MacFinder\grqq bezeichnet. 
+\section{MacFinder Version 1}
+In der ersten Version des MacFinders, wurden berühmte IP Scanner wie zum Beispiel \textbf{Angry IP Scanner} als Vorbild genommen, welche ICMP Echo Requests verwenden um an die Geräte zu kommen.\\
+Es wurden keine Parameter benötigt, da er sich anhand der Adresse des Hosts auf dem er funktioniert, und der Vorgabe, ein kleines Firmen- oder Heimnetzwerk (nicht mehr als ein Class C Netzwerk), sich sämtliche zu überprüfenden IP Adressen ausrechnen konnte.\\
+Diese wurden in einer Liste gespeichert, \glqq angepingt\grqq , und dann, sollte eine Antwort kommen, in die Liste aufgenommen werden.\\
 
-lorem ipsum
+Die Idee wurde schlussendlich verworfen, da in vielen Netzwerken die Verwendung des ICMP Protokolls unterbunden wird, da es ein von Hackern häufig verwendetes Tool ist, um grundlegende Informationen über ein Netzwerk herauszuhören.
 
 \chapter{Notification von Singh Manpreet}
 lorem ipsum
