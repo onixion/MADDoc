@@ -617,7 +617,7 @@ nur wichtig falls das URG Flag gesetzt ist
 \item Options\\
 Hier kann noch alles mögliche ausgemacht werden welches nicht im Standartheader steht.
 \end{itemize}
-\subsection{Dynamic Host Configuration Protocol - DHCP}
+\subsection{Dynamic Host Configuration Protocol - DHCP}\label{ssec:dhcp}
 DHCP dient, wie der Name bereits aussagt, der \textbf{dynamischen Konfiguration} von Hosts. Standardmäßig hat jeder normale Enduser in dem WLAN Router, welchen er von dem ISP bereitgestellt bekommt, einen DHCP-Server. Dieser nutzt jedoch nur die grundlegendsten Funktionen des DHCP Protokolls, die Vergabe einer \textbf{IP-Adresse und eines Standard Gateways}.\\
 DHCP ist jedoch zu weit mehr in der Lage. Die Optionen reichen von hostnamen über Proxy Einstellungen bis zu Zeitservern. Im Grunde sind die Optionen zur Konfiguration jedoch sogar unbegrenzt, da im Optionen Feld des Paketes eigene Dinge spezifiziert werden können.\\
 
@@ -1205,7 +1205,13 @@ Das JobSystem unterscheidet die Jobs in verschiedene Typen. Jeder Typ erledigt e
 \lfoot{Ranalter Daniel}%--------------------------------------------------------------------------------------------
 
 \subsubsection{Traffic auslesen über SNMP}
-lorem ipsum
+Auch hier werden wieder nur SNMP Versionen größer gleich 2 erlaubt.\\
+Das Auslesen des Traffics über SNMP geschieht über die Objekt ID 1.3.6.1.2.1.2.2.1.16.x wobei x für das Interfaces steht. Mit dieser Objekt ID kommt man zu den Ausgegangenen Paketen eines Interfaces.\\
+Da SNMP mehr Interfaces kennt als Windows, beziehungsweise Windows Interfaces zusammenfasst, ist es für den User notwendig vorher den Befehl \textbf{snmp interfaces} anzuwenden. Hierbei werden ihm dann alle Interfaces aufgelistet welche die abgefragte Maschine hat. Das richtige Interface zu finden ist nun dem User überlassen. Jedoch gibt es die Möglichkeit, dass Interface in der Configfile zu speichern, um es nicht jedesmal aufs neue wieder raussuchen muss. SNMP verwendet, wenn kein anderes Interface angegeben wird, automatisch jenes aus der Configfile.\\
+Es ist sehr wichtig zu beachten, dass, aus Gründen der Komfortabilität für den Community String \textbf{public} und für Authentification bzw Privacy die Phrase \textbf{MADMADMAD} zu wählen sind, damit es funktioniert.\\
+
+Der ausgelesene Wert wird dann zwischengespeichert und nach einem einzustellenden Zeitintervall wird erneut eine Anfrage gemacht. MAD subtrahiert die beiden Werte voneinander um an den geschickten Traffic an diesem Interface zu kommen.\\
+Es wird in Octets angegeben, also Bytes.
 
 \subsubsection{Internet Verbindungs Check}
 Es gibt die Möglichkeit, durch ein Command den Connectivity Check zu starten, der sich von den herkömmlichen Jobs insoweit unterscheidet, dass er nicht an eine Node gebunden ist, sondern direkt auf dem Rechner auf dem MAD läuft, ausgeführt wird.\\
@@ -1247,13 +1253,30 @@ Das JobSystem besitzt einen Zeitplaner, der ein- und ausgeschalten werden kann. 
 \chapter{Devicefinder von Ranalter Daniel}
 Der Programmteil, welcher das Netzwerk auf Geräte überprüft, ist jener den ich persönlich wohl am öftesten neu geschrieben habe. Im folgenden wird auf alle drei Versionen die durchlaufen worden sind eingegangen. Sie alle befinden sich weiterhin im Projekt, werden jedoch nicht verwendet.\\
 Im Projekt selbst, werden sie ab der zweiten Version als \glqq MacFinder\grqq bezeichnet. 
-\section{MacFinder Version 1}
+\section{MacFinder Version 1 - host find job}
 In der ersten Version des MacFinders, wurden berühmte IP Scanner wie zum Beispiel \textbf{Angry IP Scanner} als Vorbild genommen, welche ICMP Echo Requests verwenden um an die Geräte zu kommen.\\
 Es wurden keine Parameter benötigt, da er sich anhand der Adresse des Hosts auf dem er funktioniert, und der Vorgabe, ein kleines Firmen- oder Heimnetzwerk (nicht mehr als ein Class C Netzwerk), sich sämtliche zu überprüfenden IP Adressen ausrechnen konnte.\\
 Diese wurden in einer Liste gespeichert, \glqq angepingt\grqq , und dann, sollte eine Antwort kommen, in die Liste aufgenommen werden.\\
 
 Die Idee wurde schlussendlich verworfen, da in vielen Netzwerken die Verwendung des ICMP Protokolls unterbunden wird, da es ein von Hackern häufig verwendetes Tool ist, um grundlegende Informationen über ein Netzwerk herauszuhören.
 
+\section{MacFinder Version 2 - DHCP Reader}
+Version 2 war im Grunde als Erweiterung zu Version 1 gedacht. Der Grundgedanke war es, in einem Netzwerk mit DHCP Server die Requests der Clienten aufzufangen, diese zu zerlegen und Informationen daraus zu verwenden um auf einen Host zu schließen. Dies ist möglich, da der Client, wie in Kapitel \ref{ssec:dhcp} auf Seite \pageref{ssec:dhcp} bereits besprochen, mit dem DHCP Request sich die Konfiguration beim Server nocheinmal bestätigen lässt und damit alles vorhanden ist.\\
+Da ein neuer Client in einem Netz welches über DHCP gemanaged wird noch keine Konfiguration hat, werden Request Pakete an die Broadcastadresse geschickt. Pakete an diese Adresse werden an jeden Client weitergeleitet, was es auch in einem geswitchten Netzwerk möglich macht, diese Pakete zu sehen.\\
+
+Diese Idee wurde verworfen da sie
+\begin{enumerate}
+\item nur funktioniert wenn ein DHCP Server existiert, bei einem Statischen Netzwerk wäre es nicht möglich gewesen.
+\item Auch der DHCP Request noch abgelehnt werden kann. Das hätte zur Folge, dass ein falscher Host im Netz existiert.
+\end{enumerate}
+
+\section{MacFinder Version 3 - ARP Reader}
+Die finale Version des MacFinders erwuchs aus dem Gedanken ein Protokoll zu verwenden, dem sich kein Gerät im Netzwerk erwehren kann. Die Wahl fiel auf das ARP Paket, da ein host welcher nicht auf einen ARP Request antwortet in einem Netzwerk sowieso nicht kommunikationsfähig ist.\\
+Da das .NET Framework Netzwerkoperationen auf so einem tiefen Level nicht unterstützt wurde die Library SharpPCAP verwendet. Dies ist eine Portierung der bekannten pcap C Library welche zB auch von Wireshark verwendet wird. Damit war es möglich solche Pakete herzustellen.\\
+Der ARP Reader benötigt das Netz, die eigene IP-Adresse sowie die Subnetzmaske. Daraus baut er dann für jede mögliche IP-Adresse im Netzwerk einen ARP Request und sammelt nachdem er das Netzwerk damit geflutet hat die Responses.\\
+
+Das größte Problem mit dem ARP Reader liegt darin, dass es mehrere verschiedene Interfaces gibt mit welchen pcap arbeitet. Dies kann man auch sehen wenn man wireshark startet, es werden mehrere Interfaces angezeigt aus welchen ausgewählt werden kann.\\
+Natürlich können die zur Auswahl stehenden Interfaces mit dem Befehl \textbf{arp reader list interfaces} ausgegeben werden. Diese können dann auch in der Configfile gespeichert werden, damit man nicht immer das Interface angeben muss.
 \chapter{Notification von Singh Manpreet}
 lorem ipsum
 
@@ -1267,9 +1290,26 @@ lorem ipsum
 \section{Programmcode}
 lorem ipsum
 
-\chapter{Logging von Ranalter Daniel}
-lorem ipsum
+\lfoot{Ranalter Daniel}%--------------------------------------------------------------------------------------------
 
+\chapter{Logging von Ranalter Daniel}
+Damit bei Problemen mit MAD eine Möglichkeit besteht Fehler im Nachhinein zu finden und zu beheben wurde ein Logger eingebaut. Der Speicherort der Logfile kann in der Configfile verändert werden. Per default ist er in dem Ordner indem MAD ausgeführt wird.\\
+Damit schnell unterschieden werden kann zwischen wichtigen und unwichtigen Nachrichten, gibt es 5 verschiedene \glqq Level\grqq . Diese lauten:
+\begin{itemize}
+\item Debug, Level 1\\
+Debug Messages sind alle Nachrichten welche wirklich nur benötigt werden wenn sehr tiefer Einblick benötigt wird. 
+\item Inform, Level 2\\
+Inform Messages sind Nachrichten welche auf keine Fehler hinweisen sondern einfach nur Informieren sollen, jedoch nicht so unwichtig, dass sie unter Debug fallen.
+\item Warning, Level 3\\
+Diese Log Nachrichten weißen auf Umstände hin, die sich zu Fehlern entwickeln können. Sie dienen zur ersten Alarmierung des Admins.
+\item Error, Level 4\\
+Hier ist bereits ein Fehler aufgetreten. Irgendetwas von den Dingen die zu tun waren hat nicht funktioniert. 
+\item Emergency, Level 5\\
+Der hier aufgetretene Fehler bedroht die Integrität des Programmes und kann oder hat zum Absturz geführt. 
+\end{itemize}
+Außerdem kann die Stufe ab welcher geloggt werden soll bestimmt werden. Per default wird erst ab 2 aufwärts in die Logfile geschrieben.\\
+
+Die Logfile selbst hat das .txt Format, damit man unter Windows leichter damit arbeiten kann und heißt log.txt. Der Name kann jedoch geändert werden um Verwirrung mit anderen Log Datein zu vermeiden. 
 
 \part{User Manual von Procic Alin}
 
