@@ -151,7 +151,7 @@ Werden meistens von den ISPs den Kunden zur Verfügung gestellt. Die meisten unt
 Ein \textbf{Switch} ermöglicht die Kommunikation zwischen mehreren Hosts. Einfache Switches agieren hauptsächlich auf dem \textbf{Layer 2}: Sie schreiben sich auf an welchem Port welche MAC-Adresse hängt und wissen dann durch Source und Destination MAC-Adresse, an welchen Interface das Paket wieder raus muss.\\
 
 Im Gegensatz zu ihren Vorgängern, den \textbf{Hubs}, sind sie damit in der Lage, Pakete zielgerichtet weiter zu leiten. Hubs lenken einkommenden traffic nicht, sie schicken die Pakete immer an alle Interfaces. Switches legen dazu eine \textbf{lokale Switching Tabelle} an in welcher sie stehen haben, an welchem Interface welche MAC-Adresse liegt.\\
-Darin findet sich jedoch auch die größte Sicherheitslücke, wie später in Kapitel \ref{sssec:security} auf Seite \pageref{sssec:security} noch besprochen wird.\\
+Darin findet sich jedoch auch die größte Sicherheitslücke, wie später in Kapitel \ref{sec:security} auf Seite \pageref{sec:security} noch besprochen wird.\\
 
 
 Switches trennen also auch keine Netze, sondern sorgen für Kommunikation innerhalb eines Netzes. So sieht man zum Beispiel im vorhergehenden Bild, dass die Switches, abgebildet als viereckige Kästchen, drei PCs zu einem Netzwerk zusammenfassen und mit dem Router verbinden.\\
@@ -712,7 +712,7 @@ Der Webbrowser setzt an die URL normalerweise immer noch \glqq \textbackslash in
 Dies wandelt der Browser dann in ein HTTP GET Paket um, indem neben der verwendeten HTTP Version, steht was man von welchem Client bekommen will.\\
 Der Server antwortet darauf hin zuerst mit einem \textbf{Statuscode}. Dieser beschreibt ob die Anfrage erfolgreich war oder nicht. Der Statuscode den die meisten User kennen ist \textbf{Error 404}, was für \textbf{Side not found} steht.\\
 Ist die Anfrage jedoch erfolgreich bekommt der Client den \textbf{Code 200} zurück, zusammen mit einigen Informationen zum Server, wie Sprache, welcher Server läuft und/oder Content type.
-\section{Netzwerksicherheit}
+\section{Netzwerksicherheit}\label{sec:security}
 Ein immer wiederkehrender Punkt in den besprochenen Protokollen war die Sicherheit. Seit beginn des Internets gibt es auch jene welche versuchen ihren Gewinn daraus zu ziehen. Ob sie dies nun auf legalem Wege machen oder sich illegal Zutritt verschaffen macht da keinen Unterschied.\\
 
 Durch die überaus essentielle Bedeutung der Sicherheit in Netzwerken wird nun im Folgenden auf einige verbreitete Praktiken, Bezeichnungen oder Aspekte eingegangen, welche im direkten Zusammenhang mit diesem Bereich stehen.
@@ -1181,11 +1181,7 @@ MD5 steht für \textbf{Message-Digest Algorithm 5} und gibt bei beliebiger Einga
 
 SHA steht für \textbf{Seucre-Hash-Algorithm} und sind mehrere standarisierte Hashverfahren, die für digitale Signaturen und Prüfsummer verwendet werden.
 
-\part{Möglichkeiten der Realisierung Allgemein von Ranalter Daniel}
-lorem ipsum
-
 \part{Programmrealisierung}
-lorem ipsum
 
 \chapter{JobSystem von Porcic Alin und Ranalter Daniel}
 
