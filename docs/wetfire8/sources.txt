@@ -1,0 +1,43 @@
+Informatik:
+===========
+programmiersprachen msdn - 07.03.2015:
+
+https://msdn.microsoft.com/de-de/library/aa292164%28v=vs.71%29.aspx
+
+https://msdn.microsoft.com/de-de/hh126387.aspx
+
+
+	c# - 07.03.2015:
+	https://msdn.microsoft.com/de-de/library/z1zx9t92.aspx
+
+	Multithreading -07.03.2015:
+	Thread - 07.03.2015:
+	http://de.wikipedia.org/wiki/Thread_%28Informatik%29
+	implementierung 07.03.2015:
+	http://de.wikipedia.org/wiki/User-Thread#Implementierungen
+	software - 07.03.2015
+	http://de.wikipedia.org/wiki/Multithreading
+	http://de.wikipedia.org/wiki/Softwareseitiges_Multithreading
+
+	hardware - 07.03.2015:
+	http://de.wikipedia.org/wiki/Multithreading
+	http://de.wikipedia.org/wiki/Hardwareseitiges_Multithreading
+
+
+
+	
+
+
+
+Database:
+=========
+Allgemeines:
+http://de.wikipedia.org/wiki/Datenbank
+
+Geschichte - :
+http://de.wikipedia.org/wiki/Datenbank#Geschichte
+
+Definitionen:
+
+
+Datenbanksysteme:

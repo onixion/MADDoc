@@ -55,12 +55,12 @@ lorem ipsum
 
 \part{Theorie zu den einzelnen Gebieten der Arbeit}
 lorem ipsum
-
-\chapter{Informatik von Stojanovic Marko}
+\lfoot{Stojanovi\'{c} Marko}
+\chapter{Informatik von Stojanovi\'{c} Marko}
 lorem ipsum
 
 \section{Programmiersprachen}
-lorem ipsum
+
 \subsection{Was ist eine Programmiersprache?}
 lorem ipsum
 \subsection{C\#}
@@ -72,20 +72,65 @@ lorem ipsum
 %\subsection{Vergleich anderer möglicher Programmiersprachen}
 %lorem ipsum
 \section{Multithreading}
-lorem ipsum
-\subsection{Was ist ein Thread}
-lorem ipsum
+Unter Multithreading ist das gleichzeitige Abarbeiten verschiedener Threads von einem Prozess oder einem Anwendungsprogramm zu verstehen. Multithreading wird auch als Nebenläufigkeit, Mehrsträngigkeit oder Mehrfädigkeit bezeichnet.
+
+\subsection{Threads}
+Ein Thread (Programm-Faden) steht in der Informatik für einen Ausführungsstrang oder auch eine Ausführungsreihenfolge beim Abarbeiten eines Programms und ist ein Teil eines Prozesses. Threads werden auch Aktivitätsträger oder leichtgewichtete Prozesse genannt. Es gibt Kernel-Threads und User-Threads.
+
+\subsubsection{Kernel-Thread}
+Aus der Sicht des Betriebssystems ist ein Thread ein sequentieller Abarbeitungslauf eines Prozesses. Dabei teilen sich alle, zu einem dazugehörendem Prozess, verschiedene Resourcesn. Zu diesen Resourcen gehören: Codesegmente, Instantiierung des Datensegmentes mit gleichem Datenlayout und die verwendeten Dateideskriptoren im Datensegment. Von Friedrich L. Bauer wurde früher der Begriff "Sequentielle Prozesse" geprägt.\\
+
+Threads, welche zu einem Prozess gehören, werden von verschiedenen Prozessoren ausgeführt, wenn mehrere Prozessoren vorhanden sind, oder nehmen voneinander unabhängige Registersätze und Stacks, welche verschiedenen Teilen des Adressraums zugeordnet sind.\\
+
+Alle Threads benutzen alle Betriebsmittel, Bis auf jene welche nur von den erzeugenden Threads benutzt werden können oder dürfen. Da es zu Konflikten dabei kommen kann werden Sychronisationsmechnismen eingesetzt um diese potentielle Gefahr zu umgehen.
+Komminikation zwischen allen Threads, die zu demselben Prozess gehören, ist möglich, da sie den gleichen Adressraum belegen. Das kann mit der Interprozesskommunikation bei Prozessen verglichen werden.\\
+
+Threads von Programmfunktionen sind übersichtlich aufteilbar, jeder für eine Aufgabe die Verantwortung trägt. Je nach Betriebssystem können Threads verschiedene Zustände annehmen, bei dem Großteil sind es: 
+\begin{itemize}
+\item inaktiv -  Thread nicht gestartet
+\item running (aktiv) - Befehl vom Thread wird auf der CPU augeführt
+\item ready (bereit) - Thread ist gestoppt, um anderen Thread aktiv werden zu lassen
+\item waiting (blockiert) - Thread wartet auf Ergebnis
+\end{itemize}
+
+\subsubsection{User-Thread}
+In der Infomatik versteht man unter einem User-Thread eine festgelegt Art, Programme bzw. Programmteile verzahnt auszuführen. Die Funktionalität ist in einer separaten Programmbibliothek im Userspace implementiert. Auf diese Weise wird ein Kontextwechsel (Taskswitching) zwischen den User-Threads ohne komplizierte Systemaufrufe gewährleistet, dadurch sind diese auch schneller als Wechsel zwischen Kernelthreads oder Prozessen.\\
+Ein User-Thread wird auch Userlevel-Thread bezeichnet und unter als Windows Fiber.
+
+\subsubsection{Implementierung}
+
+\subsubsection{Schwierigkeiten}
+Synchronisationsmechanismen von Threads wie Mutexen und Semaphoren sind in der Umsetzung anspruchvoll, weil die Programmabläufe nicht nur sequentiell sind. Durch das Regeln eines Scheduler von Ausführungsreihenfolge und den Wechseln zwischen den Threads, auf welchen der Programmierer fast keinen Einfluss hat, ist eine richtige Vorhersage dadurch schwer zu ermitteln ob ein parallel laufendes Programm ohne großen Aufwand in ein unvorhergesehen Gesamtzustand geraten kann, der durch Deadlocks, Livelocks, Datenfehler und Abstürze ersichtlich wird.\\
+Fehler dieser Art sind schwer reproduzierbar und die Fehlersuche ist schwierig.
+
+
 \subsection{Konzept von Multithreading}
-lorem ipsum
-\subsubsection{Wie funktioniert Multithreading}
-lorem ipsum
-\subsubsection{Hardware}
-lorem ipsum
-\subsubsection{Software}
-lorem ipsum
-\subsubsection{Arten von Multithreading}
-lorem ipsum
-\subsubsection{Vor- und Nachteile}
+Threads werden, im Gegensatz zu Programmen (Multitasking), nicht komplett von einander getrennt gleichzeitig oder quasi gleichzeitig ausgeführt. Dadurch kann es durch Race Conditions zu Fehlern kommen, welche durch Synchronisation vermieden werden.\\ 
+In Echtzeit parallel laufende Ausführungen von Programmen und Threads können nur erreichen werden, wenn mehrere Prozessorkerne vorhanden sind und miteinander kommunizieren (Multiprocessing).
+
+\subsubsection{Hardwareseitiges Multithreading}
+Der Unterschied zwischen hardwareseitigem und softwareseitigem Multithreading ist, dass softwareseitiges Multithreading nur aufgrund von Software gleichzeitig oder scheinbar gleichzeitig Threads ausführt und dadurch mehr Leistung in Anspruch nimmt. Beim hardwareseitigem  Multithreading wird die CPU durch die Hardware entlastet.\\
+
+Prozessoren mit hardwareseitigem Multithreading können effektiver ausgelastet werden, da auf ihren Prozessorkenen mehrere Operationen zur gleichen Zeit ausführbar sind. Dadurch wird das das parallele ausführen von verschiedenen Threads ermöglicht. Bei der Ausführung auf einem Prozessor müssen sich Threads alle Betriesmittel eines Prozessorkerns teilen.\\
+
+Ein schneller Wechsel zwischen den Programmen wird durch den Einsatz von einem Registersatz mit Stapelspeicher und Programmzähler an jedem Thread gewährleistet. Dadurch sind Umschaltzeiten von 0,1-10us möglich, im Gegensatz zum Kontextwechsel des Betribssystems, welches eine Zeit von 10-30ms benötigt.\\
+
+In modernen Prozessoren wird versucht eine noch größere Auslastung des Prozessors zu erreichen, durch das Out-of-order execution (Möglichkeit um die Reihenfolge der Ausführungsinhalte von Maschinenbefehlen zu ändern). Dadurch wird die Pipeline ausgelastet. Test haben ergeben, dass es dabei jedoch zu Pipeline-Hazards kommen kann.
+
+Threads werden von Multithreadingfähigen Prozessoren deswegen quasi-gleichzeitig verwendet. Dazu gibt es mehrere Möglichkeiten:
+\begin{itemize}
+\item time-slices: Durch eine Algorithmus ist definiert wie lange ein Thread ausgeführt wird, dadurch kann immer nur ein eiziger Thread ausgeführt werden.
+\item switch-by-event: Durch bestimmte Ereignisse kann es zum Wechsel kommen.
+\item simultanes Multithreading (SMT): Ein Registerfile-Bereich wird für kleine Prozessorkontexte reserviert und ein Thread ausgeführt. Gleichzeitig laufende Threads benutzen damit das selbe Rechenwerk.
+\item Core MultiThreading: Das gleichzeitige Ausführen mehrerer Threads wird dadurch ermöglicht, dass im Prozessor mehrere Arithmetisch-logische Einheiten (ALU) integriert sind, welche sich eine Gleitkommaeinheit teilen.
+\end{itemize}
+
+Heutzutage sind bei PCs DualCore, QuadCore oder HexaCore- Prozessoren zu finden. Diese sind mit zwei, vier oder sechs parallelen Pipelines ausgestattet.
+
+
+\subsubsection{Softwareseitiges Multithreading}
+
+\subsubsection{Scheduling}
 
 \lfoot{Ranalter Daniel}
 \chapter{Netzwerkgrundlagen und Protokolle von Ranalter Daniel}
@@ -841,7 +886,7 @@ Der sicherlich größte Nachteil der CLI ist das der Benutzer die Befehle, die P
 
 Sehr erfahrene Nutzer arbeiten ausschließlich über die textbasierende Schnittstelle, da sie direkte Kontrolle über alle Funktionen haben. Die Ausgabe der Fehlermeldungen sind sehr übersichtlich und erfahrende Nutzer können effizienter arbeiten.
 
-
+\lfoot{Stojanovi\'{c} Marko}
 \chapter{Datenbank von Stojanovi\'{c} Marko}
 
 \section{Allgemeines}
