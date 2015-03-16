@@ -198,7 +198,6 @@ Ein \textbf{Switch} ermöglicht die Kommunikation zwischen mehreren Hosts. Einfa
 Im Gegensatz zu ihren Vorgängern, den \textbf{Hubs}, sind sie damit in der Lage, Pakete zielgerichtet weiter zu leiten. Hubs lenken einkommenden traffic nicht, sie schicken die Pakete immer an alle Interfaces. Switches legen dazu eine \textbf{lokale Switching Tabelle} an in welcher sie stehen haben, an welchem Interface welche MAC-Adresse liegt.\\
 Darin findet sich jedoch auch die größte Sicherheitslücke, wie später in Kapitel \ref{sec:security} auf Seite \pageref{sec:security} noch besprochen wird.\\
 
-
 Switches trennen also auch keine Netze, sondern sorgen für Kommunikation innerhalb eines Netzes. So sieht man zum Beispiel im vorhergehenden Bild, dass die Switches, abgebildet als viereckige Kästchen, drei PCs zu einem Netzwerk zusammenfassen und mit dem Router verbinden.\\
 
 
@@ -1024,15 +1023,16 @@ lorem ipsum
 \subsubsection{Nachteile}
 lorem ipsum
 
-\chapter{Kryptologie von Porcic Alin}\label{chap:krypto}
+\chapter{Kryptologie (Alin Porcic)}\label{chap:krypto}
+\lfoot{Alin Porcic}
 \section{Allgemeines}
 
 Die Kryptologie, eine sehr alte Kunst und Wissenschaft, die sich mit der Informationssicherheit befasst, hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen und ist nicht mehr wegzudenken. Unzählige Informationen werden weltweit Kreuz und Quer ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen hohen wirtschaftlichen Wert haben können. Dieser Wert der Informationen geht dann verloren, wenn ein Unbefugter die Aussage dieser Informationen verstehen kann. Damit das nicht passiert, werden kryptographische Systeme entwickelt, die die Lesbarkeit von Informationen verhindern bzw. erschweren.\\
 
-Die Fähigkeit von diesen Systemen Informationen vor wirtschaftlichen Schäden zu schützen, werden mit der Informationssicherheit bezeichnet. Die Minimierung von Risiken, der Schutz vor Bedrohungen und die Einhaltung der Schutzziele sind ebenfalls Anforderungen der Informationssicherheit. Für die Einhaltung der Ziele der Informationssicherheit werden folgende Schutzziele definiert:
+Die Fähigkeit dieser Systemen die Informationen vor wirtschaftlichen Schäden zu schützen, werden als Informationssicherheit bezeichnet. Die Minimierung von Risiken, der Schutz vor Bedrohungen und die Einhaltung der Schutzziele sind ebenfalls Anforderungen der Informationssicherheit. Für die Einhaltung der Ziele der Informationssicherheit werden folgende Schutzziele definiert:
 
 \begin{itemize}
-\item Vertraulichkeit (Englisch: confidentiality): Die Vertraulichkeit gibt an, dass die Ausage der Informationen vor unbefugten Personen geschützt ist und nicht modifiziert werden kann.
+\item Vertraulichkeit (Englisch: confidentiality): Die Vertraulichkeit gibt an, dass die Aussage der Informationen vor unbefugten Personen geschützt ist und nicht modifiziert werden kann.
 \item Integrität (Englisch: integrity): Die unbemerkte Veränderung von Informationen darf nicht möglich sein.
 \item Verfügbarkeit (Englisch: availability): Der Zugriff auf die Daten muss innerhalb eines vereinbarten Zeitraumes gewährleistet sein.
 \item Authentizität (Englisch: authenticity): Die Echtheit eines Objektes kann bewiesen werden, daraus folgt, die Überprüfung der Vertrauenswürdigkeit eines Objektes kann festgestellt werden.
@@ -1043,15 +1043,28 @@ Die Fähigkeit von diesen Systemen Informationen vor wirtschaftlichen Schäden z
 
 (vgl. Wikipedia - Informationssicherheit)\\\\
 
-Verfahren, Informationen zu verstecken, sind nichts neues - die ersten Ansätze und Anwendungen von kryptographischen Systemen reichen weit in die Vergangenheit der Menschheit zurück. Schon seit 2500 sind Methoden bekannt die Lesbarkeit von wichtigen Informationen zu verhindern. In Sparta als Beispiel hat die Regierung ein Pergament Band um einen Zylinder spiralförmig aufgespannt und die zu ermittelnde Nachricht über die verschiedenen Ringe des Pergaments geschrieben. Die Entschlüsselung gelang nur dann, wenn man einen Zylinder mit dem gleichem Durchmesser besaß (siehe MONOALP).\\
+Verfahren, Informationen zu verstecken, sind nichts neues - die ersten Ansätze und Anwendungen von kryptographischen Systemen reichen weit in die Vergangenheit der Menschheit zurück. Schon seit 2500 Jahren sind Methoden bekannt, die die Lesbarkeit von wichtigen Informationen zu verhinderten. In Sparta, als Beispiel, hat die Regierung ein Pergament-Band um einen Zylinder spiralförmig aufgespannt und die zu ermittelnde Nachricht über die verschiedenen Ringe des Pergaments geschrieben. Die Entschlüsselung gelang nur dann, wenn man einen Zylinder mit dem gleichem Durchmesser besaß (siehe MONOALP).\\
 
-Das einfache Surfen im Internet, das Abrufen und Versenden von E-Mails, E-Banking, die Abspeicherung von Passwörtern - alle diese Dinge werden mithilfe von kryptographischen Verfahren sichergestellt. Ohne es zu bemerken, verwenden und verlassen sich milliarden von Menschen auf solche Verfahren.
+Die Kryptologie ist heute ein sehr wichtiger Bestandteil in der Informationstechnik und wird auch in Zukunft eine sehr wichtige Rolle spielen. Im heutigen normale Alltag sind wir fast immer auf kryptographische Systeme angewiesen: Das einfache Surfen im Internet, das Abrufen und Versenden von E-Mails, E-Banking, die Abspeicherung von Passwörtern, das Telefonieren - alle diese Dinge werden mithilfe von kryptographischen Verfahren vor unbefugtem Lesen oder Modifizieren verhindert. Ohne es zu bemerken oder gar davon Bescheid zu wissen, verwenden und verlassen sich Milliarden von Menschen auf solche Sytemen.
+
+
+\subsection{Grundbegriffe der Kryptographie}
+
+Um die folgenden Kapitel verstehen zu können, müssen die Grundbegriffe der Kryptologie erst definiert werden. In dieser Arbeit werden folgende Begriffe deklariert:
+
+\begin{itemize}
+\item \textbf{Cipher}: Der Cipher ist der mathemathische Algorithmus, auf der das kryptographische System basiert. Diese mathematischen Operationen werden Kaptitel XX näher erläutert.
+\item \textbf{Schlüssel / Key}: Der Schlüssel ist eine Information, die das kryptographische System für die Manipulation der Daten benötigt.  Das Ausgangsergebnis der Manipulation der Informationen hängt vom Schlüssel ab.
+\item \textbf{Kollisionen}: Wenn ein kryptographisches System bei zwei verschiedenen Schlüssel die gleiche Manipulation vollzieht, spricht man von einer Kollision. Kollisionen sind bei der Entwicklung von Systemen zu vermeiden, da dies eine schwäche des Systeme sein kann.
+\item \textbf{Plaintext}: Der Plaintext beinhaltet die lesbaren Informationen. Diese Informationen gilt es zu schützten.
+\item \textbf{Ciphertext}: Der Ciphertext ist die nicht-lesbare Information, die die lesbare Information versteckt hält.
+\item \textbf{Encrypt / Verschlüsselung}: Mit der Verschlüsselung wird die Manipulation der lesbaren Informationen zu nicht-lesbaren Informationen bezeichnet. Je nach Verschlüsselungsverfahren wird ein Schlüssel für diesen Vorgang benötigt.
+\item \textbf{Decrypt / Entschlüsselung}: Dieser Vorgang bezeichnet die Wiederherstellung des Klartextes aus dem Ciphertext. Dieser Vorgang benötigt auch einen Schlüssel.
+\end{itemize}
 
 \section{Kryptographie}
 
-Mit Kryptographie ist die Entwicklung von kryptografischen Systemen gemeint. Diese Systeme sind mathematische Verfahren die Informationen manipulieren. Die Manipulation der Informationen hängt vom gewählten Schlüssel ab.
-
-Der 'Cipher' ist der Verschlüsselungs-Algorithmus (AUF DIE GRUNDBEGRIFFE EINGEHEN + BILD) 
+Mit Kryptographie ist die Entwicklung von kryptografischen Systemen gemeint. Diese Systeme nutzten mathematische Verfahren, um Informationen zu manipulieren. 
 
 Die Sicherheit eines kryptographischen Systems darf nicht von der Geheimhaltung des Algorithmus abhängen. Nur die Geheimhaltung der Eingangsgrößen des Algorithmus soll die Sicherheit gewehrleisten. \textbf{Security through obscurity} (= Sicherheit durch Obskurität) ist einer der wichtigsten Leitgedanken für kryptographische Systeme nach dem Kerckhoffs' Prinzip (oder Kerckhoffs' Maxime). Das Kerckhoffs' Prinzip definiert weiter wichtige Grundsätze, die ein modernes kryptographisches System erfüllen sollte. (vgl. Wikipedia - Kerckhoffs' Prinzip)\\\\
 
@@ -1228,17 +1241,31 @@ SHA steht für \textbf{Seucre-Hash-Algorithm} und sind mehrere standarisierte Ha
 
 \part{Programmrealisierung}
 
-\chapter{JobSystem von Porcic Alin und Ranalter Daniel}
+\chapter{Schnittstellen}
 
-Für das Management der Netzwerkgeräte und Netzwerkknoten ist das JobSystem zuständig. Das JobSystem verfügt über einen Zeitplaner, der entscheidet wann eine Netzwerkaufgabe gestartet werden soll.
+\subsection{GUI (Manpreet Singh)}
 
-\section{Netzwerkknoten (=Nodes)}
 
-Netzwerkknoten sind Netzwerkgeräte, die als Ziel für bestimmte Netzwerkaufgaben definiert sind.
+\subsection{CLI (Alin Porcic)}
+\lfoot{Alin Porcic}
 
-\section{Netzwerkaufgaben (=Jobs)}
+Beim Starten des Programmes mit dem Argument "-cli", wird die integrierte CLI gestartet, die für die Verwendung des Programmes verwendet werden kann.
 
-Netzwerkaufgaben können an Netzwerkknoten drangehängt werden. Wenn eine bestimmte Netzwerkaufgabe ausgeführt wird, wird die Operation auf den Netzwerkknoten ausgeführt.
+\subsection{CLI-Server und CLI-Client (Alin Porcic)}
+\lfoot{Alin Porcic}
+
+Um den CLI-Server zu starten wird das Argument "-cliserver" beim Start benötigt. Nach dem Starten des Servers ist es möglich, sich mit dem CLI-Client auf den Server zu verbinden. Nach der Verbindung mit dem Server kann die CLI wie die ganz gewöhnliche CLI genutzt werden.
+
+\chapter{Konfiguration (Alin Porcic)}
+\lfoot{Alin Porcic}
+
+Die Konfiguration des Programmes erfolgt über eine Konfigurationsdatei, damit das Programm auf Linux und Windows unverändert verwendet werden kann. Falls keine Konfiguration verfügbar ist, wird eine neue Konfiguration mit den Standardwerten im Vereichnis 'data' unter dem Namen 'mad.conf' erstellt. Diese Datei  beinhaltet einen JSON-String, der im Klartext die Konfiguration enthaltet. Die Konfigurtion kann mit einem Editor verändert werden.
+
+\chapter{JobSystem (Alin Porcic \& Daniel Ranalter)}
+\lfoot{Alin Porcic}
+
+Das Starten der Überwachungsoperationen und die Verarbeitung der Resultate ist die Aufgabe des JobSystems. Das JobSystem behält die Zeit im Auge und startet die zugewiesenen Aufgaben zum richtigen Zeitpunkt. Das JobSystem hat die Möglichkeit Konfigurationen zu laden und zu speichern.\\
+Netzwerkgeräte werden auch als Netzwerkknoten bezeichnet. Diese Knoten definieren ein bestimmtes Ziel in einem Netzwerk und sind mithilfe einer GUID eindeutig nachweisbar. Auf jeden Netzwerkknoten können Netzwerkaufgaben hinzugefügt werden. Jede dieser Netzwerkaufgaben definieren einen oder mehrere Zeitpunkte oder ein Zeitintervall bei dem die Aufgabe ausgeführt werden soll. Die Resultate dieser Operationen wird anschließend in die Datenbank des Programmes geschrieben.
 
 \subsection{Jobtypen}
 
@@ -1250,6 +1277,7 @@ Das JobSystem unterscheidet die Jobs in verschiedene Typen. Jeder Typ erledigt e
 
 \subsubsection{Port} Diesr Job baut eine TCP-Verbindung zu den jeweiligen Netzwerkknoten auf.
 
+\newpage
 \lfoot{Ranalter Daniel}%--------------------------------------------------------------------------------------------
 
 \subsubsection{Traffic auslesen über SNMP}
@@ -1362,6 +1390,8 @@ Die Logfile selbst hat das .txt Format, damit man unter Windows leichter damit a
 \part{User Manual von Procic Alin}
 
 \chapter{CLI}
+
+(BILD DER CLI)
 
 Der Syntax der CLI-Eingagben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert. Kann die CLI die Eingabe nicht interpretieren, so gibt sie eine passende Fehlermeldung aus.\\\\
 Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorische Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden, müssen aber nicht. Die Anordnung der Parameter und Argumente ist für die CLI irrelevant.\\\\
@@ -1520,7 +1550,7 @@ Dieser Befehl entfernt Memos aus der Datenbank.
 
 \section{Anwendungsbeispiele}
 
-\subsection{Netzwerkknoten und Netzwerkaufgaben}
+\subsection{Netzwerkknoten / Netzwerkaufgaben definieren, abspeichern und ausführen}
 
 Es soll manuell ein Netzwerkknoten hinzugefügt werden. Der Netzwerkknoten sieht wie folgt aus:
 
@@ -1551,6 +1581,17 @@ Das wird mithilfe der folgenden Befehle erreicht:
 \end{itemize}
 
 Das Argument des Parameters '-id' gibt die ID des Netzwerkknoten an, an dem die Aufgabe drangehängt werden soll. Der Parameter '-t' definiert wann diese Aufgabe ausgeführt werden soll. Port-Scans und HTTP-Anfragen können auch einen Port über den Parameter '-p' definieren.\\\\
+
+Um die derzeitige Konfiguration abzuspeicher gibt es zwei Möglichkeiten:
+
+\begin{itemize}
+\item Die Netzwerkknoten einzeln abspeichern.
+\item Alle Netzwerkknoten abspeichern.
+\end{itemize}
+
+Da die jetztige Konfiguration nur einen Netzwerkknoten hat, kann der Netzwerkknoten einzeln abgespeichert werden. Dies geschieht mit dem 'node save' Befehl:\\\\
+\textbf{node save -id 0 -file node.json}\\\\
+Der Paramter 'id' gibt den Netzwerkknoten an, der gespeichert werden soll und 'file' gibt den Dateinamen an. Bei einem Neustart des Programmes kann die Konfiguration des Nodes mithilfe des Befehls 'node load -file node.json' geladen werden.\\\\
 Zurzeit ist der Zeitplaner des JobSystems ausgeschalten, der Netzwerkknoten ist 'inaktive' und die drei Aufgaben ebenfalls. Damit die Aufgaben ausgeführt werden können muss der Zeitplaner aktiviert werden. Das geschieht durch den folgenden Befehl:\\\\
 \textbf{schedule start}\\\\
 Nun läuft der Zeitplaner, jedoch ignoriert er den Netzwerkknoten und alle darunterliegenden Aufgaben, da der Netzwerkknoten inaktive ist. Um einen Netzwerkknoten zu aktivieren reicht die Ausführung des folgenen Befehls:\\\\
@@ -1562,6 +1603,8 @@ Damit der Zeitplaner die Aufgaben des jeweiligen Netzwerkknoten zur richtigen Ze
 Der Parameter '-id' gibt nicht den Knoten an, sondern die Identifikationszahl der Aufgabe an. Jeder Knoten hat eine ID, aber auch jede Aufgabe hat eine eindeutige Zuweisung. Nun werden die Aufgaben zu den definierten Zeitpunkten ausgeführt und die Ergebnisse der Ausführung werden in die Datenbank geschrieben. Mit diesem Befehl können die Aufgaben angesehen werden: \\\\
 \textbf{js jobs}\\\\
 Nach der Ausführung wird eine Tabelle mit den Aufgaben ausgegeben.
+
+\subsection{Zusammenfassung der Datenbank}
 
 \chapter{CLIClient}
 
