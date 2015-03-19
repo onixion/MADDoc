@@ -871,7 +871,16 @@ lorem ipsum
 \lfoot{Alin Porcic}
 \subsection{Allgemeines}
 
-CLI steht für 'Command Line Interface' (text-basierende Schnittstelle) und darunter versteht man Schnittstellen, die die Eingabe eines Nutzers in Form von Text interpretiert und die jeweiligen Programme mit den eingegebenen Befehle starten. Ein CLI-Interpreter ist ein Programm, dass die Eingabe interpretiert. Bekannte CLI-Interpreter sind zum Beispiel 'bash' und die 'Windows PowerShell'.
+CLI steht für 'Command Line Interface' (text-basierende Schnittstelle) und darunter versteht man Schnittstellen, die für die Interaktion mit dem Betriebssystem, zeilenweise Befehle in Form von Text einliest, interpretiert und ausführt. Programme, die diese Schnittstellen anbieten, werden CLI-Interpreter genannt, da sie die Eingabe interpretieren. Auch der Begriff 'Shell' hat sich speziell im Unix-Bereich der Betriebssystem manifestiert und gibt es heute in allen Formen und Farben. Bekannte CLI-Interpreter sind zum Beispiel 'sh', 'bash' und 'Windows PowerShell'.\\
+
+\begin{center}
+\includegraphics[scale=0.5]{img/cli_pic.png}\\
+Xfce-Terminal: ein CLI-Interpreter.
+\end{center}
+
+Grundsätzlich wurden die textbasierenden Schnittstellen im Desktop-Bereich vollständig durch die graphischen Schnittstellen ersetzt, doch vor allem im Netzwerkbereich (z.B. Server) sind textbasierde Schnittstellen durch ihre enorme Flexibilität und ihren minimalen Ressourcenverbrauch immer noch häufig anzutreffen. Die primäre Interaktion mit Unix-basierende Betriebssyteme erfolgt außsschließlich über textbasierende Schnittstellen und ist fester Bestandteil dieser Systeme, graphische Oberflächen sind meist nur optionale Zusatz-Software.\\
+
+
 
 \subsection{Geschichte}
 
@@ -880,11 +889,13 @@ Die gewöhnlichen Benutzer bevorzugen die grafischen Schnittstellen als die text
 
 \subsection{Vor- und Nachteile}
 
-In CLI-Anwendungen lassen sich viel mehr Einstellungen vornehmen als bei grafischen Anwendungen, ein gutes Beispiel hierführ ist der C/C++ Compiler 'gcc'. Eine grafische Oberfläche für die Benutztung dieses Compilers müsste enorm viele Einstellungen und Textfelder bieten, um den Compiler bis ins Detail zu konfigurieren. Da die Umsetzung einer Oberfläche für den 'gcc' sehr schwierig und auch sinnlos ist, werden in modernen IDEs einfach eine Konsole eingebaut, die für die Verwendung des Compilers verwendet werden kann.\\
+In CLI-Anwendungen lassen sich viel mehr Einstellungen vornehmen als bei grafischen Anwendungen, ein gutes Beispiel hierführ ist der C/C++ Compiler 'gcc'. Eine grafische Oberfläche für die Benutztung dieses Compilers müsste enorm viele Einstellungen und Textfelder bieten, um die Möglichkeit zu bieten, den Compiler bis ins Detail zu konfigurieren. Da die Umsetzung einer Oberfläche für den 'gcc' sehr schwierig und auch sinnlos ist, werden in modernen IDEs einfach ein CLI-Interpreter eingebaut, die für die Verwendung des Compilers verwendet werden kann.\\
 
-Der sicherlich größte Nachteil der CLI ist das der Benutzer die Befehle, die Parameter und die Argumente kennen muss. In seltenen Fällen müssen sogar die Parameter in der richtigen Reihenfolge eingeben werden. Multimedia-Daten lassen sich nur schwer über die Konsole verwenden, auch das Surfen im Internet erweist sich als schwierig.\\
+CLI sind sehr Ressourcenfreundlich und können daher auf sehr leistungsschwachen Systemen einwandfrei verwendet werden. Außerdem ist es mit Protokollen, wie SSH möglich, sich über ein Netzwerk auf einen CLI-Server zu verbinden und mit einem entfernten Computer zu interagieren. Dies ist auch bei den graphischen Oberflächen möglich (z.B. RDP, ...).\\
 
 Sehr erfahrene Nutzer arbeiten ausschließlich über die textbasierende Schnittstelle, da sie direkte Kontrolle über alle Funktionen haben. Die Ausgabe der Fehlermeldungen sind sehr übersichtlich und erfahrende Nutzer können effizienter arbeiten.
+
+Der sicherlich größte Nachteil der CLI ist das der Benutzer die Befehle, die Parameter und die Argumente kennen muss. In seltenen Fällen müssen sogar die Parameter in der richtigen Reihenfolge eingeben werden. Multimedia-Daten lassen sich nur schwer über die Konsole verwenden, auch das Surfen im Internet erweist sich als schwierig.\\
 
 \lfoot{Stojanovi\'{c} Marko}
 \chapter{Datenbank von Stojanovi\'{c} Marko}
@@ -1388,25 +1399,49 @@ Außerdem kann die Stufe ab welcher geloggt werden soll bestimmt werden. Per def
 
 Die Logfile selbst hat das .txt Format, damit man unter Windows leichter damit arbeiten kann und heißt log.txt. Der Name kann jedoch geändert werden um Verwirrung mit anderen Log Datein zu vermeiden. 
 
-\part{User Manual von Procic Alin}
-
+\part{User Manual (Alin Porcic)}
+\lfoot{Alin Porcic}
 \chapter{CLI}
 
-(BILD DER CLI)
+Wird das Programm mit dem Argument '-cli' gestartet, so wird statt der graphischen Oberfälche die integrierte CLI gestartet. Diese gibt am Start eine kurze Zusammenfassung der Versionen und Uhrzeiten aus. Nun können Befehle eingegeben werden. (Hinweis: Die Eingabe kann nicht über mehrere Zeilen gehen.)\\
 
-Der Syntax der CLI-Eingagben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert. Kann die CLI die Eingabe nicht interpretieren, so gibt sie eine passende Fehlermeldung aus.\\\\
-Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorische Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden, müssen aber nicht. Die Anordnung der Parameter und Argumente ist für die CLI irrelevant.\\\\
+\begin{center}
+\includegraphics[scale=0.5]{img/cli_mad.png}\\
+Nach dem Start der MAD-CLI.
+\end{center}
+
+Der Syntax der CLI-Eingagben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert. Kann die CLI die Eingabe nicht interpretieren, so gibt sie eine passende Fehlermeldung aus.\\
+
+Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorische Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden, müssen aber nicht. Die Anordnung der Parameter und Argumente ist für die CLI irrelevant.\\
+
 Mit der Linken- und Rechten-Pfeiltaste kann die Position des Cursors im Eingabefeld verändert werden. Die CLI führt eine Liste der zuletzt eingegeben Befehle. Diese können mit der Oben- und Unten-Pfeiltaste angezeigt werden.
 
 \section{Grundlegende Befehle}
 
 \subsubsection{help}
 
-Durch den Aufruf diese Befehls ohne Parameter, werden alle von der CLI bekannten Befehle aufgelistet. Jeder Befehl hat eine eindeutige Identifikationszahl. Mit dem Parameter \textbf{-id} können Informationen zu einem bestimmten Befehl angefragt werden. Der \textbf{-id} Parameter benötigt die Indentifikationszahl des Befehls als Argument.
+Durch den Aufruf diese Befehls ohne Parameter, werden alle von der CLI bekannten Befehle aufgelistet. Jeder Befehl hat eine eindeutige Identifikationszahl.\\
+
+\begin{center}
+\includegraphics[scale=0.5]{img/cli_help.png}\\
+Ausgabe des Help-Befehls
+\end{center}
+
+Mit dem Parameter \textbf{-id} können Informationen zu einem bestimmten Befehl angefragt werden. Der \textbf{-id} Parameter benötigt die Indentifikationszahl des Befehls als Argument.
+
+\begin{center}
+\includegraphics[scale=0.5]{img/cli_help_id.png}\\
+Informationen zu einem speziellen Befehl.
+\end{center}
 
 \subsubsection{colortest}
 
 Dieser Befehl gibt alle möglichen Farben auf der jeweiligen Konsole aus. Viele Konsolen unterstützen nicht alle Farben, deshalb kann mit diesem Befehl herausgefunden werden, wie bestimmte Farben dargestellt werden.
+
+\begin{center}
+\includegraphics[scale=0.5]{img/cli_colortest.png}\\
+Ausgabe der verschiedenen Farben.
+\end{center}
 
 \subsubsection{info}
 
@@ -1606,6 +1641,31 @@ Der Parameter '-id' gibt nicht den Knoten an, sondern die Identifikationszahl de
 Nach der Ausführung wird eine Tabelle mit den Aufgaben ausgegeben.
 
 \subsection{Zusammenfassung der Datenbank}
+
+Nachdem einige Daten durch die Ausführung der Netzwerkaufgaben gesammelt wurdem, besteht die Möglichkeit, diese Zusammenzufassen. Bei der Zusammenfassung werden die Daten auf Mittelwerte, Maximal- und Minimalwerte zusammengefasst. Wie viele Datensätze zu einem neuen Datensatz zusammengefasst werden, hängt von der Blockgröße ab (SIEHT STOJ).\\\\
+Damit die Daten zusmmaengefasst werden können müssen erst ein paar Daten gesammelt werden:
+
+(BILD)
+
+Nun müssen drei Dinge definiert werden:
+
+\begin{itemize}
+\item Start-Datum: Alle Ausführungen, die nach diesem Datum gestartet wurden, werden zusammengefasst.
+\item End-Datum: Alle Ausführungen, die vor diesem Datum gestartet wurden, werden zusammengefasst.
+\item Blockgröße: Die Blockgröße definiert wie groß der Zeitraum für einen zusammengefassten Datensatz sein soll. Wenn die Blockgröße, nehmen wir an, eine Stunde beträgt, dann wird der gesamte Zeitbereich der Zusammenfassung in eine Stunden-Blöcke unterteilt. Jeder dieser Blöcke wird in einem neuen Datensatz zusammengefasst.
+\end{itemize}
+
+Um eine Zusammenfassung zu starten, muss folgender Befehl eingegeben werden (Hinweis: Jeder Zeitbereich kann nur einmal in der Summary-Table zusammengefasst werden, d.h. wenn man versucht eine Zusammenfassung über den gleichen Zeitbereich zu machen, wird eine Fehlermeldung ausgegeben, da die Zusammenfassung von gleichen Zeitbereichen nicht sinnvoll ist):
+
+\textbf{db summary -s 10.01.2015 -e 11.01.2015 -b 5h}
+
+(BILD)
+
+Nun werden alle Ausführung, die zwischen dem 10.01.2015 undd dem 11.01.2015 gestartet wurden, zusammengefasst. Der Zeitbereich wird in fünf Stunden Blöcke unterteilt und jeder Block wird in einem Datensatz zusammengefasst. Nun kann die Summary-Table betrachtet werden:\\
+
+\textbf{db summmay}
+
+(BILD)
 
 \chapter{CLIClient}
 
