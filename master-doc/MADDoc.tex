@@ -1300,25 +1300,47 @@ SHA steht für \textbf{Seucre-Hash-Algorithm} und sind mehrere standarisierte Ha
 \section{CLI (Alin Porcic)}
 \lfoot{Alin Porcic}
 
-Beim Starten des Programmes mit dem Argument '-cli', wird die integrierte CLI gestartet, die für die Verwendung des Programmes verwendet werden kann.\\
+Beim Starten des Programmes mit dem Argument '-cli', wird die integrierte CLI gestartet, die für die Verwendung des Programmes verwendet werden kann. Der Syntax der CLI-Eingagben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorische Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden, müssen aber nicht. Die Anordnung der Parameter und Argumente ist für die CLI irrelevant.\\
 
-Der Syntax der CLI-Eingagben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert. Kann die CLI die Eingabe nicht interpretieren, so gibt sie eine passende Fehlermeldung aus.\\
+(BILD)
 
-Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorische Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden, müssen aber nicht. Die Anordnung der Parameter und Argumente ist für die CLI irrelevant.\\
+Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert. Ist die Interpretation der Eingabe nicht möglich, da zum Beispiel ein Paramter mehrfach definiert wurde, wird eine Fehlermeldung in roter Farbe ausgegeben. Einige Fehlermeldungen, die ausgegebe weden können, sind zum Beispiel:
+
+\begin{itemize}
+\item 'Command not known': Befehl ist nicht definiert und kann nicht ausgeführt werden.
+\item 'Parameter not known': der Befehl existiert, doch der angeführte Paramter für diesen Befehl existiert nicht.
+\item 'Argument could not be parsed': Das Eingegeben Argument konnte nicht in ein Object umgewandelt werden.
+\end{itemize}
+
+(BILD)
+
+Jeder Befehl ist selbst für die korrekte Ausgabe von eigene Fehlermeldungen zuständig.
+
+(BILD)
 
 Mit der Linken- und Rechten-Pfeiltaste kann die Position des Cursors im Eingabefeld verändert werden. Die CLI führt eine Liste der zuletzt eingegeben Befehle. Diese können mit der Oben- und Unten-Pfeiltaste angezeigt werden.
 
 \section{CLI-Server und CLI-Client (Alin Porcic)}
 \lfoot{Alin Porcic}
 
-Um den CLI-Server zu starten wird das Argument '-cliserver' beim Start benötigt. Nach dem Starten des Servers ist es möglich, sich mit dem CLI-Client auf den Server zu verbinden. Nach der Verbindung mit dem Server kann die CLI wie die ganz gewöhnliche CLI genutzt werden.\\
-
-Für die verschlüsselte Verbindung wird auf AES gesetzt. Es gibt keinen Schlüsselaustausch, dies muss selbst gelöst werden.\\
+Um den CLI-Server zu starten wird das Argument '-cliserver' beim Start benötigt. Nach dem Starten des Servers ist es möglich, sich mit dem CLI-Client auf den Server zu verbinden. Nach der Verbindung mit dem Server kann die CLI wie die ganz gewöhnliche CLI genutzt werden. Die Eingaben und Ausgaben, die zwischen Server und Client übertragen werden, werden mit AES verschlüsselt. Da es keinen Schlüsselaustausch gibt, muss der AES-Schlüssel über einen anderen Informationskanal übertragen werden. Das AES-Passwort wird in der Konfigurationsdatei im Klartext abgespeichert und wird beim Start gelesen.
 
 \chapter{Konfiguration (Alin Porcic)}
 \lfoot{Alin Porcic}
 
-Die Konfiguration des Programmes erfolgt über eine Konfigurationsdatei, damit das Programm auf Linux und Windows unverändert verwendet werden kann. Falls keine Konfiguration verfügbar ist, wird eine neue Konfiguration mit den Standardwerten im Vereichnis 'data' unter dem Namen 'mad.conf' erstellt. Diese Datei  beinhaltet einen JSON-String, der im Klartext die Konfiguration enthaltet. Die Konfigurtion kann mit einem Editor verändert werden.
+Die Konfiguration des Programmes erfolgt über eine Konfigurationsdatei, damit das Programm auf Linux und Windows unverändert verwendet werden kann. Falls keine Konfiguration verfügbar ist, wird eine neue Konfiguration mit den Standardwerten im Vereichnis 'data' unter dem Namen 'mad.conf' erstellt. Diese Datei  beinhaltet einen JSON-String, der die gespeicherten Felder beinhaltet. Die Änderung der Konfiguration kann mithilfe eines Texteditors durchgeführt werden. Einige Felder der Konfigurationsdatei:
+
+\begin{itemize}
+\item \textbf{LOG\_FILE\_DIRECTORY}: Der Pfad in der die Log-Datei hingeschrieben werden soll.
+\item \textbf{SERVER\_HEADER}: Name des CLI-Servers.
+\item \textbf{AES\_PASS}: Das AES-Passwort für die korrekte Authentifikation von Clients.
+\item \textbf{SMTP\_SERVER}: SMTP-Server Adresse.
+\item \textbf{SMTP\_PORT}: Port des SMTP-Servers.
+\item \textbf{SMTP\_USER}: Nutzername am SMTP-Server.
+\item \textbf{SMPT\_PASS}: Passwort des Accounts.
+\item \textbf{MAIL\_DEFAULT}: Globale Mail-Adressen, die bei Regelbruch, anzuschreiben sind.
+\item ...
+\end{itemize}
 
 \begin{center}
 \includegraphics[scale=0.6]{img/madconf.png}\\
@@ -1331,15 +1353,26 @@ Eine mögliche Konfiguration.
 Das Starten der Überwachungsoperationen und die Verarbeitung der Resultate ist die Aufgabe des JobSystems. Das JobSystem behält die Zeit im Auge und startet die zugewiesenen Aufgaben zum richtigen Zeitpunkt. Das JobSystem hat die Möglichkeit Konfigurationen zu laden und zu speichern.\\
 Netzwerkgeräte werden auch als Netzwerkknoten bezeichnet. Diese Knoten definieren ein bestimmtes Ziel in einem Netzwerk und sind mithilfe einer GUID eindeutig nachweisbar. Auf jeden Netzwerkknoten können Netzwerkaufgaben hinzugefügt werden. Jede dieser Netzwerkaufgaben definieren einen oder mehrere Zeitpunkte oder ein Zeitintervall bei dem die Aufgabe ausgeführt werden soll. Die Resultate dieser Operationen wird anschließend in die Datenbank des Programmes geschrieben.
 
-\subsection{Jobtypen}
+\section{Funktionsweise}
 
-Das JobSystem unterscheidet die Jobs in verschiedene Typen. Jeder Typ erledigt eine ganz spezielle Aufgabe im Netzwerk und kann daher verschiedene Resultate erbringen.
+Das JobSystem besitzt einen Zeitplaner, der ein- und ausgeschalten werden kann. Dieser Zeitplaner behält die Netzwerkknoten und Aufgaben im Auge und ermittelt, wann eine Aufgabe bereit für die Ausführung ist. Falls ein Netzwerkknoten 'inaktiv' ist, wird dieser vom Zeitplaner ignoriert. Auch Netzwerkaufgaben können 'inaktiv' sein und werden dann vom Zeitplaner ebenfalls ignoriert. Wenn eine Aufgabe für die Ausführung bereit ist, startet der Zeitplaner den Job in einem eigenen Thread aus dem internen Threadpool. Nach der Ausführung der Jobs, schreibt der Zeitplaner die Resultate der Operation in die Datenbank (in die JobTable). Während der Ausführung der Aufgabe kann der Netzwerkknoten nicht entfernt werden. Die Änderung der IP-Adresse der Netzwerkknotens während der Ausführung hat keinen Einfluss auf die Ausführung. Erst in der neuen Ausführung wird die neue IP-Adresse für das Ziel verwendet.
 
-\subsubsection{Ping} Dieser Job führt einen Ping-Anfrage auf den jeweiligen Netzwerkknoten aus.
+\section{Jobtypen}
 
-\subsubsection{HTTP} Dieser Job führt eine HTTP-Anfrage auf den jeweiligen Netzwerkknoten aus.
+Das JobSystem unterscheidet die Jobs in verschiedene Typen. Jeder Typ erledigt eine ganz spezielle Aufgabe im Netzwerk und kann daher verschiedene Resultate erbringen. Jeder Job bekommt eine IP-Adresse und kann die notwendige Operation ausführen. Die Zeitmessung und das Schreiben in die Datenbank wird vom JobSystem übernommen und muss nicht von jedem Job selber erledigt werden.
 
-\subsubsection{Port} Diesr Job baut eine TCP-Verbindung zu den jeweiligen Netzwerkknoten auf.
+Jeder Job muss folgende Eigenschaften definieren:
+\begin{itemize}
+\item \textbf{Name}: Jeder Job besitzt einen Namen, damit der Job indentifiziert werden kann.
+\item \textbf{Node-ID}: Jeder Job muss einen Knoten definieren, damit der Job ein Ziel hat.
+\item \textbf{Zeit}: Jeder Job muss eine Zeit definieren, in der er ausgeführt werden soll (Zeitintervall oder mehrere Zeitpunkte).
+\end{itemize}
+
+\subsection{Ping} Dieser Job führt einen Ping-Anfrage auf den jeweiligen Netzwerkknoten aus.
+
+\subsection{HTTP} Die Aufgabe dieses Jobs ist das Senden einer HTTP-Anfrage und das Empfangen der Anwort. Für diesen Job kann eine Port-Nummer definiert werden, falls keine definiert wird, wird 80 als Port-Nummer genommen.
+
+\subsection{Port} Die Ausführung dieses Jobs bewirkt einen Verbindung auf einen Dienst (Dienst muss auf TCP aufbauen). Nach dem 'Drei-Wege-Handschlag' wird die Verbindung wieder abgebaut. Dieser Job kann nur herausfinden, ob ein Dienst erreichbar ist, nicht ob dieser die Anfragen auch beantwortet.
 
 \newpage
 \lfoot{Ranalter Daniel}%--------------------------------------------------------------------------------------------
@@ -1384,10 +1417,6 @@ Da SNMP ein so sensibles Protokoll ist, gibt es auch die Möglichkeit zu überpr
 
 \paragraph{FTP}
 Bei dem FTP Check wird im Grunde einfach nur das momentane Arbeitsverzeichnis abgefragt. Es ist zu beachten dass ein passwort und ein username benötigt werden. 
-
-\section{Funktionsweise}
-
-Das JobSystem besitzt einen Zeitplaner, der ein- und ausgeschalten werden kann. Dieser Zeitplaner behält die Netzwerkknoten und Aufgaben im Auge und ermittelt, wann eine Aufgabe bereit für die Ausführung ist. Falls ein Netzwerkknoten 'inaktiv' ist, wird dieser vom Zeitplaner ignoriert. Auch Netzwerkaufgaben können 'inaktiv' sein und werden dann vom Zeitplaner ebenfalls ignoriert. Wenn eine Aufgabe für die Ausführung bereit ist, startet der Zeitplaner den Job in einem eigenen Thread aus dem internen Threadpool. Nach der Ausführung der Jobs, schreibt der Zeitplaner die Resultate der Operation in die Datenbank (in die JobTable). Während der Ausführung der Aufgabe kann der Netzwerkknoten nicht entfernt werden. Die Änderung der IP-Adresse der Netzwerkknotens während der Ausführung hat keinen Einfluss auf die Ausführung. Erst in der neuen Ausführung wird die neue IP-Adresse für das Ziel verwendet.
 
 \lfoot{Ranalter Daniel}
 \chapter{Devicefinder von Ranalter Daniel}
@@ -1461,8 +1490,6 @@ Wird das Programm mit dem Argument '-cli' gestartet, so wird statt der graphisch
 \includegraphics[scale=0.5]{img/cli_mad.png}\\
 Nach dem Start der MAD-CLI.
 \end{center}
-
-
 
 \section{Grundlegende Befehle}
 
@@ -1639,9 +1666,9 @@ Dieser Befehl entfernt Memos aus der Datenbank.
 Es soll manuell ein Netzwerkknoten hinzugefügt werden. Der Netzwerkknoten sieht wie folgt aus:
 
 \begin{itemize}
-  \item Hostname = MeinPC
-  \item IP-Adresse = 10.0.0.120
-  \item MAC-Adresse = FF:00:00:00:11
+  \item Hostname: MeinPC
+  \item IP-Adresse: 10.0.0.120
+  \item MAC-Adresse: FF:00:00:00:11
 \end{itemize}
 
 Um einen Netzwerkknoten hinzuzufügen muss der Befehl 'node add' ausgeführt werden. Dieser Befehl besitzt drei obligatorische Parameter mit jeweils einem Argument. Die Eingabe sieht wie folgt aus:\\\\
@@ -1656,15 +1683,13 @@ Nach der Bestätigung mit der ENTER-Taste wird der Knoten erstellt und in das Jo
 \item HTTP-Anfrage auf Port 80 jeden Monat am ersten Tag um 20:00
 \end{itemize}
 
-Das wird mithilfe der folgenden Befehle erreicht:
+Das wird mithilfe der folgenden Befehle erreicht:\\\\
 
-\begin{itemize}
-\item \textbf{job add ping -n MeinPing -id 0 -t 10000}
-\item \textbf{job add port -n MeinPortScan -id 0 -t 19:30 -p 443}
-\item \textbf{job add http -n MeinHttp -id 0 -t 1;20:00 -p 80}
-\end{itemize}
+\textbf{job add ping -n MeinPing -id 0 -t 10000}\\
+\textbf{job add port -n MeinPortScan -id 0 -t 19:30 -p 443}\\
+\textbf{job add http -n MeinHttp -id 0 -t 1;20:00 -p 80}\\\\
 
-Das Argument des Parameters '-id' gibt die ID des Netzwerkknoten an, an dem die Aufgabe drangehängt werden soll. Der Parameter '-t' definiert wann diese Aufgabe ausgeführt werden soll. Port-Scans und HTTP-Anfragen können auch einen Port über den Parameter '-p' definieren.\\\\
+Das Argument des Parameters '-id' gibt die ID des Netzwerkknoten an, an dem die Aufgabe drangehängt werden soll. Der Parameter '-t' definiert, wann diese Aufgabe ausgeführt werden soll. Port-Scans und HTTP-Anfragen können auch einen Port über den Parameter '-p' definieren.\\\\
 
 Um die derzeitige Konfiguration abzuspeicher gibt es zwei Möglichkeiten:
 
@@ -1709,7 +1734,7 @@ Um eine Zusammenfassung zu starten, muss folgender Befehl eingegeben werden (Hin
 
 (BILD)
 
-Nun werden alle Ausführung, die zwischen dem 10.01.2015 undd dem 11.01.2015 gestartet wurden, zusammengefasst. Der Zeitbereich wird in fünf Stunden Blöcke unterteilt und jeder Block wird in einem Datensatz zusammengefasst. Nun kann die Summary-Table betrachtet werden:\\
+Nun werden alle Ausführung von allen Jobs, die zwischen dem 10.01.2015 und dem 11.01.2015 gestartet wurden, zusammengefasst. Der Zeitbereich wird in fünf Stunden Blöcke unterteilt und jeder Block wird in einem Datensatz zusammengefasst. Nun kann die Summary-Table betrachtet werden:\\
 
 \textbf{db summmay}
 
@@ -1718,7 +1743,9 @@ Nun werden alle Ausführung, die zwischen dem 10.01.2015 undd dem 11.01.2015 ges
 \chapter{CLIClient}
 
 Der CLI-Client erstellt bei der ersten Ausführung eine Konfigurationsdatei im gleichen Ordner wie die ausführbare Datei. Dort kann der Zieladresse und Authentifikations-Passwort eingegeben werden. Sobald die Verbindung steht, kann die CLI ganz normal verwendet werden.\\\\
-Warnung: es können sich mehrere Clients gleichzeitig anmelden. Das Programm müsste in der Theorie trotzdem funktionieren, jedoch wurde dieses Szenario nicht gründlich genug getestet und ist daher nicht empfohlen.
+Warnung: es können sich mehrere Clients gleichzeitig anmelden. Das Programm müsste in der Theorie trotzdem funktionieren, jedoch wurde dieses Szenario nicht gründlich genug getestet und ist daher nicht empfohlen.\\\\
+
+Die Konfigurationsdatei wird im XML-Syntax gespeichert und bei dem Start gelesen.
 
 \chapter{CLIServer}
 
