@@ -1159,11 +1159,45 @@ Die Buchstaben werden durch andere Buchstaben oder Symbole ersetzt (siehe Monoal
 
 Moderne Methoden arbeiten mit Bits und nicht mit Buchstaben, daher können alle Arten von Binärdaten ver- und entschlüssetlt werden. Diese Methoden lassen sich in zwei große Gruppen aufteilen: die symmetrischen Verschlüsselungsmethoden und die asymmetrischen Verschlüsselungsmethoden.
 
-\paragraph{Symmetrische Verschlüsselungsmethoden} Symmetrische Verschlüsselungsmethoden charakterisieren sich dadurch, dass sie für die Ver- als auch für die Entschlüsselung den gleichen Schlüssel verwenden. Diese Methoden bauen hauptsächlich auf Bitoperationen, Bit-Verknüpfungen und Substitution-Tabellen für Bitfolgen auf. Diese Methoden sind im Vergleich zu den asymmetrischen Methoden deutlich perfomanter und werden deshalb hauptsächlich für die Übertragung von größeren Daten verwendet.
-
 \paragraph{Asymmetrische Verschlüsselungsmethoden} Asymmetrische Methoden benötigen für die Ent- und Verschlüsselung verschiedene Schlüssel. Die Sicherheit dieser Methoden bauen auf diskreten mathematischen Problematiken auf (z.B. elliptische Kurve, endlichen Körpern, ...). Sie sind nicht so perfomant und werden deshalb nicht für die Übertragung von größeren Daten verwendet. Diese Methoden werden hauptsächlich für Digitale-Signaturen, Zertifikaten und Key-Exchange verwendet.
 
 \paragraph{Hashfunktionen} Hashfunktionen sind Funktionen, die einen Klartext in einen Hash wandeln kann, aber nicht mehr zurück. Dies wird oft bei der Abspeicherung von Passwörtern verwendet, aber auch bei Checksummen bei Daten oder Message-Authentication-Code. Hashfunktionen basieren auf ähnlichen Operationen wie die symmetrischen Methoden.
+
+\subsection{Verschlüsselungsverfahren}
+
+Heute teilt man die verschiedenen kryptographischen Systemen grob in zwei verschiedene Verfahren ein: die symmetrischen und asymmetrischen Verschlüsselungsvefahren.
+
+\subsubsection{Verschlüsselungsverfahren}
+
+Symmetrische Verschlüsselungsverfahren charakterisieren sich dadurch, dass bei der Ver- als auch bei der Entschlüsselung jeweils der gleiche Schlüssel verwendet wird. Diese Verfahren sind im Vergleich zu asymmetrischen Verfahren deutlich performanter und werden daher bei der Verschlüsselung von größeren Datenmengen verwendet.\\\\
+
+\begin{center}
+\includegraphics[scale=3]{img/symetrisch.png}\\
+Der symmetrische Verschlüsselungsvorgang im Netzwerk.
+\end{center}
+
+In der Abbildung XX ist der Vorgang von symmetrischen Verschlüsselungen im Netzwerk zu sehen. Bevor die Daten über das Netzwerk übertragen werden können, werden sie mithilfe des symmetrischen Verschlüsselungsverfahren verschlüsselt. Der Kommunikationspartner kann die empfangenen Daten mithilfe des gleichen Schlüssels entschlüsseln.
+
+\subsubsection{Asymmetrische Verschlüsselungsverfahren}
+
+Asymmetrische Methoden benötigen für die Ent- und Verschlüsselung verschiedene Schlüssel. Diese Schlüssel werden mit \textbf{Public-Key} (= öffentlicher Schlüssel) und \textbf{Privat-Key} (=privater Schlüssel) bezeichnet.\\\\
+
+Falls die Information mit dem Public-Key verschlüsselt wurden, ist eine Entschlüsselung nur mithilfe des Privat-Key möglich. Werden die Informationen jedoch mit dem Privat-Key verschlüsselt, ist eine Entschlüsselung nur mit dem Public-Key mehr möglich.Diese zwei Eigenschaften von asymmetrischen Verschlüsselungsverfahren können verschieden genutzt werden.\\\\
+
+Einen der beiden Schlüssel muss für die Verwendung veröffentlich werden, damit eine Kommunikation möglich ist. Welcher der beiden Schlüssel veröffentlich wird, ist irrelevant, da die zwei verschiedenen Verschlüsselungsmöglichkeiten beidseitig funktionieren. Der Schlüssel, den man veröffentlicht, wird in der Praxis als der Public-Key bezeichnet.\\
+
+Da der Öffentliche Schlüssel veröffentlicht wurde, können nun verschiedene Kommunikationspartner ihre Informationen mit ihm verschlüsseln und an den Inhaber des privaten Schlüssels senden. Nur der Inhaber des privaten Schlüssel ist imstande die Daten zu entschlüsseln.\\
+
+Die zweite Möglichkeit, die mit diesem Verfahren möglich ist, ist das der Inhaber des Privat-Key eine Nachricht mit seinem Schlüssel verschlüsselt und an alle Kommunikationspartner überträgt. Da die Kommunikationspartner die Nachricht fehlerfrei entschlüsseln können, muss der Sender im Besitz des privaten Schlüssels sein. Damit ist die Echtheit der Indentität des Kommunikationspartners sichergestellt.
+
+Für eine beidseitige Übertragen mithilfe eines asymmetrischen Verfahren werden zwei unabhängige Schlüsselpaare benötigt.
+
+
+\begin{center}
+\includegraphics[scale=3]{img/asymetrisch.png}\\
+Der symmetrische Verschlüsselungsvorgang im Netzwerk.
+\end{center}
+
 
 \section{Kryptoanalyse}
 
@@ -1225,8 +1259,6 @@ Diffie-Hellman ist ein Austauschprotkoll, welches den Austausch eines geheimen S
 RAS (Rivest-Shamir-Adleman) wird für Verschlüsselungen und digitale Signaturen verwendet.
 
 \paragraph{ElGamal}
-
-
 
 \subsection{Hybride Verschlüsselungsverfahren}
 
