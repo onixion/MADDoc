@@ -871,7 +871,7 @@ lorem ipsum
 \lfoot{Alin Porcic}
 \subsection{Allgemeines}
 
-CLI steht für 'Command Line Interface' (=text-basierende Schnittstelle) und darunter versteht man Schnittstellen, die für die Interaktion mit dem Betriebssystem zeilenweise Befehle in Form von Text einliest, interpretiert und anschließend ausführt. Programme, die diese Schnittstelle anbieten, werden 'CLI-Interpreter' genannt, da sie die Eingabe interpretieren. Bei Unix-ähnlichen Betriebssystemen hat sich auch der Begriff 'Shell' für einen CLI-Interpreter eingebürgert. Bekannte CLI-Interpreter sind zum Beispiel 'sh', 'bash' und 'Windows PowerShell'. (vgl. http://de.wikipedia.org/wiki/Kommandozeile http://de.wikipedia.org/wiki/Unix-Shell)
+CLI steht für 'Command Line Interface' (=text-basierende Schnittstelle) und darunter versteht man Schnittstellen, die für die Interaktion mit dem Betriebssystem zeilenweise Befehle in Form von Text einliest, interpretiert und anschließend ausführt. Programme, die diese Schnittstelle anbieten, werden 'CLI-Interpreter' genannt, da sie die Eingabe interpretieren. Bei Unix-ähnlichen Betriebssystemen hat sich auch der Begriff 'Shell' für einen CLI-Interpreter eingebürgert. Bekannte CLI-Interpreter sind zum Beispiel 'sh', 'bash' oder 'Windows PowerShell'. (vgl. http://de.wikipedia.org/wiki/Kommandozeile http://de.wikipedia.org/wiki/Unix-Shell)
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_pic.png}\\
@@ -883,7 +883,7 @@ der Terminalemulator 'Xfce-Terminal' mit Bash
 Windows Powershell
 \end{center}
 
-Bei Unix-ähnlichen Betriebssystemen wird der Begriff 'Terminal' häufig mit 'CLI' in Verbindung gebracht. Ein Terminal (oder auch Konsole) war ein Gerät, das die Eingaben und Ausgaben von Daten in Textform ermöglichte und wurden entwickelt, um die veralteten Fernschreiber zu ersetzen. Heute werden diese Terminals in Software emuliert, daher spricht man auch von 'Terminalemulatoren'. Die Hauptaufgaben von Terminalemulatoren sind die richtige Darstellung der Textkodierung, die Darstellung von Farben, das Erkennen von Escape-Sequenzen und das Einlesens von Eingaben. Die 'CLI' hingegen hat die Aufgabe die Eingabe zu interpretieren und auszuführen. In der Theorie ist ein Terminal nicht an einen Kommandozeileninterpreter gebunden, sondern kann mit jedem Interpreter kombiniert werden. (vgl. http://de.wikipedia.org/wiki/Terminalemulation)\\
+Bei Unix-ähnlichen Betriebssystemen wird der Begriff 'Terminal' häufig mit 'CLI' in Verbindung gebracht. Ein Terminal (oder auch Konsole) war ein Gerät, das die Eingaben und Ausgaben von Daten in Textform ermöglichte. Heute werden diese Terminals in Software emuliert, daher spricht man auch von 'Terminalemulatoren'. Die Hauptaufgaben von Terminalemulatoren sind die richtige Darstellung der Textkodierung, die Darstellung von Farben, das Erkennen von Escape-Sequenzen und das Einlesens von Eingaben. Die 'CLI' hingegen hat die Aufgabe die Eingabe zu interpretieren und auszuführen. In der Theorie ist ein Terminal nicht an einen Kommandozeileninterpreter gebunden, sondern kann mit jedem Interpreter kombiniert werden. (vgl. http://de.wikipedia.org/wiki/Terminalemulation)\\
 
 Grundsätzlich wurden die textbasierten Schnittstellen im Desktop-Bereich vollständig durch die graphischen Schnittstellen ersetzt, doch vor allem im Netzwerkbereich sind textbasierte Schnittstellen durch ihre enorme Flexibilität und ihren minimalen Ressourcenverbrauch immer noch häufig anzutreffen (z.B. pfSense, Cisco-Router/Switches, ...). Die primäre Interaktion mit Unix-basierende Betriebssysteme erfolgt ausschließlich über textbasierte Schnittstellen und ist fester Bestandteil dieser Systeme, graphische Oberflächen hingegen sind meist nur optionale Zusatz-Software. (vgl. http://en.wikipedia.org/wiki/Command-line\_interface)\\ 
 
@@ -891,31 +891,39 @@ Erfahrene Nutzer greifen auch heute immer noch zu Kommandozeileninterpreter, da 
 
 \subsection{Geschichte}
 
-Die aller ersten Computer unterstützten keine Interaktive Input/Output Geräte und daher war die Überwachung von Programmen nur mithilfe von Kontrolllampen und Schaltern möglich. Ab 1960 wurden die Textbasierten Schnittstellen für die Interaktion eingeführt. Mithilfe von Terminals, wie der 'Teletype Model 33 ASR', konnte die Instruktionen auf Lochkarten gestanzt werden und vom Computer gelesen werden. (vgl. http://en.wikipedia.org/wiki/Command-line\_interface) \\
+Die aller ersten Computer unterstützten keine Interaktive Eingabe/Ausgabe-Geräte und daher war die Überwachung von Programmen nur mithilfe von Kontrolllampen und Schaltern möglich. Ab 1960 wurden die Textbasierten Schnittstellen für die Interaktion eingeführt. Mithilfe von Fernschreibern, wie der 'Teletype Model 33 ASR', konnte die Instruktionen auf Lochkarten gestanzt werden und vom Computer eingelesen werden. \\
+(vgl. http://en.wikipedia.org/wiki/Command-line\_interface und http://de.wikipedia.org/wiki/ASR-33) \\
 
-(BILD http://upload.wikimedia.org/wikipedia/commons/3/33/Teletype-IMG\_7287.jpg)
+\begin{center}
+\includegraphics[scale=0.52]{img/teletype.jpg}\\
+Teletype Model 33 ASR (Quelle: http://de.wikipedia.org/wiki/ASR-33)
+\end{center}
 
-Anfangs der 1970er Jahre begann das Unternehmen 'Bell Labs' die Entwicklung eines Betriebssystems namens Unix. Unix besaß eine mächtige CLI-Umgebung, konnte durch sogenannte 'Pipes' die Ausgaben von Programmen umleiten und konnte 'Scripts' ausführen.\\
+Anfangs der 1970er Jahre begann das Unternehmen 'Bell Labs' die Entwicklung eines Betriebssystems namens 'Unix'. Unix besaß eine mächtige CLI-Umgebung und konnte durch sogenannte 'Pipes' die Ausgaben von Programmen umleiten. Auch 'Scripte' konnten geschrieben und ausgeführt werden. Der Einsatz von 'Terminals' sorgte für die Aussterbung der Fernschreiber. Terminals waren Geräte, die die Möglichkeit boten, Daten über eine Tastatur einzugeben und die Daten über einen Bildschirm in Textform oder auch Grafik auszugeben. Zudem boten die Termianls durch die serielle Verbindung mehr Bandbreite und konnten einfacher in ein Unternehmen eingesetz werden. Das VT100 war ein ASCII-Computer-Terminal, dass zwischen 1979 bis 1983 verkauft wurde.\\
 
-Auch andere Computer, wie zum Beispiel 'Commodore PET',oder Apple II, besaßen für die Interaktion einfache CLI-Interpreter.\\
+\begin{center}
+\includegraphics[scale=2.0]{img/vt100.jpg}\\
+VT100 (Quelle: http://de.wikipedia.org/wiki/Terminal\_(Computer))
+\end{center}
+
+Die Terminals wurden jedoch schon 1977 durch den Einsatz von 'Personal Computer' ersetzt. Seitdem werden richtige Terminals nicht mehr eingesetzt, sondern werden in Software emuliert. Richtige Terminals sind sehr unhandlich, brauchen Platz und müssen an den Computer angeschlossen werden.\\
 
 Obwohl der Einsatz von textbasierten Schnittstellen nachgelassen hat, finden sie immer noch Verwendung. Einige Betriebssysteme (Windows, Mac OS, ...) aber auch Programme (QEMU, Game-Engines, ...) bieten neben ihren graphischen Oberflächen auch alternativ textbasierte Schnittstellen an. Bei 'Embedded Systems' werden auch häufig auf CLIs zurückgegriffen, da sie sehr Ressourcen arm sind, aber auch Android-Smartphones und einigen Router und Switches machen sich die Vorteile der CLI zu nutze.(vgl. http://en.wikipedia.org/wiki/Command-line\_interface\#Early\_history)
 
 \subsection{Vor- und Nachteile}
 
-In CLI-Anwendungen lassen sich viel mehr Einstellungen vornehmen als bei grafischen Anwendungen, ein gutes Beispiel hierführ ist der C/C++ Compiler 'gcc'. Eine grafische Oberfläche für die Benutztung dieses Compilers müsste enorm viele Einstellungen und Textfelder bieten, um die Möglichkeit zu bieten, den Compiler bis ins Detail zu konfigurieren. Da die Umsetzung einer Oberfläche für den 'gcc' sehr schwierig und auch sinnlos ist, werden in modernen IDEs einfach ein CLI-Interpreter eingebaut, die für die Verwendung des Compilers verwendet werden kann.\\
+In CLI-Anwendungen lassen sich viel mehr Einstellungen vornehmen als bei grafischen Anwendungen. Ein gutes Beispiel hierführ ist der C/C++ Compiler 'gcc'. Eine grafische Oberfläche für die Benutztung dieses Compilers müsste über enorm viele Einstellungen und Textfelder verfügen, um die Möglichkeit zu bieten, den Compiler bis ins Detail zu konfigurieren. Da die Umsetzung einer Oberfläche für den 'gcc' sehr schwierig ist, werden in modernen IDEs einfach ein CLI-Interpreter eingebaut, der für die Verwendung des Compilers verwendet werden kann.\\
 
 CLI sind sehr Ressourcen freundlich und können daher auf sehr leistungsschwachen Systemen einwandfrei verwendet werden. Außerdem ist es mit Protokollen, wie SSH möglich, sich über ein Netzwerk auf einen CLI-Server zu verbinden und mit einem entfernten Computer zu interagieren. Dies ist auch bei den graphischen Oberflächen möglich (z.B. RDP, ...).\\
 
 Sehr erfahrene Nutzer arbeiten ausschließlich über die textbasierte Schnittstelle, da sie direkte Kontrolle über alle Funktionen haben. Die Möglichkeit Programme zu kombinieren können sehr schwierige Problemstellungen oftmals einfach lösen. Durch sogenannte 'Pipes' können auf aufwendige Probleme mit der Kombination von verschiedenen kleineren Programmen gelöst werden. Zum Beispiel kann der Inhalt einer Datei in ein Komprimierungsprogramm geleitet werden und anschließend direkt über das Netzwerk auf einen anderen Computer übertragen werden.\\
 
-Der sicherlich größte Nachteil der CLI ist das der Benutzer die Befehle, die Parameter und die Argumente kennen muss. In seltenen Fällen müssen sogar die Parameter in der richtigen Reihenfolge angeben werden. \\
+Der sicherlich größte Nachteil der CLI ist das der Benutzer die Befehle, die Parameter und die Argumente kennen muss. In seltenen Fällen müssen sogar die Parameter in der richtigen Reihenfolge angeben werden.\\
 
 Ein weiterer Problem ist das Nutzen von graphischen Diensten wie zum Beispiel das Surfen im Internet oder die Nutzung von Multimedia Daten.\\
 
-\lfoot{Stojanovi\'{c} Marko}
 \chapter{Datenbank von Stojanovi\'{c} Marko}
-
+\lfoot{Stojanovi\'{c} Marko}
 \section{Allgemeines}
 Datenbanken sind für die Verwaltung von digitalen Daten zuständig. Heute stellen Datenbanksysteme einen zentralen Punkt im IT-Bereich der Unternehemen. Dadurch ist ein Unternehmen auf die Verfügbarkeit, Vollständigkeit und Richtigkeit der Daten angewiesen. Dadurch ist sicher zu stellen, dass die Datensicherheit gewährleistet ist, dies wird gesetzlich oder durch eine Behörde vorgeschieben.\\
 
