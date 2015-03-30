@@ -105,3 +105,6 @@ en.wikipedia.org/wiki/Transmission_Control_Protocol
 
 RFC 793
 RFC 2131
+
+ipheader 
+www.rvs.uni-bielefeld.de/~heiko/tcpip/tcpip_html_alt/kap_2_3.htm
