@@ -1160,19 +1160,26 @@ Anwendung des Schlüsselwortes (Quelle: Einführung in die Kryptologie, Tino Hem
 \newpage
 \paragraph{Polyalphabetische Chiffrierung}
 
-Die \textbf{Vigenère-Chiffre} wurde 1586 von dem Franzonsen \textbf{Blaise de Vigenère} in die Welt gesetzt. Damit man einen Text verschlüsseln konnte brauchte man als erstes ein Schlüsselwort und das Vigenère-Quadrat. In der ersten Zeile des Quadrats sind alle Buchstaben des Alphabets aufgelistet, beginnent mit A. In der zweiten Zeile ist das Alphabet aus der ersten Zeile um eine Stelle nach links verschoben, sodass der erste Buchstabe 'B' ist. In der letzten Zeile ist der erste Buchstabe das 'Z'. Nun wird das Schlüsselwort unter dem Klartext geschrieben und falls notwendig wiederholt:\\\\
-
-\textbf{Klartext:  EINHAUSSTEHTAMWALDRAND}\\
-\textbf{Schlüsselwort: KRYPTOKRYPTOKRYPTOKRYP}\\
+Die \textbf{Vigenère-Chiffre} wurde 1586 von dem Franzonsen \textbf{Blaise de Vigenère} in die Welt gesetzt. Damit man einen Text verschlüsseln konnte brauchte man als erstes ein Schlüsselwort und das Vigenère-Quadrat. In der ersten Zeile des Quadrats sind alle Buchstaben des Alphabets aufgelistet, beginnent mit A. In der zweiten Zeile ist das Alphabet aus der ersten Zeile um eine Stelle nach links verschoben, sodass der erste Buchstabe B ist. In der letzten Zeile ist der erste Buchstabe das Z. Nun wird das Schlüsselwort unter dem Klartext geschrieben und falls notwendig wiederholt.\\
 
 \begin{center}
 \includegraphics[scale=0.5]{img/vigere_quadrat.png}\\
 das Vigenère-Quadrat (Quelle: http://www.inf-schule.de/kommunikation/kryptologie/historischechiffriersysteme/station\_onetimepad)
 \end{center}
 
-Um den ersten Buchstaben zu verschlüsseln, muss man die Spalte des Quadrats suchen, die mit diesem Buchstaben beginnt. Dann sucht man sich die Zeile, die mit dem ersten Buchstaben des Schlüsselwortes übereinstimmt. Die Spalte und Zeile schneiden sich bei einem Buchstaben, welches der verschlüsselte Buchstabe ist.\\
+Angenommen 'JamesBond' wäre das Schlüsselwort und man möchte 'Der abgeschlossene Roman' verschlüsseln, dann müssten man das Schlüsselwort wiederholend über den Klartext schreiben. Der erste Buchstabe des Schlüsselwortes ist das J und der erste Buchstabe des Klartextes ist das D. Nun sucht man den Buchstaben in der Spalte D und der Zeile J. Dieser Buchstabe ist in diesem Beispiel der Buchstabe M. Man bemerkt schnell den Vorteil der polyalphabetischen Chiffrierungen: die Verschlüsselung eines Buchstaben hängt nicht nur von ihm ab, sondern auch von der Position des Buchstaben, da der Buchstabe des Schlüsselwortes auch relevant ist.
 
-Eine andere sehr bekannte polyalphabetische Chiffrierung ist \textbf{Enigma}. Enigma wurde von den Deutschen nach dem Ersten Weltkrieg entwickelt, um die Funksprüche zu verschlüsseln. Die Enigma war eine umfunktionierte Schreibmaschine mit drei Walzen, die je nach setzten der Kontakte den Klartext verschlüsselten. Da sich die Walzen nach jeder Eingabe weiterdrehen, werden gleiche Buchstaben nicht gleich verschlüsselt. Die Alliierten konnten den Enigma-Code durch die Turing-Bombe entschlüsseln.
+\begin{center}
+\includegraphics[scale=0.5]{img/vingere.png}\\
+Schlüsselwort, Plaintext und der Ciphertext (Quelle: Einführung in die Kryptologie - Tino Hempel)
+\end{center}
+
+Eine andere sehr bekannte polyalphabetische Chiffrierung ist die \textbf{Enigma}. Sie wurde von den Deutschen nach dem Ersten Weltkrieg entwickelt, um die Funksprüche zu verschlüsseln. Die Enigma war eine umfunktionierte Schreibmaschine mit drei Walzen, die je nach setzten der Kontakte den Klartext verschlüsselten. Da sich die Walzen nach jeder Eingabe weiterdrehen, werden gleiche Buchstaben nicht gleich verschlüsselt. Die Alliierten konnten den Enigma-Code durch die Turing-Bombe entschlüsseln.
+
+\begin{center}
+\includegraphics[scale=2.5]{img/enigma.jpg}\\
+die Enigma (Quelle: http://de.wikipedia.org/wiki/Enigma\_\%28Maschine\%29)
+\end{center}
 
 \subsubsection{Moderne Kryptographie}
 
@@ -1269,24 +1276,16 @@ der Verschlüsselungsvorgang bei OFB (Quelle: http://de.wikipedia.org/wiki/Outpu
 
 \subsubsection{Asymmetrische Verschlüsselungsverfahren}
 
-Asymmetrische Methoden benötigen für die Ent- und Verschlüsselung verschiedene Schlüssel. Diese Schlüssel werden mit \textbf{Public-Key} (= öffentlicher Schlüssel) und \textbf{Privat-Key} (=privater Schlüssel) bezeichnet.\\\\
-
-Falls die Information mit dem Public-Key verschlüsselt wurden, ist eine Entschlüsselung nur mithilfe des Privat-Key möglich. Werden die Informationen jedoch mit dem Privat-Key verschlüsselt, ist eine Entschlüsselung nur mit dem Public-Key mehr möglich.Diese zwei Eigenschaften von asymmetrischen Verschlüsselungsverfahren können verschieden genutzt werden.\\\\
-
-Einen der beiden Schlüssel muss für die Verwendung veröffentlich werden, damit eine Kommunikation möglich ist. Welcher der beiden Schlüssel veröffentlich wird, ist irrelevant, da die zwei verschiedenen Verschlüsselungsmöglichkeiten beidseitig funktionieren. Der Schlüssel, den man veröffentlicht, wird in der Praxis als der Public-Key bezeichnet.\\
-
+Asymmetrische Methoden benötigen für die Ent- und Verschlüsselung verschiedene Schlüssel. Diese Schlüssel werden mit \textbf{Public-Key} (= öffentlicher Schlüssel) und \textbf{Privat-Key} (=privater Schlüssel) bezeichnet. Falls die Information mit dem Public-Key verschlüsselt wurden, ist eine Entschlüsselung nur mithilfe des Privat-Key möglich. Werden die Informationen jedoch mit dem Privat-Key verschlüsselt, ist eine Entschlüsselung nur mit dem Public-Key mehr möglich.\\
+Einen der beiden Schlüssel muss für die Verwendung veröffentlich werden, damit eine Kommunikation möglich ist. Welcher der beiden Schlüssel veröffentlich wird, ist irrelevant, da die zwei Verschlüsselungsmöglichkeiten beidseitig funktionieren. Der Schlüssel, den man veröffentlicht, wird in der Praxis als der Public-Key bezeichnet.\\
 Da der Öffentliche Schlüssel veröffentlicht wurde, können nun verschiedene Kommunikationspartner ihre Informationen mit ihm verschlüsseln und an den Inhaber des privaten Schlüssels senden. Nur der Inhaber des privaten Schlüssel ist imstande die Daten zu entschlüsseln.\\
-
-Die zweite Möglichkeit, die mit diesem Verfahren möglich ist, ist das der Inhaber des Privat-Key eine Nachricht mit seinem Schlüssel verschlüsselt und an alle Kommunikationspartner überträgt. Da die Kommunikationspartner die Nachricht fehlerfrei entschlüsseln können, muss der Sender im Besitz des privaten Schlüssels sein. Damit ist die Echtheit der Indentität des Kommunikationspartners sichergestellt.
-
-Für eine beidseitige Übertragen mithilfe eines asymmetrischen Verfahren werden zwei unabhängige Schlüsselpaare benötigt.
-
+Die zweite Möglichkeit, die mit diesem Verfahren möglich ist, ist das der Inhaber des Privat-Key eine Nachricht mit seinem Schlüssel verschlüsselt und an alle Kommunikationspartner überträgt. Da die Kommunikationspartner die Nachricht fehlerfrei entschlüsseln können, muss der Sender im Besitz des privaten Schlüssels sein. Damit ist die Echtheit der Indentität des Kommunikationspartners sichergestellt (digitale Unterschrift).\\
+Für eine beidseitige Übertragen mithilfe eines asymmetrischen Verfahren werden zwei unabhängige Schlüsselpaare benötigt. Beide Kommunikationsparnter müssen ihre öffentlichen Schlüssel veröffentlichen und auf ihren privaten Schlüssel achtgeben.
 
 \begin{center}
 \includegraphics[scale=3]{img/asymetrisch.png}\\
-Der symmetrische Verschlüsselungsvorgang im Netzwerk.
+der symmetrische Verschlüsselungsvorgang im Netzwerk.
 \end{center}
-
 
 \section{Kryptoanalyse}
 
@@ -1312,22 +1311,17 @@ Das oberste Ziel der Kryptoanalyse ist die Ermittlung des Schlüssels, um an den
 
 \paragraph{DES}
 
-DES wurde 1975 von IBM veröffentlicht und basierte auf den Verschlüsselungsalgorithmus 'Lucifer'. DES verwendet für die Verschlüsselung einen 64bit Schlüssel, der jedoch 8bit als Prüfsumme verwendet. Dieses Verschlüsselungsverfahren ist nicht mehr sicher, da die heutigen Computer die 56bit Schlüssel mit Brute-Force-Attacken innerhalb weniger Stunde knacken können.
+DES wurde 1975 von IBM veröffentlicht und basierte auf den Verschlüsselungsalgorithmus namens 'Lucifer'. DES verwendet für die Verschlüsselung einen 64 Bit langen Schlüssel, jedoch werden 8 davon als Prüfsumme verwendet. Dieses Verschlüsselungsverfahren ist nicht mehr sicher, da die heutigen Computer die 56 bit langen Schlüssel mit Brute-Force-Attacken innerhalb weniger Stunde knacken können.
 
 \paragraph{3DES}
 
-Triple DES ist der Nachfolger des DES-Standarts und wendet für die Ver- und Entschlüsselung DES dreimal an. Hierbei verwendet das Verfahren zwei 64bit Schlüssel, die abwechselend eingesetzt werden. Jedoch werden von den zwei 64bit Schlüssel bei dem Verfahren nur 112bit effektiv eingesetzt, da die restlichen Bits für Prüfzwecke benötigt werden. Dieses Verfahren gilt grundsätzlich noch als sicher,
-doch es wird drigendst geraten auf einen Ersatz umzusteigen.
+Triple DES ist der Nachfolger des DES-Standarts und wendet für die Ver- und Entschlüsselung DES dreimal an. Hierbei verwendet das Verfahren zwei 64 Bit lange Schlüssel, die abwechselend eingesetzt werden. Jedoch werden von den zwei 64 Bit langen Schlüssel bei dem Verfahren nur 112 Bit effektiv eingesetzt, da die restlichen Bits für Prüfzwecke benötigt werden. Dieses Verfahren gilt grundsätzlich noch als sicher, doch es wird drigenst geraten auf einen Ersatz umzusteigen.
 
 \paragraph{AES}
 
-AES, der ausgewählte Nachfolger von DES), wurde im Oktober 2000 vom 'National Instite of Standards and Technology' als neuer Standard freigegeben. AES ist ein Blockchiffre und kann für die Verschlüsselung 128, 160, 192, 224 oder 256 Bit langen Schlüssel verwenden. Bis heute ist der AES-Standard nocht im Gebrauch und auch immer noch kryptographisch sicher.
+AES, der ausgewählte Nachfolger von DES, wurde im Oktober 2000 vom 'National Institute of Standards and Technology' als neuer Standard freigegeben. AES ist ein Blockchiffre und kann für die Verschlüsselung 128, 160, 192, 224 oder 256 Bit langen Schlüssel verwenden. Bis heute ist der AES-Standard nocht im Gebrauch und auch immer noch kryptographisch sicher.
 
 \subsection{Asymmetrische Verschlüsselungsverfahren}
-
-Asymmetrische Verschlüsselungsverfahren benötigten jeweils zwei verschiedene Schlüssel. Man unterscheidet zwischen zwei Schlüssel: den öffentlichen Schlüssel, den jeder haben darf, und den privaten Schlüssel, den nur der Erzeuger des Schlüsselpaars haben darf. Der öffentliche Schlüssel und private Schlüssel sind identisch, d.h. es kann auch der private Schlüssel veröffentlicht werden und der öffentliche Schlüssel als privater genutzt werden.
-
-\subsubsection{Merkmale}
 
 \paragraph{Digitale Signaturen}
 
