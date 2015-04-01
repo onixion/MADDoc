@@ -1097,7 +1097,7 @@ Die Fähigkeit dieser Systemen die Informationen vor wirtschaftlichen Schäden z
 \item Authentizität (Englisch: authenticity): Die Echtheit eines Objektes kann bewiesen werden, daraus folgt, die Überprüfung der Vertrauenswürdigkeit eines Objektes kann festgestellt werden.
 \item Verbindlichkeit/Nichtabstreitbarkeit (englisch: non repudiation): Die durchgeführeten Handlungen können nicht vom Ausführenden abgestreitet werden.
 \item Zurechenbarkeit (englisch: accountability): Die Ausführung einer Handlung kann einem Kommunikationspartner eindeutig zugewiesen werden.
-\item in bestimmten Kontexten auch die Anonymität
+\item oft auch Anonymität
 \end{itemize}
 
 (vgl. Wikipedia - Informationssicherheit)\\\\
@@ -1141,18 +1141,21 @@ Ein Skytale (Quelle: http://de.wikipedia.org/wiki/Skytale).
 
 Ein weiteres monoalphabetisches Verfahren ist die \textbf{Caesar-Verschlüsselung}. Dieses Verfahren verschob alle Buchstaben des Klartextalphabets um eine bestimmte Zahl. Der Kommunikationspartner musste über die Anzahl der Verschiebungen informiert sein, da dieser sonst den Text nicht entschlüsseln konnte. Der Schlüssel, also die Anzahl der Verschiebungen, musste dem Kommunikationsparnter über einen sicheren Kanal übermittelt werden. (vgl. Kryptologie, Thomas Imboden, Seite 4)\\
 
-Die Tauschchiffre funktioniert ähnlich wie das Caesar-Verfahren, wurde aber ein bisschen erweitert. Die Buchstaben werden als Zahlen dargestellt, da das Rechnen mit Zahlen einfache ist (LOL). Der Buchstabe 'A' wird meistens mit der Zahl 1 repräsentiert, 'B' mit der Zahl 2, 'X' mit der Zahl 25 und 'Z' mit 0. Die Verschiebung der Buchstaben um drei Stellen, erfolgt durch eine Addition mit 3. Der Tauschchiffre geht wie folgt vor, um einen Klartext in Geheimtext zu übersetzten:
+Die Tauschchiffre funktioniert ähnlich wie das Caesar-Verfahren, wurde aber ein bisschen erweitert. Die Buchstaben werden als Zahlen dargestellt. Der Buchstabe 'A' wird meistens mit der Zahl 1 repräsentiert, 'B' mit der Zahl 2, 'X' mit der Zahl 25 und 'Z' mit 0. Die Verschiebung der Buchstaben um drei Stellen, erfolgt durch eine Addition mit 3. Der Tauschchiffre geht wie folgt vor, um einen Klartext in Geheimtext zu übersetzten:
 
-\begin{itemize}
-  \item Klartextalphabet in Zahlen übersetzten
-  \item die Zahlen mit einer konstanten Zahl addieren (z.B. 3)
-  \item die neue Zahl durch die Anzahl der Buchstaben dividiert
-  \item der Rest dieser Division (modulo) stellt den Buchstabe des verschlüsselten Textes dar
-\end{itemize}
+Die Tauschchiffre ist eine verbesserte Variante des Caesar-Verfahren. Die Buchstaben des Alphabets werden mit Zahlen dargestellt und der Buchstabe A wird meisten mit 1 dargestellt, B mit 2, X mit 25 und Z mit 0. Nun wird statt einer Addition die Buchstaben mit einer Geheimzahl multipliziert. Die Geheimzahl muss aber mit der Anzahl der möglichen Buchstaben teilerfremd sein, da sonst Kollisionen entstehen. Eine Kollision ist, wenn zwei verschiedene Buchstaben gleich verschlüsselt werden. Kollisionen sind zu vermeiden, da sonst teile des Cipher-Textes nicht mehr entschlüsselt werden können. Bei 26 Buchstaben können wir zum Beispiel 3 als Geheimzahl nehmen. Als letztes müssen wir noch einen Modulus machen, damit das Ergebnis der Multiplikation auf das Alphabet mit 26 Buchstaben abgebildet wird. Dieses Verfahren ist deutlich schwieriger zu Entschlüsseln als die Caesar-Verschlüsselung. Jedoch kann dieses Verfahren auch über Häufigkeitsberechnungen entschlüsselt werden, da jeder Buchstabe gleich verschlüsselt wird.  (vgl. Kryptologie, Thomas Imboden, Seite 4)\\
 
-Dieses Verfahren ist deutlich schwieriger zu Entschlüsseln als die Caesar-Verschlüsselung. Jedoch kann dieses Verfahren auch über Häufigkeitsberechnungen entschlüsselt werden, da jeder Buchstabe gleich verschlüsselt wird. (vgl. Kryptologie, Thomas Imboden, Seite 4)\\
+\begin{center}
+\includegraphics[scale=0.35]{img/tauschchiffre.png}\\
+Anwendung der Tauschchiffre (Quelle: Einführung in die Kryptologie, Tino Hempel)
+\end{center}
 
-Eine andere Art von monoalphabetische Chiffre sind die Schlüsselwörter. Für die Verschlüsselung wird ein Schlüsselwort und Schlüsselbuchstabe definiert. Nun werden gleiche Buchstaben aus dem Schlüsselwort herausgenommen und das Schlüsselwort wird in das Klartextalphabet an der Stelle des Schlüsselbuchstabe hineingesetzt.
+Eine andere Art von monoalphabetische Chiffre sind die Schlüsselwörter. Für die Verschlüsselung wird ein Schlüsselwort und Schlüsselbuchstabe definiert. Nun werden gleiche Buchstaben aus dem Schlüsselwort herausgenommen und das Schlüsselwort wird in das Klartextalphabet an der Stelle des Schlüsselbuchstabe hineingesetzt. Die im Schlüsselwort enthaltenen Buchstaben müssen aus dem Klartexalphabet herausgenommen werden, weil sonst Kollisionen entstehen.
+
+\begin{center}
+\includegraphics[scale=0.38]{img/schluesselwortes.png}\\
+Anwendung des Schlüsselwortes (Quelle: Einführung in die Kryptologie, Tino Hempel)
+\end{center}
 
 \newpage
 \paragraph{Polyalphabetische Chiffrierung}
@@ -1229,12 +1232,39 @@ Der symmetrische Verschlüsselungsvorgang im Netzwerk.
 
 Die symmetrische Verfschlüsselungsverfahren können in zwei Typen unterteilt werden: die Stromverschlüsselung und Blockverschlüsselung. Bei der Stromverschlüsselung werden die einzelnen Zeichen des Klartextes verschlüsselt.\\
 
-Die Blockverschlüsselung kann nur einen Block von Daten verschlüsseln. Die Blocklänge hängt vom Verschlüsselungsalgorithmus ab, muss aber immer gleich lang sein. Damit nun ein Datenstrom verschlüsselt werden kann, benötigt man einen Betriebsmodus. Der Betriebsmodus gibt an, wie mehrere Blöcke verschlüsselt werden sollen.
+Die Blockverschlüsselung kann nur einen Block von Daten verschlüsseln. Die Blocklänge hängt vom Verschlüsselungsalgorithmus ab, muss aber immer gleich lang sein. Damit nun ein Datenstrom verschlüsselt werden kann, benötigt man einen Betriebsmodus, der angibt, wie die Blöcke untereinander verschlüsselt werden sollen. Zudem benötigt man einen sogenannten \textbf{Padding}. Der Padding wird dann eingesetzt wenn die zu verschlüsselnte Nachricht nicht genau in ganze Blöcke eingeteilt werden kann. Das Padding füllt die Nachricht bis auf einen neuen vollen Block auf und muss dies bei der Ver- und Entschlüsselung beachten.
+
+Diese vier Blockbetriebsarten werden in der 'international Standard ISO 10116' definiert:
 
 \begin{itemize}
-\item \textbf{ECM} (Electrion Code Book Mode):
-\item \textbf{CBC} (Cipher Block Chaining Mode):
-\item ...
+\item \textbf{ECB-Mode} (Electrion Codebook Mode): Bei dieser Art der Blockverschlüsselung werden die einzelnen Blöcke unabhängig ver- und entschlüsselt. Der große Nachteil dieses Betriebsmodus ist, dass gleiche Blöcke gleich Verschlüsselt werden.
+
+\begin{center}
+\includegraphics[scale=0.7]{img/ecb.png}\\
+der Verschlüsselungsvorgang bei ECB (Quelle: http://de.wikipedia.org/wiki/Electronic\_Code\_Book\_Mode)
+\end{center}
+
+\item \textbf{CBC-Mode} (Cipher Block Chaining Mode): Diese Variante verschlüsselt einen Block mit den vorherigen Block. Das heißt, dass jeder Block anderes Verschlüsselt wird, da der vorherige Block Auswirkungen auf den Schlüssel hat.
+
+\begin{center}
+\includegraphics[scale=0.7]{img/cbc.png}\\
+der Verschlüsselungsvorgang bei CBC (Quelle: http://de.wikipedia.org/wiki/Cipher\_Block\_Chaining\_Mode)
+\end{center}
+
+\item \textbf{CFB-Mode} (Cipher Feedback Mode): Dieser Betriebsmodus funktioniert ähnlich wie der CBC-Modus, jedoch wird der lesbare Block mit der Ausgabe des Verschlüsselungs Blocks bitweise mit XOR verknüpft.
+
+\begin{center}
+\includegraphics[scale=0.7]{img/cfb.png}\\
+der Verschlüsselungsvorgang bei CFB (Quelle: http://de.wikipedia.org/wiki/Cipher\_Feedback\_Mode)
+\end{center}
+
+\item \textbf{OFB-Mode} (Output Feedback Mode): Dieser Modus ist genau gleich wie der CFB-Mode, nur dass die XOR-Verknüpfung keine Auswirkungen auf den nächsten Block hat.
+
+\begin{center}
+\includegraphics[scale=0.7]{img/ofb.png}\\
+der Verschlüsselungsvorgang bei OFB (Quelle: http://de.wikipedia.org/wiki/Output\_Feedback\_Mode)
+\end{center}
+
 \end{itemize}
 
 \subsubsection{Asymmetrische Verschlüsselungsverfahren}
