@@ -347,7 +347,7 @@ Zu den wichtigsten Eigenschaften von .NET Framework zählt die Sprachinteroperab
 
 Damit ist es möglich, dass der Code mit Codes anderer Programmiersprachen, die mit Common Type Specifiacion (CTS) kompatibel sind, interagiert. Neben Visual Basic, Visual C++ gibt es noch viele weitere. Es können unterschiedliche .NET- Programmiersprachen zur erstellung von Mudulen für eine Assembly verwendet werden. Auch die Typen können einen Bezug auf einander haben, trotz unterschiedlicher Programmiersprachen.
 \begin{center}
-\includegraphics[scale=0.6]{img/uebersetzung.png}\\
+%\includegraphics[scale=0.6]{img/uebersetzung.png}\\
 Beziehung zwischen C\# - Quelltext, .NET Framework- Klassenbibliotheken, Assembly und der CLR (während der Kompilierungs- und Laufzeit).
 \copyright Microsoft
 % https://msdn.microsoft.com/de-de/library/z1zx9t92.aspx} - 05.04.2015
@@ -432,11 +432,13 @@ Die Gesamtleisung des Systems wird auch ohne zusätzliche Hardwareunterstützung
 
 Es ist auch abhängig ob eine Multithreadingunterstützung durch das Betreibssystem auch geboten wird. Wenn nur in der Anwendung Multithreading implementiert ist, gibt es keine Beschränkungen für den Programmierer bei der Zuordnung von Threads und den dazugehörigen Ressourcen. Die genze Anwendung kann vom Betriebssystem gestoppt werden, wenn Dienste und Ressourcen benötigt werden, diese jedoch nicht zur Verfügung stehen. Es handelt sich um das sogenannten "{}Primärproblem"{}, dass bei der Ausführung interner Daten Prozeduren auf grafischen Oberflächen vorzufinden ist. Das Programm kann nur weiter seine Dienste anbieten, wenn eine Multithreadingunterstützung von Betriebssystem vorliegt, weil dieses die belegten Ressourcen und Dienste kennt.\\
 
-Von Threads gemeinsam verwendete Ressourcen eines Programmes können sein: Adrassraum, Datei- Handles, ...\\
+Von Threads gemeinsam verwendete Ressourcen eines Programmes können sein: Adrassraum, Datei- Handles, 
+...\\
 
+\newpage
 \lfoot{Ranalter Daniel}
 \chapter{Netzwerkgrundlagen und Protokolle von Ranalter Daniel}
-Diese Abhandlung wird die Netzwerkgrundlagen welche auf das Ethernet Protokoll (siehe Kapitel \ref{ssec:eth}  Seite \pageref{ssec:eth}) aufsetzen besprochen. Es gibt noch diverse andere, wie zum Beispiel Token Ring, auf welche hier im folgenden jedoch nicht näher eingegangen wird, da, abgesehen davon, dass Ethernet auch bei der praktischen Durchführung verwendet wurde, Ethernet das am häufigsten genutzte Layer 1 Protokoll darstellt. 
+Dieser Teil der Abhandlung wird die Netzwerkgrundlagen welche auf das Ethernet Protokoll (siehe Kapitel \ref{ssec:eth}  Seite \pageref{ssec:eth}) aufsetzen abdecken. Es gibt noch diverse andere, wie zum Beispiel Token Ring, auf welche hier im folgenden jedoch nicht näher eingegangen wird, da, abgesehen davon, dass Ethernet auch bei der praktischen Durchführung verwendet wurde, Ethernet das am häufigsten genutzte Layer 1 Protokoll darstellt. 
 \section{Grundlagen}
 In der Netzwerktechnik gibt es mehrere verschiedene grundlegende Konzepte auf welche hier eingegangen werden soll.
 \subsection{Übersicht: Netzwerktypen}

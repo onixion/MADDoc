@@ -108,3 +108,15 @@ RFC 2131
 
 ipheader 
 www.rvs.uni-bielefeld.de/~heiko/tcpip/tcpip_html_alt/kap_2_3.htm
+
+dhcpheader
+www.cisco.com/web/about/ac123/ac147/images/ipj/ipj_5-2/figure_1_dhcp.gif
+
+dnsheader
+www.tcpipguide.com/free/diagrams/dnsheaderformat.png
+
+mib
+sourcedaddy.com/networking/images/inmg2.gif
+
+snmpheader
+verticalhorizions.in/wp-content/uploads/2011/09/SNMPv3_Message_Format.bmp
