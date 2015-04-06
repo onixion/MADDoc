@@ -1,27 +1,72 @@
 Informatik:
 ===========
-programmiersprachen msdn - 07.03.2015:
+http://de.wikipedia.org/wiki/Informatik - 05.04.2015
+programmiersprachen - 02.04.2015:
+Definition:
+http://de.wikipedia.org/wiki/Programmiersprache
+http://www.hki.uni-koeln.de/wisem-2012/basisinformationstechnologie-i/programmiersprachen-i/definition-von-programmiersprachen
+Lexik:
+http://www.pixelx.de/glossar/lexik.html
+http://de.wikipedia.org/wiki/Programmiersprache
+Übersicht:
+http://de.wikipedia.org/wiki/Programmiersprache#.C3.9Cbersicht
 
+
+Wichtige Begriffe
+Quelltext:
+http://de.wikipedia.org/wiki/Programmiersprache#.C3.9Cbersicht
+http://fbmathe.bbs-bingen.de/Informatik/C_plusplus/grundbegriffe.htm#P_Sprache
+
+Arten von Programmiersprachen
+http://fbmathe.bbs-bingen.de/Informatik/C_plusplus/grundbegriffe.htm#P_Sprache
+Skriptsprachen
+http://de.wikipedia.org/wiki/Skriptsprache
+
+
+Programmierparadigmen 04.04.2015:
+http://de.wikipedia.org/wiki/Programmierparadigma
+objektorientiert
+http://de.wikipedia.org/wiki/Objektorientierte_Programmierung#Objektorientierte_Programmiersprachen
+http://de.wikipedia.org/wiki/Objektorientierte_Programmierung#Objekt-Konzepte_in_Programmiersprachen
+deklarativ
+http://de.wikipedia.org/wiki/Deklarative_Programmierung
+imperativ
+http://de.wikipedia.org/wiki/Imperative_Programmierung
+strukturierte
+http://de.wikipedia.org/wiki/Strukturierte_Programmierung
+
+
+Wahl einer Programmiersprache:
 https://msdn.microsoft.com/de-de/library/aa292164%28v=vs.71%29.aspx
-
 https://msdn.microsoft.com/de-de/hh126387.aspx
 
 
-	c# - 07.03.2015:
-	https://msdn.microsoft.com/de-de/library/z1zx9t92.aspx
+c# - 07.03.2015:
+https://msdn.microsoft.com/de-de/library/aa292164%28v=vs.71%29.aspx
+c# - Funktion:
+https://msdn.microsoft.com/de-de/library/z1zx9t92.aspx
+	
+Was spricht für C#?
+https://msdn.microsoft.com/de-de/library/aa287554(v=vs.71).aspx
 
-	Multithreading -07.03.2015:
-	Thread - 07.03.2015:
-	http://de.wikipedia.org/wiki/Thread_%28Informatik%29
-	implementierung 07.03.2015:
-	http://de.wikipedia.org/wiki/User-Thread#Implementierungen
-	software - 07.03.2015
-	http://de.wikipedia.org/wiki/Multithreading
-	http://de.wikipedia.org/wiki/Softwareseitiges_Multithreading
+Multithreading -07.03.2015:
+Thread - 07.03.2015:
+http://de.wikipedia.org/wiki/Thread_%28Informatik%29
 
-	hardware - 07.03.2015:
-	http://de.wikipedia.org/wiki/Multithreading
-	http://de.wikipedia.org/wiki/Hardwareseitiges_Multithreading
+implementierung 07.03.2015:
+http://de.wikipedia.org/wiki/User-Thread#Implementierungen
+
+hardware - 07.03.2015:
+http://de.wikipedia.org/wiki/Multithreading
+http://de.wikipedia.org/wiki/Hardwareseitiges_Multithreading
+
+software - 07.03.2015
+http://de.wikipedia.org/wiki/Multithreading
+http://de.wikipedia.org/wiki/Softwareseitiges_Multithreading
+
+scheduler - 03.04.2015:
+http://www.math.uni-hamburg.de/doc/java/tutorial/essential/threads/priority.html
+http://de.wikipedia.org/wiki/Prozess-Scheduler
 
 
 
