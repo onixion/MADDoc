@@ -1404,7 +1404,7 @@ lorem ipsum
 \lfoot{Alin Porcic}
 \section{Allgemeines}
 
-Die Kryptologie, die sich mit der Informationssicherheit befasst, hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen und ist nicht mehr wegzudenken. Unzählige Informationen werden weltweit Kreuz und Quer ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen hohen Wert haben können. Dieser Wert der Informationen geht dann verloren, wenn ein Unbefugter die Aussage dieser Informationen verstehen kann. Damit das nicht passiert, werden kryptographische Systeme entwickelt, die die Lesbarkeit von Informationen verhindern bzw. erschweren.\\
+Die Kryptologie befasst sich mit der Informationssicherheit und hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen. Unzählige Informationen werden weltweit Kreuz und Quer ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen hohen Wert haben können. Der Wert dieser Informationen geht dann verloren, wenn ein Unbefugter die Aussage der Informationen verstehen kann. Damit das nicht passiert, werden kryptographische Systeme entwickelt, die die Lesbarkeit von Informationen verhindert bzw. erschwert.\\
 
 Die Fähigkeit dieser Systemen die Informationen vor wirtschaftlichen Schäden zu schützen, werden als Informationssicherheit bezeichnet. Die Minimierung von Risiken, der Schutz vor Bedrohungen und die Einhaltung der Schutzziele sind ebenfalls Anforderungen der Informationssicherheit. Für die Einhaltung der Ziele der Informationssicherheit werden folgende Schutzziele definiert:
 
@@ -1420,7 +1420,7 @@ Die Fähigkeit dieser Systemen die Informationen vor wirtschaftlichen Schäden z
 
 (vgl. Wikipedia - Informationssicherheit)\\\\
 
-Verfahren, Informationen zu verstecken, sind nichts neues - die ersten Ansätze und Anwendungen von kryptographischen Systemen reichen weit in die Vergangenheit der Menschheit zurück. Schon seit 2500 Jahren sind Methoden bekannt, die die Lesbarkeit von wichtigen Informationen zu verhinderten. In Sparta, als Beispiel, hat die Regierung ein Pergament-Band um einen Zylinder spiralförmig aufgespannt und die zu ermittelnde Nachricht über die verschiedenen Ringe des Pergaments geschrieben. Die Entschlüsselung gelang nur dann, wenn man einen Zylinder mit dem gleichem Durchmesser besaß (siehe Monoalphabetische Chiffrierung).\\
+Verfahren, Informationen zu verstecken, sind nichts neues - die ersten Ansätze und Anwendungen von kryptographischen Systemen reichen weit in die Vergangenheit der Menschheit zurück. Schon seit 2500 Jahren sind Methoden bekannt, die die Lesbarkeit von wichtigen Informationen zu verhinderten. In Sparta, als Beispiel, hat die Regierung ein Pergamentband um einen Zylinder spiralförmig aufgespannt und die zu ermittelnde Nachricht über die verschiedenen Ringe des Pergaments geschrieben. Die Entschlüsselung gelang nur dann, wenn man einen Zylinder mit dem gleichem Durchmesser besaß (siehe Monoalphabetische Chiffrierung).\\
 
 Die Kryptologie ist heute ein sehr wichtiger Bestandteil in der Informationstechnik und wird auch in Zukunft eine sehr wichtige Rolle spielen. Im heutigen normalen Alltag sind wir fast immer auf kryptographische Systeme angewiesen: das einfache Surfen im Internet, das Abrufen und Versenden von E-Mails, E-Banking, die Abspeicherung von Passwörtern, das Telefonieren - alle diese Dinge werden mithilfe von kryptographischen Verfahren vor unbefugtem Lesen oder Modifizieren verhindert. Ohne es zu bemerken oder gar davon Bescheid zu wissen, verwenden und verlassen sich Milliarden von Menschen auf solche Sytemen.
 
@@ -1434,8 +1434,8 @@ Um die folgenden Kapitel verstehen zu können, müssen die Grundbegriffe der Kry
 \item \textbf{Kollisionen}: Wenn ein kryptographisches System bei zwei verschiedenen Schlüssel die gleiche Manipulation vollzieht, spricht man von einer Kollision.
 \item \textbf{Plaintext}: Der Plaintext beinhaltet die lesbaren Informationen. Diese Informationen gilt es zu schützten.
 \item \textbf{Ciphertext}: Der Ciphertext ist die nicht-lesbare Information, die die lesbare Information versteckt hält. Diese Information kann übertragen werden, da der Klartext über das kryptographische Verfahren geschützt ist und eine Entschlüsselung nur mithilfe des Schlüssels möglich ist.
-\item \textbf{Encrypt / Verschlüsselung}: Mit der Verschlüsselung wird die Manipulation der lesbaren Informationen zu nicht-lesbaren Informationen bezeichnet. Je nach Verschlüsselungsverfahren wird irgend ein Schlüssel für diesen Vorgang benötigt.
-\item \textbf{Decrypt / Entschlüsselung}: Dieser Vorgang bezeichnet die Wiederherstellung des Klartextes aus dem Ciphertext. Dieser Vorgang benötigt auch einen Schlüssel.
+\item \textbf{Encrypt / Verschlüsselung}: Mit der Verschlüsselung wird die Manipulation der lesbaren Informationen zu nicht-lesbaren Informationen bezeichnet. Je nach Verschlüsselungsverfahren wird für diesen Vorgang ein Schlüssel benötigt.
+\item \textbf{Decrypt / Entschlüsselung}: Dieser Vorgang bezeichnet die Wiederherstellung des Klartextes aus dem Ciphertext. Dieser Vorgang verlangt einen Schlüssel.
 \end{itemize}
 
 \section{Kryptographie}
@@ -1459,9 +1459,7 @@ Ein Skytale (Quelle: http://de.wikipedia.org/wiki/Skytale).
 
 Ein weiteres monoalphabetisches Verfahren ist die \textbf{Caesar-Verschlüsselung}. Dieses Verfahren verschob alle Buchstaben des Klartextalphabets um eine bestimmte Zahl. Der Kommunikationspartner musste über die Anzahl der Verschiebungen informiert sein, da dieser sonst den Text nicht entschlüsseln konnte. Der Schlüssel, also die Anzahl der Verschiebungen, musste dem Kommunikationsparnter über einen sicheren Kanal übermittelt werden. (vgl. Kryptologie, Thomas Imboden, Seite 4)\\
 
-Die Tauschchiffre funktioniert ähnlich wie das Caesar-Verfahren, wurde aber ein bisschen erweitert. Die Buchstaben werden als Zahlen dargestellt. Der Buchstabe 'A' wird meistens mit der Zahl 1 repräsentiert, 'B' mit der Zahl 2, 'X' mit der Zahl 25 und 'Z' mit 0. Die Verschiebung der Buchstaben um drei Stellen, erfolgt durch eine Addition mit 3. Der Tauschchiffre geht wie folgt vor, um einen Klartext in Geheimtext zu übersetzten:
-
-Die Tauschchiffre ist eine verbesserte Variante des Caesar-Verfahren. Die Buchstaben des Alphabets werden mit Zahlen dargestellt und der Buchstabe A wird meisten mit 1 dargestellt, B mit 2, X mit 25 und Z mit 0. Nun wird statt einer Addition die Buchstaben mit einer Geheimzahl multipliziert. Die Geheimzahl muss aber mit der Anzahl der möglichen Buchstaben teilerfremd sein, da sonst Kollisionen entstehen. Eine Kollision ist, wenn zwei verschiedene Buchstaben gleich verschlüsselt werden. Kollisionen sind zu vermeiden, da sonst teile des Cipher-Textes nicht mehr entschlüsselt werden können. Bei 26 Buchstaben können wir zum Beispiel 3 als Geheimzahl nehmen. Als letztes müssen wir noch einen Modulus machen, damit das Ergebnis der Multiplikation auf das Alphabet mit 26 Buchstaben abgebildet wird. Dieses Verfahren ist deutlich schwieriger zu Entschlüsseln als die Caesar-Verschlüsselung. Jedoch kann dieses Verfahren auch über Häufigkeitsberechnungen entschlüsselt werden, da jeder Buchstabe gleich verschlüsselt wird.  (vgl. Kryptologie, Thomas Imboden, Seite 4)\\
+Die Tauschchiffre ist eine verbesserte Variante des Caesar-Verfahren. Die Buchstaben des Alphabets werden mit Zahlen dargestellt und der Buchstabe A wird meisten mit 1 dargestellt, B mit 2, X mit 25 und Z mit 0. Nun wird statt einer Addition die Buchstaben mit einer Geheimzahl multipliziert. Die Geheimzahl muss aber mit der Anzahl der möglichen Buchstaben teilerfremd sein, da sonst Kollisionen entstehen. Eine Kollision ist, wenn zwei verschiedene Buchstaben gleich verschlüsselt werden. Kollisionen sind zu vermeiden, da sonst teile des Cipher-Textes nicht mehr entschlüsselt werden können. Bei 26 Buchstaben können wir zum Beispiel 3 als Geheimzahl nehmen. Als letztes müssen wir noch einen Modulus durchführen, damit das Ergebnis der Multiplikation auf das Alphabet mit 26 Buchstaben abgebildet wird. Dieses Verfahren ist deutlich schwieriger zu Entschlüsseln als die Caesar-Verschlüsselung. Jedoch kann dieses Verfahren auch über Häufigkeitsberechnungen entschlüsselt werden, da jeder Buchstabe gleich verschlüsselt wird.  (vgl. Kryptologie, Thomas Imboden, Seite 4)\\
 
 \begin{center}
 \includegraphics[scale=0.35]{img/tauschchiffre.png}\\
@@ -1478,7 +1476,7 @@ Anwendung des Schlüsselwortes (Quelle: Einführung in die Kryptologie, Tino Hem
 \newpage
 \paragraph{Polyalphabetische Chiffrierung}
 
-Die \textbf{Vigenère-Chiffre} wurde 1586 von dem Franzonsen \textbf{Blaise de Vigenère} in die Welt gesetzt. Damit man einen Text verschlüsseln konnte brauchte man als erstes ein Schlüsselwort und das Vigenère-Quadrat. In der ersten Zeile des Quadrats sind alle Buchstaben des Alphabets aufgelistet, beginnent mit A. In der zweiten Zeile ist das Alphabet aus der ersten Zeile um eine Stelle nach links verschoben, sodass der erste Buchstabe B ist. In der letzten Zeile ist der erste Buchstabe das Z. Nun wird das Schlüsselwort unter dem Klartext geschrieben und falls notwendig wiederholt.\\
+Die \textbf{Vigenère-Chiffre} wurde 1586 von dem Franzonsen \textbf{Blaise de Vigenère} in die Welt gesetzt. Damit man einen Text verschlüsseln konnte, brauchte man als erstes ein Schlüsselwort und das Vigenère-Quadrat. In der ersten Zeile des Quadrats sind alle Buchstaben des Alphabets aufgelistet, beginnent mit A. In der zweiten Zeile ist das Alphabet aus der ersten Zeile um eine Stelle nach links verschoben, sodass der erste Buchstabe B ist. In der letzten Zeile ist der erste Buchstabe das Z. Nun wird das Schlüsselwort unter dem Klartext geschrieben und falls notwendig wiederholt.\\
 
 \begin{center}
 \includegraphics[scale=0.5]{img/vigere_quadrat.png}\\
@@ -1556,7 +1554,7 @@ der Ver- und Entschlüsselvorgang der symmetrischen Verschlüsselungsverfahren
 \end{center}
 
 Bei den symmetrischen Verschlüsselungsverfahren gibt es zwei Möglichkeiten der Verwendnung: als Stromverschlüsselung oder Blockverschlüsselung.\\
-Die \textbf{Stromverschlüsselung} (oder auch Stromchiffre) kann Zeichen aus dem Klartext verschlüsseln. Der Vorteil dieser Verschlüsselungen ist, dass der Klartext sofort verschlüsselt oder entschlüsselt werden kann, ohne dass gewartet werden muss. Dies ist speziell bei Echtzeitübertragunen ein klarer Vorteil.\\
+Die \textbf{Stromverschlüsselung} (oder auch Stromchiffre) verschlüsselt ganze Zeichen aus dem Klartext. Der Vorteil dieser Verschlüsselungen ist, dass der Klartext sofort verschlüsselt oder entschlüsselt werden kann. Dies ist speziell bei Echtzeitübertragunen ein klarer Vorteil.\\
 Die \textbf{Blockverschlüsselung} kann nur einen Block von Daten verschlüsseln. Die Blocklänge hängt vom Verschlüsselungsalgorithmus ab, muss aber immer gleich lang sein. Damit nun ein Datenstrom verschlüsselt werden kann, benötigt man einen Betriebsmodus, der angibt, wie die Blöcke untereinander verschlüsselt werden sollen. Zudem benötigt man einen sogenannten \textbf{Padding}. Der Padding wird dann eingesetzt wenn die zu verschlüsselnte Nachricht nicht genau in ganze Blöcke eingeteilt werden kann. Das Padding füllt die Nachricht bis auf einen neuen vollen Block auf und muss dies bei der Ver- und Entschlüsselung beachten.\\
 
 Diese vier Blockbetriebsarten werden in der 'international Standard ISO 10116' definiert:
@@ -1605,6 +1603,14 @@ der asymmetrische Verschlüsselungsvorgang
 Da der Öffentliche Schlüssel veröffentlicht wurde, können nun verschiedene Kommunikationspartner ihre Informationen mit ihm verschlüsseln und an den Inhaber des privaten Schlüssels senden. Nur der Inhaber des privaten Schlüssel ist imstande die Daten zu entschlüsseln.\\
 Die zweite Möglichkeit, die mit diesem Verfahren möglich ist, ist das der Inhaber des Privat-Key eine Nachricht mit seinem Schlüssel verschlüsselt und an alle Kommunikationspartner überträgt. Da die Kommunikationspartner die Nachricht fehlerfrei entschlüsseln können, muss der Sender im Besitz des privaten Schlüssels sein. Damit ist die Echtheit der Indentität des Kommunikationspartners sichergestellt (digitale Unterschrift).\\
 Für eine beidseitige Übertragen mithilfe eines asymmetrischen Verfahren werden zwei unabhängige Schlüsselpaare benötigt. Beide Kommunikationsparnter müssen ihre öffentlichen Schlüssel veröffentlichen und auf ihren privaten Schlüssel achtgeben.
+
+\subsubsection{Hybride Verschlüsselungsverfahren}
+
+\textbf{Hybride Verschlüsselungsverfahren} sind kryptographische Verfahren, die asymmetrische und symmetrische Verschlüsselungsverfahren in Kombination einsetzten. Da die Übermittlung des Schlüssels allein mit symmetrischen Verfahren nicht möglich ist, da der Schlüssel im Klartext übertragen wird, verlassen sich hybride Verfahren auf asymmetrische Verschlüsselungssysteme.
+
+\subsubsection{Hash-Verfahren}
+
+Eine \textbf{Hashfunktion} ist eine Funktion, die eine beliebige Menge an Eingangsinformationen auf eine fixe Länge an Ausgangsinformationen abbildet. Hashfunktionen, die für die Kryptographie verwendet werden, sollten keine Kollisionen aufzeigen bzw. soll das Finden von Kollisionen erschwert werden. Zudem darf sie nicht rückrechenbar sein, weil die Eingangsinformation nicht bekannt sein darf (vgl. http://de.wikipedia.org/wiki/Kryptologische\_Hashfunktion)
 
 \newpage
 \section{Kryptoanalyse}
@@ -2133,7 +2139,7 @@ Um eine Zusammenfassung zu starten, muss folgender Befehl eingegeben werden (Hin
 \textbf{db summary -s 10.01.2015 -e 11.01.2015 -b 5h}
 
 \begin{center}
-\includegraphics[scale=0.6]{img/db_summary_create.png}
+\includegraphics[scale=0.5]{img/db_summary_create.png}
 \end{center}
 
 Nun werden alle Ausführung von allen Jobs, die zwischen dem 10.01.2015 und dem 11.01.2015 gestartet wurden, zusammengefasst. Der Zeitbereich wird in fünf Stunden Blöcke unterteilt und jeder Block wird in einem Datensatz zusammengefasst. Nun kann die Summary-Table betrachtet werden:\\
@@ -2141,7 +2147,7 @@ Nun werden alle Ausführung von allen Jobs, die zwischen dem 10.01.2015 und dem 
 \textbf{db summmay}
 
 \begin{center}
-\includegraphics[scale=0.6]{img/db_summary.png}
+\includegraphics[scale=0.5]{img/db_summary.png}
 \end{center}
 
 \chapter{CLIClient}
