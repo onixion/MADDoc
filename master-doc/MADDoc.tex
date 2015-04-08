@@ -436,8 +436,8 @@ Von Threads gemeinsam verwendete Ressourcen eines Programmes können sein: Adras
 ...\\
 
 \newpage
-\lfoot{Ranalter Daniel}
-\chapter{Netzwerkgrundlagen und Protokolle von Ranalter Daniel}
+\lfoot{Daniel Ranalter}
+\chapter{Netzwerkgrundlagen und Protokolle von Daniel Ranalter}
 Dieser Teil der Abhandlung wird die Netzwerkgrundlagen, die auf das Ethernet Protokoll (siehe Kapitel \ref{ssec:eth} auf Seite \pageref{ssec:eth}) aufsetzen, abdecken. Es gibt noch diverse andere, wie zum Beispiel Token Ring, auf welche hier im Folgenden jedoch nicht näher eingegangen wird, da, abgesehen davon, dass Ethernet auch bei der praktischen Durchführung verwendet wurde, Ethernet das am häufigsten genutzte Layer1 Protokoll darstellt. 
 
 \section{Grundlagen}
@@ -839,21 +839,21 @@ Enthält eine Zahl, die angibt, ob das Paket ein Request (1) oder eine Response 
 Enthält FF:FF:FF:FF:FF:FF, die Layer2 Broadcast Adresse.
 \item Ziel IP-Adresse
 \end{itemize}
-Es gibt jedoch auch noch andere Arten von ARP Paketen. Dazu zählen der Reverse ARP welcher die MAC- in eine IP-Adresse auflösen kann oder der Gratuitos ARP, welche eine Nachricht darstellt, die unaufgefordert bekannt macht, welche MAC-Adresse man selbst hat.
+Es gibt jedoch auch noch andere Arten von ARP Paketen. Dazu zählen der Reverse ARP, welcher die MAC- in eine IP-Adresse auflösen kann oder der Gratuitos ARP, welcher eine Nachricht darstellt, die unaufgefordert bekannt macht, welche MAC-Adresse man selbst hat.
 \subsection{Internet Protocol - IP}\label{ssec:ip}
 Das \textbf{Internet Protokoll} hat zwei Hauptaufgaben:
 \begin{itemize}
 \item \textbf{Adressierung}\\
-Das Ziel der Adressierung auf dieser Ebene ist es, wie bereits zuvor besprochen, ein Gerät über mehrere Netzwerke hinweg eindeutig zu machen, um Pakete nicht nur innerhalb eines Netzwerkes sonder über mehrere Netzwerke hinweg ansprechen zu können.
+Das Ziel der Adressierung auf dieser Ebene ist es, wie bereits zuvor besprochen, ein Gerät über mehrere Netzwerke hinweg eindeutig zu machen, um Pakete nicht nur innerhalb eines Netzwerkes sondern über mehrere Netzwerke hinweg ansprechen zu können.
 \item \textbf{Fragmentierung}\\
-Da Kommunikation sich ja meistens nicht mit nur einem Paket ausgeht, ist es wichtig, dass Kommunikationsstränge aufgeteilt werden können in mehrere kleine Pakete. Dies nennt man dann Fragmentierung. IP ist dafür zuständig, dass fragmentierte Pakete wieder zusammenfinden können, da es ja nicht heißen muss, dass nur eine einzige Kommunikation gerade am laufen ist.\\
+Da Kommunikation sich ja meistens nicht mit nur einem Paket ausgeht, ist es wichtig, dass Kommunikationsstränge aufgeteilt werden können in mehrere kleine Pakete. Dies nennt man dann Fragmentierung. IP ist dafür zuständig, dass fragmentierte Pakete wieder zusammenfinden können, da es ja nicht heißen muss, dass nur eine einzige Kommunikation gerade am Laufen ist.\\
 Dies gilt jedoch nur mehr für IPv4, denn in IPv6 ist es nicht mehr vorgesehen, dass Pakete fragmentieren.
 \end{itemize}
 \subsubsection{IPv4}
 IP Version 4 war der erste offizielle Standard des Internet Protocols.\\
 Adressierung im Schema von IPv4 wurde bereits in Kapitel \ref{sssec:ipaddr} auf Seite \pageref{sssec:ipaddr} besprochen.\\
 
-Es gibt einige gesonderte Adressbereiche in IPv4 welche nicht für die Öffentliche Nutzung Verwendbar sind. Dazu zählt:
+Es gibt einige gesonderte Adressbereiche in IPv4, welche nicht für die öffentliche Nutzung verwendbar sind. Dazu zählt:
 \begin{itemize}
 \item 10.0.0.0/8\\
 Sogenanntes Class A Netz: 1 Netz mit 16.777.216 Adressen (erstreckt sich bis 10.255.255.255/8)
@@ -862,61 +862,61 @@ Sogenanntes Class B Netz: 16 Netze mit jeweils 65.536 Adressen (erstreckt sich v
 \item 192.168.0.0/16\\
 Sogenanntes Class C Netz: 256 Netze mit je 256 Adressen (erstreckt sich von 192.168.0.0/24 über 192.168.1.0/24 usw. bis 192.168.255.0/24)
 \item 100.64.0.0/10\\
-Der Sogenannte Shared Adress Range. Er ist speziell für Internet Service Provider und ihre Anforderungen beim NAT bestimmt und nicht für den normalen User gedacht.
+Der sogenannte Shared Adress Range. Er ist speziell für Internet Service Provider und ihre Anforderungen beim NAT bestimmt und nicht für den normalen User gedacht.
 \item 169.254.0.0/16\\
-Link Local Adressbereich. Er wird verwendet wenn keine spezifische IP-Adresse einem Rechner zugewiesen wird. Damit sind auch zwei Clients in der Lage miteinander zu reden, wenn sie unkonfiguriert und ohne DHCP-Server entweder direkt durch Kabel oder über einen Switch verbunden sind.
+Link Local Adressbereich. Er wird verwendet, wenn keine spezifische IP-Adresse einem Rechner zugewiesen wird. Damit sind auch zwei Clients in der Lage miteinander zu reden, wenn sie unkonfiguriert und ohne DHCP-Server entweder direkt durch Kabel oder über einen Switch verbunden sind.
 \item 127.0.0.0/8\\
 LoopBack. Dieser Adressbereich wird für Interfaces des Hosts selbst verwendet. 
 \item ...\\
-Es gibt noch einige Bereiche mehr aber es würde hier zu weit führen alle aufzuzählen. Sie können in der RFC6890 (zum Zeitpunkt des Schreibens aktuelle Version) nachgelesen werden.
+Es gibt noch einige Bereiche mehr, aber es würde hier zu weit führen alle aufzuzählen. Sie können in der RFC6890 (zum Zeitpunkt des Schreibens aktuelle Version) nachgelesen werden.
 \end{itemize}
 
-Obwohl IPv4 im Grunde schon seit mehrere Jahren von IPv6 abgelöst wurde, sind bis heute die wenigsten Firmen und noch weniger Heimnetzwerke auf IPv6 umgestellt. Es wird also im Grunde noch überall IPv4 verwendet obwohl der Adressbereich ($2^{32} = 4.294.967.296$, abzüglich reservierter Adressen = 3.707.764.736) in dieser Version bereits \textbf{vollständig aufgebraucht} ist.\\
+Obwohl IPv4 schon seit mehreren Jahren von IPv6 abgelöst wurde, sind bis heute die wenigsten Firmen und noch weniger Heimnetzwerke auf IPv6 umgestellt. Es wird also im Grunde noch überall IPv4 verwendet, obwohl der Adressbereich ($2^{32} = 4.294.967.296$, abzüglich reservierter Adressen = 3.707.764.736) in dieser Version bereits \textbf{vollständig aufgebraucht} ist.\\
 
 Dieser Problematik wurde mit einigen Zwischenlösungen begegnet. Das Protokoll \textbf{NAT (Network Address Translation)} ist eines dieser Behilfsmittel.\\
-Der IPv4 Standard sie eine Aufteilung in öffentliche und private Netzwerke vor. Adressen welche aus dem Bereich der Privaten Netzwerke kommen, müssen nicht eindeutig sein und können so oft wie gewünscht verwendet werden. Durch ihre Mehrdeutigkeit sind sie jedoch auch nicht dazu geeignet, im Internet verwendet zu werden, sondern sie sind für den privaten Gebrauch gedacht, daher auch Privates Netzwerk.\\
-Will man nun aus seinem privaten Netz raus in das Internet, wendet jener Router welcher das private Netz mit dem des Providers verbindet, NAT an.\\
-Er legt dabei eine Tabelle an in welcher die private Adresse sowie der Port steht, und ersetzt diese durch eine öffentliche Adresse und einen beliebigen anderen High Port. Die Antworten weißt er anhand des Ports dann wieder der richtigen privaten Adresse zu und leitet diese vom Internet zu dem Host der die Anfrage abschickte.\\
-Dadurch scheint es als würden mehrere Hosts die gleiche IP-Adresse haben, nämlich jeder welcher über diesen Router das private Netzwerk verlässt.\\
+Der IPv4 Standard sieht eine Aufteilung in öffentliche und private Netzwerke vor. Adressen, welche aus dem Bereich der Privaten Netzwerke kommen, müssen nicht eindeutig sein und können so oft wie gewünscht verwendet werden. Durch ihre Mehrdeutigkeit sind sie jedoch auch nicht dazu geeignet, im Internet verwendet zu werden, sondern sie sind für den privaten Gebrauch gedacht, daher auch Privates Netzwerk.\\
+Will man nun aus seinem privaten Netz raus in das Internet, wendet jener Router, welcher das private Netz mit dem des Providers verbindet, NAT an.\\
+Er legt dabei eine Tabelle an, in welcher die private Adresse sowie der Port steht, und ersetzt diese durch eine öffentliche Adresse und einen beliebigen anderen High Port. Die Antworten weist er anhand des Ports dann wieder der richtigen privaten Adresse zu und leitet diese vom Internet zu dem Host, der die Anfrage abschickte.\\
+Dadurch scheint es, als würden mehrere Hosts die gleiche IP-Adresse haben, nämlich jeder, welcher über diesen Router das private Netzwerk verlässt.\\
 
-Eine andere Art mit der das unausweichliche versiegen an Adressen versucht wurde hinauszuzögern, ist die \textbf{dynamische Adressenvergabe von Providern an ihre Kunden}.\\
+Eine andere Art, mit der das unausweichliche Versiegen an Adressen versucht wurde hinauszuzögern, ist die \textbf{dynamische Adressenvergabe von Providern an ihre Kunden}.\\
 Sieht man sich mithilfe von externen Tools die Adresse, welche man nach außen hat, an zwei verschiedenen Tagen an, kann es sein, dass sich diese unterscheiden.\\
-Der Provider verwendet diese Methode um mehrere Kunden mit Adressen zu versorgen, als er eigentlich hat. Er geht dabei davon aus, dass zu keiner Zeit alle seine Kunden gleichzeitig online sind.\\
+Der Provider verwendet diese Methode, um mehrere Kunden mit Adressen zu versorgen, als er eigentlich hat. Er geht dabei davon aus, dass zu keiner Zeit alle seine Kunden gleichzeitig online sind.\\
 
 Das Problem entwickelte sich daraus, dass anfangs die Meinung geläufig war, es seien weitaus genug Adressen verfügbar. Deshalb hat man große Adressbereiche billig an Universitäten und Organisationen oder Firmen verkauft, ohne einen Gedanken daran zu verschwenden, dass womöglich irgendwann keine Adressen mehr übrig sein könnten.\\
 Offiziell wurden im \textbf{Januar 2011} die letzten beiden verfügbaren IPv4 Netze der RIR (Regional Internet Registry) von der IANA (Internet Assigned Numbers Authority) zugewiesen, welche diese nun an die einzelnen Länder aufteilen.\\
 
-Warum die Verwendung des IPv6 Standards trotzdem soweit hinausgezögert wird, liegt an der Starre der Firmen. Die Umstellung auf IPv6 bedeutet viele Probleme, da, obwohl er bereits von fast jeglicher Hardware unterstützt, immernoch Kompatibilitätsprobleme mit sich bringt. Firmen sehen keinen Sinn darin viel Geld zu investieren um etwas zu implementieren was doch sowieso funktioniert.\\
+Warum die Verwendung des IPv6 Standards trotzdem soweit hinausgezögert wird, liegt an der Starre der Firmen. Die Umstellung auf IPv6 bedeutet viele Probleme, da, obwohl er bereits von fast jeglicher Hardware unterstützt, immer noch Kompatibilitätsprobleme mit sich bringt. Firmen sehen keinen Sinn darin viel Geld zu investieren, um etwas zu implementieren, was doch sowieso funktioniert.\\
 
 Der IP-Header sieht wie folgt aus:\\
 \begin{center}
 \includegraphics[scale=1]{../docs/tarkes/pics/ipheader.jpg}
 \end{center}
 \subsubsection{IPv6}
-IPv6 ist der offizielle Nachfolger von IPv4. Er ist seit 1998 von der IETF standardisiert und bringt einige Neuerungen in das Internet Protocol welche die Fehler, welche durch das unterschätzte Wachstum des Internets hervorgerufen wurden aufheben soll.\\
+IPv6 ist der offizielle Nachfolger von IPv4. Er ist seit 1998 von der IETF standardisiert und bringt einige Neuerungen in das Internet Protocol welche die Fehler, die durch das unterschätzte Wachstum des Internets hervorgerufen wurden, aufheben soll.\\
 
 Eine dieser Neuerungen, wahrscheinlich auch die wichtigste, ist der \textbf{vergrößerte Adressbereich}. Während IPv4 $2^{32}$, also etwas mehr als 4 Milliarden Adressen hat, verfügt IPv6 über $2^{128}$, umgerechnet über 340 Sextillionen oder $3,4 \cdot 10^{38}$ Adressen.\\
 Ein anschaulicheres Beispiel bietet folgender Vergleich: Das Alter der Erde wird auf etwa 4,5 Milliarden Jahre geschätzt. Hätte man gleichzeitig mit der Entstehung der Erde begonnen mit einer Rate von 1 Milliarde Adressen pro Sekunde IPv6 Adressen aus dem vorhandenen Adressraum zu verteilen, wäre bis heute nur weniger als ein Billionstel des vorhandenen Adressraums vergeben.\\
 Damit dürfte das Problem des Adressenmangels vorübergehend gelöst sein.\\
 
 Weitere Vorteile sind das Anpassen der Headers an die neuen Anforderungen.\\
-So ist Beispielsweise IPsec bereits im IPv6 selbst implementiert. Auch der Rechenaufwand für Router soll damit minimiert werden.\\
+So ist beispielsweise IPsec bereits im IPv6 selbst implementiert. Auch der Rechenaufwand für Router soll damit minimiert werden.\\
 
-Eine Aufgabe die IPv6 nicht länger vollbringt wird das zuvor erwähnte Fragmentieren sein. Wenn ein Router ein Paket bekommt welches größer ist als sein MTU (Maximal Transition Unit), verwirft er das Paket und sendet ein ICMPv6 Paket mit der Meldung \glqq Too Big\grqq . Es ist nun die Aufgabe der Schichten darüber dafür zu sorgen, dass die Pakete welche sie versenden wollen nicht zu groß sind.\\
+Eine Aufgabe, die IPv6 nicht länger vollbringt, wird das zuvor erwähnte Fragmentieren sein. Wenn ein Router ein Paket bekommt, welches größer ist als sein MTU (Maximal Transition Unit), verwirft er das Paket und sendet ein ICMPv6 Paket mit der Meldung \glqq Too Big\grqq . Es ist nun die Aufgabe der Schichten darüber dafür zu sorgen, dass die Pakete, welche sie versenden wollen, nicht zu groß sind.\\
 
-Die Adressnotation in IPv6 ist deutlich anderst als bei IPv4. Es gibt aufgrund der länge und schweren Handhabbarkeit der Adressen einige Vereinfachungsregeln, welche darauf abzielen die Adressen zu kürzen. Da die Adressen sehr viel länger sind, kommt eine dezimale Notation wie sie vorher Verwendung fand nicht mehr in Frage.\\
-IPv6 verwendet daher Hexadezimale Notation, teilt die Adresse in 8 Blöcke auf und fasst in jedem Block 16 bit (=4Hexadezimalstellen) zusammen. Die Blöcke werden durch Doppelpunkte getrennt: \textbf{2001:0db8:85a3:08d3:2219:8a2e:0370:7344}\\
-Führende Nullen dürfen dabei ausgelassen werden. \textbf{2001:0db8:85a3:08d3:0000:8a2e:0070:7344} entspricht also \textbf{2001:db8:85a3:8d3:0:8a2e:70:7344}\\
-Kontinuierliche Blöcke aus 0 dürfen komplett ausgelassen werden und durch einen doppelten Doppelpunkt markiert werden. Diese Maßnahme darf jedoch nur einmal verwendet werden, da es sonst zu Mehrdeutigkeiten kommen kann. Beispiel: \textbf{2001:0db8:85a3:0:0:8a2e:0:0} darf entweder als \textbf{2001:0db8:85a3::8a2e:0:0} oder als \textbf{2001:0db8:85a3:0:0:8a2e::} geschrieben werden.\\
+Die Adressnotation in IPv6 ist deutlich anders als bei IPv4. Es gibt aufgrund der Länge und schweren Handhabbarkeit der Adressen einige Vereinfachungsregeln, welche darauf abzielen, die Adressen zu kürzen. Da die Adressen sehr viel länger sind, kommt eine dezimale Notation, wie sie vorher Verwendung fand, nicht mehr in Frage.\\
+IPv6 verwendet daher Hexadezimale Notation, teilt die Adresse in 8 Blöcke auf und fasst in jedem Block 16 bit (=4 Hexadezimalstellen) zusammen. Die Blöcke werden durch Doppelpunkte getrennt: \textbf{2001:0db8:85a3:08d3:2219:8a2e:0370:7344}\\
+Führende Nullen dürfen dabei ausgelassen werden.\\ \textbf{2001:0db8:85a3:08d3:0000:8a2e:0070:7344} entspricht also\\ \textbf{2001:db8:85a3:8d3:0:8a2e:70:7344}\\
+Kontinuierliche Blöcke aus 0 dürfen komplett ausgelassen und durch einen zweifachen Doppelpunkt angezeigt werden. Diese Maßnahme darf jedoch nur einmal Verwendung finden, da es sonst zu Mehrdeutigkeiten kommen kann. Beispiel: \textbf{2001:0db8:85a3:0:0:8a2e:0:0} darf entweder als \textbf{2001:0db8:85a3::8a2e:0:0} oder als \textbf{2001:0db8:85a3:0:0:8a2e::} geschrieben werden.\\
 
 Die \textbf{128 bit} lange Adresse wird in \textbf{zwei 64 bit} große Teile aufgeteilt. Ersterer ist der sogenannte \textbf{Präfix}.\\
-Die letzten 64 bit jedoch sind der, für jede Netzwerkschnittstelle eindeutige \textbf{Network-Identifier}. Dieser wird anhand der MAC-Adresse ausgerechnet.\\
+Die letzten 64 bit jedoch sind der für jede Netzwerkschnittstelle eindeutige \textbf{Network-Identifier}. Dieser wird anhand der MAC-Adresse ausgerechnet.\\
 Daraufhin wurde Kritik aus der Internetgemeinde laut, da so die Anonymität des Internets vollständig verloren gehen würde. Die IETF hat daraufhin mit der RFC4941 die \textbf{Privacy Extensions} eingeführt, welche den Host selbstständig zufällig generierte Network Identifiers machen lässt. Dieser ist in den meisten Betriebssystemen standardmäßig aktiv.\\
-Dies erhöht die Anonymität zwar, reicht aber noch nicht solang der Präfix, welcher meistens vom ISP vorgegeben wird, ebenso eindeutig ist. Sollte dieser ebenso dynamisch vergeben werden, ist ein guter Teil der Anonymität welche IPv4 hatte wieder gegeben.\\
+Dies erhöht die Anonymität zwar, reicht aber noch nicht, solang der Präfix, welcher meistens vom ISP vorgegeben wird, ebenso eindeutig ist. Sollte dieser ebenso dynamisch vergeben werden, ist ein guter Teil der Anonymität, welche IPv4 hatte, wieder gegeben.\\
 
 Wenn eine IPv6 Adresse als URL verwendet werden soll, wird sie in eckige Klammern geschrieben, damit einer Verwechslung mit der Portnummer als Teil der Adresse vorgebeugt wird.\\
 
-Da es keine privaten Netze mehr gibt, fallen viele reservierte Adressbereiche weg. Ein paar wesentliche sollen trotzdem genannt werden:
+Da es keine privaten Netze mehr gibt, fallen viele reservierte Adressbereiche weg. Ein paar Wesentliche sollen trotzdem genannt werden:
 \begin{itemize}
 \item ::1/128\\
 Die LoopBack Adresse, entspricht 127.0.0.1 bei IPv4
@@ -932,12 +932,12 @@ Für Dokumentationszwecke
 Auch hier kann wieder in der RFC 6890 nachgelesen werden, um mehr zu erfahren.
 \end{itemize}
 \subsection{User Datagram Protocol - UDP}
-Mit der Entwicklung von UDP wurde 1977 begonnen, als ersichtlich wurde, dass es notwendig ist ein Übertragungsprotokoll zu spezifizieren welches \textbf{schneller war als TCP}. UDP setzt auf IP auf und implementiert, gleich wie TCP, Ports.\\
+Mit der Entwicklung von UDP wurde 1977 begonnen, als ersichtlich wurde, dass es notwendig ist, ein Übertragungsprotokoll zu spezifizieren, welches \textbf{schneller war als TCP}. UDP setzt auf IP auf und implementiert, gleich wie TCP, Ports.\\
 
-Durch den Fokus auf die Geschwindigkeit der Datenübertragung wurden dafür an einigen anderen Punkten Abstriche gemacht. So ist es im Gegensatz zu TCP \textbf{nicht Verbindungsorientiert}, was bedeutet, dass es von sich aus nicht dafür Sorge trägt ob Pakete welche über das Netzwerk geschickt werden auch am anderen Ende ankommen, noch ob sie in da richtigen Reihenfolge ankommen.\\
-Auch \textbf{Sicherheitstechnisch ist keine Absicherung vorhanden}. UDP ansich hat keine Vorkehrungen dafür getroffen, dass der Inhalt der Pakete geheim bleibt, bzw. dass er unverändert ankommt.\\
+Durch den Fokus auf die Geschwindigkeit der Datenübertragung wurden dafür an einigen anderen Punkten Abstriche gemacht. So ist es im Gegensatz zu TCP \textbf{nicht verbindungsorientiert}, was bedeutet, dass es von sich aus nicht dafür Sorge trägt, ob Pakete, welche über das Netzwerk geschickt werden, auch am anderen Ende ankommen, noch ob sie in dort richtigen Reihenfolge ankommen.\\
+Auch \textbf{sicherheitstechnisch ist keine Absicherung vorhanden}. UDP an sich hat keine Vorkehrungen dafür getroffen, dass der Inhalt der Pakete geheim bleibt bzw. dass er unverändert ankommt.\\
 
-UDP hat trotz dieser Mängel große Bedeutung. Anwendungen bei denen das Fehlen von einzelnen Paketen nicht allzu schlimm ist wie zB VoIP (Voice over IP) oder bei denen nur kurze Paketwechsel stattfinden, ein Verbindungsaufbau also nur übermäßig Traffic erzeugen würde, wie zB DNS.\\
+UDP hat trotz dieser Mängel große Bedeutung. Anwendungen, bei denen das Fehlen von einzelnen Paketen nicht allzu schlimm ist, wie zB. VoIP (Voice over IP) oder bei denen nur kurze Paketwechsel stattfinden, ein Verbindungsaufbau also nur übermäßig Traffic erzeugen würde, wie zB DNS.\\
 
 Der UDP Header beinhaltet folgende Werte: 
 \begin{itemize}
@@ -948,113 +948,113 @@ Der UDP Header beinhaltet folgende Werte:
 In diesem Feld wird eine Prüfsumme vom Header und dem Paket erzeugt. In IPv4 ist dies noch optional, bei IPv6 nicht mehr.
 \end{itemize}
 \subsection{Transmission Control Protocol - TCP}
-Die Entwicklung von TCP dauerte einige Jahre. Es begann bereits 1973 endete aber erst 1981 mit der Veröffentlichung der RFC 793. TCP ist ein \textbf{zuverlässiges, verbindungsorientiertes Protokoll}. Es stellt damit sowohl Flusssteuerung und Staukontrolle als auch das vorhanden sein aller Daten in der richtigen Reihenfolge sicher.\\
+Die Entwicklung von TCP dauerte einige Jahre. Es begann bereits 1973, endete aber erst 1981 mit der Veröffentlichung der RFC 793. TCP ist ein \textbf{zuverlässiges, verbindungsorientiertes Protokoll}. Es stellt damit sowohl Flusssteuerung und Staukontrolle als auch das Vorhandensein aller Daten in der richtigen Reihenfolge sicher.\\
 
 \begin{center}
 \includegraphics[scale=0.6]{../docs/tarkes/pics/TcpHandshake.png}
 \end{center}
 
 Da TCP ein verbindungsorientiertes Protokoll ist, gibt es auch einen Verbindungsaufbau.\\
-Dieser findet mittels eines \textbf{Three-Way-Handshake} statt: Zuerst wird vom Client ein \textbf{SYN Paket} (ein Paket bei welchem das SYN-Flag im Header gesetzt ist) an den Server geschickt. Der Wert im Sequence-Feld ist dabei zufällig gewählt.\\
-Der Server schickt dann ein \textbf{SYN-ACK Paket} zurück, indem zusätzlich zu der SYN-Flag auch noch das ACK-Flag gesetzt ist. Im Acknowledge-Feld steht dabei der Wert des Sequence-Feldes des SYN-Paketes des Clients, während im Sequence Feld des SYN-ACK Paketes eine neue zufällige Zahl steht.\\
-Das dritte Paket des Verbidnungsaufbaus ist dann das \textbf{ACK-Paket} des Clients an den Server. Darin ist nur noch das ACK-Flag gesetzt, im Sequence Feld steht der Wert des ersten Paketes + 1 und im Acknowledge Feld steht der Wert aus dem Sequence Feld des vorherigen Paketes.\\
+Dieser findet mittels eines \textbf{Three-Way-Handshake} statt: Zuerst wird vom Client ein \textbf{SYN Paket} (ein Paket, bei welchem das SYN-Flag im Header gesetzt ist) an den Server geschickt. Der Wert im Sequence-Feld ist dabei zufällig gewählt.\\
+Der Server schickt dann ein \textbf{SYN-ACK Paket} zurück, indem, zusätzlich zu der SYN-Flag auch noch das ACK-Flag gesetzt ist. Im Acknowledge-Feld steht dabei der Wert des Sequence-Feldes des SYN-Paketes des Clients, während im Sequence Feld des SYN-ACK Paketes eine neue zufällige Zahl steht.\\
+Das dritte Paket des Verbindnungsaufbaus ist dann das \textbf{ACK-Paket} des Clients an den Server. Darin ist nur noch das ACK-Flag gesetzt, im Sequence Feld steht der Wert des ersten Paketes + 1 und im Acknowledge Feld steht der Wert aus dem Sequence Feld des vorherigen Paketes.\\
 
 Daraufhin ist der Verbindungsaufbau abgeschlossen und die Datenübertragung kann beginnen.\\
-Dabei wird die Ordnung und Sicherheit, dass jedes Paket auch wirklich ankommt, dadurch erreicht, dass der Empfänger jedes Paket welches ihm in seiner Liste fehlt nocheinmal anfordert und das so oft bis er es auch bekommt. Ob ihm eines fehlt erkennt er anhand des Sequence Feldes.\\
-Er buffert diese Pakete dann eine gewisse Zeit, um fehlende Pakete nachzuholen, doppelte zu Verwerfen und sie in Reihenfolge zu bringen.\\
+Dabei wird die Ordnung und Sicherheit, dass jedes Paket auch wirklich ankommt, dadurch erreicht, dass der Empfänger jedes Paket, welches ihm in seiner Liste fehlt, noch einmal anfordert und das so oft, bis er es auch bekommt. Ob ihm eines fehlt, erkennt er anhand des Sequence Feldes.\\
+Er buffert diese Pakete dann eine gewisse Zeit, um fehlende Elemente nachzuholen, doppelte zu verwerfen und sie in Reihenfolge zu bringen.\\
 
 Der TCP Header:\\
 \begin{itemize}
 \item Source Port
 \item Destination Port
 \item Sequence Number\\
-Wie bereits zuvor erwähnt, dient diese dazu Ordnung halten zu können und um zu sehen ob doppelte oder vermisste Pakete existieren
+Wie bereits zuvor erwähnt, dient diese dazu, Ordnung halten zu können und um zu sehen, ob doppelte oder vermisste Pakete existieren.
 \item Acknowledge Number\\
 Für den Verbindungsaufbau
 \item Data Offset\\
-Größe des Headers, gibt den beginn der Nutzdaten an
+Größe des Headers, gibt den Beginn der Nutzdaten an
 \item Reserved\\
 Wird nicht verwendet und muss 0 sein
 \item Control Flags\\
-Es gibt einige verschiedene Control Flags. Zwei davon, SYN und ACK wurden bereits erwähnt. Des weiteren gibt es noch beispielsweise FIN für den Verbindungsabbau, URG für urgent, also dringende Pakete oder RST für Reset.
+Es gibt einige verschiedene Control Flags. Zwei davon, SYN und ACK, wurden bereits erwähnt. Des Weiteren gibt es noch beispielsweise FIN für den Verbindungsabbau, URG für Urgent, also dringende Pakete oder RST für Reset.
 \item Window \\
-Die Menge an Daten die der Client zu empfangen bereit ist.
+Die Menge an Daten, die der Client zu empfangen bereit ist.
 \item Checksum
 \item Urgent Pointer\\
-nur wichtig falls das URG Flag gesetzt ist
+Nur wichtig, falls das URG Flag gesetzt ist
 \item Options\\
-Hier kann noch alles mögliche ausgemacht werden welches nicht im Standartheader steht.
+Hier kann noch alles Mögliche ausgemacht werden, welches nicht im Standardheader steht.
 \end{itemize}
 \subsection{Dynamic Host Configuration Protocol - DHCP}\label{ssec:dhcp}
 DHCP dient, wie der Name bereits aussagt, der \textbf{dynamischen Konfiguration} von Hosts. Standardmäßig hat jeder normale Enduser in dem WLAN Router, welchen er von dem ISP bereitgestellt bekommt, einen DHCP-Server. Dieser nutzt jedoch nur die grundlegendsten Funktionen des DHCP Protokolls, die Vergabe einer \textbf{IP-Adresse und eines Standard Gateways}.\\
-DHCP ist jedoch zu weit mehr in der Lage. Die Optionen reichen von hostnamen über Proxy Einstellungen bis zu Zeitservern. Im Grunde sind die Optionen zur Konfiguration jedoch sogar unbegrenzt, da im Optionen Feld des Paketes eigene Dinge spezifiziert werden können.\\
+DHCP ist jedoch zu weit mehr in der Lage. Die Optionen reichen von Hostnamen über Proxy Einstellungen bis zu Zeitservern. Im Grunde sind die Optionen zur Konfiguration jedoch sogar unbegrenzt, da im Optionen Feld des Paketes eigene Dinge spezifiziert werden können.\\
 
 Der Ablauf einer Kommunikation zwischen Host und DHCP-Server sieht wie folgt aus:\\
-Ein Client, ahnungslos und ohne eigene Adresse, schreit in das Netzwerk, ob denn ein DHCP Server existiert welcher ihm eine Konfiguration anbieten möchte. Dieses Paket ist das \textbf{DHCPDISCOVER}.\\
-Niemand, einer oder mehrere Server, je nach Bestückung des Netzwerkes, antworten nun mit einem \textbf{DHCPOFFER} in denen sie eine Konfiguration anbieten.\\
-Der Client wählt nun eine der angebotenen Konfigurationen, und teilt das dem Netzwerk mit einem \textbf{DHCPREQUEST} mit.\\
-Der Server, welchem der Request giltet, kann dieser nun mit \textbf{DHCPACK} für Acknowledge zustimmen oder mit \textbf{DHCPNACK} für Not Acknowledge ablehnen.\\
+Ein Client, ahnungslos und ohne eigene Adresse, schreit in das Netzwerk, ob denn ein DHCP Server existiert, welcher ihm eine Konfiguration anbieten möchte. Dieses Paket ist das \textbf{DHCPDISCOVER}.\\
+Niemand, einer oder mehrere Server, je nach Bestückung des Netzwerkes, antworten nun mit einem \textbf{DHCPOFFER}, in denen sie eine Konfiguration anbieten.\\
+Der Client wählt nun eine der angebotenen Konfigurationen und teilt das dem Netzwerk mit einem \textbf{DHCPREQUEST} mit.\\
+Der Server, welchem der Request gilt, kann dieser nun mit \textbf{DHCPACK} für Acknowledge zustimmen oder mit \textbf{DHCPNACK} für Not Acknowledge ablehnen.\\
 
 DHCP Header:\\
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/dhcpheader.jpg}
 \end{center}
 \subsection{Domain Name System - DNS}
-DNS ist ein Protokoll welches zwar nicht zwangsweise notwendig ist für das Funktionieren des Internets, es aber uns Menschen sehr komfortabel macht es zu benützen.\\
-Jeder ist heutzutage gewohnt, durch simples eintippen eines Namens, zu einer Seite zu kommen. Dies wird jedoch erst durch DNS möglich. Ein PC selbst \textbf{kann mit dem Namen nichts anfangen, er muss ihn auflösen}. Dafür schickt er den Namen zu seinem eingetragenen DNS Server und bittet ihn um die zugehörige IP-Adresse.\\
+DNS ist ein Protokoll, welches zwar nicht zwingend notwendig ist für das Funktionieren des Internets, aber uns Menschen es sehr komfortabel macht damit zu arbeiten.\\
+Jeder ist heutzutage gewohnt, durch simples Eintippen eines Namens, zu einer Seite zu kommen. Dies wird jedoch erst durch DNS möglich. Ein PC selbst \textbf{kann mit dem Namen nichts anfangen, er muss ihn auflösen}. Dafür schickt er den Namen zu seinem eingetragenen DNS Server und bittet ihn um die zugehörige IP-Adresse.\\
 
-Würde nun jedoch jeder DNS Server jeden Namen mit dazugehöriger IP-Adresse speichern, würde es sehr schnell außer Hand geraten. Deshalb ist DNS \textbf{hierarchisch} designed. Das bedeutet, dass ein DNS-Server nur für einen gewissen Bereich zuständig ist. Weiß er nicht weiter, geht er die Leiter solange hinauf bis er schließlich jemanden findet der, wenn er auch vielleicht den Namen nicht weiß, ihn zu dem führen kann der ihn weiß.\\
-Das kann schlimmsten Falls bei einem der Root Namens Server enden, der höchsten Autorität.\\
+Würde nun jedoch jeder DNS Server jeden Namen mit dazugehöriger IP-Adresse speichern, würde es sehr schnell außer Kontrolle geraten. Deshalb ist DNS \textbf{hierarchisch} designed. Das bedeutet, dass ein DNS-Server nur für einen gewissen Bereich zuständig ist. Weiß er nicht weiter, geht er die Leiter solange hinauf, bis er schließlich jemanden findet, der, wenn er auch vielleicht den Namen an sich nicht weiß, ihn zu dem führen kann, der ihn weiß.\\
+Das kann im schlimmsten Fall bei einem der Root Name Server enden, der höchsten Autorität.\\
 
 Zum besseren Verständnis sollte eine typische URL erklärt werden:\\
 \textbf{www.example.com} besteht aus mehreren Bestandteilen.
 \begin{itemize}
 \item .\\
-Nach dem kompletten Namen ist eigentlich ein Punkt der jedoch inzwischen ausgelassen werden kann
+Nach dem kompletten Namen ist eigentlich ein Punkt, der jedoch inzwischen ausgelassen werden kann
 \item com\\
-Die Top Level Domain \glqq com\grqq . Zu den Top Level Domains gehören auch die Länder Domains wie zum Beispiel at, us, jp und so weiter. Eine Domain ist eine Zusammenfassung von mehreren verschiedenen Untergruppen. So indiziert die Länder Domain at, dass alle URLs welche auf diese Top Level Domain enden, in Österreich ihren Standpunkt haben.
+Die Top Level Domain \glqq com\grqq . Zu den Top Level Domains gehören auch die Länder Domains wie zum Beispiel at, us, jp und so weiter. Eine Domain ist eine Zusammenfassung von mehreren verschiedenen Untergruppen. So indiziert die Länder Domain at, dass alle URLs, welche auf diese Top Level Domain enden, in Österreich ihren Standpunkt haben.
 \item example\\
 example wäre in diesem Beispiel eine Subdomain. Häufig werden Subdomains von Firmen und Organisationen gekauft. 
 \item www\\
-Obwohl das dreifache w im Internet immer mehr verloren geht, haben sie eigentlich eine wichtige Bedeutung. Sie sind der Host in dieser Gruppe an Hosts welche sich in einer Domain befinden, auf den man zugreift. Erst hier spitzt sich der Name auf einen Server zu. 
+Obwohl das dreifache w im Internet immer mehr verloren geht, haben sie eigentlich eine wichtige Bedeutung. Sie sind der Eine unter allen Hosts welche sich in dieser Domain befinden, auf den man zugreift. Erst hier spitzt sich der Name auf einen Server zu. 
 \end{itemize}
-Nun wird auch ersichtlich warum ein hierarchisches System sinnvoll ist.\\
+Nun wird auch ersichtlich, warum ein hierarchisches System sinnvoll ist.\\
 
-Dies wird auch vom Staat genutzt um Zensur zu betreiben. Die Filme und Serien Streaming Seite kinox.to wurde aus den DNS Servern in Deutschland gelöscht, als Konsequenz auf die Urheberrechtsverletzungen.\\
+Dies wird auch vom Staat genutzt, um Zensur zu betreiben. Die Filme und Serien Streaming Seite kinox.to wurde aus den DNS Servern in Deutschland gelöscht, als Konsequenz auf die Urheberrechtsverletzungen.\\
 
 DNS Header:\\
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/dnsheader.png}
 \end{center}
 \subsection{Internet Control Message Protocol - ICMP}
-Das Internet Control Message Protocol bewegt sich auf Layer 3 zusammen mit IP. Es dient dazu anderen Geräten \textbf{Informationen über ihren Status} zukommen zu lassen. Es gibt eine Variante für IPv6 das sogenannte ICMPv6. Es verwendet zum Transport IP obwohl es auf dem gleichen Layer liegt, da es sich als ein Protokoll höherer Ebene interpretiert.\\
+Das Internet Control Message Protocol bewegt sich auf Layer 3 zusammen mit IP. Es dient dazu, anderen Geräten \textbf{Informationen über ihren Status} zukommen zu lassen. Es gibt eine Variante für IPv6, das sogenannte ICMPv6. Es verwendet zum Transport IP, obwohl es auf dem gleichen Layer liegt, da es sich als ein Protokoll höherer Ebene interpretiert.\\
 
 Der Header des ICMP Paketes ist sehr klein. Er besteht lediglich aus:
 \begin{itemize}
 \item Type\\
-Stellt die Art des ICMP dar. Kann zB 3 für \glqq Ziel nicht erreichbar\grqq  sein.
+Stellt die Art des ICMP dar. Kann zB. 3 für \glqq Ziel nicht erreichbar\grqq \ sein.
 \item Code\\
-Bietet eine genauere Auflösung der Art. Wenn der Typ zB 3 ist, gibt es die Codes 0 für Netzwerk nicht erreichbar, 1 für Host nicht erreichbar, 2 für Protokoll nicht erreichbar und noch einige andere
+Bietet eine genauere Auflösung der Art. Wenn der Typ zB. 3 ist, gibt es die Codes 0 für \glqq Netzwerk nicht erreichbar\grqq , 1 für \glqq Host nicht erreichbar\grqq , 2 für \glqq Protokoll nicht erreichbar\grqq \ und noch einige andere.
 \item Checksum
 \item Daten
 \end{itemize}
 
-Wichtige Beispiele für seine Funktionen sind die Meldungen \textbf{Host Unreachable} oder \textbf{Destination Port Unreachable} für die Berichterstattung, es gibt aber auch Analysefunktionen wie traceroute oder den ICMP Echo Request. 
+Wichtige Beispiele für die Funktionen dieses Protokolls sind die Meldungen \textbf{Host Unreachable} oder \textbf{Destination Port Unreachable} für die Berichterstattung, es gibt aber auch Analysefunktionen wie traceroute oder den ICMP Echo Request. 
 \paragraph{Echo Request/Response - Ping}
 Der ICMP Echo hat die Typen Nummer 0. Er wurde durch das \textbf{Netzwerkprogramm Ping} auch unter diesem Namen bekannt.\\
-Es wird verwendet um zu Überprüfen ob ein gewisser Host im Netzwerk ist oder nicht. Wenn ein Host ein Echo Paket empfängt antwortet er mit einem Response Paket, genannt Pong.\\
+Es wird verwendet um zu überprüfen, ob ein gewisser Host im Netzwerk ist oder nicht. Wenn ein Host ein Echo Paket empfängt, antwortet er mit einem Response Paket, genannt Pong.\\
 
-Die Namensgebung kommt vom Sonar in U-Booten, die jedes Mal ein Ping von sich geben wenn sie ihre Schallwellen aussenden, und ein Pong wenn die Schallwellen von etwas reflektiert werden.\\ 
-Gleich wie beim Sonar, kann aus dem Echo Paket einiges an Information ausgelesen werden. So gut wie immer ist die Round-Trip Time, also die Zeit, die ein Paket benötigt um vom Sender zum Ziel und wieder zurück zu kommen, dabei, sowie der Wert aus dem Time To Live Feld, also wie viele Hops es noch passieren kann bevor es verworfen wird.
-\subsection{File Transport Protcol - FTP}
-Das File Transport Protocol ist wie der Name schon sagt, ein Protokoll zum \textbf{Übertragen von Dateien}. Es setzt auf TCP auf, da es sich nicht erlauben kann, dass Pakete verloren gehen da sonst die gesamten Daten unbrauchbar werden können. TCP verwendet \textbf{getrennte Verbindungen} für Data Transfer und Command Transfer. FTP antwortet auf Commands mit \textbf{dreistelligen Zahlen Codes} wie 200 für OK.\\
+Die Namensgebung kommt vom Sonar in U-Booten, die jedes Mal ein Ping von sich geben, wenn sie ihre Schallwellen aussenden, und ein Pong, wenn die Schallwellen von etwas reflektiert werden.\\ 
+Gleich wie beim Sonar kann aus dem Echo Paket einiges an Information ausgelesen werden. So gut wie immer ist die Round-Trip Time, also die Zeit, die ein Paket benötigt, um vom Sender zum Ziel und wieder zurück zu kommen, dabei sowie der Wert aus dem Time To Live Feld, also wie viele Hops es noch passieren kann, bevor es verworfen wird.
+\subsection{File Transport Protocol - FTP}
+Das File Transport Protocol ist, wie der Name schon sagt, ein Protokoll zum \textbf{Übertragen von Dateien}. Es setzt auf TCP auf, da es sich nicht erlauben kann, dass Pakete verloren gehen, weil ansonsten die gesamten Daten unbrauchbar werden können. TCP verwendet \textbf{getrennte Verbindungen} für Data Transfer und Command Transfer. FTP antwortet auf Commands mit \textbf{dreistelligen Zahlen Codes} wie 200 für OK.\\
 
-Um eine Verbindung aufzubauen, öffnet ein Client eine TCP Verbindung zum Port 21 von einem zufälligen Port N aus. Von da an kommt es darauf an ob der FTP Server als \glqq aktive\grqq oder als \glqq passive\grqq betrieben wird.\\
-Bei einem als aktiv konfigurierten Server, wartet der Client nun auf dem Port N+1 auf eine einkommende Datenverbindung. Damit der Server weiß auf welchen Port er die Verbindung aufbauen soll, wird in der Command Verbindung ein PORT Befehl gesendet.\\
-Sollte der Server als passiv konfiguriert sein, was häufig bei Servern hinter einer Firewall gemacht wird, sendet der Client ein PASV Paket über die Command Verbindung und bekommt daraufhin vom Server eine IP und einen Port auf welchen daraufhin die Datenverbindung aufgebaut wird.\\
+Um eine Verbindung aufzubauen, öffnet ein Client eine TCP Verbindung zum Port 21 von einem zufälligen Port N aus. Von diesem Zeitpunkt an wird es wichtig, ob der FTP Server als \glqq aktive\grqq \ oder als \glqq passive\grqq \ betrieben wird.\\
+Bei einem als aktiv konfigurierten Server wartet der Client nun auf dem Port N+1 auf eine einkommende Datenverbindung. Damit der Server weiß, auf welchen Port er die Verbindung aufbauen soll, wird in der Command Verbindung ein PORT Befehl gesendet.\\
+Sollte der Server als passiv konfiguriert sein, was häufig bei Servern hinter einer Firewall gemacht wird, sendet der Client ein PASV Paket über die Command Verbindung und bekommt daraufhin vom Server eine IP und einen Port, auf welchen daraufhin die Datenverbindung aufgebaut wird.\\
 
-Ein großes Problem von FTP ist, dass, auch wenn es durch Username und Passwort geschützt werden kann, alles in Klartext überträgt. Es ist also für einen unerwünschten Mithörer im Netzwerk nicht sehr schwer alles mitzubekommen was zwischen FTP Client und Server an Kommunikation passiert.\\
-Um dies zu umgehen gibt es einige Varianten von FTP welche Sicherheit garantieren sollen, wie u.a. \textbf{FTPS (File Transport Protocol SSL/TLS) oder SFTP(SSH File Transport Protocol)} welche trotz des ähnichen Namens unterschiedlich realisiert sind. 
+Ein großes Problem von FTP ist, dass, auch wenn es durch Username und Passwort geschützt werden kann, alles in Klartext überträgt. Es ist also für einen unerwünschten Mithörer im Netzwerk nicht sehr schwer alles mitzubekommen, was zwischen FTP Client und Server an Kommunikation passiert.\\
+Um dies zu umgehen gibt es einige Varianten von FTP, welche Sicherheit garantieren sollen, wie u.a. \textbf{FTPS (File Transport Protocol SSL/TLS) oder SFTP (SSH File Transport Protocol)}, welche trotz des ähnlichen Namens unterschiedlich realisiert sind. 
  
 \subsection{Simple Network Managing Prorocol - SNMP}
 Das SNMP dient dazu die Pakete zu beschreiben, mit welchen Informationen zwischen verschiedenen Netzwerkgeräten ausgetauscht werden können. Diese Informationen finden sich in einer \textbf{MIB}. Es setzt auf UDP auf.\\
@@ -1822,8 +1822,8 @@ Da SNMP ein so sensibles Protokoll ist, gibt es auch die Möglichkeit zu überpr
 \paragraph{FTP}
 Bei dem FTP Check wird im Grunde einfach nur das momentane Arbeitsverzeichnis abgefragt. Es ist zu beachten dass ein passwort und ein username benötigt werden. 
 
-\lfoot{Ranalter Daniel}
-\chapter{Devicefinder von Ranalter Daniel}
+\lfoot{Daniel Ranalter}
+\chapter{Devicefinder von Daniel Ranalter}
 Der Programmteil, welcher das Netzwerk auf Geräte überprüft, ist jener den ich persönlich wohl am öftesten neu geschrieben habe. Im folgenden wird auf alle drei Versionen die durchlaufen worden sind eingegangen. Sie alle befinden sich weiterhin im Projekt, werden jedoch nicht verwendet.\\
 Im Projekt selbst, werden sie ab der zweiten Version als \glqq MacFinder\grqq bezeichnet. 
 \section{MacFinder Version 1 - host find job}
