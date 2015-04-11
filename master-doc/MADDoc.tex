@@ -1056,11 +1056,11 @@ Sollte der Server als passiv konfiguriert sein, was häufig bei Servern hinter e
 Ein großes Problem von FTP ist, dass, auch wenn es durch Username und Passwort geschützt werden kann, alles in Klartext überträgt. Es ist also für einen unerwünschten Mithörer im Netzwerk nicht sehr schwer alles mitzubekommen, was zwischen FTP Client und Server an Kommunikation passiert.\\
 Um dies zu umgehen gibt es einige Varianten von FTP, welche Sicherheit garantieren sollen, wie u.a. \textbf{FTPS (File Transport Protocol SSL/TLS) oder SFTP (SSH File Transport Protocol)}, welche trotz des ähnlichen Namens unterschiedlich realisiert sind. 
  
-\subsection{Simple Network Managing Prorocol - SNMP}
-Das SNMP dient dazu die Pakete zu beschreiben, mit welchen Informationen zwischen verschiedenen Netzwerkgeräten ausgetauscht werden können. Diese Informationen finden sich in einer \textbf{MIB}. Es setzt auf UDP auf.\\
+\subsection{Simple Network Managing Protocol - SNMP}
+Das SNMP dient dazu, die Pakete zu beschreiben, mit welchen Informationen zwischen verschiedenen Netzwerkgeräten ausgetauscht werden können. Diese Informationen finden sich in einer \textbf{MIB}. Es setzt auf UDP auf.\\
 
-MIBs oder Management Information Bases sind \textbf{Tabellen mit beschreibenden Werten}. Diese Werte sind in einer \textbf{Baumstruktur} angeordnet. Der für SNMP interessante Bereich beginnt bei 1.3.6.1, dem Internet Zweig. Was in der MIB steht ist von der IETF vorgegeben. SNMP weiß jedoch nicht mit welchem Device es gerade redet, weshalb es nur als \glqq Bote\grqq für die Informationen dient.\\
-Die Informationen welche damit abgerufen werden können sind unglaublich vielfältig und umschließen sogar Dinge wie Fehlerpakete auf einem bestimmten Interface auf einem Host.\\
+MIBs oder Management Information Bases sind \textbf{Tabellen mit beschreibenden Werten}. Diese Werte sind in einer \textbf{Baumstruktur} angeordnet. Der für SNMP interessante Bereich beginnt bei 1.3.6.1, dem Internet Zweig. Was in der MIB steht, ist von der IETF vorgegeben. SNMP weiß jedoch nicht, mit welchem Device es gerade redet, weshalb es nur als \glqq Bote\grqq für die Informationen dient.\\
+Die Informationen, welche damit abgerufen werden können, sind unglaublich vielfältig und umschließen sogar Dinge wie Fehlerpakete auf einem bestimmten Interface auf einem Host.\\
 
 Die MIB:
 \begin{center}
@@ -1069,79 +1069,79 @@ Die MIB:
 
 Es gibt inzwischen \textbf{drei Versionen} von SNMP. Der Hauptkritikpunkt an den ersten Versionen war die Unsicherheit. Es ging so weit, dass im Scherz behauptet wurde, SNMP stehe eigentlich für \textbf{S}ecurity? \textbf{N}ot \textbf{m}y \textbf{P}roblem. Dies wurde auch erst mit der letzten Version, Version 3 wirklich ausgebessert.\\
 Davor wurde nur mit einem sogenannten \textbf{Community String}, welches eine Art Passwort darstellt, gesichert und selbst dieser wurde in Klartext übermittelt.\\
-Dies wurde in Version 3 dann verbessert und mit zwei zusätzlichen Passphrasen, genannt \textbf{Authentification und Privacy}, welche mit verschiedenen Verschlüsselungen versehen werden können.\\
+Dies wurde in Version 3 dann verbessert und mit zwei zusätzlichen Passphrasen, genannt \textbf{Authentification und Privacy}, welche mit verschiedenen Verschlüsselungen versehen werden können, hinzugefügt wurden.\\
 
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/snmpheader.jpg}
 \end{center}
 
-Es gibt mehrere Möglichkeiten wie SNMP Informationen aus einer MIB bekommt. Der Standart ist die \textbf{GET Methode} bei der er ein Feld abfrägt. Doch gibt es auch die Methoden \textbf{GETNEXT und GETBULK}.\\
+Es gibt mehrere Möglichkeiten wie SNMP Informationen aus einer MIB bekommt. Der Standard ist die \textbf{GET Methode}, bei der er ein Feld abfrägt. Doch gibt es auch die Methoden \textbf{GETNEXT und GETBULK}.\\
 Bei ersterer Methode wandert er eine spezifizierte Anzahl an Werten ab. Diese Methode wurde erst in Version 2 dazugenommen.\\
 Bei zweiterer Methode erfrägt er einen gesamten Unterbaum.\\
 
 Des Weiteren gibt es noch eine Sonderform, in welcher nicht der Agent, so wird derjenige genannt, welcher die SNMP Abfragen durchführt, sondern das zu managende Device selbst sich meldet.\\
-Diese sogenannten \textbf{Traps} können auf bestimmte Events gesetzt werden, wie zB eine Änderung eines kritischen Wertes. Bei weitem öfters wird es jedoch verwendet, wenn eine der Zähler Variablen überläuft. Dabei setzen MIBs meist ein flag in einem bestimmten Unterbaum auf welches die Traps dann reagieren.\\
+Diese sogenannten \textbf{Traps} können auf bestimmte Events gesetzt werden, wie zB. eine Änderung eines kritischen Wertes. Bei weitem öfters wird es jedoch verwendet, wenn eine der Zähler Variablen überläuft. Dabei setzen MIBs meist ein Flag in einem bestimmten Unterbaum, auf welches die Traps dann reagieren.\\
 
-Obwohl das Protokoll sich selbst als \glqq Simple\grqq bezeichnet, ist es hoch komplex und, obwohl es von einem großen Teil ernstzunehmender Administratoren genutzt wird, bringt auch extreme Sicherheitsprobleme mit wenn man es nicht vorsichtig implementiert.\\
-Vorallem die Tatsache, dass SNMPv3 Support, obwohl es ein Standard ist, so gut wie nirgends gegeben ist (unter anderem unterstützt Windows bis jetzt nur SNMPv2(c)), macht große Probleme. 
-\subsection{Hypertext Transfer Protcol - HTTP}
-HTTP ist wohl eines der Protokolle welches der Standartuser mit am häufigsten verwendet, auch wenn er sich dessen unter Umständen garnicht bewusst ist. Es wird verwendet um \textbf{Webseiten über ein Netzwerk zu transportieren}. HTTP befindet sich auf den Layern 5 bis 7 und setzt auf TCP auf, da sich vermisste oder Fehlerhafte Pakete doch deutlich in der Seitendarstellung auswirken.\\
+Obwohl das Protokoll sich selbst als \glqq Simple\grqq \ bezeichnet, ist es hoch komplex und, obwohl es von einem großen Teil ernstzunehmender Administratoren genutzt wird, bringt es auch extreme Sicherheitsprobleme mit, wenn man es nicht vorsichtig implementiert.\\
+Vorallem die Tatsache, dass SNMPv3 Support, obwohl es ein Standard ist, so gut wie nirgends gegeben ist (unter anderem unterstützt Windows bis jetzt nur SNMPv2(c)), macht es große Probleme. 
+\subsection{Hypertext Transfer Protocol - HTTP}
+HTTP ist wohl eines der Protokolle, welches der Standarduser am häufigsten verwendet, auch wenn er sich dessen unter Umständen gar nicht bewusst ist. Es wird verwendet, um \textbf{Webseiten über ein Netzwerk zu transportieren}. HTTP befindet sich auf den Layern 5 bis 7 und setzt auf TCP auf, da sich vermisste oder fehlerhafte Pakete doch deutlich in der Seitendarstellung auswirken.\\
 Momentan wird \textbf{HTTP/1.1} verwendet, wobei die HTTP-Entwicklergruppe der IETF bereits dabei ist, Version 2 zu spezifizieren. Ziele der neuen Version sind bessere Datenkomprimierung, effizientere Kommunikation und erhöhte Sicherheit.\\
 
-Sicherheitstechnisch ist HTTP nicht sehr ausgefeilt. Es verwendet keine Verschlüsselung von sich aus, überträgt alles in Klartext. Dafür wurden diverse Erweiterungen geschrieben wie zum Beispiel \textbf{HTTPS welches Pakete mit SSL verfahren sichert}.\\
+Sicherheitstechnisch ist HTTP nicht sehr ausgefeilt. Es verwendet keine Verschlüsselung von sich aus, überträgt alles in Klartext. Dafür wurden diverse Erweiterungen geschrieben, wie zum Beispiel \textbf{HTTPS, welches Pakete mit SSL Verfahren sichert}.\\
 
-Aufgrund diverser Erweiterungen in den Anfragenpaketen ist HTTP inzwischen über den bloßen Transport von Hypertext hinaus, es kann bereits genauso zur Übertragung von zB Dateien verwendet werden.\\
+Aufgrund diverser Erweiterungen in den Anfragenpaketen ist HTTP inzwischen über den bloßen Transport von Hypertext hinaus, es kann bereits genauso zur Übertragung von zB. Dateien verwendet werden.\\
 
 Eine Kommunikation mit HTTP läuft immer nach einem gewissen Schema ab:\\
-Ein Client schickt eine Anfrage an eine URL wie zB www.example.com ab. Dieser Name wird wie bereits besprochen über DNS aufgelöst, sollte er nicht in er hosts Datei stehen.\\
+Ein Client schickt eine Anfrage an eine URL, wie zB. www.example.com ab. Dieser Name wird, wie bereits besprochen, über DNS aufgelöst, sollte er nicht in der hosts Datei stehen.\\
 Der Webbrowser setzt an die URL normalerweise immer noch \glqq \textbackslash index.html \grqq .\\
-Dies wandelt der Browser dann in ein HTTP GET Paket um, indem neben der verwendeten HTTP Version, steht was man von welchem Client bekommen will.\\
-Der Server antwortet darauf hin zuerst mit einem \textbf{Statuscode}. Dieser beschreibt ob die Anfrage erfolgreich war oder nicht. Der Statuscode den die meisten User kennen ist \textbf{Error 404}, was für \textbf{Side not found} steht.\\
-Ist die Anfrage jedoch erfolgreich bekommt der Client den \textbf{Code 200} zurück, zusammen mit einigen Informationen zum Server, wie Sprache, welcher Server läuft und/oder Content type.
+Dies wandelt der Browser dann in ein HTTP GET Paket um, in dem neben der verwendeten HTTP Version steht, was man von welchem Client bekommen will.\\
+Der Server antwortet darauf hin zuerst mit einem \textbf{Statuscode}. Dieser beschreibt, ob die Anfrage erfolgreich war oder nicht. Der Statuscode, den die meisten User kennen, ist \textbf{Error 404}, was für \textbf{Side not found} steht.\\
+Ist die Anfrage jedoch erfolgreich, bekommt der Client den \textbf{Code 200} zurück, zusammen mit einigen Informationen zum Server, wie Sprache, welcher Server läuft und/oder Content type.
 \section{Netzwerksicherheit}\label{sec:security}
-Ein immer wiederkehrender Punkt in den besprochenen Protokollen war die Sicherheit. Seit beginn des Internets gibt es auch jene welche versuchen ihren Gewinn daraus zu ziehen. Ob sie dies nun auf legalem Wege machen oder sich illegal Zutritt verschaffen macht da keinen Unterschied.\\
+Ein immer wiederkehrender Punkt in den besprochenen Protokollen war die Sicherheit. Seit Beginn des Internets gibt es auch jene, welche versuchen, ihren Gewinn daraus zu ziehen. Ob sie dies nun auf legalem Wege machen oder sich illegal Zutritt verschaffen, macht da keinen Unterschied.\\
 
 Durch die überaus essentielle Bedeutung der Sicherheit in Netzwerken wird nun im Folgenden auf einige verbreitete Praktiken, Bezeichnungen oder Aspekte eingegangen, welche im direkten Zusammenhang mit diesem Bereich stehen.
 \subsection{Der Hacker/Cracker}
-Häufig werden diejenigen, welche sich durch das Ausnutzen von Netzwerkschwachstellen Zutritt zu Dingen verschaffen die nicht für sie bestimmt sind, umgangssprachlich als \textbf{Hacker} bezeichnet. Dies ist jedoch eigentlich der falsche Term.\\
+Häufig werden diejenige, welche sich durch das Ausnutzen von Netzwerkschwachstellen Zutritt zu Dingen verschaffen, die nicht für sie bestimmt sind, umgangssprachlich als \textbf{Hacker} bezeichnet. Dies ist jedoch eigentlich der falsche Term.\\
 
-Die ursprüngliche Bedeutung des \glqq hackens\grqq kommt aus dem Programmiertechnischen und steht für das finden von, nicht unbedingt schönen, jedoch sehr effektiven Lösungsmöglichkeiten um ein gewisses Problem zu lösen oder eine gewisse Zielstellung zu erreichen. Das Programm welches solches erfüllt wird als \glqq Hack\grqq bezeichnet.\\
-Durch ein Missverständnis der Medien wurde dieser Ausdruck jedoch sehr schnell für Leute verwendet, die ebendiese Praktiken anwenden um jemand anderen Schaden zuzufügen. Der richtige Ausdruck, welcher ursprünglich für diese Gruppe von Menschen verwendet wurde war \textbf{Cracker}.\\
+Die ursprüngliche Bedeutung des \glqq Hackens\grqq \ kommt aus dem Programmiertechnischen und steht für das Finden von, nicht unbedingt schönen, jedoch sehr effektiven Lösungsmöglichkeiten, um ein gewisses Problem zu lösen oder eine gewisse Zielstellung zu erreichen. Das Programm, welches solches erfüllt, wird als \glqq Hack\grqq \ bezeichnet.\\
+Durch ein Missverständnis der Medien wurde dieser Ausdruck jedoch sehr schnell für Leute verwendet, die eben diese Praktiken anwenden, um jemand anderen Schaden zuzufügen. Der richtige Ausdruck, welcher ursprünglich für diese Gruppe von Menschen verwendet wurde, war \textbf{Cracker}.\\
 
 Heute werden zwischen drei Arten von Hackern unterschieden:
 \begin{itemize}
 \item Black Hat Hacker\\
-Der \glqq Black Hat\grqq ist derjenige der nur an seine persönliche Bereicherung denkt. Er verwendet sein Wissen um Schaden anzurichten, Menschen ihr Geld oder sogar ihre Identität zu stehlen. 
+Der \glqq Black Hat\grqq \ ist derjenige, der nur an seine persönliche Bereicherung denkt. Er verwendet sein Wissen, um Schaden anzurichten, Menschen ihr Geld oder sogar ihre Identität zu stehlen. 
 \item White Hat Hacker\\
-Die \glqq White Hats\grqq sind die \glqq Guten\grqq . Sie verwenden die erworbenen Fähigkeiten um sich beispielsweise als Penetration Tester zu verdingen. Penetration Tester, oder umgangssprachlich auch Pentester, sind Menschen die dafür bezahlt werden, die Sicherheit eines Netzwerkes auszuloten. Sie versuchen also ein Netzwerk zu hacken, gleich den Black Hats, mit dem Unterschied dass sie die Erlaubnis haben.
+Die \glqq White Hats\grqq \ sind die \glqq Guten\grqq . Sie verwenden die erworbenen Fähigkeiten, um sich beispielsweise als Penetration Tester zu verdingen. Penetration Tester, oder umgangssprachlich auch Pentester, sind Menschen, die dafür bezahlt werden, die Sicherheit eines Netzwerkes auszuloten. Sie versuchen also ein Netzwerk zu hacken, gleich den Black Hats, mit dem Unterschied dass sie die Erlaubnis haben.
 \item Gray Hat Hacker\\
-Die \glqq Gray Hats\grqq sind, wie der Name bereits aussagt, eine Grauzone. Sie verwenden ihre Fähigkeiten um anderen zu helfen, schrecken jedoch auch nicht davor zurück ihre Fähigkeiten für unlautere Aktivitäten zu verwenden.
+Die \glqq Gray Hats\grqq \ sind, wie der Name bereits aussagt, eine Grauzone. Sie verwenden ihre Fähigkeiten um anderen zu helfen, schrecken jedoch auch nicht davor zurück, ihre Fähigkeiten für unlautere Aktivitäten zu verwenden.
 \end{itemize}
 
-Eine weitere Form des Hackens, welche erst kürzlich besondere Aufmerksamkeit erlangt hat, ist der sogenannte \textbf{Hacktivism}. Das Wort ist ein Kofferwort aus den englischen Begriffen \textbf{to hack} und \textbf{Aktivism}. Dies sind Gruppierungen von Hackern welche politische Ziele mit ihrer Arbeit verfolgen. So hat sich die inzwischen berühmte Hacktivism Gruppe Anonymous einen Namen damit gemacht, Firmen zu \glqq bestrafen\grqq wenn sie Datenschutz und Anonymität im Internet bedrohen.\\
+Eine weitere Form des Hackens, welche erst kürzlich besondere Aufmerksamkeit erlangt hat, ist der sogenannte \textbf{Hacktivism}. Das Wort ist ein Kofferwort aus den englischen Begriffen \textbf{to hack} und \textbf{Aktivism}. Dies sind Gruppierungen von Hackern, welche politische Ziele mit ihrer Arbeit verfolgen. So hat sich die inzwischen berühmte Hacktivism Gruppe Anonymous einen Namen damit gemacht, Firmen zu \glqq bestrafen\grqq , wenn sie Datenschutz und Anonymität im Internet bedrohen.\\
 
-\glqq Richtige\grqq Hacker gibt es jedoch nur sehr sehr wenige. Die meisten sind sogenannte \textbf{Scriptkiddies}, welche sich zwar als Hacker bezeichnen jedoch keine Ahnung von der Materie haben. Sie greifen auf Programme zu welche von richtigen Hackern geschrieben worden sind, bei denen sie nicht wissen müssen was sie tun, und versuchen dann damit jemanden Schaden zuzufügen. Von denen geht, bei adequat gesicherten Netzwerken, normalerweise keine Gefahr aus, da sie meist mit guten Passwörtern oder einem verschlüsselten W-LAN Zugang bereits überfordert sind.
+\glqq Richtige\grqq \ Hacker gibt es jedoch eigentlich nur wenige. Die meisten sind sogenannte \textbf{Scriptkiddies}, welche sich zwar als Hacker bezeichnen, jedoch keine Ahnung von der Materie haben. Sie greifen auf Programme zu, welche von richtigen Hackern geschrieben worden sind, bei denen sie nicht wissen müssen, was sie tun, und versuchen dann damit jemanden Schaden zuzufügen. Von denen geht, bei adequat gesicherten Netzwerken, normalerweise keine Gefahr aus, da sie meist mit guten Passwörtern oder einem verschlüsselten W-LAN Zugang bereits überfordert sind.
 
 \subsection{MAC-Flooding}\label{ssec:mflood}
-Eines der Hauptziele eines jeden Hackers ist es normalerweise Informationen zu sammeln. Er kommt in ein Netzwerk und hört dann mit, ob er unter Umständen in der Lage ist Passwörter zu hören. Passwörter sind ein wichtiges gut für jeden Hacker.\\
-Nun stehen diese aber heute vor dem Problem, dass sogut wie jedes Netzwerk \textbf{geswitched} ist, es also Switches anstatt von Hubs verwendet. Diese speichern, wie bereits besprochen, die MAC-Adressen der angeschlossenen Geräte, und weisen sie einem ihrer Interfaces zu.\\
-Somit ist ein Hacker schoneinmal nicht mehr in der Lage, ohne irgend einen Eingriff in das Netzwerk, zu hören was wer zu wem sagt.\\
+Eines der Hauptziele eines jeden Hackers ist es normalerweise Informationen zu sammeln. Er kommt in ein Netzwerk und hört dann mit, ob er unter Umständen in der Lage ist, Passwörter zu hören. Passwörter sind ein wichtiges Gut für jeden Hacker.\\
+Nun stehen diese aber heute vor dem Problem, dass so gut wie jedes Netzwerk \textbf{geswitched} ist, es also Switches anstatt von Hubs verwendet. Diese speichern, wie bereits besprochen, die MAC-Adressen der angeschlossenen Geräte und weisen sie einem ihrer Interfaces zu.\\
+Somit ist ein Hacker schon einmal nicht mehr in der Lage, ohne irgend einen Eingriff in das Netzwerk, zu hören, was wer zu wem sagt.\\
 
-Nun haben Hacker eine Methode gefunden um dies zu umgehen, das sogenannte \textbf{MAC-Flooding} was übersetzt soviel wie MAC Überflutung bedeutet. Dabei verwendet der Hacker das Gratuitous ARP Paket. Dieses ist dazu da seine eigene MAC-Adresse bekannt zu machen.\\
-Der Hacker schickt nun hunderte solcher Pakete, immer mit falschen MAC-Adressen und falschen IP-Adressen und fährt damit solange fort bis sich die Tabelle des Switches überfüllt und er sie fallen lassen muss. Wenn dies eintritt, fällt der Switch in einen Modus zurück indem er, bis er sich von der Überlastung regeneriert hat, sich wie ein Hub verhält und alle Pakete an alle Interfaces sendet. Nun kann der Hacker lesen was in den Paketen steht.\\
+Nun haben Hacker eine Methode gefunden um dies zu umgehen, das sogenannte \textbf{MAC-Flooding}, was übersetzt soviel wie MAC Überflutung bedeutet. Dabei verwendet der Hacker das Gratuitous ARP Paket. Dieses ist dazu da, seine eigene MAC-Adresse bekannt zu machen.\\
+Der Hacker schickt nun hunderte solcher Pakete, immer mit falschen MAC-Adressen und falschen IP-Adressen und fährt damit solange fort, bis sich die Tabelle des Switches überfüllt und er sie fallen lassen muss. Wenn dies eintritt, fällt der Switch in einen Modus zurück, in dem er, bis er sich von der Überlastung regeneriert hat, sich wie ein Hub verhält und alle Pakete an alle Interfaces sendet. Nun kann der Hacker lesen, was in den Paketen steht.\\
 
 \subsection{Man-in-the-Middle anhand von MAC-Spoofing}\label{ssec:mspoof}
 Eine andere Art an Informationen zu gelangen ist der sogenannte \textbf{Man-in-the-Middle} Angriff.\\
-Dabei versucht ein Hacker sein Ziel dahingehend zu manipulieren, dass dieser seine Pakete nicht dorthin schickt wo sein Ziel sie haben will, sondern alles zuerst über des Hackers PC geht. Dies erreicht er durch sogenanntes \textbf{spoofen}.\\
+Dabei versucht ein Hacker sein Ziel dahingehend zu manipulieren, dass dieser seine Pakete nicht dorthin schickt, wo sein Ziel sie haben will, sondern alles zuerst über des Hackers PC geht. Dies erreicht er durch sogenanntes \textbf{spoofen}.\\
 
-Dabei gibt er vor eine andere MAC und eine andere IP zu haben. Welche diese Adresse ist hängt von den Gegebenheiten ab. Will er sehen was man in das Internet schickt, wird es meistens der Gateway sein, da über diesen ja alles drüber muss wenn es in das Internet will.\\
+Dabei gibt er vor, eine andere MAC und eine andere IP zu haben. Welche diese Adresse ist, hängt von den Gegebenheiten ab. Will er sehen, was man in das Internet schickt, wird es meistens der Gateway sein, da über diesen ja alles drüber muss, wenn es in das Internet will.\\
 Dies hat den Vorteil, dass er auch in der Lage ist Verschlüsselungen aufzubrechen, da sein Ziel ja nicht mit der angefragten Webseite eine Verbindung aufbaut, sondern eigentlich mit dem Bösewicht. 
 
 \subsection{DOS}
-DOS steht für \textbf{Denial of Service} und ist ein weiteres Ziel für Hacker. Der Ausdruck fasst eine große Gruppe von Angriffsarten zusammen welche alle zum Ziel haben, einen Dienst, also ein Service, zu unterbinden.\\
-Dies wird meistens durch übermäßiges beanspruchen eines Services bewerkstelligt. Das Problem hierbei ist dann, dass man sich nicht gegen etwas wehren kann, was genau den Vorgaben entspricht. Das System ist ja dazu ausgelegt Anfragen aufzunehmen.\\
+DOS steht für \textbf{Denial of Service} und ist ein weiteres Ziel für Hacker. Der Ausdruck fasst eine große Gruppe von Angriffsarten zusammen, welche alle zum Ziel haben, einen Dienst, also ein Service, zu unterbinden.\\
+Dies wird meistens durch übermäßiges Beanspruchen eines Services bewerkstelligt. Das Problem hierbei ist dann, dass man sich nicht gegen etwas wehren kann, was genau den Vorgaben entspricht. Das System ist ja dazu ausgelegt Anfragen aufzunehmen.\\
 
-Da jedoch normalerweise ein einzelner nicht in der Lage ist die Rechenleistung eiens ganzen Servers in die Knie zu zwingen, wird der DOS Angriff immer häufiger mit seinem Nachfolger, dem \textbf{DDOS} oder \textbf{Distributed Denial of Service} ersetzt. Dies bedeutet nicht mehr, als dass der Angriff jetzt nicht nur von einem ausgeht sondern von vielen verschiedenen Rechnern. Diese Methode wird auch von der Gruppe Anonymous verwendet.
+Da jedoch normalerweise ein Einzelner nicht in der Lage ist, die Rechenleistung eines ganzen Servers in die Knie zu zwingen, wird der DOS Angriff immer häufiger mit seinem Nachfolger, dem \textbf{DDOS} oder \textbf{Distributed Denial of Service} ersetzt. Dies bedeutet nicht mehr, als dass der Angriff jetzt nicht nur von einem ausgeht sondern von vielen verschiedenen Rechnern. Diese Methode wird auch von der Gruppe Anonymous verwendet.
 
 \chapter{E-Mail von Singh Manpreet}
 lorem ipsum
@@ -1783,59 +1783,59 @@ Jeder Job muss folgende Eigenschaften definieren:
 
 \subsubsection{Traffic auslesen über SNMP}
 Auch hier werden wieder nur SNMP Versionen größer gleich 2 erlaubt.\\
-Das Auslesen des Traffics über SNMP geschieht über die Objekt ID 1.3.6.1.2.1.2.2.1.16.x wobei x für das Interfaces steht. Mit dieser Objekt ID kommt man zu den Ausgegangenen Paketen eines Interfaces.\\
-Da SNMP mehr Interfaces kennt als Windows, beziehungsweise Windows Interfaces zusammenfasst, ist es für den User notwendig vorher den Befehl \textbf{snmp interfaces} anzuwenden. Hierbei werden ihm dann alle Interfaces aufgelistet welche die abgefragte Maschine hat. Das richtige Interface zu finden ist nun dem User überlassen. Jedoch gibt es die Möglichkeit, dass Interface in der Configfile zu speichern, um es nicht jedesmal aufs neue wieder raussuchen muss. SNMP verwendet, wenn kein anderes Interface angegeben wird, automatisch jenes aus der Configfile.\\
-Es ist sehr wichtig zu beachten, dass, aus Gründen der Komfortabilität für den Community String \textbf{public} und für Authentification bzw Privacy die Phrase \textbf{MADMADMAD} zu wählen sind, damit es funktioniert.\\
+Das Auslesen des Traffics über SNMP geschieht über die Objekt ID 1.3.6.1.2.1.2.2.1.16.x, wobei x für das Interface steht. Mit dieser Objekt ID kommt man zu den ausgegangenen Paketen eines Interfaces.\\
+Da SNMP mehr Interfaces kennt als Windows, beziehungsweise Windows Interfaces zusammenfasst, ist es für den User notwendig, vorher den Befehl \textbf{snmp interfaces} anzuwenden. Hierbei werden ihm dann alle Interfaces aufgelistet, welche die abgefragte Maschine hat. Das richtige Interface zu finden ist nun dem User überlassen. Jedoch gibt es die Möglichkeit, das Interface in der Configfile zu speichern, um es nicht jedesmal aufs neue wieder raussuchen zu müssen. SNMP verwendet, wenn kein anderes Interface angegeben wird, automatisch jenes aus der Configfile.\\
+Es ist sehr wichtig zu beachten, dass, aus Gründen der Komfortabilität für den Community String \textbf{public} und für Authentification bzw. Privacy, die Phrase \textbf{MADMADMAD} zu wählen ist, damit es funktioniert.\\
 
-Der ausgelesene Wert wird dann zwischengespeichert und nach einem einzustellenden Zeitintervall wird erneut eine Anfrage gemacht. MAD subtrahiert die beiden Werte voneinander um an den geschickten Traffic an diesem Interface zu kommen.\\
+Der ausgelesene Wert wird dann zwischengespeichert und nach einem einzustellenden Zeitintervall wird erneut eine Anfrage gemacht. MAD subtrahiert die beiden Werte voneinander, um an den gesendeten Traffic an diesem Interface zu kommen.\\
 Es wird in Octets angegeben, also Bytes.
 
 \subsubsection{Internet Verbindungs Check}
-Es gibt die Möglichkeit, durch ein Command den Connectivity Check zu starten, der sich von den herkömmlichen Jobs insoweit unterscheidet, dass er nicht an eine Node gebunden ist, sondern direkt auf dem Rechner auf dem MAD läuft, ausgeführt wird.\\
-Wie der Name vermuten lässt, überprüft er ob eine Verbindung zum Internet besteht. Dies kann er auf 5 verschiedenen Intensitätsstufen machen.\\
+Es gibt die Möglichkeit, durch ein Command den Connectivity Check zu starten, der sich von den herkömmlichen Jobs insoweit unterscheidet, dass er nicht an eine Node gebunden ist, sondern direkt auf dem Rechner, auf dem MAD läuft, ausgeführt wird.\\
+Wie der Name vermuten lässt, überprüft er, ob eine Verbindung zum Internet besteht. Dies kann er auf 5 verschiedenen Intensitätsstufen machen.\\
 \begin{itemize}
 \item Stufe 1:\\
-Hierbei wird ein ICMP Echo Request an die IP 8.8.8.8 geschickt. Dies ist der Google Primary DNS Server welcher sehr zuverlässig immer erreichbar sein sollte.
+Hierbei wird ein ICMP Echo Request an die IP 8.8.8.8 geschickt. Dies ist der Google Primary DNS Server, welcher sehr zuverlässig immer erreichbar sein sollte.
 \item Stufe 2:\\
-Stufe 1 + ICMP Echo Request an die IP 8.8.4.4 . Sollte der Primary DNS einmal so überlastet sein, dass Google beschließt ihn zu ganz oder auch nur für ICMP zu sperren, gibt es immer noch den Secondary DNS.
+Stufe 1 + ICMP Echo Request an die IP 8.8.4.4 . Sollte der Primary DNS einmal so überlastet sein, dass Google beschließt, ihn ganz oder auch nur für ICMP zu sperren, gibt es immer noch den Secondary DNS.
 \item Stufe 3:\\
 Stufe 2 + ICMP Echo Request an die IP 194.232.104.140, der Seite der amerikanischen Regierung. 
 \item Stufe 4:\\
-Da rein ICMP etwas unzuverlässig ist, wird in der Stufe 4 alles der Stufe 3 versucht + einen Request auf die Seite www.orf.at . Damit ist sichergestellt, dass, sollte ICMP blockiert sein, immernoch eine Möglichkeit gibt, zu überprüfen ob eine Internetverbindung besteht.
+Da rein ICMP etwas unzuverlässig ist, wird in der Stufe 4 alles der Stufe 3 versucht + einen Request auf die Seite www.orf.at . Damit ist sichergestellt, dass es, sollte ICMP blockiert sein, immer noch eine Möglichkeit gibt zu überprüfen ob eine Internetverbindung besteht.
 \item Stufe 5:\\
 Stufe 4 + einen HTTP Request auf eine vom User selbst bestimmte Seite. Damit sollten alle Eventualitäten ausgeschlossen werden. 
 \end{itemize}
 
-Es gibt die verschiedenen Stufen aus dem Grund, falls sich in der Struktur des Netzwerkes einmal so viel ändern sollte, dass einzelne Dinge nicht mehr funktionieren, immernoch immer etwas dabei ist das funktioniert.
+Es gibt die verschiedenen Stufen aus dem Grund, dass falls sich in der Struktur des Netzwerkes einmal so viel ändern sollte, dass einzelne Dinge nicht mehr vorhanden sind, immernoch etwas dabei ist das funktioniert.
 
 \subsubsection{Check Jobs}
-Es gibt eine Untergruppierung von Jobs deren Aufgabe darin besteht, Dienste zu überprüfen. Zwar ist das auch mit dem Port Scan möglich, manchmal gibt es jedoch Fälle bei denen ein Dienst in einen unkontrolierten Zustand verfällt.\\
-Ein Beispiel ist ein nicht sauber heruntergefahrener Dienst. Der Port ist dann zwar noch offen, jedoch liegt keiner dahinter welcher Anfragen beantworten würde. Ein solcher fehlerhafter Dienst wird als \textbf{Zombie} bezeichnet.\\
+Es gibt eine Untergruppierung von Jobs, deren Aufgabe darin besteht, Dienste zu überprüfen. Zwar ist das auch mit dem Port Scan möglich, manchmal gibt es jedoch Fälle, bei denen ein Dienst in einen unkontrollierten Zustand verfällt.\\
+Ein Beispiel ist ein nicht sauber heruntergefahrener Dienst. Der Port ist dann zwar noch offen, jedoch liegt keiner dahinter, welcher Anfragen beantworten würde. Ein solcher fehlerhafter Dienst wird als \textbf{Zombie} bezeichnet.\\
 
 Es gibt drei verschiedene Check Jobs:\\
 \paragraph{DNS}
-Der DNS Check funktioniert über eine Methode welchen eine zuvor bestimmte Domain aufzulösen versucht. Sollte kein Name angegeben werden, wird www.google.com versucht aufzulösen. Dies kann jedoch zu Problemen führen wenn man einen lokalen DNS Server überprüfen will, weshalb es die Option gibt den Namen selbst anzugeben.
+Der DNS Check funktioniert über eine Methode, welche eine zuvor bestimmte Domain aufzulösen versucht. Sollte kein Name angegeben werden, wird www.google.com versucht aufzulösen. Dies kann jedoch zu Problemen führen, wenn man einen lokalen DNS Server überprüfen will, weshalb es die Option gibt, den Namen selbst anzugeben.
 
 \paragraph{SNMP}
 Da SNMP ein so sensibles Protokoll ist, gibt es auch die Möglichkeit zu überprüfen ob SNMP läuft. Dafür wird an die zu überprüfende Maschine ein GET Request für seinen Namen gestellt. Bei SNMP wird, wie bei dem traffic check auch, nur SNMP Version größer gleich 2 unterstützt.
 
 \paragraph{FTP}
-Bei dem FTP Check wird im Grunde einfach nur das momentane Arbeitsverzeichnis abgefragt. Es ist zu beachten dass ein passwort und ein username benötigt werden. 
+Bei dem FTP Check wird im Grunde einfach nur das momentane Arbeitsverzeichnis abgefragt. Es ist zu beachten, dass ein Passwort und ein Username benötigt werden. 
 
 \lfoot{Daniel Ranalter}
 \chapter{Devicefinder von Daniel Ranalter}
-Der Programmteil, welcher das Netzwerk auf Geräte überprüft, ist jener den ich persönlich wohl am öftesten neu geschrieben habe. Im folgenden wird auf alle drei Versionen die durchlaufen worden sind eingegangen. Sie alle befinden sich weiterhin im Projekt, werden jedoch nicht verwendet.\\
-Im Projekt selbst, werden sie ab der zweiten Version als \glqq MacFinder\grqq bezeichnet. 
+Der Programmteil, welcher das Netzwerk auf Geräte überprüft, ist jener, den ich persönlich wohl am Öftesten neu geschrieben habe. Im Folgenden wird auf alle drei Versionen, die durchlaufen worden sind, eingegangen. Sie alle befinden sich weiterhin im Projekt, werden jedoch nicht verwendet.\\
+Im Projekt selbst werden sie ab der zweiten Version als \glqq MacFinder\grqq bezeichnet. 
 \section{MacFinder Version 1 - host find job}
-In der ersten Version des MacFinders, wurden berühmte IP Scanner wie zum Beispiel \textbf{Angry IP Scanner} als Vorbild genommen, welche ICMP Echo Requests verwenden um an die Geräte zu kommen.\\
-Es wurden keine Parameter benötigt, da er sich anhand der Adresse des Hosts auf dem er funktioniert, und der Vorgabe, ein kleines Firmen- oder Heimnetzwerk (nicht mehr als ein Class C Netzwerk), sich sämtliche zu überprüfenden IP Adressen ausrechnen konnte.\\
-Diese wurden in einer Liste gespeichert, \glqq angepingt\grqq , und dann, sollte eine Antwort kommen, in die Liste aufgenommen werden.\\
+In der ersten Version des MacFinders wurden berühmte IP Scanner, wie zum Beispiel \textbf{Angry IP Scanner} als Vorbild genommen, welche ICMP Echo Requests verwenden, um an die Geräte zu kommen.\\
+Es wurden keine Parameter benötigt, da er sich anhand der Adresse des Hosts, auf dem er funktioniert, und der Vorgabe, ein kleines Firmen- oder Heimnetzwerk (nicht mehr als ein Class C Netzwerk), sich sämtliche zu überprüfenden IP Adressen ausrechnen konnte.\\
+Diese wurden, eine nach der anderen, \glqq angepingt\grqq , und dann, sollte eine Antwort kommen, in eine Liste aufgenommen werden.\\
 
 Die Idee wurde schlussendlich verworfen, da in vielen Netzwerken die Verwendung des ICMP Protokolls unterbunden wird, da es ein von Hackern häufig verwendetes Tool ist, um grundlegende Informationen über ein Netzwerk herauszuhören.
 
 \section{MacFinder Version 2 - DHCP Reader}
-Version 2 war im Grunde als Erweiterung zu Version 1 gedacht. Der Grundgedanke war es, in einem Netzwerk mit DHCP Server die Requests der Clienten aufzufangen, diese zu zerlegen und Informationen daraus zu verwenden um auf einen Host zu schließen. Dies ist möglich, da der Client, wie in Kapitel \ref{ssec:dhcp} auf Seite \pageref{ssec:dhcp} bereits besprochen, mit dem DHCP Request sich die Konfiguration beim Server nocheinmal bestätigen lässt und damit alles vorhanden ist.\\
-Da ein neuer Client in einem Netz welches über DHCP gemanaged wird noch keine Konfiguration hat, werden Request Pakete an die Broadcastadresse geschickt. Pakete an diese Adresse werden an jeden Client weitergeleitet, was es auch in einem geswitchten Netzwerk möglich macht, diese Pakete zu sehen.\\
+Version 2 war im Grunde als Erweiterung zu Version 1 gedacht. Der Grundgedanke war es, in einem Netzwerk mit DHCP Server die Requests der Clienten aufzufangen, diese zu zerlegen und Informationen daraus zu verwenden, um auf einen Host zu schließen. Dies ist möglich, da der Client, wie in Kapitel \ref{ssec:dhcp} auf Seite \pageref{ssec:dhcp} bereits besprochen, mit dem DHCP Request sich die Konfiguration beim Server noch einmal bestätigen lässt und damit alles vorhanden ist.\\
+Da ein neuer Client in einem Netz, welches über DHCP gemanagt wird, noch keine Konfiguration hat, werden Request Pakete an die Broadcastadresse geschickt. Pakete an diese Adresse werden an jeden Client weitergeleitet, was es auch in einem geswitchten Netzwerk möglich macht, diese Pakete zu sehen.\\
 
 Diese Idee wurde verworfen da sie
 \begin{enumerate}
