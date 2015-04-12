@@ -56,12 +56,12 @@ lorem ipsum
 \part{Theorie zu den einzelnen Gebieten der Arbeit}
 \lfoot{Marko Stojanovi\'{c}}
 \chapter{Informatik (Marko Stojanovi\'{c})}
-Informatik ist eine Wissenschaft, die sich mit der systematischen Verarbeitung von Informationen speziell mit der automatischen Verarbeitung durch Digitalrechner beschäftigt. Die Informatik ist aus der Mathematik und Ingenieursdisziplin nach aus automatisch angewendeten Berechnungen entstanden.
+Informatik ist eine Wissenschaft, die sich mit der systematischen Verarbeitung von Informationen speziell mit der automatischen Verarbeitung durch Digitalrechner beschäftigt. Die Informatik ist aus der Mathematik und Ingenieursdisziplin, nach aus automatisch angewendeten Berechnungen, entstanden.
 
 \section{Programmiersprachen}
 
 \subsection{Definition von einer Programmiersprache?}
-Bei einer Programmiersprache handelt es sich um eine formale Sprache, mit welcher Datenstrukturen und Algorithmen formuliert bzw. erstellte werden, welche vom Computer ausführbar sind. Datenstrukturen und Algorithmen sind definierte Rechenvorschriften, welche sich durch Anweisungen nach bestimmten Mustern (Syntax) erstellen lassen.\\
+Bei einer Programmiersprache handelt es sich um eine formale Sprache, mit welcher Datenstrukturen und Algorithmen formuliert bzw. erstellt werden, welche vom Computer ausführbar sind. Datenstrukturen und Algorithmen sind definierte Rechenvorschriften, welche sich durch Anweisungen nach bestimmten Mustern (Syntax) erstellen lassen.\\
 % http://de.wikipedia.org/wiki/Programmiersprache
 
 Da Programmiersprachen künstlich erschaffene Sprachen sind, müssen beim Erstellen eines Programmes eindeutige Algorithmen bestimmt werden, um eine korrekte Funktionalität gewährleisten zu können.\\
@@ -70,7 +70,8 @@ Folgendes muss bei einer Programmiersprache definiert sein:
 \begin{itemize}
 \item Lexik\\
 Die Lexik einer Programmiersprache ist mit der Rechtschreibung oder dem Vokabular einer Sprache gleichzustellen.\\
-z.B.: Bei der Deklaration von Varablen in den Programmiersprachen PHP und Java. In der Programmiersprache PHP wird mit einem Befehl (var) eine Variable deklariert, die Typenzuweisung erfolgt automatisch. Bei Java muss immer der Datentyp der Variable korrekt zugewiesen werden. [Was hat die Rechtschreibung bzw. Vokabular mit der Typenzuweisung zu tun?! Es ist ein unterschied, aber hat nichts mit der Lexik zu tun.]
+z.B.: Bei der Deklaration von Variablen in den Programmiersprachen PHP und Java. In der Programmiersprache PHP wird mit einem Befehl (var) eine Variable deklariert, die Typenzuweisung erfolgt automatisch. Bei Java muss immer der Datentyp der Variable korrekt zugewiesen werden.
+% [Was hat die Rechtschreibung bzw. Vokabular mit der Typenzuweisung zu tun?! Es ist ein unterschied, aber hat nichts mit der Lexik zu tun.]
 \item Syntax\\
 Die Syntax einer Programmiersprache ist mit der Grammatik einer natürlichen Sprach gleichzustellen (Sprachregeln).
 Die Syntax einer Programmiersprache bestimmt die Reihenfolge bzw. das Muster der Befehle und macht es dadurch möglich, ganze "Sätze" zu schreiben. Zur Übersicht werden Syntaxdiagramme erstellt.
@@ -82,7 +83,7 @@ Die Pragmatik einer Programmiersprache bestimmt den Einsatzbereich, damit werden
 
 
 \subsubsection{Programmiersprachen stellen oft zur Verfügung}
-Von Programmiersprachen wird oft folgendes mindestens zur Verfügung gestellt: [vieleicht neu-formulieren]
+Folgende Eigenschaften werden mindestens von Programmiersprachen zur Verfügung gestellt:
 \begin{itemize}
 \item Ein- und Ausgabebefehle\\
 Auf diese Weise wird eine Eingabe und Ausgabe von Daten realisiert.
@@ -117,7 +118,7 @@ Es kommt oft vor, dass Software-Produkte aus vielen verschiedenen und getrennt k
 
 \subsubsection{Header-Dateien}
 Allgemeine Deklarationsverwendungen von Bibliotheken sind in einer Header-Datei enthalten.
-\\Funktionen, wie zum Beispiel "{}cin"{} und "{}cout{}", sind keine integrierten Bestandtteile der verwendeten Programmiersprachen (z.B.: C++) oder auch Befehle wie "{}if "{} oder "{}else "{} , können mit der Anweisung "{}\# include stdio.h "{} (eine Header-Datei namens "{}stdio.h "{}) eingekapselt werden. Dadurch wird gewährleistet, dass der Präprozessor (auch Präcompiler, ein Programm, welches vor der Übersetzung durch den Compiler wirksam ist) den Quelltext nach Zeilen kontrolliert, welche mit "{}\#"{} anfangen und anschließend wird die Zeile mit dem Inhalt der Header-Datei ersetzt. [Liest sich schwer und nicht sehr verständlich, vieleicht neu-formulieren, erweitern.]
+\\Funktionen, wie zum Beispiel "{}cin"{} und "{}cout{}", sind keine integrierten Bestandtteile der verwendeten Programmiersprachen (z.B.: C++) oder auch Befehle wie "{}if "{} oder "{}else "{} , können mit der Anweisung "{}\# include \textless stdio.h\textgreater "{} (eine Header-Datei namens "{}stdio.h "{}) eingekapselt werden. Dadurch wird gewährleistet, dass der Präprozessor (auch Präcompiler, ein Programm, welches vor der Übersetzung durch den Compiler wirksam ist) den Quelltext nach Zeilen kontrolliert, welche mit "{}\#"{} anfangen und anschließend wird die Zeile mit dem Inhalt der Header-Datei ersetzt.
 
 \subsubsection{Libraries}
 Mit Libraries werden Sammlungen (Bibliotheken) von Programmfunktionalitäten für passende Aufgaben bezeichnet. Dabei handelt es sich um Hilfsmodule (keine eingeständige Einheit) für Programme.\\
@@ -126,13 +127,13 @@ Dabei muss auch zwischen Static und Dynamic Libraries unterschieden werden.
 
 \begin{itemize}
 \item Static Libraries\\
-Funktionen, welche im Quellcode nicht angeführt sind, werden durch den Linker aus den benötigten Bibliotheken gesucht und im Programmcode ergänzt. [Auch bei Dynamic Libraries]
-\\Von statischen Bibliotheken spricht man, wenn durch die Applikation der Umfang und der Speicherbedarf vergrößert werden.[neu-formulieren]
+Funktionen, welche im Quellcode nicht angeführt sind, werden durch den Linker aus den benötigten Bibliotheken gesucht und im Programmcode ergänzt(auch bei Dynamic Libraries).
+\\Von statischen Bibliotheken spricht man, wenn durch die Applikation der Umfang und der Speicherbedarf vergrößert werden.
 \item Dynamic Libraries\\
 Diese Art von Bibliothen sind bei Multitasking-Systemen, die alle auf die gleiche Bibliotheken zugreifen, zu verwenden. Wenn zur Laufzeit eine bestimmte Funktion benötigt wird, wird diese von einem "{}Loader"{} im Arbeitspeicher gesucht, wenn diese dort nicht gefunden wird, wird sie in den Arbeitspeicher geladen.
 \\Wird diese Funktion nun von einem weiteren Prozess angefordert, wird nur eine Verknüpfung an die entsprechende Stelle im Arbeitsspeicher erstellt.\\
 
-Bei Verwendung von statischen Bibliotheken, wäre die von mehreren Prozessen verlangte Funktion für jeden Prozess in den Arbeitspeicher geladen worden. [Was willst du uns sagen?]\\
+Bei Verwendung von statischen Bibliotheken, wäre die von mehreren Prozessen verlangte Funktion für jeden Prozess in den Arbeitspeicher geladen worden.\\
 
 Dadurch wird die Ausführungszeit bei Programmen mit dynamischen Bibliotheken etwas verlängert, dies betrifft in erster Linie die Startzeit. Dennoch wird es akzeptiert, weil der gleiche Code der Bibliotheken von allen Prozessen verwendet wird und dadurch der Speicherbedarf aller Programme geringer ist.
 \\Dynamische Bibliotheken werden unterschiedlich unter den Betriebssystemen bezeichnet.
@@ -170,7 +171,7 @@ Die Auslieferung von Scripts erfolgt meistens im Quellcodeformat, weil die Anpas
 \item Interpreter zur Ausführung des Quellcodes als eine Übersetzungsphase
 \item Flexibilität der Sprache durch die Möglichkeit des Programmes Manipulationen an sich selbst und anderen Dateien durchzuführen
 \end{itemize}
-Durch die Überschneidung von Compilersprachen und Skriptsprachen in den Anwendungsgebieten und ihren jeweiligen Eingenschaften, ist eine genauere Unterscheidung nur schwer ersichtlich.[nochmal genau durchschauen und vieleicht neu]
+Durch die Überschneidung von Compilersprachen und Skriptsprachen in den Anwendungsgebieten und ihren jeweiligen Eingenschaften, ist eine genau Unterscheidung nur schwer ersichtlich.
 
 \subsection{Programmierparadigma}
 Bei einem Programmierparadigma handelt es sich um einen elementaren Programmierstil, welcher den Prinzipien der einzelnen Programmiersprachen unterliegt. Die Prizipien sind als Unterstützung beim Programmieren von effizientem Code gedacht.
@@ -209,7 +210,7 @@ In allen Gebieten, in denen professionelle Programmen entwickelt werden, ist die
 \subsubsection{Imperative Programmierung}
 Die Bezeichnung kommt aus dem lateinischen und bedeutet anordnen. Auf diese Weise funktioniert auch dieser Programmierstil. Am Beginn des Quellcodes wird angegeben in welcher Reihenfolge die Anweisungen auszuführen sind.\\
 
-Es ist das älteste Programmierparadigma. Die Entstehung ist durch die Größe älterer Programmiersprachen zustandegekommen, klassische Programmierart. Die bildet die Basis für einige Programmiersprachen. [Check nicht was du sagen willst]
+Es ist das älteste Programmierparadigma. Die Entstehung ist durch die Größe älterer Programmiersprachen zustandegekommen. Es war die damalige klassische Programmierart. Sie bildet die Basis für einige Programmiersprachen.
 \begin{itemize}
 \item ALGOL
 \item Fortran
@@ -264,8 +265,8 @@ Das Ziel von C\# ist es schnelle und einfache Lösung zur Erzeugung von .NET-Anw
 
 C\# wird von allen leicht zu erlernen sein, die bereits C oder identische Programmiersprachen kennengelernt haben, da mit C\# eine rasche Entwicklung angeboten, ohne dass auf die Stärken und die Sicherheit von C und C++ zu verzichtet wird.\\
 
-Es werden systeminterne Mechanismen für geheimen Codes bereitgestellt, welche hohe Standards an Sicherheit, Garbage Collection und Typsicherheit garantieren.
-\\Auch eine einfache Vererbung wird zur Verfügung gestellt. Durch die bereits vorhandene .NET Framework und Common Language Runtime werden Garbage Collection, Sprachinteroperabilität, weiterentwickelte Sicherheitskonzept und Versionskontrollen erweitert worden. ['erweitert worden' - häh?]\\
+Es werden systeminterne Mechanismen für geheimen Code bereitgestellt, welche hohe Standards an Sicherheit, Garbage Collection und Typsicherheit garantieren.
+\\Auch eine einfache Vererbung wird zur Verfügung gestellt. Durch die bereits vorhandene .NET Framework und Common Language Runtime werden Garbage Collection, Sprachinteroperabilität, weiterentwickelte Sicherheitskonzept und Versionskontrollen angeboten.
 
 Es wurden Namespaces, Klassen, Enumerationen, Überladen und die stukturierte Ausnahmebehandlung vereinfacht und auf den neuesten Stand gebracht. Makros, Mehrfachvererbung und virtuelle Basisklassen sind Fähigkeiten von C und C++, welche entfernt wurden. Durch C\# steht eine leistungsfähige und produktive Programmiersprache als Ersatz für C und C++ zur Verfügung.
 \\Folgende übliche Projekttypen können verwendet werden:
@@ -346,7 +347,7 @@ Zu den wichtigsten Eigenschaften von .NET Framework zählt die Sprachinteroperab
 
 Damit ist es möglich, dass der Code mit Codes anderer Programmiersprachen, die mit Common Type Specifiacion (CTS) kompatibel sind, interagiert. Neben Visual Basic, Visual C++ gibt es noch viele weitere. Es können unterschiedliche .NET- Programmiersprachen zur erstellung von Modulen für eine Assembly verwendet werden. Auch die Typen können einen Bezug auf einander haben, trotz unterschiedlicher Programmiersprachen.
 \begin{center}
-%\includegraphics[scale=0.6]{img/uebersetzung.png}\\
+\includegraphics[scale=0.8]{img/uebersetzung.PNG}\\
 Beziehung zwischen C\# - Quelltext, .NET Framework- Klassenbibliotheken, Assembly und der CLR (während der Kompilierungs- und Laufzeit).
 \copyright Microsoft
 % https://msdn.microsoft.com/de-de/library/z1zx9t92.aspx} - 05.04.2015
@@ -377,12 +378,12 @@ Ein Thread (Programm-Faden) steht in der Informatik für einen Ausführungsstran
 \subsubsection{Kernel-Thread}
 Aus der Sicht des Betriebssystems ist ein Thread ein sequentieller Abarbeitungslauf eines Prozesses. Dabei teilen sich alle, zu einem dazugehörendem Prozess, verschiedene Ressourcen. Zu diesen Ressourcen gehören: Codesegmente, Instantiierung des Datensegmentes mit gleichem Datenlayout und die verwendeten Dateideskriptoren im Datensegment. Von Friedrich L. Bauer wurde früher der Begriff "Sequentielle Prozesse" geprägt.\\
 
-Threads, welche zu einem Prozess gehören, werden von verschiedenen Prozessoren ausgeführt, wenn mehrere Prozessoren vorhanden sind, oder nehmen voneinander unabhängige Registersätze und Stacks, welche verschiedenen Teilen des Adressraums zugeordnet sind. [nicht verständlich]\\
+Threads, welche zu einem Prozess gehören, werden von verschiedenen Prozessoren ausgeführt, wenn mehrere Prozessoren vorhanden sind. Ist nur ein Prozessor vorhanden werden voneinander unabhängige Registersätze und Stacks, welche verschiedenen Teilen des Adressraums zugeordnet sind, verwendet.\\
 
 Alle Threads benutzen alle Betriebsmittel, Bis auf jene welche nur von den erzeugenden Threads benutzt werden können oder dürfen. Da es zu Konflikten kommen kann, werden Sychronisationsmechnismen eingesetzt, um diese potentielle Gefahr zu umgehen.
 Komminikation zwischen allen Threads, die zu demselben Prozess gehören, ist möglich, da sie den gleichen Adressraum belegen. Das kann mit der Interprozesskommunikation bei Prozessen verglichen werden.\\
 
-Threads von Programmfunktionen sind übersichtlich aufteilbar, jeder für eine Aufgabe die Verantwortung trägt. [nicht verständlich] Je nach Betriebssystem können Threads verschiedene Zustände annehmen, bei dem Großteil sind es: 
+Threads von Programmfunktionen sind übersichtlich aufteilbar, da jeder für eine Aufgabe die Verantwortung trägt.  Je nach Betriebssystem können Threads verschiedene Zustände annehmen, bei dem Großteil sind es: 
 \begin{itemize}
 \item inaktiv -  Thread nicht gestartet
 \item running (aktiv) - Befehl vom Thread wird auf der CPU augeführt
