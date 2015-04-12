@@ -1395,7 +1395,7 @@ Ein Datenbanksystem besteht immer aus einem DBMS und der dazugehörigen Datenban
 Es bietet eine Schnittschnelle zwischen dem DBMS und der Datenbankanwendung zur  Abfrage, Auswertung, Veränderung und Verwaltung an.
 
 \begin{center}
-\includegraphics[scale=0.3]{img/dbs.png}\\
+\includegraphics[scale=0.3]{img/dbs.PNG}\\
 Datenbanksystem besteht aus: Datenbank und Datenbankmanagementsystem (Quelle: http://de.wikipedia.org/wiki/Datenbank\# Komponenten\_ eines\_ Datenbanksystems)
 \end{center}
 
@@ -1429,7 +1429,7 @@ Die Funktion kann am Beispiel von einem Buch in einer Bücherei einfach gezeigt 
 \\Zur Beschreibung eines Datensatzes muss mindestens ein eindeutiger, unveränderlicher und einmal vorkommender Schlüssel vorhanden sein. Ein sinnvoller Primärschlüssel in diesem Beispiel ist Buch- ID. Der Schlüssel ist nicht für die Posistion des Datensatzes in der Tabelle zuständig, sondern für die eindeutige Identifikation.
 
 \begin{center}
-\includegraphics[scale=0.8]{img/relation_DB.png}\\
+\includegraphics[scale=0.8]{img/relation_DB.PNG}\\
 Beispiel einer Relation ("{}Buch"{})(Quelle: http://de.wikipedia.org/wiki/Relationale\_ Datenbank\# Grundlegende\_ Konzepte)
 \end{center}
 
@@ -1460,7 +1460,7 @@ Diese Tabelle enthält Informationen über die Vergabe und die Verfügbarkeit vo
 \end{itemize}
 
 \begin{center}
-\includegraphics[scale=0.8]{img/tabellen.png}\\
+\includegraphics[scale=0.8]{img/tabellen.PNG}\\
 Beziehungen zwischen Tabellen. ("{}Buch"{})(Quelle: http://de.wikipedia.org/wiki/Relationale\_ Datenbank\# Beziehungen\_ zwischen\_ Tabellen)
 \end{center}
 
@@ -1614,22 +1614,22 @@ Die Syntax von SQLite ist der Syntax von SQL indentisch. Die kleinen Unterschied
 Diese sind sehr einfach zu lesen und im Prinzip selbsterklärend. Es werden Argumente in der richtigen Reihenfolge aufgelistet und auch die verschiedenen dazugehörigen Optionen. Es gibt zur jeder möglichen Funktion ein entsprechendes Syntaxdiagramm. Die wichtigsten und grundlegensten Diagramme, welche zur Realisierung der Datenbank nötig waren, werden im Folgenden aufgelistet.
 
 \begin{center}
-\includegraphics[scale=0.8]{img/sqlite_syntax.png}\\
+\includegraphics[scale=0.8]{img/sqlite_syntax.PNG}\\
 allgemeine SQLite Syntax (Quelle: http://www.sqlite.org/syntax/sql-stmt.html)
 \end{center}
 
 \begin{center}
-\includegraphics[scale=0.8]{img/sqlite_create.png}\\
+\includegraphics[scale=0.8]{img/sqlite_create.PNG}\\
 erstellen einer Tabelle (Quelle: http://www.sqlite.org/lang\_ createtable.html)
 \end{center}
 
 \begin{center}
-\includegraphics[scale=0.8]{img/sqlite_select.png}\\
+\includegraphics[scale=0.8]{img/sqlite_select.PNG}\\
 Argumente beim Auswählen von Daten (Quelle: http://www.sqlite.org/lang\_ select.html)
 \end{center}
 
 \begin{center}
-\includegraphics[scale=0.8]{img/sqlite_insert.png}\\
+\includegraphics[scale=0.8]{img/sqlite_insert.PNG}\\
 Daten in einer Tabelle speichern (Quelle: http://www.sqlite.org/lang\_ insert.html)
 \end{center}
 
@@ -2102,15 +2102,89 @@ Natürlich können die zur Auswahl stehenden Interfaces mit dem Befehl \textbf{a
 \chapter{Notification von Singh Manpreet}
 lorem ipsum
 
-\chapter{Database von Stojanovic Marko}
+\lfoot{Marko Stojanovi\'{c}}
+\chapter{Database von Marko Stojanovi\'{c}}
 \section{MAD-DB}
-lorem ipsum
+Bei der Datenbank handelt es sich um eine relationale Datenbank, welche in C\# geschrieben wurde. Die Implementierung der SQLite- Datenbank erfolgte durch das Einbinden der "{}sqlite3.dll"{}.
 \subsection{Erklärung}
-lorem ipsum
-\subsection{Grafische Übersicht}
-lorem ipsum
-\section{Programmcode}
-lorem ipsum
+Die Datenbank besteht aus zwölf verschiedenen Tabellen. Die Namen der Tabellen sagen aus, welche Inhalte in ihnen gespeicher werden. Es wurden zwölf Tabellen ersellt um das System deterministisch zu halten, damit keine weiteren Veränderung in der Datenbank vorgenommen werden müssen.\\
+
+Alle Tabellen bis auf die Tabellen JobTable und MemoTable bestehen aus zwei Datenfelden. Das erste Datenfeld ist immer eine ID, welche den primary key vom Typ Integer darstellt, das zweite ist immer ein Feld vom Typ Text, dessen Inhalt gleich dme jeweiligen Namen der Tabelle entspricht. 
+\subsubsection{GUIDNodeTable}
+\begin{enumerate}
+\item ID als primary key vom Typ Integer
+\item GUID\_ NODE vom Typ Text
+\end{enumerate}
+\subsubsection{GUIDJobTable}
+\begin{enumerate}
+\item ID als primary key vom Typ Integer
+\item GUID\_ JOB vom Typ Text
+\end{enumerate}
+\subsubsection{HostTable}
+\begin{enumerate}
+\item ID als primary key vom Typ Integer
+\item HOST vom Typ Text
+\end{enumerate}
+\subsubsection{IPTable}
+\begin{enumerate}
+\item ID als primary key vom Typ Integer
+\item IP vom Typ text
+\end{enumerate}
+\subsubsection{MACTable}
+\begin{enumerate}
+\item ID als primary key vom Typ Integer
+\item MAC vom Typ Text
+\end{enumerate}
+\subsubsection{JobNameTable}
+\begin{enumerate}
+\item ID als primary key vom Typ Integer
+\item JOBNAME vom Typ Text
+\end{enumerate}
+\subsubsection{JobTypeTable}
+\begin{enumerate}
+\item ID als primary key vom Typ Integer
+\item JOBTYPE vom Typ Text
+\end{enumerate}
+\subsubsection{ProtocolTable}
+\begin{enumerate}
+\item ID als primary key vom Typ Integer
+\item PROTOCOL vom Typ Text
+\end{enumerate}
+\subsubsection{OutStateTable}
+\begin{enumerate}
+\item ID als primary key vom Typ Integer
+\item OUTSTATE vom Typ Text
+\end{enumerate}
+\subsubsection{MemoTable}
+\begin{enumerate}
+\item ID als primary key vom Typ Integer
+\item MEMO1 vom Typ Text, hier werden kurze Notizen vom Administrator zu besimmten Geräten gespeichert
+\item MEMO2 vom Typ Text, hier werden lange Notizen vom Administragor gespeichert
+\end{enumerate}
+\subsubsection{JobTable}
+Diese Tabelle besteht aus 14 Feldern:
+\begin{enumerate}
+\item ID als primary key vom Integer
+\item weitere Felder vom Typ Integer: ID\_ NODE, ID\_ HOST, ID\_ IP, ID\_ MAC, ID\_ JOB, ID\_ JOBNAME, ID\_ JOBTYPE, ID\_ PROTOCOL, ID\_ OUTSTATE\\
+Diese Felder werden verwendet, um alle Daten aus den anderen Tabellen zu den dazugehörigen Daten aus anderen Tabellen zuzuordnen und diese später leichter auszugeben. Diese Verknüpfung erfolgt über eine Join-Funktione. Die Dynamik und Effizienz der Datenbank wird auf diese Weise gesteigert.
+\item Felder vom Typ Text: STARTTIME, STOPTIME, DELAYTIME, OUTDESC\\
+Hier werden alle grundlegenden Informationen zu Jobs gespeichert, welche alle Jobs betreffen.
+\end{enumerate}
+
+\subsubsection{SummaryTable}
+\begin{enumerate}
+\item ID als primary key vom Typ Integer
+\item ID\_ NODE vom Typ Integer
+\item STARTTIME vom Typ Text
+\item STOPTIME vom Typ Text
+\item SUCCESSRATE vom Typ Text
+\item AVERAGE\_ DURATION vom Typ Text
+\item MAX\_ DURATION vom Typ Text
+\item MIN\_ DURATION vom Typ Text
+\end{enumerate}
+Das ist eine zusätzliche Tabelle, welche nur im Fall einer Zusammenfassung der Datenbank mit Daten gefüllt wird.  Durch diese Tabelle wird gewährleistet, dass der Speicherplatz gering gehalten werden kann, weil beim Vorgang der Zusammenfassung bestimmte Daten, welche dynamisch sind, aus den anderen Tabellen gelöscht werden und als komprimierte Ergebnisse in der SummaryTable gespeichert werden.\\
+
+Weitere Informationen zur Zusammenfassung sind im Kapitel 17 unter Anwendungsbeispiel (17.4.2 Zusammenfassung der Datenbank) zu finden.
 
 \lfoot{Ranalter Daniel}%--------------------------------------------------------------------------------------------
 
