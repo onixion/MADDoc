@@ -1,4 +1,4 @@
-\documentclass[12pt,a4paper]{report}
+documentclass[12pt,a4paper]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
 \usepackage{amsmath}
@@ -1837,18 +1837,18 @@ Die Idee wurde schlussendlich verworfen, da in vielen Netzwerken die Verwendung 
 Version 2 war im Grunde als Erweiterung zu Version 1 gedacht. Der Grundgedanke war es, in einem Netzwerk mit DHCP Server die Requests der Clienten aufzufangen, diese zu zerlegen und Informationen daraus zu verwenden, um auf einen Host zu schließen. Dies ist möglich, da der Client, wie in Kapitel \ref{ssec:dhcp} auf Seite \pageref{ssec:dhcp} bereits besprochen, mit dem DHCP Request sich die Konfiguration beim Server noch einmal bestätigen lässt und damit alles vorhanden ist.\\
 Da ein neuer Client in einem Netz, welches über DHCP gemanagt wird, noch keine Konfiguration hat, werden Request Pakete an die Broadcastadresse geschickt. Pakete an diese Adresse werden an jeden Client weitergeleitet, was es auch in einem geswitchten Netzwerk möglich macht, diese Pakete zu sehen.\\
 
-Diese Idee wurde verworfen da sie
+Diese Idee wurde verworfen, da
 \begin{enumerate}
-\item nur funktioniert wenn ein DHCP Server existiert, bei einem Statischen Netzwerk wäre es nicht möglich gewesen.
-\item Auch der DHCP Request noch abgelehnt werden kann. Das hätte zur Folge, dass ein falscher Host im Netz existiert.
+\item sie nur funktioniert, wenn ein DHCP Server existiert, bei einem Statischen Netzwerk wäre es nicht möglich gewesen.
+\item auch der DHCP Request noch abgelehnt werden kann. Das hätte zur Folge, dass ein falscher Host im Netz existiert.
 \end{enumerate}
 
 \section{MacFinder Version 3 - ARP Reader}
-Die finale Version des MacFinders erwuchs aus dem Gedanken ein Protokoll zu verwenden, dem sich kein Gerät im Netzwerk erwehren kann. Die Wahl fiel auf das ARP Paket, da ein host welcher nicht auf einen ARP Request antwortet in einem Netzwerk sowieso nicht kommunikationsfähig ist.\\
-Da das .NET Framework Netzwerkoperationen auf so einem tiefen Level nicht unterstützt wurde die Library SharpPCAP verwendet. Dies ist eine Portierung der bekannten pcap C Library welche zB auch von Wireshark verwendet wird. Damit war es möglich solche Pakete herzustellen.\\
-Der ARP Reader benötigt das Netz, die eigene IP-Adresse sowie die Subnetzmaske. Daraus baut er dann für jede mögliche IP-Adresse im Netzwerk einen ARP Request und sammelt nachdem er das Netzwerk damit geflutet hat die Responses.\\
+Die finale Version des MacFinders erwuchs aus dem Gedanken ein Protokoll zu verwenden, dem sich kein Gerät im Netzwerk erwehren kann. Die Wahl fiel auf das ARP Paket, da ein Host, welcher nicht auf einen ARP Request antwortet, in einem Netzwerk sowieso nicht kommunikationsfähig ist.\\
+Da das .NET Framework Netzwerkoperationen auf so einem tiefen Level nicht unterstützt, wurde die Library SharpPCAP verwendet. Dies ist eine Portierung der bekannten pcap C Library, welche zB. auch von Wireshark verwendet wird. Damit war es möglich solche Pakete herzustellen.\\
+Der ARP Reader benötigt das Netz, die eigene IP-Adresse sowie die Subnetzmaske. Daraus baut er dann für jede mögliche IP-Adresse im Netzwerk einen ARP Request und sammelt, nachdem er das Netzwerk damit geflutet hat, die Responses.\\
 
-Das größte Problem mit dem ARP Reader liegt darin, dass es mehrere verschiedene Interfaces gibt mit welchen pcap arbeitet. Dies kann man auch sehen wenn man wireshark startet, es werden mehrere Interfaces angezeigt aus welchen ausgewählt werden kann.\\
+Das größte Problem mit dem ARP Reader liegt darin, dass es mehrere verschiedene Interfaces gibt, mit welchen pcap arbeitet. Dies kann man auch sehen, wenn man Wireshark startet. Es werden mehrere Interfaces angezeigt, aus welchen ausgewählt werden kann.\\
 Natürlich können die zur Auswahl stehenden Interfaces mit dem Befehl \textbf{arp reader list interfaces} ausgegeben werden. Diese können dann auch in der Configfile gespeichert werden, damit man nicht immer das Interface angeben muss.
 \chapter{Notification von Singh Manpreet}
 lorem ipsum
@@ -1866,23 +1866,23 @@ lorem ipsum
 \lfoot{Ranalter Daniel}%--------------------------------------------------------------------------------------------
 
 \chapter{Logging von Ranalter Daniel}
-Damit bei Problemen mit MAD eine Möglichkeit besteht Fehler im Nachhinein zu finden und zu beheben wurde ein Logger eingebaut. Der Speicherort der Logfile kann in der Configfile verändert werden. Per default ist er in dem Ordner indem MAD ausgeführt wird.\\
+Damit bei Problemen mit MAD eine Möglichkeit besteht, Fehler im Nachhinein zu finden und zu beheben, wurde ein Logger eingebaut. Der Speicherort der Logfile kann in der Configfile verändert werden. Per default ist er in dem Ordner, in dem MAD ausgeführt wird.\\
 Damit schnell unterschieden werden kann zwischen wichtigen und unwichtigen Nachrichten, gibt es 5 verschiedene \glqq Level\grqq . Diese lauten:
 \begin{itemize}
 \item Debug, Level 1\\
-Debug Messages sind alle Nachrichten welche wirklich nur benötigt werden wenn sehr tiefer Einblick benötigt wird. 
+Debug Messages sind alle Nachrichten, welche wirklich nur benötigt werden, wenn sehr tiefer Einblick benötigt wird. 
 \item Inform, Level 2\\
-Inform Messages sind Nachrichten welche auf keine Fehler hinweisen sondern einfach nur Informieren sollen, jedoch nicht so unwichtig, dass sie unter Debug fallen.
+Inform Messages sind Nachrichten, welche auf keine Fehler hinweisen, sondern einfach nur informieren sollen, jedoch nicht so unwichtig sind, dass sie unter Debug fallen.
 \item Warning, Level 3\\
-Diese Log Nachrichten weißen auf Umstände hin, die sich zu Fehlern entwickeln können. Sie dienen zur ersten Alarmierung des Admins.
+Diese Log Nachrichten weisen auf Umstände hin, die sich zu Fehlern entwickeln können. Sie dienen zur ersten Alarmierung des Admins.
 \item Error, Level 4\\
-Hier ist bereits ein Fehler aufgetreten. Irgendetwas von den Dingen die zu tun waren hat nicht funktioniert. 
+Hier ist bereits ein Fehler aufgetreten. Irgendetwas von den Dingen, die zu tun waren, hat nicht funktioniert. 
 \item Emergency, Level 5\\
 Der hier aufgetretene Fehler bedroht die Integrität des Programmes und kann oder hat zum Absturz geführt. 
 \end{itemize}
-Außerdem kann die Stufe ab welcher geloggt werden soll bestimmt werden. Per default wird erst ab 2 aufwärts in die Logfile geschrieben.\\
+Außerdem kann die Stufe, ab welcher geloggt werden soll, bestimmt werden. Per default wird erst ab 2 aufwärts in die Logfile geschrieben.\\
 
-Die Logfile selbst hat das .txt Format, damit man unter Windows leichter damit arbeiten kann und heißt log.txt. Der Name kann jedoch geändert werden um Verwirrung mit anderen Log Datein zu vermeiden. 
+Die Logfile selbst hat das .txt Format, damit man unter Windows leichter damit arbeiten kann, und heißt log.txt. Der Name kann jedoch geändert werden, um Verwirrung mit anderen Log Dateien zu vermeiden. 
 
 \part{User Manual (Alin Porcic)}
 \lfoot{Alin Porcic}
