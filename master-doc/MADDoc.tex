@@ -1325,9 +1325,9 @@ Tabelle
 \item Schlüssel\\
 dient zur eindeutigen Identifikation von Datensätzen
 \end{itemize}
-Arten von Schlüssel:
+Arten von Schlüssel:\\
+\\primary Key (Primärschlüssel)
 \begin{itemize}
-\item primary Key (Primärschlüssel)\\
 \item wird zur eindeutigen Identifikation eines Datensatzes in relationalen Datenbanken eingesetzt
 \item ist in allen Tabellen in einer normalisierten Datenbank enthalten
 \item ist einmalig
@@ -1353,20 +1353,20 @@ Arten von Schlüssel:
 \item Praxis: Ganzzahlenfolge zur Datensatzidentifizierung
 \end{itemize}
 \end{itemize}
-\item Sekundärschlüssel
+\end{itemize}
+Sekundärschlüssel
 \begin{itemize}
 \item Attributgruppen, welche einzelne oder mehrere Datensätze beschreiben
 \item Beispiel: in Adresstabellen kann die Postleizahl als Sekundärschlüssel definiert werden
 \item nicht zwingende notwendig und nicht unbedigt einmalig vorkommend
 \item hilfreich bei Suchanfragen
 \end{itemize}
-\item Fremdschlüssel
+Fremdschlüssel
 \begin{itemize}
 \item Attribut oder Attributkombination einer Tabelle
 \item zeigt auf den Primärschlüssel einer anderen oder der gleichen Tabelle
 \end{itemize}
 
-\end{itemize}
 \section{Funktionen}
 Zu den wichtigsten Funktionen von Datenbankmanagementsystemen zur heutigen Zeit gehören:
 \begin{itemize}
@@ -2109,7 +2109,7 @@ Bei der Datenbank handelt es sich um eine relationale Datenbank, welche in C\# g
 \subsection{Erklärung}
 Die Datenbank besteht aus zwölf verschiedenen Tabellen. Die Namen der Tabellen sagen aus, welche Inhalte in ihnen gespeicher werden. Es wurden zwölf Tabellen ersellt um das System deterministisch zu halten, damit keine weiteren Veränderung in der Datenbank vorgenommen werden müssen.\\
 
-Alle Tabellen bis auf die Tabellen JobTable und MemoTable bestehen aus zwei Datenfelden. Das erste Datenfeld ist immer eine ID, welche den primary key vom Typ Integer darstellt, das zweite ist immer ein Feld vom Typ Text, dessen Inhalt gleich dme jeweiligen Namen der Tabelle entspricht. 
+Alle Tabellen bis auf die Tabellen JobTable und MemoTable bestehen aus zwei Datenfelden. Das erste Datenfeld ist immer eine ID, welche den primary key vom Typ Integer darstellt, das zweite ist immer ein Feld vom Typ Text, dessen Inhalt gleich dem jeweiligen Namen der Tabelle entspricht. 
 \subsubsection{GUIDNodeTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer
