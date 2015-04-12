@@ -1,4 +1,3 @@
-ls
 \documentclass[12pt,a4paper]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
@@ -55,7 +54,6 @@ lorem ipsum
 lorem ipsum 
 
 \part{Theorie zu den einzelnen Gebieten der Arbeit}
-lorem ipsum
 \lfoot{Marko Stojanovi\'{c}}
 \chapter{Informatik (Marko Stojanovi\'{c})}
 Informatik ist eine Wissenschaft, die sich mit der systematischen Verarbeitung von Informationen speziell mit der automatischen Verarbeitung durch Digitalrechner beschäftigt. Die Informatik ist aus der Mathematik und Ingenieursdisziplin nach aus automatisch angewendeten Berechnungen entstanden.
@@ -1654,9 +1652,9 @@ Bei Verwendung von SQLite entscheidet der Einsatzbereich ob es sich bei einer Ei
 \lfoot{Alin Porcic}
 \section{Allgemeines}
 
-Die Kryptologie befasst sich mit der Informationssicherheit und hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen. Unzählige Informationen werden weltweit Kreuz und Quer ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen hohen Wert haben können. Der Wert dieser Informationen geht dann verloren, wenn ein Unbefugter die Aussage der Informationen verstehen kann. Damit das nicht passiert, werden kryptographische Systeme entwickelt, die die Lesbarkeit von Informationen verhindert bzw. erschwert.\\
+Die Kryptologie befasst sich mit der Informationssicherheit und hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen. Unzählige Informationen werden weltweit Kreuz und Quer ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen hohen Wert haben können. Der Wert dieser Informationen geht dann verloren, wenn ein Unbefugter die Aussage der Informationen verstehen kann. Damit das nicht passiert, werden kryptographische Systeme entwickelt, die die Lesbarkeit von Informationen verhindern bzw. erschweren.\\
 
-Die Fähigkeit dieser Systemen die Informationen vor wirtschaftlichen Schäden zu schützen, werden als Informationssicherheit bezeichnet. Die Minimierung von Risiken, der Schutz vor Bedrohungen und die Einhaltung der Schutzziele sind ebenfalls Anforderungen der Informationssicherheit. Für die Einhaltung der Ziele der Informationssicherheit werden folgende Schutzziele definiert:
+Die Fähigkeit dieser Systeme die Informationen vor wirtschaftlichen Schäden zu schützen, ist einer von vielen Bedingungen der Informationssicherheit. Die Minimierung von Risiken, der Schutz vor Bedrohungen und die Einhaltung der Schutzziele sind ebenfalls Anforderungen der Informationssicherheit. Für die Einhaltung der Ziele der Informationssicherheit werden folgende Schutzziele definiert:
 
 \begin{itemize}
 \item Vertraulichkeit (Englisch: confidentiality): Die Vertraulichkeit gibt an, dass die Aussage der Informationen vor unbefugten Personen geschützt ist und nicht modifiziert werden kann.
@@ -1709,7 +1707,7 @@ Ein Skytale (Quelle: http://de.wikipedia.org/wiki/Skytale).
 
 Ein weiteres monoalphabetisches Verfahren ist die \textbf{Caesar-Verschlüsselung}. Dieses Verfahren verschob alle Buchstaben des Klartextalphabets um eine bestimmte Zahl. Der Kommunikationspartner musste über die Anzahl der Verschiebungen informiert sein, da dieser sonst den Text nicht entschlüsseln konnte. Der Schlüssel, also die Anzahl der Verschiebungen, musste dem Kommunikationsparnter über einen sicheren Kanal übermittelt werden. (vgl. Kryptologie, Thomas Imboden, Seite 4)\\
 
-Die Tauschchiffre ist eine verbesserte Variante des Caesar-Verfahren. Die Buchstaben des Alphabets werden mit Zahlen dargestellt und der Buchstabe A wird meisten mit 1 dargestellt, B mit 2, X mit 25 und Z mit 0. Nun wird statt einer Addition die Buchstaben mit einer Geheimzahl multipliziert. Die Geheimzahl muss aber mit der Anzahl der möglichen Buchstaben teilerfremd sein, da sonst Kollisionen entstehen. Eine Kollision ist, wenn zwei verschiedene Buchstaben gleich verschlüsselt werden. Kollisionen sind zu vermeiden, da sonst teile des Cipher-Textes nicht mehr entschlüsselt werden können. Bei 26 Buchstaben können wir zum Beispiel 3 als Geheimzahl nehmen. Als letztes müssen wir noch einen Modulus durchführen, damit das Ergebnis der Multiplikation auf das Alphabet mit 26 Buchstaben abgebildet wird. Dieses Verfahren ist deutlich schwieriger zu Entschlüsseln als die Caesar-Verschlüsselung. Jedoch kann dieses Verfahren auch über Häufigkeitsberechnungen entschlüsselt werden, da jeder Buchstabe gleich verschlüsselt wird.  (vgl. Kryptologie, Thomas Imboden, Seite 4)\\
+Die Tauschchiffre ist eine verbesserte Variante des Caesar-Verfahren. Die Buchstaben des Alphabets werden mit Zahlen dargestellt und der Buchstabe A wird meistens mit 1 dargestellt, B mit 2, X mit 25 und Z mit 0. Nun wird statt einer Addition die Buchstaben mit einer Geheimzahl multipliziert. Die Geheimzahl muss aber mit der Anzahl der möglichen Buchstaben teilerfremd sein, da sonst Kollisionen entstehen. Eine Kollision ist, wenn zwei verschiedene Buchstaben gleich verschlüsselt werden. Kollisionen sind zu vermeiden, da sonst teile des Cipher-Textes nicht mehr entschlüsselt werden können. Bei 26 Buchstaben können wir zum Beispiel 3 als Geheimzahl nehmen. Als letztes müssen wir noch einen Modulus durchführen, damit das Ergebnis der Multiplikation auf das Alphabet mit 26 Buchstaben abgebildet wird. Dieses Verfahren ist deutlich schwieriger zu Entschlüsseln als die Caesar-Verschlüsselung. Jedoch kann dieses Verfahren auch über Häufigkeitsberechnungen entschlüsselt werden, da jeder Buchstabe gleich verschlüsselt wird.  (vgl. Kryptologie, Thomas Imboden, Seite 4)\\
 
 \begin{center}
 \includegraphics[scale=0.35]{img/tauschchiffre.png}\\
@@ -1740,7 +1738,7 @@ Angenommen 'JamesBond' wäre das Schlüsselwort und man möchte 'Der abgeschloss
 Schlüsselwort, Plaintext und der Ciphertext (Quelle: Einführung in die Kryptologie - Tino Hempel)
 \end{center}
 
-Eine andere sehr bekannte polyalphabetische Chiffrierung ist die \textbf{Enigma}. Sie wurde von den Deutschen nach dem Ersten Weltkrieg entwickelt, um die Funksprüche zu verschlüsseln. Die Enigma war eine umfunktionierte Schreibmaschine mit drei Walzen, die je nach setzten der Kontakte den Klartext verschlüsselten. Da sich die Walzen nach jeder Eingabe weiterdrehen, werden gleiche Buchstaben nicht gleich verschlüsselt. Die Alliierten konnten den Enigma-Code durch die Turing-Bombe entschlüsseln.
+Eine andere sehr bekannte polyalphabetische Chiffrierung ist die \textbf{Enigma}. Sie wurde von den Deutschen nach dem Ersten Weltkrieg entwickelt, um die Funksprüche zu verschlüsseln. Die Enigma war eine umgebautet Schreibmaschine mit drei Walzen, die je nach setzten der Kontakte den Klartext verschlüsselten. Da sich die Walzen nach jeder Eingabe weiterdrehen, werden gleiche Buchstaben nicht gleich verschlüsselt. Die Alliierten konnten den Enigma-Code durch die Turing-Bombe entschlüsseln.
 
 \begin{center}
 \includegraphics[scale=2.5]{img/enigma.jpg}\\
@@ -1804,8 +1802,8 @@ der Ver- und Entschlüsselvorgang der symmetrischen Verschlüsselungsverfahren
 \end{center}
 
 Bei den symmetrischen Verschlüsselungsverfahren gibt es zwei Möglichkeiten der Verwendnung: als Stromverschlüsselung oder Blockverschlüsselung.\\
-Die \textbf{Stromverschlüsselung} (oder auch Stromchiffre) verschlüsselt ganze Zeichen aus dem Klartext. Der Vorteil dieser Verschlüsselungen ist, dass der Klartext sofort verschlüsselt oder entschlüsselt werden kann. Dies ist speziell bei Echtzeitübertragunen ein klarer Vorteil.\\
-Die \textbf{Blockverschlüsselung} kann nur einen Block von Daten verschlüsseln. Die Blocklänge hängt vom Verschlüsselungsalgorithmus ab, muss aber immer gleich lang sein. Damit nun ein Datenstrom verschlüsselt werden kann, benötigt man einen Betriebsmodus, der angibt, wie die Blöcke untereinander verschlüsselt werden sollen. Zudem benötigt man einen sogenannten \textbf{Padding}. Der Padding wird dann eingesetzt wenn die zu verschlüsselnte Nachricht nicht genau in ganze Blöcke eingeteilt werden kann. Das Padding füllt die Nachricht bis auf einen neuen vollen Block auf und muss dies bei der Ver- und Entschlüsselung beachten.\\
+Die \textbf{Stromverschlüsselung} (oder auch Stromchiffre) verschlüsselt ganze Zeichen aus dem Klartext. Der Vorteil dieser Verschlüsselungen ist, dass der Klartext sofort verschlüsselt oder entschlüsselt werden kann. Dies ist speziell bei Echtzeitübertragungen ein klarer Vorteil.\\
+Die \textbf{Blockverschlüsselung} kann nur einen Block von Daten verschlüsseln. Die Blocklänge hängt vom Verschlüsselungsalgorithmus ab, muss aber immer gleich lang sein. Damit nun ein Datenstrom verschlüsselt werden kann, benötigt man einen Betriebsmodus, der angibt, wie die Blöcke untereinander verschlüsselt werden sollen. Zudem benötigt man einen sogenannten \textbf{Padding}. Der Padding wird dann eingesetzt wenn die zu verschlüsselnte Nachricht nicht genau in ganze Blöcke eingeteilt werden kann. Mithilfe des Paddings wird die Nachricht, falls notwendig, auf einen neuen vollen Block aufgefüllt. Dies muss bei der Ver- als auch bei der Entschlüsselung beachtet werden.\\
 
 Diese vier Blockbetriebsarten werden in der 'international Standard ISO 10116' definiert:
 
@@ -1817,14 +1815,14 @@ Diese vier Blockbetriebsarten werden in der 'international Standard ISO 10116' d
 der Verschlüsselungsvorgang bei ECB (Quelle: http://de.wikipedia.org/wiki/Electronic\_Code\_Book\_Mode)
 \end{center}
 
-\item \textbf{CBC-Mode} (Cipher Block Chaining Mode): Diese Variante verschlüsselt einen Block mit den vorherigen Block. Das heißt, dass jeder Block anderes Verschlüsselt wird, da der vorherige Block Auswirkungen auf den Schlüssel hat.
+\item \textbf{CBC-Mode} (Cipher Block Chaining Mode): Diese Variante verschlüsselt einen Block mit dem vorherigen Block. Nun werden die gleiche Blöcke nicht immer gleich verschlüsselt, da der Verschlüsselungsvorgang den vorherigen Block einbezieht.
 
 \begin{center}
 \includegraphics[scale=0.7]{img/cbc.png}\\
 der Verschlüsselungsvorgang bei CBC (Quelle: http://de.wikipedia.org/wiki/Cipher\_Block\_Chaining\_Mode)
 \end{center}
 
-\item \textbf{CFB-Mode} (Cipher Feedback Mode): Dieser Betriebsmodus funktioniert ähnlich wie der CBC-Modus, jedoch wird der lesbare Block mit der Ausgabe des Verschlüsselungs Blocks bitweise mit XOR verknüpft.
+\item \textbf{CFB-Mode} (Cipher Feedback Mode): Dieser Betriebsmodus funktioniert ähnlich wie der CBC-Modus, jedoch wird der lesbare Block mit der Ausgabe des Verschlüsselungs Blocks bitweise XOR verknüpft.
 
 \begin{center}
 \includegraphics[scale=0.7]{img/cfb.png}\\
@@ -1850,9 +1848,17 @@ Einen der beiden Schlüssel muss für die Verwendung veröffentlich werden, dami
 der asymmetrische Verschlüsselungsvorgang
 \end{center}
 
-Da der Öffentliche Schlüssel veröffentlicht wurde, können nun verschiedene Kommunikationspartner ihre Informationen mit ihm verschlüsseln und an den Inhaber des privaten Schlüssels senden. Nur der Inhaber des privaten Schlüssel ist imstande die Daten zu entschlüsseln.\\
+Da der öffentliche Schlüssel veröffentlicht wurde, können nun verschiedene Kommunikationspartner ihre Informationen mit ihm verschlüsseln und an den Inhaber des privaten Schlüssels senden. Nur der Inhaber des privaten Schlüssel ist imstande die Daten zu entschlüsseln.\\
 Die zweite Möglichkeit, die mit diesem Verfahren möglich ist, ist das der Inhaber des Privat-Key eine Nachricht mit seinem Schlüssel verschlüsselt und an alle Kommunikationspartner überträgt. Da die Kommunikationspartner die Nachricht fehlerfrei entschlüsseln können, muss der Sender im Besitz des privaten Schlüssels sein. Damit ist die Echtheit der Indentität des Kommunikationspartners sichergestellt (digitale Unterschrift).\\
 Für eine beidseitige Übertragen mithilfe eines asymmetrischen Verfahren werden zwei unabhängige Schlüsselpaare benötigt. Beide Kommunikationsparnter müssen ihre öffentlichen Schlüssel veröffentlichen und auf ihren privaten Schlüssel achtgeben.
+
+\paragraph{Digitale Signaturen}
+
+Eine digitale Signatur (=digitale Unterschrift) ist eine Methode basierend auf den asymmetrischen Verschlüsselungsmethoden, die die Integrität und Nichtabstreitbarkeit im Netzwerk sicherstellt. Eine digitale Signatur kann nur mit dem Privat-Key erzeugt werden und die Entschlüsselung daher nur mit dem Public-Key. Kann die Signatur entschlüsselt werden, so weiß man, dass der Sender im Besitz des Privaten SChlüssels ist und derjenige ist für den er sich ausgibt. (vgl. http://de.wikipedia.org/wiki/Digitale-Signatur)
+
+\paragraph{Digitale Zertifikate}
+
+Digitale Zertifikate sind Ansammlungen von Daten, die mithilfe von kryptographischen Methoden Authenzität und Integrität der enthaltenen Informationen sicherstellen. Der weitverbreitete X.509-Zertifikat Standard z.B. bestätigt die Intentität des Inhabers, Richtigkeit des öffentlichen Schlüssels und nocht weiteren Informationen.
 
 \subsubsection{Hybride Verschlüsselungsverfahren}
 
@@ -1860,7 +1866,7 @@ Für eine beidseitige Übertragen mithilfe eines asymmetrischen Verfahren werden
 
 \subsubsection{Hash-Verfahren}
 
-Eine \textbf{Hashfunktion} ist eine Funktion, die eine beliebige Menge an Eingangsinformationen auf eine fixe Länge an Ausgangsinformationen abbildet. Hashfunktionen, die für die Kryptographie verwendet werden, sollten keine Kollisionen aufzeigen bzw. soll das Finden von Kollisionen erschwert werden. Zudem darf sie nicht rückrechenbar sein, weil die Eingangsinformation nicht bekannt sein darf (vgl. http://de.wikipedia.org/wiki/Kryptologische\_Hashfunktion)
+Eine \textbf{Hashfunktion} ist eine Funktion, die eine beliebige Menge an Eingangsinformationen auf eine fixe Länge an Ausgangsinformationen abbildet.  Das Ziel von Hashfunktionen ist das Erschweren der Suche nach Kollisionen. Kollisionen können nicht verhindert werden, da die Eingangsgröße keine fixe Größe definiert. Ein weiteres Ziel von Hashfunktionen ist das Verhindern der Möglichkeit des Rückrechnens, also die Ermittlung der Eingangsgröße aus der Ausgangsgröße.(vgl. http://de.wikipedia.org/wiki/Kryptologische\_Hashfunktion)
 
 \newpage
 \section{Kryptoanalyse}
@@ -1898,14 +1904,6 @@ Triple DES ist der Nachfolger des DES-Standarts und wendet für die Ver- und Ent
 AES, der ausgewählte Nachfolger von DES, wurde im Oktober 2000 vom 'National Institute of Standards and Technology' als neuer Standard freigegeben. AES ist ein Blockchiffre und kann für die Verschlüsselung 128, 160, 192, 224 oder 256 Bit langen Schlüssel verwenden. Bis heute ist der AES-Standard nocht im Gebrauch und auch immer noch kryptographisch sicher.
 
 \subsection{Asymmetrische Verschlüsselungsverfahren}
-
-\paragraph{Digitale Signaturen}
-
-Eine digitale Signatur (=digitale Unterschrift) ist eine Methode basierend auf den asymmetrischen Verschlüsselungsmethoden, die die Integrität und Nichtabstreitbarkeit im Netzwerk sicherstellt. Eine digitale Signatur kann nur mit dem Privat-Key erzeugt werden und die Entschlüsselung daher nur mit dem Public-Key. Kann die Signatur entschlüsselt werden, so weiß man, dass der Sender im Besitz des Privaten SChlüssels ist und derjenige ist für den er sich ausgibt. (vgl. http://de.wikipedia.org/wiki/Digitale-Signatur)
-
-\paragraph{Digitale Zertifikate}
-
-Digitale Zertifikate sind Ansammlungen von Daten, die mithilfe von kryptographischen Methoden Authenzität und Integrität der enthaltenen Informationen sicherstellen. Der weitverbreitete X.509-Zertifikat Standard z.B. bestätigt die Intentität des Inhabers, Richtigkeit des öffentlichen Schlüssels und nocht weiteren Informationen.
 
 \subsubsection{Nennenswerte asymmetrische Verschlüsselungssysteme}
 
@@ -1977,7 +1975,7 @@ Mit der linken und rechten Pfeiltaste kann die Position des Cursors im Eingabefe
 \section{CLI-Server und CLI-Client (Alin Porcic)}
 \lfoot{Alin Porcic}
 
-Um den CLI-Server zu starten wird das Argument \textbf{-cliserver} beim Start benötigt. Nach dem Starten des Servers ist es möglich, sich mit dem CLI-Client auf den Server zu verbinden. Nach der Verbindung mit dem Server kann die CLI wie die ganz gewöhnliche CLI genutzt werden. Die Eingaben und Ausgaben, die zwischen Server und Client übertragen werden, werden mit AES verschlüsselt. Da es keinen Schlüsselaustausch gibt, muss der AES-Schlüssel über einen anderen Informationskanal übertragen werden. Das AES-Passwort wird in der Konfigurationsdatei im Klartext abgespeichert und wird beim Start gelesen.
+Um den CLI-Server zu starten wird das Argument \textbf{-cliserver} beim Start benötigt. Nach dem Starten des Servers ist es möglich, sich mit dem CLI-Client auf den Server zu verbinden. Nach der Verbindung mit dem Server kann die CLI wie die ganz gewöhnliche CLI genutzt werden. Die Eingaben und Ausgaben, die zwischen Server und Client übertragen werden, werden mit AES verschlüsselt. Da es keinen Schlüsselaustausch gibt, muss der AES-Schlüssel über einen anderen Informationskanal übertragen werden. Das AES-Passwort wird in der Konfigurationsdatei im Klartext abgespeichert und wird beim Start eingelesen.
 
 \chapter{Konfiguration (Alin Porcic)}
 \lfoot{Alin Porcic}
@@ -2282,7 +2280,7 @@ Dieser Befehl startet den Zeitplaner des JobSystems. Nach der Ausführung von di
 
 \subsubsection{schedule stop}
 
-Dieser Befehlt stopptet den Zeitplaner des JobSystems.
+Dieser Befehlt stoppt den Zeitplaner des JobSystems.
 
 \subsubsection{node add}
 
@@ -2476,10 +2474,8 @@ Nun werden alle Ausführung von allen Jobs, die zwischen dem 10.01.2015 und dem 
 
 \chapter{CLIClient}
 
-Der CLI-Client erstellt bei der ersten Ausführung eine Konfigurationsdatei im gleichen Ordner wie die ausführbare Datei. Dort kann der Zieladresse und Authentifikations-Passwort eingegeben werden. Sobald die Verbindung steht, kann die CLI ganz normal verwendet werden.\\\\
-Warnung: es können sich mehrere Clients gleichzeitig anmelden. Das Programm müsste in der Theorie trotzdem funktionieren, jedoch wurde dieses Szenario nicht gründlich genug getestet und ist daher nicht empfohlen.\\\\
-
-Die Konfigurationsdatei wird im XML-Syntax gespeichert und bei dem Start gelesen.
+Der CLI-Client erstellt bei der ersten Ausführung eine Konfigurationsdatei im gleichen Ordner wie die ausführbare Datei. Dort kann der Zieladresse und Authentifikations-Passwort eingegeben werden. Sobald die Verbindung steht, kann die CLI ganz normal verwendet werden.\\
+Die Konfigurationsdatei wird im XML-Syntax gespeichert und beim Start eingelesen.
 
 \chapter{CLIServer}
 
