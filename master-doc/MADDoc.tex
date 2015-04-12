@@ -1263,22 +1263,21 @@ Der sicherlich größte Nachteil der CLI ist das der Benutzer die Befehle, die P
 
 Ein weiterer Problem ist das Nutzen von graphischen Diensten wie zum Beispiel das Surfen im Internet oder die Nutzung von Multimedia Daten. Es besteht die Möglichkeit auf grafischen Terminals Bilder oder Dokumente anzuzeigen, jedoch sind diese nicht sehr handlich, da immer nur ein Dokument zugleich geöffnet werden kann.\\
 
-\chapter{Datenbank von Stojanovi\'{c} Marko}
-\lfoot{Stojanovi\'{c} Marko}
+
+\lfoot{Marko Stojanovi\'{c}}
+\chapter{Datenbank (Marko Stojanovi\'{c})}
+
 \section{Allgemeines}
 Datenbanken sind für die Verwaltung von digitalen Daten zuständig. Heute stellen Datenbanksysteme einen zentralen Punkt im IT-Bereich der Unternehemen. Dadurch ist ein Unternehmen auf die Verfügbarkeit, Vollständigkeit und Richtigkeit der Daten angewiesen. Dadurch ist sicher zu stellen, dass die Datensicherheit gewährleistet ist, dies wird gesetzlich oder durch eine Behörde vorgeschieben.\\
 
-Zum Aufgabenbereich eines Datenbanksystems gehören speichern, lesen, löschen und ändern von Dateien. Dies muss für große Datenmentgen effizient, widerspruchsfrei und dauerhaft gewährleistet sein. Auch geforderte Teilmengen müssen für Benutzer und Anwendungsprogramme in verschiedensten Darstellungsformaten bereitgestellt werden können.
-
-Datenbanksysteme setzen sich grundsätzlich aus zwei Teilsystemen zusammen.
-
+Zum Aufgabenbereich eines Datenbanksystems gehören speichern, lesen, löschen und ändern von Dateien. Dies muss für große Datenmentgen effizient, widerspruchsfrei und dauerhaft gewährleistet sein. Auch geforderte Teilmengen müssen für Benutzer und Anwendungsprogramme in verschiedensten Darstellungsformaten bereitgestellt werden können.\\
+\\Datenbanksysteme setzen sich grundsätzlich aus zwei Teilsystemen zusammen.
 \begin{itemize}
 \item Datenmanagementsystem (DBMS)\\
 Dieses System ist für jegliche Organisationen zuständig.
 \item Datenbank\\
 Als Datenbank wird die Menge bzw. Sammlung aller Daten bezeichnet.
 \end{itemize} 
-
 Es gibt verschiedene Datenbankmanagementsystemmodelle.
 \begin{itemize}
 \item ralatinales DBMS
@@ -1286,7 +1285,6 @@ Es gibt verschiedene Datenbankmanagementsystemmodelle.
 \item hierarchisches DBMS
 \item objektorientiertes DBMS usw.
 \end{itemize}
-
 Datenbanken werden für alle Webseiten zur Datenverwaltung verwendet ( z.B.: Regristrierungen, Einkäufe wie bei z.B.: ebay, amazon ).
 Microsoft Access und OpenOfficeBase eignen sich gut für kleinere Datenbanken (z.B.: kleinere Büros), weil die Handhabung durch die grafische Darstellung sehr leicht zu bedienen ist und den Mitarbeitern Schulungen erspart bleiben.
 Diese eignen sich jedoch nicht als Datenbanken für Webdienste ( z.B. Facebook, Twitter, ebay, ... ).\\
@@ -1310,95 +1308,346 @@ Als Reaktion von führenden Herstellern wurden gratis Versionen ihrer Datenbank-
 Seit 2001 wurde  NoSQL bekannter und erzielte ebenfalls an Bedeutung, da sich mit einem nicht-relationalen Konzept durchsetzt.
 \section{Definitionen}
 \begin{itemize}
-\item Datenfeld
 \item Datensatz
-\item Schlüssel
-\item Primärschlüssel
+\begin{itemize}
+\item Entsprechung einer logischen Struktur
+\item Tupel
+\item Zeile in einer Tabelle
+\end{itemize}
+\item Datenfeld
+\begin{itemize}
+\item kleinste Einheit eines Datensatzes
+\item Attribut
+\item Spalte in einer Tabelle
+\end{itemize}
+\item Relation\\
+Tabelle
+\item Schlüssel\\
+dient zur eindeutigen Identifikation von Datensätzen
+\end{itemize}
+Arten von Schlüssel:
+\begin{itemize}
+\item primary Key (Primärschlüssel)\\
+\item wird zur eindeutigen Identifikation eines Datensatzes in relationalen Datenbanken eingesetzt
+\item ist in allen Tabellen in einer normalisierten Datenbank enthalten
+\item ist einmalig
+\item oft verwendet als Datenbank- Index
+\begin{itemize}
+\item eindeutiger Primärschlüssel
+\begin{itemize}
+\item ein eindeutiger Schlüssel in einer Spalte
+\item Datensätze weden durch einen einmaligen Wert bestimmt
+\item Beispiel: in einer  Mitarbeiertabelle kann die Sozialversicherungsnummer als primary Key verwendet werden
+\end{itemize}
+\item zusammengesetzter Primärschlüssel
+\begin{itemize}
+\item Kombination aus verschiedenen Attributen, da eindeutige Identifizierung nicht vorhanden
+\item Kombinationen dürfen nur einmal vorkommen
+\item Beispiel für zusammengesetzten Primärschlüssel: Vorname + Nachname + Geburtsdatum
+\end{itemize}
+\item Künstlicher Primärschlüssel
+\begin{itemize}
+\item keine eindeutigen Spalten oder Kombinationen aus Spalten
+\item wird als zusätzliche Spalte in die Tabelle implementiert
+\item auch Surrogate Key genannt
+\item Praxis: Ganzzahlenfolge zur Datensatzidentifizierung
+\end{itemize}
+\end{itemize}
 \item Sekundärschlüssel
-\item Stellvertretende Schlüssel
+\begin{itemize}
+\item Attributgruppen, welche einzelne oder mehrere Datensätze beschreiben
+\item Beispiel: in Adresstabellen kann die Postleizahl als Sekundärschlüssel definiert werden
+\item nicht zwingende notwendig und nicht unbedigt einmalig vorkommend
+\item hilfreich bei Suchanfragen
+\end{itemize}
 \item Fremdschlüssel
+\begin{itemize}
+\item Attribut oder Attributkombination einer Tabelle
+\item zeigt auf den Primärschlüssel einer anderen oder der gleichen Tabelle
+\end{itemize}
 
 \end{itemize}
-\section{Effizienz}
-lorem ipsum
 \section{Funktionen}
-lorem ipsum
-\subsection{Anwendungen}
-lorem ipsum
+Zu den wichtigsten Funktionen von Datenbankmanagementsystemen zur heutigen Zeit gehören:
+\begin{itemize}
+\item Daten verändern, löschen, speichern
+\item Metadaenverwaltung
+\item Maßnahmen zur Datensicherheit, Datenintegrität und Datenschutz
+\item Transaktionskonzept (Gewährleistung von Mehrbenutzerbetrieb)
+\item Anfragenoptimierung/- anpassung
+\item Verwendungsmöglichkeiten von: 
+\begin{itemize}
+\item Datenbanktrigger\\
+Funktion von unterschiedlichen (relationalen) Datenbankmanagementsystemen, welche nach Manipulation von expliziten Daten aufgerufen wird und ein integriertes Programm startet, dieses kann die Manipulation verhindern, erlauben oder auch andere Aktionen ausführen
+\item Stored Procedures (Gespeicherte Prozeduren)\\
+mit einem Befehl ist ein Client in der Lage eine ganze Reihe von (gespeicherten) Anweisungen zu starten
+\end{itemize}
+\item Informationen des verwendeten Datenbankmanagementsystems
+\begin{itemize}
+\item Kennzahlen
+\item Betrieb
+\item Technik
+\end{itemize}
+\end{itemize}
+
 \section{Datenbanksysteme}
 Ein Datenbanksystem besteht immer aus einem DBMS und der dazugehörigen Datenbank. Ein Datenbanksystem muss gewähleisten, dass auf Festspeichern abgespeicherte Daten auch nach einem unvorhergesehenen Ausfalls des Systems (z.B.: Stromausfall) wieder ohne Veränderungen und Verluste aufgerufen werden.\\
 Es bietet eine Schnittschnelle zwischen dem DBMS und der Datenbankanwendung zur  Abfrage, Auswertung, Veränderung und Verwaltung an.
+
+\begin{center}
+\includegraphics[scale=0.3]{img/dbs.png}\\
+Datenbanksystem besteht aus: Datenbank und Datenbankmanagementsystem (Quelle: http://de.wikipedia.org/wiki/Datenbank\# Komponenten\_ eines\_ Datenbanksystems)
+\end{center}
+
+\subsection{Datenbank}
+Theoretisch ist eine Datenbank ein zusammgehöriger Datenbestand. 
+Diese Datenmenge wird auf einen Festspeicher abgelegt und für alle Anwendungen für den Benutzer von einem DBMS zur Verfügung gestellt.\\
+
+Zu beachten ist, dass unter Datenbank oft das DBMS und die Daten gemeint werden, nicht die dazugehörige Dantenbankanwendungssoftware. Diese besteht oft aus Computerprogrammen, welche über ein Datenbanksystem ihre notwendigen Daten speichern.
+\\Beispiele: Auftragsverwaltung und Bestellwesen, Kunden- und Adressverwaltung, Rechnungserstellung.
 
 \subsection{Datenbankmanagementsysteme}
 Das DBMS ist die Verwaltunssoftware, welche für die Organisation der stukturiertten  Speicherung der Daten und zur Kontrolle der gesamten Lese, Lösch- und Schreibzugriffe auf die Datenbank zuständig ist.
 Diese Software wird für das Datenbanksystem installiert und konfigureiert und durch diese Software wird auch das Datenbankmodell bestimmt.
 Da die Funktonalität und die Geschwindigkeit von DBMS abhängen ist die Auswahl oftmals gut zu durchdenken.
-DBMS sind hochkoplexe Softwaresysteme.\\
+DBMS sind hochkomplexe Softwaresysteme.\\
 
 RDBMS wird oft als Abkürzung verwendet, weil das relationale DBMS am meisten Verwendung findet.
 
-\subsection{Datenbank}
-Theoretisch ist eine Datenbank ein zusammgehöriger Datenbestand. 
-Diese Datenmenge wird auf einen Festspeicher abgelegt und für alle Anwendungen für den Benutzer von einem DBMS zur Verfügung gestellt.
-
-Zu beachten ist, dass unter Datenbank oft das DBMS und die Daten gemeint werden, nicht die dazugehörige Dantenbankanwendungssoftware. Diese besteht oft aus Computerprogrammen, welche über ein Datenbanksystem ihre notwendigen Daten speichern.
-\\"Beispiele: Auftragsverwaltung und Bestellwesen, Kunden- und Adressverwaltung, Rechnungserstellung."
-
 \section{Relationales Datenbankmanagementsystem (RDBMS)}
 Das relationale Datenbanksystem findet in der Praxis am häufigsten Verwendung.
-Bei Relatinalen Datenbanksystemen können Felder aus verschiedenen Tabellen durch einen Primärschlüssel verbunden werden.
-lorem ipsum
+Bei Relatinalen Datenbanksystemen können Felder aus verschiedenen Tabellen durch einen Primärschlüssel verbunden werden.\\
+
+Relationale Datenbanken werden in Computersystemen zur elektronischen Datenverwaltung eingesetzt. Das dazugehörige relationale Datenbankmodell wurde 1970 von Edgar F. Codd das erste Mal entworfen und ist tabellenbasierend. Dieses Modell findet heute auch häufigen Einsatz, obwohl es einige Mängel aufweist. Als Datenbankmanagementsystem wird das sogenannte relationale Datenbankmanagementsystem (RDBMS, Relational Database Management System) verwendet. Die Datenbanksprache SQL (Structured Query Language) wird zur Manipulation und zum Aufruf der Daten eingesetzt.\\
+
+Die Basis von relationalen Datenbanken ist die mathematische Definition einer Tabelle, die sogenannte Relation. Alle Aktivitäten auf Relationen werden von Relationenalgebra festgelegt. Damit ist ersichtlich, dass die relationale Algebra die thoretische Basis von SQL ist.
+
 \subsection{Prinzip eines RDBMS}
-lorem ipsum
+Eine relationale Datenbank besteht aus vielen Tabellen (Relationen), in denen Datensätze gespeichert werden. Durch das Relationsschema werden Anzahl und Attributtypen der Relation bestimmt. Die Veranschaulichung einer Tabelle verläuft über die Attribute A1 bis An in den Spalten.\\
+
+Die Funktion kann am Beispiel von einem Buch in einer Bücherei einfach gezeigt werden. Zur Beschreibung des Buches in der Datenbank kann beispielsweise angegenben werden: Buch- ID, Autor, Titel, Aufnahemdatum, Verlag, Verlagsdatum, ...
+\\Zur Beschreibung eines Datensatzes muss mindestens ein eindeutiger, unveränderlicher und einmal vorkommender Schlüssel vorhanden sein. Ein sinnvoller Primärschlüssel in diesem Beispiel ist Buch- ID. Der Schlüssel ist nicht für die Posistion des Datensatzes in der Tabelle zuständig, sondern für die eindeutige Identifikation.
+
+\begin{center}
+\includegraphics[scale=0.8]{img/relation_DB.png}\\
+Beispiel einer Relation ("{}Buch"{})(Quelle: http://de.wikipedia.org/wiki/Relationale\_ Datenbank\# Grundlegende\_ Konzepte)
+\end{center}
+
 \subsection{Tabellen}
-lorem ipsum
-\subsection{Alternative Datenbankmanagementsysteme}
-lorem ipsum
-\subsubsection{Information Management System}
-lorem ipsum
+Die Nutzung von Verbindungen zwischen Tabellen wird zur Verfügung gestellt. Beispielsweise kann ein Datenbank in einer Bibliothek folgender Maßen erstellt werden.\\
+
+Es werden drei Tabellen eingerichtet mit den Namen "{}Buch"{}, "{}Nutzer"{} und eine zusätzliche "{}Entliehen"{}.
+\begin{itemize}
+\item Tabelle "{}Buch"{}\\
+Diese Tabelle enthält für jedes Buch einen eigenen Datensatz der sich aus den Attributen (Spalten) zusammensetzt.
+\begin{itemize}
+\item Attribute: Buch- ID, Autor, Titel, Verlag, ...
+\item Primärschlüssel: Buch- ID
+\end{itemize}
+\item Tabelle "{}Nutzer"{}\\
+Diese Tabelle enthält alle angemeldeten Büchereinutzer.\\
+\begin{itemize}
+\item Attribute dieser Tabelle: Nutzer- ID, Vorname, Nachname, ...
+\item Primärschlüssel: Nutzer- ID
+\end{itemize}
+\item Tabelle "{}Entliehen"{}\\
+Diese Tabelle enthält Informationen über die Vergabe und die Verfügbarkeit von Büchern.\\
+\begin{itemize}
+\item Attribute dieser Tabellen sind: Buch- ID (Tabelle "{}Buch"{}), Nutzer- ID (Tabelle "{}Nutzer"{}), ...
+\item Nutzer- ID werden in dieser Tabelle einer Buch- ID zugeordnet.
+\item weitere Attributen könnten sein: Ausliehedatum, Rückgabedatum, ...
+\end{itemize}
+\end{itemize}
+
+\begin{center}
+\includegraphics[scale=0.8]{img/tabellen.png}\\
+Beziehungen zwischen Tabellen. ("{}Buch"{})(Quelle: http://de.wikipedia.org/wiki/Relationale\_ Datenbank\# Beziehungen\_ zwischen\_ Tabellen)
+\end{center}
+
+\subsection{Datenbankschema und Modellierung}
+Das Schema in realtionalen Datenbanken ist entscheident für die Speicherung der Daten und deren Beziehung zueinander. Die Erstellung eines Datenbankschemas wird als Datenmodellierung bezeichnet.\\
+
+Das sogennate "{}Entity- Relationship- Modell"{} wird zur Erstellung von Datenschemas auch oft eingesetzt. Auf diese Weise wird ein konzeptuelles Schema entwickelt, dass von einem Datenbankmanagementsystem implementierbar ist. Dieser Vorgang wird Entwurf oder Datenmodellabbildung genannt.\\
+
+Um Redondanzen zu reduzieren und Anomalien zu verhindern ist ein entscheidenter Vorgang bei Modellierungsprozessen erforderlich, die sogennate "{}Normalisierung"{}. Die Wartung der Datenbanken wird unklomplierter und die Konsistanz der Daten wird garantiert.\\
+
+Edgar F. Codd erstellte vier Normalformen, welche heute noch bei relationalen Datenbankentwürfen eingesetzt werden und noch durch zusätzliche erweitert werden. 
+
+\subsection{Alternative Datenbankmodelle}
+Es sind noch viele weitere Datenbankmanagementsystem vorzufinden, welche durch Kombinierungen aus den folgenden Systemen entstanden sind (objektrelationales Modell). 
+%http://de.wikipedia.org/wiki/Datenbank#Datenbankmodell
+\subsubsection{Objektorientiertes Datenbankmodell}
+Objektdatenbanken oder Objektorientierte Datenbanken basieren auf dem Objektdatenbankmodell. Hier werden Daten als Objekte verwaltet, als Anlehnung an die Objektorientierung. Das Objektdatenbanksystem besteht aus dem dazupassenden Datenbankmanagementsystem, welches als Objektdatenbankmanagementsystem bezeichnet wird und der Objektdatenbank.\\
+
+Objekt steht normalerweise für einen Begriff aus der realen Welt und beinhaltet auch die dazugeörigen Attributte, welche das Objekt genau beschreiben (z. B.: Objekt: Auto; dazugehörige Eigenschaften: Farbe, Gewicht, ...). Das Ablegen von Daten und Methoden erfolgt gemeinsam in einem Objekt.\\
+
+Das Objektdatenbankmanagementsystem hat neben den grundsätzlichen Anforderungen zusätzliche zu erfüllen:
+\begin{itemize}
+\item Da sich ein Objekt aus belieg vielen verschiedenen Datentypen ergibt ist die Verwaltung komplexer Objekte zu gewährleisten
+\item Allen Objekten wird eine einmalige Identifikation OID zugeordnet, zur Sicherstellung der einzelnen Objektidentitäten
+\item Da das Zugreifen mittels Methoden ermöglicht wird, ist die Kapselung der Objekte (Konzept der objektorientierten Programmierung) einzuhalten
+\item Objekte werden Objektklassen zugeteilt.
+\item Klassenhierarchien dienen zur Anordnung von Objektklassen.
+\item Bei vererbten Objekten werden überladene Methoden benutzt, dies kommt durch späte Bindungen zu stande.
+\item Eine Turning-vollständige Manipulationssprache (DML) muss vom Objektdatenbankmanagementsystem zur Verfügung gestellt werden.
+\item Es gibt weitere variable Eigenschaften, welche zusätzlich von den verschiedenen Objektdatenbankmanagementsystem angeboten werden.
+\end{itemize}
+Von ODMG wurde die Abfragesprache OQL (Object Query Language)und als Datenmanipulationssprache ODL (Object Definition Language) festgelegt.
+
+\subsubsection{Dokumentenorientiertes Datenbankmodell}
+Bei dieser Art von Datenbank werden Dokumente als Basis zur Datenspeicherung verwendet. Lotus Notes ist die am häufigsten benutze dokumntenorientierte Datenbank.\\
+
+Eine dokumentenorientierte Datenbank besteht aus einzelnen Dokumenten, während beispielsweise die realtionale Datenbank aus genauen Datenbankschemas zur Organisation der Relationen besteht. Bei den Dokumenten kann es sich um strukturierte Dateien mit Standard- Dateiformaten handeln (z. B.: Dateien von Programmen zur Textverarbeitung) oder auch um Binary Large Objects.\\
+
+Binary Large Objects sind aus Sicht des Datenbankzugriffes nicht weitgehend strukturiert (z. B.: Videofilme im mped- Format). Weitere Datenformatate können sein:
+\begin{itemize}
+\item JSON- Objekte
+\item YAML- Dokumente
+\item XML- Dokumente
+\item usw.
+\end{itemize}
+Alle Dokumente werden für einen einmaligen und eindeutigen Identifikator gekennzeichnet.\\
+\\Beispile für andere dokumentenorientierte Datenbankmanagementsystem:
+\begin{itemize}
+\item Basex
+\item CouchDB
+\item eXist
+\item MongoDB
+\item RavenDB
+\item MarkLogic Server
+\end{itemize}
+
 \subsubsection{Netzwerkdatenbankmodell}
-CODASYL war Entwickler von standardisierten Verfahren zur Definition der Struktur und Bearbeitungaußerdem die Programmiertsprache COBOL. 
-lorem ipsum
+Die Veröffentlichung des Netzwerk- Datenbankmodells erfolgte ca. zur gleichen Zeit wie die des relationale Datenbankmodells.\\
+\\Eigenschaften eines Netzwerkdatenbankmodells:
+\begin{itemize}
+\item keine strenge Hierarchie
+\item Datenfelder bestehen aus einem Namen und einem Wert
+\item m:n Beziehungen sind möglich (Datensätze können mehrere Vorgänger besitzen)
+\item mehrere Datensätze können an erster Stelle stehen
+\end{itemize}
+Der große Vorteil bei diesem Modell ist, dass verschiedene Suchwege zur Verfügung stehen. Dies kann, aber auch zum Nachteil werden und wenn vom Programmierer ein bestimmter Lösungsweg vorgesehen ist. Die Übersichtlichkeit wird schlechter mit der zunehmenden Größe des Modells immer geringer.\\
+
+Das Netzwerkdatenbankmodell gilt heute als Verallgemeinerung des hierarchischen Datenbankmodells.
+
 \subsubsection{Hierarchisches Datenbankmodell}
-lorem ipsum
-\section{Zugriffe}
-lorem ipsum
-\subsection{Zugriffsmöglichkeiten}
-lorem ipsum
+Das hierarchische Datenbankmodell ist das älteste Datenbankmodell das es gibt. Die Darstellung erfolgt in Form einer hierarchischen Baumstruktur. Früher wuden das Modell von vielen Betriebssystemen für Dateisysteme verwendet, zur Abbildung der Daten. Zur heutigen Zeit ist das Modell in wenigen Anwendungen noch vorzufinden.\\
+\\Eigenschaften
+\begin{itemize}
+\item Alle Datensätze haben nur einen Vorgänger.
+\item Der Datensatz, durch den die Wurzel der Baustruktur erstellt wird, ist die einzige Ausnahme
+\item Verknüpfungen werden in der Baustruktur dargestellt und durch Eltern- Kinder- Beziehungen ermöglicht.
+\item Das verknöpfen zweier Baumstrukturen ist nicht realisierbar.
+\item Das Modell ist starr und bietet geringe Freiheiten für den Programmierer.
+\end{itemize}
+Das hierarchische Datenbankmodell konnte in den letzten Jahren wieder einen Erfolgfeiern, weil es im Bereich der XML- Entwicklung effizient genutzt wird.
+
+\subsection{Zugriff}
+
 \subsection{Sicherheit}
-lorem ipsum
+Bei einem relationalen Datenbankmanagementsystem werden relatioanle Daten auf einem Speichermedium abglegt. Es werden zu den eigentlichen Daten auch Informationen über das Datenschema und Berechtigungen gespeichert. Durch das Abspeichern der Berechtigungen wird Datensicherheit (Schutz gegen Datenverlust und verbotet Zugriffe) gewährleistet. Metadaten werden als "{}data dictionary"{} bei Datenbankmanagementsystemen bezeichnet.\\
+
+Das Sichern des Datenbankinhaltes durch Backups ist ebenfalls zu gewähleisten. Probleme bei der Performance sind in Praxis bei diesen Vorgängen zu beobachten, da die Manipulation von Daten beschränkt wird. \\
+%http://de.wikipedia.org/wiki/Datenbank#Datensicherheit
+
+Das Transaktionkonzept gehört auch zu den wichtigsten Aspekten der Datensicherheit. Dieses soll sogenannte "{}Race Conditions"{} verhindern, welche beim nicht autorisierten parallelen Aufruf von Datein aus der Datenbank entstehen können. Daten könnten gleichzeig von mehreren Benutzern verändert werden, diese würde zu inkonsisten Daten führen und Änderung würden vom Zufallen abhängig sein. Das Lösung ist es nur einem Benutzer die Berechtigung zu erteilen Änderungen an den Daten vornehmen zu können, währen andere gesperrt bleiben.\\
+%http://de.wikipedia.org/wiki/Datenbank#Transaktionen
+
+Das Sicherstellen der Integrität erfolgt durch "{}Constraints"{}. Es handelt sich um Regeln im Managementsystem, die zur Beschreibung der Datenveränderungen dienen. Foreign Key Constraint ist der wichtigste bei relationalen Datenbanksystemen. Durch diesen werden Daten, die von anderen Tabellen benötigt werden nicht gelöscht. Andere Bedingungen regeln das Duplizieren, einzelne Inhalte bestimmter Datenfelder, ...
+%http://de.wikipedia.org/wiki/Datenbank#Datenintegrit.C3.A4t
+
 \subsection{Gleichzeitige Zugriffe}
-lorem ipsum 
+Um ausgewählte Operationen ausführen zu können, weden beim Zugriff auf die Daten Berchtigungen geführt, damit beim "{}gleichzeitigen"{} Zugriff verschieder Programme bzw. Benutzer vom Datenbankmanagementsystem entschieden werden kann, welcher Zugriff als erster erfolgen darf.\\
+Bei diesem Prozess wird folgendes Verwaltet:
+\begin{itemize}
+\item locks (Sperren)
+\item Systemprotokolle
+\item transaktionsorientiertes arbeiten des DBS
+\end{itemize}
+Durch diese Fähigkeiten wird ein Datenbanksystem im Allgemeinen definiert. Es gibt Dateisysteme mit wesentlichen Erweiterungen.\\
+
+Alle Fehler, die aufgrund von gleichzeitigen Zugriffen auf die Datenbank erfolgen, werden als Anomalien im Mehrbenutzerbetrieb bezeichnet.
+%http://de.wikipedia.org/wiki/Datenbank#Mehrbenutzerf.C3.A4higkeit
+
 \section{Sprachen}
-lorem ipsum
-\subsection{Verwaltungsgetrennte Sprachen}
-lorem ipsum
-\subsubsection{Abfragen und Manipulieren der Daten}
-lorem ipsum
-\subsubsection{Datenbankstruktur}
-lorem ipsum
-\subsubsection{Berechtigungen}
-lorem ipsum
-\subsection{SQL}
-lorem ipsum
+Von einem Datenbanksystem wird eine Datenbanksprache zur Kommunikation zur Verfügung gestellt. Diese Schnittstelle muss folgendes erfüllen:
+\begin{itemize}
+\item Datenabfrage und manipulation (DML)
+\item Verwaltung der Datenbank und Datenstruktuen- Definitionen (DDL)
+\item Steuerung der Berechtigungen (DCL)
+\end{itemize}
+Von der Datenbanksprache abhängig sind diese Kategorien voneinander getrennt oder in einer Sprache zusammengefasst, wie beim relationalen Datenbankmanagementsystem (SQL). Es gibt auch Verwaltungsgetrennte Sprachen welche nicht alle Kategorien enthalten.
 \section{SQLite}
-lorem ipsum
+Bei SQLite handelt es sich um ein relationales Datenbankmanagementsystem, welches in einer, in C programmierten, Bibliothek enthalten ist. Es handelt sich nicht wie bei vielen anderen DBMS um eine client- Server Datenbankmodell. Es wird nämlich nur in ein Programm eingebunden.\\
+
+SQLite ist eine oft verwendete Möglichkeit, wenn eine eingebundene Datenbanksoftware für lokale Speicherungen in ein Programm gefordet wird (z. B.: Webserver). SQLite findet sich heute in einem breiten Spektrum von Einsatzgebieten (weitverbreitete Browser, Betriebssysteme, Embedded Systems, ...).\\
+
+Dadurch hat SQLite eine Anbindung an viel Programmiersprachen.
+
 \subsection{Geschichte}
-lorem ipsum
+SQLite wurde von D. Richard Hipp 2000 entwickelt, während er für den US- amerikanischen Rüstungskonzern General Dynamics arbeitete. Er entwickelte Software zur Steuerung von Lenkwaffenzerstörern, welche ursprünglich HP- UX basierten mit einer IBM Informix Datenbank ausgestattet war. Das damahlige Entwicklungsziel war es, ein Programm ausführen zu können ohne eine Installation eines dazugehörigen Datenbankmanagementsystems oder die Bestätigung eines Datenbankadministrators.\\
+
+Die Basis der Syntax und Semantik holte sich Hipp aus der PstgreSQL 6.5 Dokumentation. Im August 2000 wurde SQLite Version 1.0 vorgestellt. Die Speicherung wurde damals auf der Basis von gdbm realisiert (GNU Database Manager). SQLite 2.0 ersetzte gdbm mit einer B-tree Implementierung, durch welche Transaktionen ermöglicht waren. SQLite 3.0 wurde zum Teil von America Online entwickelt weiter ergänzt. \\
+
+2011 gab Hipp bekannt, dass er eine UnQL- Schnittstelle Implementieren möchte und UnQL weiter entwickeln möchte. UnQL ist eine eingebundene dokumentenorientierte Datenbank.
+
 \subsection{Eigenschaften}
-lorem ipsum
-\subsection{Datentypen}
-lorem ipsum
+SQLite hat viel wichtige Eigenschaften, zu den wichtigsten Eigenschaften zählen:
+\begin{itemize}
+\item atomare, konsistente, isolierte und langlebige (ACID) Transaktionen, selbst im Fall eines Systemabsturzes oder eines Stromausfalles
+\item keine Installation oder weitere Verwaltungen oder Konfigurationen nötig
+\item komplette SQL- Implementierung mit Erweiterungen: Teilindizes, allgemeine Tabellenausdrücke, ...
+\item gesamte Datenbank ist in eine Datei gespeichert ("{}single disk file"{}), optial für den Einsatz in Anwendungen
+\item Terabyte- Datenbanken und Gigabyte große strings und blobs werden unterstützt.
+\item kleine Code- Bilanzen, welche kleiner als 500 KB, sind vollständig konfigurierbar
+\item einfache API (Schnittstelle)
+\item gut kommentierter Quellcode
+\item erhältlich als ein ANSI-C Quellcodedatei, welche einfach kompiliert werden kann und deswegen leicht in größere Projekte eingebunden werden kann
+\item Plattformübergreifend: Android, * BSD, iOS, Linux, Mac, Solaris, VxWorks und Windows (Win32, WinCE, WinRT)\\
+einfache Portierung auf andere Systeme
+\item Quellen sind in der sogennanten "{}Public Domain"{}, diese erlaubt die Benutzung sämliche Zwecke
+\item usw.
+\end{itemize}
+
 \subsection{Syntax}
-lorem ipsum 
-\subsection{Befehle}
-lorem ipsum
+Die Syntax von SQLite ist der Syntax von SQL indentisch. Die kleinen Unterschiede liegen darin, dass einige Fähikeiten von SQL nicht unterstützt werden und dafür eigene eingebaut sind. Die Syntax wird mithilfe von Syntaxdiagrammen erklärt.
+Diese sind sehr einfach zu lesen und im Prinzip selbsterklärend. Es werden Argumente in der richtigen Reihenfolge aufgelistet und auch die verschiedenen dazugehörigen Optionen. Es gibt zur jeder möglichen Funktion ein entsprechendes Syntaxdiagramm. Die wichtigsten und grundlegensten Diagramme, welche zur Realisierung der Datenbank nötig waren, werden im Folgenden aufgelistet.
+
+\begin{center}
+\includegraphics[scale=0.8]{img/sqlite_syntax.png}\\
+allgemeine SQLite Syntax (Quelle: http://www.sqlite.org/syntax/sql-stmt.html)
+\end{center}
+
+\begin{center}
+\includegraphics[scale=0.8]{img/sqlite_create.png}\\
+erstellen einer Tabelle (Quelle: http://www.sqlite.org/lang\_ createtable.html)
+\end{center}
+
+\begin{center}
+\includegraphics[scale=0.8]{img/sqlite_select.png}\\
+Argumente beim Auswählen von Daten (Quelle: http://www.sqlite.org/lang\_ select.html)
+\end{center}
+
+\begin{center}
+\includegraphics[scale=0.8]{img/sqlite_insert.png}\\
+Daten in einer Tabelle speichern (Quelle: http://www.sqlite.org/lang\_ insert.html)
+\end{center}
+
 \subsection{Vor- und Nachteile}
-lorem ipsum
+Bei Verwendung von SQLite entscheidet der Einsatzbereich ob es sich bei einer Eigenschaft um einen Vor- oder Nachteil handelt. Grunsätzlich werden Eigenschaften von SQLite folgender Maßen gesehen.
 \subsubsection{Vorteile}
-lorem ipsum
+\begin{itemize}
+\item keine Installationen erforderlich
+\item Unterstützung von SQL- Syntax
+\item sehr klein (kleiner Speicherplatzverbrauch für das System)
+\item hohe Geschwindigkeit
+\end{itemize}
 \subsubsection{Nachteile}
-lorem ipsum
+\begin{itemize}
+\item Speicherung der Datenbankdatei auf dem Webserver, kein zusätzliche Anwendung nötig
+\item keine echten gleichzeitigen Datenbankzugriffe möglich, nur darauf folgende
+\item keine Integrität der Daten
+\end{itemize}
 
 \chapter{Kryptologie (Alin Porcic)}\label{chap:krypto}
 \lfoot{Alin Porcic}
