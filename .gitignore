@@ -6,5 +6,9 @@
 *.fdb_latexmk
 *.aux
 *.log
+*.bcf
+*.bbl
+*.blg
+*.xml
 
 master-doc/*.pdf
