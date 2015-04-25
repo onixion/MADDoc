@@ -51,15 +51,13 @@ Als wir bei einem ersten Gespräch ihm unsere Interessen und bisherigen Gedanken
 \newpage
 
 \pagestyle{fancy}
-\part{Abstract}
-\chapter{Abstract}
-\thispagestyle{fancy}
-
-lorem ipsum
 
 \chapter{Aufgabenstellung}
 lorem ipsum
-
+\chapter{Abstract}
+lorem ipsum
+\chapter{Einleitung}
+lorem ipsum
 \chapter{Aufteilung}
 lorem ipsum 
 
@@ -1009,7 +1007,7 @@ DHCP Header:\\
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/dhcpheader.jpg}
 \end{center}
-\subsection{Domain Name System - DNS}
+\subsection{Domain Name System - DNS} \label{ssec:DNS}
 DNS ist ein Protokoll, welches zwar nicht zwingend notwendig ist für das Funktionieren des Internets, aber uns Menschen es sehr komfortabel macht damit zu arbeiten.\\
 Jeder ist heutzutage gewohnt, durch simples Eintippen eines Namens, zu einer Seite zu kommen. Dies wird jedoch erst durch DNS möglich. Ein PC selbst \textbf{kann mit dem Namen nichts anfangen, er muss ihn auflösen}. Dafür schickt er den Namen zu seinem eingetragenen DNS Server und bittet ihn um die zugehörige IP-Adresse.\\
 
@@ -1160,7 +1158,7 @@ Die 'electronic mail', kurz E-Mail, wird nun schon seit einigen Jahren dazu verw
 \section{Allgemein}
 Die elektronische Post ist ein sehr wichtiger Teil des heutigen Systems. Jeder hat eine E-Mail-Adresse, sei es der Großvater oder auch die wichtige Geschäftsfrau. E-Mails ermöglichen nun schon seit geraumer Zeit, sowohl das Senden als auch das Empfangen von Text, Dokumenten, Bildern, etc.. Es gibt auch andere Systeme, aber E-Mail ist davon, als Gesamtpaket betrachtet, wohl das einfachste und auch praktischste.\\\\
 Es ist teilweise mit der Post vergleichbar (im weiteren Verlauf wird dieser Vergleich öfter angestellt), da es weitgehend den traditionellen 'Brief' abgelöst hat.  
-\subsubsection{Entstehung}
+\subsubsection{Entstehung}\label{sssec:Entstehung}
 Der Entstehungsweg der E-Mail startet in den 1960er Jahren, als Ray Tomlinson, ein Computertechniker bei Bolt Beranek and Newman (BBN), neben seiner eigentlichen Arbeit, sich einem anderen Projekt widmete. Mithilfe dessen wollte er es schafften, die bis dato noch nicht vorhandene Übertragung bzw. das Hinterlassen von Nachrichten bzw. Dateien zwischen zwei im gleichen Netzwerk befindlichen Rechnern zu ermöglichen. Es war noch die Zeit vor dem Internet, die Zeit des sog. Arpanets, welches als Vorgänger des Internets gilt. Damals versuchte Tomlinson, mithilfe schon vorhandener Systeme, wie dem SNDMSG und dem CPYNET, ein neues System zu schaffen.\\\\
 
 Während der Entwicklungsphase, meinte Tomlinson, während er es seinen Kollegen zeigte, 
@@ -1198,15 +1196,15 @@ Ab hier übernimmt das E-Mail Programm von Anja, sprich Anja muss sich nicht meh
 \end{enumerate} 
 
 \subsection{Aufbau}
-Der allgemeine Aufbau einer E-Mail wird in zwei Teile aufgeteilt:
+Der allgemeine Aufbau einer E-Mail wird in zwei Teile gegliedert:
 \begin{enumerate}
 \item Header\\
 Dieser beinhaltet Informationen über
 \begin{itemize}
 \item Absender
-\item Empfänger und eventuelle zu sendenden Kopien
-\item eventueller Betreff
-\item eventueller Anhang
+\item Empfänger und eventuelle zu sendende Kopien
+\item eventuellen Betreff
+\item eventuellen Anhang
 \end{itemize}
 \item Body\\
 Dieser beinhaltet die eigentliche Nachricht
@@ -1220,19 +1218,19 @@ Konvertiertes Bild - Quelle:\\http://de.wikipedia.org/wiki/Header\_(E-Mail)\#/me
 \end{scriptsize}
 \end{center}
 \vspace{0.5cm}
-Der Header ist sozusagen der Briefkuvert. Er enthält die für das Senden notwendigen Informationen. Im Gegensatz zu anderen Nachrichtensystemen ist es bei E-Mail möglich, eine Nachricht an mehrere Empfänger gleichzeitig zu senden.\\
-Wie man im obigen Bild gut erkennen kann, kann man dabei sogar den Empfängern Stufen zuordnen, die dar wären:
+Der Header, ist wieder im Vergleich mit der Post, das Briefkuvert. Er enthält das für das Versenden notwendige Informationsmaterial. Im Gegensatz zu anderen Nachrichtensystemen ist es bei E-Mails möglich, eine Nachricht an mehrere Empfänger gleichzeitig zu senden.\\
+Wie man im obigen Bild gut erkennt, können Empfänger sogar speziellen Ranglisten bzw. Rangstufen zugeordnet werden:
 \begin{itemize}
 \item CC - Carbon Copy\\
-Man bezeichnet sie auch oft als 'Courtesy Copy', was soviel bedeutet wie Höflichkeits-Kopie. Sie wird dazu verwendet, um Empfänger hinzuzufügen, welche nicht als Hauptempfänger, sondern als Empfänger gelten, welche nur Wissen sollten, dass diese E-Mail versendet wurde bzw. vielleicht auch einen Blick darauf werfen sollten.
+Sie werden auch oft als 'Courtesy Copy' bezeichnet, was soviel bedeutet wie Höflichkeits-Kopie. Sie wird dazu verwendet, um Hauptempfänger ganz klar von eventuellen Nebenempfängern zu unterscheiden. Solche Nebenempfänger sind z.B. Leute, die nur zur Kenntnis nehmen sollen, dass jene E-Mail versendet wurde oder Leute die auch diese E-Mail bekommen sollen, wie z.B. die Buchhaltung bei einer E-Mail, die eine Rechnung beinhaltet.
 \item BCC - Blind Carbon Copy\\
-Diese Stufe wird verwendet, um Empfänger hinzuzufügen, über die keiner Bescheid wissen soll, wie z.B. bei Rundmails, um die Privatsphäre aller zu gewährleisten.
+Diese Stufe wird verwendet, um Leute, die von den anderen Empfängern nicht gesehen werden dürfen, hinzuzufügen. Solche Fälle treten des öfteren auf, wie z.B. bei Rundmails, um die Privatsphäre aller zu gewährleisten.
 \end{itemize}  
-Die Pfeile im obigen Bild zeigen schön, wer wen sehen kann.
+Die Pfeile in der obigen Abbildung 'E-Mail Header' zeigen übersichtlich die Visibilität aller Beteiligten untereinander.
 \subsection{Senden}
-Zum Senden einer E-Mail, wird ein schon ziemlich altes Protokoll verwendet, namens SMTP - Simple Mail Transfer Protocol. Es wird, dennoch Heute sehr viel verwendet. Es gibt nicht wirklich Alternativen zu SMTP, höchstens Weiterentwicklungen.
+Zum Senden einer E-Mail, wird ein relativ altes Protokoll verwendet, namens SMTP (Simple Mail Transfer Protocol). Es wird, dennoch Heute sehr viel verwende. Es wird weitgehend auf SMTP bzw. seine Weiterentwicklungen zurückgegrifen, da es kaum Alternativen gibt.
 \subsubsection{SMTP}
-Wie bereits gesagt, ist dies das zum Senden von E-Mails benötigte Protokoll.\\\\
+Wie bereits vorher erwähnt, wird dieses Protokoll zum Versenden von E-Mails gebraucht und verwendet. 
 Eigenschaften:\\
 \begin{itemize}
 \item Port:
@@ -1244,37 +1242,67 @@ für SMTPS (SMTPSecure)
 für Mail-Clients (bzw. E-Mail Programm)
 \end{itemize}
 \item Netzwerklayer: Anwendung
-\item RFC 5321 (Ursprünglich 821)
+\item Dokumentation: RFC 5321 (Ursprünglich 821)
 \end{itemize}
 \paragraph{Allgemein - Sendevorgang\\\\}
-Um den Sendevorgang erklären zu können müssen vorerst ein paar Begriffe näher erklärt werden.
+Um den Sendevorgang verstehen, müssen vorerst einige Fachbegriffe näher erklärt werden.
 \begin{itemize}
-\item MUA - Mail User Agent\\
-Der Mail User Agent bildet die Schnittstelle zwischen Benutzer und 'System' E-Mail. Also ist er von große Bedeutung. Es gibt unzählige Anbieter für einen solchen Agent. Genauer gesagt ist es eigentlich ein Programm, meist graphisch aufbereitet und bildet somit für den Benutzer eine komfortabele und ansprechende Schnittstelle um mit dem System zu agieren. Der Mail User Agent sorgt sowohl für das Senden also auch Empfangen einer E-Mail.\\\\
+\item MUA - Mail User Agent\\\label{itm:MUA}
+Der Mail User Agent bildet die Schnittstelle zwischen Benutzer und System, somit ist er von großer Bedeutung. Es gibt unzählige Anbieter für einen solchen Agent. Genauer gesagt ist es ein Programm, das graphisch so aufbereitet wurde, dass es dem Benutzer auf komfortable Art und Weise ermöglicht mit dem System zu interagieren. Der Mail User Agent sorgt sowohl für das Senden also auch Empfangen einer E-Mail.\\\\
 Web-Applikationen wie zum Beispiel 'Outlook.com' oder 'Gmail', werden zwar eigentlich schon als webmail-Systeme (Web-basierender E-Mail Client) angesehen, sind jedoch im Prinzip genauso Mail User Agents.
-\item MSA - Mail Submission Agent\\
-Der Mail Submission Agent bildet eine kleine Vorstufe, bevor es zum Mail Transfer Agent (im nächsten Punkt erklärt) geht. Ein Mail Submission Agent ist kein Muss, denn seine Aufgaben können auch vom Mail Transfer übernommen werden, jedoch gibt es ein paar Vorteile die für den Einsatz von Mail Submission Agents sprechen. Die dar wären:
+\item MSA - Mail Submission Agent\\\label{itm:MSA}
+Der Mail Submission Agent bildet eine Vorstufe zum Mail Transfer Agent (im nächsten Punkt erklärt) geht. Ein Mail Submission Agent ist kein Muss, denn seine Aufgaben können auch vom Mail Transfer übernommen werden, jedoch gibt es ein paar Vorteile die für den Einsatz von Mail Submission Agents sprechen:
 \begin{itemize}
-\item Der MSA kann sozusagen einen Vorfilter darstellen, denn falls der Benutzer eine E-Mail nicht richtig versendet hat (Datum vergessen, Empfänger vergessen,...) und sein MUA dies nicht abfängt, kann der MSA sofort eine Fehlermeldung schicken und die E-Mail kann dementsprechend nachbearbeitet werden, wohingegen wenn der MTA dies abfangen müsste, die Fehlermeldung den Benutzer, wenn überhaupt, nach Abbruch erreichen würde.
-\item Die meisten MSAs verlangen eine Benutzerauthentifizierung, somit wird genau protokolliert wer, wem und wann eine E-Mail gesendet hat. Dies hilft MTAs insofern, dass Absender die Spam-Traffic (siehe Kapitel \ref{sssec:Spam} Seite \pageref{sssec:Spam}) verursachen, relativ schnell ausfindig gemacht werden können.
+\item Der MSA stellt sozusagen einen Vorfilter dar. D.h. falls Benutzer eine E-Mail nicht Formgerecht (Datum vergessen, Empfängeradresse vergessen) abgesendet hat, dann sendet der MSA sofort eine Fehlermeldung. Dadurch kann die E-Mail vom Benutzer schnell nachbearbeitet und erneut abgesendet werden. Für gewöhnlich jedoch, fängt die MUA solch Fehler ab. Nichtsdestotrotz ist es sinnvoll zur Sicherheit eine MSA zu implementieren, denn falls die MTA darauf reagieren müsste, würde die Fehlermeldung den Benutzer, falls überhaupt, meist viel zu Spät erreichen.
+\item Die meisten MSAs verlangen eine Benutzerauthentifizierung, damit genau protokolliert werden kann, wer, wem und wann eine E-Mail gesendet hat. Dies hilft MTAs insofern, dass Absender die Spam-Traffic (siehe Kapitel \ref{sssec:Spam} Seite \pageref{sssec:Spam}) verursachen, relativ schnell ausfindig gemacht werden können.
 \end{itemize}
-\item MTA - Mail Transfer Agent\\
+\item MTA - Mail Transfer Agent\\\label{itm:MTA}
 Dieser bildet den Kern des Sendevorganges. Er sorgt dafür, dass die E-Mails, die entweder direkt von MUAs oder von MSAs an ihn gesendet wurden, ihren Weg zum MTA bzw. MDA (im nächsten Punkt erklärt) des Empfängers finden.
-\item MX - Mail Exchanger\\
-Nachdem der MTA des Absenders weiß wohin die E-Mail gesendet werden soll schickt er sie dem Mail Exchanger Server des Empfängers. Also ist der MX der erste Server des Empfängers, mit dem die E-Mail nun Kontakt hat.
-\item MDA - Mail Delivery Agent\\
-Dieser Agent sorgt für die Zuweisung der jeweiligen E-Mails zu den richtigen Benutzerkonten. Er ist jener Server, den der MUA des Empfängers nun anspricht, um die Mails abzurufen.
+\item MX Record\\\label{itm:MX Record}
+Der MX Record enthält die für den Sendevorgang notwendigen Informationen:
+\begin{itemize}
+\item Präferenz
+\item Mail Exchanger Adresse
+\end{itemize}
+Der MX-Record sieht so aus:
+\begin{center}
+\includegraphics[scale=1]{../docs/lyaton/graphics/MX-Record.png}\\
+\textbf{MX Record Lookup}
+\end{center}
+Die Präferenz ist deshalb von Bedeutung, da viele Firmen oder auch Privatpersonen mehr als nur einen Mail Exchanger (Im nächsten Punkt erklärt) haben. Die Präferenz stellt also die Priorität dar, mit welcher ein Mail Exchanger angesprochen werden soll, umso kleiner die Zahl der Präferenz desto höher die Priorität. (In dem obigen Bild steht Viermal die gleiche Zahl als Präferenz, dies wird dann gemacht wenn man alle verfügbaren Server gleichmäßig auslasten möchte.)
+\item MX - Mail Exchanger\\\label{itm:MX}
+Nachdem der MTA des Absenders weiß wohin die E-Mail gesendet werden soll schickt er sie dem Mail Exchanger Server des Empfängers. Somit stellt der MX den ersten Server des Empfängers dar, mit dem die E-Mail Kontakt hat. 
+\item MDA - Mail Delivery Agent\\\label{itm:MDA}
+Der MDA sorgt für die Zuweisung der jeweiligen E-Mails zu den richtigen Benutzerkonten. Er ist jener Server, den der MUA des Empfängers anspricht, um die Mails abzurufen.
 \end{itemize}
 \begin{center}
-\includegraphics[scale=0.45]{../docs/lyaton/graphics/SMTP-Uebertragung.png}\\
+\includegraphics[scale=0.5]{../docs/lyaton/graphics/SMTP-Uebertragung.png}\\
 \textbf{SMTP-Übertragung}\\
 \begin{scriptsize}
 Konvertiertes Bild - Quelle:\\
 http://en.wikipedia.org/wiki/Simple\_Mail\_Transfer\_Protocol\#/media/File:SMTP-transfer-model.svg
 \end{scriptsize}
 \end{center}
+Diese Abbildung zeigt den Weg einer E-Mail. Dieser Weg wird in einzelnen Schritten erklärt:
+\begin{enumerate}
+\item E-Mail Erstell-Vorgang \& Absende-Vorgang des MUAs\\
+Der Weg beginnt beim Benutzer bzw. beim Autor der E-Mail, welcher mit seinem MUA (siehe Kapitel \ref{itm:MUA} Seite \pageref{itm:MUA}) seine Nachricht schreibt und sie anschließend absendet.
+\item MUA $\rightarrow$ MSA (MSA siehe Kapitel \ref{itm:MSA} Seite \pageref{itm:MSA})\\
+(Von diesem Schritt kann nicht immer gesprochen werden, da er in manchen Fällen ausfällt. In diesen Fällen übernimmt der MTA (siehe Kapitel \ref{itm:MTA} Seite \pageref{itm:MTA}) manche Aufgaben des MSAs)\\\\
+Der MSA überprüft die E-Mail darauf, ob sie vollständig ist und leitet Sie weiter zum MTA
+\item MTA $\rightarrow$ MX  (siehe Kapitel \ref{itm:MX} Seite \pageref{itm:MX})\\
+Dieser Schritt besteht aus einigen nennenswerten Teilschritten:
+\begin{enumerate}
+\item Wenn die E-Mail in Ordnung ist, ließt der MTA den Hostnamen (siehe Kapitel \ref{sssec:Entstehung} Seite \pageref{sssec:Entstehung}) der Empfänger aus dessen E-Mail Adresse aus. Mit diesem Hostnamen fragt er beim DNS (siehe Kapitel \ref{ssec:DNS} Seite \pageref{ssec:DNS}) nach dem  MX-Record (siehe Kapitel \ref{itm:MX Record} Seite \pageref{itm:MX Record}) des Hostservers (Der Mailserver des Empfängers).
+\item Mit der im MX-Record stehenden Mail Exchanger Adresse wird nochmals beim DNS angefragt, jedoch diesmal für den A - bzw. AAAA - Record, dieser enthält die IP-Adresse (siehe Kapitel \ref{sssec:ipaddr} Seite \pageref{sssec:ipaddr}) des MXs und weiß damit nun, wohin er die E-Mail senden muss.
+\item Als nächstes erfolgt die Übergabe der E-Mail, sprich der Absender bzw. sein Mailserver übergibt die E-Mail dem Empfänger bzw. dessen Mailserver. 
+\end{enumerate}
+\item MX $\rightarrow$ MDA (siehe Kapitel \ref{itm:MDA} Seite \pageref{itm:MDA})\\
+Dies ist der letzte Schritt des Sendevorganges. Der MX des Empfänger sendet die E-Mail weiter an den MDA und dieser stellt das Postfach dar, um den Vergleich mit der Post aufrecht zu erhalten.
+\end{enumerate}
+Nun ist die E-Mail im Postfach des Empfängers und wartet darauf empfangen zu werden.
+\paragraph{Befehle\\}
 
-Der Sendevorgang startet beim MUA (Mail User Agent), welcher einfach ein Programm zum E-Mail versenden ist. Hier findet die Erste und Einzige Interaktion seitens des Absenders der E-Mail statt. Nachdem die E-Mail versendet wurde, 
 \subsection{Empfangen}
 lorem ipsum
 \subsubsection{IMAP}
