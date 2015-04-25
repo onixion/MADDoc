@@ -9,6 +9,7 @@
 \usepackage{geometry}
 \usepackage{nameref}
 \usepackage{listings}
+\usepackage{setspace}
 \geometry{a4paper, left=25mm, right=25mm, top=20mm, bottom=30mm}
 
 \renewcommand{\headrulewidth}{1pt} % Trennunslinien für Kopf- und Fußzeilen
@@ -17,19 +18,33 @@
 \lhead{LAN-Monitoring} % Kopf- und Fußzeilen
 \rhead{\chaptername \hspace{5mm} \thesection}
 \lfoot{Du hasch deinen Namen vergessen}
+\cfoot{}
 \rfoot{\thepage}
 
-\title{MAD-Network Monitoring\\
-Diplomarbeit 2014/15}
-\author{Porcic Alin, Ranalter Daniel, Singh Manpreet, Stojanovi\'{c} Marko\\
+\title{\textbf{MAD-Network Monitoring\\
+Diplomarbeit 2014/15}}
+\vspace{1cm}
+\author{Alin Porcic, Daniel Ranalter, Manpreet Singh, Marko Stojanovi\'{c}\\
 Betreuer: Dr. Michael Weiss\\
 Höhere Technische Bundes Lehr- und Versuchsanstalt Anichstraße\\
 Abteilung Höhere Elektronik und Technische Informatik\\
 5bHEL}
 
+\linespread{1.5}
+
 \begin{document}
 \maketitle
 \newpage
+\chapter{Vorwort}
+Die Welt befindet sich momentan in großem Wandel. Die technische Entwicklung lässt nicht nach, im Gegenteil, sie steigt mit exponentieller Geschwindigkeit an. Das Internet beschränkt sich inzwischen nicht mehr nur noch auf den PC oder gar Universitäten, sondern hält Einzug in Bereiche die man sich bei der Entstehung desselben nie ausgemalt hätte. Selbst Haushaltsgeräte und Autos können inzwischen über das Internet kommunizieren. Es ist inzwischen unmöglich geworden den technischen Stand in 5 Jahren sicher zu bestimmen.\\
+
+Die anstehende Diplomarbeit, welche mit einer großen Herausforderung und wertvollen Erfahrungen lockte, sowie das bestehende Interesse in Netzwerktechnik und Programmierung waren der Anstoß für erste Gespräche innerhalb des Freundeskreises.\\
+Die zahlreichen Projekte welche wir bereits gemeinsam bestritten, stimmten uns aufeinander ab. Zusammen mit der Freundschaft welche sich über die Jahre bildete, fiel es uns leicht ein Team zu bilden.\\
+
+Als nächstes war es an uns einen geeigneten Betreuer zu finden. Trotz großem Spektrum an verschiedensten Lehrern, fiel die Entscheidung schlussendlich auf Dr. Prof. Weiss, welchen wir bereits im Jahr zuvor kennen lernen durften.\\
+Seine Gelassenheit und große Kompetenz welche er in Fächern wie Informatik und vor allem Netzwerklabor zeigte, beeindruckten uns bereits damals.\\
+
+Als wir bei einem ersten Gespräch ihm unsere Interessen und bisherigen Gedankengänge aufzeigten, entwickelte er mit uns zusammen schließlich die Idee unsere Interessen zu kombinieren und ein Programm zu entwickeln welches in der Lage ist ein Netzwerk zu überwachen.
 
 %\setcounter{tocdepth}{6}
 \tableofcontents
@@ -38,11 +53,6 @@ Abteilung Höhere Elektronik und Technische Informatik\\
 \pagestyle{fancy}
 \part{Abstract}
 \chapter{Abstract}
-\thispagestyle{fancy}
-
-lorem ipsum
-
-\part{Einleitung}
 \thispagestyle{fancy}
 
 lorem ipsum
@@ -1800,7 +1810,7 @@ Die Sicherheit eines kryptographischen Systems darf nicht von der Geheimhaltung 
 
 \paragraph{Monoalphabetische Chiffrierung}
 
-Vor mehr als 2500 Jahren hat man einen \textbf{Skytale} für die Verschlüsselung von Informationen verwendet. Man hat ein Pergamentband oder einen Lederstreifen spiralförmig um den Skytale gewickelt und die zu verschlüsselnde Nachricht über die einzelnen Ringe der Streifen geschrieben. Nun konnte man das Band bei der Übermittlung abgefangen werden, doch ohne den richtigen Skytale nicht entschlüsselt werden. Nur der Empfänger, der im Besitz eines Skytales mit gleichem Durchmesser war, kann die für ihn bestimmte Nachricht entschlüsseln. Dieses Verschlüsselungssystem ist symmetrisch, da für die Ver- und Entschlüsselung der Durchmesser des Skytales unverändert bleibt. Der Durchmesser des Skytales wird in diesem Verfahren als der Schlüssel bezeichnet. Kennt man den Schlüssel, so kann man, sofern das kryptografische System bekannt ist, die Nachricht entschlüsselen. (vgl. Kryptologie, Thomas Imboden, Seite 15-16)\\\\
+Vor mehr als 2500 Jahren hat man einen \textbf{Skytale} für die Verschlüsselung von Informationen verwendet. Man hat ein Pergamentband oder einen Lederstreifen spiralförmig um den Skytale gewickelt und die zu verschlüsselnde Nachricht über die einzelnen Ringe der Streifen geschrieben. Nun konnte man das Band bei der Übermittlung abgefangen werden, doch ohne den richtigen Skytale nicht entschlüsselt werden. Nur der Empfänger, der im Besitz eines Skytales mit gleichem Durchmesser war, kann die für ihn bestimmte Nachricht entschlüsseln. Dieses Verschlüsselungssystem ist symmetrisch, da für die Ver- und Entschlüsselung der Durchmesser des Skytales unverändert bleibt. Der Durchmesser des Skytales wird in diesem Verfahren als der Schlüssel bezeichnet. Kennt man den Schlüssel, so kann man, sofern das kryptografische System bekannt ist, die Nachricht entschlüsselen. \cite{cryptopdf}\\\\
 
 \begin{center}
 \includegraphics[scale=0.3]{img/krypto_skytale.png}\\
@@ -2590,5 +2600,6 @@ Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
 
 \part{Quellverzeichnis}
 lorem ipsum
-
+\bibliography{lit}
+\bibliographystyle{abbrv}
 \end{document}
