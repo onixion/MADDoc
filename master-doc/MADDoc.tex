@@ -690,7 +690,7 @@ Gegenüberstellung OSI - TCP/IP:\\
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/ositcpip.png}
 \end{center}
-\subsection{Client-Server Verhältnis}
+\subsection{Client-Server Verhältnis}\label{ssec:client-server}
 Das Client-Server Modell ist das bekannteste und am öftesten verwendete Muster für Aufgabenverteilung in einem Netzwerk.\\ 
 Bei diesem Modell gibt es denjenigen, der die \textbf{Dienste anbietet, den Server}, und jenen, der die \textbf{Dienste nutzt, den Client}.\\
 
@@ -1142,42 +1142,145 @@ DOS steht für \textbf{Denial of Service} und ist ein weiteres Ziel für Hacker.
 Dies wird meistens durch übermäßiges Beanspruchen eines Services bewerkstelligt. Das Problem hierbei ist dann, dass man sich nicht gegen etwas wehren kann, was genau den Vorgaben entspricht. Das System ist ja dazu ausgelegt Anfragen aufzunehmen.\\
 
 Da jedoch normalerweise ein Einzelner nicht in der Lage ist, die Rechenleistung eines ganzen Servers in die Knie zu zwingen, wird der DOS Angriff immer häufiger mit seinem Nachfolger, dem \textbf{DDOS} oder \textbf{Distributed Denial of Service} ersetzt. Dies bedeutet nicht mehr, als dass der Angriff jetzt nicht nur von einem ausgeht sondern von vielen verschiedenen Rechnern. Diese Methode wird auch von der Gruppe Anonymous verwendet.
+\newpage
+\lfoot{Manpreet Singh}
+\chapter{E-Mail (Manpreet Singh)}
+Im Folgenden Kapitel wird versucht, das Konzept von E-Mail zu erklären.\\\\
+Die 'electronic mail', kurz E-Mail, wird nun schon seit einigen Jahren dazu verwendet, um vor allem Text, auf elektronischem Wege von A nach B zu senden. Sie sorgt dafür, dass man seine wichtigen Dokumente absenden kann, aber auch dafür, dass man seinen Freunden die Urlaubsfotos schicken kann und vor allem sorgt sie dafür, dass die Wirtschaft intakt bleibt, denn nicht viele Systeme können einen solch hohen Anteil an Werbung vorweisen. 
+\section{Allgemein}
+Die elektronische Post ist ein sehr wichtiger Teil des heutigen Systems. Jeder hat eine E-Mail-Adresse, sei es der Großvater oder auch die wichtige Geschäftsfrau. E-Mails ermöglichen nun schon seit geraumer Zeit, sowohl das Senden als auch das Empfangen von Text, Dokumenten, Bildern, etc.. Es gibt auch andere Systeme, aber E-Mail ist davon, als Gesamtpaket betrachtet, wohl das einfachste und auch praktischste.\\\\
+Es ist teilweise mit der Post vergleichbar (im weiteren Verlauf wird dieser Vergleich öfter angestellt), da es weitgehend den traditionellen 'Brief' abgelöst hat.  
+\subsubsection{Entstehung}
+Der Entstehungsweg der E-Mail startet in den 1960er Jahren, als Ray Tomlinson, ein Computertechniker bei Bolt Beranek and Newman (BBN), neben seiner eigentlichen Arbeit, sich einem anderen Projekt widmete. Mithilfe dessen wollte er es schafften, die bis dato noch nicht vorhandene Übertragung bzw. das Hinterlassen von Nachrichten bzw. Dateien zwischen zwei im gleichen Netzwerk befindlichen Rechnern zu ermöglichen. Es war noch die Zeit vor dem Internet, die Zeit des sog. Arpanets, welches als Vorgänger des Internets gilt. Damals versuchte Tomlinson, mithilfe schon vorhandener Systeme, wie dem SNDMSG und dem CPYNET, ein neues System zu schaffen.
+\newpage Während der Entwicklungsphase, meinte Tomlinson, während er es seinen Kollegen zeigte, 
+\begin{center}
+\textit{'Don't tell anyone! This isn't what we're supposed to be working on.'}\\
+(auf Deutsch: 'Sag das niemandem! Das ist nicht das, woran wir arbeiten sollen.').
+\end{center}
 
-\chapter{E-Mail von Singh Manpreet}
-lorem ipsum
-\section{Allgemein E-Mail und Notification}
-lorem ipsum
+1971 war Tomlinson soweit war, dass er sein Werk auch den anderen Mitarbeitern der Firma zeigen wollte. Er selbst kann sich leider nicht mehr an den Inhalt dieser ersten offiziell versendeten E-Mail, innerhalb seines Firmennetzes, erinnern. Aber Tomlinson weiß noch genau, dass er allen erklärte wie er es bewerkstelligt hat, Texte von einem zu einem anderen Rechner zu senden. Er gebrauchte dafür das @-Zeichen, dass er in irgendeinem Zeichensatz gefunden hatte. Er trennte damit den Benutzernamen des Empfängers vom Hostnamen - also Benutzername@Hostname, zum Beispiel 'Mustermann@Rechner1'. \\
+
+Nachdem dieser Grundstein gelegt wurde, war 'E-Mail' entstanden. Neben der Weiterentwicklung des Arpanets (später Telenet) bzw. der Entstehung des Internets, wuchs auch die elektronische Post immer weiter mit. Im Jahr 1975 war es dank dem Programmierer John Vittal erstmals möglich E-Mails etwas übersichtlicher darzustellen. Damit wurde alles wesentlich benutzerfreundlicher und somit verbreitete es sich noch weiter unter den Leuten. Das Programm wurde 'MSG' genannt. Neben der übersichtlichen Darstellung, ermöglichte MSG auch andere Sachen, wie zum Beispiel das Weiterleiten, die Vorschau und das Antworten und auch einige weitere Funktionen.\\
+
+Neben anderen Entwicklungen zum Übertragen von Nachrichten, wie zum Beispiel dem FAX oder der SMS oder auch vielen anderen, hat sich die E-Mail sehr gut durchgesetzt und ist heute kaum noch wegzudenken.
+\section{Funktionsweise}
+Die Funktionsweise die dem Versenden und Empfangen von E-Mail zu Grunde liegt, ist eine relativ einfache. Auch hier wird das schon bekannte Client-Server Prinzip angewendet (siehe Kapitel \ref{ssec:client-server} Seite \pageref{ssec:client-server}).\\
+
+\begin{center}
+\includegraphics[scale=0.6]{../docs/lyaton/graphics/E-Mail-Prinzip.png}\\
+\textbf{Abstraktes Prinzip - Zustellung einer E-Mail}\\
+\begin{scriptsize}
+Bearbeitetes Bild - Quelle: http://de.wikipedia.org/wiki/E-Mail\#/media/File:E-Mail-Prinzip-v05.png
+\end{scriptsize}
+\end{center}
+\vspace{0.5cm}
+
+Das obige Bild beschreibt auf abstrakte Weise das Prinzip der Zustellung einer E-Mail. Es ist in 6 Teilsegmenten aufgeteilt, die im Folgenden erklärt werden.
+
+\begin{enumerate}
+\item Anja hat mit ihrem E-Mail Programm eine E-Mail erstellt. Man kann in dieser E-Mail den Absender (Von: Anja@Arkom.de), den Empfänger (An:Bertram@HeissBrief.com), den Betreff (Betreff: Treffen?) und den Inhalt (Hallo Bertram! Sehen wir uns...?) sehen. Anja sendet ihre Nachricht ab.\\\\
+Ab hier übernimmt das E-Mail Programm von Anja, sprich Anja muss sich nicht mehr um die E-Mail kümmern.
+\item Anjas E-Mail Programm hat dafür gesorgt, dass Arkom,  Anjas E-Mail Provider, die abzusendende E-Mail bekommt. Jetzt übernimmt der Mailserver von Arkom.
+\item In diesem Schritt sendet Arkom, die E-Mail an den Mailserver von HeissBrief, Bertrams E-Mail Provider.
+\item HeissBrief hat nun die E-Mail auf dem Server gespeichert bzw. sogar Bertrams Postfach zugewiesen. Nun kann sie bei Bedarf abgerufen werden.
+\item In Folgendem Schritt, überprüft Bertrams E-Mail Programm, ob sich neue E-Mails in Bertrams Postfach befinden. Da dies der Fall ist wird es die neue E-Mail herunterladen und Bertram mitteilen, dass er eine neue E-Mail bekommen hat.
+\item Schlussendlich kann Bertram die E-Mail lesen.
+\end{enumerate} 
+
+\subsection{Aufbau}
+Der allgemeine Aufbau einer E-Mail wird in zwei Teile aufgeteilt:
+\begin{enumerate}
+\item Header\\
+Dieser beinhaltet Informationen über
+\begin{itemize}
+\item Absender
+\item Empfänger und eventuelle zu sendenden Kopien
+\item eventueller Betreff
+\item eventueller Anhang
+\end{itemize}
+\item Body\\
+Dieser beinhaltet die eigentliche Nachricht
+\end{enumerate} 
+\subsubsection{Header}
+\begin{center}
+\includegraphics[scale=0.9]{../docs/lyaton/graphics/E-Mail-Header.png}\\
+\textbf{E-Mail Header}\\
+\begin{scriptsize}
+Konvertiertes Bild - Quelle:\\http://de.wikipedia.org/wiki/Header\_(E-Mail)\#/media/File:FromToCcBCC-Who\_sees\_what.svg
+\end{scriptsize}
+\end{center}
+\vspace{0.5cm}
+Der Header ist sozusagen der Briefkuvert. Er enthält die für das Senden notwendigen Informationen. Im Gegensatz zu anderen Nachrichtensystemen ist es bei E-Mail möglich, eine Nachricht an mehrere Empfänger gleichzeitig zu senden.\\
+Wie man im obigen Bild gut erkennen kann, kann man dabei sogar den Empfängern Stufen zuordnen, die dar wären:
+\begin{itemize}
+\item CC - Carbon Copy\\
+Man bezeichnet sie auch oft als 'Courtesy Copy', was soviel bedeutet wie Höflichkeits-Kopie. Sie wird dazu verwendet, um Empfänger hinzuzufügen, welche nicht als Hauptempfänger, sondern als Empfänger gelten, welche nur Wissen sollten, dass diese E-Mail versendet wurde bzw. vielleicht auch einen Blick darauf werfen sollten.
+\item BCC - Blind Carbon Copy\\
+Diese Stufe wird verwendet, um Empfänger hinzuzufügen, über die keiner Bescheid wissen soll, wie z.B. bei Rundmails, um die Privatsphäre aller zu gewährleisten.
+\end{itemize}  
+Die Pfeile im obigen Bild zeigen schön, wer wen sehen kann.
 \subsection{Senden}
-lorem ipsum
-\subsubsection{Graphische Erklärung}
-lorem ipsum
+Zum Senden einer E-Mail, wird ein schon ziemlich altes Protokoll verwendet, namens SMTP - Simple Mail Transfer Protocol. Es wird, dennoch Heute sehr viel verwendet. Es gibt nicht wirklich Alternativen zu SMTP, höchstens Weiterentwicklungen.
+\subsubsection{SMTP}
+Wie bereits gesagt, ist dies das zum Senden von E-Mails benötigte Protokoll.\\\\
+Eigenschaften:\\
+\begin{itemize}
+\item Port:
+\begin{itemize}
+\item 25/TCP
+\item 465/TCP\\
+für SMTPS (SMTPSecure)
+\item 587/TCP\\
+für Mail-Clients (bzw. E-Mail Programm)
+\end{itemize}
+\item Netzwerklayer: Anwendung
+\item RFC 5321 (Ursprünglich 821)
+\end{itemize}
+\paragraph{Allgemein - Sendevorgang\\\\}
+Um den Sendevorgang erklären zu können müssen vorerst ein paar Begriffe näher erklärt werden.
+\begin{itemize}
+\item MUA - Mail User Agent\\
+Der Mail User Agent bildet die Schnittstelle zwischen Benutzer und 'System' E-Mail. Also ist er von große Bedeutung. Es gibt unzählige Anbieter für einen solchen Agent. Genauer gesagt ist es eigentlich ein Programm, meist graphisch aufbereitet und bildet somit für den Benutzer eine komfortabele und ansprechende Schnittstelle um mit dem System zu agieren. Der Mail User Agent sorgt sowohl für das Senden also auch Empfangen einer E-Mail.\\\\
+Web-Applikationen wie zum Beispiel 'Outlook.com' oder 'Gmail', werden zwar eigentlich schon als webmail-Systeme (Web-basierender E-Mail Client) angesehen, sind jedoch im Prinzip genauso Mail User Agents.
+\item MSA - Mail Submission Agent\\
+Der Mail Submission Agent bildet eine kleine Vorstufe, bevor es zum Mail Transfer Agent (im nächsten Punkt erklärt) geht. Ein Mail Submission Agent ist kein Muss, denn seine Aufgaben können auch vom Mail Transfer übernommen werden, jedoch gibt es ein paar Vorteile die für den Einsatz von Mail Submission Agents sprechen. Die dar wären:
+\begin{itemize}
+\item Der MSA kann sozusagen einen Vorfilter darstellen, denn falls der Benutzer eine E-Mail nicht richtig versendet hat (Datum vergessen, Empfänger vergessen,...) und sein MUA dies nicht abfängt, kann der MSA sofort eine Fehlermeldung schicken und die E-Mail kann dementsprechend nachbearbeitet werden, wohingegen wenn der MTA dies abfangen müsste, die Fehlermeldung den Benutzer, wenn überhaupt, nach Abbruch erreichen würde.
+\item Die meisten MSAs verlangen eine Benutzerauthentifizierung, somit wird genau protokolliert wer, wem und wann eine E-Mail gesendet hat. Dies hilft MTAs insofern, dass Absender die Spam-Traffic (siehe Kapitel \ref{sssec:Spam} Seite \pageref{sssec:Spam}) verursachen, relativ schnell ausfindig gemacht werden können.
+\end{itemize}
+\item MTA - Mail Transfer Agent\\
+Dieser bildet den Kern des Sendevorganges. Er sorgt dafür, dass die E-Mails, die entweder direkt von MUAs oder von MSAs an ihn gesendet wurden, ihren Weg zum MTA bzw. MDA (im nächsten Punkt erklärt) des Empfängers finden.
+\item MX - Mail Exchanger\\
+Nachdem der MTA des Absenders weiß wohin die E-Mail gesendet werden soll schickt er sie dem Mail Exchanger Server des Empfängers. Also ist der MX der erste Server des Empfängers, mit dem die E-Mail nun Kontakt hat.
+\item MDA - Mail Delivery Agent\\
+Dieser Agent sorgt für die Zuweisung der jeweiligen E-Mails zu den richtigen Benutzerkonten. Er ist jener Server, den der MUA des Empfängers nun anspricht, um die Mails abzurufen.
+\end{itemize}
+\begin{center}
+\includegraphics[scale=0.45]{../docs/lyaton/graphics/SMTP-Uebertragung.png}\\
+\textbf{SMTP-Übertragung}\\
+\begin{scriptsize}
+Konvertiertes Bild - Quelle:\\
+http://en.wikipedia.org/wiki/Simple\_Mail\_Transfer\_Protocol\#/media/File:SMTP-transfer-model.svg
+\end{scriptsize}
+\end{center}
+
+Der Sendevorgang startet beim MUA (Mail User Agent), welcher einfach ein Programm zum E-Mail versenden ist. Hier findet die Erste und Einzige Interaktion seitens des Absenders der E-Mail statt. Nachdem die E-Mail versendet wurde, 
 \subsection{Empfangen}
 lorem ipsum
 \subsubsection{IMAP}
 lorem ipsum
 \subsubsection{POP}
 lorem ipsum
-\section{E-Mail}
-lorem ipsum
-\subsection{Ursprung/Entstehung}
-lorem ipsum
-\subsection{Bedeutung heute}
+\subsection{Bedeutung im Altag}
+\subsubsection{Heute}
 lorem ipsum
 \subsubsection{Zukünftig}
 lorem ipsum
-\subsection{Probleme}
-lorem ipsum
-\subsubsection{Kleine Probleme}
-lorem ipsum
-\subsubsection{Große Probleme - Gefahren}
+\subsection{Vor- und Nachteile}
 lorem ipsum
 \subsection{Sicherheit}
+\label{sssec:Spam}
 lorem ipsum
-\subsubsection{Versuche}
-lorem ipsum
-\subsubsection{Was kann ich tun?}
-lorem ipsum
-
 \chapter{Oberfläche}
 lorem ipsum
 \section{Allgemein User Interface (UI) von Manpreet Singh}
