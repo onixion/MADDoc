@@ -2180,11 +2180,11 @@ SHA steht für \textbf{Seucre-Hash-Algorithm} und ist eine Ansammulung von mehre
 \section{CLI (Alin Porcic)}
 \lfoot{Alin Porcic}
 
-Beim Start des Programmes mit dem Argument \textbf{-cli}, wird die integrierte CLI gestartet, die für die Verwendung des Programmes verwendet werden kann. Der Syntax der CLI-Eingaben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden, müssen aber nicht. Die Anordnung der Parameter und Argumente ist für die CLI irrelevant.\\
+Beim Start des Programmes mit dem Argument \textbf{-cli} wird die integrierte CLI gestartet, die für die Verwendung des Programmes verwendet werden kann. Der Syntax der CLI-Eingaben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden. Die Anordnung der Parameter und Argumente ist für die diese CLI-Implementierung irrelevant.\\
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_mad.png}\\
-integrierte CLI
+die integrierte CLI
 \end{center}
 
 Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert. Ist die Interpretation der Eingabe nicht möglich, da zum Beispiel ein Paramter mehrfach definiert wurde, wird eine Fehlermeldung in roter Farbe ausgegeben. Einige Fehlermeldungen, die ausgegebe weden können, sind zum Beispiel:
@@ -2239,7 +2239,8 @@ Das JobSystem besitzt einen Zeitplaner, der ein- und ausgeschalten werden kann. 
 
 Das JobSystem unterscheidet die Jobs in verschiedene Typen. Jeder Typ erledigt eine ganz spezielle Aufgabe im Netzwerk und kann daher verschiedene Resultate erbringen. Jeder Job bekommt eine IP-Adresse und kann die notwendige Operation ausführen. Die Zeitmessung und das Schreiben in die Datenbank wird vom JobSystem übernommen und muss nicht von jedem Job selber erledigt werden.
 
-Jeder Job muss folgende Eigenschaften definieren:
+Jeder Job muss folgende Eigenschaften definieren:\\
+
 \begin{itemize}
 \item \textbf{Name}: Jeder Job besitzt einen Namen, damit der Job indentifiziert werden kann.
 \item \textbf{Node-ID}: Jeder Job muss einen Knoten definieren, damit der Job ein Ziel hat.
@@ -2250,7 +2251,7 @@ Jeder Job muss folgende Eigenschaften definieren:
 
 \subsection{HTTP} Die Aufgabe dieses Jobs ist das Senden einer HTTP-Anfrage und das Empfangen der Anwort. Für diesen Job kann eine Port-Nummer definiert werden, falls keine definiert wird, wird 80 als Port-Nummer genommen.
 
-\subsection{Port} Die Ausführung dieses Jobs bewirkt einen Verbindung auf einen Dienst (Dienst muss auf TCP aufbauen). Nach dem 'Drei-Wege-Handschlag' wird die Verbindung wieder abgebaut. Dieser Job kann nur herausfinden, ob ein Dienst erreichbar ist, nicht ob dieser die Anfragen auch beantwortet.
+\subsection{Port} Die Ausführung dieses Jobs bewirkt einen Verbindung auf einen Dienst (Dienst muss auf TCP aufbauen). Nach dem 'Drei-Wege-Handschlag' wird die Verbindung wieder abgebaut. Dieser Job kann nur herausfinden, ob ein Dienst erreichbar ist, nicht ob dieser die Anfragen auch ordnungsgemäß beantwortet.
 
 \newpage
 \lfoot{Ranalter Daniel}%--------------------------------------------------------------------------------------------
@@ -2481,7 +2482,7 @@ Mit dem Parameter \textbf{-id} können Informationen zu einem bestimmten Befehl 
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_help_id.png}\\
-Informationen zu einem speziellen Befehl.
+nähere Informationen zu einem Befehl
 \end{center}
 
 \subsubsection{colortest}
@@ -2646,9 +2647,11 @@ Es soll manuell ein Netzwerkknoten hinzugefügt werden. Der Netzwerkknoten sieht
   \item MAC-Adresse: FF:00:00:00:11
 \end{itemize}
 
-Um einen Netzwerkknoten hinzuzufügen muss der Befehl 'node add' ausgeführt werden. Dieser Befehl besitzt drei obligatorische Parameter mit jeweils einem Argument. Die Eingabe sieht wie folgt aus:\\\\
+Um einen Netzwerkknoten hinzuzufügen muss der Befehl 'node add' ausgeführt werden. Dieser Befehl besitzt drei obligatorische Parameter mit jeweils einem Argument. Die Eingabe sieht wie folgt aus:\\
 
-\textbf{node add -n MeinPC -ip 10.0.0.120 -mac FF:00:00:00:11}\\\\
+\begin{itemize}
+\item \textbf{node add -n MeinPC -ip 10.0.0.120 -mac FF:00:00:00:11}\\
+\end{itemize}
 
 Nach der Bestätigung mit der ENTER-Taste wird der Knoten erstellt und in das JobSystem eingebunden. Es sollen nun drei Netzwerkoperationen auf diesen Knoten ausgeführt werden:
 
@@ -2658,11 +2661,13 @@ Nach der Bestätigung mit der ENTER-Taste wird der Knoten erstellt und in das Jo
 \item HTTP-Anfrage auf Port 80 jeden Monat am ersten Tag um 20:00
 \end{itemize}
 
-Das wird mithilfe der folgenden Befehle erreicht:\\\\
+Das wird mithilfe der folgenden Befehle erreicht:\\
 
-\textbf{job add ping -n MeinPing -id 0 -t 10000}\\
-\textbf{job add port -n MeinPortScan -id 0 -t 19:30 -p 443}\\
-\textbf{job add http -n MeinHttp -id 0 -t 1;20:00 -p 80}\\\\
+\begin{itemize}
+\item \textbf{job add ping -n MeinPing -id 0 -t 10000}
+\item \textbf{job add port -n MeinPortScan -id 0 -t 19:30 -p 443}
+\item \textbf{job add http -n MeinHttp -id 0 -t 1;20:00 -p 80}
+\end{itemize}
 
 Das Argument des Parameters '-id' gibt die ID des Netzwerkknoten an, an dem die Aufgabe drangehängt werden soll. Der Parameter '-t' definiert, wann diese Aufgabe ausgeführt werden soll. Port-Scans und HTTP-Anfragen können auch einen Port über den Parameter '-p' definieren.\\\\
 
@@ -2673,19 +2678,39 @@ Um die derzeitige Konfiguration abzuspeicher gibt es zwei Möglichkeiten:
 \item Alle Netzwerkknoten abspeichern.
 \end{itemize}
 
-Da die jetztige Konfiguration nur einen Netzwerkknoten hat, kann der Netzwerkknoten einzeln abgespeichert werden. Dies geschieht mit dem 'node save' Befehl:\\\\
-\textbf{node save -id 0 -file node.json}\\\\
+Da die jetztige Konfiguration nur einen Netzwerkknoten hat, kann der Netzwerkknoten einzeln abgespeichert werden. Dies geschieht mit dem 'node save' Befehl:\\
+
+\begin{itemize}
+\item \textbf{node save -id 0 -file node.json}
+\end{itemize}
+
 Der Paramter 'id' gibt den Netzwerkknoten an, der gespeichert werden soll und 'file' gibt den Dateinamen an. Bei einem Neustart des Programmes kann die Konfiguration des Nodes mithilfe des Befehls 'node load -file node.json' geladen werden.\\\\
-Zurzeit ist der Zeitplaner des JobSystems ausgeschalten, der Netzwerkknoten ist 'inaktive' und die drei Aufgaben ebenfalls. Damit die Aufgaben ausgeführt werden können muss der Zeitplaner aktiviert werden. Das geschieht durch den folgenden Befehl:\\\\
-\textbf{schedule start}\\\\
-Nun läuft der Zeitplaner, jedoch ignoriert er den Netzwerkknoten und alle darunterliegenden Aufgaben, da der Netzwerkknoten inaktive ist. Um einen Netzwerkknoten zu aktivieren reicht die Ausführung des folgenen Befehls:\\\\
-\textbf{node start -id 0}\\\\
-Damit der Zeitplaner die Aufgaben des jeweiligen Netzwerkknoten zur richtigen Zeit ausführen kann, müssen die Aufgaben aktiviert werden. Das kann durch die folgende Eingabe erreicht werden:\\\\
-\textbf{job start -id 0}\\
-\textbf{job start -id 1}\\
-\textbf{job start -id 2}\\\\
-Der Parameter '-id' gibt nicht den Knoten an, sondern die Identifikationszahl der Aufgabe an. Jeder Knoten hat eine ID, aber auch jede Aufgabe hat eine eindeutige Zuweisung. Nun werden die Aufgaben zu den definierten Zeitpunkten ausgeführt und die Ergebnisse der Ausführung werden in die Datenbank geschrieben. Mit diesem Befehl können die Aufgaben angesehen werden: \\\\
-\textbf{js jobs}\\\\
+Zurzeit ist der Zeitplaner des JobSystems ausgeschalten, der Netzwerkknoten ist 'inaktive' und die drei Aufgaben ebenfalls. Damit die Aufgaben ausgeführt werden können muss der Zeitplaner aktiviert werden. Das geschieht durch den folgenden Befehl:\\
+
+\begin{itemize}
+\item \textbf{schedule start}
+\end{itemize}
+
+Nun läuft der Zeitplaner, jedoch ignoriert er den Netzwerkknoten und alle darunterliegenden Aufgaben, da der Netzwerkknoten inaktive ist. Um einen Netzwerkknoten zu aktivieren reicht die Ausführung des folgenen Befehls:\\
+
+\begin{itemize}
+\item \textbf{node start -id 0}
+\end{itemize}
+
+Damit der Zeitplaner die Aufgaben des jeweiligen Netzwerkknoten zur richtigen Zeit ausführen kann, müssen die Aufgaben aktiviert werden. Das kann durch die folgende Eingabe erreicht werden:\\
+
+\begin{itemize}
+\item \textbf{job start -id 0}
+\item \textbf{job start -id 1}
+\item \textbf{job start -id 2}
+\end{itemize}
+
+Der Parameter '-id' gibt nicht den Knoten an, sondern die Identifikationszahl der Aufgabe an. Jeder Knoten hat eine ID, aber auch jede Aufgabe hat eine eindeutige Zuweisung. Nun werden die Aufgaben zu den definierten Zeitpunkten ausgeführt und die Ergebnisse der Ausführung werden in die Datenbank geschrieben. Mit diesem Befehl können die Aufgaben angesehen werden: \\
+
+\begin{itemize}
+\item \textbf{js jobs}
+\end{itemize}
+
 Nach der Ausführung wird eine Tabelle mit den Aufgaben ausgegeben.
 
 \subsection{Zusammenfassung der Datenbank}
@@ -2707,7 +2732,9 @@ Nun müssen drei Dinge definiert werden:
 
 Um eine Zusammenfassung zu starten, muss folgender Befehl eingegeben werden (Hinweis: Jeder Zeitbereich kann nur einmal in der Summary-Table zusammengefasst werden, d.h. wenn man versucht eine Zusammenfassung über den gleichen Zeitbereich zu machen, wird eine Fehlermeldung ausgegeben, da die Zusammenfassung von gleichen Zeitbereichen nicht sinnvoll ist):\\
 
-\textbf{db summary -s 10.01.2015 -e 11.01.2015 -b 5h}
+\begin{itemize}
+\item \textbf{db summary -s 10.01.2015 -e 11.01.2015 -b 5h}
+\end{itemize}
 
 \begin{center}
 \includegraphics[scale=0.5]{img/db_summary_create.png}
@@ -2715,7 +2742,9 @@ Um eine Zusammenfassung zu starten, muss folgender Befehl eingegeben werden (Hin
 
 Nun werden alle Ausführung von allen Jobs, die zwischen dem 10.01.2015 und dem 11.01.2015 gestartet wurden, zusammengefasst. Der Zeitbereich wird in fünf Stunden Blöcke unterteilt und jeder Block wird in einem Datensatz zusammengefasst. Nun kann die Summary-Table betrachtet werden:\\
 
-\textbf{db summmay}
+\begin{itemize}
+\item \textbf{db summmay}
+\end{itemize}
 
 \begin{center}
 \includegraphics[scale=0.5]{img/db_summary.png}
@@ -2740,8 +2769,9 @@ Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
 \chapter{Alin Porcic}
 
 \begin{center}
-\begin{tabular}{c|c|c}
+\begin{tabular}{|c|c|l|}
 
+\hline
 \textbf{Zeitraum} & \textbf{Zeitdauer} & \textbf{Aufgaben} \\ \hline
 06.04.2014 bis 10.04.2014 & 4h & CLI-Framework: Idee und Konzept\\
 11.04.2014 bis 12.04.2014 & 3h & CLI-Server und CLI-Client: Idee und Konzept\\
@@ -2752,6 +2782,7 @@ Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
 25.04.2014 & 2h & Socketserver / Socketclient rausgenommen\\
 19.05.2014 & 2h & CLI-Framework und CLI, Fehlersuche\\
 20.05.2014 bis 21.05.2014 & 9h & CLI-Session/CLI-Server/CLI-Client Überarbeitung\\
+21.05.2014 & 4h & CLI-Befehle geschrieben, Fehlersuche\\
 22.05.2014 & 2h & Socketserver/Socketclient vollständig ersetzt\\
 28.05.2014 & 3h & Implementierung der Konsolenausgabe, -eingabe\\
 29.05.2014 & 3h & CLI-Server/CLI-Client Überarbeitung\\
@@ -2761,7 +2792,7 @@ Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
 17.06.2014 & 3h & JobSystem: Konzept + Überlegungen\\
 18.06.2014 bis 20.06.2014 & 10h & JobSystem funktionsfähig\\
 21.06.2014 bis 28.06.2014 & 9h & JobSystem überarbeitet + Clean-Coding\\
-03.07.2014 bis 06.07.2014 & 7h & AES hinzugefügt, zahlreiche Programmfehler ausgebessert\\
+03.07.2014 bis 06.07.2014 & 7h & AES hinzugefügt, viele Programmfehler ausgebessert\\
 10.07.2014 bis 14.07.2014 & 8h & Serializierung hinzugefügt, Fehler ausgebessert\\
 15.07.2014 & 3h & Programmteile überarbeitet\\
 22.07.2014 bis 23.07.2014 & 6h & RSA implementiert\\
@@ -2773,8 +2804,9 @@ Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
 \newpage
 
 \begin{center}
-\begin{tabular}{c | c | c}
+\begin{tabular}{|c| c|l|}
 
+\hline
 \textbf{Zeitraum} & \textbf{Zeitdauer} & \textbf{Aufgaben} \\ \hline
 01.08.2014 & 3h & allegmeine Verbesserungen am Programm, Fehlersuche\\
 03.08.2014 & 3h & JobSystem überarbeitet, Fehlersuche\\
@@ -2782,12 +2814,24 @@ Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
 06.08.2014 & 2h & RSA entfernt\\
 10.08.2014 bis 14.08.2014 & 6h & JobSystem unterstützt Benachrichtigungen\\
 15.08.2014 & 2h & JobSystem verbessert, Fehlersuche\\
+17.08.2014 & 4h & einige neue Befehle hinzugefügt\\
 20.08.2014 bis 21.08.2014 & 6h & XML-Serializer hinzugefügt, Clean-Coding\\
 23.08.2014 bis 24.08.2014 & 4h & MADConf hinzugefügt, Fehlersuche\\
 26.08.2014 bis 27.08.2014 & 4h & Eventhandler hinzugefügt, Clean-Coding\\
-12.09.2014 bis 14.09.2014 & 10h & SSL hinzugefügt, zahlreiche Verbesserungen\\
-18.09.2014 bis 19.09.2014 & 5h & CLI überarbeitet, JobSystem überarbeitet\\
-
+06.09.2014 & 4h & Befehle verbessert\\
+12.09.2014 bis 14.09.2014 & 10h & SSL hinzugefügt, viele Verbesserungen\\
+18.09.2014 bis 19.09.2014 & 5h & CLI und JobSystem überarbeitet\\
+22.09.2014 bis 26.09.2014 & 8h & SSL enfernt, Verbesserungen am CLI-Server\\
+27.09.2014 bis 29.09.2014 & 4h & CLI-Client überarbeitet, Fehlersuche\\
+05.10.2014 bis 08.10.2014 & 8h & JobSystem mit ReadWrite-Locks\\
+09.10.2014 & 2h & JobSystem überarbeitet, Fehlersuche\\
+11.10.2014 & 3h & ReadWrite-Locks entfernt, Fehlersuche\\
+12.10.2014 & 2h & JobSystem vereinfacht, Clean-Coding\\
+18.12.2014 bis 20.12.2014 & 8h &CLI-Befehle für Datenbank implementiert\\
+27.12.2014 & 2h & CLI-Befehle verbessert und erweitert\\
+05.02.2014 & 4h &letzte Verbesserungen am Programm\\
+ \hline \hline
+06.04.2014 bis 12.10.2014 &199h&\\ \hline
 
 \end{tabular}
 \end{center}
