@@ -30,11 +30,15 @@ Höhere Technische Bundes Lehr- und Versuchsanstalt Anichstraße\\
 Abteilung Höhere Elektronik und Technische Informatik\\
 5bHEL}
 
-\linespread{1.5}
+
 
 \begin{document}
+\begin{singlespace}
 \maketitle
 \newpage
+\end{singlespace}
+\begin{onehalfspace}
+
 \chapter{Vorwort}
 Die Welt befindet sich momentan in großem Wandel. Die technische Entwicklung lässt nicht nach, im Gegenteil, sie steigt mit exponentieller Geschwindigkeit an. Das Internet beschränkt sich inzwischen nicht mehr nur noch auf den PC oder gar Universitäten, sondern hält Einzug in Bereiche die man sich bei der Entstehung desselben nie ausgemalt hätte. Selbst Haushaltsgeräte und Autos können inzwischen über das Internet kommunizieren. Es ist inzwischen unmöglich geworden den technischen Stand in 5 Jahren sicher zu bestimmen.\\
 
@@ -45,13 +49,14 @@ Als nächstes war es an uns einen geeigneten Betreuer zu finden. Trotz großem S
 Seine Gelassenheit und große Kompetenz welche er in Fächern wie Informatik und vor allem Netzwerklabor zeigte, beeindruckten uns bereits damals.\\
 
 Als wir bei einem ersten Gespräch ihm unsere Interessen und bisherigen Gedankengänge aufzeigten, entwickelte er mit uns zusammen schließlich die Idee unsere Interessen zu kombinieren und ein Programm zu entwickeln welches in der Lage ist ein Netzwerk zu überwachen.
-
+\end{onehalfspace}
+\begin{singlespace}
 %\setcounter{tocdepth}{6}
 \tableofcontents
 \newpage
-
+\end{singlespace}
 \pagestyle{fancy}
-
+\begin{onehalfspace}
 \chapter{Aufgabenstellung}
 lorem ipsum
 \chapter{Abstract}
@@ -1237,7 +1242,7 @@ Eigenschaften:\\
 \begin{itemize}
 \item 25/TCP
 \item 465/TCP\\
-für SMTPS (SMTPSecure)
+für SMTPS (SMTPSecure unterscheidet sich insofern, dass anfänglich eine Verschlüsselung (siehe Kapitel \ref{chap:krypto} Seite \pageref{chap:krypto}) zwischen Client und Server ausgemacht wird.)
 \item 587/TCP\\
 für Mail-Clients (bzw. E-Mail Programm)
 \end{itemize}
@@ -1302,7 +1307,59 @@ Dies ist der letzte Schritt des Sendevorganges. Der MX des Empfänger sendet die
 \end{enumerate}
 Nun ist die E-Mail im Postfach des Empfängers und wartet darauf empfangen zu werden.
 \paragraph{Befehle\\}
+Die Grundbefehle einer STMP - Kommunikation:
+\begin{itemize}
+\item HELO\\
+HELO eröffnet die Sitzung am Server.
+\item EHLO\\
+EHLO eröffnet die Sitzung und identifiziert den Client eindeutig am Server mit Passwortabfrage.
+\item MAIL FROM\\
+Mit MAIL FROM kann die Absender Adresse hinzufügt werden (falls EHLO verwendet wird, ist dieser Schritt unnötig).
+\item RCPT\\
+RCPT fügt Empfänger hinzu. Außerdem ist die multiple Verwendung dieses Befehls, um mehrere Empfänger hinzuzufügen möglich.
+\item DATA\\
+DATA signalisiert den dem Server, dass als nächstes die E-Mail-Nachricht versendet wird. \\
+(Das Ende einer Nachricht ist eine Zeile die nur einen Punkt enthält) 
+\item RSET\\
+Mit RSET wird die bisherige Übertragung zurückgesetzt bzw. gelöscht. Die Verbindung zwischen Client und Server bleibt bestehen.
+\item VRFY\\
+Mit VRFY kann überprüft werden ob die Empfänger-Adresse überhaupt existiert.
+\item EXPN
+EXPN ist für mache MTAs (siehe \ref{itm:MTA} Seite \pageref{itm:MTA}) der Befehl für VRFY.
+\item NOOP\\
+NOOP ist quasi ein Lebenszeichen des Clients and den Server um die Verbindung aufrecht zu erhalten, da diese sonst durch den Timeout bedingt getrennt werden würde.
+\item QUIT\\
+QUIT trennt die Verbindung zum Server. Server sendet jedoch noch eine letzte Trennungsbestätigung.
+\end{itemize}
 
+Eine SMTP Kommunikation kann beispielsweise aussehen:
+\begin{center}
+\includegraphics[scale=0.9]{../docs/lyaton/graphics/SMTP-Kommunikation.PNG}\\
+\textbf{SMTP - Kommunikation}\\
+\begin{scriptsize}
+Quelle: http://de.wikipedia.org/wiki/Simple\_Mail\_Transfer\_Protocol
+\end{scriptsize}
+\end{center}
+Die einzelnen Schritt in der obigen Abbildung
+\begin{enumerate}
+\item \textbf{Client:} Verfügbarkeit überprüfen, mit TELNET-Anfrage an mail.example.com über Port 25\\\\
+\textbf{Server:} Zeigt Verfügbarkeit
+\item \textbf{Client:} Sitzungseröffnungsanfrage\\\\
+\textbf{Server:} Bestätigung $\rightarrow$ Aufrechte Verbindung
+\item \textbf{Client:} Hinzufügen des Absenders (sender@example.org)\\\\
+\textbf{Server:} Bestätigt Absender
+\item \textbf{Client:} Hinzufügen des Empfängers (receiver@example.com)\\\\
+\textbf{Server:} Bestätigt Empfänger
+\item \textbf{Client:} Signalisiert, dass er den Inhalt der E-Mail senden möchten.\\\\
+\textbf{Server:} Sendet Startsignal für das Senden des Inhaltes der E-Mail.
+\item \textbf{Client:} E-Mail Inhalt \\
+(From:....\\
+.\\
+)\\\\
+\textbf{Server:} Bestätigt Empfang von Nachricht
+\item \textbf{Client:} Verbindungstrennungsanfrage\\\\
+\textbf{Server:} Bestätigt Trennung der Verbindung
+\end{enumerate}
 \subsection{Empfangen}
 lorem ipsum
 \subsubsection{IMAP}
@@ -2630,4 +2687,5 @@ Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
 lorem ipsum
 \bibliography{lit}
 \bibliographystyle{abbrv}
+\end{onehalfspace}
 \end{document}
