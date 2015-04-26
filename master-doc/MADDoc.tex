@@ -30,8 +30,6 @@ Höhere Technische Bundes Lehr- und Versuchsanstalt Anichstraße\\
 Abteilung Höhere Elektronik und Technische Informatik\\
 5bHEL}
 
-
-
 \begin{document}
 \begin{singlespace}
 \maketitle
@@ -58,7 +56,11 @@ Als wir bei einem ersten Gespräch ihm unsere Interessen und bisherigen Gedanken
 \pagestyle{fancy}
 \begin{onehalfspace}
 \chapter{Aufgabenstellung}
-lorem ipsum
+\lfoot{Alin Porcic}
+
+Das Ziel dieser Diplomarbeit ist das Erstellen eines Programmes, welches in einem privaten Netzwerk (max. 50 Netzwerkgeräte) Serverdienste überwachen kann und bei der Nicht-Einhaltung bestimmter Regeln eine Benachrichtigung in Form einer E-Mail abschicken kann. Das Programm soll aus einer Konfigurationsdatei beim Programmstart die benötigten Parameter laden und die Benutzung soll über eine text-basierende Schnittstelle erfolgen. Es soll auch eine graphische Schnittstelle implementiert werden, die eine einfache Übersicht über die Aufgaben und Geräte anbietet. Zudem muss es möglich sein, sich über das Netzwerk auf das Programm zu verbinden. Die Verwendung des Programmes soll lokal als auch remote den gleichen Funktionsumfang bieten.
+Die Resultate der Überwachungen sollen in einer Datenbank lokal abgespeichert werden und es soll möglich sein, eine große Ansammlung an gespeicherten Daten zusammenzufassen, um den Speicherbedarf zu reduzieren. Die Auswahl der Programmiersprache ist frei, jedoch soll das Programm auf Windows als auch auf Linux lauffähig sein.
+
 \chapter{Abstract}
 lorem ipsum
 \chapter{Einleitung}
@@ -360,7 +362,7 @@ Zu den wichtigsten Eigenschaften von .NET Framework zählt die Sprachinteroperab
 
 Damit ist es möglich, dass der Code mit Codes anderer Programmiersprachen, die mit Common Type Specifiacion (CTS) kompatibel sind, interagiert. Neben Visual Basic, Visual C++ gibt es noch viele weitere. Es können unterschiedliche .NET- Programmiersprachen zur erstellung von Modulen für eine Assembly verwendet werden. Auch die Typen können einen Bezug auf einander haben, trotz unterschiedlicher Programmiersprachen.
 \begin{center}
-\includegraphics[scale=0.8]{img/uebersetzung.PNG}\\
+\includegraphics[scale=0.8]{img/uebersetzung.png}\\
 Beziehung zwischen C\# - Quelltext, .NET Framework- Klassenbibliotheken, Assembly und der CLR (während der Kompilierungs- und Laufzeit).
 \copyright Microsoft
 % https://msdn.microsoft.com/de-de/library/z1zx9t92.aspx} - 05.04.2015
@@ -1434,7 +1436,7 @@ lorem ipsum
 \lfoot{Alin Porcic}
 \subsection{Allgemeines}
 
-CLI steht für \textbf{Command Line Interface} (=text-basierende Schnittstelle) und darunter versteht man Schnittstellen, die für die Interaktion mit Programmen zeilenweise Befehle in Form von Text einlesen, interpretieren und anschließend ausführen. Programme, die solche Schnittstellen anbieten, werden \textbf{CLI-Interpreter} genannt. Der Begriff \textbf{Shell} hat sich unter unixähnlichen Betreibssystemen als eine andere Bezeichnung für einen CLI-Interpreter eingebürgert. Bekannte CLI-Interpreter sind zum Beispiel \textbf{sh}, \textbf{bash} oder \textbf{Windows PowerShell}. (vgl. http://de.wikipedia.org/wiki/Kommandozeile http://de.wikipedia.org/wiki/Unix-Shell)
+CLI steht für \textbf{Command Line Interface} (=text-basierende Schnittstelle) und darunter versteht man Schnittstellen, die für die Interaktion mit Programmen zeilenweise Befehle in Form von Text einlesen, interpretieren und anschließend ausführen. Programme, die solche Schnittstellen anbieten, werden \textbf{CLI-Interpreter} genannt. Der Begriff \textbf{Shell} hat sich unter unixähnlichen Betreibssystemen als eine andere Bezeichnung für einen CLI-Interpreter eingebürgert. Bekannte CLI-Interpreter sind zum Beispiel \textbf{sh}, \textbf{bash} oder \textbf{Windows PowerShell}. (vgl.  http://de.wikipedia.org/wiki/Unix-Shell)
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_pic.png}\\
@@ -1448,7 +1450,7 @@ Windows Powershell
 
 Bei unixähnlichen Betriebssystemen wird der Begriff \textbf{Terminal} häufig mit CLI in Verbindung gebracht. Ein Terminal (oder auch Konsole) war ein Gerät, das die Eingaben und Ausgaben von Daten an einem Computer in Textform ermöglichte. Da diese Geräte heute eher störend und nutzlos sind, werden sie in Software emuliert, daher spricht man auch von \textbf{Terminalemulatoren}. Die Hauptaufgaben von diesen Emulatoren sind die richtige Darstellung der Textkodierung, die Darstellung von Farben, das Erkennen von Escape-Sequenzen und das Einlesens von Eingaben - die CLI hingegen, ist für die vollständige Interpretation sowie der Ausführung zuständig. (vgl. http://de.wikipedia.org/wiki/Terminalemulation)\\
 
-Grundsätzlich wurden die textbasierten Schnittstellen im Desktop-Bereich vollständig durch die grafischen Schnittstellen abgelöst, aber im Netzwerkbereich sind textbasierte Schnittstellen durch ihre enorme Flexibilität und ihren minimalen Ressourcenverbrauch immer noch häufig anzutreffen (z.B. pfSense, Cisco-Router/Switches). Die primäre Kommunikation mit unixähnliche Betriebssystemen hat sich bis heute nicht geändert und erfolgt immer noch über Kommandozeileninterpreter. Bei diesen Systemen ist die CLI ein fester Bestandteil, die Interaktion basiert fast ausschließlich über die textbasierte Schnittstelle, grafische Oberflächen hingegen, sind meistens nur optioanle Zusatzsoftware. (vgl. http://en.wikipedia.org/wiki/Command-line\_interface)\\ 
+Grundsätzlich wurden die textbasierten Schnittstellen im Desktop-Bereich vollständig durch die grafischen Schnittstellen abgelöst, aber im Netzwerkbereich sind textbasierte Schnittstellen durch ihre enorme Flexibilität und ihren minimalen Ressourcenverbrauch immer noch häufig anzutreffen (z.B. pfSense, Cisco-Router/Switches). Die primäre Kommunikation mit unixähnliche Betriebssystemen hat sich bis heute nicht geändert und erfolgt immer noch über Kommandozeileninterpreter. Bei diesen Systemen ist die CLI ein fester Bestandteil, die Interaktion basiert fast ausschließlich über die textbasierte Schnittstelle, grafische Oberflächen hingegen, sind meist nur optioanle Zusatzsoftware. (vgl. http://en.wikipedia.org/wiki/Command-line\_interface)\\ 
 
 Erfahrene Nutzer greifen auch heute immer noch zu Kommandozeileninterpreter, da sie eine schnellere und direkte Kontrolle über die Ausführung von Programmen haben. Zudem besteht die Möglichkeit Programme mithilfe von \textbf{Scripts} zu kombinieren oder die Ausgaben von Programmen in anderen zu leiten. (vgl. http://de.wikipedia.org/wiki/Kommandozeileninterpreter)
 
@@ -1616,7 +1618,7 @@ Ein Datenbanksystem besteht immer aus einem DBMS und der dazugehörigen Datenban
 Es bietet eine Schnittschnelle zwischen dem DBMS und der Datenbankanwendung zur  Abfrage, Auswertung, Veränderung und Verwaltung an.
 
 \begin{center}
-\includegraphics[scale=0.3]{img/dbs.PNG}\\
+\includegraphics[scale=0.3]{img/dbs.png}\\
 Datenbanksystem besteht aus: Datenbank und Datenbankmanagementsystem (Quelle: http://de.wikipedia.org/wiki/Datenbank\# Komponenten\_ eines\_ Datenbanksystems)
 \end{center}
 
@@ -1650,7 +1652,7 @@ Die Funktion kann am Beispiel von einem Buch in einer Bücherei einfach gezeigt 
 \\Zur Beschreibung eines Datensatzes muss mindestens ein eindeutiger, unveränderlicher und einmal vorkommender Schlüssel vorhanden sein. Ein sinnvoller Primärschlüssel in diesem Beispiel ist Buch- ID. Der Schlüssel ist nicht für die Posistion des Datensatzes in der Tabelle zuständig, sondern für die eindeutige Identifikation.
 
 \begin{center}
-\includegraphics[scale=0.8]{img/relation_DB.PNG}\\
+\includegraphics[scale=0.8]{img/relation_DB.png}\\
 Beispiel einer Relation ("{}Buch"{})(Quelle: http://de.wikipedia.org/wiki/Relationale\_ Datenbank\# Grundlegende\_ Konzepte)
 \end{center}
 
@@ -1681,7 +1683,7 @@ Diese Tabelle enthält Informationen über die Vergabe und die Verfügbarkeit vo
 \end{itemize}
 
 \begin{center}
-\includegraphics[scale=0.8]{img/tabellen.PNG}\\
+\includegraphics[scale=0.8]{img/tabellen.png}\\
 Beziehungen zwischen Tabellen (Quelle: http://de.wikipedia.org/wiki/Relationale\_ Datenbank\# Beziehungen\_ zwischen\_ Tabellen)
 \end{center}
 
@@ -1833,22 +1835,22 @@ Die Syntax von SQLite ist der Syntax von SQL indentisch. Die kleinen Unterschied
 Diese sind sehr einfach zu lesen und im Prinzip selbsterklärend. Es werden Argumente in der richtigen Reihenfolge aufgelistet und auch die verschiedenen dazugehörigen Optionen. Es gibt zur jeder möglichen Funktion ein entsprechendes Syntaxdiagramm. Die wichtigsten und grundlegensten Diagramme, welche zur Realisierung der Datenbank nötig waren, werden im Folgenden aufgelistet.
 
 \begin{center}
-\includegraphics[scale=0.8]{img/sqlite_syntax.PNG}\\
+\includegraphics[scale=0.8]{img/sqlite_syntax.png}\\
 allgemeine SQLite Syntax (Quelle: http://www.sqlite.org/syntax/sql-stmt.html)
 \end{center}
 
 \begin{center}
-\includegraphics[scale=0.8]{img/sqlite_create.PNG}\\
+\includegraphics[scale=0.8]{img/sqlite_create.png}\\
 erstellen einer Tabelle (Quelle: http://www.sqlite.org/lang\_ createtable.html)
 \end{center}
 
 \begin{center}
-\includegraphics[scale=0.8]{img/sqlite_select.PNG}\\
+\includegraphics[scale=0.8]{img/sqlite_select.png}\\
 Argumente beim Auswählen von Daten (Quelle: http://www.sqlite.org/lang\_ select.html)
 \end{center}
 
 \begin{center}
-\includegraphics[scale=0.8]{img/sqlite_insert.PNG}\\
+\includegraphics[scale=0.8]{img/sqlite_insert.png}\\
 Daten in einer Tabelle speichern (Quelle: http://www.sqlite.org/lang\_ insert.html)
 \end{center}
 
@@ -1918,7 +1920,7 @@ Die Sicherheit eines kryptographischen Systems darf nicht von der Geheimhaltung 
 
 \paragraph{Monoalphabetische Chiffrierung}
 
-Vor mehr als 2500 Jahren hat man einen \textbf{Skytale} für die Verschlüsselung von Informationen verwendet. Man hat ein Pergamentband oder einen Lederstreifen spiralförmig um den Skytale gewickelt und die zu verschlüsselnde Nachricht über die einzelnen Ringe der Streifen geschrieben. Nun konnte man das Band bei der Übermittlung abgefangen werden, doch ohne den richtigen Skytale nicht entschlüsselt werden. Nur der Empfänger, der im Besitz eines Skytales mit gleichem Durchmesser war, kann die für ihn bestimmte Nachricht entschlüsseln. Dieses Verschlüsselungssystem ist symmetrisch, da für die Ver- und Entschlüsselung der Durchmesser des Skytales unverändert bleibt. Der Durchmesser des Skytales wird in diesem Verfahren als der Schlüssel bezeichnet. Kennt man den Schlüssel, so kann man, sofern das kryptografische System bekannt ist, die Nachricht entschlüsselen. \cite{cryptopdf}\\\\
+Vor mehr als 2500 Jahren hat man einen \textbf{Skytale} für die Verschlüsselung von Informationen verwendet. Man hat ein Pergamentband oder einen Lederstreifen spiralförmig um den Skytale gewickelt und die zu verschlüsselnde Nachricht über die einzelnen Ringe der Streifen geschrieben. Nun konnte man das Band bei der Übermittlung abgefangen werden, doch ohne den richtigen Skytale nicht entschlüsselt werden. Nur der Empfänger, der im Besitz eines Skytales mit gleichem Durchmesser war, kann die für ihn bestimmte Nachricht entschlüsseln. Dieses Verschlüsselungssystem ist symmetrisch, da für die Ver- und Entschlüsselung der Durchmesser des Skytales unverändert bleibt. Der Durchmesser des Skytales wird in diesem Verfahren als der Schlüssel bezeichnet. Kennt man den Schlüssel, so kann man, sofern das kryptografische System bekannt ist, die Nachricht entschlüsselen. \cite{kryptologie01}\\\\
 
 \begin{center}
 \includegraphics[scale=0.3]{img/krypto_skytale.png}\\
@@ -2322,77 +2324,119 @@ Natürlich können die zur Auswahl stehenden Interfaces mit dem Befehl \textbf{a
 lorem ipsum
 
 \lfoot{Marko Stojanovi\'{c}}
+
 \chapter{Database von Marko Stojanovi\'{c}}
 \section{MAD-DB}
-Bei der Datenbank handelt es sich um eine relationale Datenbank, welche in C\# geschrieben wurde. Die Implementierung der SQLite- Datenbank erfolgte durch das Einbinden der "{}sqlite3.dll"{}.
-\subsection{Erklärung}
-Die Datenbank besteht aus zwölf verschiedenen Tabellen. Die Namen der Tabellen sagen aus, welche Inhalte in ihnen gespeicher werden. Es wurden zwölf Tabellen ersellt um das System deterministisch zu halten, damit keine weiteren Veränderung in der Datenbank vorgenommen werden müssen.\\
+Die Realisierung der Datenbank erfolge über SQLite. SQLite verwendet ein relationales Datenbankmanagementsystem, welches in C\# durch das Einbinden der "{}sqlite3.dll"{} konfigurierbar ist. Es werden dadurch alle Befehle von SQLite verwendet werden und es sind keine weiteren Installationen notwendig. Die gesamte Datenbank wird anschließend als eine Datei gespeichert.
 
-Alle Tabellen bis auf die Tabellen JobTable und MemoTable bestehen aus zwei Datenfelden. Das erste Datenfeld ist immer eine ID, welche den primary key vom Typ Integer darstellt, das zweite ist immer ein Feld vom Typ Text, dessen Inhalt gleich dem jeweiligen Namen der Tabelle entspricht. 
+\subsection{Erklärung}
+Befor das Datenbankmanagementsystem erstellt werden konnte musste geklärt werden, welche Daten gespeichert werden und in welcher Form.\\
+Zu speichernde Daten:
+\begin{itemize}
+\item Ping\\
+Der Ping dient zur grundsätzlichsten Überprüfung eines Hosts. Er speichert die Zeit welche er benötigt hat (Roundtrip time), den Erfolgsstatus, die ICMP Antwort (oder IPStatus) und die verbleibende TTL in der Datenbank. Ping verwendet ICMP.\\
+Die betroffenen Datenbankfelder wären also: GUID, JOBNAME, JOBTYPE, PROTOCOL, OUTSTATE, Start Time, Stop Time, Delay Time
+\item HTTP\\
+Über den Job HTTP wird die Verfügbarkeit eines WebServers überprüft. Es gibt nur einen Output, welcher angibt ob der Job erfolgreich war oder nicht. Der Job schickt eine Anfrage an die Zieladdresse an den Port 80. Kann der zurückgegebene header ausgelesen werden, wird der Job als erfolg gewertet. \\
+Die betroffenen Datenbankfelder wären also: GUID, JOBNAME, JOBTYPE, PROTOCOL, OUTSTATE, Start Time, Stop Time, Delay Time
+\item Portscan\\
+Der Portscan überprüft einzelne Ports auf ihre Funktionstüchtigkeit indem er ein Paket an sie sendet und auf eine Antwort wartet. \\
+Die betroffenen Datenbankfelder wären also: GUID, JOBNAME, JOBTYPE, PROTOCOL, OUTSTATE, Start Time, Stop Time, Delay Time
+\item DNS\\
+DNS überprüft ob der DNS Server funktionsfähig ist. Dies bewerktstelligt er, indem er versucht den eigenen Hostnamen aufzulösen. Bei diesem Job beschränkt sich der verwertbare Output auf ein einfaches funktioniert\/ funktioniert nicht. \\
+Die betroffenen Datenbankfelder wären also: GUID, JOBNAME, JOBTYPE, PROTOCOL, OUTSTATE, Start Time, Stop Time, Delay Time
+\item FTP\\
+FTP überprüft ob der FTP Server funktionsfähig ist. Dies bewerkstelligt er, indem er versucht das momentane Verzeichnis des FTP Servers abzurufen. Der Output bei diesem Job liefert neben dem funktioniert\/ funktioniert nicht, auch eine nähere Beschreibung warum es nicht funktioniert. \\
+Die betroffenen Datenbankfelder wären also: GUID, JOBNAME, JOBTYPE, PROTOCOL, OUTSTATE, Start Time, Stop Time, Delay Time
+\item SNMP\\
+SNMP überprüft ob der SNMP Server funktionsfähig ist. Dies ermittelt er indem er den Hostnamen aus den SNMP MIBs ausließt und diesen mit dem des Hosts überprüft. Stimmt dieser überein wird es als Erfolggewertet. Auch dieser Job speichert nur fuktioniert\/ funktioniert nicht. \\
+Die betroffenen Datenbankfelder wären also: GUID, JOBNAME, JOBTYPE, PROTOCOL, OUTSTATE, Start Time, Stop Time, Delay Time,
+\item Hosts\\
+Die Hosts werden mittels DHCP und ARP aus dem Netzwerk gefischt. Da DHCP nur neu hinzukommende Hosts auffangen kann, wurde ARP implementiert, welches alle findet. Diese werden dann in die Datenbank gespeichert. Durch regelmäßiges anpingen der Hosts wird deren Aktivität überprüft. 
+Auch die Möglichkeit Hosts manuell einzutragen wird gegeben sein. \\
+Die betroffenen Datenbankfelder wären also: GUID, HOST, IP, MAC, OUTSTATE
+\item Traffic\\
+Eine weitere Funktionalität ermöglicht das Auslesen von ausgehendem Traffic eines Hosts via SNMP.  Auch dieser wird dann in der Tabelle abgespeichert.\\
+Die betroffenen Datenbankfelder wären also: GUID, JOBNAME, JOBTYPE, PROTOCOL, Description, Start Time, Stop Time, Delay Time
+\end{itemize}
+Die Datenbank besteht aus zwölf verschiedenen Tabellen. Die Namen der Tabellen sagen aus, welche Inhalte in ihnen gespeicher werden. Es wurden zwölf Tabellen erstellt um das System deterministisch zu halten, damit keine weiteren Veränderung in der Datenbank vorgenommen werden müssen (erstellen weiterer Tabellen).\\
+
+Alle Tabellen, bis auf die Tabellen JobTable und MemoTable, bestehen aus zwei Datenfelden. Das erste Datenfeld ist immer eine ID, welche den primary key vom Typ Integer darstellt, das zweite ist immer ein Feld vom Typ Text, dessen Inhalt gleich dem jeweiligen Namen der Tabelle entspricht.\\
+
+Zur eindeutigen Identifikation wurden sogenannte Globally Unique Identifier (GUID) vergeben. Diese sind Integers mit einer Länge von 128 Bit (16 Byte), dadurch konnte man garantieren, dass bei einer Vielzahl an Geräten immer noch jedes eindeutig identifizierbar ist und damit die dazugehörigen Informationen.
+\subsection{Tabellen}
 \subsubsection{GUIDNodeTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item GUID\_ NODE vom Typ Text
 \end{enumerate}
+In dieser Tabelle wird jeder GUID von jeder Node eine ID zugewiesen. Dieser Schritt ist von Vorteil, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
 \subsubsection{GUIDJobTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item GUID\_ JOB vom Typ Text
 \end{enumerate}
+In dieser Tabelle wird jeder GUID von jedem Job eine ID zugewiesen. Der Vorteil ist der gleiche wie bei der GUIDNodeTable, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
 \subsubsection{HostTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item HOST vom Typ Text
 \end{enumerate}
+Alle sich im Netzwerk befinden Hosts werden in dieser Tabelle gespeichert. Jedem Host wird eine ID zugeordnet. Diese wird verwendet um die Hosts mit den dazugehörigen Informationen miteinander in der Tabelle JobTable zu verknöpfen.
 \subsubsection{IPTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
-\item IP vom Typ text
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
+\item IP vom Typ Text
 \end{enumerate}
+In dieser Tabelle werden IP- Adressen gespeichert. Diese werden dann einer ID zugeordnet um dann in der JobTable mit den restlichen Daten verknüpft werden zu können.
 \subsubsection{MACTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item MAC vom Typ Text
 \end{enumerate}
+In dieser Tabelle werden MAC- Adressen (Hardware- Adressen), der im Netzwerk sich befindenden Geräte, gespeichert. Jede MAC- Adresse wird einer ID zugeordnet, welche zur späteren Verknüpfung in der JobTable dient.
 \subsubsection{JobNameTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item JOBNAME vom Typ Text
 \end{enumerate}
+Jobnamen werden vom Administrator übergeben, welche in dieser Tabelle gespeichert werden. Die Zuweisung zu einer ID erfolg ebenfalls um die Verknüpfung der Daten in der JobTable zu gewährleisten.
 \subsubsection{JobTypeTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item JOBTYPE vom Typ Text
 \end{enumerate}
+In dieser Tabelle werden Jobtypen abgespeichert (Ping, SNTP, ...) und einer ID zugeordnet um die Verknüpfung der Daten in der JobTable zu ermöglichen.
 \subsubsection{ProtocolTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item PROTOCOL vom Typ Text
 \end{enumerate}
+In dieser Tabelle werden Protokolle einer ID zugewiesen. Diese werden dann wieder in der JobTabele mit den restlichen dazugehörigen Informationen verbunden.
 \subsubsection{OutStateTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item OUTSTATE vom Typ Text
 \end{enumerate}
+In dieser Tabelle wird der Zustand eines Geräts gespeichert (aktiv, inaktiv, Gründe dafür, ...) und einer ID zugeordnet. Damit eine Zuordnung zu den restlichen Daten in der Tabelle JobTable erfolgen kann.
 \subsubsection{MemoTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer
-\item MEMO1 vom Typ Text, hier werden kurze Notizen vom Administrator zu besimmten Geräten gespeichert
-\item MEMO2 vom Typ Text, hier werden lange Notizen vom Administragor gespeichert
+\item MEMO1 vom Typ Text, hier werden kurze Notizen vom Administrator zu besimmten Geräten gespeichert, dies soll eine Hilfe darstellen, welche mit einem Blick zu entnehmen ist (z.B.: Name eines Computers)
+\item MEMO2 vom Typ Text, hier werden lange Notizen vom Administragor gespeichert, dies soll eine weitere Hilfe für den Administrator darstellen, da hier dateiliertere Informationen gespeichert werden können (z.B.: genaue Angaben zu einem Gerät: genauer Standort, technische Daten, Nutzer, ...)
 \end{enumerate}
 \subsubsection{JobTable}
 Diese Tabelle besteht aus 14 Feldern:
 \begin{enumerate}
-\item ID als primary key vom Integer
+\item ID als primary key vom Integer (AUTOINCREMENT)
 \item weitere Felder vom Typ Integer: ID\_ NODE, ID\_ HOST, ID\_ IP, ID\_ MAC, ID\_ JOB, ID\_ JOBNAME, ID\_ JOBTYPE, ID\_ PROTOCOL, ID\_ OUTSTATE\\
-Diese Felder werden verwendet, um alle Daten aus den anderen Tabellen zu den dazugehörigen Daten aus anderen Tabellen zuzuordnen und diese später leichter auszugeben. Diese Verknüpfung erfolgt über eine Join-Funktione. Die Dynamik und Effizienz der Datenbank wird auf diese Weise gesteigert.
+Diese Felder werden verwendet, um alle Daten aus den anderen Tabellen zu den dazugehörigen Daten zuzuordnen und diese später leichter auszugeben. In allen Feldern vom Typ Integer werden die jeweiligen IDs der jeweiligen Information gespeichert, nur beim Alslesen der Datenbank wird dann eine Verknüpfung zu den Informationen mit der dazugehörigen ID erstellt und diese werden statt der ID ausgegeben.  Diese Verknüpfung erfolgt über eine Join-Funktione. Die Dynamik und Effizienz der Datenbank wird auf diese Weise gesteigert.
 \item Felder vom Typ Text: STARTTIME, STOPTIME, DELAYTIME, OUTDESC\\
 Hier werden alle grundlegenden Informationen zu Jobs gespeichert, welche alle Jobs betreffen.
 \end{enumerate}
-
 \subsubsection{SummaryTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item ID\_ NODE vom Typ Integer
 \item STARTTIME vom Typ Text
 \item STOPTIME vom Typ Text
@@ -2401,7 +2445,15 @@ Hier werden alle grundlegenden Informationen zu Jobs gespeichert, welche alle Jo
 \item MAX\_ DURATION vom Typ Text
 \item MIN\_ DURATION vom Typ Text
 \end{enumerate}
-Das ist eine zusätzliche Tabelle, welche nur im Fall einer Zusammenfassung der Datenbank mit Daten gefüllt wird.  Durch diese Tabelle wird gewährleistet, dass der Speicherplatz gering gehalten werden kann, weil beim Vorgang der Zusammenfassung bestimmte Daten, welche dynamisch sind, aus den anderen Tabellen gelöscht werden und als komprimierte Ergebnisse in der SummaryTable gespeichert werden.\\
+Das ist eine zusätzliche Tabelle, welche nur im Fall einer Zusammenfassung der Datenbank mit Daten gefüllt wird.  Durch diese Tabelle wird gewährleistet, dass der Speicherplatz gering gehalten werden kann, weil beim Vorgang der Zusammenfassung bestimmte Daten aus den anderen Tabellen gelöscht werden und als komprimierte Ergebnisse in der SummaryTable gespeichert werden. Bei der Zusammenfassung wird eine besstimmte Zeitspanne angegeben, welche anschließend zu einem Eintrag komprimiert wird. Befor zusammengefasst werden kann, werden bestimmte Kriterien überprüfen:
+\begin{itemize}
+\item Ist die gegebene Zeitspanne bereits zusammengefasst worden?
+\item Ist die gegebene Zeitspanne größer, als die Zeitspanne nach welche die Ausführung der Jobs stattfindet? In 
+\end{itemize}
+Wenn eine dieser Kriterien positiv ist kann keine Zusammenfassung der Daten stattfinden.
+\\Ist eine Zusammenfassung der Daten möglich muss beachtet werden, dass sämtliche Daten in der JobTable im angegebenen Zeitraum gelöscht werden.\\
+
+Es gibt jedoch die Möglichkeit den Vorgang abzubrechen, wenn die Angegebene Zeitspanne nicht ausreicht und eine andere angegeben werden will.\\
 
 Weitere Informationen zur Zusammenfassung sind im Kapitel 17 unter Anwendungsbeispiel (17.4.2 Zusammenfassung der Datenbank) zu finden.
 
@@ -2430,7 +2482,7 @@ Die Logfile selbst hat das .txt Format, damit man unter Windows leichter damit a
 \lfoot{Alin Porcic}
 \chapter{CLI}
 
-Wird das Programm mit dem Argument '-cli' gestartet, so wird statt der graphischen Oberfälche die integrierte CLI gestartet. Diese gibt am Start eine kurze Zusammenfassung der Versionen und Uhrzeiten aus. Nun können Befehle eingegeben werden. (Hinweis: Die Eingabe kann nicht über mehrere Zeilen gehen.)\\
+Wird das Programm mit dem Argument \textbf{-cli} gestartet, so wird statt der graphischen Oberfälche die integrierte CLI gestartet. Diese gibt am Start eine kurze Zusammenfassung der Versionen und Uhrzeiten aus. Nun können Befehle eingegeben werden. (Hinweis: Die Eingabe kann nicht über mehrere Zeilen gehen.)\\
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_mad.png}\\
@@ -2704,6 +2756,21 @@ Der CLI-Server ist im Hauptprogramm integriert und kann mit dem Argument '-clise
 \begin{center}
 \includegraphics[scale=0.6]{img/cli_server.png}\\
 Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
+\end{center}
+
+\part{Zeiteinteilung}
+
+\chapter{Alin Porcic}
+
+\begin{center}
+\begin{tabular}{c | c | c}
+
+\textbf{Zeitraum} & \textbf{Zeitdauer} & \textbf{Aufgaben} \\ \hline
+06.04.2014 bis 10.04.2014 & 4h & CLI-Framework: Idee und Konzept\\
+11.04.2014 bis 12.04.2014 & 3h & CLI-Server und CLI-Client: Idee und Konzept\\
+13.04.2014 bis 14.04.2014 & 6h & CLI-Framework: Design - Überlegungen
+
+\end{tabular}
 \end{center}
 
 \part{Quellverzeichnis}
