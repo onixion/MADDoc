@@ -69,11 +69,6 @@ http://www.math.uni-hamburg.de/doc/java/tutorial/essential/threads/priority.html
 http://de.wikipedia.org/wiki/Prozess-Scheduler
 
 
-
-	
-
-
-
 Database:
 =========
 Allgemeines:
@@ -83,6 +78,58 @@ Geschichte - :
 http://de.wikipedia.org/wiki/Datenbank#Geschichte
 
 Definitionen:
+http://www.datenbanken-verstehen.de/datenbanken/datenmodellierung/primaerschluessel/
+http://de.wikipedia.org/wiki/Schl%C3%BCssel_%28Datenbank%29#Sekund.C3.A4rschl.C3.BCssel
+http://de.wikipedia.org/wiki/Schl%C3%BCssel_%28Datenbank%29#Stellvertretender_Schl.C3.BCssel
+http://de.wikipedia.org/wiki/Schl%C3%BCssel_%28Datenbank%29#Fremdschl.C3.BCssel
+
 
 
 Datenbanksysteme:
+http://de.wikipedia.org/wiki/Datenbank#Komponenten_eines_Datenbanksystems
+
+
+Zugriffe:
+Zugriffsmöglichkeiten:
+http://de.wikipedia.org/wiki/Datenbank#Anfrageoptimierung
+
+Sicherheit:
+http://de.wikipedia.org/wiki/Datenbank#Datensicherheit
+http://de.wikipedia.org/wiki/Datenbank#Transaktionen
+http://de.wikipedia.org/wiki/Datenbank#Datenintegrit.C3.A4t
+http://de.wikipedia.org/wiki/Datenbank#Anwendungsunterst.C3.BCtzung
+
+Gleichzeitiger Zugriff:
+http://de.wikipedia.org/wiki/Datenbank#Mehrbenutzerf.C3.A4higkeit
+
+Sprachen:
+http://de.wikipedia.org/wiki/Datenbank#Sprachen
+
+
+RDBMS:
+http://de.wikipedia.org/wiki/Relationale_Datenbank
+
+Alternative DBMS:
+http://de.wikipedia.org/wiki/Objektdatenbank
+http://de.wikipedia.org/wiki/Dokumentenorientierte_Datenbank
+http://www.datenbanken-verstehen.de/datenbanken/datenbank-grundlagen/datenbankmodell/netzwerkdatenbankmodell/
+http://de.wikipedia.org/wiki/Hierarchisches_Datenbankmodell
+
+SQLite:
+http://en.wikipedia.org/wiki/SQLite
+
+
+Eigenschaften-SQLite:
+https://www.sqlite.org/features.html
+
+SQLite-Geschichte:
+http://en.wikipedia.org/wiki/SQLite#History
+
+SQLite-Syntax:
+
+SQLite-Syntax:
+http://www.tutorialspoint.com/sqlite/sqlite_using_joins.htm
+
+SQLite: Vor- und Nachteile
+http://www.webspan.de/mysql-oder-sqlite/
+
