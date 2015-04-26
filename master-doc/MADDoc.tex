@@ -41,13 +41,13 @@ Abteilung Höhere Elektronik und Technische Informatik\\
 \begin{onehalfspace}
 
 \chapter{Vorwort}
-Die Welt befindet sich momentan im großen Wandel: Die Entwicklung von Informationstechnologien lässt nicht nach, im Gegenteil, sie steigt mit exponentieller Geschwindigkeit an und ein Ende ist nicht in Sicht. Das Internet beschränkt sich inzwischen nicht mehr nur im Geschäftswesen oder gar Universitäten, sondern hält Einzug in Bereiche, die man sich bei der Entstehung desselben nie ausgemalt hätte. Selbst Haushaltsgeräte, Uhren oder Autos können inzwischen über das Internet kommunizieren. Es ist inzwischen unmöglich geworden den technischen Stand vorrauszusagen.
+Die Welt befindet sich momentan im großen Wandel: Die Entwicklung von Informationstechnologien lässt nicht nach, im Gegenteil, sie steigt mit exponentieller Geschwindigkeit an und ein Ende ist nicht in Sicht. Das Internet beschränkt sich inzwischen nicht mehr nur im Geschäftswesen oder gar Universitäten, sondern hält Einzug in Bereiche, die man sich bei der Entstehung desselben nie ausgemalt hätte. Selbst Haushaltsgeräte oder Autos können inzwischen über das Internet kommunizieren. Es ist inzwischen unmöglich geworden den technischen Stand vorrauszusagen.\\
 
 Die anstehende Diplomarbeit, welche uns mit einer großen Herausforderung und wertvollen Erfahrungen lockte, sowie das bestehende Interesse in der Netzwerktechnik und der Programmierung waren der Anstoß für erste Gespräche innerhalb des Freundeskreises.\\
 Die zahlreichen Projekte, welche wir bereits gemeinsam bestritten, stimmten uns aufeinander ab. Zusammen mit der Freundschaft, die sich über die Jahre bildete, fiel es uns leicht ein Team zu bilden.\\
 
 Als Nächstes war es an uns, einen geeigneten Betreuer zu finden. Trotz großem Spektrums an verschiedensten Lehrern, fiel die Entscheidung schlussendlich auf Dr. Prof. Weiss, welchen wir bereits im Jahr zuvor kennen lernen durften.\\
-Seine Gelassenheit und große Kompetenz, die er in Fächern wie Informatik und vor allem Netzwerklabor zeigte, beeindruckten uns.\\
+Seine Gelassenheit und große Kompetenz, die er in Fächern wie Informatik und vor allem Netzwerklabor zeigte, beeindruckten uns. statu\\
 
 Als wir bei einem ersten Gespräch ihm unsere Interessen und bisherigen Gedankengänge aufzeigten, entwickelte er mit uns zusammen schließlich die Idee unsere Interessen zu kombinieren und ein Programm zu entwickeln, das in der Lage ist ein Netzwerk zu überwachen.
 \end{onehalfspace}
@@ -61,8 +61,25 @@ Als wir bei einem ersten Gespräch ihm unsere Interessen und bisherigen Gedanken
 \chapter{Aufgabenstellung}
 \lfoot{Alin Porcic}
 
-Das Ziel dieser Diplomarbeit ist das Erstellen eines Programmes, welches in einem privaten Netzwerk (max. 50 Netzwerkgeräte) Serverdienste überwachen kann und bei der Nicht-Einhaltung bestimmter Regeln eine Benachrichtigung in Form einer E-Mail abschicken kann. Das Programm soll aus einer Konfigurationsdatei beim Programmstart die benötigten Parameter laden und die Benutzung soll über eine text-basierende Schnittstelle erfolgen. Es soll auch eine graphische Schnittstelle implementiert werden, die eine einfache Übersicht über die Aufgaben und Geräte anbietet. Zudem muss es möglich sein, sich über das Netzwerk auf das Programm zu verbinden. Die Verwendung des Programmes soll lokal als auch remote den gleichen Funktionsumfang bieten.
-Die Resultate der Überwachungen sollen in einer Datenbank lokal abgespeichert werden und es soll möglich sein, eine große Ansammlung an gespeicherten Daten zusammenzufassen, um den Speicherbedarf zu reduzieren. Die Auswahl der Programmiersprache ist frei, jedoch soll das Programm auf Windows als auch auf Linux lauffähig sein.
+\section{Ziel}
+
+Das Ziel dieser Diplomarbeit ist das Erstellen eines Programmes, welches in einem privaten Netzwerk (max. 50 Netzwerkgeräte) Serverdienste überwachen kann und bei der Nichteinhaltung bestimmter Regeln, die vom Nutzer definiert werden können, eine Benachrichtigung in Form einer E-Mail abschicken kann.
+
+\section{Schnittstellen}
+
+Für die Benutzung des Programmes soll eine textbasierende Schnittstelle implementiert werden, die als primäre Interaktion mit dem Programm dient. Die vollständige Überwachung aller Aufgaben und Geräte soll über diese Schnisttelle möglich sein.\\
+
+Es soll auch die Möglichkeit bestehen, die textbasierende Schnittstelle über das Netzwerk zu nutzen. Daher muss diese Schnittstelle als Netzwerkservice implementiert werden und es wird eine Client-Software benötigt, die die gesendeten Daten anzeigen kann.\\
+
+Neben der textbasierten Schnittstelle soll eine graphische Schnittstelle implementiert werden, die eine alternative Benutzung des Programmes ermöglichen soll. Der Funktionsumfang der graphischen Oberfläche beschränkt sich mit der Anzeige einer Übersicht der Aufgaben und Geräte.
+
+\section{Andere Vorraussetzungen}
+
+Das Programm soll auf Windows als auch auf Linux lauffähig sein. Die Benutzung soll sich auf den zwei verschiedenen Betriebssystemen nicht unterscheiden.\\
+
+Die Resulate der Überwachungen sollen in einer Datenbank lokal abgespeichert werden. Die Möglichkeit die Datensätze der Datenbank zusammenzufassen, soll implementiert werden, um den Speicherbedarf zu verringern.\\
+
+Die Änderungen des IP-Adressen von Netzwerkgeräte im Netzwerk soll automatisch im Programm geändert werden.\\
 
 \chapter{Abstract}
 lorem ipsum
@@ -1451,31 +1468,31 @@ der Terminalemulator 'Xfce-Terminal' mit Bash
 Windows Powershell
 \end{center}
 
-Bei unixähnlichen Betriebssystemen wird der Begriff \textbf{Terminal} häufig mit CLI in Verbindung gebracht. Ein Terminal (oder auch Konsole) war ein Gerät, das die Eingaben und Ausgaben von Daten an einem Computer in Textform ermöglichte. Da diese Geräte heute eher störend und nutzlos sind, werden sie in Software emuliert, daher spricht man auch von \textbf{Terminalemulatoren}. Die Hauptaufgaben von diesen Emulatoren sind die richtige Darstellung der Textkodierung, die Darstellung von Farben, das Erkennen von Escape-Sequenzen und das Einlesens von Eingaben - die CLI hingegen, ist für die vollständige Interpretation sowie der Ausführung zuständig. (vgl. http://de.wikipedia.org/wiki/Terminalemulation)\\
+Bei unixähnlichen Betriebssystemen wird der Begriff \textbf{Terminal} häufig mit CLI in Verbindung gebracht. Ein Terminal (oder auch Konsole) war ein Gerät, das die Eingaben und Ausgaben von Daten an einem Computer in Textform ermöglichte. Da diese Geräte heute eher störend und nutzlos sind, werden sie in Software emuliert, daher spricht man auch von \textbf{Terminalemulatoren}. Die Hauptaufgaben von diesen Emulatoren sind die richtige Darstellung der Textkodierung, die Darstellung von Farben, das Erkennen von Escape-Sequenzen und das Einlesens von Eingaben - die CLI hingegen, ist für die vollständige Interpretation sowie der Ausführung zuständig. \cite{wiki5}\\
 
-Grundsätzlich wurden die textbasierten Schnittstellen im Desktop-Bereich vollständig durch die grafischen Schnittstellen abgelöst, aber im Netzwerkbereich sind textbasierte Schnittstellen durch ihre enorme Flexibilität und ihren minimalen Ressourcenverbrauch immer noch häufig anzutreffen (z.B. pfSense, Cisco-Router/Switches). Die primäre Kommunikation mit unixähnliche Betriebssystemen hat sich bis heute nicht geändert und erfolgt immer noch über Kommandozeileninterpreter. Bei diesen Systemen ist die CLI ein fester Bestandteil, die Interaktion basiert fast ausschließlich über die textbasierte Schnittstelle, grafische Oberflächen hingegen, sind meist nur optioanle Zusatzsoftware. (vgl. http://en.wikipedia.org/wiki/Command-line\_interface)\\ 
+Grundsätzlich wurden die textbasierten Schnittstellen im Desktop-Bereich vollständig durch die grafischen Schnittstellen abgelöst, aber im Netzwerkbereich sind textbasierte Schnittstellen durch ihre enorme Flexibilität und ihren minimalen Ressourcenverbrauch immer noch häufig anzutreffen (z.B. pfSense, Cisco-Router/Switches). Die primäre Kommunikation mit unixähnliche Betriebssystemen hat sich bis heute nicht geändert und erfolgt immer noch über Kommandozeileninterpreter. Bei diesen Systemen ist die CLI ein fester Bestandteil, die Interaktion basiert fast ausschließlich über die textbasierte Schnittstelle, grafische Oberflächen hingegen, sind meist nur optioanle Zusatzsoftware. \cite{wiki6}\\ 
 
-Erfahrene Nutzer greifen auch heute immer noch zu Kommandozeileninterpreter, da sie eine schnellere und direkte Kontrolle über die Ausführung von Programmen haben. Zudem besteht die Möglichkeit Programme mithilfe von \textbf{Scripts} zu kombinieren oder die Ausgaben von Programmen in anderen zu leiten. (vgl. http://de.wikipedia.org/wiki/Kommandozeileninterpreter)
+Erfahrene Nutzer greifen auch heute immer noch zu Kommandozeileninterpreter, da sie eine schnellere und direkte Kontrolle über die Ausführung von Programmen haben. Zudem besteht die Möglichkeit Programme mithilfe von \textbf{Scripts} zu kombinieren oder die Ausgaben von Programmen in anderen zu leiten. \cite{wiki07}
 
 \subsection{Geschichte}
 
-Die aller ersten Computer unterstützten keine Interaktiven Eingabe- oder Ausgabegeräte und daher war die Überwachung von Programmen nur mithilfe von Kontrolllampen und Schaltern möglich. Ab 1960 wurden die textbasierten Schnittstellen für die Interaktion eingeführt. Die Befehle für diese textbasierten Schnittstellen konnten mithilfe von Fernschreibern, wie der \textbf{Teletype Model 33 ASR}, auf Lochkarten gestanzt werden und von der Schnittstelle eingelesen, interpretiert und ausgeführt werden. (vgl. http://en.wikipedia.org/wiki/Command-line\_interface und http://de.wikipedia.org/wiki/ASR-33) \\
+Die aller ersten Computer unterstützten keine Interaktiven Eingabe- oder Ausgabegeräte und daher war die Überwachung von Programmen nur mithilfe von Kontrolllampen und Schaltern möglich. Ab 1960 wurden die textbasierten Schnittstellen für die Interaktion eingeführt. Die Befehle für diese textbasierten Schnittstellen konnten mithilfe von Fernschreibern, wie der \textbf{Teletype Model 33 ASR}, auf Lochkarten gestanzt werden und von der Schnittstelle eingelesen, interpretiert und ausgeführt werden. \cite{wiki06} \cite{wiki08} \\
 
 \begin{center}
 \includegraphics[scale=0.52]{img/teletype.jpg}\\
-Teletype Model 33 ASR (Quelle: http://de.wikipedia.org/wiki/ASR-33)
+Teletype Model 33 ASR \cite{wiki08}
 \end{center}
 
 Anfangs der 1970er Jahre begann das Unternehmen Bell Labs die Entwicklung eines Betriebssystems namens \textbf{Unix}. Unix besaß eine mächtige CLI-Umgebung und konnte durch sogenannte \textbf{Pipes} die Ausgaben von Programmen umleiten. Auch Scripts konnten geschrieben und ausgeführt werden. Der Einsatz von Terminals sorgte für die Aussterbung der Fernschreiber. Terminals waren Geräte, die die Möglichkeit boten, Daten über eine Tastatur einzugeben und die Daten über einen Bildschirm in Textform oder auch Grafik auszugeben. Zudem boten die Termianls durch die serielle Verbindung mehr Bandbreite und konnten einfacher in ein Unternehmen eingesetz werden. Das VT100 war ein ASCII-Computer-Terminal, dass zwischen 1979 bis 1983 verkauft wurde.\\
 
 \begin{center}
 \includegraphics[scale=2.0]{img/vt100.jpg}\\
-VT100 (Quelle: http://de.wikipedia.org/wiki/Terminal\_(Computer))
+VT100 \cite{wiki09}
 \end{center}
 
-Die Terminals wurden jedoch schon 1977 durch den Einsatz von \textbf{Personal Computer} ersetzt. Seitdem werden richtige Terminals nicht mehr eingesetzt, sondern werden in Software emuliert. Richtige Terminals sind sehr unhandlich, brauchen Platz und müssen an den Computer angeschlossen werden. (vgl. http://de.wikipedia.org/wiki/Terminal\_(Computer))\\
+Die Terminals wurden jedoch schon 1977 durch den Einsatz von \textbf{Personal Computer} ersetzt. Seitdem werden richtige Terminals nicht mehr eingesetzt, sondern werden in Software emuliert. Richtige Terminals sind sehr unhandlich, brauchen Platz und müssen an den Computer angeschlossen werden. \cite{wiki09}\\
 
-Obwohl der Einsatz von textbasierten Schnittstellen nachgelassen hat, finden sie immer noch große Verwendung. Einige Betriebssysteme (Windows, Mac OS, ...) und auch einige Programme (QEMU, CodeBlocks, Eclipse, ...) bieten neben ihren graphischen Oberflächen auch alternative textbasierte Schnittstellen an. Bei \textbf{Embedded Systems} werden auch häufig auf CLIs zurückgegriffen, da sie sehr Ressourcen freundlich sind, aber auch Android-Smartphones, Router und Switches machen sich die Vorteile der CLI zu nutze.(vgl. http://en.wikipedia.org/wiki/Command-line\_interface\#Early\_history)
+Obwohl der Einsatz von textbasierten Schnittstellen nachgelassen hat, finden sie immer noch große Verwendung. Einige Betriebssysteme (Windows, Mac OS, ...) und auch einige Programme (QEMU, CodeBlocks, Eclipse, ...) bieten neben ihren graphischen Oberflächen auch alternative textbasierte Schnittstellen an. Bei \textbf{Embedded Systems} werden auch häufig auf CLIs zurückgegriffen, da sie sehr Ressourcen freundlich sind, aber auch Android-Smartphones, Router und Switches machen sich die Vorteile der CLI zu nutze. \cite{wiki06}
 
 \subsection{Vor- und Nachteile}
 
@@ -1488,7 +1505,6 @@ Sehr erfahrene Nutzer arbeiten ausschließlich über die textbasierte Schnittste
 Der sicherlich größte Nachteil der CLI ist das der Benutzer die Befehle, die Parameter und die Argumente kennen muss. In seltenen Fällen müssen sogar die Parameter in der richtigen Reihenfolge angeben werden. Bei sehr vielen Befehlen kann man schnell den Überblick verlieren und unerfahrene Nutzer verlieren schnell die Interesse die notwendigen Befehle herauszusuchen.\\
 
 Ein weiterer Problem ist das Nutzen von graphischen Diensten wie zum Beispiel das Surfen im Internet oder die Nutzung von Multimedia Daten. Es besteht die Möglichkeit auf grafischen Terminals Bilder oder Dokumente anzuzeigen, jedoch sind diese nicht sehr handlich, da immer nur ein Dokument zugleich geöffnet werden kann.\\
-
 
 \lfoot{Marko Stojanovi\'{c}}
 \chapter{Datenbank (Marko Stojanovi\'{c})}
@@ -1927,7 +1943,7 @@ Vor mehr als 2500 Jahren hat man einen \textbf{Skytale} für die Verschlüsselun
 
 \begin{center}
 \includegraphics[scale=0.3]{img/krypto_skytale.png}\\
-Ein Skytale (Quelle: http://de.wikipedia.org/wiki/Skytale).
+ein Skytale \cite{wiki10}
 \end{center}
 
 Ein weiteres monoalphabetisches Verfahren ist die \textbf{Caesar-Verschlüsselung}. Dieses Verfahren verschob alle Buchstaben des Klartextalphabets um eine bestimmte Zahl. Der Kommunikationspartner musste über die Anzahl der Verschiebungen informiert sein, da dieser sonst den Text nicht entschlüsseln konnte. Der Schlüssel, also die Anzahl der Verschiebungen, musste dem Kommunikationsparnter über einen sicheren Kanal übermittelt werden. \cite{krypto01}\\
@@ -2348,113 +2364,69 @@ Zur eindeutigen Identifikation wurden sogenannte Globally Unique Identifier (GUI
 \item GUID\_ NODE vom Typ Text
 \end{enumerate}
 In dieser Tabelle wird jeder GUID von jeder Node eine ID zugewiesen. Dieser Schritt ist von Vorteil, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-guid-node.png}\\
-GUIDNodeTable mit drei Nodes (bzw. deren GUID) und der dazugehörigen ID.
-\end{center}
 \subsubsection{GUIDJobTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item GUID\_ JOB vom Typ Text
 \end{enumerate}
 In dieser Tabelle wird jeder GUID von jedem Job eine ID zugewiesen. Der Vorteil ist der gleiche wie bei der GUIDNodeTable, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-guid-job.png}\\
-GUIDJobTable mit drei Jobs (bzw. deren GUID) und der dazugehörigen ID. 
-\end{center}
 \subsubsection{HostTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item HOST vom Typ Text
 \end{enumerate}
 Alle sich im Netzwerk befinden Hosts werden in dieser Tabelle gespeichert. Jedem Host wird eine ID zugeordnet. Diese wird verwendet um die Hosts mit den dazugehörigen Informationen miteinander in der Tabelle JobTable zu verknöpfen.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-host.png}\\
-HostTable mit zwei Einträgen.
-\end{center}
 \subsubsection{IPTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item IP vom Typ Text
 \end{enumerate}
 In dieser Tabelle werden IP- Adressen gespeichert. Diese werden dann einer ID zugeordnet um dann in der JobTable mit den restlichen Daten verknüpft werden zu können.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-ip.png}\\
-IPTable mit nur einem Eintrag der lokalen IP- Adresse.
-\end{center}
 \subsubsection{MACTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item MAC vom Typ Text
 \end{enumerate}
 In dieser Tabelle werden MAC- Adressen (Hardware- Adressen), der im Netzwerk sich befindenden Geräte, gespeichert. Jede MAC- Adresse wird einer ID zugeordnet, welche zur späteren Verknüpfung in der JobTable dient.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-mac.png}\\
-MACTable mit bisher nur einem Eintrag, da nur ein Gerät im Netzwerk vorhanden.
-\end{center}
 \subsubsection{JobNameTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item JOBNAME vom Typ Text
 \end{enumerate}
 Jobnamen werden vom Administrator übergeben, welche in dieser Tabelle gespeichert werden. Die Zuweisung zu einer ID erfolg ebenfalls um die Verknüpfung der Daten in der JobTable zu gewährleisten.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-jobname.png}\\
-JobNameTable mit bisher zwei Einträgen (TEST, TEST2).
-\end{center}
 \subsubsection{JobTypeTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item JOBTYPE vom Typ Text
 \end{enumerate}
 In dieser Tabelle werden Jobtypen abgespeichert (Ping, SNTP, ...) und einer ID zugeordnet um die Verknüpfung der Daten in der JobTable zu ermöglichen.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-jobtype.png}\\
-JobTypeTable mit einem bisher verwendeten JobType Eintrag (Ping), da beide bisher verwendeten Jobs vom gleichen Typ waren.
-\end{center}
 \subsubsection{ProtocolTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item PROTOCOL vom Typ Text
 \end{enumerate}
 In dieser Tabelle werden Protokolle einer ID zugewiesen. Diese werden dann wieder in der JobTabele mit den restlichen dazugehörigen Informationen verbunden.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-protocol.png}\\
-ProtocolTable mit dem einem Eintrag, da nur gepingt wurde.
-\end{center}
 \subsubsection{OutStateTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item OUTSTATE vom Typ Text
 \end{enumerate}
-In dieser Tabelle wird der Zustand eines Jobs gespeichert (success, ...) und einer ID zugeordnet. Damit eine Zuordnung zu den restlichen Daten in der Tabelle JobTable erfolgen kann.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-out.png}\\
-OutStateTable mit einem success Eintrag, da bisher keine Fehlversuche.
-\end{center}
+In dieser Tabelle wird der Zustand eines Geräts gespeichert (aktiv, inaktiv, Gründe dafür, ...) und einer ID zugeordnet. Damit eine Zuordnung zu den restlichen Daten in der Tabelle JobTable erfolgen kann.
 \subsubsection{MemoTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer
 \item MEMO1 vom Typ Text, hier werden kurze Notizen vom Administrator zu besimmten Geräten gespeichert, dies soll eine Hilfe darstellen, welche mit einem Blick zu entnehmen ist (z.B.: Name eines Computers)
 \item MEMO2 vom Typ Text, hier werden lange Notizen vom Administragor gespeichert, dies soll eine weitere Hilfe für den Administrator darstellen, da hier dateiliertere Informationen gespeichert werden können (z.B.: genaue Angaben zu einem Gerät: genauer Standort, technische Daten, Nutzer, ...)
 \end{enumerate}
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-memo.png}\\
-MemoTable mit einem Eintrag über einen Computer.
-\end{center}
 \subsubsection{JobTable}
 Diese Tabelle besteht aus 14 Feldern:
 \begin{enumerate}
 \item ID als primary key vom Integer (AUTOINCREMENT)
-\item weitere Felder vom Typ Integer: ID\_ NODE, ID\_ HOST, ID\_ IP, ID\_ MAC, ID\_ JOB, ID\_ JOBNAME, ID\_ JOBTYPE, ID\_ PROTOCOL, ID\_ OUTDESC\\
+\item weitere Felder vom Typ Integer: ID\_ NODE, ID\_ HOST, ID\_ IP, ID\_ MAC, ID\_ JOB, ID\_ JOBNAME, ID\_ JOBTYPE, ID\_ PROTOCOL, ID\_ OUTSTATE\\
 Diese Felder werden verwendet, um alle Daten aus den anderen Tabellen zu den dazugehörigen Daten zuzuordnen und diese später leichter auszugeben. In allen Feldern vom Typ Integer werden die jeweiligen IDs der jeweiligen Information gespeichert, nur beim Alslesen der Datenbank wird dann eine Verknüpfung zu den Informationen mit der dazugehörigen ID erstellt und diese werden statt der ID ausgegeben.  Diese Verknüpfung erfolgt über eine Join-Funktione. Die Dynamik und Effizienz der Datenbank wird auf diese Weise gesteigert.
 \item Felder vom Typ Text: STARTTIME, STOPTIME, DELAYTIME, OUTDESC\\
 Hier werden alle grundlegenden Informationen zu Jobs gespeichert, welche alle Jobs betreffen.
 \end{enumerate}
-\begin{center}
-\includegraphics[scale=0.5]{img/db-tb-job.png}\\
-JobTable mit echten Einträgen - durch das Auslesen der Tabelle im Programm werden ID\_ NODE, ID\_ HOST, ID\_ IP, ID\_ MAC, ID\_ JOB, ID\_ JOBNAME, ID\_ JOBTYPE, ID\_ PROTOCOL, ID\_ OUTDESC mit den richtigen Informationen angezeigt.
-\end{center}
 \subsubsection{SummaryTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
@@ -2474,9 +2446,9 @@ Das ist eine zusätzliche Tabelle, welche nur im Fall einer Zusammenfassung der 
 Wenn eine dieser Kriterien positiv ist kann keine Zusammenfassung der Daten stattfinden.
 \\Ist eine Zusammenfassung der Daten möglich muss beachtet werden, dass sämtliche Daten in der JobTable im angegebenen Zeitraum gelöscht werden.\\
 
-Es gibt jedoch die Möglichkeit den Vorgang abzubrechen, wenn die Angegebene Zeitspanne nicht ausreicht und eine andere angegeben werden will.
+Es gibt jedoch die Möglichkeit den Vorgang abzubrechen, wenn die Angegebene Zeitspanne nicht ausreicht und eine andere angegeben werden will.\\
 
-Ein Beispiel und weitere Informationen zur Zusammenfassung sind im Kapitel 19 unter Anwendungsbeispiel (19.4.2 Zusammenfassung der Datenbank) zu finden.
+Weitere Informationen zur Zusammenfassung sind im Kapitel 17 unter Anwendungsbeispiel (17.4.2 Zusammenfassung der Datenbank) zu finden.
 
 \lfoot{Ranalter Daniel}%--------------------------------------------------------------------------------------------
 
@@ -2872,9 +2844,9 @@ Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
 12.10.2014 & 2h & JobSystem vereinfacht, Clean-Coding\\
 18.12.2014 bis 20.12.2014 & 8h &CLI-Befehle für Datenbank implementiert\\
 27.12.2014 & 2h & CLI-Befehle verbessert und erweitert\\
-05.02.2014 & 4h &letzte Verbesserungen am Programm\\
+05.02.2015 & 4h &letzte Verbesserungen am Programm\\
  \hline \hline
-06.04.2014 bis 12.10.2014 &199h&\\ \hline
+06.04.2014 bis 05.02.2015 &205h&\\ \hline
 
 \end{tabular}
 \end{center}
