@@ -58,7 +58,11 @@ Als wir bei einem ersten Gespräch ihm unsere Interessen und bisherigen Gedanken
 \pagestyle{fancy}
 \begin{onehalfspace}
 \chapter{Aufgabenstellung}
-lorem ipsum
+\lfoot{Alin Porcic}
+
+Das Ziel dieser Diplomarbeit ist das Erstellen eines Programmes, welches in einem privaten Netzwerk (max. 50 Netzwerkgeräte) Serverdienste überwachen kann und bei der Nicht-Einhaltung bestimmter Regeln eine Benachrichtigung in Form einer E-Mail abschicken kann. Das Programm soll aus einer Konfigurationsdatei beim Programmstart die benötigten Parameter laden und die Benutzung soll über eine text-basierende Schnittstelle erfolgen. Es soll auch eine graphische Schnittstelle implementiert werden, die eine einfache Übersicht über die Aufgaben und Geräte anbietet. Zudem muss es möglich sein, sich über das Netzwerk auf das Programm zu verbinden. Die Verwendung des Programmes soll lokal als auch remote den gleichen Funktionsumfang bieten.
+Die Resultate der Überwachungen sollen in einer Datenbank lokal abgespeichert werden und es soll möglich sein, eine große Ansammlung an gespeicherten Daten zusammenzufassen, um den Speicherbedarf zu reduzieren. Die Auswahl der Programmiersprache ist frei, jedoch soll das Programm auf Windows als auch auf Linux lauffähig sein.
+
 \chapter{Abstract}
 lorem ipsum
 \chapter{Einleitung}
@@ -2407,7 +2411,7 @@ Die Logfile selbst hat das .txt Format, damit man unter Windows leichter damit a
 \lfoot{Alin Porcic}
 \chapter{CLI}
 
-Wird das Programm mit dem Argument '-cli' gestartet, so wird statt der graphischen Oberfälche die integrierte CLI gestartet. Diese gibt am Start eine kurze Zusammenfassung der Versionen und Uhrzeiten aus. Nun können Befehle eingegeben werden. (Hinweis: Die Eingabe kann nicht über mehrere Zeilen gehen.)\\
+Wird das Programm mit dem Argument \textbf{-cli} gestartet, so wird statt der graphischen Oberfälche die integrierte CLI gestartet. Diese gibt am Start eine kurze Zusammenfassung der Versionen und Uhrzeiten aus. Nun können Befehle eingegeben werden. (Hinweis: Die Eingabe kann nicht über mehrere Zeilen gehen.)\\
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_mad.png}\\
@@ -2681,6 +2685,21 @@ Der CLI-Server ist im Hauptprogramm integriert und kann mit dem Argument '-clise
 \begin{center}
 \includegraphics[scale=0.6]{img/cli_server.png}\\
 Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
+\end{center}
+
+\part{Zeiteinteilung}
+
+\chapter{Alin Porcic}
+
+\begin{center}
+\begin{tabular}{c | c | c}
+
+\textbf{Zeitraum} & \textbf{Zeitdauer} & \textbf{Aufgaben} \\ \hline
+06.04.2014 bis 10.04.2014 & 4h & CLI-Framework: Idee und Konzept\\
+11.04.2014 bis 12.04.2014 & 3h & CLI-Server und CLI-Client: Idee und Konzept\\
+13.04.2014 bis 14.04.2014 & 6h & CLI-Framework: Design - Überlegungen
+
+\end{tabular}
 \end{center}
 
 \part{Quellverzeichnis}
