@@ -21,14 +21,18 @@
 \cfoot{}
 \rfoot{\thepage}
 
-\title{\textbf{MAD-Network Monitoring\\
-Diplomarbeit 2014/15}}
-\vspace{1cm}
+\title{\begin{Huge}
+\textbf{MAD-Network Monitoring\\
+Diplomarbeit 2014/15\\
+\noindent\rule{14cm}{1pt}}
+\end{Huge}}
+
+
 \author{Alin Porcic, Daniel Ranalter, Manpreet Singh, Marko Stojanovi\'{c}\\
 Betreuer: Dr. Michael Weiss\\
 Höhere Technische Bundes Lehr- und Versuchsanstalt Anichstraße\\
 Abteilung Höhere Elektronik und Technische Informatik\\
-5bHEL}
+5BHEL}
 
 \begin{document}
 \begin{singlespace}
@@ -1235,8 +1239,8 @@ Diese Stufe wird verwendet, um Leute, die von den anderen Empfängern nicht gese
 \end{itemize}  
 Die Pfeile in der obigen Abbildung 'E-Mail Header' zeigen übersichtlich die Visibilität aller Beteiligten untereinander.
 \subsection{Senden}
-Zum Senden einer E-Mail, wird ein relativ altes Protokoll verwendet, namens SMTP (Simple Mail Transfer Protocol). Es wird, dennoch Heute sehr viel verwende. Es wird weitgehend auf SMTP bzw. seine Weiterentwicklungen zurückgegrifen, da es kaum Alternativen gibt.
-\subsubsection{SMTP}
+Zum Senden einer E-Mail, wird ein relativ altes Protokoll verwendet, namens SMTP. Es wird, dennoch Heute sehr viel verwende. Es wird weitgehend auf SMTP bzw. seine Weiterentwicklungen zurückgegrifen, da es kaum Alternativen gibt.
+\subsubsection{SMTP - Simple Mail Transfer Protocol}
 Wie bereits vorher erwähnt, wird dieses Protokoll zum Versenden von E-Mails gebraucht und verwendet. 
 Eigenschaften:\\
 \begin{itemize}
@@ -1363,11 +1367,34 @@ Die einzelnen Schritt in der obigen Abbildung
 \textbf{Server:} Bestätigt Trennung der Verbindung
 \end{enumerate}
 \subsection{Empfangen}
-lorem ipsum
-\subsubsection{IMAP}
-lorem ipsum
+Das Empfangen einer E-Mail kann auf verschiedenen Wegen passieren. Einerseits IMAP andererseits POP.
+\subsubsection{IMAP - Internet Message Access Protocol}
+Eigenschaften:\\
+\begin{itemize}
+\item Port:
+\begin{itemize}
+\item 143/TCP
+\item 993/TCP\\
+für IMAPS (IMAPSecure unterscheidet sich insofern, dass anfänglich eine Verschlüsselung (siehe Kapitel \ref{chap:krypto} Seite \pageref{chap:krypto}) zwischen Client und Server ausgemacht wird.)
+
+\end{itemize}
+\item Netzwerklayer: Anwendung
+\item Dokumentation: RFC 3501
+\end{itemize}
+Es gibt bei IMAP mehrere Versionen, jedoch ist die, die heute immer noch verwendet wird, die Version IMAP4. IMAP4 ist nun seit den 90er Jahren in Verwendung.
+\paragraph{Allgemeine Funktionsweise\\}
+IMAP ermöglicht den Zugriff auf ein E-Mail Account. Hierbei bleiben die E-Mails jedoch auf dem Server und werden von den Clients nur in den Temporären Speicher geladen. Sie können dort gemanagt werden, sprich sortiert und durchsucht werden.\\
+
+Es muss aber zu jedem Zeitpunkt eine Verbindung zum Server gegeben sein. Dies hat gewisse Vorteile, aber auch Nachteile. Diese werden in der Gegenüberstellung (siehe Kapitel \ref{sssec:IMAPvsPOP} Seite \pageref{sssec:IMAPvsPOP}) näher erläutert.\\\\
+Mögliche IMAP Kommunikation zwischen Client und Server:\\
+\begin{center}
+\includegraphics[scale=0.7]{../docs/lyaton/graphics/IMAP-Kommunikation_p1.png}
+\includegraphics[scale=0.7]{../docs/lyaton/graphics/IMAP-Kommunikation_p2.png}
+\end{center}
+
 \subsubsection{POP}
 lorem ipsum
+\subsubsection{Gegenüberstellung IMAP - POP} \label{sssec:IMAPvsPOP}
 \subsection{Bedeutung im Altag}
 \subsubsection{Heute}
 lorem ipsum
@@ -2301,77 +2328,92 @@ Natürlich können die zur Auswahl stehenden Interfaces mit dem Befehl \textbf{a
 lorem ipsum
 
 \lfoot{Marko Stojanovi\'{c}}
+
 \chapter{Database von Marko Stojanovi\'{c}}
 \section{MAD-DB}
-Bei der Datenbank handelt es sich um eine relationale Datenbank, welche in C\# geschrieben wurde. Die Implementierung der SQLite- Datenbank erfolgte durch das Einbinden der "{}sqlite3.dll"{}.
-\subsection{Erklärung}
-Die Datenbank besteht aus zwölf verschiedenen Tabellen. Die Namen der Tabellen sagen aus, welche Inhalte in ihnen gespeicher werden. Es wurden zwölf Tabellen ersellt um das System deterministisch zu halten, damit keine weiteren Veränderung in der Datenbank vorgenommen werden müssen.\\
+Die Realisierung der Datenbank erfolge über SQLite. SQLite verwendet ein relationales Datenbankmanagementsystem, welches in C\# durch das Einbinden der "{}sqlite3.dll"{} konfigurierbar ist. Es werden dadurch alle Befehle von SQLite verwendet und es sind keine weiteren Installationen notwendig. Die gesamte Datenbank wird anschließend als eine Datei gespeichert.
 
-Alle Tabellen bis auf die Tabellen JobTable und MemoTable bestehen aus zwei Datenfelden. Das erste Datenfeld ist immer eine ID, welche den primary key vom Typ Integer darstellt, das zweite ist immer ein Feld vom Typ Text, dessen Inhalt gleich dem jeweiligen Namen der Tabelle entspricht. 
+\subsection{Erklärung}
+Befor das Datenbankmanagementsystem erstellt werden konnte musste geklärt werden, welche Daten gespeichert werden und in welcher Form.\\
+
+Die Datenbank besteht aus zwölf verschiedenen Tabellen. Die Namen der Tabellen sagen aus, welche Inhalte in ihnen gespeicher werden. Es wurden zwölf Tabellen erstellt um das System deterministisch zu halten, damit keine weiteren Veränderung in der Datenbank vorgenommen werden müssen (erstellen weiterer Tabellen).\\
+
+Alle Tabellen, bis auf die Tabellen JobTable und MemoTable, bestehen aus zwei Datenfelden. Das erste Datenfeld ist immer eine ID, welche den primary key vom Typ Integer darstellt, das zweite ist immer ein Feld vom Typ Text, dessen Inhalt gleich dem jeweiligen Namen der Tabelle entspricht.\\
+
+Zur eindeutigen Identifikation wurden sogenannte Globally Unique Identifier (GUID) vergeben. Diese sind Integers mit einer Länge von 128 Bit (16 Byte), dadurch konnte man garantieren, dass bei einer Vielzahl an Geräten immer noch jedes eindeutig identifizierbar ist und damit die dazugehörigen Informationen.
+\subsection{Tabellen}
 \subsubsection{GUIDNodeTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item GUID\_ NODE vom Typ Text
 \end{enumerate}
+In dieser Tabelle wird jeder GUID von jeder Node eine ID zugewiesen. Dieser Schritt ist von Vorteil, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
 \subsubsection{GUIDJobTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item GUID\_ JOB vom Typ Text
 \end{enumerate}
+In dieser Tabelle wird jeder GUID von jedem Job eine ID zugewiesen. Der Vorteil ist der gleiche wie bei der GUIDNodeTable, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
 \subsubsection{HostTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item HOST vom Typ Text
 \end{enumerate}
+Alle sich im Netzwerk befinden Hosts werden in dieser Tabelle gespeichert. Jedem Host wird eine ID zugeordnet. Diese wird verwendet um die Hosts mit den dazugehörigen Informationen miteinander in der Tabelle JobTable zu verknöpfen.
 \subsubsection{IPTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
-\item IP vom Typ text
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
+\item IP vom Typ Text
 \end{enumerate}
+In dieser Tabelle werden IP- Adressen gespeichert. Diese werden dann einer ID zugeordnet um dann in der JobTable mit den restlichen Daten verknüpft werden zu können.
 \subsubsection{MACTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item MAC vom Typ Text
 \end{enumerate}
+In dieser Tabelle werden MAC- Adressen (Hardware- Adressen), der im Netzwerk sich befindenden Geräte, gespeichert. Jede MAC- Adresse wird einer ID zugeordnet, welche zur späteren Verknüpfung in der JobTable dient.
 \subsubsection{JobNameTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item JOBNAME vom Typ Text
 \end{enumerate}
+Jobnamen werden vom Administrator übergeben, welche in dieser Tabelle gespeichert werden. Die Zuweisung zu einer ID erfolg ebenfalls um die Verknüpfung der Daten in der JobTable zu gewährleisten.
 \subsubsection{JobTypeTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item JOBTYPE vom Typ Text
 \end{enumerate}
+In dieser Tabelle werden Jobtypen abgespeichert (Ping, SNTP, ...) und einer ID zugeordnet um die Verknüpfung der Daten in der JobTable zu ermöglichen.
 \subsubsection{ProtocolTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item PROTOCOL vom Typ Text
 \end{enumerate}
+In dieser Tabelle werden Protokolle einer ID zugewiesen. Diese werden dann wieder in der JobTabele mit den restlichen dazugehörigen Informationen verbunden.
 \subsubsection{OutStateTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item OUTSTATE vom Typ Text
 \end{enumerate}
+In dieser Tabelle wird der Zustand eines Geräts gespeichert (aktiv, inaktiv, Gründe dafür, ...) und einer ID zugeordnet. Damit eine Zuordnung zu den restlichen Daten in der Tabelle JobTable erfolgen kann.
 \subsubsection{MemoTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer
-\item MEMO1 vom Typ Text, hier werden kurze Notizen vom Administrator zu besimmten Geräten gespeichert
-\item MEMO2 vom Typ Text, hier werden lange Notizen vom Administragor gespeichert
+\item MEMO1 vom Typ Text, hier werden kurze Notizen vom Administrator zu besimmten Geräten gespeichert, dies soll eine Hilfe darstellen, welche mit einem Blick zu entnehmen ist (z.B.: Name eines Computers)
+\item MEMO2 vom Typ Text, hier werden lange Notizen vom Administragor gespeichert, dies soll eine weitere Hilfe für den Administrator darstellen, da hier dateiliertere Informationen gespeichert werden können (z.B.: genaue Angaben zu einem Gerät: genauer Standort, technische Daten, Nutzer, ...)
 \end{enumerate}
 \subsubsection{JobTable}
 Diese Tabelle besteht aus 14 Feldern:
 \begin{enumerate}
-\item ID als primary key vom Integer
+\item ID als primary key vom Integer (AUTOINCREMENT)
 \item weitere Felder vom Typ Integer: ID\_ NODE, ID\_ HOST, ID\_ IP, ID\_ MAC, ID\_ JOB, ID\_ JOBNAME, ID\_ JOBTYPE, ID\_ PROTOCOL, ID\_ OUTSTATE\\
-Diese Felder werden verwendet, um alle Daten aus den anderen Tabellen zu den dazugehörigen Daten aus anderen Tabellen zuzuordnen und diese später leichter auszugeben. Diese Verknüpfung erfolgt über eine Join-Funktione. Die Dynamik und Effizienz der Datenbank wird auf diese Weise gesteigert.
+Diese Felder werden verwendet, um alle Daten aus den anderen Tabellen zu den dazugehörigen Daten zuzuordnen und diese später leichter auszugeben. In allen Feldern vom Typ Integer werden die jeweiligen IDs der jeweiligen Information gespeichert, nur beim Alslesen der Datenbank wird dann eine Verknüpfung zu den Informationen mit der dazugehörigen ID erstellt und diese werden statt der ID ausgegeben.  Diese Verknüpfung erfolgt über eine Join-Funktione. Die Dynamik und Effizienz der Datenbank wird auf diese Weise gesteigert.
 \item Felder vom Typ Text: STARTTIME, STOPTIME, DELAYTIME, OUTDESC\\
 Hier werden alle grundlegenden Informationen zu Jobs gespeichert, welche alle Jobs betreffen.
 \end{enumerate}
-
 \subsubsection{SummaryTable}
 \begin{enumerate}
-\item ID als primary key vom Typ Integer
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item ID\_ NODE vom Typ Integer
 \item STARTTIME vom Typ Text
 \item STOPTIME vom Typ Text
@@ -2380,7 +2422,15 @@ Hier werden alle grundlegenden Informationen zu Jobs gespeichert, welche alle Jo
 \item MAX\_ DURATION vom Typ Text
 \item MIN\_ DURATION vom Typ Text
 \end{enumerate}
-Das ist eine zusätzliche Tabelle, welche nur im Fall einer Zusammenfassung der Datenbank mit Daten gefüllt wird.  Durch diese Tabelle wird gewährleistet, dass der Speicherplatz gering gehalten werden kann, weil beim Vorgang der Zusammenfassung bestimmte Daten, welche dynamisch sind, aus den anderen Tabellen gelöscht werden und als komprimierte Ergebnisse in der SummaryTable gespeichert werden.\\
+Das ist eine zusätzliche Tabelle, welche nur im Fall einer Zusammenfassung der Datenbank mit Daten gefüllt wird.  Durch diese Tabelle wird gewährleistet, dass der Speicherplatz gering gehalten werden kann, weil beim Vorgang der Zusammenfassung bestimmte Daten aus den anderen Tabellen gelöscht werden und als komprimierte Ergebnisse in der SummaryTable gespeichert werden. Bei der Zusammenfassung wird eine bestimmte Zeitspanne und eine Blockgröße angegeben, durch welche die Komprimierung stattfindet. Befor zusammengefasst werden kann, werden bestimmte Kriterien überprüfen:
+\begin{itemize}
+\item Ist die gegebene Zeitspanne bereits zusammengefasst worden?
+\item Ist der gegebene Blcok größer, als die Zeitspanne nach welche die Ausführung der Jobs stattfindet? In 
+\end{itemize}
+Wenn eine dieser Kriterien positiv ist kann keine Zusammenfassung der Daten stattfinden.
+\\Ist eine Zusammenfassung der Daten möglich muss beachtet werden, dass sämtliche Daten in der JobTable im angegebenen Zeitraum gelöscht werden.\\
+
+Es gibt jedoch die Möglichkeit den Vorgang abzubrechen, wenn die Angegebene Zeitspanne nicht ausreicht und eine andere angegeben werden will.\\
 
 Weitere Informationen zur Zusammenfassung sind im Kapitel 17 unter Anwendungsbeispiel (17.4.2 Zusammenfassung der Datenbank) zu finden.
 
