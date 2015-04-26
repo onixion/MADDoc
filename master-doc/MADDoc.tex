@@ -27,7 +27,6 @@ Diplomarbeit 2014/15\\
 \noindent\rule{14cm}{1pt}}
 \end{Huge}}
 
-
 \author{Alin Porcic, Daniel Ranalter, Manpreet Singh, Marko Stojanovi\'{c}\\
 Betreuer: Dr. Michael Weiss\\
 Höhere Technische Bundes Lehr- und Versuchsanstalt Anichstraße\\
@@ -2022,27 +2021,27 @@ Die Sicherheit eines kryptographischen Systems darf nicht von der Geheimhaltung 
 
 \paragraph{Monoalphabetische Chiffrierung}
 
-Vor mehr als 2500 Jahren hat man einen \textbf{Skytale} für die Verschlüsselung von Informationen verwendet. Man hat ein Pergamentband oder einen Lederstreifen spiralförmig um den Skytale gewickelt und die zu verschlüsselnde Nachricht über die einzelnen Ringe der Streifen geschrieben. Nun konnte man das Band bei der Übermittlung abgefangen werden, doch ohne den richtigen Skytale nicht entschlüsselt werden. Nur der Empfänger, der im Besitz eines Skytales mit gleichem Durchmesser war, kann die für ihn bestimmte Nachricht entschlüsseln. Dieses Verschlüsselungssystem ist symmetrisch, da für die Ver- und Entschlüsselung der Durchmesser des Skytales unverändert bleibt. Der Durchmesser des Skytales wird in diesem Verfahren als der Schlüssel bezeichnet. Kennt man den Schlüssel, so kann man, sofern das kryptografische System bekannt ist, die Nachricht entschlüsselen. \cite{kryptologie01}\\\\
+Vor mehr als 2500 Jahren hat man einen \textbf{Skytale} für die Verschlüsselung von Informationen verwendet. Man hat ein Pergamentband oder einen Lederstreifen spiralförmig um den Skytale gewickelt und die zu verschlüsselnde Nachricht über die einzelnen Ringe der Streifen geschrieben. Nun konnte man das Band bei der Übermittlung abgefangen werden, doch ohne den richtigen Skytale nicht entschlüsselt werden. Nur der Empfänger, der im Besitz eines Skytales mit gleichem Durchmesser war, kann die für ihn bestimmte Nachricht entschlüsseln. Dieses Verschlüsselungssystem ist symmetrisch, da für die Ver- und Entschlüsselung der Durchmesser des Skytales unverändert bleibt. Der Durchmesser des Skytales wird in diesem Verfahren als der Schlüssel bezeichnet. Kennt man den Schlüssel, so kann man, sofern das kryptografische System bekannt ist, die Nachricht entschlüsselen. \cite{krypto01}\\\\
 
 \begin{center}
 \includegraphics[scale=0.3]{img/krypto_skytale.png}\\
 Ein Skytale (Quelle: http://de.wikipedia.org/wiki/Skytale).
 \end{center}
 
-Ein weiteres monoalphabetisches Verfahren ist die \textbf{Caesar-Verschlüsselung}. Dieses Verfahren verschob alle Buchstaben des Klartextalphabets um eine bestimmte Zahl. Der Kommunikationspartner musste über die Anzahl der Verschiebungen informiert sein, da dieser sonst den Text nicht entschlüsseln konnte. Der Schlüssel, also die Anzahl der Verschiebungen, musste dem Kommunikationsparnter über einen sicheren Kanal übermittelt werden. (vgl. Kryptologie, Thomas Imboden, Seite 4)\\
+Ein weiteres monoalphabetisches Verfahren ist die \textbf{Caesar-Verschlüsselung}. Dieses Verfahren verschob alle Buchstaben des Klartextalphabets um eine bestimmte Zahl. Der Kommunikationspartner musste über die Anzahl der Verschiebungen informiert sein, da dieser sonst den Text nicht entschlüsseln konnte. Der Schlüssel, also die Anzahl der Verschiebungen, musste dem Kommunikationsparnter über einen sicheren Kanal übermittelt werden. \cite{krypto01}\\
 
-Die Tauschchiffre ist eine verbesserte Variante des Caesar-Verfahren. Die Buchstaben des Alphabets werden mit Zahlen dargestellt und der Buchstabe A wird meistens mit 1 dargestellt, B mit 2, X mit 25 und Z mit 0. Nun wird statt einer Addition die Buchstaben mit einer Geheimzahl multipliziert. Die Geheimzahl muss aber mit der Anzahl der möglichen Buchstaben teilerfremd sein, da sonst Kollisionen entstehen. Eine Kollision ist, wenn zwei verschiedene Buchstaben gleich verschlüsselt werden. Kollisionen sind zu vermeiden, da sonst teile des Cipher-Textes nicht mehr entschlüsselt werden können. Bei 26 Buchstaben können wir zum Beispiel 3 als Geheimzahl nehmen. Als letztes müssen wir noch einen Modulus durchführen, damit das Ergebnis der Multiplikation auf das Alphabet mit 26 Buchstaben abgebildet wird. Dieses Verfahren ist deutlich schwieriger zu Entschlüsseln als die Caesar-Verschlüsselung. Jedoch kann dieses Verfahren auch über Häufigkeitsberechnungen entschlüsselt werden, da jeder Buchstabe gleich verschlüsselt wird.  (vgl. Kryptologie, Thomas Imboden, Seite 4)\\
+Die Tauschchiffre ist eine verbesserte Variante des Caesar-Verfahren. Die Buchstaben des Alphabets werden mit Zahlen dargestellt und der Buchstabe A wird meistens mit 1 dargestellt, B mit 2, X mit 25 und Z mit 0. Nun wird statt einer Addition die Buchstaben mit einer Geheimzahl multipliziert. Die Geheimzahl muss aber mit der Anzahl der möglichen Buchstaben teilerfremd sein, da sonst Kollisionen entstehen. Eine Kollision ist, wenn zwei verschiedene Buchstaben gleich verschlüsselt werden. Kollisionen sind zu vermeiden, da sonst teile des Cipher-Textes nicht mehr entschlüsselt werden können. Bei 26 Buchstaben können wir zum Beispiel 3 als Geheimzahl nehmen. Als letztes müssen wir noch einen Modulus durchführen, damit das Ergebnis der Multiplikation auf das Alphabet mit 26 Buchstaben abgebildet wird. Dieses Verfahren ist deutlich schwieriger zu Entschlüsseln als die Caesar-Verschlüsselung. Jedoch kann dieses Verfahren auch über Häufigkeitsberechnungen entschlüsselt werden, da jeder Buchstabe gleich verschlüsselt wird.  \cite{krypto01}\\
 
 \begin{center}
 \includegraphics[scale=0.35]{img/tauschchiffre.png}\\
-Anwendung der Tauschchiffre (Quelle: Einführung in die Kryptologie, Tino Hempel)
+Anwendung der Tauschchiffre (Quelle: Einführung in die Kryptologie, Tino Hempel \cite{krypto01})
 \end{center}
 
 Eine andere Art von monoalphabetische Chiffre sind die Schlüsselwörter. Für die Verschlüsselung wird ein Schlüsselwort und Schlüsselbuchstabe definiert. Nun werden gleiche Buchstaben aus dem Schlüsselwort herausgenommen und das Schlüsselwort wird in das Klartextalphabet an der Stelle des Schlüsselbuchstabe hineingesetzt. Die im Schlüsselwort enthaltenen Buchstaben müssen aus dem Klartexalphabet herausgenommen werden, weil sonst Kollisionen entstehen.
 
 \begin{center}
 \includegraphics[scale=0.38]{img/schluesselwortes.png}\\
-Anwendung des Schlüsselwortes (Quelle: Einführung in die Kryptologie, Tino Hempel)
+Anwendung des Schlüsselwortes (Quelle: Einführung in die Kryptologie, \cite{krypto01})
 \end{center}
 
 \newpage
@@ -2059,7 +2058,7 @@ Angenommen 'JamesBond' wäre das Schlüsselwort und man möchte 'Der abgeschloss
 
 \begin{center}
 \includegraphics[scale=0.5]{img/vingere.png}\\
-Schlüsselwort, Plaintext und der Ciphertext (Quelle: Einführung in die Kryptologie - Tino Hempel)
+Schlüsselwort, Plaintext und der Ciphertext (Quelle: Einführung in die Kryptologie - Tino Hempel, \cite{krypto01})
 \end{center}
 
 Eine andere sehr bekannte polyalphabetische Chiffrierung ist die \textbf{Enigma}. Sie wurde von den Deutschen nach dem Ersten Weltkrieg entwickelt, um die Funksprüche zu verschlüsseln. Die Enigma war eine umgebautet Schreibmaschine mit drei Walzen, die je nach setzten der Kontakte den Klartext verschlüsselten. Da sich die Walzen nach jeder Eingabe weiterdrehen, werden gleiche Buchstaben nicht gleich verschlüsselt. Die Alliierten konnten den Enigma-Code durch die Turing-Bombe entschlüsseln.
@@ -2073,7 +2072,7 @@ die Enigma (Quelle: http://de.wikipedia.org/wiki/Enigma\_\%28Maschine\%29)
 
 \subsection{Ziele der Kryptographie}
 
-Kryptographische Systeme, die in der heutigen Zeit eingesetzt werden, müssen folgende Schutzziele einhalten, da sonst die Sicherheit der Informationen nicht gegeben ist: (vgl. http://de.wikipedia.org/wiki/Kryptographie)
+Kryptographische Systeme, die in der heutigen Zeit eingesetzt werden, müssen folgende Schutzziele einhalten, da sonst die Sicherheit der Informationen nicht gegeben ist: \cite{wiki02}
 
 \begin{itemize}
 
@@ -2178,7 +2177,7 @@ Für eine beidseitige Übertragen mithilfe eines asymmetrischen Verfahren werden
 
 \paragraph{Digitale Signaturen}
 
-Eine digitale Signatur (=digitale Unterschrift) ist eine Methode basierend auf den asymmetrischen Verschlüsselungsmethoden, die die Integrität und Nichtabstreitbarkeit im Netzwerk sicherstellt. Eine digitale Signatur kann nur mit dem Privat-Key erzeugt werden und die Entschlüsselung daher nur mit dem Public-Key. Kann die Signatur entschlüsselt werden, so weiß man, dass der Sender im Besitz des Privaten SChlüssels ist und derjenige ist für den er sich ausgibt. (vgl. http://de.wikipedia.org/wiki/Digitale-Signatur)
+Eine digitale Signatur (=digitale Unterschrift) ist eine Methode basierend auf den asymmetrischen Verschlüsselungsmethoden, die die Integrität und Nichtabstreitbarkeit im Netzwerk sicherstellt. Eine digitale Signatur kann nur mit dem Privat-Key erzeugt werden und die Entschlüsselung daher nur mit dem Public-Key. Kann die Signatur entschlüsselt werden, so weiß man, dass der Sender im Besitz des Privaten SChlüssels ist und derjenige ist für den er sich ausgibt. \cite{wiki03}
 
 \paragraph{Digitale Zertifikate}
 
@@ -2190,7 +2189,7 @@ Digitale Zertifikate sind Ansammlungen von Daten, die mithilfe von kryptographis
 
 \subsubsection{Hash-Verfahren}
 
-Eine \textbf{Hashfunktion} ist eine Funktion, die eine beliebige Menge an Eingangsinformationen auf eine fixe Länge an Ausgangsinformationen abbildet.  Das Ziel von Hashfunktionen ist das Erschweren der Suche nach Kollisionen. Kollisionen können nicht verhindert werden, da die Eingangsgröße keine fixe Größe definiert. Ein weiteres Ziel von Hashfunktionen ist das Verhindern der Möglichkeit des Rückrechnens, also die Ermittlung der Eingangsgröße aus der Ausgangsgröße.(vgl. http://de.wikipedia.org/wiki/Kryptologische\_Hashfunktion)
+Eine \textbf{Hashfunktion} ist eine Funktion, die eine beliebige Menge an Eingangsinformationen auf eine fixe Länge an Ausgangsinformationen abbildet.  Das Ziel von Hashfunktionen ist das Erschweren der Suche nach Kollisionen. Kollisionen können nicht verhindert werden, da die Eingangsgröße keine fixe Größe definiert. Ein weiteres Ziel von Hashfunktionen ist das Verhindern der Möglichkeit des Rückrechnens, also die Ermittlung der Eingangsgröße aus der Ausgangsgröße.\cite{wiki04}
 
 \newpage
 \section{Kryptoanalyse}
@@ -2278,11 +2277,11 @@ SHA steht für \textbf{Seucre-Hash-Algorithm} und ist eine Ansammulung von mehre
 \section{CLI (Alin Porcic)}
 \lfoot{Alin Porcic}
 
-Beim Start des Programmes mit dem Argument \textbf{-cli}, wird die integrierte CLI gestartet, die für die Verwendung des Programmes verwendet werden kann. Der Syntax der CLI-Eingaben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden, müssen aber nicht. Die Anordnung der Parameter und Argumente ist für die CLI irrelevant.\\
+Beim Start des Programmes mit dem Argument \textbf{-cli} wird die integrierte CLI gestartet, die für die Verwendung des Programmes verwendet werden kann. Der Syntax der CLI-Eingaben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden. Die Anordnung der Parameter und Argumente ist für die diese CLI-Implementierung irrelevant.\\
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_mad.png}\\
-integrierte CLI
+die integrierte CLI
 \end{center}
 
 Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert. Ist die Interpretation der Eingabe nicht möglich, da zum Beispiel ein Paramter mehrfach definiert wurde, wird eine Fehlermeldung in roter Farbe ausgegeben. Einige Fehlermeldungen, die ausgegebe weden können, sind zum Beispiel:
@@ -2337,7 +2336,8 @@ Das JobSystem besitzt einen Zeitplaner, der ein- und ausgeschalten werden kann. 
 
 Das JobSystem unterscheidet die Jobs in verschiedene Typen. Jeder Typ erledigt eine ganz spezielle Aufgabe im Netzwerk und kann daher verschiedene Resultate erbringen. Jeder Job bekommt eine IP-Adresse und kann die notwendige Operation ausführen. Die Zeitmessung und das Schreiben in die Datenbank wird vom JobSystem übernommen und muss nicht von jedem Job selber erledigt werden.
 
-Jeder Job muss folgende Eigenschaften definieren:
+Jeder Job muss folgende Eigenschaften definieren:\\
+
 \begin{itemize}
 \item \textbf{Name}: Jeder Job besitzt einen Namen, damit der Job indentifiziert werden kann.
 \item \textbf{Node-ID}: Jeder Job muss einen Knoten definieren, damit der Job ein Ziel hat.
@@ -2348,7 +2348,7 @@ Jeder Job muss folgende Eigenschaften definieren:
 
 \subsection{HTTP} Die Aufgabe dieses Jobs ist das Senden einer HTTP-Anfrage und das Empfangen der Anwort. Für diesen Job kann eine Port-Nummer definiert werden, falls keine definiert wird, wird 80 als Port-Nummer genommen.
 
-\subsection{Port} Die Ausführung dieses Jobs bewirkt einen Verbindung auf einen Dienst (Dienst muss auf TCP aufbauen). Nach dem 'Drei-Wege-Handschlag' wird die Verbindung wieder abgebaut. Dieser Job kann nur herausfinden, ob ein Dienst erreichbar ist, nicht ob dieser die Anfragen auch beantwortet.
+\subsection{Port} Die Ausführung dieses Jobs bewirkt einen Verbindung auf einen Dienst (Dienst muss auf TCP aufbauen). Nach dem 'Drei-Wege-Handschlag' wird die Verbindung wieder abgebaut. Dieser Job kann nur herausfinden, ob ein Dienst erreichbar ist, nicht ob dieser die Anfragen auch ordnungsgemäß beantwortet.
 
 \newpage
 \lfoot{Ranalter Daniel}%--------------------------------------------------------------------------------------------
@@ -2429,38 +2429,11 @@ lorem ipsum
 
 \chapter{Database von Marko Stojanovi\'{c}}
 \section{MAD-DB}
-Die Realisierung der Datenbank erfolge über SQLite. SQLite verwendet ein relationales Datenbankmanagementsystem, welches in C\# durch das Einbinden der "{}sqlite3.dll"{} konfigurierbar ist. Es werden dadurch alle Befehle von SQLite verwendet werden und es sind keine weiteren Installationen notwendig. Die gesamte Datenbank wird anschließend als eine Datei gespeichert.
+Die Realisierung der Datenbank erfolge über SQLite. SQLite verwendet ein relationales Datenbankmanagementsystem, welches in C\# durch das Einbinden der "{}sqlite3.dll"{} konfigurierbar ist. Es werden dadurch alle Befehle von SQLite verwendet und es sind keine weiteren Installationen notwendig. Die gesamte Datenbank wird anschließend als eine Datei gespeichert.
 
 \subsection{Erklärung}
 Befor das Datenbankmanagementsystem erstellt werden konnte musste geklärt werden, welche Daten gespeichert werden und in welcher Form.\\
-Zu speichernde Daten:
-\begin{itemize}
-\item Ping\\
-Der Ping dient zur grundsätzlichsten Überprüfung eines Hosts. Er speichert die Zeit welche er benötigt hat (Roundtrip time), den Erfolgsstatus, die ICMP Antwort (oder IPStatus) und die verbleibende TTL in der Datenbank. Ping verwendet ICMP.\\
-Die betroffenen Datenbankfelder wären also: GUID, JOBNAME, JOBTYPE, PROTOCOL, OUTSTATE, Start Time, Stop Time, Delay Time
-\item HTTP\\
-Über den Job HTTP wird die Verfügbarkeit eines WebServers überprüft. Es gibt nur einen Output, welcher angibt ob der Job erfolgreich war oder nicht. Der Job schickt eine Anfrage an die Zieladdresse an den Port 80. Kann der zurückgegebene header ausgelesen werden, wird der Job als erfolg gewertet. \\
-Die betroffenen Datenbankfelder wären also: GUID, JOBNAME, JOBTYPE, PROTOCOL, OUTSTATE, Start Time, Stop Time, Delay Time
-\item Portscan\\
-Der Portscan überprüft einzelne Ports auf ihre Funktionstüchtigkeit indem er ein Paket an sie sendet und auf eine Antwort wartet. \\
-Die betroffenen Datenbankfelder wären also: GUID, JOBNAME, JOBTYPE, PROTOCOL, OUTSTATE, Start Time, Stop Time, Delay Time
-\item DNS\\
-DNS überprüft ob der DNS Server funktionsfähig ist. Dies bewerktstelligt er, indem er versucht den eigenen Hostnamen aufzulösen. Bei diesem Job beschränkt sich der verwertbare Output auf ein einfaches funktioniert\/ funktioniert nicht. \\
-Die betroffenen Datenbankfelder wären also: GUID, JOBNAME, JOBTYPE, PROTOCOL, OUTSTATE, Start Time, Stop Time, Delay Time
-\item FTP\\
-FTP überprüft ob der FTP Server funktionsfähig ist. Dies bewerkstelligt er, indem er versucht das momentane Verzeichnis des FTP Servers abzurufen. Der Output bei diesem Job liefert neben dem funktioniert\/ funktioniert nicht, auch eine nähere Beschreibung warum es nicht funktioniert. \\
-Die betroffenen Datenbankfelder wären also: GUID, JOBNAME, JOBTYPE, PROTOCOL, OUTSTATE, Start Time, Stop Time, Delay Time
-\item SNMP\\
-SNMP überprüft ob der SNMP Server funktionsfähig ist. Dies ermittelt er indem er den Hostnamen aus den SNMP MIBs ausließt und diesen mit dem des Hosts überprüft. Stimmt dieser überein wird es als Erfolggewertet. Auch dieser Job speichert nur fuktioniert\/ funktioniert nicht. \\
-Die betroffenen Datenbankfelder wären also: GUID, JOBNAME, JOBTYPE, PROTOCOL, OUTSTATE, Start Time, Stop Time, Delay Time,
-\item Hosts\\
-Die Hosts werden mittels DHCP und ARP aus dem Netzwerk gefischt. Da DHCP nur neu hinzukommende Hosts auffangen kann, wurde ARP implementiert, welches alle findet. Diese werden dann in die Datenbank gespeichert. Durch regelmäßiges anpingen der Hosts wird deren Aktivität überprüft. 
-Auch die Möglichkeit Hosts manuell einzutragen wird gegeben sein. \\
-Die betroffenen Datenbankfelder wären also: GUID, HOST, IP, MAC, OUTSTATE
-\item Traffic\\
-Eine weitere Funktionalität ermöglicht das Auslesen von ausgehendem Traffic eines Hosts via SNMP.  Auch dieser wird dann in der Tabelle abgespeichert.\\
-Die betroffenen Datenbankfelder wären also: GUID, JOBNAME, JOBTYPE, PROTOCOL, Description, Start Time, Stop Time, Delay Time
-\end{itemize}
+
 Die Datenbank besteht aus zwölf verschiedenen Tabellen. Die Namen der Tabellen sagen aus, welche Inhalte in ihnen gespeicher werden. Es wurden zwölf Tabellen erstellt um das System deterministisch zu halten, damit keine weiteren Veränderung in der Datenbank vorgenommen werden müssen (erstellen weiterer Tabellen).\\
 
 Alle Tabellen, bis auf die Tabellen JobTable und MemoTable, bestehen aus zwei Datenfelden. Das erste Datenfeld ist immer eine ID, welche den primary key vom Typ Integer darstellt, das zweite ist immer ein Feld vom Typ Text, dessen Inhalt gleich dem jeweiligen Namen der Tabelle entspricht.\\
@@ -2547,10 +2520,10 @@ Hier werden alle grundlegenden Informationen zu Jobs gespeichert, welche alle Jo
 \item MAX\_ DURATION vom Typ Text
 \item MIN\_ DURATION vom Typ Text
 \end{enumerate}
-Das ist eine zusätzliche Tabelle, welche nur im Fall einer Zusammenfassung der Datenbank mit Daten gefüllt wird.  Durch diese Tabelle wird gewährleistet, dass der Speicherplatz gering gehalten werden kann, weil beim Vorgang der Zusammenfassung bestimmte Daten aus den anderen Tabellen gelöscht werden und als komprimierte Ergebnisse in der SummaryTable gespeichert werden. Bei der Zusammenfassung wird eine besstimmte Zeitspanne angegeben, welche anschließend zu einem Eintrag komprimiert wird. Befor zusammengefasst werden kann, werden bestimmte Kriterien überprüfen:
+Das ist eine zusätzliche Tabelle, welche nur im Fall einer Zusammenfassung der Datenbank mit Daten gefüllt wird.  Durch diese Tabelle wird gewährleistet, dass der Speicherplatz gering gehalten werden kann, weil beim Vorgang der Zusammenfassung bestimmte Daten aus den anderen Tabellen gelöscht werden und als komprimierte Ergebnisse in der SummaryTable gespeichert werden. Bei der Zusammenfassung wird eine bestimmte Zeitspanne und eine Blockgröße angegeben, durch welche die Komprimierung stattfindet. Befor zusammengefasst werden kann, werden bestimmte Kriterien überprüfen:
 \begin{itemize}
 \item Ist die gegebene Zeitspanne bereits zusammengefasst worden?
-\item Ist die gegebene Zeitspanne größer, als die Zeitspanne nach welche die Ausführung der Jobs stattfindet? In 
+\item Ist der gegebene Blcok größer, als die Zeitspanne nach welche die Ausführung der Jobs stattfindet? In 
 \end{itemize}
 Wenn eine dieser Kriterien positiv ist kann keine Zusammenfassung der Daten stattfinden.
 \\Ist eine Zusammenfassung der Daten möglich muss beachtet werden, dass sämtliche Daten in der JobTable im angegebenen Zeitraum gelöscht werden.\\
@@ -2606,7 +2579,7 @@ Mit dem Parameter \textbf{-id} können Informationen zu einem bestimmten Befehl 
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_help_id.png}\\
-Informationen zu einem speziellen Befehl.
+nähere Informationen zu einem Befehl
 \end{center}
 
 \subsubsection{colortest}
@@ -2771,9 +2744,11 @@ Es soll manuell ein Netzwerkknoten hinzugefügt werden. Der Netzwerkknoten sieht
   \item MAC-Adresse: FF:00:00:00:11
 \end{itemize}
 
-Um einen Netzwerkknoten hinzuzufügen muss der Befehl 'node add' ausgeführt werden. Dieser Befehl besitzt drei obligatorische Parameter mit jeweils einem Argument. Die Eingabe sieht wie folgt aus:\\\\
+Um einen Netzwerkknoten hinzuzufügen muss der Befehl 'node add' ausgeführt werden. Dieser Befehl besitzt drei obligatorische Parameter mit jeweils einem Argument. Die Eingabe sieht wie folgt aus:\\
 
-\textbf{node add -n MeinPC -ip 10.0.0.120 -mac FF:00:00:00:11}\\\\
+\begin{itemize}
+\item \textbf{node add -n MeinPC -ip 10.0.0.120 -mac FF:00:00:00:11}\\
+\end{itemize}
 
 Nach der Bestätigung mit der ENTER-Taste wird der Knoten erstellt und in das JobSystem eingebunden. Es sollen nun drei Netzwerkoperationen auf diesen Knoten ausgeführt werden:
 
@@ -2783,11 +2758,13 @@ Nach der Bestätigung mit der ENTER-Taste wird der Knoten erstellt und in das Jo
 \item HTTP-Anfrage auf Port 80 jeden Monat am ersten Tag um 20:00
 \end{itemize}
 
-Das wird mithilfe der folgenden Befehle erreicht:\\\\
+Das wird mithilfe der folgenden Befehle erreicht:\\
 
-\textbf{job add ping -n MeinPing -id 0 -t 10000}\\
-\textbf{job add port -n MeinPortScan -id 0 -t 19:30 -p 443}\\
-\textbf{job add http -n MeinHttp -id 0 -t 1;20:00 -p 80}\\\\
+\begin{itemize}
+\item \textbf{job add ping -n MeinPing -id 0 -t 10000}
+\item \textbf{job add port -n MeinPortScan -id 0 -t 19:30 -p 443}
+\item \textbf{job add http -n MeinHttp -id 0 -t 1;20:00 -p 80}
+\end{itemize}
 
 Das Argument des Parameters '-id' gibt die ID des Netzwerkknoten an, an dem die Aufgabe drangehängt werden soll. Der Parameter '-t' definiert, wann diese Aufgabe ausgeführt werden soll. Port-Scans und HTTP-Anfragen können auch einen Port über den Parameter '-p' definieren.\\\\
 
@@ -2798,19 +2775,39 @@ Um die derzeitige Konfiguration abzuspeicher gibt es zwei Möglichkeiten:
 \item Alle Netzwerkknoten abspeichern.
 \end{itemize}
 
-Da die jetztige Konfiguration nur einen Netzwerkknoten hat, kann der Netzwerkknoten einzeln abgespeichert werden. Dies geschieht mit dem 'node save' Befehl:\\\\
-\textbf{node save -id 0 -file node.json}\\\\
+Da die jetztige Konfiguration nur einen Netzwerkknoten hat, kann der Netzwerkknoten einzeln abgespeichert werden. Dies geschieht mit dem 'node save' Befehl:\\
+
+\begin{itemize}
+\item \textbf{node save -id 0 -file node.json}
+\end{itemize}
+
 Der Paramter 'id' gibt den Netzwerkknoten an, der gespeichert werden soll und 'file' gibt den Dateinamen an. Bei einem Neustart des Programmes kann die Konfiguration des Nodes mithilfe des Befehls 'node load -file node.json' geladen werden.\\\\
-Zurzeit ist der Zeitplaner des JobSystems ausgeschalten, der Netzwerkknoten ist 'inaktive' und die drei Aufgaben ebenfalls. Damit die Aufgaben ausgeführt werden können muss der Zeitplaner aktiviert werden. Das geschieht durch den folgenden Befehl:\\\\
-\textbf{schedule start}\\\\
-Nun läuft der Zeitplaner, jedoch ignoriert er den Netzwerkknoten und alle darunterliegenden Aufgaben, da der Netzwerkknoten inaktive ist. Um einen Netzwerkknoten zu aktivieren reicht die Ausführung des folgenen Befehls:\\\\
-\textbf{node start -id 0}\\\\
-Damit der Zeitplaner die Aufgaben des jeweiligen Netzwerkknoten zur richtigen Zeit ausführen kann, müssen die Aufgaben aktiviert werden. Das kann durch die folgende Eingabe erreicht werden:\\\\
-\textbf{job start -id 0}\\
-\textbf{job start -id 1}\\
-\textbf{job start -id 2}\\\\
-Der Parameter '-id' gibt nicht den Knoten an, sondern die Identifikationszahl der Aufgabe an. Jeder Knoten hat eine ID, aber auch jede Aufgabe hat eine eindeutige Zuweisung. Nun werden die Aufgaben zu den definierten Zeitpunkten ausgeführt und die Ergebnisse der Ausführung werden in die Datenbank geschrieben. Mit diesem Befehl können die Aufgaben angesehen werden: \\\\
-\textbf{js jobs}\\\\
+Zurzeit ist der Zeitplaner des JobSystems ausgeschalten, der Netzwerkknoten ist 'inaktive' und die drei Aufgaben ebenfalls. Damit die Aufgaben ausgeführt werden können muss der Zeitplaner aktiviert werden. Das geschieht durch den folgenden Befehl:\\
+
+\begin{itemize}
+\item \textbf{schedule start}
+\end{itemize}
+
+Nun läuft der Zeitplaner, jedoch ignoriert er den Netzwerkknoten und alle darunterliegenden Aufgaben, da der Netzwerkknoten inaktive ist. Um einen Netzwerkknoten zu aktivieren reicht die Ausführung des folgenen Befehls:\\
+
+\begin{itemize}
+\item \textbf{node start -id 0}
+\end{itemize}
+
+Damit der Zeitplaner die Aufgaben des jeweiligen Netzwerkknoten zur richtigen Zeit ausführen kann, müssen die Aufgaben aktiviert werden. Das kann durch die folgende Eingabe erreicht werden:\\
+
+\begin{itemize}
+\item \textbf{job start -id 0}
+\item \textbf{job start -id 1}
+\item \textbf{job start -id 2}
+\end{itemize}
+
+Der Parameter '-id' gibt nicht den Knoten an, sondern die Identifikationszahl der Aufgabe an. Jeder Knoten hat eine ID, aber auch jede Aufgabe hat eine eindeutige Zuweisung. Nun werden die Aufgaben zu den definierten Zeitpunkten ausgeführt und die Ergebnisse der Ausführung werden in die Datenbank geschrieben. Mit diesem Befehl können die Aufgaben angesehen werden: \\
+
+\begin{itemize}
+\item \textbf{js jobs}
+\end{itemize}
+
 Nach der Ausführung wird eine Tabelle mit den Aufgaben ausgegeben.
 
 \subsection{Zusammenfassung der Datenbank}
@@ -2832,7 +2829,9 @@ Nun müssen drei Dinge definiert werden:
 
 Um eine Zusammenfassung zu starten, muss folgender Befehl eingegeben werden (Hinweis: Jeder Zeitbereich kann nur einmal in der Summary-Table zusammengefasst werden, d.h. wenn man versucht eine Zusammenfassung über den gleichen Zeitbereich zu machen, wird eine Fehlermeldung ausgegeben, da die Zusammenfassung von gleichen Zeitbereichen nicht sinnvoll ist):\\
 
-\textbf{db summary -s 10.01.2015 -e 11.01.2015 -b 5h}
+\begin{itemize}
+\item \textbf{db summary -s 10.01.2015 -e 11.01.2015 -b 5h}
+\end{itemize}
 
 \begin{center}
 \includegraphics[scale=0.5]{img/db_summary_create.png}
@@ -2840,7 +2839,9 @@ Um eine Zusammenfassung zu starten, muss folgender Befehl eingegeben werden (Hin
 
 Nun werden alle Ausführung von allen Jobs, die zwischen dem 10.01.2015 und dem 11.01.2015 gestartet wurden, zusammengefasst. Der Zeitbereich wird in fünf Stunden Blöcke unterteilt und jeder Block wird in einem Datensatz zusammengefasst. Nun kann die Summary-Table betrachtet werden:\\
 
-\textbf{db summmay}
+\begin{itemize}
+\item \textbf{db summmay}
+\end{itemize}
 
 \begin{center}
 \includegraphics[scale=0.5]{img/db_summary.png}
@@ -2865,12 +2866,69 @@ Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
 \chapter{Alin Porcic}
 
 \begin{center}
-\begin{tabular}{c | c | c}
+\begin{tabular}{|c|c|l|}
 
+\hline
 \textbf{Zeitraum} & \textbf{Zeitdauer} & \textbf{Aufgaben} \\ \hline
 06.04.2014 bis 10.04.2014 & 4h & CLI-Framework: Idee und Konzept\\
 11.04.2014 bis 12.04.2014 & 3h & CLI-Server und CLI-Client: Idee und Konzept\\
-13.04.2014 bis 14.04.2014 & 6h & CLI-Framework: Design - Überlegungen
+13.04.2014 bis 14.04.2014 & 6h & CLI-Framework: Überlegungen/Umsetzung\\
+14.04.2014 bis 15.04.2014 & 4h & CLI-Server und CLI-Client: Überlegungen/Umsetzung\\
+16.04.2014 bis 18.04.2014 & 13h & Socketserver / Socketclient: Idee und Konzept\\
+19.04.2014 bis 25.04.2014 & 9h & Clean-Coding\\
+25.04.2014 & 2h & Socketserver / Socketclient rausgenommen\\
+19.05.2014 & 2h & CLI-Framework und CLI, Fehlersuche\\
+20.05.2014 bis 21.05.2014 & 9h & CLI-Session/CLI-Server/CLI-Client Überarbeitung\\
+21.05.2014 & 4h & CLI-Befehle geschrieben, Fehlersuche\\
+22.05.2014 & 2h & Socketserver/Socketclient vollständig ersetzt\\
+28.05.2014 & 3h & Implementierung der Konsolenausgabe, -eingabe\\
+29.05.2014 & 3h & CLI-Server/CLI-Client Überarbeitung\\
+06.06.2014 & 4h & CLI-Framework verbessert, Fehler ausgebessert\\
+08.06.2014 & 2h & CLI-Framework verbessert, Clean-Coding\\
+15.06.2014 & 1h & CLI-Server/CLI-Client verbessert\\
+17.06.2014 & 3h & JobSystem: Konzept + Überlegungen\\
+18.06.2014 bis 20.06.2014 & 10h & JobSystem funktionsfähig\\
+21.06.2014 bis 28.06.2014 & 9h & JobSystem überarbeitet + Clean-Coding\\
+03.07.2014 bis 06.07.2014 & 7h & AES hinzugefügt, viele Programmfehler ausgebessert\\
+10.07.2014 bis 14.07.2014 & 8h & Serializierung hinzugefügt, Fehler ausgebessert\\
+15.07.2014 & 3h & Programmteile überarbeitet\\
+22.07.2014 bis 23.07.2014 & 6h & RSA implementiert\\
+31.07.2014 & 5h & Paket-orientierte Netzwerkverbindungen hinzugefügt\\ \hline
+  
+\end{tabular}
+\end{center}
+
+\newpage
+
+\begin{center}
+\begin{tabular}{|c| c|l|}
+
+\hline
+\textbf{Zeitraum} & \textbf{Zeitdauer} & \textbf{Aufgaben} \\ \hline
+01.08.2014 & 3h & allegmeine Verbesserungen am Programm, Fehlersuche\\
+03.08.2014 & 3h & JobSystem überarbeitet, Fehlersuche\\
+04.08.2014 bis 06.08.2014 & 5h & Probleme mit der RSA-Implementierung\\
+06.08.2014 & 2h & RSA entfernt\\
+10.08.2014 bis 14.08.2014 & 6h & JobSystem unterstützt Benachrichtigungen\\
+15.08.2014 & 2h & JobSystem verbessert, Fehlersuche\\
+17.08.2014 & 4h & einige neue Befehle hinzugefügt\\
+20.08.2014 bis 21.08.2014 & 6h & XML-Serializer hinzugefügt, Clean-Coding\\
+23.08.2014 bis 24.08.2014 & 4h & MADConf hinzugefügt, Fehlersuche\\
+26.08.2014 bis 27.08.2014 & 4h & Eventhandler hinzugefügt, Clean-Coding\\
+06.09.2014 & 4h & Befehle verbessert\\
+12.09.2014 bis 14.09.2014 & 10h & SSL hinzugefügt, viele Verbesserungen\\
+18.09.2014 bis 19.09.2014 & 5h & CLI und JobSystem überarbeitet\\
+22.09.2014 bis 26.09.2014 & 8h & SSL enfernt, Verbesserungen am CLI-Server\\
+27.09.2014 bis 29.09.2014 & 4h & CLI-Client überarbeitet, Fehlersuche\\
+05.10.2014 bis 08.10.2014 & 8h & JobSystem mit ReadWrite-Locks\\
+09.10.2014 & 2h & JobSystem überarbeitet, Fehlersuche\\
+11.10.2014 & 3h & ReadWrite-Locks entfernt, Fehlersuche\\
+12.10.2014 & 2h & JobSystem vereinfacht, Clean-Coding\\
+18.12.2014 bis 20.12.2014 & 8h &CLI-Befehle für Datenbank implementiert\\
+27.12.2014 & 2h & CLI-Befehle verbessert und erweitert\\
+05.02.2014 & 4h &letzte Verbesserungen am Programm\\
+ \hline \hline
+06.04.2014 bis 12.10.2014 &199h&\\ \hline
 
 \end{tabular}
 \end{center}
