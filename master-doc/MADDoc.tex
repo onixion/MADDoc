@@ -1897,27 +1897,27 @@ Die Sicherheit eines kryptographischen Systems darf nicht von der Geheimhaltung 
 
 \paragraph{Monoalphabetische Chiffrierung}
 
-Vor mehr als 2500 Jahren hat man einen \textbf{Skytale} für die Verschlüsselung von Informationen verwendet. Man hat ein Pergamentband oder einen Lederstreifen spiralförmig um den Skytale gewickelt und die zu verschlüsselnde Nachricht über die einzelnen Ringe der Streifen geschrieben. Nun konnte man das Band bei der Übermittlung abgefangen werden, doch ohne den richtigen Skytale nicht entschlüsselt werden. Nur der Empfänger, der im Besitz eines Skytales mit gleichem Durchmesser war, kann die für ihn bestimmte Nachricht entschlüsseln. Dieses Verschlüsselungssystem ist symmetrisch, da für die Ver- und Entschlüsselung der Durchmesser des Skytales unverändert bleibt. Der Durchmesser des Skytales wird in diesem Verfahren als der Schlüssel bezeichnet. Kennt man den Schlüssel, so kann man, sofern das kryptografische System bekannt ist, die Nachricht entschlüsselen. \cite{kryptologie01}\\\\
+Vor mehr als 2500 Jahren hat man einen \textbf{Skytale} für die Verschlüsselung von Informationen verwendet. Man hat ein Pergamentband oder einen Lederstreifen spiralförmig um den Skytale gewickelt und die zu verschlüsselnde Nachricht über die einzelnen Ringe der Streifen geschrieben. Nun konnte man das Band bei der Übermittlung abgefangen werden, doch ohne den richtigen Skytale nicht entschlüsselt werden. Nur der Empfänger, der im Besitz eines Skytales mit gleichem Durchmesser war, kann die für ihn bestimmte Nachricht entschlüsseln. Dieses Verschlüsselungssystem ist symmetrisch, da für die Ver- und Entschlüsselung der Durchmesser des Skytales unverändert bleibt. Der Durchmesser des Skytales wird in diesem Verfahren als der Schlüssel bezeichnet. Kennt man den Schlüssel, so kann man, sofern das kryptografische System bekannt ist, die Nachricht entschlüsselen. \cite{krypto01}\\\\
 
 \begin{center}
 \includegraphics[scale=0.3]{img/krypto_skytale.png}\\
 Ein Skytale (Quelle: http://de.wikipedia.org/wiki/Skytale).
 \end{center}
 
-Ein weiteres monoalphabetisches Verfahren ist die \textbf{Caesar-Verschlüsselung}. Dieses Verfahren verschob alle Buchstaben des Klartextalphabets um eine bestimmte Zahl. Der Kommunikationspartner musste über die Anzahl der Verschiebungen informiert sein, da dieser sonst den Text nicht entschlüsseln konnte. Der Schlüssel, also die Anzahl der Verschiebungen, musste dem Kommunikationsparnter über einen sicheren Kanal übermittelt werden. (vgl. Kryptologie, Thomas Imboden, Seite 4)\\
+Ein weiteres monoalphabetisches Verfahren ist die \textbf{Caesar-Verschlüsselung}. Dieses Verfahren verschob alle Buchstaben des Klartextalphabets um eine bestimmte Zahl. Der Kommunikationspartner musste über die Anzahl der Verschiebungen informiert sein, da dieser sonst den Text nicht entschlüsseln konnte. Der Schlüssel, also die Anzahl der Verschiebungen, musste dem Kommunikationsparnter über einen sicheren Kanal übermittelt werden. \cite{krypto01}\\
 
-Die Tauschchiffre ist eine verbesserte Variante des Caesar-Verfahren. Die Buchstaben des Alphabets werden mit Zahlen dargestellt und der Buchstabe A wird meistens mit 1 dargestellt, B mit 2, X mit 25 und Z mit 0. Nun wird statt einer Addition die Buchstaben mit einer Geheimzahl multipliziert. Die Geheimzahl muss aber mit der Anzahl der möglichen Buchstaben teilerfremd sein, da sonst Kollisionen entstehen. Eine Kollision ist, wenn zwei verschiedene Buchstaben gleich verschlüsselt werden. Kollisionen sind zu vermeiden, da sonst teile des Cipher-Textes nicht mehr entschlüsselt werden können. Bei 26 Buchstaben können wir zum Beispiel 3 als Geheimzahl nehmen. Als letztes müssen wir noch einen Modulus durchführen, damit das Ergebnis der Multiplikation auf das Alphabet mit 26 Buchstaben abgebildet wird. Dieses Verfahren ist deutlich schwieriger zu Entschlüsseln als die Caesar-Verschlüsselung. Jedoch kann dieses Verfahren auch über Häufigkeitsberechnungen entschlüsselt werden, da jeder Buchstabe gleich verschlüsselt wird.  (vgl. Kryptologie, Thomas Imboden, Seite 4)\\
+Die Tauschchiffre ist eine verbesserte Variante des Caesar-Verfahren. Die Buchstaben des Alphabets werden mit Zahlen dargestellt und der Buchstabe A wird meistens mit 1 dargestellt, B mit 2, X mit 25 und Z mit 0. Nun wird statt einer Addition die Buchstaben mit einer Geheimzahl multipliziert. Die Geheimzahl muss aber mit der Anzahl der möglichen Buchstaben teilerfremd sein, da sonst Kollisionen entstehen. Eine Kollision ist, wenn zwei verschiedene Buchstaben gleich verschlüsselt werden. Kollisionen sind zu vermeiden, da sonst teile des Cipher-Textes nicht mehr entschlüsselt werden können. Bei 26 Buchstaben können wir zum Beispiel 3 als Geheimzahl nehmen. Als letztes müssen wir noch einen Modulus durchführen, damit das Ergebnis der Multiplikation auf das Alphabet mit 26 Buchstaben abgebildet wird. Dieses Verfahren ist deutlich schwieriger zu Entschlüsseln als die Caesar-Verschlüsselung. Jedoch kann dieses Verfahren auch über Häufigkeitsberechnungen entschlüsselt werden, da jeder Buchstabe gleich verschlüsselt wird.  \cite{krypto01}\\
 
 \begin{center}
 \includegraphics[scale=0.35]{img/tauschchiffre.png}\\
-Anwendung der Tauschchiffre (Quelle: Einführung in die Kryptologie, Tino Hempel)
+Anwendung der Tauschchiffre (Quelle: Einführung in die Kryptologie, Tino Hempel \cite{krypto01})
 \end{center}
 
 Eine andere Art von monoalphabetische Chiffre sind die Schlüsselwörter. Für die Verschlüsselung wird ein Schlüsselwort und Schlüsselbuchstabe definiert. Nun werden gleiche Buchstaben aus dem Schlüsselwort herausgenommen und das Schlüsselwort wird in das Klartextalphabet an der Stelle des Schlüsselbuchstabe hineingesetzt. Die im Schlüsselwort enthaltenen Buchstaben müssen aus dem Klartexalphabet herausgenommen werden, weil sonst Kollisionen entstehen.
 
 \begin{center}
 \includegraphics[scale=0.38]{img/schluesselwortes.png}\\
-Anwendung des Schlüsselwortes (Quelle: Einführung in die Kryptologie, Tino Hempel)
+Anwendung des Schlüsselwortes (Quelle: Einführung in die Kryptologie, \cite{krypto01})
 \end{center}
 
 \newpage
@@ -1934,7 +1934,7 @@ Angenommen 'JamesBond' wäre das Schlüsselwort und man möchte 'Der abgeschloss
 
 \begin{center}
 \includegraphics[scale=0.5]{img/vingere.png}\\
-Schlüsselwort, Plaintext und der Ciphertext (Quelle: Einführung in die Kryptologie - Tino Hempel)
+Schlüsselwort, Plaintext und der Ciphertext (Quelle: Einführung in die Kryptologie - Tino Hempel, \cite{krypto01})
 \end{center}
 
 Eine andere sehr bekannte polyalphabetische Chiffrierung ist die \textbf{Enigma}. Sie wurde von den Deutschen nach dem Ersten Weltkrieg entwickelt, um die Funksprüche zu verschlüsseln. Die Enigma war eine umgebautet Schreibmaschine mit drei Walzen, die je nach setzten der Kontakte den Klartext verschlüsselten. Da sich die Walzen nach jeder Eingabe weiterdrehen, werden gleiche Buchstaben nicht gleich verschlüsselt. Die Alliierten konnten den Enigma-Code durch die Turing-Bombe entschlüsseln.
@@ -1948,7 +1948,7 @@ die Enigma (Quelle: http://de.wikipedia.org/wiki/Enigma\_\%28Maschine\%29)
 
 \subsection{Ziele der Kryptographie}
 
-Kryptographische Systeme, die in der heutigen Zeit eingesetzt werden, müssen folgende Schutzziele einhalten, da sonst die Sicherheit der Informationen nicht gegeben ist: (vgl. http://de.wikipedia.org/wiki/Kryptographie)
+Kryptographische Systeme, die in der heutigen Zeit eingesetzt werden, müssen folgende Schutzziele einhalten, da sonst die Sicherheit der Informationen nicht gegeben ist: \cite{wiki02}
 
 \begin{itemize}
 
@@ -2053,7 +2053,7 @@ Für eine beidseitige Übertragen mithilfe eines asymmetrischen Verfahren werden
 
 \paragraph{Digitale Signaturen}
 
-Eine digitale Signatur (=digitale Unterschrift) ist eine Methode basierend auf den asymmetrischen Verschlüsselungsmethoden, die die Integrität und Nichtabstreitbarkeit im Netzwerk sicherstellt. Eine digitale Signatur kann nur mit dem Privat-Key erzeugt werden und die Entschlüsselung daher nur mit dem Public-Key. Kann die Signatur entschlüsselt werden, so weiß man, dass der Sender im Besitz des Privaten SChlüssels ist und derjenige ist für den er sich ausgibt. (vgl. http://de.wikipedia.org/wiki/Digitale-Signatur)
+Eine digitale Signatur (=digitale Unterschrift) ist eine Methode basierend auf den asymmetrischen Verschlüsselungsmethoden, die die Integrität und Nichtabstreitbarkeit im Netzwerk sicherstellt. Eine digitale Signatur kann nur mit dem Privat-Key erzeugt werden und die Entschlüsselung daher nur mit dem Public-Key. Kann die Signatur entschlüsselt werden, so weiß man, dass der Sender im Besitz des Privaten SChlüssels ist und derjenige ist für den er sich ausgibt. \cite{wiki03}
 
 \paragraph{Digitale Zertifikate}
 
@@ -2065,7 +2065,7 @@ Digitale Zertifikate sind Ansammlungen von Daten, die mithilfe von kryptographis
 
 \subsubsection{Hash-Verfahren}
 
-Eine \textbf{Hashfunktion} ist eine Funktion, die eine beliebige Menge an Eingangsinformationen auf eine fixe Länge an Ausgangsinformationen abbildet.  Das Ziel von Hashfunktionen ist das Erschweren der Suche nach Kollisionen. Kollisionen können nicht verhindert werden, da die Eingangsgröße keine fixe Größe definiert. Ein weiteres Ziel von Hashfunktionen ist das Verhindern der Möglichkeit des Rückrechnens, also die Ermittlung der Eingangsgröße aus der Ausgangsgröße.(vgl. http://de.wikipedia.org/wiki/Kryptologische\_Hashfunktion)
+Eine \textbf{Hashfunktion} ist eine Funktion, die eine beliebige Menge an Eingangsinformationen auf eine fixe Länge an Ausgangsinformationen abbildet.  Das Ziel von Hashfunktionen ist das Erschweren der Suche nach Kollisionen. Kollisionen können nicht verhindert werden, da die Eingangsgröße keine fixe Größe definiert. Ein weiteres Ziel von Hashfunktionen ist das Verhindern der Möglichkeit des Rückrechnens, also die Ermittlung der Eingangsgröße aus der Ausgangsgröße.\cite{wiki04}
 
 \newpage
 \section{Kryptoanalyse}
@@ -2690,12 +2690,54 @@ Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
 \chapter{Alin Porcic}
 
 \begin{center}
-\begin{tabular}{c | c | c}
+\begin{tabular}{c|c|c}
 
 \textbf{Zeitraum} & \textbf{Zeitdauer} & \textbf{Aufgaben} \\ \hline
 06.04.2014 bis 10.04.2014 & 4h & CLI-Framework: Idee und Konzept\\
 11.04.2014 bis 12.04.2014 & 3h & CLI-Server und CLI-Client: Idee und Konzept\\
-13.04.2014 bis 14.04.2014 & 6h & CLI-Framework: Design - Überlegungen
+13.04.2014 bis 14.04.2014 & 6h & CLI-Framework: Überlegungen/Umsetzung\\
+14.04.2014 bis 15.04.2014 & 4h & CLI-Server und CLI-Client: Überlegungen/Umsetzung\\
+16.04.2014 bis 18.04.2014 & 13h & Socketserver / Socketclient: Idee und Konzept\\
+19.04.2014 bis 25.04.2014 & 9h & Clean-Coding\\
+25.04.2014 & 2h & Socketserver / Socketclient rausgenommen\\
+19.05.2014 & 2h & CLI-Framework und CLI, Fehlersuche\\
+20.05.2014 bis 21.05.2014 & 9h & CLI-Session/CLI-Server/CLI-Client Überarbeitung\\
+22.05.2014 & 2h & Socketserver/Socketclient vollständig ersetzt\\
+28.05.2014 & 3h & Implementierung der Konsolenausgabe, -eingabe\\
+29.05.2014 & 3h & CLI-Server/CLI-Client Überarbeitung\\
+06.06.2014 & 4h & CLI-Framework verbessert, Fehler ausgebessert\\
+08.06.2014 & 2h & CLI-Framework verbessert, Clean-Coding\\
+15.06.2014 & 1h & CLI-Server/CLI-Client verbessert\\
+17.06.2014 & 3h & JobSystem: Konzept + Überlegungen\\
+18.06.2014 bis 20.06.2014 & 10h & JobSystem funktionsfähig\\
+21.06.2014 bis 28.06.2014 & 9h & JobSystem überarbeitet + Clean-Coding\\
+03.07.2014 bis 06.07.2014 & 7h & AES hinzugefügt, zahlreiche Programmfehler ausgebessert\\
+10.07.2014 bis 14.07.2014 & 8h & Serializierung hinzugefügt, Fehler ausgebessert\\
+15.07.2014 & 3h & Programmteile überarbeitet\\
+22.07.2014 bis 23.07.2014 & 6h & RSA implementiert\\
+31.07.2014 & 5h & Paket-orientierte Netzwerkverbindungen hinzugefügt\\ \hline
+  
+\end{tabular}
+\end{center}
+
+\newpage
+
+\begin{center}
+\begin{tabular}{c | c | c}
+
+\textbf{Zeitraum} & \textbf{Zeitdauer} & \textbf{Aufgaben} \\ \hline
+01.08.2014 & 3h & allegmeine Verbesserungen am Programm, Fehlersuche\\
+03.08.2014 & 3h & JobSystem überarbeitet, Fehlersuche\\
+04.08.2014 bis 06.08.2014 & 5h & Probleme mit der RSA-Implementierung\\
+06.08.2014 & 2h & RSA entfernt\\
+10.08.2014 bis 14.08.2014 & 6h & JobSystem unterstützt Benachrichtigungen\\
+15.08.2014 & 2h & JobSystem verbessert, Fehlersuche\\
+20.08.2014 bis 21.08.2014 & 6h & XML-Serializer hinzugefügt, Clean-Coding\\
+23.08.2014 bis 24.08.2014 & 4h & MADConf hinzugefügt, Fehlersuche\\
+26.08.2014 bis 27.08.2014 & 4h & Eventhandler hinzugefügt, Clean-Coding\\
+12.09.2014 bis 14.09.2014 & 10h & SSL hinzugefügt, zahlreiche Verbesserungen\\
+18.09.2014 bis 19.09.2014 & 5h & CLI überarbeitet, JobSystem überarbeitet\\
+
 
 \end{tabular}
 \end{center}
