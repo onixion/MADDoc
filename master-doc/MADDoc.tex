@@ -1233,8 +1233,8 @@ Diese Stufe wird verwendet, um Leute, die von den anderen Empfängern nicht gese
 \end{itemize}  
 Die Pfeile in der obigen Abbildung 'E-Mail Header' zeigen übersichtlich die Visibilität aller Beteiligten untereinander.
 \subsection{Senden}
-Zum Senden einer E-Mail, wird ein relativ altes Protokoll verwendet, namens SMTP (Simple Mail Transfer Protocol). Es wird, dennoch Heute sehr viel verwende. Es wird weitgehend auf SMTP bzw. seine Weiterentwicklungen zurückgegrifen, da es kaum Alternativen gibt.
-\subsubsection{SMTP}
+Zum Senden einer E-Mail, wird ein relativ altes Protokoll verwendet, namens SMTP. Es wird, dennoch Heute sehr viel verwende. Es wird weitgehend auf SMTP bzw. seine Weiterentwicklungen zurückgegrifen, da es kaum Alternativen gibt.
+\subsubsection{SMTP - Simple Mail Transfer Protocol}
 Wie bereits vorher erwähnt, wird dieses Protokoll zum Versenden von E-Mails gebraucht und verwendet. 
 Eigenschaften:\\
 \begin{itemize}
@@ -1334,7 +1334,7 @@ QUIT trennt die Verbindung zum Server. Server sendet jedoch noch eine letzte Tre
 
 Eine SMTP Kommunikation kann beispielsweise aussehen:
 \begin{center}
-\includegraphics[scale=0.9]{../docs/lyaton/graphics/SMTP-Kommunikation.PNG}\\
+\includegraphics[scale=0.9]{../docs/lyaton/graphics/SMTP-Kommunikation.png}\\
 \textbf{SMTP - Kommunikation}\\
 \begin{scriptsize}
 Quelle: http://de.wikipedia.org/wiki/Simple\_Mail\_Transfer\_Protocol
@@ -1361,11 +1361,34 @@ Die einzelnen Schritt in der obigen Abbildung
 \textbf{Server:} Bestätigt Trennung der Verbindung
 \end{enumerate}
 \subsection{Empfangen}
-lorem ipsum
-\subsubsection{IMAP}
-lorem ipsum
+Das Empfangen einer E-Mail kann auf verschiedenen Wegen passieren. Einerseits IMAP andererseits POP.
+\subsubsection{IMAP - Internet Message Access Protocol}
+Eigenschaften:\\
+\begin{itemize}
+\item Port:
+\begin{itemize}
+\item 143/TCP
+\item 993/TCP\\
+für IMAPS (IMAPSecure unterscheidet sich insofern, dass anfänglich eine Verschlüsselung (siehe Kapitel \ref{chap:krypto} Seite \pageref{chap:krypto}) zwischen Client und Server ausgemacht wird.)
+
+\end{itemize}
+\item Netzwerklayer: Anwendung
+\item Dokumentation: RFC 3501
+\end{itemize}
+Es gibt bei IMAP mehrere Versionen, jedoch ist die, die heute immer noch verwendet wird, die Version IMAP4. IMAP4 ist nun seit den 90er Jahren in Verwendung.
+\paragraph{Allgemeine Funktionsweise\\}
+IMAP ermöglicht den Zugriff auf ein E-Mail Account. Hierbei bleiben die E-Mails jedoch auf dem Server und werden von den Clients nur in den Temporären Speicher geladen. Sie können dort gemanagt werden, sprich sortiert und durchsucht werden.\\
+
+Es muss aber zu jedem Zeitpunkt eine Verbindung zum Server gegeben sein. Dies hat gewisse Vorteile, aber auch Nachteile. Diese werden in der Gegenüberstellung (siehe Kapitel \ref{sssec:IMAPvsPOP} Seite \pageref{sssec:IMAPvsPOP}) näher erläutert.\\\\
+Mögliche IMAP Kommunikation zwischen Client und Server:\\
+\begin{center}
+\includegraphics[scale=0.7]{../docs/lyaton/graphics/IMAP-Kommunikation_p1.png}
+\includegraphics[scale=0.7]{../docs/lyaton/graphics/IMAP-Kommunikation_p2.png}
+\end{center}
+
 \subsubsection{POP}
 lorem ipsum
+\subsubsection{Gegenüberstellung IMAP - POP} \label{sssec:IMAPvsPOP}
 \subsection{Bedeutung im Altag}
 \subsubsection{Heute}
 lorem ipsum
