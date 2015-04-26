@@ -10,6 +10,7 @@
 *.bbl
 *.blg
 *.xml
+*.run.xml
 *.dvi
 
 master-doc/*.pdf
