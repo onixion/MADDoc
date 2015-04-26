@@ -1173,10 +1173,11 @@ Es ist teilweise mit der Post vergleichbar (im weiteren Verlauf wird dieser Verg
 Der Entstehungsweg der E-Mail startet in den 1960er Jahren, als Ray Tomlinson, ein Computertechniker bei Bolt Beranek and Newman (BBN), neben seiner eigentlichen Arbeit, sich einem anderen Projekt widmete. Mithilfe dessen wollte er es schafften, die bis dato noch nicht vorhandene Übertragung bzw. das Hinterlassen von Nachrichten bzw. Dateien zwischen zwei im gleichen Netzwerk befindlichen Rechnern zu ermöglichen. Es war noch die Zeit vor dem Internet, die Zeit des sog. Arpanets, welches als Vorgänger des Internets gilt. Damals versuchte Tomlinson, mithilfe schon vorhandener Systeme, wie dem SNDMSG und dem CPYNET, ein neues System zu schaffen.\\\\
 
 Während der Entwicklungsphase, meinte Tomlinson, während er es seinen Kollegen zeigte, 
-\begin{center}
-\textit{'Don't tell anyone! This isn't what we're supposed to be working on.'}\\
-(auf Deutsch: 'Sag das niemandem! Das ist nicht das, woran wir arbeiten sollen.').
-\end{center}
+\begin{quote}
+\textit{'Don't tell anyone! This isn't what we're supposed to be working on.'}
+\end{quote}
+(auf Deutsch: 'Sag das niemandem! Das ist nicht das, woran wir arbeiten sollen.').\\\\
+
 1971 war Tomlinson soweit war, dass er sein Werk auch den anderen Mitarbeitern der Firma zeigen wollte. Er selbst kann sich leider nicht mehr an den Inhalt dieser ersten offiziell versendeten E-Mail, innerhalb seines Firmennetzes, erinnern. Aber Tomlinson weiß noch genau, dass er allen erklärte wie er es bewerkstelligt hat, Texte von einem zu einem anderen Rechner zu senden. Er gebrauchte dafür das @-Zeichen, dass er in irgendeinem Zeichensatz gefunden hatte. Er trennte damit den Benutzernamen des Empfängers vom Hostnamen - also Benutzername@Hostname, zum Beispiel 'Mustermann@Rechner1'. \\
 
 Nachdem dieser Grundstein gelegt wurde, war 'E-Mail' entstanden. Neben der Weiterentwicklung des Arpanets (später Telenet) bzw. der Entstehung des Internets, wuchs auch die elektronische Post immer weiter mit. Im Jahr 1975 war es dank dem Programmierer John Vittal erstmals möglich E-Mails etwas übersichtlicher darzustellen. Damit wurde alles wesentlich benutzerfreundlicher und somit verbreitete es sich noch weiter unter den Leuten. Das Programm wurde 'MSG' genannt. Neben der übersichtlichen Darstellung, ermöglichte MSG auch andere Sachen, wie zum Beispiel das Weiterleiten, die Vorschau und das Antworten und auch einige weitere Funktionen.\\
@@ -1216,6 +1217,7 @@ Dieser beinhaltet Informationen über
 \item Empfänger und eventuelle zu sendende Kopien
 \item eventuellen Betreff
 \item eventuellen Anhang
+\item Weitere formelle Informationen...
 \end{itemize}
 \item Body\\
 Dieser beinhaltet die eigentliche Nachricht
@@ -1346,7 +1348,7 @@ Eine SMTP Kommunikation kann beispielsweise aussehen:
 Quelle: http://de.wikipedia.org/wiki/Simple\_Mail\_Transfer\_Protocol
 \end{scriptsize}
 \end{center}
-Die einzelnen Schritt in der obigen Abbildung
+Die einzelnen Schritte in der obigen Abbildung:
 \begin{enumerate}
 \item \textbf{Client:} Verfügbarkeit überprüfen, mit TELNET-Anfrage an mail.example.com über Port 25\\\\
 \textbf{Server:} Zeigt Verfügbarkeit
@@ -1389,22 +1391,118 @@ Es muss aber zu jedem Zeitpunkt eine Verbindung zum Server gegeben sein. Dies ha
 Mögliche IMAP Kommunikation zwischen Client und Server:\\
 \begin{center}
 \includegraphics[scale=0.7]{../docs/lyaton/graphics/IMAP-Kommunikation_p1.png}
-\includegraphics[scale=0.7]{../docs/lyaton/graphics/IMAP-Kommunikation_p2.png}
+\includegraphics[scale=0.7]{../docs/lyaton/graphics/IMAP-Kommunikation_p2.png}\\
+\textbf{IMAP - Kommunikation}\\
+\begin{scriptsize}
+Quelle: http://de.wikipedia.org/wiki/Internet\_Message\_Access\_Protocol\#Geschichte
+\end{scriptsize}
 \end{center}
+Die einzelnen Schritte in der obigen Abbildung:
+\begin{enumerate}
+\item \textbf{Server:} Server hört auf den Port und wartet auf eventuelle Anfragen\\\\
+\textbf{Client:} Client sendet eine Anmeldungsanfrage
+\item \textbf{Server:} Bestätigt Anmeldung\\\\
+\textbf{Client:} Wählt einen Ordner aus (inbox)
+\item \textbf{Server:} Sendet Übersicht des Ordners\\\\
+\textbf{Client:} Fordert Informationen über E-Mail Nr.12
+\item \textbf{Server:} Sendet Informationen über E-Mail Nr.12\\\\
+\textbf{Client:} Client fordert Header
+\item \textbf{Server:} gewünschter Header wird gesendet\\\\
+\textbf{Client:} Löscht E-Mail Nr.12
+\item \textbf{Server:} Bestätigt den Löschvorgang\\\\
+\textbf{Client:} Meldet sich ab
+\item \textbf{Server:} Bestätigt Abmeldung
+\end{enumerate}
+\subsubsection{POP - Post Office Protocol}
+Eigenschaften:\\
+\begin{itemize}
+\item Port:
+\begin{itemize}
+\item 110/TCP
+\item 995/TCP\\
+für POPS (POPSecure unterscheidet sich insofern, dass anfänglich eine Verschlüsselung (siehe Kapitel \ref{chap:krypto} Seite \pageref{chap:krypto}) zwischen Client und Server ausgemacht wird.)
 
-\subsubsection{POP}
-lorem ipsum
+\end{itemize}
+\item Netzwerklayer: Anwendung
+\item Dokumentation: RFC 1939
+\end{itemize}
+Das Post Office Protocol ist eine weitere Möglichkeit um E-Mails vom Mailserver abzurufen. Auch hier gibt es mehrere Versionen, wobei POP3 die zu verwendende ist. Das POP3 erschien erstmals im Jahre 1988 und ist somit auch ein relativ altes, jedoch intaktes Protokoll.
+\paragraph{Allgemeine Funktionsweise\\}
+POP ermöglicht es die E-Mails vom Mailserver auf ein lokales Speichermedium zu laden und speichern. Damit können E-Mail lokal verwalten werden und es ist keine dauernde Verbindung zu Server notwendig.
+
+Dieses Protokoll hat ebenfalls gewisse Vorteile, aber auch Nachteile. Diese werden in der Gegenüberstellung (siehe Kapitel \ref{sssec:IMAPvsPOP} Seite \pageref{sssec:IMAPvsPOP}) näher erläutert.\\\\
+Mögliche POP Kommunikation zwischen Client und Server:\\
+\begin{center}
+\includegraphics[scale=0.7]{../docs/lyaton/graphics/POP-Kommunikation.png}\\
+\textbf{POP - Kommunikation\\}
+\begin{scriptsize}
+Quelle: http://de.wikipedia.org/wiki/Post\_Office\_Protocol
+\end{scriptsize}
+\end{center}
+Die einzelnen Schritte in der obigen Abbildung:
+\begin{enumerate}
+\item \textbf{Server:} Server hört auf den Port und wartet auf eventuelle Anfragen\\\\
+\textbf{Client:} Client sendet eine Anfrage
+\item \textbf{Server:} Bestätigt und zeigt somit, dass er aktiv ist\\\\
+\textbf{Client:} Gibt Usernamen durch
+\item \textbf{Server:} Verlangt nach Passwort\\\\
+\textbf{Client:} Gibt Passwort durch
+\item \textbf{Server:} Bestätigt Anmeldung\\\\
+\textbf{Client:} Client fragt Status ab
+\item \textbf{Server:} Sendet aktuellen Status\\\\
+\textbf{Client:} Fordert Auflistung
+\item \textbf{Server:} Listet E-Mail auf\\\\
+\textbf{Client:} Fragt E-Mail Nr.1 ab
+\item \textbf{Server:} Sendet E-Mail Nr. 1 komplett zu\\\\
+\textbf{Client:} Löscht E-Mail Nr.1
+\item \textbf{Server:} Bestätigt, dass die E-Mail für das Löschen Markiert wurde\\\\
+\textbf{Client:} Meldet sich ab
+\item \textbf{Server:} Löscht nun die E-Mail und bestätigt die Abmeldung\\\\
+\end{enumerate}
+
 \subsubsection{Gegenüberstellung IMAP - POP} \label{sssec:IMAPvsPOP}
-\subsection{Bedeutung im Altag}
+Die beiden Protokolle IMAP und POP haben beide ihre Vor- und Nachteile. Beide werden heute sehr viel verwendet, wobei POP etwas verbreiteter ist.\\\\
+\begin{center}
+\begin{tabular}{p{6cm}|c|p{6cm}}
+\textbf{IMAP} & vs. &\textbf{POP}\\
+\hline
+Alle Nachrichten werden auf dem Server gespeichert und nur sehr wenig lokal Speicher wird benötigt. & $\leftarrow$ & Abgerufen E-Mail werden nochmals auf lokalem Speicher gespeichert und sind somit doppelt vorhanden.\\
+\hline
+Die Zeit bis eine bestimmte E-Mail gelesen werden kann ist sehr kurz & $\leftarrow$ & Es dauert bei POP etwas länger da die ganze E-Mail zuerst heruntergeladen werden muss\\
+\hline
+Server und MUA (siehe Kapitel \ref{itm:MUA} Seite \pageref{itm:MUA}) sind immer synchron & $\leftarrow$ & Alle E-Mail werden von dem MUA lokal verwalten, dadurch kann es keine Synchronisation zwischen MUA und MDA (siehe Kapitel \ref{itm:MDA} Seite \pageref{itm:MDA}) geben.\\
+\hline
+Server werden stark belastet, da die ganzer Verwaltung Online vonstattengeht. & $\rightarrow$ & Da alles lokal verwaltet wird sind die Server nicht ausgelastet.\\
+\hline
+Dauernde Verbindung zum Server ist notwendig & $\rightarrow$ & Da die E-Mails lokal gespeichert werden ist die Verbindung zum Server nur während des Downloads notwendig.
+\end{tabular}
+\end{center}
+\paragraph{Vergleich mit der Post:}
+\subparagraph{IMAP:} Die Post liegt im Briefkasten. Man geht raus zum Briefkasten und ließt, sortiert und entsorgt jegliche Post im Briefkasten.
+\subparagraph{POP:} Die Post liegt im Briefkasten. Man geht raus zum Briefkasten und kopiert die Post oder aber entsorgt sie am noch im Briefkasten. Man kann die Kopien mit nach Hause nehmen.
+\section{Bedeutung im Altag}
 \subsubsection{Heute}
-lorem ipsum
+E-Mails sind heute einer der meistgenutzten Kommunikationsmöglichkeiten überhaupt. Vor allem Firmen senden massenhaft E-Mails. D.h. sie sind aus dem heutigen Alltag nicht mehr wegzudenken.\\\\
+Viele Geräte unterstützen diese Technik, wie z.B. Smartuhren, Smartphones, Tablets, Laptops, etc...\\
+Dadurch wird auch noch ermöglicht E-Mails sehr schnell Abrufbar sind.
+\paragraph{Nennenswerte E-Mail - Anbieter:}
+\begin{itemize}
+\item GMAIL
+\item Outlook
+\item GMX
+\item Yahoo
+\item uvm.
+\end{itemize} 
 \subsubsection{Zukünftig}
-lorem ipsum
-\subsection{Vor- und Nachteile}
-lorem ipsum
-\subsection{Sicherheit}
-\label{sssec:Spam}
-lorem ipsum
+Analysten zufolge wird der E-Mail Verkehr sich immer mehr in den Wirtschaftlichen Sektor verschieben, da die Menschen immer mehr ihre Sozialen Kontakte über Soziale Netwerke, wie Facebook, Whatsapp und Twitter aufrecht erhalten. Somit werden kurze E-Mails zwischen zwei Freunden immer seltener.
+\section{Probleme}
+Es gibt aber auch einige Probleme bei E-Mails.
+\subsection{Begrenzungen}
+E-Mails könnten zwar rein theoretisch unbegrenzte Datenmengen übertragen, dies ist jedoch in der Praxis nicht umsetzbar. Viele Mailserver-Betreiber limitieren die Datenmengen um die Server möglichst wenig auszulasten.
+\subsection{Informations-Overload}
+Jeder bekommt heute unzählige E-Mail. Diese variieren natürlich, manche sind Werbung, mache sind Wichtig und mache Gefährlich. Auf jeden Fall sind es sehr viele Mails und diese müssen tagtäglich durchforstet werden. Die führt dazu, dass man gezwungenermaßen mit Informationen überhäuft wird.
+\subsection{Spam}\label{sssec:Spam}
+Als Spam werden jene E-Mail bezeichnet, welche meist werbenden Inhalt haben. In 2010 z.B lag der Prozentsatz von eben solchen Spam-Mails auf rund 90\%, bei 107 Billionen versendeten E-Mails auf der ganzen Welt (vgl.http://de.wikipedia.org/wiki/E-Mail\#Spam) 
 \chapter{Oberfläche}
 lorem ipsum
 \section{Allgemein User Interface (UI) von Manpreet Singh}
