@@ -429,7 +429,7 @@ Dies sind nur einige der zu erwähnenden Vorteile von C\# .
 \section{Multithreading}
 Unter Multithreading ist das gleichzeitige Abarbeiten verschiedener Threads von einem Prozess oder einem Anwendungsprogramm zu verstehen. Multithreading wird auch als Nebenläufigkeit, Mehrsträngigkeit oder Mehrfädigkeit bezeichnet.
 
-\subsection{Threads}
+\subsection{Threads}\label{ssec:Threads}
 Ein Thread (Programm-Faden) steht in der Informatik für einen Ausführungsstrang oder auch eine Ausführungsreihenfolge beim Abarbeiten eines Programms und ist ein Teil eines Prozesses. Threads werden auch Aktivitätsträger oder leichtgewichtete Prozesse genannt. Es gibt Kernel-Threads und User-Threads.
 
 \subsubsection{Kernel-Thread}
@@ -1199,9 +1199,9 @@ DOS steht für \textbf{Denial of Service} und ist ein weiteres Ziel für Hacker.
 Dies wird meistens durch übermäßiges Beanspruchen eines Services bewerkstelligt. Das Problem hierbei ist dann, dass man sich nicht gegen etwas wehren kann, was genau den Vorgaben entspricht. Das System ist ja dazu ausgelegt Anfragen aufzunehmen.\\
 
 Da jedoch normalerweise ein Einzelner nicht in der Lage ist, die Rechenleistung eines ganzen Servers in die Knie zu zwingen, wird der DOS Angriff immer häufiger mit seinem Nachfolger, dem \textbf{DDOS} oder \textbf{Distributed Denial of Service} ersetzt. Dies bedeutet nicht mehr, als dass der Angriff jetzt nicht nur von einem ausgeht sondern von vielen verschiedenen Rechnern. Diese Methode wird auch von der Gruppe Anonymous verwendet.
-\newpage
-\lfoot{Manpreet Singh}
+
 \chapter{E-Mail (Manpreet Singh)}
+\lfoot{Manpreet Singh}
 Im Folgenden Kapitel wird versucht, das Konzept von E-Mail zu erklären.\\\\
 Die 'electronic mail', kurz E-Mail, wird nun schon seit einigen Jahren dazu verwendet, um vor allem Text, auf elektronischem Wege von A nach B zu senden. Sie sorgt dafür, dass wichtigen Dokumente absendet werden können, dass Freunde Urlaubsfotos bekommen können und vor allem sorgt sie dafür, dass die Wirtschaft intakt bleibt, denn nicht viele Systeme können einen solch hohen Anteil an Werbung vorweisen. 
 \section{Allgemein}
@@ -1601,8 +1601,8 @@ Der sicherlich größte Nachteil der CLI ist das der Benutzer die Befehle, die P
 
 Ein weiterer Problem ist das Nutzen von graphischen Diensten wie zum Beispiel das Surfen im Internet oder die Nutzung von Multimedia Daten. Es besteht die Möglichkeit auf grafischen Terminals Bilder oder Dokumente anzuzeigen, jedoch sind diese nicht sehr handlich, da immer nur ein Dokument zugleich geöffnet werden kann.\\
 \newpage
-\lfoot{Manpreet Singh}
 \section{Graphical User Interface (Manpreet Singh)}
+\lfoot{Manpreet Singh}
 Die graphische Benutzeroberfläche begleitet uns tagtäglich. Sie bietet uns viel Komfort und ermöglicht auch Laien den Zugang zur Informationstechnik.\\\\
 GUIs (Graphical User Interface) werden auch häufig in Firmen eingesetzt um Personal, welches der Informationstechnik nicht sehr mächtig ist, trotzdem eine Möglichkeit zu bieten darauf zuzugreifen.
 \subsection{Geschichte}
@@ -2414,7 +2414,37 @@ SHA steht für \textbf{Seucre-Hash-Algorithm} und ist eine Ansammulung von mehre
 \chapter{Schnittstellen}
 
 \section{GUI (Manpreet Singh)}
+\lfoot{Manpreet Singh}
+Nach einigen Startschwierigkeiten beim Entscheiden, wer nun diesen teil programmiert, ist schlussendlich mir die Aufgabe zuteilgeworden.\\\\
+Dieser Teil war besonders Herausfordern, wie ich finde. Das Problem liegt darin alle Geschmäcker zu treffen. Der Eine legt wert auf Effizienz wohingegen der Andere auf Optik.\\\\
+Nach 3 Versuchen klappte es eine GUI zu programmieren, die den Zweck erfüllt und optisch auch was hermacht.\\
 
+\subsection{Versionen und ihre Probleme}
+\subsubsection{Version 1}
+\begin{center}
+\includegraphics[scale=0.5]{../docs/lyaton/graphics/GUI_v1_start.png}\\
+\textbf{Startfenster}
+\end{center}
+\begin{center}
+\includegraphics[scale=0.5]{../docs/lyaton/graphics/GUI_v1_nodes.png}\\
+\textbf{Nodes-Fenster}
+\end{center}
+Die Arbeit and dieser Version wurde bald eingestellt, da dies eher ein 'Testobjekt' war. Allerdings habe ich wertvolle Erfahrung gemacht und hatten meinen ersten Kontakt mit Visual C\#
+\subsubsection{Version 2}
+\begin{center}
+\includegraphics[scale=0.65]{../docs/lyaton/graphics/GUI_v2_config.png}\\
+\textbf{Konfigurationsfenster}
+\end{center}
+Leider erst viel zu spät wurde mir bewusst, dass ich mich in etwas viel zu aufwendiges verstrickt hatte. Meine Herangehensweise war vollkommen falsch. Ich habe viel zu Groß gedacht, obwohl man bei genau solchen Projekten, wie einer graphischen Oberfläche, wo einem unendlich viele Möglichkeiten geboten werden, eigentlich ganz klein denken muss. Jedoch habe ich erneut einiges gelernt. Der Umgang mit Visual C\# fiel mir immer einfacher.
+\subsubsection{Verion 3 - Final Version}
+\begin{center}
+\includegraphics[scale=0.65]{../docs/lyaton/graphics/GUI_v3_demo.png}\\
+\textbf{Hauptfenster}
+\end{center}
+Diese Version ist knapp und knackig. Sie erfüllt die gewünschten Anforderungen und sieht dabei, für die meisten zumindest, gut aus. Ich wollt hier noch ein paar Features, wie z.B. Graphen,  implementieren, dies war jedoch, zeitlich nicht mehr möglich.\\
+
+Alles in allem kostete mich das Programmieren der GUI viele Stunden und vor allem viele Nerven. Es war aber auf jeden Fall eine wertvolle Erfahrung, welche ich auch ihn meinem weiteren Leben gut gebrauchen kann.
+\newpage
 \section{CLI (Alin Porcic)}
 \lfoot{Alin Porcic}
 
@@ -2563,12 +2593,20 @@ Der ARP Reader benötigt das Netz, die eigene IP-Adresse sowie die Subnetzmaske.
 
 Das größte Problem mit dem ARP Reader liegt darin, dass es mehrere verschiedene Interfaces gibt, mit welchen pcap arbeitet. Dies kann man auch sehen, wenn man Wireshark startet. Es werden mehrere Interfaces angezeigt, aus welchen ausgewählt werden kann.\\
 Natürlich können die zur Auswahl stehenden Interfaces mit dem Befehl \textbf{arp reader list interfaces} ausgegeben werden. Diese können dann auch in der Configfile gespeichert werden, damit man nicht immer das Interface angeben muss.
-\chapter{Notification von Singh Manpreet}
-lorem ipsum
+\chapter{Notification (Manpreet Singh)}
+\lfoot{Manpreet Singh}
+Dieser Teile war mir ein großes Anliegen. Für mich war es wichtig, eine Möglichkeit zu bieten, mit der man den User benachrichtigen kann. Nach kurzer Diskussion mit meinen Kollegen entschieden wir uns für die E-Mail zum benachrichtigen.\\
 
-\lfoot{Marko Stojanovi\'{c}}
+Dies war ebenfalls mein erster Kontakt mit C\#, deshalb braucht ich anfänglich etwas länger. Als ich die Sprache ein wenig beherrschte, war die erste Version der Benachrichtigung schnell geschrieben. \\
+
+Nach ewigem testen, stellte sich heraus, dass das, das ich programmiert hatte leider nicht Effizienzideologie unseres Projektes entsprach, denn jedes mal als eine E-Mail versendet wurde, musst das Programm im schlimmsten Fall 7 Sekunden warten, bis es dann weitermachen konnte. Also machte ich mich wieder an die Arbeit. Doch nach kurzer Absprache mit Teamkollegen Alin Porcic, war schnell klar das die einzige Lösung hier Threads bieten (siehe Kapitel \ref{ssec:Threads} Seite \pageref{ssec:Threads}).\\
+
+Nach einigen weiteren Erweiterungen wie z.B. des Que Systemes, welches dem Programm erlaubt unzählige E-Mails, unabhängig von Wartezeiten, dem Notification System zu übergeben. Dies ist möglich durch das Verwenden von Ques (Warteschlangen). Aber auch andere Features wie optionale E-Mail Felder habe ich implementiert. Optionale E-Mail Felder sind beispielsweise Dateianhang, CC, BCC, Priorität, ...\\
+
+Alles in allem war dies eine eher einfache Aufgabe.
 
 \chapter{Database von Marko Stojanovi\'{c}}
+\lfoot{Marko Stojanovi\'{c}}
 \section{MAD-DB}
 Die Realisierung der Datenbank erfolge über SQLite. SQLite verwendet ein relationales Datenbankmanagementsystem, welches in C\# durch das Einbinden der "{}sqlite3.dll"{} konfigurierbar ist. Es werden dadurch alle Befehle von SQLite verwendet und es sind keine weiteren Installationen notwendig. Die gesamte Datenbank wird anschließend als eine Datei gespeichert.
 
@@ -2694,10 +2732,9 @@ Außerdem kann die Stufe, ab welcher geloggt werden soll, bestimmt werden. Per d
 
 Die Logfile selbst hat das .txt Format, damit man unter Windows leichter damit arbeiten kann, und heißt log.txt. Der Name kann jedoch geändert werden, um Verwirrung mit anderen Log Dateien zu vermeiden. 
 
-\part{User Manual (Alin Porcic)}
+\part{User Manual}
+\chapter{CLI (Alin Porcic)} \label{chap:CLI_UM}
 \lfoot{Alin Porcic}
-\chapter{CLI}
-
 Wird das Programm mit dem Argument \textbf{-cli} gestartet, so wird statt der graphischen Oberfälche die integrierte CLI gestartet. Diese gibt am Start eine kurze Zusammenfassung der Versionen und Uhrzeiten aus. Nun können Befehle eingegeben werden. (Hinweis: Die Eingabe kann nicht über mehrere Zeilen gehen.)\\
 
 \begin{center}
@@ -2988,12 +3025,12 @@ Nun werden alle Ausführung von allen Jobs, die zwischen dem 10.01.2015 und dem 
 \includegraphics[scale=0.5]{img/db_summary.png}
 \end{center}
 
-\chapter{CLIClient}
+\chapter{CLIClient (Alin Porcic)}
 
 Der CLI-Client erstellt bei der ersten Ausführung eine Konfigurationsdatei im gleichen Ordner wie die ausführbare Datei. Dort kann der Zieladresse und Authentifikations-Passwort eingegeben werden. Sobald die Verbindung steht, kann die CLI ganz normal verwendet werden.\\
 Die Konfigurationsdatei wird im XML-Syntax gespeichert und beim Start eingelesen.
 
-\chapter{CLIServer}
+\chapter{CLIServer (Alin Porcic)}
 
 Der CLI-Server ist im Hauptprogramm integriert und kann mit dem Argument '-cliserver' gestartet werden. Der Port lässt sich über die Konfigurationsdatei 'data/mad.conf' verändern. Standardmäßig läuft er auf Port 2222. Das Passwort mit dem sich der CLIClient authentifizeren muss, kann im Feld 'AES-PASS' ebenfalls eingerichtet werden.
 
@@ -3001,11 +3038,70 @@ Der CLI-Server ist im Hauptprogramm integriert und kann mit dem Argument '-clise
 \includegraphics[scale=0.6]{img/cli_server.png}\\
 Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
 \end{center}
+\chapter{GUI (Manpreet Singh)}
+\lfoot{Manpreet Singh}
+Die graphische Oberfläche wird gestartet wenn kein Argument beim Aufruf mitgegeben wird.\\
+Das Hauptfenster, welches beim Start geladen wird sieht wie folgt aus:
+\begin{center}
+\includegraphics[scale=0.7]{../docs/lyaton/graphics/GUI_v3_start.png}\\
+\textbf{Hauptfenster beim Start}
+\end{center}
 
+Von hieran ist es am Sinnvollsten, eine Scan durchzuführen. Dieser Scan listet dann alle gefunden Geräte im Netzwerk auf.
+\begin{center}
+\includegraphics[scale=0.7]{../docs/lyaton/graphics/GUI_v3_scan.png}\\
+\textbf{Scanfenster}
+\end{center}
+Dieses Scanfenster benötigt nun ein Paar Informationen:
+\begin{itemize}
+\item \textbf{Obligatorisch:}
+\begin{itemize}
+\item Local IP-Adress\\
+Hier wird nach der momentanen IP-Adresse der lokalen Netzwerkkarte gefragt.
+\item Network\\
+Hier wird nach dem Netzwerk gefragt.
+\item Subnet\\
+Hier wird nach der Größe des Subnetzes gefragt.
+\end{itemize}
+\item \textbf{Fakultativ:}
+\begin{itemize}
+\item Network Device\\
+Hier wird nach der Netzwerkarte gefragt, wobei man nur aus den verfügbaren Netzwerkkarten auswählen kann. Falls man nichts auswählt wird automatisch die in der Konfiguration vermerkte Netzwerkkarte verwendet.
+\item Single Scan\\
+Hier wird gefragt ob man nur einen Scan machen möchten, anstatt einen sich immer wiederholenden.
+\end{itemize}
+\end{itemize}
+Nachdem der Scan gestartet wurde verschwindet das Scanfenster wieder und man ist zurück im Hauptfenster. Nach kurzer Zeit (Standardmäßig 30 Sekunden, können jedoch auch mehr sein, da dies einstellbar ist.) sollte man auf dem Reload-Button im linken unteren Eck klicken. \\Folgendes Fenster erscheint dann:
+\begin{center}
+\includegraphics[scale=0.7]{../docs/lyaton/graphics/GUI_v3_reload.png}\\
+\textbf{Hauptfenster nach abgeschlossenem Scan}
+\end{center}
+Man kann nun auf die einzelnen Nodes im linken Bereich klicken und mehr Informationen darüber im rechten Bereich erhalten.
+\begin{center}
+\includegraphics[scale=0.7]{../docs/lyaton/graphics/GUI_v3_nodeclick.png}\\
+\textbf{Hauptfenster bei geöffneter Node}
+\end{center}
+Um den Node aktivieren zu können bzw. einem Node jobs zuweisen zu können, muss man die CLI starten. Dafür ist im oberen rechten Eck ein Button namens CLI.\\Nach dem Klicken passiert folgendes:
+\begin{center}
+\includegraphics[scale=0.7]{../docs/lyaton/graphics/GUI_v3_cli.png}\\
+\textbf{CLI}
+\end{center}
+Dort kann man wie im Punkt CLI beschrieben, seine Befehle ausführen (siehe Kapitel \ref{chap:CLI_UM} Seite \pageref{chap:CLI_UM}). Nachdem man die gewünschten Jobs den Nodes zugeordnet hat und die Nodes, die Jobs und den Scheduler gestartet hat, kann man zurück zur graphischen Oberfläche.\\\\
+Wenn man dort nun erneut auf den Reload-Button klickt sieht man:
+\begin{center}
+\includegraphics[scale=0.7]{../docs/lyaton/graphics/GUI_v3_jobclick.png}\\
+\textbf{Hauptfenster bei geöffneter Node}
+\end{center}
+In diesem Fenstern kann man nun wunderbar alle Nodes und die jeweiligen Jobs ansehen.\\\\
+Die letzte Funktion der graphischen Oberfläche ist das Informationsfenster. Dieses erreicht man indem man im rechten oberen Eck auf den Info-Button klickt.
+\begin{center}
+\includegraphics[scale=0.7]{../docs/lyaton/graphics/GUI_v3_info.png}\\
+\textbf{Infofenster}
+\end{center}
 \part{Zeiteinteilung}
 
 \chapter{Alin Porcic}
-
+\lfoot{Alin Poric}
 \begin{center}
 \begin{tabular}{|l|c|l|}
 
