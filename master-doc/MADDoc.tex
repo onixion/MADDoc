@@ -2417,9 +2417,9 @@ SHA steht für \textbf{Seucre-Hash-Algorithm} und ist eine Ansammulung von mehre
 
 \section{GUI (Manpreet Singh)}
 \lfoot{Manpreet Singh}
-Nach einigen Startschwierigkeiten beim Entscheiden, wer nun diesen teil programmiert, ist schlussendlich mir die Aufgabe zuteilgeworden.\\\\
-Dieser Teil war besonders Herausfordern, wie ich finde. Das Problem liegt darin alle Geschmäcker zu treffen. Der Eine legt wert auf Effizienz wohingegen der Andere auf Optik.\\\\
-Nach 3 Versuchen klappte es eine GUI zu programmieren, die den Zweck erfüllt und optisch auch was hermacht.\\
+Nach einigen Startschwierigkeiten beim Entscheiden, wer nun diesen Abschnitt programmiert, ist schlussendlich mir die Aufgabe zuteilgeworden.\\\\
+Dieser Teil ist meines Erachtens nach eine besonders große Herausforderung. Das Problem bestand darin, den verschiedenen Anforderungen gerecht zu werden. Manche legen Wert auf Effizienz wohingegen andere mehr auf die Optik achten.\\\\
+Nach 3 Versuchen klappte es eine graphische Benutzeroberfläche zu programmieren, die alle geforderten Aspekte erfüllte.\\
 
 \subsection{Versionen und ihre Probleme}
 \subsubsection{Version 1}
@@ -2431,21 +2431,22 @@ Nach 3 Versuchen klappte es eine GUI zu programmieren, die den Zweck erfüllt un
 \includegraphics[scale=0.5]{../docs/lyaton/graphics/GUI_v1_nodes.png}\\
 \textbf{Nodes-Fenster}
 \end{center}
-Die Arbeit and dieser Version wurde bald eingestellt, da dies eher ein 'Testobjekt' war. Allerdings habe ich wertvolle Erfahrung gemacht und hatten meinen ersten Kontakt mit Visual C\#
+Die Arbeit and dieser Version wurde bald eingestellt. Diese Version ist rückblickend zu einem 'Testobjekt' geworden. Allerdings habe ich wertvolle Erfahrung gesammelt und hatte meinen ersten Kontakt mit Visual C\#.
 \subsubsection{Version 2}
 \begin{center}
 \includegraphics[scale=0.65]{../docs/lyaton/graphics/GUI_v2_config.png}\\
 \textbf{Konfigurationsfenster}
 \end{center}
-Leider erst viel zu spät wurde mir bewusst, dass ich mich in etwas viel zu aufwendiges verstrickt hatte. Meine Herangehensweise war vollkommen falsch. Ich habe viel zu Groß gedacht, obwohl man bei genau solchen Projekten, wie einer graphischen Oberfläche, wo einem unendlich viele Möglichkeiten geboten werden, eigentlich ganz klein denken muss. Jedoch habe ich erneut einiges gelernt. Der Umgang mit Visual C\# fiel mir immer einfacher.
-\subsubsection{Verion 3 - Final Version}
+Leider wurde mir erst viel zu spät bewusst, dass ich mich in etwas viel zu aufwendiges verstrickt hatte. Meine Herangehensweise war vollkommen falsch. Ich habe viel zu groß gedacht. Der richtige Ansatz bei solchen Projekten, die einem endlose Möglichkeiten bieten, ist es klein anzufangen. 
+Durch diese neu gewonnene Erfahrung fiel mir der Umgang mit C\# immer einfacher.
+\subsubsection{Version 3 - Final Version}
 \begin{center}
 \includegraphics[scale=0.65]{../docs/lyaton/graphics/GUI_v3_demo.png}\\
 \textbf{Hauptfenster}
 \end{center}
-Diese Version ist knapp und knackig. Sie erfüllt die gewünschten Anforderungen und sieht dabei, für die meisten zumindest, gut aus. Ich wollt hier noch ein paar Features, wie z.B. Graphen,  implementieren, dies war jedoch, zeitlich nicht mehr möglich.\\
+Diese Version ist kurz und bündig. Sie erfüllt die gewünschten Anforderungen und ist dabei optisch ansprechend. Ich wollte mehr Features, wie z.B. Graphen zur Anzeige vom Netzwerkverkehr, implementieren. Das war jedoch zeitlichen Gründen nicht mehr realisierbar.\\
 
-Alles in allem kostete mich das Programmieren der GUI viele Stunden und vor allem viele Nerven. Es war aber auf jeden Fall eine wertvolle Erfahrung, welche ich auch ihn meinem weiteren Leben gut gebrauchen kann.
+Alles in Allem kostete mich das Programmieren der Benutzeroberfläche viel Zeit und Geduld. Jedoch kann ich mit Sicherheit sagen, dass ich viel Erfahrung gesammelt habe, die mir auf meinem weiteren Lebensweg helfen wird.
 \newpage
 \section{CLI (Alin Porcic)}
 \lfoot{Alin Porcic}
@@ -2597,15 +2598,15 @@ Das größte Problem mit dem ARP Reader liegt darin, dass es mehrere verschieden
 Natürlich können die zur Auswahl stehenden Interfaces mit dem Befehl \textbf{arp reader list interfaces} ausgegeben werden. Diese können dann auch in der Configfile gespeichert werden, damit man nicht immer das Interface angeben muss.
 \chapter{Notification (Manpreet Singh)}
 \lfoot{Manpreet Singh}
-Dieser Teile war mir ein großes Anliegen. Für mich war es wichtig, eine Möglichkeit zu bieten, mit der man den User benachrichtigen kann. Nach kurzer Diskussion mit meinen Kollegen entschieden wir uns für die E-Mail zum benachrichtigen.\\
+Notification war mir ein großes Anliegen. Für mich war es wichtig, dass der User bei Bedarf die Möglichkeit hat benachrichtigt zu werden. Nach kurzer Diskussion mit meinen Kollegen entschieden wir uns für die E-Mail.\\
 
-Dies war ebenfalls mein erster Kontakt mit C\#, deshalb braucht ich anfänglich etwas länger. Als ich die Sprache ein wenig beherrschte, war die erste Version der Benachrichtigung schnell geschrieben. \\
+Es war mein erster Kontakt mit C\#, deshalb hat es mich anfänglich mehr Zeit gekostet. Als ich die Sprache etwas beherrschte, war die erste Version zur Benachrichtigung schnell geschrieben. \\
 
-Nach ewigem testen, stellte sich heraus, dass das, das ich programmiert hatte leider nicht Effizienzideologie unseres Projektes entsprach, denn jedes mal als eine E-Mail versendet wurde, musst das Programm im schlimmsten Fall 7 Sekunden warten, bis es dann weitermachen konnte. Also machte ich mich wieder an die Arbeit. Doch nach kurzer Absprache mit Teamkollegen Alin Porcic, war schnell klar das die einzige Lösung hier Threads bieten (siehe Kapitel \ref{ssec:Threads} Seite \pageref{ssec:Threads}).\\
+Nach ewigem testen, stellte sich heraus, dass das, das ich programmiert hatte leider nicht der Effizienzideologie unseres Projektes entsprach. Jedes mal als eine E-Mail versendet wurde, musste das Programm bis zu 7 Sekunden warten. Also machte ich mich wieder an die Arbeit. Doch nach kurzer Absprache mit Teamkollegen Alin Porcic, war schnell klar, dass in diesem Fall Threads die einzige Lösung darstellen (siehe Kapitel \ref{ssec:Threads} Seite \pageref{ssec:Threads}).\\
 
-Nach einigen weiteren Erweiterungen wie z.B. des Que Systemes, welches dem Programm erlaubt unzählige E-Mails, unabhängig von Wartezeiten, dem Notification System zu übergeben. Dies ist möglich durch das Verwenden von Ques (Warteschlangen). Aber auch andere Features wie optionale E-Mail Felder habe ich implementiert. Optionale E-Mail Felder sind beispielsweise Dateianhang, CC, BCC, Priorität, ...\\
+Nach dem Hinzufügen anderer Erweiterungen wie z.B. dem Que System, welches dem Hauptprogramm erlaubt, unabhängig von Wartezeiten, E-Mails and das Notification System zu übergeben. Ques (Warteschlangen) ermöglichten dieses Feature. Aber auch andere Funktion wie die optionalen E-Mail Felder wurden implementiert. Optionale E-Mail Felder sind beispielsweise Dateianhang, CC, BCC, Priorität.\\
 
-Alles in allem war dies eine eher einfache Aufgabe.
+Im Großen und Ganzen war dies eine einfache Aufgabe.
 
 \chapter{Database von Marko Stojanovi\'{c}}
 \lfoot{Marko Stojanovi\'{c}}
@@ -3099,55 +3100,55 @@ Das Hauptfenster, welches beim Start geladen wird sieht wie folgt aus:
 \textbf{Hauptfenster beim Start}
 \end{center}
 
-Von hieran ist es am Sinnvollsten, eine Scan durchzuführen. Dieser Scan listet dann alle gefunden Geräte im Netzwerk auf.
+Von hieran ist es am sinnvollsten einen Scan durchzuführen. Dadurch werden alle im LAN gefunden Gerät aufgelistet.
 \begin{center}
 \includegraphics[scale=0.7]{../docs/lyaton/graphics/GUI_v3_scan.png}\\
 \textbf{Scanfenster}
 \end{center}
-Dieses Scanfenster benötigt nun ein Paar Informationen:
+Dieses Scanfenster benötigt ein paar Informationen:
 \begin{itemize}
 \item \textbf{Obligatorisch:}
 \begin{itemize}
 \item Local IP-Adress\\
 Hier wird nach der momentanen IP-Adresse der lokalen Netzwerkkarte gefragt.
 \item Network\\
-Hier wird nach dem Netzwerk gefragt.
+Hier wird nach dem Netzwerkadresse gefragt.
 \item Subnet\\
 Hier wird nach der Größe des Subnetzes gefragt.
 \end{itemize}
 \item \textbf{Fakultativ:}
 \begin{itemize}
 \item Network Device\\
-Hier wird nach der Netzwerkarte gefragt, wobei man nur aus den verfügbaren Netzwerkkarten auswählen kann. Falls man nichts auswählt wird automatisch die in der Konfiguration vermerkte Netzwerkkarte verwendet.
+Hier wird nach der Netzwerkarte gefragt, wobei nur aus den verfügbaren Netzwerkkarten ausgewählt werden kann. Falls nichts ausgewählt wird, wird automatisch, die in der Konfiguration vermerkte Netzwerkkarte, verwendet.
 \item Single Scan\\
-Hier wird gefragt ob man nur einen Scan machen möchten, anstatt einen sich immer wiederholenden.
+Hier wird gefragt ob nur ein einzelner Scan gemacht werden soll oder ein sich immer wiederholender.
 \end{itemize}
 \end{itemize}
-Nachdem der Scan gestartet wurde verschwindet das Scanfenster wieder und man ist zurück im Hauptfenster. Nach kurzer Zeit (Standardmäßig 30 Sekunden, können jedoch auch mehr sein, da dies einstellbar ist.) sollte man auf dem Reload-Button im linken unteren Eck klicken. \\Folgendes Fenster erscheint dann:
+Nachdem der Scan gestartet wurde verschwindet das Scanfenster wieder und das Hauptfenster erscheint. Nach kurzer Zeit (Standardmäßig 30 Sekunden, es können jedoch auch mehr sein, da dies einstellbar ist.) sollte auf den Reload-Button geklickt werden, welches sich im linken unteren Eck befindet. \\Folgendes Fenster erscheint dann:
 \begin{center}
 \includegraphics[scale=0.7]{../docs/lyaton/graphics/GUI_v3_reload.png}\\
 \textbf{Hauptfenster nach abgeschlossenem Scan}
 \end{center}
-Man kann nun auf die einzelnen Nodes im linken Bereich klicken und mehr Informationen darüber im rechten Bereich erhalten.
+Indem auf die einzelnen Nodes im linken Bereich geklickt wird, erscheinen im rechten Bereich nähere Informationen.
 \begin{center}
 \includegraphics[scale=0.7]{../docs/lyaton/graphics/GUI_v3_nodeclick.png}\\
 \textbf{Hauptfenster bei geöffneter Node}
 \end{center}
-Um den Node aktivieren zu können bzw. einem Node jobs zuweisen zu können, muss man die CLI starten. Dafür ist im oberen rechten Eck ein Button namens CLI.\\Nach dem Klicken passiert folgendes:
+Um den Node aktivieren zu können bzw. einem Node Jobs zuweisen zu können, muss die CLI gestartet werden. Dafür ist im oberen rechten Eck ein Button namens CLI vorgesehen.\\Nach dem Klicken passiert folgendes:
 \begin{center}
 \includegraphics[scale=0.7]{../docs/lyaton/graphics/GUI_v3_cli.png}\\
 \textbf{CLI}
 \end{center}
-Dort kann man wie im Punkt CLI beschrieben, seine Befehle ausführen (siehe Kapitel \ref{chap:CLI_UM} Seite \pageref{chap:CLI_UM}). Nachdem man die gewünschten Jobs den Nodes zugeordnet hat und die Nodes, die Jobs und den Scheduler gestartet hat, kann man zurück zur graphischen Oberfläche.\\\\
-Wenn man dort nun erneut auf den Reload-Button klickt sieht man:
+Dort können wie im Punkt CLI beschrieben wird, Befehle ausgeführt werden (siehe Kapitel \ref{chap:CLI_UM} Seite \pageref{chap:CLI_UM}). Nachdem die gewünschten Jobs den Nodes zugeordnet wurden und die Nodes, die Jobs und der Scheduler gestartet wurden, kann die graphische Oberfläche wieder benutzt werden.\\\\
+Durch den Klick auf den Reload-Button erscheint folgendes:
 \begin{center}
 \includegraphics[scale=0.7]{../docs/lyaton/graphics/GUI_v3_jobclick.png}\\
 \textbf{Hauptfenster bei geöffneter Node}
 \end{center}
-In diesem Fenstern kann man nun wunderbar alle Nodes und die jeweiligen Jobs ansehen.\\\\
-Die letzte Funktion der graphischen Oberfläche ist das Informationsfenster. Dieses erreicht man indem man im rechten oberen Eck auf den Info-Button klickt.
+In diesem Fenster können nun Informationen zu allen Nodes und den dazugehörigen Jobs erhalten werden.\\\\
+Die letzte Funktion der graphischen Oberfläche ist das Informationsfenster. Dieses erscheint indem im rechten oberen Eck der Info-Button angeklickt wird.
 \begin{center}
-\includegraphics[scale=0.7]{../docs/lyaton/graphics/GUI_v3_info.png}\\
+\includegraphics[scale=0.6]{../docs/lyaton/graphics/GUI_v3_info.png}\\
 \textbf{Infofenster}
 \end{center}
 \part{Zeiteinteilung}
