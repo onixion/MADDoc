@@ -90,8 +90,7 @@ Das Ziel dieser Diplomarbeit ist das Erstellen eines Programmes, welches in eine
 \section{Schnittstellen}
 
 Für die Benutzung des Programmes soll eine textbasierende Schnittstelle implementiert werden, die als primäre Interaktion mit dem Programm dient. Die vollständige Überwachung aller Aufgaben und Geräte soll über diese Schnisttelle möglich sein.\\
-
-Es soll auch die Möglichkeit bestehen, die textbasierende Schnittstelle über das Netzwerk zu nutzen. Daher muss diese Schnittstelle als Netzwerkservice implementiert werden und es wird eine Client-Software benötigt, die die gesendeten Daten anzeigen kann.\\
+Es soll auch die Möglichkeit bestehen, die textbasierende Schnittstelle über das Netzwerk zu nutzen. Daher muss diese Schnittstelle als Netzwerkservice implementiert werden und es wird eine Client-Software benötigt.\\
 
 Neben der textbasierten Schnittstelle soll eine graphische Schnittstelle implementiert werden, die eine alternative Benutzung des Programmes ermöglichen soll. Der Funktionsumfang der graphischen Oberfläche beschränkt sich mit der Anzeige einer Übersicht der Aufgaben und Geräte.
 
@@ -99,7 +98,7 @@ Neben der textbasierten Schnittstelle soll eine graphische Schnittstelle impleme
 
 Das Programm soll auf Windows als auch auf Linux lauffähig sein. Die Benutzung soll sich auf den zwei verschiedenen Betriebssystemen nicht unterscheiden.\\
 
-Die Resulate der Überwachungen sollen in einer Datenbank lokal abgespeichert werden. Die Möglichkeit die Datensätze der Datenbank zusammenzufassen, soll implementiert werden, um den Speicherbedarf zu verringern.\\
+Die Resulate der Überwachungen sollen in einer Datenbank lokal abgespeichert werden. Eine Möglichkeit die Datensätze der Datenbank zusammenzufassen, soll implementiert werden, um den Speicherbedarf zu verringern.\\
 
 Die Änderungen des IP-Adressen von Netzwerkgeräte im Netzwerk soll automatisch im Programm geändert werden.\\
 
@@ -1578,16 +1577,18 @@ Die aller ersten Computer unterstützten keine Interaktiven Eingabe- oder Ausgab
 Teletype Model 33 ASR \cite{wiki08}
 \end{center}
 
-Anfangs der 1970er Jahre begann das Unternehmen Bell Labs die Entwicklung eines Betriebssystems namens \textbf{Unix}. Unix besaß eine mächtige CLI-Umgebung und konnte durch sogenannte \textbf{Pipes} die Ausgaben von Programmen umleiten. Auch Scripts konnten geschrieben und ausgeführt werden. Der Einsatz von Terminals sorgte für die Aussterbung der Fernschreiber. Terminals waren Geräte, die die Möglichkeit boten, Daten über eine Tastatur einzugeben und die Daten über einen Bildschirm in Textform oder auch Grafik auszugeben. Zudem boten die Termianls durch die serielle Verbindung mehr Bandbreite und konnten einfacher in ein Unternehmen eingesetz werden. Das VT100 war ein ASCII-Computer-Terminal, dass zwischen 1979 bis 1983 verkauft wurde.\\
+Anfangs der 1970er Jahre begann das Unternehmen Bell Labs die Entwicklung eines Betriebssystems namens \textbf{Unix}. Unix besaß eine mächtige CLI-Umgebung und konnte durch sogenannte \textbf{Pipes} die Ausgaben von Programmen umleiten. Es gab auch die Möglichkeit mehrere Programmanweisungen in ein Script zu verpacken und auszuführen. \\
+
+Die Fernschreiber waren sehr ümständlich, da die Instruktionen erst gestanzt und dann vom Computer eingelesen werden mussten. Daher entwickelte man die Terminals, um die Fernschreiber zu erlösen. Terminals waren Geräte, die die Möglichkeit boten, Daten über eine Tastatur einzugeben und die Daten über einen Bildschirm in Textform oder auch Grafik auszugeben. Zudem boten die Termianls durch die serielle Verbindung mehr Bandbreite und konnten einfacher in ein Unternehmen eingesetz werden. Das VT100 war ein ASCII-Computer-Terminal, dass zwischen 1979 bis 1983 verkauft wurde.\\
 
 \begin{center}
 \includegraphics[scale=2.0]{img/vt100.jpg}\\
 VT100 \cite{wiki09}
 \end{center}
 
-Die Terminals wurden jedoch schon 1977 durch den Einsatz von \textbf{Personal Computer} ersetzt. Seitdem werden richtige Terminals nicht mehr eingesetzt, sondern werden in Software emuliert. Richtige Terminals sind sehr unhandlich, brauchen Platz und müssen an den Computer angeschlossen werden. \cite{wiki09}\\
+Die Terminals wurden jedoch schon 1977 durch den Einsatz von \textbf{Personal Computer} ersetzt. Seitdem werden richtige Terminals nicht mehr eingesetzt, sondern werden in Software emuliert. \cite{wiki09}\\
 
-Obwohl der Einsatz von textbasierten Schnittstellen nachgelassen hat, finden sie immer noch große Verwendung. Einige Betriebssysteme (Windows, Mac OS, ...) und auch einige Programme (QEMU, CodeBlocks, Eclipse, ...) bieten neben ihren graphischen Oberflächen auch alternative textbasierte Schnittstellen an. Bei \textbf{Embedded Systems} werden auch häufig auf CLIs zurückgegriffen, da sie sehr Ressourcen freundlich sind, aber auch Android-Smartphones, Router und Switches machen sich die Vorteile der CLI zu nutze. \cite{wiki06}
+Obwohl der Einsatz von textbasierten Schnittstellen nachgelassen hat, finden sie immer noch große Verwendung. Einige Betriebssysteme (Windows, Mac OS, ...) und auch einige Programme (QEMU, CodeBlocks, Eclipse, ...) bieten neben ihren graphischen Oberflächen auch alternative textbasierte Schnittstellen an. Bei \textbf{Embedded Systems} werden auch häufig auf CLIs zurückgegriffen, da sie sehr Ressourcen freundlich sind, aber auch Router und Switches machen sich die Vorteile der CLI zu nutze. \cite{wiki06}
 
 \subsection{Vor- und Nachteile}
 
@@ -1600,6 +1601,7 @@ Sehr erfahrene Nutzer arbeiten ausschließlich über die textbasierte Schnittste
 Der sicherlich größte Nachteil der CLI ist das der Benutzer die Befehle, die Parameter und die Argumente kennen muss. In seltenen Fällen müssen sogar die Parameter in der richtigen Reihenfolge angeben werden. Bei sehr vielen Befehlen kann man schnell den Überblick verlieren und unerfahrene Nutzer verlieren schnell die Interesse die notwendigen Befehle herauszusuchen.\\
 
 Ein weiterer Problem ist das Nutzen von graphischen Diensten wie zum Beispiel das Surfen im Internet oder die Nutzung von Multimedia Daten. Es besteht die Möglichkeit auf grafischen Terminals Bilder oder Dokumente anzuzeigen, jedoch sind diese nicht sehr handlich, da immer nur ein Dokument zugleich geöffnet werden kann.\\
+
 \newpage
 \section{Graphical User Interface (Manpreet Singh)}
 \lfoot{Manpreet Singh}
@@ -2132,7 +2134,7 @@ Die Fähigkeit dieser Systeme die Informationen vor wirtschaftlichen Schäden zu
 
 (vgl. Wikipedia - Informationssicherheit)\\\\
 
-Verfahren, Informationen zu verbergen, sind nichts neues - die ersten Ansätze und Anwendungen von kryptographischen Systemen reichen weit in die Vergangenheit der Menschheit zurück. Schon seit 2500 Jahren sind Methoden bekannt, die die Lesbarkeit von wichtigen Informationen zu verhinderten. In Sparta, als Beispiel, hat die Regierung ein Pergamentband um einen Zylinder spiralförmig aufgespannt und die zu ermittelnde Nachricht über die verschiedenen Ringe des Pergaments geschrieben. Die Entschlüsselung gelang nur dann, wenn man einen Zylinder mit dem gleichem Durchmesser besaß (siehe Monoalphabetische Chiffrierung).\\
+Verfahren, Informationen zu verbergen, sind nichts neues - die ersten Ansätze und Anwendungen von kryptographischen Systemen reichen weit in die Vergangenheit der Menschheit zurück. Schon seit 2500 Jahren sind Methoden bekannt, die die Lesbarkeit von wichtigen Informationen zu verhindern versucht. In Sparta, als Beispiel, hat die Regierung ein Pergamentband um einen Zylinder spiralförmig aufgespannt und die zu ermittelnde Nachricht über die verschiedenen Ringe des Pergaments geschrieben. Die Entschlüsselung gelang nur dann, wenn man einen Zylinder mit dem gleichem Durchmesser besaß (siehe Monoalphabetische Chiffrierung).\\
 
 Die Kryptologie ist heute ein sehr wichtiger Bestandteil in der Informationstechnik und wird auch in Zukunft eine sehr wichtige Rolle spielen. Im heutigen normalen Alltag sind wir fast immer auf kryptographische Systeme angewiesen: das einfache Surfen im Internet, das Abrufen und Versenden von E-Mails, E-Banking, die Abspeicherung von Passwörtern, das Telefonieren - alle diese Dinge werden mithilfe von kryptographischen Verfahren vor unbefugtem Lesen oder Modifizieren verhindert. Ohne es zu bemerken oder gar davon Bescheid zu wissen, verwenden und verlassen sich Milliarden von Menschen auf solche Sytemen.
 
@@ -2389,7 +2391,7 @@ Hybride Verschlüsselungssysteme nutzen die Vorteile der symmetrischen und asyme
 
 \paragraph{IPsec}
 
-IPsec ist ein Sammlung an Protokollen und Verschlüsselungssystemen, die modular verwendet werden können, um eine sichere Kommunikation in einem unsicherem Netzwerk bieten soll. Im IP-Netzwerk können Rechner, die Packete weiterleiten, die Inhalte lesen und verändern. IPsec verhindert dies, indem es die IP-Packete kapselt und verschlüsselt. Damit kann kein Netzwerkgerät dazwischen die Inhalte lesen oder verändern. Desweiteren können Geräte nicht sehen an wen oder von wem das Paket stammt.
+IPsec ist eine Ansammlung an Protokollen und Verschlüsselungssystemen, die modular verwendet werden können. IPsec kapselt und verschlüsselt gewöhnliche IP-Pakete. IPsec versucht die Lesbarkeit, Manipulation oder Weiterleitung von Paketen zu verhindern. Mit IPsec können Netzwerkgeräte, die die Pakete weiterleiten, nicht sehen an wen oder von wem die gesendeten Paket kommen.
 
 \paragraph{TLS/SSL}
 
@@ -2397,7 +2399,7 @@ TLS steht für \textbf{Transport Security Layer} (alte Bezeichnung: SSL, Secure-
 
 \paragraph{PGP}
 
-PGP steht für \textbf{Pretty-Good-Privacy} und ist ein Programm, welches die Verschlüsselung und Entschlüsselung von Daten erlaubt. Wir in der Praxis für das Ver- und Entschlüsseln von E-Mails verwendent.
+PGP steht für \textbf{Pretty-Good-Privacy} und ist ein Programm, welches die Verschlüsselung und Entschlüsselung von Daten erlaubt. Wird in der Praxis für das Ver- und Entschlüsseln von E-Mails verwendent.
 
 \subsection{Hash-Verfahren}
 
@@ -3228,7 +3230,7 @@ Die letzte Funktion der graphischen Oberfläche ist das Informationsfenster. Die
 \begin{tabular}{|l|l|l|l|l|}
 \hline
 \textbf{Referenz} & \textbf{Titel} & \textbf{Autor} & \textbf{Aufrufdatum} & \textbf{Quelle}\\ \hline
-[102] & Kryptologie & Tino Hemple & 28.04.2015 & http:www.github.comBLAHBLAH \\ 
+[102] & Kryptologie & Tino Hempel & 28.04.2015 & - \\ 
 \hline
 \end{tabular}
 \end{center}
