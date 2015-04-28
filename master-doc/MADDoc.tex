@@ -2471,26 +2471,27 @@ Außerdem kann die Stufe, ab welcher geloggt werden soll, bestimmt werden. Per d
 
 Die Logfile selbst hat das .txt Format, damit man unter Windows leichter damit arbeiten kann, und heißt log.txt. Der Name kann jedoch geändert werden, um Verwirrung mit anderen Log Dateien zu vermeiden. 
 
-\part{User Manual (Alin Porcic)}
-\lfoot{Alin Porcic}
-\chapter{CLI}
+\part{User Manual}
 
-Wird das Programm mit dem Argument \textbf{-cli} gestartet, so wird statt der graphischen Oberfälche die integrierte CLI gestartet. Diese gibt am Start eine kurze Zusammenfassung der Versionen und Uhrzeiten aus. Nun können Befehle eingegeben werden. (Hinweis: Die Eingabe kann nicht über mehrere Zeilen gehen.)\\
+\lfoot{Alin Porcic}
+\chapter{CLI (Alin Porcic)}
+
+Wenn das Programm mit dem Argument \textbf{-cli} gestartet wird, so wird statt der graphischen Oberfälche die integrierte CLI gestartet. Diese gibt am Start eine kurze Zusammenfassung über der aktuellen Version und der Uhrzeit aus. Nachdem der Cursor sichtbar ist, kann die CLI auch schon verwendet werden.
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_mad.png}\\
-Nach dem Start der MAD-CLI.
+der Startbildschirm der CLI
 \end{center}
 
-\section{Grundlegende Befehle}
+\section{Grundlegende Befehle (Alin Porcic)}
 
 \subsubsection{help}
 
-Durch den Aufruf diese Befehls ohne Parameter, werden alle von der CLI bekannten Befehle aufgelistet. Jeder Befehl hat eine eindeutige Identifikationszahl.\\
+Durch den Aufruf dieses Befehles ohne Parameter werden alle von der CLI bekannten Befehle aufgelistet. Jeder Befehl hat eine eindeutige Identifikationszahl.\\
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_help.png}\\
-Ausgabe des Help-Befehls
+Adie usgabe des Help-Befehles
 \end{center}
 
 Mit dem Parameter \textbf{-id} können Informationen zu einem bestimmten Befehl angefragt werden. Der \textbf{-id} Parameter benötigt die Indentifikationszahl des Befehls als Argument.
@@ -2502,22 +2503,22 @@ nähere Informationen zu einem Befehl
 
 \subsubsection{colortest}
 
-Dieser Befehl gibt alle möglichen Farben auf der jeweiligen Konsole aus. Viele Konsolen unterstützen nicht alle Farben, deshalb kann mit diesem Befehl herausgefunden werden, wie bestimmte Farben dargestellt werden.
+Dieser Befehl gibt alle möglichen Farben auf der Konsole aus. Viele Konsolen unterstützen nicht alle Farben, deshalb kann dieser Befehl zeigen, welche Farben richtig dargestellt werden und welche nicht.
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_colortest.png}\\
-Ausgabe der verschiedenen Farben.
+Ausgabe der verschiedenen Farben
 \end{center}
 
 \subsubsection{info}
 
-Gibt eine kurze Informationen über das Programm aus.
+Gibt eine kurze Informationen über das Programm auf die Konsole aus.
 
 \subsubsection{exit}
 
 Beendet das Programm.
 
-\section{JobSystem Befehle}
+\section{JobSystem Befehle (Alin Porcic)}
 
 \subsubsection{js}
 
@@ -2525,11 +2526,11 @@ Dieser Befehl gibt eine kurze Übersicht über das aktuell geladene Jobsystem au
 
 \subsubsection{js save}
 
-Diese Befehl erlaubt das Abspeichern des JobSystems als JSON-Datei. Der Dateipfad für die Abspeicherung kann als Argument mit dem Parameter \textbf{-f} mitgeteilt werden.
+Dieser Befehl erlaubt das Abspeichern des JobSystems als JSON-Datei. Der Dateipfad für die Abspeicherung kann als Argument mit dem Parameter \textbf{-file} mitgeteilt werden.
 
 \subsubsection{js load}
 
-Mit dieser Funktion kann ein zuvor abgespeichertes Abbild des JobSystems geladen werden. Der Parameter \textbf{-f} gibt das Abbild an, welches geladen werden soll.
+Mit dieser Funktion kann ein zuvor abgespeichertes Abbild des JobSystems geladen werden. Der Parameter \textbf{-file} gibt das Abbild an, welches geladen werden soll.
 
 \subsubsection{js nodes}
 
@@ -2549,7 +2550,7 @@ Dieser Befehlt stoppt den Zeitplaner des JobSystems.
 
 \subsubsection{node add}
 
-Netzwerkknoten können manuell mit diesem Befehl eingebunden werden. Dieser Befehl hat ingesamt drei Parameter: Name, IP-Adresse und MAC-Adresse. Der Name kann als Argument des Parameter \textbf{-n} mitgeteilt werden, die IP-Adresse mit \textbf{-ip} und die MAC-Adresse mit \textbf{-mac}. Bei der Ausführung des Befehls, erhält der Knoten eine automatisch zugewiesene Indentifikationszahl und eine globale eindeutige Indentifkationszahl (GUID).
+Netzwerkknoten können manuell mit diesem Befehl eingebunden werden. Dieser Befehl hat ingesamt drei Parameter: Name, IP-Adresse und MAC-Adresse. Der Name kann als Argument des Parameter \textbf{-n} mitgeteilt werden, die IP-Adresse mit \textbf{-ip} und die MAC-Adresse mit \textbf{-mac}. Bei der Ausführung des Befehls, erhält der Knoten eine automatisch zugewiesene Indentifikationszahl und eine globale eindeutige Indentifkationsnummer (GUID).
 
 \subsubsection{node remove}
 
@@ -2578,7 +2579,7 @@ Jeder Aufgabentyp den ein Netzwerkknoten haben kann, definiert einen eigenen Bef
 \begin{itemize}
 \item \textbf{-n}: Dieser Parameter gibt den Jobnamen an. Daher benötigt dieser Befehl den Namen als Argument.
 \item \textbf{-id}: Die ID des Netzwerkknoten an dem diese Aufgabe drangehängt werden soll. Der Netzwerkknoten muss existieren, sonst kann der Job nicht hinzugefügt werden.
-\item \textbf{-t}: Diese Parameter ist optional, sollte aber trotzdem definiert werden. Das Argument bzw. die Argumente dieses Parameters gibt an, wann der Job ausgeführt werden soll. Möchte man zum Beispiel, dass der Job alle 2000ms ausgeführt wird gibt man '2000' als Argument an. Möchte man einen bestimmen Zeitpunkt oder mehrer Zeitpunkte angeben, so kann man das mit den folgenden Argumenten erreichen:
+\item \textbf{-t}: Diese Parameter ist optional, sollte aber trotzdem definiert werden. Das Argument bzw. die Argumente dieses Parameters giben an, wann der Job ausgeführt werden soll. Möchte man zum Beispiel, dass der Job alle 2000ms ausgeführt wird gibt man '2000' als Argument an. Möchte man einen bestimmen Zeitpunkt oder mehrer Zeitpunkte angeben, so kann man das mit den folgenden Argumenten erreichen:
   \begin{itemize}
   \item 20:15 $\rightarrow$ startet den Job jeden Tag um 20:15 Uhr.
   \item 20:15 21:00 $\rightarrow$ startet den Job jeden Tag um 20:15 und 21:00 Uhr.
@@ -2598,17 +2599,17 @@ Diese Befehl kann bereits erstellte Jobs modifizieren.
 
 \subsubsection{job start}
 
-Dieser Befehl ändert den Status einer Netzwerkaufgabe auf 'Aktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl der Netzwerkaufgabe muss angegeben werden.
+Dieser Befehl ändert den Status einer Netzwerkaufgabe auf 'aktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl der Netzwerkaufgabe muss angegeben werden.
 
 \subsubsection{job stop}
 
-Dieser Befehl ändert den Status einer Netzwerkaufgabe auf 'Inaktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl der Netzwerkaufgabe muss angegeben werden.
+Dieser Befehl ändert den Status einer Netzwerkaufgabe auf 'inaktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl der Netzwerkaufgabe muss angegeben werden.
 
-\section{Datenbank Befehle}
+\section{Datenbank Befehle (Alin Porcic)}
 
 \subsubsection{db}
 
-Dieser Befehl gibt die Datenbank-Tabellen aus. Falls der Befehl ohne Parameter gestartet wird, wird eine Liste mit allen Tabellen ausgegeben.
+Dieser Befehl gibt die Datenbank-Tabellen aus. Falls der Befehl ohne Parameter aufgerufen wird, wird eine Liste mit allen Tabellen ausgegeben.
 
 \subsubsection{db jobs}
 
@@ -2632,7 +2633,7 @@ Die Berechnung und das Schreiben der Zusammenfassung kann durch eingeben dieses 
 
 \subsubsection{db summary remove}
 
-Das Entfernen von Datensätze aus der 'SummaryTable' erfolgt durch die Ausführung von diesem Befehl.
+Das Entfernen von Datensätze aus der 'SummaryTable' erfolgt durch die Ausführung diese Befehles.
 
 \subsubsection{db summary remove all}
 
@@ -2650,7 +2651,7 @@ In der Datenbank steht für jeden Netzwerkknoten zwei Felder für Memos frei. Ei
 
 Dieser Befehl entfernt Memos aus der Datenbank.
 
-\section{Anwendungsbeispiele}
+\section{Anwendungsbeispiele (Alin Porcic)}
 
 \subsection{Netzwerkknoten / Netzwerkaufgaben definieren, abspeichern und ausführen}
 
@@ -2662,7 +2663,7 @@ Es soll manuell ein Netzwerkknoten hinzugefügt werden. Der Netzwerkknoten sieht
   \item MAC-Adresse: FF:00:00:00:11
 \end{itemize}
 
-Um einen Netzwerkknoten hinzuzufügen muss der Befehl 'node add' ausgeführt werden. Dieser Befehl besitzt drei obligatorische Parameter mit jeweils einem Argument. Die Eingabe sieht wie folgt aus:\\
+Um einen Netzwerkknoten hinzuzufügen muss der Befehl \textbf{node add} ausgeführt werden. Dieser Befehl besitzt drei obligatorische Parameter mit jeweils einem Argument. Die Eingabe sieht wie folgt aus:\\
 
 \begin{itemize}
 \item \textbf{node add -n MeinPC -ip 10.0.0.120 -mac FF:00:00:00:11}\\
@@ -2693,20 +2694,20 @@ Um die derzeitige Konfiguration abzuspeicher gibt es zwei Möglichkeiten:
 \item Alle Netzwerkknoten abspeichern.
 \end{itemize}
 
-Da die jetztige Konfiguration nur einen Netzwerkknoten hat, kann der Netzwerkknoten einzeln abgespeichert werden. Dies geschieht mit dem 'node save' Befehl:\\
+Da die jetztige Konfiguration nur einen Netzwerkknoten hat, kann der Netzwerkknoten einzeln abgespeichert werden. Dies geschieht mit dem \textbf{node save} Befehl:\\
 
 \begin{itemize}
 \item \textbf{node save -id 0 -file node.json}
 \end{itemize}
 
 Der Paramter 'id' gibt den Netzwerkknoten an, der gespeichert werden soll und 'file' gibt den Dateinamen an. Bei einem Neustart des Programmes kann die Konfiguration des Nodes mithilfe des Befehls 'node load -file node.json' geladen werden.\\\\
-Zurzeit ist der Zeitplaner des JobSystems ausgeschalten, der Netzwerkknoten ist 'inaktive' und die drei Aufgaben ebenfalls. Damit die Aufgaben ausgeführt werden können muss der Zeitplaner aktiviert werden. Das geschieht durch den folgenden Befehl:\\
+Zurzeit ist der Zeitplaner des JobSystems ausgeschalten, der Netzwerkknoten ist 'inaktiv' und die drei Aufgaben ebenfalls. Damit die Aufgaben ausgeführt werden können muss der Zeitplaner aktiviert werden. Das geschieht durch den folgenden Befehl:\\
 
 \begin{itemize}
 \item \textbf{schedule start}
 \end{itemize}
 
-Nun läuft der Zeitplaner, jedoch ignoriert er den Netzwerkknoten und alle darunterliegenden Aufgaben, da der Netzwerkknoten inaktive ist. Um einen Netzwerkknoten zu aktivieren reicht die Ausführung des folgenen Befehls:\\
+Nun läuft der Zeitplaner, jedoch ignoriert er den Netzwerkknoten und alle darunterliegenden Aufgaben, da der Netzwerkknoten inaktiv ist. Um einen Netzwerkknoten zu aktivieren, reicht die Ausführung des folgenen Befehls:\\
 
 \begin{itemize}
 \item \textbf{node start -id 0}
@@ -2730,7 +2731,7 @@ Nach der Ausführung wird eine Tabelle mit den Aufgaben ausgegeben.
 
 \subsection{Zusammenfassung der Datenbank}
 
-Nachdem einige Daten durch die Ausführung der Netzwerkaufgaben gesammelt wurdem, besteht die Möglichkeit, diese Zusammenzufassen. Bei der Zusammenfassung werden die Daten auf Mittelwerte, Maximal- und Minimalwerte zusammengefasst. Wie viele Datensätze zu einem neuen Datensatz zusammengefasst werden, hängt von der Blockgröße ab.\\\\
+Nachdem einige Daten durch unzählige Ausführungen der Netzwerkaufgaben gesammelt wurden, besteht die Möglichkeit, diese Zusammenzufassen. Bei der Zusammenfassung werden die Daten auf Mittelwerte, Maximal- und Minimalwerte zusammengefasst. Wie viele Datensätze zu einem neuen Datensatz zusammengefasst werden, hängt von der Blockgröße ab.\\\\
 Damit die Daten zusmmaengefasst werden können müssen erst ein paar Daten gesammelt werden:
 
 \begin{center}
@@ -2742,10 +2743,12 @@ Nun müssen drei Dinge definiert werden:
 \begin{itemize}
 \item Start-Datum: Alle Ausführungen, die nach diesem Datum gestartet wurden, werden zusammengefasst.
 \item End-Datum: Alle Ausführungen, die vor diesem Datum gestartet wurden, werden zusammengefasst.
-\item Blockgröße: Die Blockgröße definiert wie groß der Zeitraum für einen zusammengefassten Datensatz sein soll. Wenn die Blockgröße, nehmen wir an, eine Stunde beträgt, dann wird der gesamte Zeitbereich der Zusammenfassung in eine Stunden-Blöcke unterteilt. Jeder dieser Blöcke wird in einem neuen Datensatz zusammengefasst.
+\item Blockgröße: Die Blockgröße definiert wie groß der Zeitraum für einen zusammengefassten Datensatz sein soll. Wenn die Blockgröße, nehmen wir an, eine Stunde beträgt, dann wird der gesamte Zeitbereich der Zusammenfassung in Stunden-Blöcke unterteilt. Jeder dieser Blöcke wird in einem neuen Datensatz zusammengefasst.
 \end{itemize}
 
-Um eine Zusammenfassung zu starten, muss folgender Befehl eingegeben werden (Hinweis: Jeder Zeitbereich kann nur einmal in der Summary-Table zusammengefasst werden, d.h. wenn man versucht eine Zusammenfassung über den gleichen Zeitbereich zu machen, wird eine Fehlermeldung ausgegeben, da die Zusammenfassung von gleichen Zeitbereichen nicht sinnvoll ist):\\
+Jeder Zeitbereich kann nur einmal in der 'Summary-Table' zusammengefasst werden, d.h. wenn man versucht eine Zusammenfassung über den gleichen Zeitbereich zu machen, wird eine Fehlermeldung ausgegeben, da die Zusammenfassung von gleichen Zeitbereichen nicht sinnvoll ist.\\
+
+Um eine Zusammenfassung zu starten, muss folgender Befehl eingegeben werden:
 
 \begin{itemize}
 \item \textbf{db summary -s 10.01.2015 -e 11.01.2015 -b 5h}
@@ -2755,7 +2758,7 @@ Um eine Zusammenfassung zu starten, muss folgender Befehl eingegeben werden (Hin
 \includegraphics[scale=0.5]{img/db_summary_create.png}
 \end{center}
 
-Nun werden alle Ausführung von allen Jobs, die zwischen dem 10.01.2015 und dem 11.01.2015 gestartet wurden, zusammengefasst. Der Zeitbereich wird in fünf Stunden Blöcke unterteilt und jeder Block wird in einem Datensatz zusammengefasst. Nun kann die Summary-Table betrachtet werden:\\
+Nun werden alle Ausführung von allen Jobs, die zwischen dem 10.01.2015 00:00 und dem 11.01.2015 00:00 gestartet wurden, zusammengefasst. Der Zeitbereich wird in fünf Stunden-Blöcke unterteilt und jeder Block wird in einem Datensatz zusammengefasst. Nun kann die 'Summary-Table' betrachtet werden:\\
 
 \begin{itemize}
 \item \textbf{db summmay}
@@ -2784,7 +2787,7 @@ Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
 \chapter{Alin Porcic}
 
 \begin{center}
-\begin{tabular}{|c|c|l|}
+\begin{tabular}{|l|c|l|}
 
 \hline
 \textbf{Zeitraum} & \textbf{Zeitdauer} & \textbf{Aufgaben} \\ \hline
@@ -2819,7 +2822,7 @@ Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
 \newpage
 
 \begin{center}
-\begin{tabular}{|c| c|l|}
+\begin{tabular}{|l|c|l|}
 
 \hline
 \textbf{Zeitraum} & \textbf{Zeitdauer} & \textbf{Aufgaben} \\ \hline
@@ -2852,7 +2855,18 @@ Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
 \end{center}
 
 \part{Quellverzeichnis}
-lorem ipsum
+
+\chapter{Alin Porcic}
+
+\begin{center}
+\begin{tabular}{|l|l|l|l|l|}
+\hline
+\textbf{Referenz} & \textbf{Titel} & \textbf{Autor} & \textbf{Aufrufdatum} & \textbf{Quelle}\\ \hline
+[102] & Kryptologie & Tino Hemple & 28.04.2015 & http:www.github.comBLAHBLAH \\ 
+\hline
+\end{tabular}
+\end{center}
+
 \bibliography{lit}
 \bibliographystyle{abbrv}
 \end{onehalfspace}
