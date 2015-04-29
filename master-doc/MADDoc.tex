@@ -2977,158 +2977,7 @@ Nach dem Hinzufügen anderer Erweiterungen wie z.B. dem Que System, welches dem 
 
 Im Großen und Ganzen war dies eine einfache Aufgabe.
 
-\chapter{Database von Marko Stojanovi\'{c}}
-\lfoot{Marko Stojanovi\'{c}}
-
-\section{MAD-DB}
-Die Realisierung der Datenbank erfolge über SQLite. SQLite verwendet ein relationales Datenbankmanagementsystem, welches in C\# durch das Einbinden der "{}sqlite3.dll"{} konfigurierbar ist. Es werden dadurch alle Befehle von SQLite verwendet und es sind keine weiteren Installationen notwendig. Die gesamte Datenbank wird anschließend als eine Datei gespeichert.
-
-\subsection{Erklärung}
-Befor das Datenbankmanagementsystem erstellt werden konnte musste geklärt werden, welche Daten gespeichert werden und in welcher Form.\\
-
-Die Datenbank besteht aus zwölf verschiedenen Tabellen. Die Namen der Tabellen sagen aus, welche Inhalte in ihnen gespeicher werden. Es wurden zwölf Tabellen erstellt um das System deterministisch zu halten, damit keine weiteren Veränderung in der Datenbank vorgenommen werden müssen (erstellen weiterer Tabellen).\\
-
-Alle Tabellen, bis auf die Tabellen JobTable und MemoTable, bestehen aus zwei Datenfelden. Das erste Datenfeld ist immer eine ID, welche den primary key vom Typ Integer darstellt, das zweite ist immer ein Feld vom Typ Text, dessen Inhalt gleich dem jeweiligen Namen der Tabelle entspricht.\\
-
-Zur eindeutigen Identifikation wurden sogenannte Globally Unique Identifier (GUID) vergeben. Diese sind Integers mit einer Länge von 128 Bit (16 Byte), dadurch konnte man garantieren, dass bei einer Vielzahl an Geräten immer noch jedes eindeutig identifizierbar ist und damit die dazugehörigen Informationen.
-\subsection{Tabellen}
-\subsubsection{GUIDNodeTable}
-\begin{enumerate}
-\item ID als primary key vom Typ Integer (AUTOINCREMENT)
-\item GUID\_ NODE vom Typ Text
-\end{enumerate}
-In dieser Tabelle wird jeder GUID von jeder Node eine ID zugewiesen. Dieser Schritt ist von Vorteil, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-guid-node.png}\\
-GUIDNodeTable mit drei Nodes (bzw. deren GUID) und der dazugehörigen ID.
-\end{center}
-\subsubsection{GUIDJobTable}
-\begin{enumerate}
-\item ID als primary key vom Typ Integer (AUTOINCREMENT)
-\item GUID\_ JOB vom Typ Text
-\end{enumerate}
-In dieser Tabelle wird jeder GUID von jedem Job eine ID zugewiesen. Der Vorteil ist der gleiche wie bei der GUIDNodeTable, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-guid-job.png}\\
-GUIDJobTable mit drei Jobs (bzw. deren GUID) und der dazugehörigen ID. 
-\end{center}
-\subsubsection{HostTable}
-\begin{enumerate}
-\item ID als primary key vom Typ Integer (AUTOINCREMENT)
-\item HOST vom Typ Text
-\end{enumerate}
-Alle sich im Netzwerk befinden Hosts werden in dieser Tabelle gespeichert. Jedem Host wird eine ID zugeordnet. Diese wird verwendet um die Hosts mit den dazugehörigen Informationen miteinander in der Tabelle JobTable zu verknöpfen.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-host.png}\\
-HostTable mit zwei Einträgen.
-\end{center}
-\subsubsection{IPTable}
-\begin{enumerate}
-\item ID als primary key vom Typ Integer (AUTOINCREMENT)
-\item IP vom Typ Text
-\end{enumerate}
-In dieser Tabelle werden IP- Adressen gespeichert. Diese werden dann einer ID zugeordnet um dann in der JobTable mit den restlichen Daten verknüpft werden zu können.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-ip.png}\\
-IPTable mit nur einem Eintrag der lokalen IP- Adresse.
-\end{center}
-\subsubsection{MACTable}
-\begin{enumerate}
-\item ID als primary key vom Typ Integer (AUTOINCREMENT)
-\item MAC vom Typ Text
-\end{enumerate}
-In dieser Tabelle werden MAC- Adressen (Hardware- Adressen), der im Netzwerk sich befindenden Geräte, gespeichert. Jede MAC- Adresse wird einer ID zugeordnet, welche zur späteren Verknüpfung in der JobTable dient.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-mac.png}\\
-MACTable mit bisher nur einem Eintrag, da nur ein Gerät im Netzwerk vorhanden.
-\end{center}
-\subsubsection{JobNameTable}
-\begin{enumerate}
-\item ID als primary key vom Typ Integer (AUTOINCREMENT)
-\item JOBNAME vom Typ Text
-\end{enumerate}
-Jobnamen werden vom Administrator übergeben, welche in dieser Tabelle gespeichert werden. Die Zuweisung zu einer ID erfolg ebenfalls um die Verknüpfung der Daten in der JobTable zu gewährleisten.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-jobname.png}\\
-JobNameTable mit bisher zwei Einträgen (TEST, TEST2).
-\end{center}
-\subsubsection{JobTypeTable}
-\begin{enumerate}
-\item ID als primary key vom Typ Integer (AUTOINCREMENT)
-\item JOBTYPE vom Typ Text
-\end{enumerate}
-In dieser Tabelle werden Jobtypen abgespeichert (Ping, SNTP, ...) und einer ID zugeordnet um die Verknüpfung der Daten in der JobTable zu ermöglichen.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-jobtype.png}\\
-JobTypeTable mit einem bisher verwendeten JobType Eintrag (Ping), da beide bisher verwendeten Jobs vom gleichen Typ waren.
-\end{center}
-\subsubsection{ProtocolTable}
-\begin{enumerate}
-\item ID als primary key vom Typ Integer (AUTOINCREMENT)
-\item PROTOCOL vom Typ Text
-\end{enumerate}
-In dieser Tabelle werden Protokolle einer ID zugewiesen. Diese werden dann wieder in der JobTabele mit den restlichen dazugehörigen Informationen verbunden.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-protocol.png}\\
-ProtocolTable mit dem einem Eintrag, da nur gepingt wurde.
-\end{center}
-\subsubsection{OutStateTable}
-\begin{enumerate}
-\item ID als primary key vom Typ Integer (AUTOINCREMENT)
-\item OUTSTATE vom Typ Text
-\end{enumerate}
-In dieser Tabelle wird der Zustand eines Jobs gespeichert (success, ...) und einer ID zugeordnet. Damit eine Zuordnung zu den restlichen Daten in der Tabelle JobTable erfolgen kann.
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-out.png}\\
-OutStateTable mit einem success Eintrag, da bisher keine Fehlversuche.
-\end{center}
-\subsubsection{MemoTable}
-\begin{enumerate}
-\item ID als primary key vom Typ Integer
-\item MEMO1 vom Typ Text, hier werden kurze Notizen vom Administrator zu besimmten Geräten gespeichert, dies soll eine Hilfe darstellen, welche mit einem Blick zu entnehmen ist (z.B.: Name eines Computers)
-\item MEMO2 vom Typ Text, hier werden lange Notizen vom Administragor gespeichert, dies soll eine weitere Hilfe für den Administrator darstellen, da hier dateiliertere Informationen gespeichert werden können (z.B.: genaue Angaben zu einem Gerät: genauer Standort, technische Daten, Nutzer, ...)
-\end{enumerate}
-\begin{center}
-\includegraphics[scale=0.8]{img/db-tb-memo.png}\\
-MemoTable mit einem Eintrag über einen Computer.
-\end{center}
-\subsubsection{JobTable}
-Diese Tabelle besteht aus 14 Feldern:
-\begin{enumerate}
-\item ID als primary key vom Integer (AUTOINCREMENT)
-\item weitere Felder vom Typ Integer: ID\_ NODE, ID\_ HOST, ID\_ IP, ID\_ MAC, ID\_ JOB, ID\_ JOBNAME, ID\_ JOBTYPE, ID\_ PROTOCOL, ID\_ OUTDESC\\
-Diese Felder werden verwendet, um alle Daten aus den anderen Tabellen zu den dazugehörigen Daten zuzuordnen und diese später leichter auszugeben. In allen Feldern vom Typ Integer werden die jeweiligen IDs der jeweiligen Information gespeichert, nur beim Alslesen der Datenbank wird dann eine Verknüpfung zu den Informationen mit der dazugehörigen ID erstellt und diese werden statt der ID ausgegeben.  Diese Verknüpfung erfolgt über eine Join-Funktione. Die Dynamik und Effizienz der Datenbank wird auf diese Weise gesteigert.
-\item Felder vom Typ Text: STARTTIME, STOPTIME, DELAYTIME, OUTDESC\\
-Hier werden alle grundlegenden Informationen zu Jobs gespeichert, welche alle Jobs betreffen.
-\end{enumerate}
-\begin{center}
-\includegraphics[scale=0.5]{img/db-tb-job.png}\\
-JobTable mit echten Einträgen - durch das Auslesen der Tabelle im Programm werden ID\_ NODE, ID\_ HOST, ID\_ IP, ID\_ MAC, ID\_ JOB, ID\_ JOBNAME, ID\_ JOBTYPE, ID\_ PROTOCOL, ID\_ OUTDESC mit den richtigen Informationen angezeigt.
-\end{center}
-\subsubsection{SummaryTable}
-\begin{enumerate}
-\item ID als primary key vom Typ Integer (AUTOINCREMENT)
-\item ID\_ NODE vom Typ Integer
-\item STARTTIME vom Typ Text
-\item STOPTIME vom Typ Text
-\item SUCCESSRATE vom Typ Text
-\item AVERAGE\_ DURATION vom Typ Text
-\item MAX\_ DURATION vom Typ Text
-\item MIN\_ DURATION vom Typ Text
-\end{enumerate}
-Das ist eine zusätzliche Tabelle, welche nur im Fall einer Zusammenfassung der Datenbank mit Daten gefüllt wird.  Durch diese Tabelle wird gewährleistet, dass der Speicherplatz gering gehalten werden kann, weil beim Vorgang der Zusammenfassung bestimmte Daten gelöscht werden und als komprimierte Ergebnisse in der SummaryTable gespeichert werden. Bei der Zusammenfassung wird eine bestimmte Zeitspanne und eine Blockgröße angegeben, durch welche die Komprimierung stattfindet. Befor zusammengefasst werden kann, werden bestimmte Kriterien überprüfen:
-\begin{itemize}
-\item Ist die gegebene Zeitspanne bereits zusammengefasst worden?
-\item Ist der gegebene Blcok größer, als die Zeitspanne nach welche die Ausführung der Jobs stattfindet? In 
-\end{itemize}
-Wenn eine dieser Kriterien positiv ist kann keine Zusammenfassung der Daten stattfinden.
-\\Ist eine Zusammenfassung der Daten möglich muss beachtet werden, dass sämtliche Daten in der JobTable im angegebenen Zeitraum gelöscht werden.\\
-
-Es gibt jedoch die Möglichkeit den Vorgang abzubrechen, wenn die Angegebene Zeitspanne nicht ausreicht und eine andere angegeben werden will.
-
-Ein Beispiel und weitere Informationen zur Zusammenfassung sind im Kapitel 19 unter Anwendungsbeispiel (19.4.2 Zusammenfassung der Datenbank) zu finden.
-
-
+\chapter{Datenbank (Marko Stojanovi\'{c})}
 \lfoot{Marko Stojanovi\'{c}}
 
 \section{MAD-DB}
@@ -3270,7 +3119,7 @@ JobTable mit echten Einträgen - durch das Auslesen der Tabelle im Programm werd
 Das ist eine zusätzliche Tabelle, welche nur im Fall einer Zusammenfassung der Datenbank mit Daten gefüllt wird.  Durch diese Tabelle wird gewährleistet, dass der Speicherplatz gering gehalten werden kann, weil beim Vorgang der Zusammenfassung bestimmte Daten aus den anderen Tabellen gelöscht werden und als komprimierte Ergebnisse in der SummaryTable gespeichert werden. Bei der Zusammenfassung wird eine bestimmte Zeitspanne und eine Blockgröße angegeben, durch welche die Komprimierung stattfindet. Befor zusammengefasst werden kann, werden bestimmte Kriterien überprüfen:
 \begin{itemize}
 \item Ist die gegebene Zeitspanne bereits zusammengefasst worden?
-\item Ist der gegebene Blcok größer, als die Zeitspanne nach welche die Ausführung der Jobs stattfindet? In 
+\item Ist der gegebene Block größer, als die Zeitspanne nach welche die Ausführung der Jobs stattfindet?
 \end{itemize}
 Wenn eine dieser Kriterien positiv ist kann keine Zusammenfassung der Daten stattfinden.
 \\Ist eine Zusammenfassung der Daten möglich muss beachtet werden, dass sämtliche Daten in der JobTable im angegebenen Zeitraum gelöscht werden.\\
@@ -3278,7 +3127,6 @@ Wenn eine dieser Kriterien positiv ist kann keine Zusammenfassung der Daten stat
 Es gibt jedoch die Möglichkeit den Vorgang abzubrechen, wenn die Angegebene Zeitspanne nicht ausreicht und eine andere angegeben werden will.
 
 Ein Beispiel und weitere Informationen zur Zusammenfassung sind im Kapitel 19 unter Anwendungsbeispiel (19.4.2 Zusammenfassung der Datenbank) zu finden.
-
 \lfoot{Ranalter Daniel}%--------------------------------------------------------------------------------------------
 
 \chapter{Logging (Daniel Ranalter)}
