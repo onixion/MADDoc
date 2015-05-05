@@ -2395,6 +2395,8 @@ SHA steht für \textbf{Seucre-Hash-Algorithm} und ist eine Ansammulung von mehre
 \section{CLI (Alin Porcic)}
 \lfoot{Alin Porcic}
 
+\subsection{Allgemeines}
+
 Beim Start des Programmes mit dem Argument \textbf{-cli} wird die integrierte CLI gestartet, die für die Verwendung des Programmes verwendet werden kann. Der Syntax der CLI-Eingaben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden. Die Anordnung der Parameter und Argumente ist für die diese CLI-Implementierung irrelevant.\\
 
 \begin{center}
@@ -2413,10 +2415,19 @@ Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert.
 
 Mit der linken und rechten Pfeiltaste kann die Position des Cursors im Eingabefeld verändert werden. Die CLI führt eine Liste der zuletzt eingegeben Befehle. Diese können mit der Oben- und Unten-Pfeiltaste angezeigt werden.
 
+\subsection{Probleme}
+
+Bei der CLI tauchten einige Probleme bei der Eingabe von Befehlen auf. Das .NET-Framework bietet eine Möglichekeit zeilenweise Eingaben einzulesen und dabei kann die Position des Cursors geändert werden. Bei Linux ist leider dies mit Mono leider nicht möglich und daher musste eine eigene Methode entwickelt werden, die zeilenweise Eingaben einlesen kann und die Möglichkeit besteht den Cursor zu verändern oder eine History aufzurufen.
+Ein weiters Problem bei der Implementierung ist, dass das Eingabefeld nicht über mehrer Zeilen gehen kann. Dies konnte aus Komplikationsgründen nicht erzielt werden.
+Aus komplikationsgründen ist es auch nicht möglich, interaktive Befehle für die CLI zu schreiben, da die Befehle auch über den CLI-Server funktionieren müssen.Bei der Erarbeitung der CLI wurden einige Probleme gefunden. Das erste Problem war das Einlesen der Eingaben für die CLI. Unter Windows 
+
 \section{CLI-Server und CLI-Client (Alin Porcic)}
 \lfoot{Alin Porcic}
 
+\subsection{Allgemeines}
+
 Um den CLI-Server zu starten wird das Argument \textbf{-cliserver} beim Start benötigt. Nach dem Starten des Servers ist es möglich, sich mit dem CLI-Client auf den Server zu verbinden. Nach der Verbindung mit dem Server kann die CLI wie die ganz gewöhnliche CLI genutzt werden. Die Eingaben und Ausgaben, die zwischen Server und Client übertragen werden, werden mit AES verschlüsselt. Da es keinen Schlüsselaustausch gibt, muss der AES-Schlüssel über einen anderen Informationskanal übertragen werden. Das AES-Passwort wird in der Konfigurationsdatei im Klartext abgespeichert und wird beim Start eingelesen.
+
 
 \newpage
 
@@ -2477,30 +2488,49 @@ eine mögliche Konfiguration
 
 \chapter{JobSystem (Alin Porcic)}
 \lfoot{Alin Porcic}
-Das Starten der Überwachungsoperationen und die Verarbeitung der Resultate ist die Aufgabe des JobSystems. Das JobSystem behält die Zeit im Auge und startet die zugewiesenen Aufgaben zum richtigen Zeitpunkt. Das JobSystem hat die Möglichkeit Konfigurationen zu laden und zu speichern.\\
-Netzwerkgeräte werden auch als Netzwerkknoten bezeichnet, ein Knoten definieren ein bestimmtes Ziel im Netzwerk und sie sind mithilfe einer GUID eindeutig nachweisbar. Auf jeden Netzwerkknoten können Netzwerkaufgaben hinzugefügt werden. Jede dieser Netzwerkaufgaben kann einen oder mehrere Zeitpunkte oder ein Zeitintervall definieren, bei dem die Aufgabe ausgeführt werden soll. Die Resultate dieser Operationen wird anschließend in die Datenbank des Programmes geschrieben.
 
-\section{Funktionsweise}
+\section{Allgemeines}
 
-Das JobSystem besitzt einen Zeitplaner, der ein- und ausgeschalten werden kann. Dieser Zeitplaner behält die Netzwerkknoten und Aufgaben im Auge und ermittelt, wann eine Aufgabe bereit für die Ausführung ist. Falls ein Netzwerkknoten 'inaktiv' ist, wird dieser vom Zeitplaner ignoriert. Auch Netzwerkaufgaben können 'inaktiv' sein und werden dann vom Zeitplaner ebenfalls ignoriert. Wenn eine Aufgabe für die Ausführung bereit ist, startet der Zeitplaner den Job in einem eigenen Thread aus dem internen Threadpool. Nach der Ausführung der Jobs, schreibt der Zeitplaner die Resultate der Operation in die Datenbank (in die JobTable). Während der Ausführung der Aufgabe kann der Netzwerkknoten nicht entfernt werden. Die Änderung der IP-Adresse der Netzwerkknotens während der Ausführung hat keinen Einfluss auf die Ausführung. Erst in der neuen Ausführung wird die neue IP-Adresse für das Ziel verwendet.\\
-Nun können für jede Netzwerkaufgabe Regeln definiert werden, wann eine Benachrichtigung notwendig ist z.B. kann eine Regel definiert werden, die besagt, dass falls eine Netzwerkaufgabe mehr als 2000ms für die Ausführung benötigt, eine Benachrichtung gesendet werden soll.
+Das Jobsystem oranisiert die Netzwerkaufgaben (=Jobs) und Netzwerkgeräte (=Netzwerkknoten, =Knoten, =Nodes) innerhalb des Programmes und bietet eine Schnittstelle an, um diese zu entfernen, hinzuzufügen oder zu konfigurieren. Das JobSystem ist nicht an einer textbasierten oder grafischen Schnittestelle gebunden, sondern kann auf Programmebene über Methodenaufrufe angesteuert werden. Alle Methodenaufrufe werden intern über Locks vor Race-Conditions und weiteren Multithreading-Problemen geschützt.\\
+Das JobSystem besitzt die Möglichkeit die derzeitig initalisierten Aufgaben und Geräte in einer Datei abzuspeichern und diese zu einem späteren Zeitpunkt wieder zu laden. Es ist möglich ein komplettes Abbild der Geräte und Aufgaben abzuspeichern und zu laden. Doch auch einzelne Netzwerkgeräte inklusive Netzwerkaufgaben können abgespeichert und geladen werden.\\
+Das JobSystem kann sich mit dem Device-Finder syncronisieren, um die IP-Adressen der Netzwerkknoten zu aktualisieren.
 
 \section{Netzwerkknoten}
 
-Ein Netzwerkknoten stellt ein Netzwerkgerät dar. Diese Gerät wird durch die folgenden Eigenschaften charakterisiert:
+Ein Netzwerkknoten (oder Knoten, Node)  stellt ein Netzwerkgerät dar. Diese Gerät wird durch die folgenden Eigenschaften charakterisiert:
 
 \begin{itemize}
-\item \textbf{Name}: Dem Netzwerkknoten muss ein Name zugeordnet werden. Meistens wird hier der Hostname eingetragen.
+\item \textbf{Name}: Dem Netzwerkknoten muss ein Name zugeordnet werden (meistens wird hier der Hostname eingetragen).
 \item \textbf{IP-Adresse}: Hier wird die IPv4-Adresse des Knotens eingetragen.
 \item \textbf{MAC-Adresse}: Hier wird die MAC-Adresse des Knotens eingetragen.
 \end{itemize}
 
+Die Aufgaben, die auf einem Knoten ausgeführt werden sollen, müssen an dem Knoten hinzugefügt werden. Programmtechnisch wird das Hinzufügen einer neuen Aufgabe mit dem Aufruf der AddJob-Methode erreicht. Für das Enternen von Jobs stellt das JobSystem die RemoveJob-Methode bereit.
+
+\section{JobSchedule}
+
+Der JobSchedule ist eine interne Komponente des JobSystems und stellt einen Zeitplaner dar, der die Netzwerkaufgaben und Netzwerkgeräte überprüft und entscheidet, ob eine Aufgabe für die Ausführung bereit ist.\\
+Bei der Auswertung der Netzwerkaufgaben müssen viele Dinge vom Zeitplaner berücksichtigt werden:
+
+\begin{itemize}
+\item \textbf{Netzwerkknoten}: Ist der Knoten aktiv?
+\item \textbf{Netzwerkaufgabe}: Ist die Aufgabe aktiv? Hat er den definierten Zeitpunkt / die definierte Zeitspanne erreicht? Ist die Aufgabe  bereits in der Ausführung?
+\end{itemize}
+
+Der JobSchedule besitzt einen internen Threadpool. Bei diesem Threadpool wurde der SmartThreadPool statt dem Threadpool aus dem .NET-Framework. Der große Vorteil des SmartThreadPools ist, dass er eine fixe Anzahl an Threads initalisiert und die zugewiesenen Aufgaben automatisch auf diesen Threads aufteilt. Somit ist es nicht notwendig für jeden Job einen eigenen Thread vom Betriebssystem erstellen zu lassen. Der zweite Vorteil des SmartThreadPools ist, dass mehrere Instanzen erstellt werden können. Jedoch verwenden wir nur eine, doch falls das Programm erweitert werden soll, ist das sicherlich nicht hinderlich.\\
+Nachdem der Job im Threadpool gestartet wurde, wird die jeweilige Operation im Netzwerk erledigt und vom Job selbst ausgewertet. Nach der Ausführung des Jobs, schreibt der Job die Resultate in die Datenbank und ist wieder für eine neue Ausführung bereit.
+
+\section{JobRules}
+
+Jeder Job kann JobRules definieren. Diese Regeln werden nach der Ausführung überprüft und falls mindestens eine Regel nicht eingehalten wird, dann wird eine Benachrichtigung versendet. Diese Benachrichtigung beinhaltet alle wichtigen Daten über die Ausführung und über den Grund der Benachrichtigung.\\
+Die Regeln überprüfen die Resultate der Jobs auf bestimmte Kriterien, zum Beispiel kann eine Regel definiert werden, die besagt, dass die Ausführungsdauer nicht länger als 2s betragen darf. Nun wird jedes mal wenn die Ausführungsdauer größer als 2s ist, eine Benachrichtigung versendet.
+
 \chapter{Jobs}
+\lfoot{Alin Porcic}
 
 Jobs definieren bestimmte Aufgaben, die im Netwerk erledigt werden sollen. Das Ziel der Aufgabe ist immer die IP-Adresse des Netzwerkknotens, an der der Job drangehängt wurde. Erst wenn die definierte Zeit erreicht wurde, wird der Job vom JobSystem in einem eigenen Thread ausgeführt. Nachdem der Job die Aufgabe erledigt hat, überprüft er selbstständig ob er die definierten Regeln gebrochen hat und schreibt die Resultate der Aussführung in die Datenbank. Welche Operationen der Job beim Start ausführt, hängt vom Job-Typ ab. Die Resultate, die ein Job erbringen kann, hängt vom Typ ab.
 
 \section{Job-Typen}
-\lfoot{Alin Porcic}
 
 Jeder Job (egal welcher Typ) muss folgende Eigenschaften definieren:\\
 
