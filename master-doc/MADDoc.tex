@@ -514,7 +514,7 @@ Im Grunde ganz normale Router, welche jedoch zusätzlich die Möglichkeit besitz
 Werden meistens von den ISPs den Kunden zur Verfügung gestellt. Beinahe alle unterstützen heutzutage auch WLAN.
 \end{itemize}
 \subsubsection{Switch}
-Ein \textbf{Switch} ermöglicht die Kommunikation zwischen mehreren Hosts. Einfache Switches agieren hauptsächlich auf dem \textbf{Layer2}: Sie schreiben sich auf, an welchem Port welche MAC-Adresse hängt und wissen dann durch Source und Destination MAC-Adresse, an welchem Interface das Paket wieder raus muss.\\
+Ein \textbf{Switch} ermöglicht die Kommunikation zwischen mehreren Hosts. Einfache Switches agieren hauptsächlich auf dem \textbf{Layer2}: Sie speichern ab, an welchem Port welche MAC-Adresse hängt und wissen dann durch Source und Destination MAC-Adresse, an welchem Interface das Ziel des Paketes liegt\\
 
 Im Gegensatz zu ihren Vorgängern, den \textbf{Hubs}, sind sie damit in der Lage, Pakete zielgerichtet weiter zu leiten. Hubs lenken einkommenden Traffic nicht, sie schicken die Pakete immer an alle Interfaces. Switches legen dazu eine \textbf{lokale Switching Tabelle} an, in welcher steht, an welchem Interface welche MAC-Adresse liegt.\\
 Darin findet sich jedoch auch die größte Sicherheitslücke, wie später in Kapitel \ref{sec:security} auf Seite \pageref{sec:security} noch besprochen wird.\\
@@ -825,10 +825,10 @@ Eine andere Option ist Verschlüsselung, auf welchen im Kapitel \ref{chap:krypto
 
 \begin{center}
 \includegraphics[scale=0.35]{../docs/tarkes/pics/Ethernetpaket.png}
-Ethernetpaket
+Ethernetframe
 \end{center}
 
-Das Paket wird serialisiert und mit dem niederwertigsten Bit zuerst übertragen. Das Ethernetpaket besteht aus folgenden Teilen:
+Das Frame wird serialisiert und mit dem niederwertigsten Bit zuerst übertragen. Das EthernetframeF besteht aus folgenden Teilen:
 \begin{itemize}
 \item Präambel und SFD\\
 Dieser Teil des Paketes sind im Grunde nur Überbleibsel aus den alten Tagen. Die Präambel hat ein alternierendes Bitmuster über 7 Byte, während der SFD (Start Frame Delimeter) das Muster 10101011 trägt.\\
@@ -849,8 +849,8 @@ Das FCS (Frame Check Sequence) Feld beinhaltet eine 32 bit CRC Prüfsumme welche
 \end{itemize}
 
 \subsection{Address Resolution Protocol - ARP}\label{ssec:arp}
-\textbf{ARP} ist ein essentielles Protokoll für die Kommunikation in einem Netzwerk. Da, damit Kommunikation stattfinden kann, die MAC-Adresse bekannt sein muss, wurde dieses Protokoll eingestellt.\\
-Es funktioniert, indem ein Broadcast in das Netz geschickt wird, in welchem die Bitte steht, dass ein Host mit einer gewissen IP doch seine MAC-Adresse übermitteln soll. Diese speichert der PC, der die Anfrage gestellt hat, in seinem lokalen Cache, damit er nicht jedes Mal nachfragen muss.\\
+\textbf{ARP} ist ein essentielles Protokoll für die Kommunikation in einem Netzwerk. Da, damit Kommunikation stattfinden kann, die MAC-Adresse bekannt sein muss, wurde dieses Protokoll entwickelt.\\
+Es funktioniert folgendermaßen: Indem ein Broadcast in das Netz geschickt wird, in welchem die Bitte steht, dass ein Host mit einer gewissen IP doch seine MAC-Adresse übermitteln soll, kann ein Rechner die benötigte Information bekommen. Diese speichert der PC, der die Anfrage gestellt hat, in seinem lokalen Cache, damit er nicht jedes Mal nachfragen muss.\\
 Dieses Protokoll wird mit der Verbreitung von IPv6 aussterben, da in IPv6 das sogenannte \textbf{Neighbour Discovery Protocol NDP} diese Aufgabe übernimmt.\\
 
 Das ARP Paket befindet sich gleichzeitig auf Layer2 und 3 und sieht wie folgt aus:\\
@@ -1159,7 +1159,7 @@ Eines der Hauptziele eines jeden Hackers ist es normalerweise Informationen zu s
 Nun stehen diese aber heute vor dem Problem, dass so gut wie jedes Netzwerk \textbf{geswitched} ist, es also Switches anstatt von Hubs verwendet. Diese speichern, wie bereits besprochen, die MAC-Adressen der angeschlossenen Geräte und weisen sie einem ihrer Interfaces zu.\\
 Somit ist ein Hacker schon einmal nicht mehr in der Lage, ohne irgend einen Eingriff in das Netzwerk, zu hören, was wer zu wem sagt.\\
 
-Nun haben Hacker eine Methode gefunden um dies zu umgehen, das sogenannte \textbf{MAC-Flooding}, was übersetzt soviel wie MAC Überflutung bedeutet. Dabei verwendet der Hacker das Gratuitous ARP Paket. Dieses ist dazu da, seine eigene MAC-Adresse bekannt zu machen.\\
+Nun haben Hacker eine Methode gefunden um dies zu umgehen, das sogenannte \textbf{MAC-Flooding}, was übersetzt soviel wie MAC Überflutung bedeutet. Dabei macht sich der Hacker eine Unterart des ARP Paketes zunütze. Das \textbf{Gratuitos ARP} Paket dient dazu, seine eigene MAC-Adresse in einem Netzwerk bekannt zu machen.\\
 Der Hacker schickt nun hunderte solcher Pakete, immer mit falschen MAC-Adressen und falschen IP-Adressen und fährt damit solange fort, bis sich die Tabelle des Switches überfüllt und er sie fallen lassen muss. Wenn dies eintritt, fällt der Switch in einen Modus zurück, in dem er, bis er sich von der Überlastung regeneriert hat, sich wie ein Hub verhält und alle Pakete an alle Interfaces sendet. Nun kann der Hacker lesen, was in den Paketen steht.\\
 
 \subsection{Man-in-the-Middle anhand von MAC-Spoofing}\label{ssec:mspoof}
@@ -2595,11 +2595,52 @@ Bei dem FTP Check wird im Grunde einfach nur das momentane Arbeitsverzeichnis ab
 Der Programmteil, welcher das Netzwerk auf Geräte überprüft, ist jener, den ich persönlich wohl am Öftesten neu geschrieben habe. Im Folgenden wird auf alle drei Versionen, die durchlaufen worden sind, eingegangen. Sie alle befinden sich weiterhin im Projekt, werden jedoch nicht verwendet.\\
 Im Projekt selbst werden sie ab der zweiten Version als \glqq MacFinder\grqq bezeichnet. 
 \section{MacFinder Version 1 - host find job}
-In der ersten Version des MacFinders wurden berühmte IP Scanner, wie zum Beispiel \textbf{Angry IP Scanner} als Vorbild genommen, welche ICMP Echo Requests verwenden, um an die Geräte zu kommen.\\
-Es wurden keine Parameter benötigt, da er sich anhand der Adresse des Hosts, auf dem er funktioniert, und der Vorgabe, ein kleines Firmen- oder Heimnetzwerk (nicht mehr als ein Class C Netzwerk), sich sämtliche zu überprüfenden IP Adressen ausrechnen konnte.\\
-Diese wurden, eine nach der anderen, \glqq angepingt\grqq , und dann, sollte eine Antwort kommen, in eine Liste aufgenommen werden.\\
+Die erste Version des MacFinders basierte auf dem Grundgedanken berühmter IP-Scanner wie zum Beispiel dem \textbf{Angry IP Scanner}, deren Arbeitsweise sich auf das ICMP Echo Paket stützt.\\
+Durch ein fluten des Netzwerkes mit ICMP Echo Requests wird bezweckt, dass theoretisch jeder sich angesprochene Host mit einem Echo Reply meldet. Dieses Verhalten versuchte ich nachzuahmen.\\
 
-Die Idee wurde schlussendlich verworfen, da in vielen Netzwerken die Verwendung des ICMP Protokolls unterbunden wird, da es ein von Hackern häufig verwendetes Tool ist, um grundlegende Informationen über ein Netzwerk herauszuhören.
+Die erste Schwierigkeit fand ich darin, herausfinden zu müssen wieviele und welche IP-Adressen ich anpingen muss, unter der Berücksichtigung, dass der User sowenig wie möglich einzugeben hat.\\
+Als ersten Schritt rechnete ich mir dir Nummer an Hosts aus der Subnetzmaske aus. Dann konvertierte ich die Netzaddresse in ein Format mit dem ich umgehen konnte und überprüfte ob das System eine LittleEndian oder eine BigEndian Architektur verwendet, damit ich die Byte-Arrays nicht durcheinander mischte.\\
+Als letzten Schritt wandelte ich das Ergebnis in einen Zahlenwert um, um damit besser rechnen zu können.
+\begin{lstlisting}
+byte[] _hostBytes = _helper.GetHosts(Subnetmask);
+byte[] _netBytes = targetAddress.GetAddressBytes();
+
+if (BitConverter.IsLittleEndian)
+{
+	Array.Reverse(_hostBytes);
+    Array.Reverse(_netBytes);
+}
+
+uint _netPart = BitConverter.ToUInt32(_netBytes, 0);
+uint _broadcastHost = BitConverter.ToUInt32(_hostBytes, 0);
+\end{lstlisting}
+
+Sobald ich das Netz und die Nummer der zu pingenden hosts hatte, ließ ich eine Schleife für jeden Wert unter der Broadcast Adresse eine IP-Adresse ausrechnen und diese anpingen, welche, bei Erfolg, in die Liste an Hosts aufgenommen wurde.
+
+\begin{lstlisting}
+for (uint _cnt = 1; _cnt < _broadcastHost; _cnt++)
+{
+     Ping _ping = new Ping();
+
+     uint _target = _netPart + _cnt;
+     byte[] _targetByte = BitConverter.GetBytes(_target);
+
+     IPAddress _targetIP = new IPAddress(_targetByte);
+     try
+     {
+     	PingReply _reply = _ping.Send(_targetIP, 50);
+	 	
+	 	if (_reply.Status == IPStatus.Success)
+     	{
+     		if (!_hostAddresses.Contains(_reply.Address))
+     		{
+     			_hostAddresses.Add(_reply.Address);
+	 		}
+     	}
+     }
+     _ping.Dispose();
+}
+\end{lstlisting}
 
 \section{MacFinder Version 2 - DHCP Reader}
 Version 2 war im Grunde als Erweiterung zu Version 1 gedacht. Der Grundgedanke war es, in einem Netzwerk mit DHCP Server die Requests der Clienten aufzufangen, diese zu zerlegen und Informationen daraus zu verwenden, um auf einen Host zu schließen. Dies ist möglich, da der Client, wie in Kapitel \ref{ssec:dhcp} auf Seite \pageref{ssec:dhcp} bereits besprochen, mit dem DHCP Request sich die Konfiguration beim Server noch einmal bestätigen lässt und damit alles vorhanden ist.\\
