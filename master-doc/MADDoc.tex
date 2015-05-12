@@ -2307,7 +2307,7 @@ Digitale Zertifikate sind Ansammlungen von Daten, die mithilfe von kryptographis
 
 \subsubsection{Hash-Verfahren}
 
-Eine \textbf{Hashfunktion} ist eine Funktion, die eine beliebige Menge an Eingangsinformationen auf eine fixe Länge an Ausgangsinformationen abbildet.  Das Ziel von Hashfunktionen ist das Erschweren der Suche nach Kollisionen. Kollisionen können bei Hashfunktionen nicht verhindert werden, da die Eingangsgröße keine maximale Länge hat. Ein weiteres Ziel von Hashfunktionen ist das Verhindern der Möglichkeit des Rückrechnens, also die Ermittlung der Eingangsgröße aus der Ausgangsgröße.\cite{wiki04}
+Eine \textbf{Hashfunktion} ist eine Funktion, die eine beliebige Menge an Eingangsinformationen auf eine fixe Länge an Ausgangsinformationen abbildet.  Das Ziel von Hashfunktionen ist das Erschweren der Suche nach Kollisionen. Kollisionen können bei Hashfunktionen nicht verhindert werden, weil die Länge der Eingangsinformationen größer als die Länge der Ausgangsinformationen sein kann. Ein weiteres Ziel von Hashfunktionen ist das Verhindern der Möglichkeit des Rückrechnens, also die Ermittlung der Eingangsgröße aus der Ausgangsgröße.\cite{wiki04}
 
 \newpage
 \section{Kryptoanalyse}
@@ -2316,7 +2316,7 @@ Die Krytpoanalyse beschäftigt sich mit Methoden und Techniken aus einem verschl
 
 \subsection{Ziele der Kryptoanalyse}
 
-Das oberste Ziel der Kryptoanalyse ist die Ermittlung des Schlüssels, um an den Wert der Informationen zu gelangen. Damit die Kryptoanalyse zum Ziel kommen kann, muss das kryptographische System ausgehebelt werden, entweder durch ausprobieren des Schlüssels oder anderen Methoden. Oftmals ist das Knacken des kryptographischen Systems für die Ermittlung des Schlüssels gar nicht notwendig. Die falsche Anwendung des kryptographischen Systems oder schlecht gewählte Passwörter reichen meistens aus, um das kryptographische System zu umgehen.
+Das oberste Ziel der Kryptoanalyse ist die Ermittlung des Schlüssels, um an den Wert der Informationen zu gelangen. Damit die Kryptoanalyse das Ziel erreichen kann, muss das kryptographische System unwirksam gemacht werden, entweder durch ausprobieren des Schlüssels oder anderen Methoden. Oftmals ist das Knacken des kryptographischen Systems für die Ermittlung des Schlüssels gar nicht notwendig, da die falsche Anwendung des Systems, schwache Passwörter usw. meistens ausreichen, das kryptographische System zu umgehen.
 
 \subsection{Methoden}
 
@@ -2424,10 +2424,7 @@ Aus komplikationsgründen ist es auch nicht möglich, interaktive Befehle für d
 \section{CLI-Server und CLI-Client (Alin Porcic)}
 \lfoot{Alin Porcic}
 
-\subsection{Allgemeines}
-
-Um den CLI-Server zu starten wird das Argument \textbf{-cliserver} beim Start benötigt. Nach dem Starten des Servers ist es möglich, sich mit dem CLI-Client auf den Server zu verbinden. Nach der Verbindung mit dem Server kann die CLI wie die ganz gewöhnliche CLI genutzt werden. Die Eingaben und Ausgaben, die zwischen Server und Client übertragen werden, werden mit AES verschlüsselt. Da es keinen Schlüsselaustausch gibt, muss der AES-Schlüssel über einen anderen Informationskanal übertragen werden. Das AES-Passwort wird in der Konfigurationsdatei im Klartext abgespeichert und wird beim Start eingelesen.
-
+Um den CLI-Server zu starten, wird das Argument \textbf{-cliserver} beim Start benötigt. Nach dem Starten des Servers ist es möglich, sich mit dem CLI-Client auf den Server zu verbinden. Nach der Verbindung mit dem Server kann die CLI wie die ganz gewöhnliche CLI genutzt werden. Die Eingaben und Ausgaben, die zwischen Server und Client übertragen werden, werden mit AES verschlüsselt. Da es keinen Schlüsselaustausch gibt, muss der AES-Schlüssel über einen anderen Informationskanal übertragen werden. Das AES-Passwort wird in der Konfigurationsdatei im Klartext abgespeichert und wird beim Start eingelesen.
 
 \newpage
 
@@ -2467,7 +2464,7 @@ Alles in Allem kostete mich das Programmieren der Benutzeroberfläche viel Zeit 
 \chapter{Konfiguration (Alin Porcic)}
 \lfoot{Alin Porcic}
 
-Die Konfiguration des Programmes erfolgt über eine Konfigurationsdatei, damit das Programm auf Linux und Windows unverändert verwendet werden kann. Falls keine Konfiguration verfügbar ist, wird eine neue Konfiguration mit den Standardwerten im Vereichnis 'data' unter dem Namen 'mad.conf' erstellt. Diese Datei  beinhaltet einen JSON-String, der die Konfiguration beinhaltet. Die Änderung der Konfiguration kann mithilfe eines Texteditors durchgeführt werden. Einige Felder der Konfigurationsdatei:
+Die Konfiguration des Programmes erfolgt über eine Konfigurationsdatei, damit das Programm auf Linux und Windows unverändert verwendet werden kann. Falls keine Konfiguration verfügbar ist, wird eine neue Konfiguration mit den Standardwerten im Verzeichnis 'data' unter dem Namen 'mad.conf' erstellt. Diese Datei beinhaltet einen JSON-String, der die Konfiguration beinhaltet. Die Änderung der Konfiguration kann mithilfe eines Texteditors durchgeführt werden. Einige Felder der Konfigurationsdatei:
 
 \begin{itemize}
 \item \textbf{LOG\_FILE\_DIRECTORY}: Der Pfad in der die Log-Datei hingeschrieben werden soll.
@@ -2488,6 +2485,10 @@ eine mögliche Konfiguration
 
 \chapter{JobSystem (Alin Porcic)}
 \lfoot{Alin Porcic}
+
+Das Starten der Überwachungsoperationen und die Verarbeitung der Resultate ist die Aufgabe des JobSystems. Dabei muss das JobSystem die Zeiten aller Jobs im Auge behalten und muss die zugewiesenen Aufgaben im richtigen Moment ausführen.\\
+Netzwerkgeräte werden auch als Netzwerkknoten bezeichnet, ein Knoten definieren ein bestimmtes Ziel im Netzwerk und sie sind mithilfe einer GUID eindeutig nachweisbar. Auf jeden Netzwerkknoten können Netzwerkaufgaben hinzugefügt werden. Jede dieser Netzwerkaufgaben kann einen oder mehrere Zeitpunkte oder ein Zeitintervall definieren, bei dem die Aufgabe ausgeführt werden soll. Die Resultate dieser Operationen wird anschließend in die Datenbank des Programmes geschrieben.\\
+Das JobSystem hat die Möglichkeit ein Abbild von sich zu speichern und später wieder zu laden. Daher müssen Geräte und Aufgaben nur einmal definiert werden und die Konfiguration lässt sich leicht auf andere Computer übertragen.\\
 
 \section{Allgemeines}
 
@@ -2528,7 +2529,7 @@ Die Regeln überprüfen die Resultate der Jobs auf bestimmte Kriterien, zum Beis
 \chapter{Jobs}
 \lfoot{Alin Porcic}
 
-Jobs definieren bestimmte Aufgaben, die im Netwerk erledigt werden sollen. Das Ziel der Aufgabe ist immer die IP-Adresse des Netzwerkknotens, an der der Job drangehängt wurde. Erst wenn die definierte Zeit erreicht wurde, wird der Job vom JobSystem in einem eigenen Thread ausgeführt. Nachdem der Job die Aufgabe erledigt hat, überprüft er selbstständig ob er die definierten Regeln gebrochen hat und schreibt die Resultate der Aussführung in die Datenbank. Welche Operationen der Job beim Start ausführt, hängt vom Job-Typ ab. Die Resultate, die ein Job erbringen kann, hängt vom Typ ab.
+Jobs definieren bestimmte Aufgaben, die im Netwerk zu erledigen sind. Das Ziel der Aufgabe ist immer die IP-Adresse des Netzwerkknotens, an der der Job drangehängt wurde. Erst wenn der definierte Zeitpunkt erreicht wurde, wird der Job vom JobSystem in einem eigenen Thread ausgeführt. Nachdem der Job die Aufgabe erledigt hat, überprüft er selbstständig ob er die definierten Regeln gebrochen hat und schreibt die Resultate der Ausführung in die Datenbank. Welche Operationen der Job beim Start im Netzwerk ausführt, hängt vom Job-Typ ab. Auch die Resultate der Ausführung sind vom Typ abhängig.
 
 \section{Job-Typen}
 
@@ -2920,7 +2921,7 @@ Dieser Befehlt stoppt den Zeitplaner des JobSystems.
 
 \subsubsection{node add}
 
-Netzwerkknoten können manuell mit diesem Befehl eingebunden werden. Dieser Befehl hat ingesamt drei Parameter: Name, IP-Adresse und MAC-Adresse. Der Name kann als Argument des Parameter \textbf{-n} mitgeteilt werden, die IP-Adresse mit \textbf{-ip} und die MAC-Adresse mit \textbf{-mac}. Bei der Ausführung des Befehls, erhält der Knoten eine automatisch zugewiesene Indentifikationszahl und eine globale eindeutige Indentifkationsnummer (GUID).
+Netzwerkknoten können manuell mit diesem Befehl eingebunden werden. Dieser Befehl hat ingesamt drei Parameter: Name, IP-Adresse und MAC-Adresse. Der Name kann als Argument des Parameter \textbf{-n} mitgeteilt werden, die IP-Adresse mit \textbf{-ip} und die MAC-Adresse mit \textbf{-mac}. Bei der Ausführung des Befehles, erhält der Knoten eine automatisch zugewiesene Indentifikationszahl und eine globale eindeutige Indentifkationsnummer (GUID).
 
 \subsubsection{node remove}
 
@@ -2932,11 +2933,11 @@ Hiermit können bereits erstellte Netzwerkknoten editiert werden. Dieser Befehl 
 
 \subsubsection{node start}
 
-Dieser Befehl ändert den Status eines Netzwerkknotens auf 'Aktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl des Netzwerkknotens muss angegeben werden.
+Dieser Befehl ändert den Status eines Netzwerkknotens auf 'aktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl des Netzwerkknotens muss angegeben werden.
 
 \subsubsection{node stop}
 
-Dieser Befehl ändert den Status eines Netzwerkknotens auf 'Inaktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl des Netzwerkknotens muss angegeben werden.
+Dieser Befehl ändert den Status eines Netzwerkknotens auf 'inaktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl des Netzwerkknotens muss angegeben werden.
 
 \subsubsection{job info}
 
@@ -2949,7 +2950,7 @@ Jeder Aufgabentyp den ein Netzwerkknoten haben kann, definiert einen eigenen Bef
 \begin{itemize}
 \item \textbf{-n}: Dieser Parameter gibt den Jobnamen an. Daher benötigt dieser Befehl den Namen als Argument.
 \item \textbf{-id}: Die ID des Netzwerkknoten an dem diese Aufgabe drangehängt werden soll. Der Netzwerkknoten muss existieren, sonst kann der Job nicht hinzugefügt werden.
-\item \textbf{-t}: Diese Parameter ist optional, sollte aber trotzdem definiert werden. Das Argument bzw. die Argumente dieses Parameters giben an, wann der Job ausgeführt werden soll. Möchte man zum Beispiel, dass der Job alle 2000ms ausgeführt wird gibt man '2000' als Argument an. Möchte man einen bestimmen Zeitpunkt oder mehrer Zeitpunkte angeben, so kann man das mit den folgenden Argumenten erreichen:
+\item \textbf{-t}: Diese Parameter ist optional, sollte aber trotzdem definiert werden. Das Argument bzw. die Argumente dieses Parameters geben an, wann der Job ausgeführt werden soll. Möchte man zum Beispiel, dass der Job alle 2000ms ausgeführt wird gibt man '2000' als Argument an. Möchte man einen bestimmen Zeitpunkt oder mehrer Zeitpunkte angeben, so kann man das mit den folgenden Argumenten erreichen:
   \begin{itemize}
   \item 20:15 $\rightarrow$ startet den Job jeden Tag um 20:15 Uhr.
   \item 20:15 21:00 $\rightarrow$ startet den Job jeden Tag um 20:15 und 21:00 Uhr.
@@ -2961,11 +2962,11 @@ Jeder Aufgabentyp den ein Netzwerkknoten haben kann, definiert einen eigenen Bef
 
 \subsubsection{job remove}
 
-Dieser Befehl benötigt \textbf{-id} als Parameter. Als Argument muss die Indentikiationszahl des Jobs angegeben werden. Jobs, die während der Ausführung dieses Befehls in Ausführung sind, können nicht entfernt werden.
+Dieser Befehl benötigt \textbf{-id} als Parameter. Als Argument muss die Indentikiationszahl des Jobs angegeben werden. Jobs, die während der Ausführung dieses Befehles in Ausführung sind, können nicht entfernt werden.
 
 \subsubsection{job edit}
 
-Diese Befehl kann bereits erstellte Jobs modifizieren. 
+Dieser Befehl kann bereits erstellte Jobs modifizieren. 
 
 \subsubsection{job start}
 
@@ -2983,7 +2984,7 @@ Dieser Befehl gibt die Datenbank-Tabellen aus. Falls der Befehl ohne Parameter a
 
 \subsubsection{db jobs}
 
-Durch die Eingabe dieses Befehles wird die Datenbank-Tabelle der ausgeführten Operationen ausgegeben.
+Durch die Eingabe dieses Befehles wird die Datenbank-Tabelle der 'JobTable' ausgegeben.
 
 \subsubsection{db jobs remove}
 
@@ -2995,7 +2996,7 @@ Dieser Befehl löscht alle Datensätze aus der 'JobTable'.
 
 \subsubsection{db summary}
 
-Die Eingabe dieses Befehls bewirkt die Ausgabe einer Datenbank-Tabelle der 'SummaryTable'.
+Die Eingabe dieses Befehls bewirkt die Ausgabe der 'SummaryTable'.
 
 \subsubsection{db summary create}
 
@@ -3015,7 +3016,7 @@ Gibt den Inhalt der Memos aus der Datenbank auf die Konsole aus.
 
 \subsubsection{db memo add}
 
-In der Datenbank steht für jeden Netzwerkknoten zwei Felder für Memos frei. Ein kurzes Memo-Feld und ein längeres Memo-Feld. Durch die Ausführung dieses Befehls können Memos hinzugefügt werden.
+Durch die Ausführung dieses Befehls können Memos hinzugefügt werden.
 
 \subsubsection{db memo remove}
 
