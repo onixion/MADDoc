@@ -65,22 +65,24 @@ to be written
 
 \section{Ziel}
 
-Das Ziel dieser Diplomarbeit ist das Erstellen eines Programmes, welches in einem privaten Netzwerk (max. 50 Netzwerkgeräte) Serverdienste überwachen kann und bei der Nichteinhaltung bestimmter Regeln, die vom Nutzer definiert werden können, eine Benachrichtigung in Form einer E-Mail abschicken kann.
+Das Ziel dieser Diplomarbeit ist das Erstellen eines Programmes, welches in einem kleinen Netzwerk (max. 50 Netzwerkgeräte) Netzwerkgeräte und Netzwerkdienste überwachen kann. Dabei soll der Benutzer die Möglichkeit haben, Regeln für die Überwachung zu definieren, damit er bei der Missachtung sofort per E-Mail darüber benachrichtigt werden kann.
+
 
 \section{Schnittstellen}
 
-Für die Benutzung des Programmes soll eine textbasierende Schnittstelle implementiert werden, die als primäre Interaktion mit dem Programm dient. Die vollständige Überwachung aller Aufgaben und Geräte soll über diese Schnittstelle möglich sein.\\
+Für die Benutzung des Programmes soll eine textbasierende Schnittstelle eingebaut werden, die die primäre Interaktion mit dem Programm sicherstellen soll. Die vollständige Überwachung sowie die Konfiguration aller Aufgaben und Geräte soll über diese Schnittstelle möglich sein.\\
+Die Überwachung und die Konfiguration der Geräte und Aufgaben soll hauptsächlich über diese Schnittstelle ermöglicht werden.
 Es soll auch die Möglichkeit bestehen, die textbasierende Schnittstelle über das Netzwerk zu nutzen. Daher muss diese Schnittstelle als Netzwerkservice implementiert werden und es wird eine Client-Software benötigt.\\
 
-Neben der textbasierten Schnittstelle soll eine graphische Schnittstelle implementiert werden, die eine alternative Benutzung des Programmes ermöglichen soll. Der Funktionsumfang der graphischen Oberfläche beschränkt sich mit der Anzeige einer Übersicht der Aufgaben und Geräte.
+Neben der textbasierten Schnittstelle soll eine graphische Schnittstelle implementiert werden, die eine alternative Benutzung des Programmes ermöglichen soll. Der Funktionsumfang der graphischen Oberfläche beschränkt sich auf die Anzeige einer Übersicht der Aufgaben und Geräte.
 
-\section{Andere Vorraussetzungen}
+\section{Andere Voraussetzungen}
 
-Das Programm soll auf Windows als auch auf Linux lauffähig sein. Die Benutzung soll sich auf den zwei verschiedenen Betriebssystemen nicht unterscheiden.\\
+Das Programm soll auf Windows als auch auf Linux funktionstüchtig sein und die Benutzung soll sich auf den zwei verschiedenen Betriebssystemen nicht unterscheiden.\\
 
-Die Resulate der Überwachungen sollen in einer Datenbank lokal abgespeichert werden. Eine Möglichkeit die Datensätze der Datenbank zusammenzufassen, soll implementiert werden, um den Speicherbedarf zu verringern.\\
+Die Resulate der Überwachungen sollen in einer lokalen Datenbank abgespeichert werden und es soll die Möglichkeit geben, die Datensätze der Datenbank zusammenzufassen, damit der Speicherbedarf der Datenbank reduziert werden kann.\\
 
-Die Änderungen des IP-Adressen von Netzwerkgeräte im Netzwerk soll automatisch im Programm geändert werden.\\
+Zudem soll das Programm bei Änderungen der IP-Adressen von Netzwerkgeräten informiert werden, damit dieser die neuen IP-Adressen nachtragen kann.
 
 \part{Theorie zu den einzelnen Gebieten der Arbeit}
 
@@ -1540,7 +1542,7 @@ Windows Powershell
 
 Bei unixähnlichen Betriebssystemen wird der Begriff \textbf{Terminal} häufig mit CLI in Verbindung gebracht. Ein Terminal (oder auch Konsole) war ein Gerät, das die Eingaben und Ausgaben von Daten an einem Computer in Textform ermöglichte. Da diese Geräte heute eher störend und nutzlos sind, werden sie in Software emuliert, daher spricht man auch von \textbf{Terminalemulatoren}. Die Hauptaufgaben von diesen Emulatoren sind die richtige Darstellung der Textkodierung, die Darstellung von Farben, das Erkennen von Escape-Sequenzen und das Einlesens von Eingaben - die CLI hingegen, ist für die vollständige Interpretation sowie der Ausführung zuständig. [101]\\
 
-Grundsätzlich wurden die textbasierten Schnittstellen im Desktop-Bereich vollständig durch die grafischen Schnittstellen abgelöst, aber im Netzwerkbereich sind textbasierte Schnittstellen durch ihre enorme Flexibilität und ihren minimalen Ressourcenverbrauch immer noch häufig anzutreffen (z.B. pfSense, Cisco-Router/Switches). Die primäre Kommunikation mit unixähnliche Betriebssystemen hat sich bis heute nicht geändert und erfolgt immer noch über Kommandozeileninterpreter. Bei diesen Systemen ist die CLI ein fester Bestandteil, die Interaktion basiert fast ausschließlich über die textbasierte Schnittstelle, grafische Oberflächen hingegen, sind meist nur optioanle Zusatzsoftware. [102]\\ 
+Grundsätzlich wurden die textbasierten Schnittstellen im Desktop-Bereich von den graphischen Schnittstellen abgelöst, dennoch werden bei vielen Systemen auch alternative Schnittstellen, wie eine CLI, angeboten. Vorallem im Netzwerkbereich sind textbasierte Schnittstellen durch ihre enorme Flexibilität und ihren minimalen Ressourcenverbrauch immer noch häufig anzutreffen (z.B. pfSense, Cisco-Router/Switches). Die primäre Kommunikation mit unixähnliche Betriebssystemen hat sich bis heute nicht geändert und erfolgt immer noch über Kommandozeileninterpreter. Bei diesen Systemen ist die CLI ein fester Bestandteil, die Interaktion basiert fast ausschließlich über die textbasierte Schnittstelle, grafische Oberflächen hingegen, sind meist nur optioanle Zusatzsoftware. [102]\\ 
 
 Erfahrene Nutzer greifen auch heute immer noch zu Kommandozeileninterpreter, da sie eine schnellere und direkte Kontrolle über die Ausführung von Programmen haben. Zudem besteht die Möglichkeit Programme mithilfe von \textbf{Scripts} zu kombinieren oder die Ausgaben von Programmen in anderen zu leiten. [103]
 
@@ -2094,7 +2096,7 @@ Bei Verwendung von SQLite entscheidet der Einsatzbereich ob es sich bei einer Ei
 \lfoot{Alin Porcic}
 \section{Allgemeines}
 
-Die Kryptologie befasst sich mit der Informationssicherheit und hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen. Unzählige Informationen werden weltweit Kreuz und Quer ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen hohen Wert haben können. Der Wert dieser Informationen geht dann verloren, wenn ein Unbefugter die Aussage der Informationen verstehen kann. Damit das nicht passiert, werden kryptographische Systeme entwickelt, die die Lesbarkeit von Informationen verhindern bzw. erschweren.\\
+Die Kryptologie befasst sich mit der Informationssicherheit und hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen. Unzählige Informationen werden weltweit ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen hohen Wert haben können. Der Wert dieser Informationen geht dann verloren, wenn ein Unbefugter die Aussage der Informationen verstehen kann. Damit das nicht passiert, werden kryptographische Systeme entwickelt, die die Lesbarkeit von Informationen verhindern bzw. erschweren.\\
 
 Die Fähigkeit dieser Systeme die Informationen vor wirtschaftlichen Schäden zu schützen, ist einer von vielen Bedingungen der Informationssicherheit. Die Minimierung von Risiken, der Schutz vor Bedrohungen und die Einhaltung der Schutzziele sind ebenfalls Anforderungen der Informationssicherheit. Für die Einhaltung der Ziele der Informationssicherheit werden folgende Schutzziele definiert:
 
@@ -2397,14 +2399,8 @@ SHA steht für \textbf{Seucre-Hash-Algorithm} und ist eine Ansammulung von mehre
 
 \subsection{Allgemeines}
 
-Beim Start des Programmes mit dem Argument \textbf{-cli} wird die integrierte CLI gestartet, die für die Verwendung des Programmes verwendet werden kann. Der Syntax der CLI-Eingaben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden. Die Anordnung der Parameter und Argumente ist für die diese CLI-Implementierung irrelevant.\\
-
-\begin{center}
-\includegraphics[scale=0.5]{img/cli_mad.png}\\
-die integrierte CLI
-\end{center}
-
-Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert. Ist die Interpretation der Eingabe nicht möglich, da zum Beispiel ein Paramter mehrfach definiert wurde, wird eine Fehlermeldung in roter Farbe ausgegeben. Einige Fehlermeldungen, die ausgegebe weden können, sind zum Beispiel:
+Das Programm bietet eine integrierte textbasierende Schnittstelle für die primäre Verwendung an. Mit der CLI lassen sich viele Befehle mit komplexen Parametern und Argumente realisieren. Der Syntax der CLI-Eingaben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden. Die Anordnung der Parameter und Argumente ist für die diese CLI-Implementierung irrelevant.\\
+Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert. Ist die Interpretation der Eingabe nicht möglich, da zum Beispiel ein Paramter mehrfach definiert wurde, wird eine Fehlermeldung in roter Farbe ausgegeben. Einige Fehlermeldungen, die ausgegeben werden können, sind zum Beispiel:
 
 \begin{itemize}
 \item \textbf{Command not known}: Befehl ist nicht definiert und kann nicht ausgeführt werden.
@@ -2413,7 +2409,7 @@ Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert.
 \item ...
 \end{itemize}
 
-Mit der linken und rechten Pfeiltaste kann die Position des Cursors im Eingabefeld verändert werden. Die CLI führt eine Liste der zuletzt eingegeben Befehle. Diese können mit der Oben- und Unten-Pfeiltaste angezeigt werden.\\
+Mit der linken und rechten Pfeiltaste kann die Position des Cursors im Eingabefeld verändert werden und über die Backspace-Taste (Rücktaste) kann ein Zeichen in der Eingabe entfernt werden. Die CLI führt eine History über die zuletzt eingegebenen Befehle. Mit der Oben- und Unten-Taste können die Einträge der History in das Eingabefeld eingesetzt werden.
 
 \subsection{Programmstruktur}
 
@@ -2435,7 +2431,7 @@ Aus komplikationsgründen ist es auch nicht möglich, interaktive Befehle für d
 \section{CLI-Server und CLI-Client (Alin Porcic)}
 \lfoot{Alin Porcic}
 
-Über den CLI-Server und CLI-Client ist es möglich die textbasierte Schnittstelle über einen Netzwerkservice anzusprechen. Nachdem eine erfolgreiche Verbindung aufgebaut wurde, kann der Client die Befehle lokal einlesen und an den Server senden. Dieser versucht den empfangenen Befehl zu interpretieren und schick die Ausgabe wieder zurück. Vom Prinzip arbeit die CLI als Service genau wie die lokale CLI, jedoch wird die Eingabe und Ausgabe der Informationen nicht vom Server übernommen. Der Server hat nur die Aufgabe die Befehle zu interpretieren und auszuführen.
+Über den CLI-Server und CLI-Client ist es möglich die textbasierte Schnittstelle über einen Netzwerkservice anzusprechen. Nachdem eine erfolgreiche Verbindung aufgebaut wurde, kann der Client die Befehle lokal einlesen und an den Server senden. Dieser versucht den empfangenen Befehl zu interpretieren und schick die Ausgabe wieder zurück. Vom Prinzip her arbeit die CLI als Service genau gleich wie die lokale CLI. Der Unterschied ist nur, dass die Interpretation und Ausführung nicht lokal geschieht, sondern auf dem Server.
 
 \begin{center}
 \includegraphics[scale=2.0]{img/mad_client_session.png}\\
@@ -2875,7 +2871,7 @@ Wenn das Programm mit dem Argument \textbf{-cli} gestartet wird, so wird statt d
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_mad.png}\\
-der Startbildschirm der CLI auf Linux
+der Start der CLI auf Linux
 \end{center}
 
 \section{Grundlegende Befehle (Alin Porcic)}
