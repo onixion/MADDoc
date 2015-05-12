@@ -30,16 +30,20 @@
 \includepdf[pages={1}]{../docs/general/Deckblatt.pdf}
 \begin{onehalfspace}
 
-\chapter{Vorwort}
-Die Welt befindet sich momentan im großen Wandel: Der Fortschritt der Technologie lässt nicht nach, im Gegenteil, er steigt mit exponentieller Geschwindigkeit an und ein Ende ist nicht in Sicht. Das Internet beschränkt sich inzwischen nicht mehr nur auf das Geschäftswesen oder gar auf Universitäten, sondern hält Einzug in Bereiche, die man sich bei der Entstehung desselben nie ausgemalt hätte. Selbst Haushaltsgeräte oder Autos können inzwischen über das Internet kommunizieren. Es ist inzwischen unmöglich geworden, den technischen Stand, welcher in einigen Jahren herrschen wird, präzise  vorauszusagen.\\
+\addcontentsline{toc}{chapter}{Vorwort}
+\vspace{1.5cm}
+\begin{Huge}
+\textbf{Vorwort}
+\end{Huge}
+\vspace{2cm}
+\\Mit dem Wachstum des Internets wird die Bedeutung von Netzwerken immer größer. Damit steigt auch die Notwendigkeit, durchgehend so gut wie möglich über den Zustand desselben informiert zu sein. Dies wird durch Monitoring bewerkstelligt, wessen Aufgabe es ist, das Netzwerk zu beobachten und den Admin über diverse Missstände zu informieren. Man kann zwischen zahlreichen kommerziellen und freien Lösungen wählen. Kommerzielle Lösungen sind jedoch überaus kostspielig und selbst die kostenlosen Varianten sind meistens bereits zuviel des Guten. 
 
-Die anstehende Diplomarbeit, welche uns mit einer großen Herausforderung und wertvollen Erfahrungen lockte, sowie das bestehende Interesse in der Netzwerktechnik und der Programmierung waren der Anstoß für erste Gespräche innerhalb des Freundeskreises.\\
+Die damals anstehende Diplomarbeit, welche uns mit einer großen Herausforderung und wertvollen Erfahrungen lockte, sowie das bestehende Interesse in der Netzwerktechnik und der Programmierung waren der Anstoß für erste Gespräche innerhalb des Freundeskreises.\\
 Die zahlreichen Projekte, welche wir bereits gemeinsam bestritten, stimmten uns aufeinander ab. Zusammen mit der Freundschaft, die sich über die Jahre bildete, fiel es uns leicht, ein Team zu bilden.\\
 
-Als Nächstes war es an uns, einen geeigneten Betreuer zu finden. Trotz des großen Spektrums an verschiedensten Lehrern fiel die Entscheidung schlussendlich auf Prof. Dr. Weiss, welchen wir bereits im Jahr zuvor kennenlernen durften.\\
-Seine Gelassenheit und große Kompetenz, die er in Fächern wie Informatik und vor allem Netzwerklabor zeigte, beeindruckten uns.\\
+Als Nächstes war es an uns, einen geeigneten Betreuer zu finden. Nach einigen Gesprächen und Überlegungen fiel die Entscheidung schlussendlich auf Prof. Dr. Weiss, welchen wir bereits im Jahr zuvor kennenlernten.\\
 
-Als wir ihm bei einem ersten Gespräch unsere bisherigen Gedankengänge aufzeigten, entwickelte er mit uns zusammen schließlich die Idee, unsere Interessen zu kombinieren und ein Programm zu entwickeln, dessen Aufgabe darin besteht, ein Netzwerk zu überwachen.
+Als wir ihm bei einem ersten Gespräch unsere bisherigen Gedankengänge aufzeigten, entwickelte er mit uns zusammen schließlich die Idee, unsere Interessen zu kombinieren und ein Projekt zu entwerfen, dessen Aufgaben darin bestehen, ein Netzwerk zu überwachen.
 \end{onehalfspace}
 \begin{singlespace}
 %\setcounter{tocdepth}{6}
@@ -49,8 +53,8 @@ Als wir ihm bei einem ersten Gespräch unsere bisherigen Gedankengänge aufzeigt
 \pagestyle{fancy}
 \begin{onehalfspace}
 \chapter{Abstract}
-Mit den immer größer werdenden Anforderungen an die Netzwerktechnik, ist es zur Herausforderung geworden, alles im Blick zu behalten. Große Firmen wie z.B. Cisco und HP bieten für dieses Problem Auswege. Es gibt einige kostenlose Produkte, die auch dabei helfen ein Netzwerk zu überwachen, wie z.B. Nagios.
-\paragraph{Problemstellung/Ziel:} Die oben genannten Produkte sind jedoch sehr umfassend und komplex. Diese Diplomarbeit hatte das Ziel eine kompakte Software zu programmieren, die sowohl ein Heimnetzwerk als auch ein kleines Firmennetzwerk (max. 50 Netzwerkgeräte) überwachen kann.
+Mit den immer größer werdenden Anforderungen an die Netzwerktechnik ist es zur Herausforderung geworden, einen Überblick in einem Netzwerk zu behalten. Große Firmen wie z.B. Cisco und HP bieten Lösungen für dieses Problem, allerdings sind kosten die Produkte, welche solch große Hersteller anbieten, ein Vermögen. Es gibt aber auch einige kostenlose Produkte, die auch dabei helfen ein Netzwerk zu überwachen, wie z.B. Nagios. Die kostenlose Variante hat jedoch einen anderen großen Nachteil, die Konfiguration. Diese ist teilweise so komplex, dass trotzdem hohe Kosten alleine durch den Einsatz von benötigtem Fachkräften entstehen.
+\paragraph{Problemstellung/Ziel:} Für das Überwachen von kleineren Netzwerken sind die oben genannten Lösungen ungeeignet, da nur ganz wenige, von den eigentlich verfügbaren Funktionen, verwendet werden. Diese Diplomarbeit hatte das Ziel, eine kompakte Lösungen zu entwickeln, die kleine Netzwerke (max. 50 Netzwerkgeräte) überwachen kann. Zum Beispiel, dass die in einem Netzwerke vorhanden Geräte anzeigt werden können, oder dass auch Überprüfungen auf z.B. die Erreichbarkeit einzelner Geräte im Netzwerk durchgeführt werden können. Außerdem soll diese Lösung auf Windows und Linux funktionsfähig sein.HALLO DU TROTTEL
 \paragraph{Methodik:} Das Produkt Nagios war uns eines erstes Vorbild. Unser Ansatz bestand darin, dass nur grundlegende Funktionen zur Netzwerküberwachung verwendet wurden. Detaillierte Planung war ein weitere sehr ernstzunehmender Aspekt. Die Wahl der Programmiersprache, fiel auf C\#.. Als die Programmziele festgelegt waren, teilten wir die Aufgabe in mehrere Teilbereiche auf. Als jeder seine Teilbereiche wusste, programmierte er für sich. Durch das Nutzen von Git, einem Versionsverwaltungsprogramm, war eine weitgehend reibungslose Zusammenarbeit möglich.
 \paragraph{Resultat:} Das Ergebnis war ein Programm mit sowohl einem CLI (text basierte Schnittstelle) als auch einem GUI (graphische Benutzeroberfläche). Das MAD - Networkmonitoring bietet sich an als grundlegende und kompakte Netzwerküberwachung. Mit Funktionen wie beispielsweise einem Portscanner oder Dienstüberprüfungen wie z.B. dem HTTP-checker.
 \chapter{Abstract (English)}
@@ -510,7 +514,7 @@ Im Grunde ganz normale Router, welche jedoch zusätzlich die Möglichkeit besitz
 Werden meistens von den ISPs den Kunden zur Verfügung gestellt. Beinahe alle unterstützen heutzutage auch WLAN.
 \end{itemize}
 \subsubsection{Switch}
-Ein \textbf{Switch} ermöglicht die Kommunikation zwischen mehreren Hosts. Einfache Switches agieren hauptsächlich auf dem \textbf{Layer2}: Sie schreiben sich auf, an welchem Port welche MAC-Adresse hängt und wissen dann durch Source und Destination MAC-Adresse, an welchem Interface das Paket wieder raus muss.\\
+Ein \textbf{Switch} ermöglicht die Kommunikation zwischen mehreren Hosts. Einfache Switches agieren hauptsächlich auf dem \textbf{Layer2}: Sie speichern ab, an welchem Port welche MAC-Adresse hängt und wissen dann durch Source und Destination MAC-Adresse, an welchem Interface das Ziel des Paketes liegt\\
 
 Im Gegensatz zu ihren Vorgängern, den \textbf{Hubs}, sind sie damit in der Lage, Pakete zielgerichtet weiter zu leiten. Hubs lenken einkommenden Traffic nicht, sie schicken die Pakete immer an alle Interfaces. Switches legen dazu eine \textbf{lokale Switching Tabelle} an, in welcher steht, an welchem Interface welche MAC-Adresse liegt.\\
 Darin findet sich jedoch auch die größte Sicherheitslücke, wie später in Kapitel \ref{sec:security} auf Seite \pageref{sec:security} noch besprochen wird.\\
@@ -821,10 +825,10 @@ Eine andere Option ist Verschlüsselung, auf welchen im Kapitel \ref{chap:krypto
 
 \begin{center}
 \includegraphics[scale=0.35]{../docs/tarkes/pics/Ethernetpaket.png}
-Ethernetpaket
+Ethernetframe
 \end{center}
 
-Das Paket wird serialisiert und mit dem niederwertigsten Bit zuerst übertragen. Das Ethernetpaket besteht aus folgenden Teilen:
+Das Frame wird serialisiert und mit dem niederwertigsten Bit zuerst übertragen. Das EthernetframeF besteht aus folgenden Teilen:
 \begin{itemize}
 \item Präambel und SFD\\
 Dieser Teil des Paketes sind im Grunde nur Überbleibsel aus den alten Tagen. Die Präambel hat ein alternierendes Bitmuster über 7 Byte, während der SFD (Start Frame Delimeter) das Muster 10101011 trägt.\\
@@ -845,8 +849,8 @@ Das FCS (Frame Check Sequence) Feld beinhaltet eine 32 bit CRC Prüfsumme welche
 \end{itemize}
 
 \subsection{Address Resolution Protocol - ARP}\label{ssec:arp}
-\textbf{ARP} ist ein essentielles Protokoll für die Kommunikation in einem Netzwerk. Da, damit Kommunikation stattfinden kann, die MAC-Adresse bekannt sein muss, wurde dieses Protokoll eingestellt.\\
-Es funktioniert, indem ein Broadcast in das Netz geschickt wird, in welchem die Bitte steht, dass ein Host mit einer gewissen IP doch seine MAC-Adresse übermitteln soll. Diese speichert der PC, der die Anfrage gestellt hat, in seinem lokalen Cache, damit er nicht jedes Mal nachfragen muss.\\
+\textbf{ARP} ist ein essentielles Protokoll für die Kommunikation in einem Netzwerk. Da, damit Kommunikation stattfinden kann, die MAC-Adresse bekannt sein muss, wurde dieses Protokoll entwickelt.\\
+Es funktioniert folgendermaßen: Indem ein Broadcast in das Netz geschickt wird, in welchem die Bitte steht, dass ein Host mit einer gewissen IP doch seine MAC-Adresse übermitteln soll, kann ein Rechner die benötigte Information bekommen. Diese speichert der PC, der die Anfrage gestellt hat, in seinem lokalen Cache, damit er nicht jedes Mal nachfragen muss.\\
 Dieses Protokoll wird mit der Verbreitung von IPv6 aussterben, da in IPv6 das sogenannte \textbf{Neighbour Discovery Protocol NDP} diese Aufgabe übernimmt.\\
 
 Das ARP Paket befindet sich gleichzeitig auf Layer2 und 3 und sieht wie folgt aus:\\
@@ -1155,7 +1159,7 @@ Eines der Hauptziele eines jeden Hackers ist es normalerweise Informationen zu s
 Nun stehen diese aber heute vor dem Problem, dass so gut wie jedes Netzwerk \textbf{geswitched} ist, es also Switches anstatt von Hubs verwendet. Diese speichern, wie bereits besprochen, die MAC-Adressen der angeschlossenen Geräte und weisen sie einem ihrer Interfaces zu.\\
 Somit ist ein Hacker schon einmal nicht mehr in der Lage, ohne irgend einen Eingriff in das Netzwerk, zu hören, was wer zu wem sagt.\\
 
-Nun haben Hacker eine Methode gefunden um dies zu umgehen, das sogenannte \textbf{MAC-Flooding}, was übersetzt soviel wie MAC Überflutung bedeutet. Dabei verwendet der Hacker das Gratuitous ARP Paket. Dieses ist dazu da, seine eigene MAC-Adresse bekannt zu machen.\\
+Nun haben Hacker eine Methode gefunden um dies zu umgehen, das sogenannte \textbf{MAC-Flooding}, was übersetzt soviel wie MAC Überflutung bedeutet. Dabei macht sich der Hacker eine Unterart des ARP Paketes zunütze. Das \textbf{Gratuitos ARP} Paket dient dazu, seine eigene MAC-Adresse in einem Netzwerk bekannt zu machen.\\
 Der Hacker schickt nun hunderte solcher Pakete, immer mit falschen MAC-Adressen und falschen IP-Adressen und fährt damit solange fort, bis sich die Tabelle des Switches überfüllt und er sie fallen lassen muss. Wenn dies eintritt, fällt der Switch in einen Modus zurück, in dem er, bis er sich von der Überlastung regeneriert hat, sich wie ein Hub verhält und alle Pakete an alle Interfaces sendet. Nun kann der Hacker lesen, was in den Paketen steht.\\
 
 \subsection{Man-in-the-Middle anhand von MAC-Spoofing}\label{ssec:mspoof}
@@ -1173,10 +1177,10 @@ Da jedoch normalerweise ein Einzelner nicht in der Lage ist, die Rechenleistung 
 
 \chapter{E-Mail (Manpreet Singh)}
 \lfoot{Manpreet Singh}
-Im Folgenden Kapitel wird versucht, das Konzept von E-Mail zu erklären.\\\\
+Im folgenden Kapitel wird versucht, das Konzept von E-Mail zu erklären.\\\\
 Die 'electronic mail', kurz E-Mail, wird nun schon seit einigen Jahren dazu verwendet, um vor allem Text, auf elektronischem Wege von A nach B zu senden. Sie sorgt dafür, dass wichtigen Dokumente absendet werden können, dass Freunde Urlaubsfotos bekommen können und vor allem sorgt sie dafür, dass die Wirtschaft intakt bleibt, denn nicht viele Systeme können einen solch hohen Anteil an Werbung vorweisen. 
 \section{Allgemein}
-Die elektronische Post ist ein sehr wichtiger Teil des heutigen Systems. Jeder hat eine E-Mail-Adresse, sei es der Großvater oder auch die wichtige Geschäftsfrau. E-Mails ermöglichen nun schon seit geraumer Zeit, sowohl das Senden als auch das Empfangen von Text, Dokumenten, Bildern, etc.. Es gibt auch andere Systeme, aber das System der E-Mail ist davon, als Gesamtpaket betrachtet, wohl das einfachste und auch praktischste.\\\\
+Die elektronische Post ist ein sehr wichtiger Teil des heutigen Kommunikationssystems. Nahezu jeder, unabhängig von Alter und Beruf, hat eine E-Mail-Adresse. E-Mails ermöglichen nun schon seit geraumer Zeit, sowohl das Senden als auch das Empfangen von Text, Dokumenten, Bildern, etc.. Es gibt auch andere Mittel zum Kommunizieren auf elektronischem Wege, aber im Großen und Ganzen ist die E-Mail wohl das einfachste und auch praktischste.\\\\
 Es ist teilweise mit der Post vergleichbar (im weiteren Verlauf wird dieser Vergleich öfter angestellt), da es weitgehend den traditionellen 'Brief' abgelöst hat.  
 \subsubsection{Entstehung}\label{sssec:Entstehung}
 Der Entstehungsweg der E-Mail startet in den 1960er Jahren, als Ray Tomlinson, ein Computertechniker bei Bolt Beranek and Newman (BBN), neben seiner eigentlichen Arbeit, sich einem anderen Projekt widmete. Mithilfe dessen wollte er es schafften, die bis dato noch nicht vorhandene Übertragung und auch das Hinterlassen von Nachrichten bzw. Dateien zwischen zwei im gleichen Netzwerk befindlichen Rechnern zu ermöglichen. Es war noch die Zeit vor dem Internet, die Zeit des sog. Arpanets, welches als Vorgänger des Internets gilt. Damals versuchte Tomlinson, mithilfe schon vorhandener Systeme, wie dem SNDMSG und dem CPYNET, ein neues System zu schaffen.\\\\
@@ -1494,9 +1498,9 @@ Eine durchgehende Verbindung zum Server ist notwendig & $\rightarrow$ & Da die E
 \paragraph{IMAP und POP im Vergleich mit der Post:}
 \subparagraph{IMAP:} IMAP: Die Post wird direkt am Briefkasten gelesen und vom Briefkasten nach Belieben sortiert und entsorgt.
 \subparagraph{POP:} POP: Die Post wird direkt am Briefkasten entsorgt oder kopiert. Die Kopien können mit nach Hause genommen werden. Dort können sie gelesen und verwaltet werden. 
-\section{Bedeutung im Altag}
+\section{Bedeutung im Alltag}
 \subsubsection{Heute}
-E-Mails sind heute einer der meistgenutzten Kommunikationsmöglichkeiten überhaupt. Vor allem Firmen senden massenhaft E-Mails. Die elektrische Post ist aus dem heutigen Alltag kaum mehr wegzudenken.\\\\
+E-Mails sind heute eine der meistgenutzten Kommunikationsmöglichkeiten überhaupt. Vor allem Firmen senden massenhaft E-Mails. Die elektrische Post ist aus dem heutigen Alltag kaum mehr wegzudenken.\\\\
 Viele Geräte unterstützen diese Technik, wie z.B. Smartuhren, Smartphones, Tablets, Laptops, und viele mehr. Dadurch wird die schnelle Abrufbarkeit gewährleistet.
 \paragraph{Nennenswerte E-Mail Anbieter sind:}
 \begin{itemize}
@@ -1509,7 +1513,7 @@ Viele Geräte unterstützen diese Technik, wie z.B. Smartuhren, Smartphones, Tab
 \subsubsection{Zukünftig}
 Analysten zufolge wird der E-Mail-Verkehr sich immer mehr in den wirtschaftlichen Sektor verschieben, da die Menschen immer mehr ihre Sozialen Kontakte über soziale Netwerke, wie Facebook, Whatsapp und Twitter aufrecht erhalten. E-Mails zwischen zwei Freunden werden voraussichtlich immer seltener. (vgl.http://de.wikipedia.org/wiki/E-Mail)
 \section{Probleme}
-Beim Versand von E-Mails gibt es nach wie vor auch einige Probleme, die schwer zu bewältigen sind. 
+Beim Versand von E-Mails gibt es nach wie vor auch einige Probleme, die schwer zu bewältigen sind. Dieses sind z.B. Spam und Informations-Overloads. Auf einige bekannte Probleme wird im folgenden eingegangen.
 \subsection{Begrenzungen}
 E-Mails könnten zwar rein theoretisch unbegrenzte Datenmengen übertragen, dies ist jedoch in der Praxis nicht umsetzbar. Viele Betreiber von Mailservern limitieren die Datenmengen um die Auslastung so gering wie möglich zu halten. 
 \subsection{Informations-Overload}
@@ -2086,387 +2090,6 @@ Bei Verwendung von SQLite entscheidet der Einsatzbereich ob es sich bei einer Ei
 \item keine Integrität der Daten
 \end{itemize}
 
-
-\section{Allgemeines}
-Datenbanken sind für die Verwaltung von digitalen Daten zuständig. Heute stellen Datenbanksysteme einen zentralen Punkt im IT-Bereich der Unternehemen. Dadurch ist ein Unternehmen auf die Verfügbarkeit, Vollständigkeit und Richtigkeit der Daten angewiesen. Dadurch ist sicher zu stellen, dass die Datensicherheit gewährleistet ist, dies wird gesetzlich oder durch eine Behörde vorgeschieben.\\
-
-Zum Aufgabenbereich eines Datenbanksystems gehören speichern, lesen, löschen und ändern von Dateien. Dies muss für große Datenmentgen effizient, widerspruchsfrei und dauerhaft gewährleistet sein. Auch geforderte Teilmengen müssen für Benutzer und Anwendungsprogramme in verschiedensten Darstellungsformaten bereitgestellt werden können.\\
-\\Datenbanksysteme setzen sich grundsätzlich aus zwei Teilsystemen zusammen.
-\begin{itemize}
-\item Datenmanagementsystem (DBMS)\\
-Dieses System ist für jegliche Organisationen zuständig.
-\item Datenbank\\
-Als Datenbank wird die Menge bzw. Sammlung aller Daten bezeichnet.
-\end{itemize} 
-Es gibt verschiedene Datenbankmanagementsystemmodelle.
-\begin{itemize}
-\item ralatinales DBMS
-\item netzwerkartiges DBMS
-\item hierarchisches DBMS
-\item objektorientiertes DBMS usw.
-\end{itemize}
-Datenbanken werden für alle Webseiten zur Datenverwaltung verwendet ( z.B.: Regristrierungen, Einkäufe wie bei z.B.: ebay, amazon ).
-Microsoft Access und OpenOfficeBase eignen sich gut für kleinere Datenbanken (z.B.: kleinere Büros), weil die Handhabung durch die grafische Darstellung sehr leicht zu bedienen ist und den Mitarbeitern Schulungen erspart bleiben.
-Diese eignen sich jedoch nicht als Datenbanken für Webdienste ( z.B. Facebook, Twitter, ebay, ... ).\\
-
-Häufig wird die Porgrammiersprache SQL (Structured Query Language) zur Erstellung einer Datenbank verwendet. Dabei ist bei der Erstellung von einer Datenbank zu beachten, dass keine Information mehrfach angegeben wird. Jede Information darf nur einmal vorkommen!
-
-\section{Geschichte}
-Bereits in den 1960er Jahren gab es Probleme beim Verarbeiten von Daten in einfachen Dateien. Damals wurde eine eine Lösung entwickelt, bei der eine weitere Softwareschicht eingeschoben wurde. Diese lag zwischen der Dateiverwaltung (Betriebssystem) und den Anwendugsprogrammen. Dieser Lösungsversuch setzte sich jedoch nicht durch, da Datenspeicher in Form von Dateien individuell für einzelne Anwendungen erstellt wurden. Die Folge war, dass viel Zeit und Leistung zum Umkopieren, Mischen und Restrukturieren der Dateien in Anspruch genommen werden musste.\\
-
-In den 1966 bis 1968 wurde IMS (Information Management System) von IBM, North American Rockwell und Caterpillar Tractors für das Apollo-Mondprogramm entwickelt, zur Verwaltung der Stücklisten, die verwalteten Datenbanken waren hierarchisch strukturiert. IMS gehört zu den ersten großen Datenbankmanagementsystemen (DBMS) mit der Sprache DL/I (Data Language One). IMS wurde vom Entwickulungsstart bis 1969 unter dem Name  ICS (Information Control System) geführt. Heute wird IMS hauptsächlich für Banken und Versicherungen eingesetzt.\\
-
-Zur gleichen Zeit wurde von CODASYL (COnference on DAta SYstems Languages) ein Nerwerk- Datenbanksystem entwickelt.\\
-
-1970 wurde ein weiterer Fortschritt von Edgar Frank Codd erzielt. Im Rahmen einer Forschungsarbeit am IBM Almaden Research Center wurden die Grundlagen des ersten relationalen Datenbanksystems (System R) von Codd vorgestellt. Mit Open Source relationalem Datenbanksystem Ingres ( interactive graphics retrieval system) und der Abfragesprache QUEL folgte die Berkeley Groupe.\\
-
-Oracle (damals SDL und RSI) nutzte Ergebnisse von System R und brachte SQL den Erfolgt. SQL/DS und DB2 folgen von IBM.\\
-
-Trotz einiger Kritikpunkte wurden in den 1980er Jahren hierarchische und netzwerkartige Systeme von vielen Behörden, Konzenen, Instituten und auch kleineren Unternehmen durch das relationale Modell ersetzt. Bis zu den 2000er Jahren als Open-Source-Datenbankmanagementsysteme an Bedeutung erlangen gab es keine großen Veränderungen. Die größten Markanteile wurden von MySQL und PostgreSQL erzielt.
-Als Reaktion von führenden Herstellern wurden gratis Versionen ihrer Datenbank-Programme angeboten.\\
-
-Seit 2001 wurde  NoSQL bekannter und erzielte ebenfalls an Bedeutung, da sich mit einem nicht-relationalen Konzept durchsetzt.
-\section{Definitionen}
-\begin{itemize}
-\item Datensatz
-\begin{itemize}
-\item Entsprechung einer logischen Struktur
-\item Tupel
-\item Zeile in einer Tabelle
-\end{itemize}
-\item Datenfeld
-\begin{itemize}
-\item kleinste Einheit eines Datensatzes
-\item Attribut
-\item Spalte in einer Tabelle
-\end{itemize}
-\item Relation\\
-Tabelle
-\item Schlüssel\\
-dient zur eindeutigen Identifikation von Datensätzen
-\end{itemize}
-Arten von Schlüssel:\\
-\\primary Key (Primärschlüssel)
-\begin{itemize}
-\item wird zur eindeutigen Identifikation eines Datensatzes in relationalen Datenbanken eingesetzt
-\item ist in allen Tabellen in einer normalisierten Datenbank enthalten
-\item ist einmalig
-\item oft verwendet als Datenbank- Index
-\begin{itemize}
-\item eindeutiger Primärschlüssel
-\begin{itemize}
-\item ein eindeutiger Schlüssel in einer Spalte
-\item Datensätze weden durch einen einmaligen Wert bestimmt
-\item Beispiel: in einer  Mitarbeiertabelle kann die Sozialversicherungsnummer als primary Key verwendet werden
-\end{itemize}
-\item zusammengesetzter Primärschlüssel
-\begin{itemize}
-\item Kombination aus verschiedenen Attributen, da eindeutige Identifizierung nicht vorhanden
-\item Kombinationen dürfen nur einmal vorkommen
-\item Beispiel für zusammengesetzten Primärschlüssel: Vorname + Nachname + Geburtsdatum
-\end{itemize}
-\item Künstlicher Primärschlüssel
-\begin{itemize}
-\item keine eindeutigen Spalten oder Kombinationen aus Spalten
-\item wird als zusätzliche Spalte in die Tabelle implementiert
-\item auch Surrogate Key genannt
-\item Praxis: Ganzzahlenfolge zur Datensatzidentifizierung
-\end{itemize}
-\end{itemize}
-\end{itemize}
-Sekundärschlüssel
-\begin{itemize}
-\item Attributgruppen, welche einzelne oder mehrere Datensätze beschreiben
-\item Beispiel: in Adresstabellen kann die Postleizahl als Sekundärschlüssel definiert werden
-\item nicht zwingende notwendig und nicht unbedigt einmalig vorkommend
-\item hilfreich bei Suchanfragen
-\end{itemize}
-Fremdschlüssel
-\begin{itemize}
-\item Attribut oder Attributkombination einer Tabelle
-\item zeigt auf den Primärschlüssel einer anderen oder der gleichen Tabelle
-\end{itemize}
-
-\section{Funktionen}
-Zu den wichtigsten Funktionen von Datenbankmanagementsystemen zur heutigen Zeit gehören:
-\begin{itemize}
-\item Daten verändern, löschen, speichern
-\item Metadaenverwaltung
-\item Maßnahmen zur Datensicherheit, Datenintegrität und Datenschutz
-\item Transaktionskonzept (Gewährleistung von Mehrbenutzerbetrieb)
-\item Anfragenoptimierung/- anpassung
-\item Verwendungsmöglichkeiten von: 
-\begin{itemize}
-\item Datenbanktrigger\\
-Funktion von unterschiedlichen (relationalen) Datenbankmanagementsystemen, welche nach Manipulation von expliziten Daten aufgerufen wird und ein integriertes Programm startet, dieses kann die Manipulation verhindern, erlauben oder auch andere Aktionen ausführen
-\item Stored Procedures (Gespeicherte Prozeduren)\\
-mit einem Befehl ist ein Client in der Lage eine ganze Reihe von (gespeicherten) Anweisungen zu starten
-\end{itemize}
-\item Informationen des verwendeten Datenbankmanagementsystems
-\begin{itemize}
-\item Kennzahlen
-\item Betrieb
-\item Technik
-\end{itemize}
-\end{itemize}
-
-\section{Datenbanksysteme}
-Ein Datenbanksystem besteht immer aus einem DBMS und der dazugehörigen Datenbank. Ein Datenbanksystem muss gewähleisten, dass auf Festspeichern abgespeicherte Daten auch nach einem unvorhergesehenen Ausfalls des Systems (z.B.: Stromausfall) wieder ohne Veränderungen und Verluste aufgerufen werden.\\
-Es bietet eine Schnittschnelle zwischen dem DBMS und der Datenbankanwendung zur  Abfrage, Auswertung, Veränderung und Verwaltung an.
-
-\begin{center}
-\includegraphics[scale=0.3]{img/dbs.png}\\
-Datenbanksystem besteht aus: Datenbank und Datenbankmanagementsystem (Quelle: http://de.wikipedia.org/wiki/Datenbank\# Komponenten\_ eines\_ Datenbanksystems)
-\end{center}
-
-\subsection{Datenbank}
-Theoretisch ist eine Datenbank ein zusammgehöriger Datenbestand. 
-Diese Datenmenge wird auf einen Festspeicher abgelegt und für alle Anwendungen für den Benutzer von einem DBMS zur Verfügung gestellt.\\
-
-Zu beachten ist, dass unter Datenbank oft das DBMS und die Daten gemeint werden, nicht die dazugehörige Dantenbankanwendungssoftware. Diese besteht oft aus Computerprogrammen, welche über ein Datenbanksystem ihre notwendigen Daten speichern.
-\\Beispiele: Auftragsverwaltung und Bestellwesen, Kunden- und Adressverwaltung, Rechnungserstellung.
-
-\subsection{Datenbankmanagementsysteme}
-Das DBMS ist die Verwaltunssoftware, welche für die Organisation der stukturiertten  Speicherung der Daten und zur Kontrolle der gesamten Lese, Lösch- und Schreibzugriffe auf die Datenbank zuständig ist.
-Diese Software wird für das Datenbanksystem installiert und konfigureiert und durch diese Software wird auch das Datenbankmodell bestimmt.
-Da die Funktonalität und die Geschwindigkeit von DBMS abhängen ist die Auswahl oftmals gut zu durchdenken.
-DBMS sind hochkomplexe Softwaresysteme.\\
-
-RDBMS wird oft als Abkürzung verwendet, weil das relationale DBMS am meisten Verwendung findet.
-
-\section{Relationales Datenbankmanagementsystem (RDBMS)}
-Das relationale Datenbanksystem findet in der Praxis am häufigsten Verwendung.
-Bei Relatinalen Datenbanksystemen können Felder aus verschiedenen Tabellen durch einen Primärschlüssel verbunden werden.\\
-
-Relationale Datenbanken werden in Computersystemen zur elektronischen Datenverwaltung eingesetzt. Das dazugehörige relationale Datenbankmodell wurde 1970 von Edgar F. Codd das erste Mal entworfen und ist tabellenbasierend. Dieses Modell findet heute auch häufigen Einsatz, obwohl es einige Mängel aufweist. Als Datenbankmanagementsystem wird das sogenannte relationale Datenbankmanagementsystem (RDBMS, Relational Database Management System) verwendet. Die Datenbanksprache SQL (Structured Query Language) wird zur Manipulation und zum Aufruf der Daten eingesetzt.\\
-
-Die Basis von relationalen Datenbanken ist die mathematische Definition einer Tabelle, die sogenannte Relation. Alle Aktivitäten auf Relationen werden von Relationenalgebra festgelegt. Damit ist ersichtlich, dass die relationale Algebra die thoretische Basis von SQL ist.
-
-\subsection{Prinzip eines RDBMS}
-Eine relationale Datenbank besteht aus vielen Tabellen (Relationen), in denen Datensätze gespeichert werden. Durch das Relationsschema werden Anzahl und Attributtypen der Relation bestimmt. Die Veranschaulichung einer Tabelle verläuft über die Attribute A1 bis An in den Spalten.\\
-
-Die Funktion kann am Beispiel von einem Buch in einer Bücherei einfach gezeigt werden. Zur Beschreibung des Buches in der Datenbank kann beispielsweise angegenben werden: Buch- ID, Autor, Titel, Aufnahemdatum, Verlag, Verlagsdatum, ...
-\\Zur Beschreibung eines Datensatzes muss mindestens ein eindeutiger, unveränderlicher und einmal vorkommender Schlüssel vorhanden sein. Ein sinnvoller Primärschlüssel in diesem Beispiel ist Buch- ID. Der Schlüssel ist nicht für die Posistion des Datensatzes in der Tabelle zuständig, sondern für die eindeutige Identifikation.
-
-\begin{center}
-\includegraphics[scale=0.8]{img/relation_DB.png}\\
-Beispiel einer Relation ("{}Buch"{})(Quelle: http://de.wikipedia.org/wiki/Relationale\_ Datenbank\# Grundlegende\_ Konzepte)
-\end{center}
-
-\subsection{Tabellen}
-Die Nutzung von Verbindungen zwischen Tabellen wird zur Verfügung gestellt. Beispielsweise kann ein Datenbank in einer Bibliothek folgender Maßen erstellt werden.\\
-
-Es werden drei Tabellen eingerichtet mit den Namen "{}Buch"{}, "{}Nutzer"{} und eine zusätzliche "{}Entliehen"{}.
-\begin{itemize}
-\item Tabelle "{}Buch"{}\\
-Diese Tabelle enthält für jedes Buch einen eigenen Datensatz der sich aus den Attributen (Spalten) zusammensetzt.
-\begin{itemize}
-\item Attribute: Buch- ID, Autor, Titel, Verlag, ...
-\item Primärschlüssel: Buch- ID
-\end{itemize}
-\item Tabelle "{}Nutzer"{}\\
-Diese Tabelle enthält alle angemeldeten Büchereinutzer.\\
-\begin{itemize}
-\item Attribute dieser Tabelle: Nutzer- ID, Vorname, Nachname, ...
-\item Primärschlüssel: Nutzer- ID
-\end{itemize}
-\item Tabelle "{}Entliehen"{}\\
-Diese Tabelle enthält Informationen über die Vergabe und die Verfügbarkeit von Büchern.\\
-\begin{itemize}
-\item Attribute dieser Tabellen sind: Buch- ID (Tabelle "{}Buch"{}), Nutzer- ID (Tabelle "{}Nutzer"{}), ...
-\item Nutzer- ID werden in dieser Tabelle einer Buch- ID zugeordnet.
-\item weitere Attributen könnten sein: Ausliehedatum, Rückgabedatum, ...
-\end{itemize}
-\end{itemize}
-
-\begin{center}
-\includegraphics[scale=0.8]{img/tabellen.png}\\
-Beziehungen zwischen Tabellen (Quelle: http://de.wikipedia.org/wiki/Relationale\_ Datenbank\# Beziehungen\_ zwischen\_ Tabellen)
-\end{center}
-
-\subsection{Datenbankschema und Modellierung}
-Das Schema in realtionalen Datenbanken ist entscheident für die Speicherung der Daten und deren Beziehung zueinander. Die Erstellung eines Datenbankschemas wird als Datenmodellierung bezeichnet.\\
-
-Das sogennate "{}Entity- Relationship- Modell"{} wird zur Erstellung von Datenschemas auch oft eingesetzt. Auf diese Weise wird ein konzeptuelles Schema entwickelt, dass von einem Datenbankmanagementsystem implementierbar ist. Dieser Vorgang wird Entwurf oder Datenmodellabbildung genannt.\\
-
-Um Redondanzen zu reduzieren und Anomalien zu verhindern ist ein entscheidenter Vorgang bei Modellierungsprozessen erforderlich, die sogennate "{}Normalisierung"{}. Die Wartung der Datenbanken wird unklomplierter und die Konsistanz der Daten wird garantiert.\\
-
-Edgar F. Codd erstellte vier Normalformen, welche heute noch bei relationalen Datenbankentwürfen eingesetzt werden und noch durch zusätzliche erweitert werden. 
-
-\subsection{Alternative Datenbankmodelle}
-Es sind noch viele weitere Datenbankmanagementsystem vorzufinden, welche durch Kombinierungen aus den folgenden Systemen entstanden sind (objektrelationales Modell). 
-%http://de.wikipedia.org/wiki/Datenbank#Datenbankmodell
-\subsubsection{Objektorientiertes Datenbankmodell}
-Objektdatenbanken oder Objektorientierte Datenbanken basieren auf dem Objektdatenbankmodell. Hier werden Daten als Objekte verwaltet, als Anlehnung an die Objektorientierung. Das Objektdatenbanksystem besteht aus dem dazupassenden Datenbankmanagementsystem, welches als Objektdatenbankmanagementsystem bezeichnet wird und der Objektdatenbank.\\
-
-Objekt steht normalerweise für einen Begriff aus der realen Welt und beinhaltet auch die dazugeörigen Attributte, welche das Objekt genau beschreiben (z. B.: Objekt: Auto; dazugehörige Eigenschaften: Farbe, Gewicht, ...). Das Ablegen von Daten und Methoden erfolgt gemeinsam in einem Objekt.\\
-
-Das Objektdatenbankmanagementsystem hat neben den grundsätzlichen Anforderungen zusätzliche zu erfüllen:
-\begin{itemize}
-\item Da sich ein Objekt aus belieg vielen verschiedenen Datentypen ergibt ist die Verwaltung komplexer Objekte zu gewährleisten
-\item Allen Objekten wird eine einmalige Identifikation OID zugeordnet, zur Sicherstellung der einzelnen Objektidentitäten
-\item Da das Zugreifen mittels Methoden ermöglicht wird, ist die Kapselung der Objekte (Konzept der objektorientierten Programmierung) einzuhalten
-\item Objekte werden Objektklassen zugeteilt.
-\item Klassenhierarchien dienen zur Anordnung von Objektklassen.
-\item Bei vererbten Objekten werden überladene Methoden benutzt, dies kommt durch späte Bindungen zu stande.
-\item Eine Turning-vollständige Manipulationssprache (DML) muss vom Objektdatenbankmanagementsystem zur Verfügung gestellt werden.
-\item Es gibt weitere variable Eigenschaften, welche zusätzlich von den verschiedenen Objektdatenbankmanagementsystem angeboten werden.
-\end{itemize}
-Von ODMG wurde die Abfragesprache OQL (Object Query Language)und als Datenmanipulationssprache ODL (Object Definition Language) festgelegt.
-
-\subsubsection{Dokumentenorientiertes Datenbankmodell}
-Bei dieser Art von Datenbank werden Dokumente als Basis zur Datenspeicherung verwendet. Lotus Notes ist die am häufigsten benutze dokumntenorientierte Datenbank.\\
-
-Eine dokumentenorientierte Datenbank besteht aus einzelnen Dokumenten, während beispielsweise die realtionale Datenbank aus genauen Datenbankschemas zur Organisation der Relationen besteht. Bei den Dokumenten kann es sich um strukturierte Dateien mit Standard- Dateiformaten handeln (z. B.: Dateien von Programmen zur Textverarbeitung) oder auch um Binary Large Objects.\\
-
-Binary Large Objects sind aus Sicht des Datenbankzugriffes nicht weitgehend strukturiert (z. B.: Videofilme im mped- Format). Weitere Datenformatate können sein:
-\begin{itemize}
-\item JSON- Objekte
-\item YAML- Dokumente
-\item XML- Dokumente
-\item usw.
-\end{itemize}
-Alle Dokumente werden für einen einmaligen und eindeutigen Identifikator gekennzeichnet.\\
-\\Beispile für andere dokumentenorientierte Datenbankmanagementsystem:
-\begin{itemize}
-\item Basex
-\item CouchDB
-\item eXist
-\item MongoDB
-\item RavenDB
-\item MarkLogic Server
-\end{itemize}
-
-\subsubsection{Netzwerkdatenbankmodell}
-Die Veröffentlichung des Netzwerk- Datenbankmodells erfolgte ca. zur gleichen Zeit wie die des relationale Datenbankmodells.\\
-\\Eigenschaften eines Netzwerkdatenbankmodells:
-\begin{itemize}
-\item keine strenge Hierarchie
-\item Datenfelder bestehen aus einem Namen und einem Wert
-\item m:n Beziehungen sind möglich (Datensätze können mehrere Vorgänger besitzen)
-\item mehrere Datensätze können an erster Stelle stehen
-\end{itemize}
-Der große Vorteil bei diesem Modell ist, dass verschiedene Suchwege zur Verfügung stehen. Dies kann, aber auch zum Nachteil werden und wenn vom Programmierer ein bestimmter Lösungsweg vorgesehen ist. Die Übersichtlichkeit wird schlechter mit der zunehmenden Größe des Modells immer geringer.\\
-
-Das Netzwerkdatenbankmodell gilt heute als Verallgemeinerung des hierarchischen Datenbankmodells.
-
-\subsubsection{Hierarchisches Datenbankmodell}
-Das hierarchische Datenbankmodell ist das älteste Datenbankmodell das es gibt. Die Darstellung erfolgt in Form einer hierarchischen Baumstruktur. Früher wuden das Modell von vielen Betriebssystemen für Dateisysteme verwendet, zur Abbildung der Daten. Zur heutigen Zeit ist das Modell in wenigen Anwendungen noch vorzufinden.\\
-\\Eigenschaften
-\begin{itemize}
-\item Alle Datensätze haben nur einen Vorgänger.
-\item Der Datensatz, durch den die Wurzel der Baustruktur erstellt wird, ist die einzige Ausnahme
-\item Verknüpfungen werden in der Baustruktur dargestellt und durch Eltern- Kinder- Beziehungen ermöglicht.
-\item Das verknöpfen zweier Baumstrukturen ist nicht realisierbar.
-\item Das Modell ist starr und bietet geringe Freiheiten für den Programmierer.
-\end{itemize}
-Das hierarchische Datenbankmodell konnte in den letzten Jahren wieder einen Erfolgfeiern, weil es im Bereich der XML- Entwicklung effizient genutzt wird.
-
-\subsection{Sicherheit}
-Bei einem relationalen Datenbankmanagementsystem werden relatioanle Daten auf einem Speichermedium abglegt. Es werden zu den eigentlichen Daten auch Informationen über das Datenschema und Berechtigungen gespeichert. Durch das Abspeichern der Berechtigungen wird Datensicherheit (Schutz gegen Datenverlust und verbotet Zugriffe) gewährleistet. Metadaten werden als "{}data dictionary"{} bei Datenbankmanagementsystemen bezeichnet.\\
-
-Das Sichern des Datenbankinhaltes durch Backups ist ebenfalls zu gewähleisten. Probleme bei der Performance sind in Praxis bei diesen Vorgängen zu beobachten, da die Manipulation von Daten beschränkt wird. \\
-%http://de.wikipedia.org/wiki/Datenbank#Datensicherheit
-
-Das Transaktionkonzept gehört auch zu den wichtigsten Aspekten der Datensicherheit. Dieses soll sogenannte "{}Race Conditions"{} verhindern, welche beim nicht autorisierten parallelen Aufruf von Datein aus der Datenbank entstehen können. Daten könnten gleichzeig von mehreren Benutzern verändert werden, diese würde zu inkonsisten Daten führen und Änderung würden vom Zufallen abhängig sein. Das Lösung ist es nur einem Benutzer die Berechtigung zu erteilen Änderungen an den Daten vornehmen zu können, währen andere gesperrt bleiben.\\
-%http://de.wikipedia.org/wiki/Datenbank#Transaktionen
-
-Das Sicherstellen der Integrität erfolgt durch "{}Constraints"{}. Es handelt sich um Regeln im Managementsystem, die zur Beschreibung der Datenveränderungen dienen. Foreign Key Constraint ist der wichtigste bei relationalen Datenbanksystemen. Durch diesen werden Daten, die von anderen Tabellen benötigt werden nicht gelöscht. Andere Bedingungen regeln das Duplizieren, einzelne Inhalte bestimmter Datenfelder, ...
-%http://de.wikipedia.org/wiki/Datenbank#Datenintegrit.C3.A4t
-
-\subsection{Gleichzeitige Zugriffe}
-Um ausgewählte Operationen ausführen zu können, weden beim Zugriff auf die Daten Berchtigungen geführt, damit beim "{}gleichzeitigen"{} Zugriff verschieder Programme bzw. Benutzer vom Datenbankmanagementsystem entschieden werden kann, welcher Zugriff als erster erfolgen darf.\\
-Bei diesem Prozess wird folgendes Verwaltet:
-\begin{itemize}
-\item locks (Sperren)
-\item Systemprotokolle
-\item transaktionsorientiertes arbeiten des DBS
-\end{itemize}
-Durch diese Fähigkeiten wird ein Datenbanksystem im Allgemeinen definiert. Es gibt Dateisysteme mit wesentlichen Erweiterungen.\\
-
-Alle Fehler, die aufgrund von gleichzeitigen Zugriffen auf die Datenbank erfolgen, werden als Anomalien im Mehrbenutzerbetrieb bezeichnet.
-%http://de.wikipedia.org/wiki/Datenbank#Mehrbenutzerf.C3.A4higkeit
-
-\section{Sprachen}
-Von einem Datenbanksystem wird eine Datenbanksprache zur Kommunikation zur Verfügung gestellt. Diese Schnittstelle muss folgendes erfüllen:
-\begin{itemize}
-\item Datenabfrage und manipulation (DML)
-\item Verwaltung der Datenbank und Datenstruktuen- Definitionen (DDL)
-\item Steuerung der Berechtigungen (DCL)
-\end{itemize}
-Von der Datenbanksprache abhängig sind diese Kategorien voneinander getrennt oder in einer Sprache zusammengefasst, wie beim relationalen Datenbankmanagementsystem (SQL). Es gibt auch Verwaltungsgetrennte Sprachen welche nicht alle Kategorien enthalten.
-\section{SQLite}
-Bei SQLite handelt es sich um ein relationales Datenbankmanagementsystem, welches in einer, in C programmierten, Bibliothek enthalten ist. Es handelt sich nicht wie bei vielen anderen DBMS um eine client- Server Datenbankmodell. Es wird nämlich nur in ein Programm eingebunden.\\
-
-SQLite ist eine oft verwendete Möglichkeit, wenn eine eingebundene Datenbanksoftware für lokale Speicherungen in ein Programm gefordet wird (z. B.: Webserver). SQLite findet sich heute in einem breiten Spektrum von Einsatzgebieten (weitverbreitete Browser, Betriebssysteme, Embedded Systems, ...).\\
-
-Dadurch hat SQLite eine Anbindung an viel Programmiersprachen.
-
-\subsection{Geschichte}
-SQLite wurde von D. Richard Hipp 2000 entwickelt, während er für den US- amerikanischen Rüstungskonzern General Dynamics arbeitete. Er entwickelte Software zur Steuerung von Lenkwaffenzerstörern, welche ursprünglich HP- UX basierten mit einer IBM Informix Datenbank ausgestattet war. Das damahlige Entwicklungsziel war es, ein Programm ausführen zu können ohne eine Installation eines dazugehörigen Datenbankmanagementsystems oder die Bestätigung eines Datenbankadministrators.\\
-
-Die Basis der Syntax und Semantik holte sich Hipp aus der PstgreSQL 6.5 Dokumentation. Im August 2000 wurde SQLite Version 1.0 vorgestellt. Die Speicherung wurde damals auf der Basis von gdbm realisiert (GNU Database Manager). SQLite 2.0 ersetzte gdbm mit einer B-tree Implementierung, durch welche Transaktionen ermöglicht waren. SQLite 3.0 wurde zum Teil von America Online entwickelt weiter ergänzt. \\
-
-2011 gab Hipp bekannt, dass er eine UnQL- Schnittstelle Implementieren möchte und UnQL weiter entwickeln möchte. UnQL ist eine eingebundene dokumentenorientierte Datenbank.
-
-\subsection{Eigenschaften}
-SQLite hat viel wichtige Eigenschaften, zu den wichtigsten Eigenschaften zählen:
-\begin{itemize}
-\item atomare, konsistente, isolierte und langlebige (ACID) Transaktionen, selbst im Fall eines Systemabsturzes oder eines Stromausfalles
-\item keine Installation oder weitere Verwaltungen oder Konfigurationen nötig
-\item komplette SQL- Implementierung mit Erweiterungen: Teilindizes, allgemeine Tabellenausdrücke, ...
-\item gesamte Datenbank ist in eine Datei gespeichert ("{}single disk file"{}), optial für den Einsatz in Anwendungen
-\item Terabyte- Datenbanken und Gigabyte große strings und blobs werden unterstützt.
-\item kleine Code- Bilanzen, welche kleiner als 500 KB, sind vollständig konfigurierbar
-\item einfache API (Schnittstelle)
-\item gut kommentierter Quellcode
-\item erhältlich als ein ANSI-C Quellcodedatei, welche einfach kompiliert werden kann und deswegen leicht in größere Projekte eingebunden werden kann
-\item Plattformübergreifend: Android, * BSD, iOS, Linux, Mac, Solaris, VxWorks und Windows (Win32, WinCE, WinRT)\\
-einfache Portierung auf andere Systeme
-\item Quellen sind in der sogennanten "{}Public Domain"{}, diese erlaubt die Benutzung sämliche Zwecke
-\item usw.
-\end{itemize}
-
-\subsection{Syntax}
-Die Syntax von SQLite ist der Syntax von SQL indentisch. Die kleinen Unterschiede liegen darin, dass einige Fähikeiten von SQL nicht unterstützt werden und dafür eigene eingebaut sind. Die Syntax wird mithilfe von Syntaxdiagrammen erklärt.
-Diese sind sehr einfach zu lesen und im Prinzip selbsterklärend. Es werden Argumente in der richtigen Reihenfolge aufgelistet und auch die verschiedenen dazugehörigen Optionen. Es gibt zur jeder möglichen Funktion ein entsprechendes Syntaxdiagramm. Die wichtigsten und grundlegensten Diagramme, welche zur Realisierung der Datenbank nötig waren, werden im Folgenden aufgelistet.
-
-\begin{center}
-\includegraphics[scale=0.8]{img/sqlite_syntax.png}\\
-allgemeine SQLite Syntax (Quelle: http://www.sqlite.org/syntax/sql-stmt.html)
-\end{center}
-
-\begin{center}
-\includegraphics[scale=0.8]{img/sqlite_create.png}\\
-erstellen einer Tabelle (Quelle: http://www.sqlite.org/lang\_ createtable.html)
-\end{center}
-
-\begin{center}
-\includegraphics[scale=0.8]{img/sqlite_select.png}\\
-Argumente beim Auswählen von Daten (Quelle: http://www.sqlite.org/lang\_ select.html)
-\end{center}
-
-\begin{center}
-\includegraphics[scale=0.8]{img/sqlite_insert.png}\\
-Daten in einer Tabelle speichern (Quelle: http://www.sqlite.org/lang\_ insert.html)
-\end{center}
-
-\subsection{Vor- und Nachteile}
-Bei Verwendung von SQLite entscheidet der Einsatzbereich ob es sich bei einer Eigenschaft um einen Vor- oder Nachteil handelt. Grunsätzlich werden Eigenschaften von SQLite folgender Maßen gesehen.
-\subsubsection{Vorteile}
-\begin{itemize}
-\item keine Installationen erforderlich
-\item Unterstützung von SQL- Syntax
-\item sehr klein (kleiner Speicherplatzverbrauch für das System)
-\item hohe Geschwindigkeit
-\end{itemize}
-\subsubsection{Nachteile}
-\begin{itemize}
-\item Speicherung der Datenbankdatei auf dem Webserver, kein zusätzliche Anwendung nötig
-\item keine echten gleichzeitigen Datenbankzugriffe möglich, nur darauf folgende
-\item keine Integrität der Daten
-\end{itemize}
-
 \chapter{Kryptologie (Alin Porcic)}\label{chap:krypto}
 \lfoot{Alin Porcic}
 \section{Allgemeines}
@@ -2772,6 +2395,8 @@ SHA steht für \textbf{Seucre-Hash-Algorithm} und ist eine Ansammulung von mehre
 \section{CLI (Alin Porcic)}
 \lfoot{Alin Porcic}
 
+\subsection{Allgemeines}
+
 Beim Start des Programmes mit dem Argument \textbf{-cli} wird die integrierte CLI gestartet, die für die Verwendung des Programmes verwendet werden kann. Der Syntax der CLI-Eingaben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden. Die Anordnung der Parameter und Argumente ist für die diese CLI-Implementierung irrelevant.\\
 
 \begin{center}
@@ -2789,6 +2414,12 @@ Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert.
 \end{itemize}
 
 Mit der linken und rechten Pfeiltaste kann die Position des Cursors im Eingabefeld verändert werden. Die CLI führt eine Liste der zuletzt eingegeben Befehle. Diese können mit der Oben- und Unten-Pfeiltaste angezeigt werden.
+
+\subsection{Probleme}
+
+Bei der CLI tauchten einige Probleme bei der Eingabe von Befehlen auf. Das .NET-Framework bietet eine Möglichekeit zeilenweise Eingaben einzulesen und dabei kann die Position des Cursors geändert werden. Bei Linux ist leider dies mit Mono leider nicht möglich und daher musste eine eigene Methode entwickelt werden, die zeilenweise Eingaben einlesen kann und die Möglichkeit besteht den Cursor zu verändern oder eine History aufzurufen.
+Ein weiters Problem bei der Implementierung ist, dass das Eingabefeld nicht über mehrer Zeilen gehen kann. Dies konnte aus Komplikationsgründen nicht erzielt werden.
+Aus komplikationsgründen ist es auch nicht möglich, interaktive Befehle für die CLI zu schreiben, da die Befehle auch über den CLI-Server funktionieren müssen.Bei der Erarbeitung der CLI wurden einige Probleme gefunden. Das erste Problem war das Einlesen der Eingaben für die CLI. Unter Windows 
 
 \section{CLI-Server und CLI-Client (Alin Porcic)}
 \lfoot{Alin Porcic}
@@ -2859,27 +2490,48 @@ Das Starten der Überwachungsoperationen und die Verarbeitung der Resultate ist 
 Netzwerkgeräte werden auch als Netzwerkknoten bezeichnet, ein Knoten definieren ein bestimmtes Ziel im Netzwerk und sie sind mithilfe einer GUID eindeutig nachweisbar. Auf jeden Netzwerkknoten können Netzwerkaufgaben hinzugefügt werden. Jede dieser Netzwerkaufgaben kann einen oder mehrere Zeitpunkte oder ein Zeitintervall definieren, bei dem die Aufgabe ausgeführt werden soll. Die Resultate dieser Operationen wird anschließend in die Datenbank des Programmes geschrieben.\\
 Das JobSystem hat die Möglichkeit ein Abbild von sich zu speichern und später wieder zu laden. Daher müssen Geräte und Aufgaben nur einmal definiert werden und die Konfiguration lässt sich leicht auf andere Computer übertragen.\\
 
-\section{Funktionsweise}
+\section{Allgemeines}
 
-Das JobSystem besitzt einen Zeitplaner, der ein- und ausgeschalten werden kann. Dieser Zeitplaner behält die Netzwerkknoten und Aufgaben im Auge und ermittelt, wann eine Aufgabe bereit für die Ausführung ist. Falls ein Netzwerkknoten 'inaktiv' ist, wird dieser vom Zeitplaner ignoriert. Auch Netzwerkaufgaben können 'inaktiv' sein und werden dann vom Zeitplaner ebenfalls ignoriert. Wenn eine Aufgabe für die Ausführung bereit ist, startet der Zeitplaner den Job in einem eigenen Thread aus dem internen Threadpool. Während der Ausführung der Aufgabe kann der Netzwerkknoten nicht entfernt werden. Die Änderung der IP-Adresse des Netzwerkknotens während der Ausführung hat keinen Einfluss auf die Ausführung. Erst in der neuen Ausführung wird die neue IP-Adresse für das Ziel verwendet.\\
-Nun können für jede Netzwerkaufgabe Regeln definiert werden, wann eine Benachrichtigung notwendig ist z.B. kann eine Regel definiert werden, die besagt, dass falls eine Netzwerkaufgabe mehr als 2000ms für die Ausführung benötigt, eine Benachrichtung gesendet werden soll.
+Das Jobsystem oranisiert die Netzwerkaufgaben (=Jobs) und Netzwerkgeräte (=Netzwerkknoten, =Knoten, =Nodes) innerhalb des Programmes und bietet eine Schnittstelle an, um diese zu entfernen, hinzuzufügen oder zu konfigurieren. Das JobSystem ist nicht an einer textbasierten oder grafischen Schnittestelle gebunden, sondern kann auf Programmebene über Methodenaufrufe angesteuert werden. Alle Methodenaufrufe werden intern über Locks vor Race-Conditions und weiteren Multithreading-Problemen geschützt.\\
+Das JobSystem besitzt die Möglichkeit die derzeitig initalisierten Aufgaben und Geräte in einer Datei abzuspeichern und diese zu einem späteren Zeitpunkt wieder zu laden. Es ist möglich ein komplettes Abbild der Geräte und Aufgaben abzuspeichern und zu laden. Doch auch einzelne Netzwerkgeräte inklusive Netzwerkaufgaben können abgespeichert und geladen werden.\\
+Das JobSystem kann sich mit dem Device-Finder syncronisieren, um die IP-Adressen der Netzwerkknoten zu aktualisieren.
 
 \section{Netzwerkknoten}
 
-Ein Netzwerkknoten stellt ein Netzwerkgerät dar. Diese Geräte werden vom JobSystem durch die folgenden Eigenschaften definiert:
+Ein Netzwerkknoten (oder Knoten, Node)  stellt ein Netzwerkgerät dar. Diese Gerät wird durch die folgenden Eigenschaften charakterisiert:
 
 \begin{itemize}
-\item \textbf{Name}: Dem Netzwerkknoten muss ein Name zugeordnet werden. Meistens wird hier der Hostname eingetragen.
+\item \textbf{Name}: Dem Netzwerkknoten muss ein Name zugeordnet werden (meistens wird hier der Hostname eingetragen).
 \item \textbf{IP-Adresse}: Hier wird die IPv4-Adresse des Knotens eingetragen.
 \item \textbf{MAC-Adresse}: Hier wird die MAC-Adresse des Knotens eingetragen.
 \end{itemize}
 
+Die Aufgaben, die auf einem Knoten ausgeführt werden sollen, müssen an dem Knoten hinzugefügt werden. Programmtechnisch wird das Hinzufügen einer neuen Aufgabe mit dem Aufruf der AddJob-Methode erreicht. Für das Enternen von Jobs stellt das JobSystem die RemoveJob-Methode bereit.
+
+\section{JobSchedule}
+
+Der JobSchedule ist eine interne Komponente des JobSystems und stellt einen Zeitplaner dar, der die Netzwerkaufgaben und Netzwerkgeräte überprüft und entscheidet, ob eine Aufgabe für die Ausführung bereit ist.\\
+Bei der Auswertung der Netzwerkaufgaben müssen viele Dinge vom Zeitplaner berücksichtigt werden:
+
+\begin{itemize}
+\item \textbf{Netzwerkknoten}: Ist der Knoten aktiv?
+\item \textbf{Netzwerkaufgabe}: Ist die Aufgabe aktiv? Hat er den definierten Zeitpunkt / die definierte Zeitspanne erreicht? Ist die Aufgabe  bereits in der Ausführung?
+\end{itemize}
+
+Der JobSchedule besitzt einen internen Threadpool. Bei diesem Threadpool wurde der SmartThreadPool statt dem Threadpool aus dem .NET-Framework. Der große Vorteil des SmartThreadPools ist, dass er eine fixe Anzahl an Threads initalisiert und die zugewiesenen Aufgaben automatisch auf diesen Threads aufteilt. Somit ist es nicht notwendig für jeden Job einen eigenen Thread vom Betriebssystem erstellen zu lassen. Der zweite Vorteil des SmartThreadPools ist, dass mehrere Instanzen erstellt werden können. Jedoch verwenden wir nur eine, doch falls das Programm erweitert werden soll, ist das sicherlich nicht hinderlich.\\
+Nachdem der Job im Threadpool gestartet wurde, wird die jeweilige Operation im Netzwerk erledigt und vom Job selbst ausgewertet. Nach der Ausführung des Jobs, schreibt der Job die Resultate in die Datenbank und ist wieder für eine neue Ausführung bereit.
+
+\section{JobRules}
+
+Jeder Job kann JobRules definieren. Diese Regeln werden nach der Ausführung überprüft und falls mindestens eine Regel nicht eingehalten wird, dann wird eine Benachrichtigung versendet. Diese Benachrichtigung beinhaltet alle wichtigen Daten über die Ausführung und über den Grund der Benachrichtigung.\\
+Die Regeln überprüfen die Resultate der Jobs auf bestimmte Kriterien, zum Beispiel kann eine Regel definiert werden, die besagt, dass die Ausführungsdauer nicht länger als 2s betragen darf. Nun wird jedes mal wenn die Ausführungsdauer größer als 2s ist, eine Benachrichtigung versendet.
+
 \chapter{Jobs}
+\lfoot{Alin Porcic}
 
 Jobs definieren bestimmte Aufgaben, die im Netwerk zu erledigen sind. Das Ziel der Aufgabe ist immer die IP-Adresse des Netzwerkknotens, an der der Job drangehängt wurde. Erst wenn der definierte Zeitpunkt erreicht wurde, wird der Job vom JobSystem in einem eigenen Thread ausgeführt. Nachdem der Job die Aufgabe erledigt hat, überprüft er selbstständig ob er die definierten Regeln gebrochen hat und schreibt die Resultate der Ausführung in die Datenbank. Welche Operationen der Job beim Start im Netzwerk ausführt, hängt vom Job-Typ ab. Auch die Resultate der Ausführung sind vom Typ abhängig.
 
 \section{Job-Typen}
-\lfoot{Alin Porcic}
 
 Jeder Job (egal welcher Typ) muss folgende Eigenschaften definieren:\\
 
@@ -2944,11 +2596,52 @@ Bei dem FTP Check wird im Grunde einfach nur das momentane Arbeitsverzeichnis ab
 Der Programmteil, welcher das Netzwerk auf Geräte überprüft, ist jener, den ich persönlich wohl am Öftesten neu geschrieben habe. Im Folgenden wird auf alle drei Versionen, die durchlaufen worden sind, eingegangen. Sie alle befinden sich weiterhin im Projekt, werden jedoch nicht verwendet.\\
 Im Projekt selbst werden sie ab der zweiten Version als \glqq MacFinder\grqq bezeichnet. 
 \section{MacFinder Version 1 - host find job}
-In der ersten Version des MacFinders wurden berühmte IP Scanner, wie zum Beispiel \textbf{Angry IP Scanner} als Vorbild genommen, welche ICMP Echo Requests verwenden, um an die Geräte zu kommen.\\
-Es wurden keine Parameter benötigt, da er sich anhand der Adresse des Hosts, auf dem er funktioniert, und der Vorgabe, ein kleines Firmen- oder Heimnetzwerk (nicht mehr als ein Class C Netzwerk), sich sämtliche zu überprüfenden IP Adressen ausrechnen konnte.\\
-Diese wurden, eine nach der anderen, \glqq angepingt\grqq , und dann, sollte eine Antwort kommen, in eine Liste aufgenommen werden.\\
+Die erste Version des MacFinders basierte auf dem Grundgedanken berühmter IP-Scanner wie zum Beispiel dem \textbf{Angry IP Scanner}, deren Arbeitsweise sich auf das ICMP Echo Paket stützt.\\
+Durch ein fluten des Netzwerkes mit ICMP Echo Requests wird bezweckt, dass theoretisch jeder sich angesprochene Host mit einem Echo Reply meldet. Dieses Verhalten versuchte ich nachzuahmen.\\
 
-Die Idee wurde schlussendlich verworfen, da in vielen Netzwerken die Verwendung des ICMP Protokolls unterbunden wird, da es ein von Hackern häufig verwendetes Tool ist, um grundlegende Informationen über ein Netzwerk herauszuhören.
+Die erste Schwierigkeit fand ich darin, herausfinden zu müssen wieviele und welche IP-Adressen ich anpingen muss, unter der Berücksichtigung, dass der User sowenig wie möglich einzugeben hat.\\
+Als ersten Schritt rechnete ich mir dir Nummer an Hosts aus der Subnetzmaske aus. Dann konvertierte ich die Netzaddresse in ein Format mit dem ich umgehen konnte und überprüfte ob das System eine LittleEndian oder eine BigEndian Architektur verwendet, damit ich die Byte-Arrays nicht durcheinander mischte.\\
+Als letzten Schritt wandelte ich das Ergebnis in einen Zahlenwert um, um damit besser rechnen zu können.
+\begin{lstlisting}
+byte[] _hostBytes = _helper.GetHosts(Subnetmask);
+byte[] _netBytes = targetAddress.GetAddressBytes();
+
+if (BitConverter.IsLittleEndian)
+{
+	Array.Reverse(_hostBytes);
+    Array.Reverse(_netBytes);
+}
+
+uint _netPart = BitConverter.ToUInt32(_netBytes, 0);
+uint _broadcastHost = BitConverter.ToUInt32(_hostBytes, 0);
+\end{lstlisting}
+
+Sobald ich das Netz und die Nummer der zu pingenden hosts hatte, ließ ich eine Schleife für jeden Wert unter der Broadcast Adresse eine IP-Adresse ausrechnen und diese anpingen, welche, bei Erfolg, in die Liste an Hosts aufgenommen wurde.
+
+\begin{lstlisting}
+for (uint _cnt = 1; _cnt < _broadcastHost; _cnt++)
+{
+     Ping _ping = new Ping();
+
+     uint _target = _netPart + _cnt;
+     byte[] _targetByte = BitConverter.GetBytes(_target);
+
+     IPAddress _targetIP = new IPAddress(_targetByte);
+     try
+     {
+     	PingReply _reply = _ping.Send(_targetIP, 50);
+	 	
+	 	if (_reply.Status == IPStatus.Success)
+     	{
+     		if (!_hostAddresses.Contains(_reply.Address))
+     		{
+     			_hostAddresses.Add(_reply.Address);
+	 		}
+     	}
+     }
+     _ping.Dispose();
+}
+\end{lstlisting}
 
 \section{MacFinder Version 2 - DHCP Reader}
 Version 2 war im Grunde als Erweiterung zu Version 1 gedacht. Der Grundgedanke war es, in einem Netzwerk mit DHCP Server die Requests der Clienten aufzufangen, diese zu zerlegen und Informationen daraus zu verwenden, um auf einen Host zu schließen. Dies ist möglich, da der Client, wie in Kapitel \ref{ssec:dhcp} auf Seite \pageref{ssec:dhcp} bereits besprochen, mit dem DHCP Request sich die Konfiguration beim Server noch einmal bestätigen lässt und damit alles vorhanden ist.\\
