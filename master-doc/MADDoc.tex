@@ -2413,21 +2413,45 @@ Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert.
 \item ...
 \end{itemize}
 
-Mit der linken und rechten Pfeiltaste kann die Position des Cursors im Eingabefeld verändert werden. Die CLI führt eine Liste der zuletzt eingegeben Befehle. Diese können mit der Oben- und Unten-Pfeiltaste angezeigt werden.
+Mit der linken und rechten Pfeiltaste kann die Position des Cursors im Eingabefeld verändert werden. Die CLI führt eine Liste der zuletzt eingegeben Befehle. Diese können mit der Oben- und Unten-Pfeiltaste angezeigt werden.\\
+
+\subsection{Programmstruktur}
+
+Die CLI ist programmtechnisch einfach aufgebaut: CLIInput, CLIFramework und CLIOutput. Die CLIInput-Komponente hat die einfache Aufgabe, die Eingabe einzulesen. Dabei soll der Cursor verschiebbar sein und eine History mit den zuletzt eingegebenen Befehle gesammelt werden.\\
+Nachdem die Eingabe-Zeile eingelesen wurde, übernimmt das CLIFramework den schwierigen Teil: das Interpretieren. Es wird versucht, die einzelnen Parameter und deren Argumente aus dem Text zu lesen, diese in Objekte umwandeln und zu überprüfen ob der Befehl überhaupt ausführbar ist. Falls die Ausführung nicht möglich ist, da ein obligatorischer Parameter fehlt oder die Argumente eines Parameters fehlen, muss das CLIFramework die passende Fehlermeldung zurückgeben und die Ausführung verweigern.\\
+Das CLIFramework spricht den Benutzer über die CLIOutput-Komponente an. Diese Komponente muss sogenannte 'Color-Tags' (also Farbmarkierungen) aus dem Text lesen können und diese mit den entsprechenden Farben ersetzen. Zum Beispiel muss der String '<color><blue>EinText' in Blau geschrieben werden.
+
+\begin{center}
+\includegraphics[scale=2.0]{img/mad_cli.png}\\
+Funktionsweise der CLI
+\end{center}
 
 \subsection{Probleme}
 
-Bei der CLI tauchten einige Probleme bei der Eingabe von Befehlen auf. Das .NET-Framework bietet eine Möglichekeit zeilenweise Eingaben einzulesen und dabei kann die Position des Cursors geändert werden. Bei Linux ist leider dies mit Mono leider nicht möglich und daher musste eine eigene Methode entwickelt werden, die zeilenweise Eingaben einlesen kann und die Möglichkeit besteht den Cursor zu verändern oder eine History aufzurufen.
+Bei der CLI tauchten einige Probleme bei der Eingabe von Befehlen auf. Das .NET-Framework bietet eine Möglichekeit zeilenweise Eingaben einzulesen und dabei kann die Position des Cursors geändert werden. Bei Linux ist leider dies mit Mono leider nicht möglich und daher musste eine eigene Methode entwickelt werden, die zeilenweise Eingaben einlesen kann und die Möglichkeit besteht den Cursor zu verändern oder eine History aufzurufen.\\
 Ein weiters Problem bei der Implementierung ist, dass das Eingabefeld nicht über mehrer Zeilen gehen kann. Dies konnte aus Komplikationsgründen nicht erzielt werden.
 Aus komplikationsgründen ist es auch nicht möglich, interaktive Befehle für die CLI zu schreiben, da die Befehle auch über den CLI-Server funktionieren müssen.Bei der Erarbeitung der CLI wurden einige Probleme gefunden. Das erste Problem war das Einlesen der Eingaben für die CLI. Unter Windows 
 
 \section{CLI-Server und CLI-Client (Alin Porcic)}
 \lfoot{Alin Porcic}
 
-Um den CLI-Server zu starten, wird das Argument \textbf{-cliserver} beim Start benötigt. Nach dem Starten des Servers ist es möglich, sich mit dem CLI-Client auf den Server zu verbinden. Nach der Verbindung mit dem Server kann die CLI wie die ganz gewöhnliche CLI genutzt werden. Die Eingaben und Ausgaben, die zwischen Server und Client übertragen werden, werden mit AES verschlüsselt. Da es keinen Schlüsselaustausch gibt, muss der AES-Schlüssel über einen anderen Informationskanal übertragen werden. Das AES-Passwort wird in der Konfigurationsdatei im Klartext abgespeichert und wird beim Start eingelesen.
+Über den CLI-Server und CLI-Client ist es möglich die textbasierte Schnittstelle über einen Netzwerkservice anzusprechen. Nachdem eine erfolgreiche Verbindung aufgebaut wurde, kann der Client die Befehle lokal einlesen und an den Server senden. Dieser versucht den empfangenen Befehl zu interpretieren und schick die Ausgabe wieder zurück. Vom Prinzip arbeit die CLI als Service genau wie die lokale CLI, jedoch wird die Eingabe und Ausgabe der Informationen nicht vom Server übernommen. Der Server hat nur die Aufgabe die Befehle zu interpretieren und auszuführen.
+
+\begin{center}
+\includegraphics[scale=2.0]{img/mad_client_session.png}\\
+Funktionsweise der CLI-Server/Client
+\end{center}
+
+\section{CLI-Server}
+
+Der CLI-Server wartet auf einkommende TCP-Verbindungen und bearbeitet die Anfragen. Die Kommunikation zwischen Server und Client wird mit AES256 verschlüsselt ohne Schlüsselaustausch, das heißt, falls die Anfrage des Clients nicht sofort entschlüsselt werden kann, weil der AES-Schlüssel falsch ist, wird die Verbindung abgebrochen.\\
+Am Anfang der Kommunikation sendet der Server dem Client seine Versionsnummer und Servername. Anhand von diesen Informationen kann der Client entscheiden ob er sich mit diesen Server verbinden möchte. Da diese Informationen schon verschlüsselt sind, kann der Client davon ausgehen, dass er mit dem Server kommuniziert. Der AES-Schlüssel wird auf der Serverseite in der Konfigurationsdatei im Klartext abgespeichert und ist mit einem einfachen Text-Editor änderbar.
+
+\section{CLI-Client}
+
+Der CLI-Client verbindet sich auf den Server-Dienst und vergibt Anfragen. Wie bereit oben schon erwähnt, wird sofort nach dem TCP-Handshake in AES-Verschlüsselt. Der CLI-Client liest den AES-Schlüssel aus seiner lokalen Konfiguration und ist daher auch im Klartext abgespeichert.
 
 \newpage
-
 \section{GUI (Manpreet Singh)}
 \lfoot{Manpreet Singh}
 Nach einigen Startschwierigkeiten beim Entscheiden, wer nun diesen Abschnitt programmiert, ist schlussendlich mir die Aufgabe zuteilgeworden.\\\\
@@ -2851,7 +2875,7 @@ Wenn das Programm mit dem Argument \textbf{-cli} gestartet wird, so wird statt d
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_mad.png}\\
-der Startbildschirm der CLI
+der Startbildschirm der CLI auf Linux
 \end{center}
 
 \section{Grundlegende Befehle (Alin Porcic)}
@@ -3022,7 +3046,9 @@ Durch die Ausführung dieses Befehls können Memos hinzugefügt werden.
 
 Dieser Befehl entfernt Memos aus der Datenbank.
 
+\newpage
 \section{MAC-Finder Befehle (Daniel Ranalter)}
+\lfoot{Daniel Ranalter}
 
 \subsubsection{dhcp reader start - obsolet}
 
@@ -3043,8 +3069,6 @@ Gibt die Liste an Hosts aus.
 \subsubsection{arp reader list interfaces}
 
 Zeigt die verfügbaren Interfaces an, welche als Ausgang für die ARPs dienen können.
-
-\lfoot{Daniel Ranalter}
 
 \subsubsection{arp reader start}
 
@@ -3111,9 +3135,8 @@ Parameter:\\
 \end{itemize}
 \end{itemize}
 
-
+\newpage
 \lfoot{Alin Porcic}
-
 \section{Anwendungsbeispiele (Alin Porcic)}
 
 \subsection{Netzwerkknoten / Netzwerkaufgaben definieren, abspeichern und ausführen}
@@ -3234,16 +3257,25 @@ Nun werden alle Ausführung von allen Jobs, die zwischen dem 10.01.2015 00:00 un
 \chapter{CLIClient (Alin Porcic)}
 
 Der CLI-Client erstellt bei der ersten Ausführung eine Konfigurationsdatei im gleichen Ordner wie die ausführbare Datei. Dort kann der Zieladresse und Authentifikations-Passwort eingegeben werden. Sobald die Verbindung steht, kann die CLI ganz normal verwendet werden.\\
-Die Konfigurationsdatei wird im XML-Syntax gespeichert und beim Start eingelesen.
+Die Konfigurationsdatei wird im XML-Syntax gespeichert und beim Start eingelesen. Hier ist eine mögliche Konfiguration zu sehen:
+\begin{lstlisting}
+<?xml version="1.0" encoding="utf-8"?>
+<MadClient>
+  <target>10.0.0.117</target>
+  <port>2222</port>
+  <pass>meinpass</pass>
+</MadClient>>
+\end{lstlisting}
 
 \chapter{CLIServer (Alin Porcic)}
 
-Der CLI-Server ist im Hauptprogramm integriert und kann mit dem Argument '-cliserver' gestartet werden. Der Port lässt sich über die Konfigurationsdatei 'data/mad.conf' verändern. Standardmäßig läuft er auf Port 2222. Das Passwort mit dem sich der CLIClient authentifizeren muss, kann im Feld 'AES-PASS' ebenfalls eingerichtet werden.
+Der CLI-Server ist im Hauptprogramm integriert und kann mit dem Argument \textbf{-cliserver} gestartet werden. Der Port lässt sich über die Konfigurationsdatei \textbf{data/mad.conf} verändern. Standardmäßig läuft der Server-Dienst auf Port 2222 und der AES-Schlüssel mit dem sich der CLIClient authentifizeren muss, kann im Feld \textbf{AES-PASS} ebenfalls eingerichtet werden.
 
 \begin{center}
 \includegraphics[scale=0.6]{img/cli_server.png}\\
 Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
 \end{center}
+
 \chapter{GUI (Manpreet Singh)}
 \lfoot{Manpreet Singh}
 Die graphische Oberfläche wird gestartet wenn kein Argument beim Aufruf mitgegeben wird.\\
