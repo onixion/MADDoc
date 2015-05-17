@@ -14,6 +14,11 @@
 \usepackage{setspace}
 \geometry{a4paper, left=25mm, right=25mm, top=20mm, bottom=30mm}
 
+\lstset{
+	language={[Sharp]C},
+	basicstyle=\tiny
+}
+
 \renewcommand{\headrulewidth}{1pt} % Trennunslinien für Kopf- und Fußzeilen
 \renewcommand{\footrulewidth}{1pt}
 
@@ -2595,7 +2600,7 @@ Stufe 4 + einen HTTP Request auf eine vom User selbst bestimmte Seite. Damit sol
 
 Es gibt die verschiedenen Stufen aus dem Grund, dass falls sich in der Struktur des Netzwerkes einmal so viel ändern sollte, dass einzelne Dinge nicht mehr vorhanden sind, immernoch etwas dabei ist das funktioniert.
 
-\subsubsection{Check Jobs (Daniel Ranalter)}
+\subsection{Check Jobs (Daniel Ranalter)}
 Es gibt eine Untergruppierung von Jobs, deren Aufgabe darin besteht, Dienste zu überprüfen. Zwar ist das auch mit dem Port Scan möglich, manchmal gibt es jedoch Fälle, bei denen ein Dienst in einen unkontrollierten Zustand verfällt.\\
 Ein Beispiel ist ein nicht sauber heruntergefahrener Dienst. Der Port ist dann zwar noch offen, jedoch liegt keiner dahinter, welcher Anfragen beantworten würde. Ein solcher fehlerhafter Dienst wird als \textbf{Zombie} bezeichnet.\\
 
@@ -2609,8 +2614,9 @@ Da SNMP ein so sensibles Protokoll ist, gibt es auch die Möglichkeit zu überpr
 \paragraph{FTP}
 Bei dem FTP Check wird im Grunde einfach nur das momentane Arbeitsverzeichnis abgefragt. Es ist zu beachten, dass ein Passwort und ein Username benötigt werden. 
 
-\lfoot{Daniel Ranalter}
+
 \chapter{Devicefinder (Daniel Ranalter)}
+\lfoot{Daniel Ranalter}
 Der Programmteil, welcher das Netzwerk auf Geräte überprüft, ist jener, den ich persönlich wohl am Öftesten neu geschrieben habe. Im Folgenden wird auf alle drei Versionen, die durchlaufen worden sind, eingegangen. Sie alle befinden sich weiterhin im Projekt, werden jedoch nicht verwendet.\\
 Im Projekt selbst werden sie ab der zweiten Version als \glqq MacFinder\grqq bezeichnet. 
 \section{MacFinder Version 1 - host find job}
@@ -2662,22 +2668,119 @@ for (uint _cnt = 1; _cnt < _broadcastHost; _cnt++)
 \end{lstlisting}
 
 \section{MacFinder Version 2 - DHCP Reader}
+\subsection{Idee}
 Version 2 war im Grunde als Erweiterung zu Version 1 gedacht. Der Grundgedanke war es, in einem Netzwerk mit DHCP Server die Requests der Clienten aufzufangen, diese zu zerlegen und Informationen daraus zu verwenden, um auf einen Host zu schließen. Dies ist möglich, da der Client, wie in Kapitel \ref{ssec:dhcp} auf Seite \pageref{ssec:dhcp} bereits besprochen, mit dem DHCP Request sich die Konfiguration beim Server noch einmal bestätigen lässt und damit alles vorhanden ist.\\
 Da ein neuer Client in einem Netz, welches über DHCP gemanagt wird, noch keine Konfiguration hat, werden Request Pakete an die Broadcastadresse geschickt. Pakete an diese Adresse werden an jeden Client weitergeleitet, was es auch in einem geswitchten Netzwerk möglich macht, diese Pakete zu sehen.\\
 
-Diese Idee wurde verworfen, da
+\subsection{Realisierung und Probleme}
+Im Gegensatz zu der ersten Version werden hier nur noch essentielle Code Ausschnitte eingefügt.\\
+Zuerst werden drei benötigte Threads erzeugt. Der erste Thread dient dazu, sich von dem eigentlichen MAD Progamm abzukoppeln damit die Ausführung anderer Befehle nicht beeinträchtigt wird. Innerhalb dieses Threads werden zwei weitere Unterthreads gestartet, einer welcher auf die DHCP Anfragen hört und einer welcher diese Anfragen dann sofort bearbeitet.\\
+Die größte Herrausforderung war es, die interessanten Informationen aus der Payload der DHCP Pakete zu Filtern. Dafür setzte ich mich intensiv mit den RFCs und den Wikipedia Einträgen auseinander. Schlussendlich entstand folgende Funktion, welche alle Informationen herausfiltert.
+
+\begin{lstlisting}
+private void ProcessData()
+{
+    try
+    {
+    	if (NetworkHelper.IsDhcp(_data) && NetworkHelper.IsDhcpRequest(_data))
+        {
+        	ModelHost _tmpModel = new ModelHost();
+            _tmpModel.hostMac = NetworkHelper.getPhysicalAddressStringFromDhcp(_data);
+            _tmpModel.macGiven = true;
+
+    		for (uint i = NetworkHelper.DHCP_COOKIE_POSITION; i < _data.Length; i++)
+            {
+            	switch (Convert.ToUInt16(_data[i]))
+                {
+                	case 50:
+                    	byte[] _ipBytes = new byte[4];
+
+                        for (uint ii = 0; ii < 4; ii++)
+                        {
+                        	_ipBytes[ii] = _data[i + 2 + ii];
+                        }
+
+                        _tmpModel.ipGiven = true;
+                        _tmpModel.hostIP = new IPAddress(_ipBytes);
+
+                        continue;
+
+                     case 55:
+                     	i = 1 + i + _data[i + 1];
+
+                        continue;
+
+                     case 12:
+
+                        byte _nameLength = _data[i + 1];
+                        _tmpModel.hostName = "";
+                        try
+                        {
+                            for (uint iii = 1; iii <= _nameLength; iii++)
+                            {
+                            	_tmpModel.hostName += (char)_data[i + 1 + iii];
+                                _tmpModel.nameGiven = true;
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                        continue;
+
+                    default:
+
+                    	break;
+                }
+            }
+
+            if (ModelHost.Exists(_tmpModel))
+            {
+            	if (_tmpModel.nameGiven)
+                	ModelHost.UpdateHost(_tmpModel, _tmpModel.hostIP, _tmpModel.hostName);
+                else
+                	ModelHost.UpdateHost(_tmpModel, _tmpModel.hostIP);
+            }
+            else
+            {
+            	ModelHost.AddToList(_tmpModel);
+            }
+
+            _js.SyncNodes(ModelHost.hostList);
+        }
+    }
+    catch
+    {
+                
+    }
+}
+\end{lstlisting}
+
+Der Code ist wie man sieht noch während der Endphase seiner Entstehung wieder verworfen worden, weshalb auch die Fehlersicherungen in den catch Abteilungen fehlen.\\
+
+Verworfen wurde die Idee aus mehreren Gründen. 
 \begin{enumerate}
-\item sie nur funktioniert, wenn ein DHCP Server existiert, bei einem Statischen Netzwerk wäre es nicht möglich gewesen.
-\item auch der DHCP Request noch abgelehnt werden kann. Das hätte zur Folge, dass ein falscher Host im Netz existiert.
+\item Es ist unpraktikabel sich auf ein Protokoll zu verlassen, welches in einem statisch gerouteten Netzwerk nichteinmal vorkommt. 
+\item Die Threads waren fehlerbehaftet. So war es zB nicht möglich das Programm zu beenden wurde ersteinmal der DHCPReader gestartet. Auch der Versuch die Threads mit Gewalt zu beenden hatte keinen Erfolg.
+\item Die Idee für den MacFinder V3 entstand noch in der Zeit in der die Version 2 noch nicht fertig war und übertrumpfte vorhergehendes weit genug um die Arbeiten daran abzubrechen. 
 \end{enumerate}
 
 \section{MacFinder Version 3 - ARP Reader}
+\subsection{Idee}
 Die finale Version des MacFinders erwuchs aus dem Gedanken ein Protokoll zu verwenden, dem sich kein Gerät im Netzwerk erwehren kann. Die Wahl fiel auf das ARP Paket, da ein Host, welcher nicht auf einen ARP Request antwortet, in einem Netzwerk sowieso nicht kommunikationsfähig ist.\\
-Da das .NET Framework Netzwerkoperationen auf so einem tiefen Level nicht unterstützt, wurde die Library SharpPCAP verwendet. Dies ist eine Portierung der bekannten pcap C Library, welche zB. auch von Wireshark verwendet wird. Damit war es möglich solche Pakete herzustellen.\\
+Da das .NET Framework Netzwerkoperationen auf so einem tiefen Level nicht unterstützt, wurde die Library SharpPCAP (sourceforge.net/projects/sharppcap/) verwendet. Dies ist eine Portierung der bekannten pcap C Library, welche zB. auch von Wireshark verwendet wird. Damit war es möglich solche Pakete herzustellen.\\
 Der ARP Reader benötigt das Netz, die eigene IP-Adresse sowie die Subnetzmaske. Daraus baut er dann für jede mögliche IP-Adresse im Netzwerk einen ARP Request und sammelt, nachdem er das Netzwerk damit geflutet hat, die Responses.\\
+\subsection{Realisierung und Probleme}
+Die abstrahierte Funktionsweise des ARP-Readers ist im Grunde sehr einfach: Zuerst wird eine Flut an ARP Requests für jede mögliche Adresse in das Netzwerk geschickt und daraufhin werden die Antworten eingesammelt und in die Liste aufgenommen.\\
+Insgesammt war er eine Kombination aus der Logik der Version 1 und der Version 2. Von Version 1 wurde das Zusammenbasteln aller notwendigen Pakete übernommen, was jedoch durch die SharpPCAP Library vereinfacht wurde, während von der Version 2 das Auseinandernehmen des Response Pakete übernommen wurde. Auch hier war wieder intensives Einlesen in die Struktur gefragt.\\
+Durch die Ähnlichkeit zu den vorherigen Versionen verzichte ich hier auf weitere Code Beispiele, die Idee bleibt dieselbe.\\
 
-Das größte Problem mit dem ARP Reader liegt darin, dass es mehrere verschiedene Interfaces gibt, mit welchen pcap arbeitet. Dies kann man auch sehen, wenn man Wireshark startet. Es werden mehrere Interfaces angezeigt, aus welchen ausgewählt werden kann.\\
-Natürlich können die zur Auswahl stehenden Interfaces mit dem Befehl \textbf{arp reader list interfaces} ausgegeben werden. Diese können dann auch in der Configfile gespeichert werden, damit man nicht immer das Interface angeben muss.
+Jedoch bleibt auch diese Version von Problematiken nicht sicher:\\
+\begin{enumerate}
+\item Die SharpPCAP Library gibt mehrere Interfaces zur Auswahl welche zum Absenden der ARP Pakete. Diese kann ich jedoch Programmtechnisch nicht selbst auswählen und so entsteht zusätzlicher Aufwand für den Benutzer. Um es trotzdem dem Benutzer zu erleihtern wird es
+\item Es gibt einen Bug bei welchen die Interfaces nicht sauber geschlossen werden. Dies bedeutet keinen Einfluss auf die Funktionalität, ist nur nicht wirklich schön und sauber.
+\end{enumerate}
+
 \chapter{Notification (Manpreet Singh)}
 \lfoot{Manpreet Singh}
 Notification war mir ein großes Anliegen. Für mich war es wichtig, dass der User bei Bedarf die Möglichkeit hat benachrichtigt zu werden. Nach kurzer Diskussion mit meinen Kollegen entschieden wir uns für die E-Mail.\\
