@@ -65,23 +65,21 @@ to be written
 
 \section{Ziel}
 
-Das Ziel dieser Diplomarbeit ist das Erstellen eines Programmes, welches in einem kleinen Netzwerk (max. 50 Netzwerkgeräte) Netzwerkgeräte und Netzwerkdienste überwachen kann. Dabei soll der Benutzer die Möglichkeit haben, Regeln für die Überwachung zu definieren, damit er bei der Missachtung sofort per E-Mail darüber benachrichtigt werden kann.
+Das Ziel dieser Diplomarbeit ist das Erstellen eines Programmes, welches in einem kleinen Netzwerk (max. 50 Netzwerkgeräte) Netzwerkgeräte und Netzwerkdienste überwachen kann. Dabei soll der Benutzer die Möglichkeit haben, Regeln für die Überwachung zu definieren, damit er bei einer Missachtung sofort per E-Mail darüber informiert werden kann.
 
 
 \section{Schnittstellen}
 
 Für die Benutzung des Programmes soll eine textbasierende Schnittstelle eingebaut werden, die die primäre Interaktion mit dem Programm sicherstellen soll. Die vollständige Überwachung sowie die Konfiguration aller Aufgaben und Geräte soll über diese Schnittstelle möglich sein.\\
 Die Überwachung und die Konfiguration der Geräte und Aufgaben soll hauptsächlich über diese Schnittstelle ermöglicht werden.
-Es soll auch die Möglichkeit bestehen, die textbasierende Schnittstelle über das Netzwerk zu nutzen. Daher muss diese Schnittstelle als Netzwerkservice implementiert werden und es wird eine Client-Software benötigt.\\
+Es soll auch die Möglichkeit bestehen, die textbasierende Schnittstelle über das Netzwerk zu nutzen. Daher muss diese Schnittstelle als Netzwerkservice realisiert werden und es wird eine Client-Software benötigt.\\
 
 Neben der textbasierten Schnittstelle soll eine graphische Schnittstelle implementiert werden, die eine alternative Benutzung des Programmes ermöglichen soll. Der Funktionsumfang der graphischen Oberfläche beschränkt sich auf die Anzeige einer Übersicht der Aufgaben und Geräte.
 
 \section{Andere Voraussetzungen}
 
 Das Programm soll auf Windows als auch auf Linux funktionstüchtig sein und die Benutzung soll sich auf den zwei verschiedenen Betriebssystemen nicht unterscheiden.\\
-
 Die Resulate der Überwachungen sollen in einer lokalen Datenbank abgespeichert werden und es soll die Möglichkeit geben, die Datensätze der Datenbank zusammenzufassen, damit der Speicherbedarf der Datenbank reduziert werden kann.\\
-
 Zudem soll das Programm bei Änderungen der IP-Adressen von Netzwerkgeräten informiert werden, damit dieser die neuen IP-Adressen nachtragen kann.
 
 \part{Theorie zu den einzelnen Gebieten der Arbeit}
@@ -1540,7 +1538,7 @@ der Terminalemulator 'Xfce-Terminal' mit Bash
 Windows Powershell
 \end{center}
 
-Bei unixähnlichen Betriebssystemen wird der Begriff \textbf{Terminal} häufig mit CLI in Verbindung gebracht. Ein Terminal (oder auch Konsole) war ein Gerät, das die Eingaben und Ausgaben von Daten an einem Computer in Textform ermöglichte. Da diese Geräte heute eher störend und nutzlos sind, werden sie in Software emuliert, daher spricht man auch von \textbf{Terminalemulatoren}. Die Hauptaufgaben von diesen Emulatoren sind die richtige Darstellung der Textkodierung, die Darstellung von Farben, das Erkennen von Escape-Sequenzen und das Einlesens von Eingaben - die CLI hingegen, ist für die vollständige Interpretation sowie der Ausführung zuständig. [101]\\
+Bei unixähnlichen Betriebssystemen wird der Begriff \textbf{Terminal} häufig mit CLI in Verbindung gebracht. Ein Terminal (oder auch Konsole) war ein Gerät, das die Eingaben und Ausgaben von Daten auf einem Computer in Textform ermöglichte. Da diese Geräte heute eher störend und nutzlos sind, werden sie in Software emuliert, daher spricht man auch von \textbf{Terminalemulatoren}. Die Hauptaufgaben von diesen Emulatoren sind die richtige Darstellung der Textkodierung, die Darstellung von Farben, das Erkennen von Escape-Sequenzen und das Einlesens von Eingaben - die CLI hingegen, ist für die vollständige Interpretation sowie der Ausführung zuständig. [101]\\
 
 Grundsätzlich wurden die textbasierten Schnittstellen im Desktop-Bereich von den graphischen Schnittstellen abgelöst, dennoch werden bei vielen Systemen auch alternative Schnittstellen, wie eine CLI, angeboten. Vorallem im Netzwerkbereich sind textbasierte Schnittstellen durch ihre enorme Flexibilität und ihren minimalen Ressourcenverbrauch immer noch häufig anzutreffen (z.B. pfSense, Cisco-Router/Switches). Die primäre Kommunikation mit unixähnliche Betriebssystemen hat sich bis heute nicht geändert und erfolgt immer noch über Kommandozeileninterpreter. Bei diesen Systemen ist die CLI ein fester Bestandteil, die Interaktion basiert fast ausschließlich über die textbasierte Schnittstelle, grafische Oberflächen hingegen, sind meist nur optioanle Zusatzsoftware. [102]\\ 
 
