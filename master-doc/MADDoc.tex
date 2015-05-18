@@ -14,6 +14,11 @@
 \usepackage{setspace}
 \geometry{a4paper, left=25mm, right=25mm, top=20mm, bottom=30mm}
 
+\lstset{
+	language={[Sharp]C},
+	basicstyle=\tiny
+}
+
 \renewcommand{\headrulewidth}{1pt} % Trennunslinien für Kopf- und Fußzeilen
 \renewcommand{\footrulewidth}{1pt}
 
@@ -65,22 +70,22 @@ to be written
 
 \section{Ziel}
 
-Das Ziel dieser Diplomarbeit ist das Erstellen eines Programmes, welches in einem privaten Netzwerk (max. 50 Netzwerkgeräte) Serverdienste überwachen kann und bei der Nichteinhaltung bestimmter Regeln, die vom Nutzer definiert werden können, eine Benachrichtigung in Form einer E-Mail abschicken kann.
+Das Ziel dieser Diplomarbeit ist das Erstellen eines Programmes, welches in einem kleinen Netzwerk (max. 50 Netzwerkgeräte) Netzwerkgeräte und Netzwerkdienste überwachen kann. Dabei soll der Benutzer die Möglichkeit haben, Regeln für die Überwachung zu definieren, damit er bei einer Missachtung sofort per E-Mail darüber informiert werden kann.
+
 
 \section{Schnittstellen}
 
-Für die Benutzung des Programmes soll eine textbasierende Schnittstelle implementiert werden, die als primäre Interaktion mit dem Programm dient. Die vollständige Überwachung aller Aufgaben und Geräte soll über diese Schnittstelle möglich sein.\\
-Es soll auch die Möglichkeit bestehen, die textbasierende Schnittstelle über das Netzwerk zu nutzen. Daher muss diese Schnittstelle als Netzwerkservice implementiert werden und es wird eine Client-Software benötigt.\\
+Für die Benutzung des Programmes soll eine textbasierende Schnittstelle eingebaut werden, die die primäre Interaktion mit dem Programm sicherstellen soll. Die vollständige Überwachung sowie die Konfiguration aller Aufgaben und Geräte soll über diese Schnittstelle möglich sein.\\
+Die Überwachung und die Konfiguration der Geräte und Aufgaben soll hauptsächlich über diese Schnittstelle ermöglicht werden.
+Es soll auch die Möglichkeit bestehen, die textbasierende Schnittstelle über das Netzwerk zu nutzen. Daher muss diese Schnittstelle als Netzwerkservice realisiert werden und es wird eine Client-Software benötigt.\\
 
-Neben der textbasierten Schnittstelle soll eine graphische Schnittstelle implementiert werden, die eine alternative Benutzung des Programmes ermöglichen soll. Der Funktionsumfang der graphischen Oberfläche beschränkt sich mit der Anzeige einer Übersicht der Aufgaben und Geräte.
+Neben der textbasierten Schnittstelle soll eine graphische Schnittstelle implementiert werden, die eine alternative Benutzung des Programmes ermöglichen soll. Der Funktionsumfang der graphischen Oberfläche beschränkt sich auf die Anzeige einer Übersicht der Aufgaben und Geräte.
 
-\section{Andere Vorraussetzungen}
+\section{Andere Voraussetzungen}
 
-Das Programm soll auf Windows als auch auf Linux lauffähig sein. Die Benutzung soll sich auf den zwei verschiedenen Betriebssystemen nicht unterscheiden.\\
-
-Die Resulate der Überwachungen sollen in einer Datenbank lokal abgespeichert werden. Eine Möglichkeit die Datensätze der Datenbank zusammenzufassen, soll implementiert werden, um den Speicherbedarf zu verringern.\\
-
-Die Änderungen des IP-Adressen von Netzwerkgeräte im Netzwerk soll automatisch im Programm geändert werden.\\
+Das Programm soll auf Windows als auch auf Linux funktionstüchtig sein und die Benutzung soll sich auf den zwei verschiedenen Betriebssystemen nicht unterscheiden.\\
+Die Resulate der Überwachungen sollen in einer lokalen Datenbank abgespeichert werden und es soll die Möglichkeit geben, die Datensätze der Datenbank zusammenzufassen, damit der Speicherbedarf der Datenbank reduziert werden kann.\\
+Zudem soll das Programm bei Änderungen der IP-Adressen von Netzwerkgeräten informiert werden, damit dieser die neuen IP-Adressen nachtragen kann.
 
 \part{Theorie zu den einzelnen Gebieten der Arbeit}
 
@@ -1538,9 +1543,9 @@ der Terminalemulator 'Xfce-Terminal' mit Bash
 Windows Powershell
 \end{center}
 
-Bei unixähnlichen Betriebssystemen wird der Begriff \textbf{Terminal} häufig mit CLI in Verbindung gebracht. Ein Terminal (oder auch Konsole) war ein Gerät, das die Eingaben und Ausgaben von Daten an einem Computer in Textform ermöglichte. Da diese Geräte heute eher störend und nutzlos sind, werden sie in Software emuliert, daher spricht man auch von \textbf{Terminalemulatoren}. Die Hauptaufgaben von diesen Emulatoren sind die richtige Darstellung der Textkodierung, die Darstellung von Farben, das Erkennen von Escape-Sequenzen und das Einlesens von Eingaben - die CLI hingegen, ist für die vollständige Interpretation sowie der Ausführung zuständig. [101]\\
+Bei unixähnlichen Betriebssystemen wird der Begriff \textbf{Terminal} häufig mit CLI in Verbindung gebracht. Ein Terminal (oder auch Konsole) war ein Gerät, das die Eingaben und Ausgaben von Daten aufgit einem Computer in Textform ermöglichte. Da diese Geräte heute eher störend und nutzlos sind, werden sie in Software emuliert, daher spricht man auch von \textbf{Terminalemulatoren}. Die Hauptaufgaben von diesen Emulatoren sind die richtige Darstellung der Textkodierung, die Darstellung von Farben, das Erkennen von Escape-Sequenzen und das Einlesens von Eingaben - die CLI hingegen, ist für die vollständige Interpretation sowie der Ausführung zuständig. [101]\\
 
-Grundsätzlich wurden die textbasierten Schnittstellen im Desktop-Bereich vollständig durch die grafischen Schnittstellen abgelöst, aber im Netzwerkbereich sind textbasierte Schnittstellen durch ihre enorme Flexibilität und ihren minimalen Ressourcenverbrauch immer noch häufig anzutreffen (z.B. pfSense, Cisco-Router/Switches). Die primäre Kommunikation mit unixähnliche Betriebssystemen hat sich bis heute nicht geändert und erfolgt immer noch über Kommandozeileninterpreter. Bei diesen Systemen ist die CLI ein fester Bestandteil, die Interaktion basiert fast ausschließlich über die textbasierte Schnittstelle, grafische Oberflächen hingegen, sind meist nur optioanle Zusatzsoftware. [102]\\ 
+Grundsätzlich wurden die textbasierten Schnittstellen im Desktop-Bereich von den graphischen Schnittstellen abgelöst, dennoch werden bei vielen Systemen auch alternative Schnittstellen, wie eine CLI, angeboten. Vorallem im Netzwerkbereich sind textbasierte Schnittstellen durch ihre enorme Flexibilität und ihren minimalen Ressourcenverbrauch immer noch häufig anzutreffen (z.B. pfSense, Cisco-Router/Switches). Die primäre Kommunikation mit unixähnliche Betriebssystemen hat sich bis heute nicht geändert und erfolgt immer noch über Kommandozeileninterpreter. Bei diesen Systemen ist die CLI ein fester Bestandteil, die Interaktion basiert fast ausschließlich über die textbasierte Schnittstelle, grafische Oberflächen hingegen, sind meist nur optioanle Zusatzsoftware. [102]\\ 
 
 Erfahrene Nutzer greifen auch heute immer noch zu Kommandozeileninterpreter, da sie eine schnellere und direkte Kontrolle über die Ausführung von Programmen haben. Zudem besteht die Möglichkeit Programme mithilfe von \textbf{Scripts} zu kombinieren oder die Ausgaben von Programmen in anderen zu leiten. [103]
 
@@ -2094,7 +2099,7 @@ Bei Verwendung von SQLite entscheidet der Einsatzbereich ob es sich bei einer Ei
 \lfoot{Alin Porcic}
 \section{Allgemeines}
 
-Die Kryptologie befasst sich mit der Informationssicherheit und hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen. Unzählige Informationen werden weltweit Kreuz und Quer ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen hohen Wert haben können. Der Wert dieser Informationen geht dann verloren, wenn ein Unbefugter die Aussage der Informationen verstehen kann. Damit das nicht passiert, werden kryptographische Systeme entwickelt, die die Lesbarkeit von Informationen verhindern bzw. erschweren.\\
+Die Kryptologie befasst sich mit der Informationssicherheit und hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen. Unzählige Informationen werden weltweit ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen hohen Wert haben können. Der Wert dieser Informationen geht dann verloren, wenn ein Unbefugter die Aussage der Informationen verstehen kann. Damit das nicht passiert, werden kryptographische Systeme entwickelt, die die Lesbarkeitgut von Informationen verhindern bzw. erschweren.\\
 
 Die Fähigkeit dieser Systeme die Informationen vor wirtschaftlichen Schäden zu schützen, ist einer von vielen Bedingungen der Informationssicherheit. Die Minimierung von Risiken, der Schutz vor Bedrohungen und die Einhaltung der Schutzziele sind ebenfalls Anforderungen der Informationssicherheit. Für die Einhaltung der Ziele der Informationssicherheit werden folgende Schutzziele definiert:
 
@@ -2307,7 +2312,7 @@ Digitale Zertifikate sind Ansammlungen von Daten, die mithilfe von kryptographis
 
 \subsubsection{Hash-Verfahren}
 
-Eine \textbf{Hashfunktion} ist eine Funktion, die eine beliebige Menge an Eingangsinformationen auf eine fixe Länge an Ausgangsinformationen abbildet.  Das Ziel von Hashfunktionen ist das Erschweren der Suche nach Kollisionen. Kollisionen können bei Hashfunktionen nicht verhindert werden, da die Eingangsgröße keine maximale Länge hat. Ein weiteres Ziel von Hashfunktionen ist das Verhindern der Möglichkeit des Rückrechnens, also die Ermittlung der Eingangsgröße aus der Ausgangsgröße.\cite{wiki04}
+Eine \textbf{Hashfunktion} ist eine Funktion, die eine beliebige Menge an Eingangsinformationen auf eine fixe Länge an Ausgangsinformationen abbildet.  Das Ziel von Hashfunktionen ist das Erschweren der Suche nach Kollisionen. Kollisionen können bei Hashfunktionen nicht verhindert werden, weil die Länge der Eingangsinformationen größer als die Länge der Ausgangsinformationen sein kann. Ein weiteres Ziel von Hashfunktionen ist das Verhindern der Möglichkeit des Rückrechnens, also die Ermittlung der Eingangsgröße aus der Ausgangsgröße.\cite{wiki04}
 
 \newpage
 \section{Kryptoanalyse}
@@ -2316,7 +2321,7 @@ Die Krytpoanalyse beschäftigt sich mit Methoden und Techniken aus einem verschl
 
 \subsection{Ziele der Kryptoanalyse}
 
-Das oberste Ziel der Kryptoanalyse ist die Ermittlung des Schlüssels, um an den Wert der Informationen zu gelangen. Damit die Kryptoanalyse zum Ziel kommen kann, muss das kryptographische System ausgehebelt werden, entweder durch ausprobieren des Schlüssels oder anderen Methoden. Oftmals ist das Knacken des kryptographischen Systems für die Ermittlung des Schlüssels gar nicht notwendig. Die falsche Anwendung des kryptographischen Systems oder schlecht gewählte Passwörter reichen meistens aus, um das kryptographische System zu umgehen.
+Das oberste Ziel der Kryptoanalyse ist die Ermittlung des Schlüssels, um an den Wert der Informationen zu gelangen. Damit die Kryptoanalyse das Ziel erreichen kann, muss das kryptographische System unwirksam gemacht werden, entweder durch ausprobieren des Schlüssels oder anderen Methoden. Oftmals ist das Knacken des kryptographischen Systems für die Ermittlung des Schlüssels gar nicht notwendig, da die falsche Anwendung des Systems, schwache Passwörter usw. meistens ausreichen, das kryptographische System zu umgehen.
 
 \subsection{Methoden}
 
@@ -2397,14 +2402,8 @@ SHA steht für \textbf{Seucre-Hash-Algorithm} und ist eine Ansammulung von mehre
 
 \subsection{Allgemeines}
 
-Beim Start des Programmes mit dem Argument \textbf{-cli} wird die integrierte CLI gestartet, die für die Verwendung des Programmes verwendet werden kann. Der Syntax der CLI-Eingaben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden. Die Anordnung der Parameter und Argumente ist für die diese CLI-Implementierung irrelevant.\\
-
-\begin{center}
-\includegraphics[scale=0.5]{img/cli_mad.png}\\
-die integrierte CLI
-\end{center}
-
-Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert. Ist die Interpretation der Eingabe nicht möglich, da zum Beispiel ein Paramter mehrfach definiert wurde, wird eine Fehlermeldung in roter Farbe ausgegeben. Einige Fehlermeldungen, die ausgegebe weden können, sind zum Beispiel:
+Das Programm bietet eine integrierte textbasierende Schnittstelle für die primäre Verwendung an. Mit der CLI lassen sich viele Befehle mit komplexen Parametern und Argumente realisieren. Der Syntax der CLI-Eingaben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden. Die Anordnung der Parameter und Argumente ist für die diese CLI-Implementierung irrelevant.\\
+Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert. Ist die Interpretation der Eingabe nicht möglich, da zum Beispiel ein Paramter mehrfach definiert wurde, wird eine Fehlermeldung in roter Farbe ausgegeben. Einige Fehlermeldungen, die ausgegeben werden können, sind zum Beispiel:
 
 \begin{itemize}
 \item \textbf{Command not known}: Befehl ist nicht definiert und kann nicht ausgeführt werden.
@@ -2413,24 +2412,45 @@ Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert.
 \item ...
 \end{itemize}
 
-Mit der linken und rechten Pfeiltaste kann die Position des Cursors im Eingabefeld verändert werden. Die CLI führt eine Liste der zuletzt eingegeben Befehle. Diese können mit der Oben- und Unten-Pfeiltaste angezeigt werden.
+Mit der linken und rechten Pfeiltaste kann die Position des Cursors im Eingabefeld verändert werden und über die Backspace-Taste (Rücktaste) kann ein Zeichen in der Eingabe entfernt werden. Die CLI führt eine History über die zuletzt eingegebenen Befehle. Mit der Oben- und Unten-Taste können die Einträge der History in das Eingabefeld eingesetzt werden.
+
+\subsection{Programmstruktur}
+
+Die CLI ist programmtechnisch einfach aufgebaut: CLIInput, CLIFramework und CLIOutput. Die CLIInput-Komponente hat die einfache Aufgabe, die Eingabe einzulesen. Dabei soll der Cursor verschiebbar sein und eine History mit den zuletzt eingegebenen Befehle gesammelt werden.\\
+Nachdem die Eingabe-Zeile eingelesen wurde, übernimmt das CLIFramework den schwierigen Teil: das Interpretieren. Es wird versucht, die einzelnen Parameter und deren Argumente aus dem Text zu lesen, diese in Objekte umwandeln und zu überprüfen ob der Befehl überhaupt ausführbar ist. Falls die Ausführung nicht möglich ist, da ein obligatorischer Parameter fehlt oder die Argumente eines Parameters fehlen, muss das CLIFramework die passende Fehlermeldung zurückgeben und die Ausführung verweigern.\\
+Das CLIFramework spricht den Benutzer über die CLIOutput-Komponente an. Diese Komponente muss sogenannte 'Color-Tags' (also Farbmarkierungen) aus dem Text lesen können und diese mit den entsprechenden Farben ersetzen. Zum Beispiel muss der String '<color><blue>EinText' in Blau geschrieben werden.
+
+\begin{center}
+\includegraphics[scale=2.0]{img/mad_cli.png}\\
+Funktionsweise der CLI
+\end{center}
 
 \subsection{Probleme}
 
-Bei der CLI tauchten einige Probleme bei der Eingabe von Befehlen auf. Das .NET-Framework bietet eine Möglichekeit zeilenweise Eingaben einzulesen und dabei kann die Position des Cursors geändert werden. Bei Linux ist leider dies mit Mono leider nicht möglich und daher musste eine eigene Methode entwickelt werden, die zeilenweise Eingaben einlesen kann und die Möglichkeit besteht den Cursor zu verändern oder eine History aufzurufen.
+Bei der CLI tauchten einige Probleme bei der Eingabe von Befehlen auf. Das .NET-Framework bietet eine Möglichekeit zeilenweise Eingaben einzulesen und dabei kann die Position des Cursors geändert werden. Bei Linux ist leider dies mit Mono leider nicht möglich und daher musste eine eigene Methode entwickelt werden, die zeilenweise Eingaben einlesen kann und die Möglichkeit besteht den Cursor zu verändern oder eine History aufzurufen.\\
 Ein weiters Problem bei der Implementierung ist, dass das Eingabefeld nicht über mehrer Zeilen gehen kann. Dies konnte aus Komplikationsgründen nicht erzielt werden.
 Aus komplikationsgründen ist es auch nicht möglich, interaktive Befehle für die CLI zu schreiben, da die Befehle auch über den CLI-Server funktionieren müssen.Bei der Erarbeitung der CLI wurden einige Probleme gefunden. Das erste Problem war das Einlesen der Eingaben für die CLI. Unter Windows 
 
 \section{CLI-Server und CLI-Client (Alin Porcic)}
 \lfoot{Alin Porcic}
 
-\subsection{Allgemeines}
+Über den CLI-Server und CLI-Client ist es möglich die textbasierte Schnittstelle über einen Netzwerkservice anzusprechen. Nachdem eine erfolgreiche Verbindung aufgebaut wurde, kann der Client die Befehle lokal einlesen und an den Server senden. Dieser versucht den empfangenen Befehl zu interpretieren und schick die Ausgabe wieder zurück. Vom Prinzip her arbeit die CLI als Service genau gleich wie die lokale CLI. Der Unterschied ist nur, dass die Interpretation und Ausführung nicht lokal geschieht, sondern auf dem Server.
 
-Um den CLI-Server zu starten wird das Argument \textbf{-cliserver} beim Start benötigt. Nach dem Starten des Servers ist es möglich, sich mit dem CLI-Client auf den Server zu verbinden. Nach der Verbindung mit dem Server kann die CLI wie die ganz gewöhnliche CLI genutzt werden. Die Eingaben und Ausgaben, die zwischen Server und Client übertragen werden, werden mit AES verschlüsselt. Da es keinen Schlüsselaustausch gibt, muss der AES-Schlüssel über einen anderen Informationskanal übertragen werden. Das AES-Passwort wird in der Konfigurationsdatei im Klartext abgespeichert und wird beim Start eingelesen.
+\begin{center}
+\includegraphics[scale=2.0]{img/mad_client_session.png}\\
+Funktionsweise der CLI-Server/Client
+\end{center}
 
+\section{CLI-Server}
+
+Der CLI-Server wartet auf einkommende TCP-Verbindungen und bearbeitet die Anfragen. Die Kommunikation zwischen Server und Client wird mit AES256 verschlüsselt ohne Schlüsselaustausch, das heißt, falls die Anfrage des Clients nicht sofort entschlüsselt werden kann, weil der AES-Schlüssel falsch ist, wird die Verbindung abgebrochen.\\
+Am Anfang der Kommunikation sendet der Server dem Client seine Versionsnummer und Servername. Anhand von diesen Informationen kann der Client entscheiden ob er sich mit diesen Server verbinden möchte. Da diese Informationen schon verschlüsselt sind, kann der Client davon ausgehen, dass er mit dem Server kommuniziert. Der AES-Schlüssel wird auf der Serverseite in der Konfigurationsdatei im Klartext abgespeichert und ist mit einem einfachen Text-Editor änderbar.
+
+\section{CLI-Client}
+
+Der CLI-Client verbindet sich auf den Server-Dienst und vergibt Anfragen. Wie bereit oben schon erwähnt, wird sofort nach dem TCP-Handshake in AES-Verschlüsselt. Der CLI-Client liest den AES-Schlüssel aus seiner lokalen Konfiguration und ist daher auch im Klartext abgespeichert.
 
 \newpage
-
 \section{GUI (Manpreet Singh)}
 \lfoot{Manpreet Singh}
 Nach einigen Startschwierigkeiten beim Entscheiden, wer nun diesen Abschnitt programmiert, ist schlussendlich mir die Aufgabe zuteilgeworden.\\\\
@@ -2467,7 +2487,7 @@ Alles in Allem kostete mich das Programmieren der Benutzeroberfläche viel Zeit 
 \chapter{Konfiguration (Alin Porcic)}
 \lfoot{Alin Porcic}
 
-Die Konfiguration des Programmes erfolgt über eine Konfigurationsdatei, damit das Programm auf Linux und Windows unverändert verwendet werden kann. Falls keine Konfiguration verfügbar ist, wird eine neue Konfiguration mit den Standardwerten im Vereichnis 'data' unter dem Namen 'mad.conf' erstellt. Diese Datei  beinhaltet einen JSON-String, der die Konfiguration beinhaltet. Die Änderung der Konfiguration kann mithilfe eines Texteditors durchgeführt werden. Einige Felder der Konfigurationsdatei:
+Die Konfiguration des Programmes erfolgt über eine Konfigurationsdatei, damit das Programm auf Linux und Windows unverändert verwendet werden kann. Falls keine Konfiguration verfügbar ist, wird eine neue Konfiguration mit den Standardwerten im Verzeichnis 'data' unter dem Namen 'mad.conf' erstellt. Diese Datei beinhaltet einen JSON-String, der die Konfiguration beinhaltet. Die Änderung der Konfiguration kann mithilfe eines Texteditors durchgeführt werden. Einige Felder der Konfigurationsdatei:
 
 \begin{itemize}
 \item \textbf{LOG\_FILE\_DIRECTORY}: Der Pfad in der die Log-Datei hingeschrieben werden soll.
@@ -2488,6 +2508,10 @@ eine mögliche Konfiguration
 
 \chapter{JobSystem (Alin Porcic)}
 \lfoot{Alin Porcic}
+
+Das Starten der Überwachungsoperationen und die Verarbeitung der Resultate ist die Aufgabe des JobSystems. Dabei muss das JobSystem die Zeiten aller Jobs im Auge behalten und muss die zugewiesenen Aufgaben im richtigen Moment ausführen.\\
+Netzwerkgeräte werden auch als Netzwerkknoten bezeichnet, ein Knoten definieren ein bestimmtes Ziel im Netzwerk und sie sind mithilfe einer GUID eindeutig nachweisbar. Auf jeden Netzwerkknoten können Netzwerkaufgaben hinzugefügt werden. Jede dieser Netzwerkaufgaben kann einen oder mehrere Zeitpunkte oder ein Zeitintervall definieren, bei dem die Aufgabe ausgeführt werden soll. Die Resultate dieser Operationen wird anschließend in die Datenbank des Programmes geschrieben.\\
+Das JobSystem hat die Möglichkeit ein Abbild von sich zu speichern und später wieder zu laden. Daher müssen Geräte und Aufgaben nur einmal definiert werden und die Konfiguration lässt sich leicht auf andere Computer übertragen.\\
 
 \section{Allgemeines}
 
@@ -2528,7 +2552,7 @@ Die Regeln überprüfen die Resultate der Jobs auf bestimmte Kriterien, zum Beis
 \chapter{Jobs}
 \lfoot{Alin Porcic}
 
-Jobs definieren bestimmte Aufgaben, die im Netwerk erledigt werden sollen. Das Ziel der Aufgabe ist immer die IP-Adresse des Netzwerkknotens, an der der Job drangehängt wurde. Erst wenn die definierte Zeit erreicht wurde, wird der Job vom JobSystem in einem eigenen Thread ausgeführt. Nachdem der Job die Aufgabe erledigt hat, überprüft er selbstständig ob er die definierten Regeln gebrochen hat und schreibt die Resultate der Aussführung in die Datenbank. Welche Operationen der Job beim Start ausführt, hängt vom Job-Typ ab. Die Resultate, die ein Job erbringen kann, hängt vom Typ ab.
+Jobs definieren bestimmte Aufgaben, die im Netwerk zu erledigen sind. Das Ziel der Aufgabe ist immer die IP-Adresse des Netzwerkknotens, an der der Job drangehängt wurde. Erst wenn der definierte Zeitpunkt erreicht wurde, wird der Job vom JobSystem in einem eigenen Thread ausgeführt. Nachdem der Job die Aufgabe erledigt hat, überprüft er selbstständig ob er die definierten Regeln gebrochen hat und schreibt die Resultate der Ausführung in die Datenbank. Welche Operationen der Job beim Start im Netzwerk ausführt, hängt vom Job-Typ ab. Auch die Resultate der Ausführung sind vom Typ abhängig.
 
 \section{Job-Typen}
 
@@ -2576,7 +2600,7 @@ Stufe 4 + einen HTTP Request auf eine vom User selbst bestimmte Seite. Damit sol
 
 Es gibt die verschiedenen Stufen aus dem Grund, dass falls sich in der Struktur des Netzwerkes einmal so viel ändern sollte, dass einzelne Dinge nicht mehr vorhanden sind, immernoch etwas dabei ist das funktioniert.
 
-\subsubsection{Check Jobs (Daniel Ranalter)}
+\subsection{Check Jobs (Daniel Ranalter)}
 Es gibt eine Untergruppierung von Jobs, deren Aufgabe darin besteht, Dienste zu überprüfen. Zwar ist das auch mit dem Port Scan möglich, manchmal gibt es jedoch Fälle, bei denen ein Dienst in einen unkontrollierten Zustand verfällt.\\
 Ein Beispiel ist ein nicht sauber heruntergefahrener Dienst. Der Port ist dann zwar noch offen, jedoch liegt keiner dahinter, welcher Anfragen beantworten würde. Ein solcher fehlerhafter Dienst wird als \textbf{Zombie} bezeichnet.\\
 
@@ -2590,8 +2614,9 @@ Da SNMP ein so sensibles Protokoll ist, gibt es auch die Möglichkeit zu überpr
 \paragraph{FTP}
 Bei dem FTP Check wird im Grunde einfach nur das momentane Arbeitsverzeichnis abgefragt. Es ist zu beachten, dass ein Passwort und ein Username benötigt werden. 
 
-\lfoot{Daniel Ranalter}
+
 \chapter{Devicefinder (Daniel Ranalter)}
+\lfoot{Daniel Ranalter}
 Der Programmteil, welcher das Netzwerk auf Geräte überprüft, ist jener, den ich persönlich wohl am Öftesten neu geschrieben habe. Im Folgenden wird auf alle drei Versionen, die durchlaufen worden sind, eingegangen. Sie alle befinden sich weiterhin im Projekt, werden jedoch nicht verwendet.\\
 Im Projekt selbst werden sie ab der zweiten Version als \glqq MacFinder\grqq bezeichnet. 
 \section{MacFinder Version 1 - host find job}
@@ -2643,22 +2668,119 @@ for (uint _cnt = 1; _cnt < _broadcastHost; _cnt++)
 \end{lstlisting}
 
 \section{MacFinder Version 2 - DHCP Reader}
+\subsection{Idee}
 Version 2 war im Grunde als Erweiterung zu Version 1 gedacht. Der Grundgedanke war es, in einem Netzwerk mit DHCP Server die Requests der Clienten aufzufangen, diese zu zerlegen und Informationen daraus zu verwenden, um auf einen Host zu schließen. Dies ist möglich, da der Client, wie in Kapitel \ref{ssec:dhcp} auf Seite \pageref{ssec:dhcp} bereits besprochen, mit dem DHCP Request sich die Konfiguration beim Server noch einmal bestätigen lässt und damit alles vorhanden ist.\\
 Da ein neuer Client in einem Netz, welches über DHCP gemanagt wird, noch keine Konfiguration hat, werden Request Pakete an die Broadcastadresse geschickt. Pakete an diese Adresse werden an jeden Client weitergeleitet, was es auch in einem geswitchten Netzwerk möglich macht, diese Pakete zu sehen.\\
 
-Diese Idee wurde verworfen, da
+\subsection{Realisierung und Probleme}
+Im Gegensatz zu der ersten Version werden hier nur noch essentielle Code Ausschnitte eingefügt.\\
+Zuerst werden drei benötigte Threads erzeugt. Der erste Thread dient dazu, sich von dem eigentlichen MAD Progamm abzukoppeln damit die Ausführung anderer Befehle nicht beeinträchtigt wird. Innerhalb dieses Threads werden zwei weitere Unterthreads gestartet, einer welcher auf die DHCP Anfragen hört und einer welcher diese Anfragen dann sofort bearbeitet.\\
+Die größte Herrausforderung war es, die interessanten Informationen aus der Payload der DHCP Pakete zu Filtern. Dafür setzte ich mich intensiv mit den RFCs und den Wikipedia Einträgen auseinander. Schlussendlich entstand folgende Funktion, welche alle Informationen herausfiltert.
+
+\begin{lstlisting}
+private void ProcessData()
+{
+    try
+    {
+    	if (NetworkHelper.IsDhcp(_data) && NetworkHelper.IsDhcpRequest(_data))
+        {
+        	ModelHost _tmpModel = new ModelHost();
+            _tmpModel.hostMac = NetworkHelper.getPhysicalAddressStringFromDhcp(_data);
+            _tmpModel.macGiven = true;
+
+    		for (uint i = NetworkHelper.DHCP_COOKIE_POSITION; i < _data.Length; i++)
+            {
+            	switch (Convert.ToUInt16(_data[i]))
+                {
+                	case 50:
+                    	byte[] _ipBytes = new byte[4];
+
+                        for (uint ii = 0; ii < 4; ii++)
+                        {
+                        	_ipBytes[ii] = _data[i + 2 + ii];
+                        }
+
+                        _tmpModel.ipGiven = true;
+                        _tmpModel.hostIP = new IPAddress(_ipBytes);
+
+                        continue;
+
+                     case 55:
+                     	i = 1 + i + _data[i + 1];
+
+                        continue;
+
+                     case 12:
+
+                        byte _nameLength = _data[i + 1];
+                        _tmpModel.hostName = "";
+                        try
+                        {
+                            for (uint iii = 1; iii <= _nameLength; iii++)
+                            {
+                            	_tmpModel.hostName += (char)_data[i + 1 + iii];
+                                _tmpModel.nameGiven = true;
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                        continue;
+
+                    default:
+
+                    	break;
+                }
+            }
+
+            if (ModelHost.Exists(_tmpModel))
+            {
+            	if (_tmpModel.nameGiven)
+                	ModelHost.UpdateHost(_tmpModel, _tmpModel.hostIP, _tmpModel.hostName);
+                else
+                	ModelHost.UpdateHost(_tmpModel, _tmpModel.hostIP);
+            }
+            else
+            {
+            	ModelHost.AddToList(_tmpModel);
+            }
+
+            _js.SyncNodes(ModelHost.hostList);
+        }
+    }
+    catch
+    {
+                
+    }
+}
+\end{lstlisting}
+
+Der Code ist wie man sieht noch während der Endphase seiner Entstehung wieder verworfen worden, weshalb auch die Fehlersicherungen in den catch Abteilungen fehlen.\\
+
+Verworfen wurde die Idee aus mehreren Gründen. 
 \begin{enumerate}
-\item sie nur funktioniert, wenn ein DHCP Server existiert, bei einem Statischen Netzwerk wäre es nicht möglich gewesen.
-\item auch der DHCP Request noch abgelehnt werden kann. Das hätte zur Folge, dass ein falscher Host im Netz existiert.
+\item Es ist unpraktikabel sich auf ein Protokoll zu verlassen, welches in einem statisch gerouteten Netzwerk nichteinmal vorkommt. 
+\item Die Threads waren fehlerbehaftet. So war es zB nicht möglich das Programm zu beenden wurde ersteinmal der DHCPReader gestartet. Auch der Versuch die Threads mit Gewalt zu beenden hatte keinen Erfolg.
+\item Die Idee für den MacFinder V3 entstand noch in der Zeit in der die Version 2 noch nicht fertig war und übertrumpfte vorhergehendes weit genug um die Arbeiten daran abzubrechen. 
 \end{enumerate}
 
 \section{MacFinder Version 3 - ARP Reader}
+\subsection{Idee}
 Die finale Version des MacFinders erwuchs aus dem Gedanken ein Protokoll zu verwenden, dem sich kein Gerät im Netzwerk erwehren kann. Die Wahl fiel auf das ARP Paket, da ein Host, welcher nicht auf einen ARP Request antwortet, in einem Netzwerk sowieso nicht kommunikationsfähig ist.\\
-Da das .NET Framework Netzwerkoperationen auf so einem tiefen Level nicht unterstützt, wurde die Library SharpPCAP verwendet. Dies ist eine Portierung der bekannten pcap C Library, welche zB. auch von Wireshark verwendet wird. Damit war es möglich solche Pakete herzustellen.\\
+Da das .NET Framework Netzwerkoperationen auf so einem tiefen Level nicht unterstützt, wurde die Library SharpPCAP (sourceforge.net/projects/sharppcap/) verwendet. Dies ist eine Portierung der bekannten pcap C Library, welche zB. auch von Wireshark verwendet wird. Damit war es möglich solche Pakete herzustellen.\\
 Der ARP Reader benötigt das Netz, die eigene IP-Adresse sowie die Subnetzmaske. Daraus baut er dann für jede mögliche IP-Adresse im Netzwerk einen ARP Request und sammelt, nachdem er das Netzwerk damit geflutet hat, die Responses.\\
+\subsection{Realisierung und Probleme}
+Die abstrahierte Funktionsweise des ARP-Readers ist im Grunde sehr einfach: Zuerst wird eine Flut an ARP Requests für jede mögliche Adresse in das Netzwerk geschickt und daraufhin werden die Antworten eingesammelt und in die Liste aufgenommen.\\
+Insgesammt war er eine Kombination aus der Logik der Version 1 und der Version 2. Von Version 1 wurde das Zusammenbasteln aller notwendigen Pakete übernommen, was jedoch durch die SharpPCAP Library vereinfacht wurde, während von der Version 2 das Auseinandernehmen des Response Pakete übernommen wurde. Auch hier war wieder intensives Einlesen in die Struktur gefragt.\\
+Durch die Ähnlichkeit zu den vorherigen Versionen verzichte ich hier auf weitere Code Beispiele, die Idee bleibt dieselbe.\\
 
-Das größte Problem mit dem ARP Reader liegt darin, dass es mehrere verschiedene Interfaces gibt, mit welchen pcap arbeitet. Dies kann man auch sehen, wenn man Wireshark startet. Es werden mehrere Interfaces angezeigt, aus welchen ausgewählt werden kann.\\
-Natürlich können die zur Auswahl stehenden Interfaces mit dem Befehl \textbf{arp reader list interfaces} ausgegeben werden. Diese können dann auch in der Configfile gespeichert werden, damit man nicht immer das Interface angeben muss.
+Jedoch bleibt auch diese Version von Problematiken nicht sicher:\\
+\begin{enumerate}
+\item Die SharpPCAP Library gibt mehrere Interfaces zur Auswahl welche zum Absenden der ARP Pakete. Diese kann ich jedoch Programmtechnisch nicht selbst auswählen und so entsteht zusätzlicher Aufwand für den Benutzer. Um es trotzdem dem Benutzer zu erleihtern wird es
+\item Es gibt einen Bug bei welchen die Interfaces nicht sauber geschlossen werden. Dies bedeutet keinen Einfluss auf die Funktionalität, ist nur nicht wirklich schön und sauber.
+\end{enumerate}
+
 \chapter{Notification (Manpreet Singh)}
 \lfoot{Manpreet Singh}
 Notification war mir ein großes Anliegen. Für mich war es wichtig, dass der User bei Bedarf die Möglichkeit hat benachrichtigt zu werden. Nach kurzer Diskussion mit meinen Kollegen entschieden wir uns für die E-Mail.\\
@@ -2850,7 +2972,7 @@ Wenn das Programm mit dem Argument \textbf{-cli} gestartet wird, so wird statt d
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_mad.png}\\
-der Startbildschirm der CLI
+der Start der CLI auf Linux
 \end{center}
 
 \section{Grundlegende Befehle (Alin Porcic)}
@@ -2920,7 +3042,7 @@ Dieser Befehlt stoppt den Zeitplaner des JobSystems.
 
 \subsubsection{node add}
 
-Netzwerkknoten können manuell mit diesem Befehl eingebunden werden. Dieser Befehl hat ingesamt drei Parameter: Name, IP-Adresse und MAC-Adresse. Der Name kann als Argument des Parameter \textbf{-n} mitgeteilt werden, die IP-Adresse mit \textbf{-ip} und die MAC-Adresse mit \textbf{-mac}. Bei der Ausführung des Befehls, erhält der Knoten eine automatisch zugewiesene Indentifikationszahl und eine globale eindeutige Indentifkationsnummer (GUID).
+Netzwerkknoten können manuell mit diesem Befehl eingebunden werden. Dieser Befehl hat ingesamt drei Parameter: Name, IP-Adresse und MAC-Adresse. Der Name kann als Argument des Parameter \textbf{-n} mitgeteilt werden, die IP-Adresse mit \textbf{-ip} und die MAC-Adresse mit \textbf{-mac}. Bei der Ausführung des Befehles, erhält der Knoten eine automatisch zugewiesene Indentifikationszahl und eine globale eindeutige Indentifkationsnummer (GUID).
 
 \subsubsection{node remove}
 
@@ -2932,11 +3054,11 @@ Hiermit können bereits erstellte Netzwerkknoten editiert werden. Dieser Befehl 
 
 \subsubsection{node start}
 
-Dieser Befehl ändert den Status eines Netzwerkknotens auf 'Aktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl des Netzwerkknotens muss angegeben werden.
+Dieser Befehl ändert den Status eines Netzwerkknotens auf 'aktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl des Netzwerkknotens muss angegeben werden.
 
 \subsubsection{node stop}
 
-Dieser Befehl ändert den Status eines Netzwerkknotens auf 'Inaktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl des Netzwerkknotens muss angegeben werden.
+Dieser Befehl ändert den Status eines Netzwerkknotens auf 'inaktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl des Netzwerkknotens muss angegeben werden.
 
 \subsubsection{job info}
 
@@ -2949,7 +3071,7 @@ Jeder Aufgabentyp den ein Netzwerkknoten haben kann, definiert einen eigenen Bef
 \begin{itemize}
 \item \textbf{-n}: Dieser Parameter gibt den Jobnamen an. Daher benötigt dieser Befehl den Namen als Argument.
 \item \textbf{-id}: Die ID des Netzwerkknoten an dem diese Aufgabe drangehängt werden soll. Der Netzwerkknoten muss existieren, sonst kann der Job nicht hinzugefügt werden.
-\item \textbf{-t}: Diese Parameter ist optional, sollte aber trotzdem definiert werden. Das Argument bzw. die Argumente dieses Parameters giben an, wann der Job ausgeführt werden soll. Möchte man zum Beispiel, dass der Job alle 2000ms ausgeführt wird gibt man '2000' als Argument an. Möchte man einen bestimmen Zeitpunkt oder mehrer Zeitpunkte angeben, so kann man das mit den folgenden Argumenten erreichen:
+\item \textbf{-t}: Diese Parameter ist optional, sollte aber trotzdem definiert werden. Das Argument bzw. die Argumente dieses Parameters geben an, wann der Job ausgeführt werden soll. Möchte man zum Beispiel, dass der Job alle 2000ms ausgeführt wird gibt man '2000' als Argument an. Möchte man einen bestimmen Zeitpunkt oder mehrer Zeitpunkte angeben, so kann man das mit den folgenden Argumenten erreichen:
   \begin{itemize}
   \item 20:15 $\rightarrow$ startet den Job jeden Tag um 20:15 Uhr.
   \item 20:15 21:00 $\rightarrow$ startet den Job jeden Tag um 20:15 und 21:00 Uhr.
@@ -2961,11 +3083,11 @@ Jeder Aufgabentyp den ein Netzwerkknoten haben kann, definiert einen eigenen Bef
 
 \subsubsection{job remove}
 
-Dieser Befehl benötigt \textbf{-id} als Parameter. Als Argument muss die Indentikiationszahl des Jobs angegeben werden. Jobs, die während der Ausführung dieses Befehls in Ausführung sind, können nicht entfernt werden.
+Dieser Befehl benötigt \textbf{-id} als Parameter. Als Argument muss die Indentikiationszahl des Jobs angegeben werden. Jobs, die während der Ausführung dieses Befehles in Ausführung sind, können nicht entfernt werden.
 
 \subsubsection{job edit}
 
-Diese Befehl kann bereits erstellte Jobs modifizieren. 
+Dieser Befehl kann bereits erstellte Jobs modifizieren. 
 
 \subsubsection{job start}
 
@@ -2983,7 +3105,7 @@ Dieser Befehl gibt die Datenbank-Tabellen aus. Falls der Befehl ohne Parameter a
 
 \subsubsection{db jobs}
 
-Durch die Eingabe dieses Befehles wird die Datenbank-Tabelle der ausgeführten Operationen ausgegeben.
+Durch die Eingabe dieses Befehles wird die Datenbank-Tabelle der 'JobTable' ausgegeben.
 
 \subsubsection{db jobs remove}
 
@@ -2995,7 +3117,7 @@ Dieser Befehl löscht alle Datensätze aus der 'JobTable'.
 
 \subsubsection{db summary}
 
-Die Eingabe dieses Befehls bewirkt die Ausgabe einer Datenbank-Tabelle der 'SummaryTable'.
+Die Eingabe dieses Befehls bewirkt die Ausgabe der 'SummaryTable'.
 
 \subsubsection{db summary create}
 
@@ -3015,13 +3137,15 @@ Gibt den Inhalt der Memos aus der Datenbank auf die Konsole aus.
 
 \subsubsection{db memo add}
 
-In der Datenbank steht für jeden Netzwerkknoten zwei Felder für Memos frei. Ein kurzes Memo-Feld und ein längeres Memo-Feld. Durch die Ausführung dieses Befehls können Memos hinzugefügt werden.
+Durch die Ausführung dieses Befehls können Memos hinzugefügt werden.
 
 \subsubsection{db memo remove}
 
 Dieser Befehl entfernt Memos aus der Datenbank.
 
+\newpage
 \section{MAC-Finder Befehle (Daniel Ranalter)}
+\lfoot{Daniel Ranalter}
 
 \subsubsection{dhcp reader start - obsolet}
 
@@ -3042,8 +3166,6 @@ Gibt die Liste an Hosts aus.
 \subsubsection{arp reader list interfaces}
 
 Zeigt die verfügbaren Interfaces an, welche als Ausgang für die ARPs dienen können.
-
-\lfoot{Daniel Ranalter}
 
 \subsubsection{arp reader start}
 
@@ -3110,9 +3232,8 @@ Parameter:\\
 \end{itemize}
 \end{itemize}
 
-
+\newpage
 \lfoot{Alin Porcic}
-
 \section{Anwendungsbeispiele (Alin Porcic)}
 
 \subsection{Netzwerkknoten / Netzwerkaufgaben definieren, abspeichern und ausführen}
@@ -3233,16 +3354,25 @@ Nun werden alle Ausführung von allen Jobs, die zwischen dem 10.01.2015 00:00 un
 \chapter{CLIClient (Alin Porcic)}
 
 Der CLI-Client erstellt bei der ersten Ausführung eine Konfigurationsdatei im gleichen Ordner wie die ausführbare Datei. Dort kann der Zieladresse und Authentifikations-Passwort eingegeben werden. Sobald die Verbindung steht, kann die CLI ganz normal verwendet werden.\\
-Die Konfigurationsdatei wird im XML-Syntax gespeichert und beim Start eingelesen.
+Die Konfigurationsdatei wird im XML-Syntax gespeichert und beim Start eingelesen. Hier ist eine mögliche Konfiguration zu sehen:
+\begin{lstlisting}
+<?xml version="1.0" encoding="utf-8"?>
+<MadClient>
+  <target>10.0.0.117</target>
+  <port>2222</port>
+  <pass>meinpass</pass>
+</MadClient>>
+\end{lstlisting}
 
 \chapter{CLIServer (Alin Porcic)}
 
-Der CLI-Server ist im Hauptprogramm integriert und kann mit dem Argument '-cliserver' gestartet werden. Der Port lässt sich über die Konfigurationsdatei 'data/mad.conf' verändern. Standardmäßig läuft er auf Port 2222. Das Passwort mit dem sich der CLIClient authentifizeren muss, kann im Feld 'AES-PASS' ebenfalls eingerichtet werden.
+Der CLI-Server ist im Hauptprogramm integriert und kann mit dem Argument \textbf{-cliserver} gestartet werden. Der Port lässt sich über die Konfigurationsdatei \textbf{data/mad.conf} verändern. Standardmäßig läuft der Server-Dienst auf Port 2222 und der AES-Schlüssel mit dem sich der CLIClient authentifizeren muss, kann im Feld \textbf{AES-PASS} ebenfalls eingerichtet werden.
 
 \begin{center}
 \includegraphics[scale=0.6]{img/cli_server.png}\\
 Der Server läuft und wartet auf TCP-Anfragen auf Port 2222.
 \end{center}
+
 \chapter{GUI (Manpreet Singh)}
 \lfoot{Manpreet Singh}
 Die graphische Oberfläche wird gestartet wenn kein Argument beim Aufruf mitgegeben wird.\\
