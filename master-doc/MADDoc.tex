@@ -77,8 +77,7 @@ Das Ziel dieser Diplomarbeit ist das Erstellen eines Programmes, welches in eine
 
 Für die Benutzung des Programmes soll eine textbasierende Schnittstelle eingebaut werden, die die primäre Interaktion mit dem Programm sicherstellen soll. Die vollständige Überwachung sowie die Konfiguration aller Aufgaben und Geräte soll über diese Schnittstelle möglich sein.\\
 Die Überwachung und die Konfiguration der Geräte und Aufgaben soll hauptsächlich über diese Schnittstelle ermöglicht werden.
-Es soll auch die Möglichkeit bestehen, die textbasierende Schnittstelle über das Netzwerk zu nutzen. Daher muss diese Schnittstelle als Netzwerkservice realisiert werden und es wird eine Client-Software benötigt.\\
-
+Es soll auch die Möglichkeit bestehen, die textbasierende Schnittstelle über das Netzwerk zu nutzen. Daher muss diese Schnittstelle als Netzwerkdienst realisiert werden und es wird eine Client-Software benötigt.\\
 Neben der textbasierten Schnittstelle soll eine graphische Schnittstelle implementiert werden, die eine alternative Benutzung des Programmes ermöglichen soll. Der Funktionsumfang der graphischen Oberfläche beschränkt sich auf die Anzeige einer Übersicht der Aufgaben und Geräte.
 
 \section{Andere Voraussetzungen}
@@ -2402,12 +2401,12 @@ SHA steht für \textbf{Seucre-Hash-Algorithm} und ist eine Ansammulung von mehre
 
 \subsection{Allgemeines}
 
-Das Programm bietet eine integrierte textbasierende Schnittstelle für die primäre Verwendung an. Mit der CLI lassen sich viele Befehle mit komplexen Parametern und Argumente realisieren. Der Syntax der CLI-Eingaben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden. Die Anordnung der Parameter und Argumente ist für die diese CLI-Implementierung irrelevant.\\
+Das Programm bietet eine integrierte textbasierende Schnittstelle für die primäre Verwendung an. Der Syntax der CLI-Eingaben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden. Die Anordnung der Parameter und Argumente ist für die diese CLI-Implementierung irrelevant.\\
 Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert. Ist die Interpretation der Eingabe nicht möglich, da zum Beispiel ein Paramter mehrfach definiert wurde, wird eine Fehlermeldung in roter Farbe ausgegeben. Einige Fehlermeldungen, die ausgegeben werden können, sind zum Beispiel:
 
 \begin{itemize}
 \item \textbf{Command not known}: Befehl ist nicht definiert und kann nicht ausgeführt werden.
-\item \textbf{Parameter not known}: der Befehl existiert, doch der angeführte Parameter für diesen Befehl existiert nicht.
+\item \textbf{Parameter not known}: Der Befehl existiert, doch der angeführte Parameter für diesen Befehl existiert nicht.
 \item \textbf{Argument could not be parsed}: Das eingegeben Argument konnte nicht in ein Objekt umgewandelt werden.
 \item ...
 \end{itemize}
@@ -2434,17 +2433,17 @@ Aus komplikationsgründen ist es auch nicht möglich, interaktive Befehle für d
 \section{CLI-Server und CLI-Client (Alin Porcic)}
 \lfoot{Alin Porcic}
 
-Über den CLI-Server und CLI-Client ist es möglich die textbasierte Schnittstelle über einen Netzwerkservice anzusprechen. Nachdem eine erfolgreiche Verbindung aufgebaut wurde, kann der Client die Befehle lokal einlesen und an den Server senden. Dieser versucht den empfangenen Befehl zu interpretieren und schick die Ausgabe wieder zurück. Vom Prinzip her arbeit die CLI als Service genau gleich wie die lokale CLI. Der Unterschied ist nur, dass die Interpretation und Ausführung nicht lokal geschieht, sondern auf dem Server.
+Über den CLI-Server und CLI-Client ist es möglich die textbasierte Schnittstelle über einen Netzwerkservice anzusprechen. Nachdem eine erfolgreiche Verbindung aufgebaut wurde, kann der Client die Befehle lokal einlesen und an den Server senden. Dieser versucht den empfangenen Befehl zu interpretieren und schick die Ausgabe wieder zurück. Vom Prinzip her arbeit die CLI als Service genau gleich wie die lokale CLI. Der Unterschied ist nur, dass die Interpretation und Ausführung nicht lokal geschieht, sondern auf dem Server. 
 
 \begin{center}
 \includegraphics[scale=2.0]{img/mad_client_session.png}\\
-Funktionsweise der CLI-Server/Client
+Funktionsweise der CLI-Server/Client (CLISession ist mit CLI-Server gleichzustellen)
 \end{center}
 
 \section{CLI-Server}
 
-Der CLI-Server wartet auf einkommende TCP-Verbindungen und bearbeitet die Anfragen. Die Kommunikation zwischen Server und Client wird mit AES256 verschlüsselt ohne Schlüsselaustausch, das heißt, falls die Anfrage des Clients nicht sofort entschlüsselt werden kann, weil der AES-Schlüssel falsch ist, wird die Verbindung abgebrochen.\\
-Am Anfang der Kommunikation sendet der Server dem Client seine Versionsnummer und Servername. Anhand von diesen Informationen kann der Client entscheiden ob er sich mit diesen Server verbinden möchte. Da diese Informationen schon verschlüsselt sind, kann der Client davon ausgehen, dass er mit dem Server kommuniziert. Der AES-Schlüssel wird auf der Serverseite in der Konfigurationsdatei im Klartext abgespeichert und ist mit einem einfachen Text-Editor änderbar.
+Der CLI-Server wartet auf einkommende TCP-Verbindungen und bearbeitet die Anfragen. Die Kommunikation zwischen Server und Client wird mit AES256 verschlüsselt ohne Schlüsselaustausch, das heißt, falls die Anfrage des Clients vom Server nicht sofort entschlüsselt werden kann, weil der AES-Schlüssel falsch ist, wird die Verbindung abgebrochen. Zudem kann der Server nur einen Nutzer gleichzeitig bearbeiten.\\
+Am Anfang der Kommunikation sendet der Server dem Client seine Versionsnummer und Servername. Anhand von diesen Informationen kann der Client entscheiden ob er sich mit diesen Server verbinden möchte. Da diese Informationen schon verschlüsselt sind, kann der Client davon ausgehen, dass er mit dem Server kommuniziert. Der AES-Schlüssel wird auf der Serverseite in der Konfigurationsdatei im Klartext abgespeichert und ist mit einem einfachen Text-Editor änderbar.\\
 
 \section{CLI-Client}
 
@@ -2515,13 +2514,13 @@ Das JobSystem hat die Möglichkeit ein Abbild von sich zu speichern und später 
 
 \section{Allgemeines}
 
-Das Jobsystem oranisiert die Netzwerkaufgaben (=Jobs) und Netzwerkgeräte (=Netzwerkknoten, =Knoten, =Nodes) innerhalb des Programmes und bietet eine Schnittstelle an, um diese zu entfernen, hinzuzufügen oder zu konfigurieren. Das JobSystem ist nicht an einer textbasierten oder grafischen Schnittestelle gebunden, sondern kann auf Programmebene über Methodenaufrufe angesteuert werden. Alle Methodenaufrufe werden intern über Locks vor Race-Conditions und weiteren Multithreading-Problemen geschützt.\\
-Das JobSystem besitzt die Möglichkeit die derzeitig initalisierten Aufgaben und Geräte in einer Datei abzuspeichern und diese zu einem späteren Zeitpunkt wieder zu laden. Es ist möglich ein komplettes Abbild der Geräte und Aufgaben abzuspeichern und zu laden. Doch auch einzelne Netzwerkgeräte inklusive Netzwerkaufgaben können abgespeichert und geladen werden.\\
-Das JobSystem kann sich mit dem Device-Finder syncronisieren, um die IP-Adressen der Netzwerkknoten zu aktualisieren.
+Das Jobsystem organisiert die Netzwerkaufgaben (=Jobs) und Netzwerkgeräte (=Netzwerkknoten, =Knoten, =Nodes) innerhalb des Programmes und bietet eine Schnittstelle an, um diese zu entfernen, hinzuzufügen oder zu konfigurieren. Das JobSystem ist nicht an einer textbasierten oder grafischen Schnittestelle gebunden, sondern kann auf Programmebene über Methodenaufrufe angesteuert werden. Alle Methodenaufrufe werden intern über Locks vor Race-Conditions und weiteren Multithreading-Problemen geschützt.\\
+Das JobSystem besitzt die Möglichkeit die derzeitig initalisierten Aufgaben und Geräte in einer Datei abzuspeichern und diese zu einem späteren Zeitpunkt wieder zu laden. Es ist möglich ein komplettes Abbild der Geräte und Aufgaben abzuspeichern und zu laden. Doch auch einzelne Netzwerkgeräte inklusive deren Netzwerkaufgaben können abgespeichert und geladen werden.\\
+Das JobSystem kann sich mit dem Device-Finder syncronisieren, um die IP-Adressen der Netzwerkknoten zu aktuallisieren.
 
 \section{Netzwerkknoten}
 
-Ein Netzwerkknoten (oder Knoten, Node)  stellt ein Netzwerkgerät dar. Diese Gerät wird durch die folgenden Eigenschaften charakterisiert:
+Ein Netzwerkknoten stellt ein Netzwerkgerät dar. Diese Gerät wird durch die folgenden Eigenschaften charakterisiert:
 
 \begin{itemize}
 \item \textbf{Name}: Dem Netzwerkknoten muss ein Name zugeordnet werden (meistens wird hier der Hostname eingetragen).
@@ -2534,14 +2533,14 @@ Die Aufgaben, die auf einem Knoten ausgeführt werden sollen, müssen an dem Kno
 \section{JobSchedule}
 
 Der JobSchedule ist eine interne Komponente des JobSystems und stellt einen Zeitplaner dar, der die Netzwerkaufgaben und Netzwerkgeräte überprüft und entscheidet, ob eine Aufgabe für die Ausführung bereit ist.\\
-Bei der Auswertung der Netzwerkaufgaben müssen viele Dinge vom Zeitplaner berücksichtigt werden:
+Bei der Auswertung der Netzwerkaufgaben müssen diese Dinge vom Zeitplaner berücksichtigt werden:
 
 \begin{itemize}
 \item \textbf{Netzwerkknoten}: Ist der Knoten aktiv?
-\item \textbf{Netzwerkaufgabe}: Ist die Aufgabe aktiv? Hat er den definierten Zeitpunkt / die definierte Zeitspanne erreicht? Ist die Aufgabe  bereits in der Ausführung?
+\item \textbf{Netzwerkaufgabe}: Ist die Aufgabe aktiv? Hat er den definierten Zeitpunkt / die definierte Zeitspanne erreicht? Ist die Aufgabe bereits in der Ausführung?
 \end{itemize}
 
-Der JobSchedule besitzt einen internen Threadpool. Bei diesem Threadpool wurde der SmartThreadPool statt dem Threadpool aus dem .NET-Framework. Der große Vorteil des SmartThreadPools ist, dass er eine fixe Anzahl an Threads initalisiert und die zugewiesenen Aufgaben automatisch auf diesen Threads aufteilt. Somit ist es nicht notwendig für jeden Job einen eigenen Thread vom Betriebssystem erstellen zu lassen. Der zweite Vorteil des SmartThreadPools ist, dass mehrere Instanzen erstellt werden können. Jedoch verwenden wir nur eine, doch falls das Programm erweitert werden soll, ist das sicherlich nicht hinderlich.\\
+Der JobSchedule besitzt einen internen Threadpool. Die Wahl eines geeigneten Threadpools fiel auf den SmartThreadPool statt der .NET-Framework Variante eines Threadpools. Der große Vorteil des SmartThreadPools ist, dass er eine fixe Anzahl an Threads initalisiert und die zugewiesenen Aufgaben automatisch auf diesen Threads aufteilt. Somit ist es nicht notwendig für jeden Job einen eigenen Thread vom Betriebssystem erstellen zu lassen. Der zweite Vorteil des SmartThreadPools ist, dass mehrere Instanzen erstellt werden können.\\
 Nachdem der Job im Threadpool gestartet wurde, wird die jeweilige Operation im Netzwerk erledigt und vom Job selbst ausgewertet. Nach der Ausführung des Jobs, schreibt der Job die Resultate in die Datenbank und ist wieder für eine neue Ausführung bereit.
 
 \section{JobRules}
@@ -2552,7 +2551,45 @@ Die Regeln überprüfen die Resultate der Jobs auf bestimmte Kriterien, zum Beis
 \chapter{Jobs}
 \lfoot{Alin Porcic}
 
-Jobs definieren bestimmte Aufgaben, die im Netwerk zu erledigen sind. Das Ziel der Aufgabe ist immer die IP-Adresse des Netzwerkknotens, an der der Job drangehängt wurde. Erst wenn der definierte Zeitpunkt erreicht wurde, wird der Job vom JobSystem in einem eigenen Thread ausgeführt. Nachdem der Job die Aufgabe erledigt hat, überprüft er selbstständig ob er die definierten Regeln gebrochen hat und schreibt die Resultate der Ausführung in die Datenbank. Welche Operationen der Job beim Start im Netzwerk ausführt, hängt vom Job-Typ ab. Auch die Resultate der Ausführung sind vom Typ abhängig.
+Jobs definieren bestimmte Aufgaben, die im Netwerk zu erledigen sind. Das Ziel der Aufgabe ist immer die IP-Adresse des Netzwerkknotens, an der der Job drangehängt wurde. Erst wenn der definierte Zeitpunkt erreicht wurde, wird der Job vom JobSystem in einem eigenen Thread ausgeführt. Nachdem der Job die Aufgabe erledigt hat, überprüft er selbstständig ob er die definierten Regeln gebrochen hat und schreibt die Resultate der Ausführung in die Datenbank. Welche Operationen der Job beim Start im Netzwerk ausführt, hängt vom Job-Typ ab. Auch die Resultate der Ausführung sind vom Typ abhängig.\\
+
+Hier ist die private Methode zu sehen, die der JobSchedule beim Start eines Jobs ausführt. Es wird die Startzeit, Stopzeit und die Dauer der Ausführung errechnet und gesetzt. Der Job wird ausgeführt und er schreibt sich selbst in die lokale Datenbank und beendet die Ausführung.
+
+\begin{lstlisting}
+  
+        private object JobInvoke(object holder)
+        {
+            JobHolder _holder = (JobHolder)holder;
+            JobNode _node = _holder.node;
+            Job _job = _holder.job;
+
+            try
+            {
+                _job.tStart = DateTime.Now;
+                _job.Execute(_node.ip);
+                _job.tStop = DateTime.Now;
+                _job.tSpan = _job.tStop.Subtract(_job.tStart);
+
+              	...
+
+                _db.InsertJob(_node, _job);
+
+              	...
+            }
+            catch (Exception e)
+            {
+                Logger.Log("Job threw a exception: " + e.StackTrace, Logger.MessageType.ERROR);
+            }
+            finally
+            {
+                _job.state = 1;
+                _node.uWorker--;
+            }
+
+            return null;
+        }
+  
+\end{lstlisting}
 
 \section{Job-Typen}
 
