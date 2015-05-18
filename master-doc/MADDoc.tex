@@ -2574,13 +2574,20 @@ Jeder Job (egal welcher Typ) muss folgende Eigenschaften definieren:\\
 \lfoot{Ranalter Daniel}%--------------------------------------------------------------------------------------------
 
 \subsection{Traffic auslesen über SNMP (Daniel Ranalter)}
-Auch hier werden wieder nur SNMP Versionen größer gleich 2 erlaubt.\\
-Das Auslesen des Traffics über SNMP geschieht über die Objekt ID 1.3.6.1.2.1.2.2.1.16.x, wobei x für das Interface steht. Mit dieser Objekt ID kommt man zu den ausgegangenen Paketen eines Interfaces.\\
-Da SNMP mehr Interfaces kennt als Windows, beziehungsweise Windows Interfaces zusammenfasst, ist es für den User notwendig, vorher den Befehl \textbf{snmp interfaces} anzuwenden. Hierbei werden ihm dann alle Interfaces aufgelistet, welche die abgefragte Maschine hat. Das richtige Interface zu finden ist nun dem User überlassen. Jedoch gibt es die Möglichkeit, das Interface in der Configfile zu speichern, um es nicht jedesmal aufs neue wieder raussuchen zu müssen. SNMP verwendet, wenn kein anderes Interface angegeben wird, automatisch jenes aus der Configfile.\\
-Es ist sehr wichtig zu beachten, dass, aus Gründen der Komfortabilität für den Community String \textbf{public} und für Authentification bzw. Privacy, die Phrase \textbf{MADMADMAD} zu wählen ist, damit es funktioniert.\\
+\subsubsection{Idee}
+Bereits bei er Planung des Projektes stieß ich auf dieses Protokoll, welches in dem Monitoring von Netzwerken verwendet wurde. Es faszinierte mich bereits von Anfang an und ich wollte es unbedingt in das Projekt einbauen, jedoch riet mir unser Betreuer, es nur einzubauen wenn ich noch Zeit hätte dazu, da es alles andere als "Simple" sei.\\
+Ursprünglich war der Wunsch vorhanden eine Möglichkeit zu geben, herauszufinden wie viel Traffic ein einzelner Host erzeugt. Dadurch kam ich zurück auf die Idee mit SNMP welches die Möglichkeit dazu bot.\\
 
-Der ausgelesene Wert wird dann zwischengespeichert und nach einem einzustellenden Zeitintervall wird erneut eine Anfrage gemacht. MAD subtrahiert die beiden Werte voneinander, um an den gesendeten Traffic an diesem Interface zu kommen.\\
-Es wird in Octets angegeben, also Bytes.
+\subsubsection{Realisierung und Probleme}
+Für die Realisierung wurde auf die Library SNMPSharpNet (snmpsharpnet.com) zurückgegriffen.\\
+
+Die Library, welche verwendet wird, kann über mehrere Interfaces arbeiten. Zuallererst musste ich also dem user eine Liste der zur Auswahl stehenden Interfaces bieten. Dies geschieht durch einen GETBULK Request auf die Object-ID 1.3.6.1.2.1.2.2, welche die Tabelle für die Interfaces darstellt. Wenn also der User den Befehl \textbf{snmp interfaces} eingibt, wird ein SNMP GETBULK Request zusammengebaut, welcher die Interfaces zurückgibt um damit weiter arbeiten zu können.\\
+Um es wenigstens etwas komfortabler zu machen gibt es die Möglichkeit dieses Interfaces als Defaultinterfaces in die Konfigurationsdatei zu schreiben.\\
+
+Der eigentliche Befehl frägt nach dem Inhalt der OID 1.3.6.1.2.1.2.2.x.16. Zu der OID von dem Interface Befehl kommt also noch .x.16 dazu. X stellt dabei das ausgewählte Interface dar. Der 16ste Eintrag in diesem Teil des Baumes sind die ausgesendeten Octete. Diese werden dann ausgelesen, welches von der verwendeten Library sehr vereinfacht wird, und dann abgespeichert.\\
+Da man diese Werte unverarbeitet nicht verwenden kann, sie zeigen schließlich nur alle bisher gesendeten Bytes an, wird jeder wert von dem alten wert Subtrahiert um die Differenz über eine gewisse Zeit zu erhalten. Die Zeit, wie oft abgefragt werden soll, kann durch die üblichen Job Parameter bestimmt werden.\\
+
+Für alle SNMP Operationen gilt, dass nur SNMP Versionen \textbf{über} 1 verwendet werden. SNMPv1 ist zu Unsicher als, dass es weiterhin unterstützt werden sollte. Für den Community String muss \textbf{public} und für die Authentification/Privacy Phrase \textbf{MADMADMAD} gewählt werden. 
 
 \subsection{Internet Verbindungs Check (Daniel Ranalter)}
 Es gibt die Möglichkeit, durch ein Command den Connectivity Check zu starten, der sich von den herkömmlichen Jobs insoweit unterscheidet, dass er nicht an eine Node gebunden ist, sondern direkt auf dem Rechner, auf dem MAD läuft, ausgeführt wird.\\
@@ -2620,9 +2627,11 @@ Bei dem FTP Check wird im Grunde einfach nur das momentane Arbeitsverzeichnis ab
 Der Programmteil, welcher das Netzwerk auf Geräte überprüft, ist jener, den ich persönlich wohl am Öftesten neu geschrieben habe. Im Folgenden wird auf alle drei Versionen, die durchlaufen worden sind, eingegangen. Sie alle befinden sich weiterhin im Projekt, werden jedoch nicht verwendet.\\
 Im Projekt selbst werden sie ab der zweiten Version als \glqq MacFinder\grqq bezeichnet. 
 \section{MacFinder Version 1 - host find job}
+\subsection{Idee}
 Die erste Version des MacFinders basierte auf dem Grundgedanken berühmter IP-Scanner wie zum Beispiel dem \textbf{Angry IP Scanner}, deren Arbeitsweise sich auf das ICMP Echo Paket stützt.\\
 Durch ein fluten des Netzwerkes mit ICMP Echo Requests wird bezweckt, dass theoretisch jeder sich angesprochene Host mit einem Echo Reply meldet. Dieses Verhalten versuchte ich nachzuahmen.\\
 
+\subsection{Realisierung und Probleme}
 Die erste Schwierigkeit fand ich darin, herausfinden zu müssen wieviele und welche IP-Adressen ich anpingen muss, unter der Berücksichtigung, dass der User sowenig wie möglich einzugeben hat.\\
 Als ersten Schritt rechnete ich mir dir Nummer an Hosts aus der Subnetzmaske aus. Dann konvertierte ich die Netzaddresse in ein Format mit dem ich umgehen konnte und überprüfte ob das System eine LittleEndian oder eine BigEndian Architektur verwendet, damit ich die Byte-Arrays nicht durcheinander mischte.\\
 Als letzten Schritt wandelte ich das Ergebnis in einen Zahlenwert um, um damit besser rechnen zu können.
