@@ -1,3 +1,13 @@
+% Diplomarbeit - Lan Monitoring 5BHEL 14/15
+% Autoren:
+%	Alin Porcic
+% 	Daniel Ranalter
+% 	Manpreet Singh
+%	Marko Stojanovic
+% Betreuer:
+%	Dr. Michael Weiss
+% -----------------------------------------------
+
 \documentclass[12pt,a4paper]{report}
 \usepackage[utf8]{inputenc}
 \usepackage[german]{babel}
@@ -24,11 +34,9 @@
 
 \lhead{LAN-Monitoring} % Kopf- und Fußzeilen
 \rhead{\chaptername \hspace{5mm} \thesection}
-\lfoot{Du hasch deinen Namen vergessen}
+\lfoot{}
 \cfoot{}
 \rfoot{\thepage}
-
-%\author{Alin Porcic, Daniel Ranalter, Manpreet Singh, Marko Stojanovi\'{c}}
 
 \begin{document}
 
@@ -66,7 +74,6 @@ Mit den immer größer werdenden Anforderungen an die Netzwerktechnik ist es zur
 to be written
 
 \chapter{Aufgabenstellung}
-\lfoot{Alin Porcic}
 
 \section{Ziel}
 
@@ -77,8 +84,7 @@ Das Ziel dieser Diplomarbeit ist das Erstellen eines Programmes, welches in eine
 
 Für die Benutzung des Programmes soll eine textbasierende Schnittstelle eingebaut werden, die die primäre Interaktion mit dem Programm sicherstellen soll. Die vollständige Überwachung sowie die Konfiguration aller Aufgaben und Geräte soll über diese Schnittstelle möglich sein.\\
 Die Überwachung und die Konfiguration der Geräte und Aufgaben soll hauptsächlich über diese Schnittstelle ermöglicht werden.
-Es soll auch die Möglichkeit bestehen, die textbasierende Schnittstelle über das Netzwerk zu nutzen. Daher muss diese Schnittstelle als Netzwerkservice realisiert werden und es wird eine Client-Software benötigt.\\
-
+Es soll auch die Möglichkeit bestehen, die textbasierende Schnittstelle über das Netzwerk zu nutzen. Daher muss diese Schnittstelle als Netzwerkdienst realisiert werden und es wird eine Client-Software benötigt.\\
 Neben der textbasierten Schnittstelle soll eine graphische Schnittstelle implementiert werden, die eine alternative Benutzung des Programmes ermöglichen soll. Der Funktionsumfang der graphischen Oberfläche beschränkt sich auf die Anzeige einer Übersicht der Aufgaben und Geräte.
 
 \section{Andere Voraussetzungen}
@@ -1531,7 +1537,7 @@ Als Spam werden jene E-Mails bezeichnet, welche meist einen werbenden Inhalt hab
 \lfoot{Alin Porcic}
 \subsection{Allgemeines}
 
-CLI steht für \textbf{Command Line Interface} (=textbasierende Schnittstelle) und darunter versteht man Schnittstellen, die für die Interaktion mit Programmen zeilenweise Befehle in Form von Text einlesen, interpretieren und anschließend ausführen. Programme, die solche Schnittstellen anbieten, werden \textbf{CLI-Interpreter} genannt. Der Begriff \textbf{Shell} hat sich unter unixähnlichen Betriebssystemen als eine andere Bezeichnung für einen CLI-Interpreter eingebürgert. Bekannte CLI-Interpreter sind zum Beispiel: \textbf{sh}, \textbf{bash} oder \textbf{Windows PowerShell}. [100]
+CLI steht für \textbf{Command Line Interface} (=textbasierende Schnittstelle) und darunter versteht man Schnittstellen, die für die Interaktion mit Programmen zeilenweise Befehle in Form von Text einlesen, interpretieren und anschließend ausführen. Programme, die solche Schnittstellen anbieten, werden \textbf{CLI-Interpreter} genannt. Der Begriff \textbf{Shell} hat sich unter unixähnlichen Betriebssystemen als eine andere Bezeichnung für einen CLI-Interpreter eingebürgert. Bekannte CLI-Interpreter sind zum Beispiel: \textbf{sh}, \textbf{bash} oder \textbf{Windows PowerShell}. [100] [102]
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_pic.png}\\
@@ -1551,11 +1557,11 @@ Erfahrene Nutzer greifen auch heute immer noch zu Kommandozeileninterpreter, da 
 
 \subsection{Geschichte}
 
-Die aller ersten Computer unterstützten keine Interaktiven Eingabe- oder Ausgabegeräte und daher war die Überwachung von Programmen nur mithilfe von Kontrolllampen und Schaltern möglich. Ab 1960 wurden die textbasierten Schnittstellen für die Interaktion eingeführt. Die Befehle für diese textbasierten Schnittstellen konnten mithilfe von Fernschreibern, wie der \textbf{Teletype Model 33 ASR}, auf Lochkarten gestanzt werden und von der Schnittstelle eingelesen, interpretiert und ausgeführt werden. \cite{wiki06} \cite{wiki08} \\
+Die aller ersten Computer unterstützten keine Interaktiven Eingabe- oder Ausgabegeräte und daher war die Überwachung von Programmen nur mithilfe von Kontrolllampen und Schaltern möglich. Ab 1960 wurden die textbasierten Schnittstellen für die Interaktion eingeführt. Die Befehle für diese textbasierten Schnittstellen konnten mithilfe von Fernschreibern, wie der \textbf{Teletype Model 33 ASR}, auf Lochkarten gestanzt werden und von der Schnittstelle eingelesen, interpretiert und ausgeführt werden. [104] [105]\\
 
 \begin{center}
 \includegraphics[scale=0.52]{img/teletype.jpg}\\
-Teletype Model 33 ASR \cite{wiki08}
+Teletype Model 33 ASR (Quelle: [105])
 \end{center}
 
 Anfangs der 1970er Jahre begann das Unternehmen Bell Labs die Entwicklung eines Betriebssystems namens \textbf{Unix}. Unix besaß eine mächtige CLI-Umgebung und konnte durch sogenannte \textbf{Pipes} die Ausgaben von Programmen umleiten. Es gab auch die Möglichkeit mehrere Programmanweisungen in ein Script zu verpacken und auszuführen. \\
@@ -1564,12 +1570,12 @@ Die Fernschreiber waren sehr ümständlich, da die Instruktionen erst gestanzt u
 
 \begin{center}
 \includegraphics[scale=2.0]{img/vt100.jpg}\\
-VT100 \cite{wiki09}
+VT100 (Quelle: http://de.wikipedia.org/wiki/VT100)
 \end{center}
 
-Die Terminals wurden jedoch schon 1977 durch den Einsatz von \textbf{Personal Computer} ersetzt. Seitdem werden richtige Terminals nicht mehr eingesetzt, sondern werden in Software emuliert. \cite{wiki09}\\
+Die Terminals wurden jedoch schon 1977 durch den Einsatz von \textbf{Personal Computer} ersetzt. Seitdem werden richtige Terminals nicht mehr eingesetzt, sondern werden in Software emuliert. [101]\\
 
-Obwohl der Einsatz von textbasierten Schnittstellen nachgelassen hat, finden sie immer noch große Verwendung. Einige Betriebssysteme (Windows, Mac OS, ...) und auch einige Programme (QEMU, CodeBlocks, Eclipse, ...) bieten neben ihren graphischen Oberflächen auch alternative textbasierte Schnittstellen an. Bei \textbf{Embedded Systems} werden auch häufig auf CLIs zurückgegriffen, da sie sehr Ressourcen freundlich sind, aber auch Router und Switches machen sich die Vorteile der CLI zu nutze. \cite{wiki06}
+Obwohl der Einsatz von textbasierten Schnittstellen nachgelassen hat, finden sie immer noch große Verwendung. Einige Betriebssysteme (Windows, Mac OS, ...) und auch einige Programme (QEMU, CodeBlocks, Eclipse, ...) bieten neben ihren graphischen Oberflächen auch alternative textbasierte Schnittstellen an. Bei \textbf{Embedded Systems} werden auch häufig auf CLIs zurückgegriffen, da sie sehr Ressourcen freundlich sind, aber auch Router und Switches machen sich die Vorteile der CLI zu nutze. [102]
 
 \subsection{Vor- und Nachteile}
 
@@ -2099,9 +2105,9 @@ Bei Verwendung von SQLite entscheidet der Einsatzbereich ob es sich bei einer Ei
 \lfoot{Alin Porcic}
 \section{Allgemeines}
 
-Die Kryptologie befasst sich mit der Informationssicherheit und hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen. Unzählige Informationen werden weltweit ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen hohen Wert haben können. Der Wert dieser Informationen geht dann verloren, wenn ein Unbefugter die Aussage der Informationen verstehen kann. Damit das nicht passiert, werden kryptographische Systeme entwickelt, die die Lesbarkeitgut von Informationen verhindern bzw. erschweren.\\
+Die Kryptologie befasst sich mit der Informationssicherheit und hat in der heutigen modernen Zeit einen sehr wichtigen Stellenwert eingenommen. Unzählige Informationen werden weltweit ausgetauscht und dabei kommt es öfter vor, dass die zu übertragenen Informationen einen hohen Wert haben können. Der Wert dieser Informationen geht dann verloren, wenn ein Unbefugter die Aussage der Informationen verstehen kann. Damit das nicht passiert, werden kryptographische Systeme entwickelt, die die Lesbarkeit von Informationen verhindern bzw. erschweren. [107] [108]\\
 
-Die Fähigkeit dieser Systeme die Informationen vor wirtschaftlichen Schäden zu schützen, ist einer von vielen Bedingungen der Informationssicherheit. Die Minimierung von Risiken, der Schutz vor Bedrohungen und die Einhaltung der Schutzziele sind ebenfalls Anforderungen der Informationssicherheit. Für die Einhaltung der Ziele der Informationssicherheit werden folgende Schutzziele definiert:
+Die Fähigkeit dieser Systeme die Informationen vor wirtschaftlichen Schäden zu schützen, ist einer von vielen Bedingungen der Informationssicherheit. Die Minimierung von Risiken, der Schutz vor Bedrohungen und die Einhaltung der Schutzziele sind ebenfalls Anforderungen der Informationssicherheit. Für die Einhaltung der Ziele der Informationssicherheit werden folgende Schutzziele definiert: [110]
 
 \begin{itemize}
 \item Vertraulichkeit (Englisch: confidentiality): Die Vertraulichkeit gibt an, dass die Aussage der Informationen vor unbefugten Personen geschützt ist und nicht modifiziert werden kann.
@@ -2113,15 +2119,13 @@ Die Fähigkeit dieser Systeme die Informationen vor wirtschaftlichen Schäden zu
 \item oft auch Anonymität
 \end{itemize}
 
-(vgl. Wikipedia - Informationssicherheit)\\\\
-
-Verfahren, die versuchen Informationen zu verbergen, sind nichts neues - die ersten Ansätze und Anwendungen von kryptographischen Systemen reichen weit in die Vergangenheit der Menschheit zurück. Schon seit 2500 Jahren sind Methoden bekannt, die die Lesbarkeit von wichtigen Informationen zu verhindern versuchten. In Sparta, als Beispiel, hat die Regierung ein Pergamentband um einen Zylinder spiralförmig aufgespannt und die zu ermittelnde Nachricht über die verschiedenen Ringe des Pergaments geschrieben. Die Entschlüsselung gelang nur dann, wenn man einen Zylinder mit dem gleichem Durchmesser besaß (siehe Monoalphabetische Chiffrierung).\\
+Verfahren, die versuchen Informationen zu verbergen, sind nichts neues - die ersten Ansätze und Anwendungen von kryptographischen Systemen reichen weit in die Vergangenheit der Menschheit zurück. Schon seit 2500 Jahren sind Methoden bekannt, die die Lesbarkeit von wichtigen Informationen zu verhindern versuchten. In Sparta, als Beispiel, hat die Regierung ein Pergamentband um einen Zylinder spiralförmig aufgespannt und die zu ermittelnde Nachricht über die verschiedenen Ringe des Pergaments geschrieben. Die Entschlüsselung gelang nur dann, wenn man einen Zylinder mit dem gleichem Durchmesser besaß (siehe Monoalphabetische Chiffrierung). [107]\\
 
 Die Kryptologie ist heute ein sehr wichtiger Bestandteil in der Informationstechnik und wird auch in Zukunft eine sehr wichtige Rolle spielen. Im heutigen normalen Alltag sind wir fast immer auf kryptographische Systeme angewiesen: das einfache Surfen im Internet, das Abrufen und Versenden von E-Mails, E-Banking, die Abspeicherung von Passwörtern, das Telefonieren - alle diese Dinge werden mithilfe von kryptographischen Verfahren vor unbefugtem Lesen oder Modifizieren verhindert. Ohne es zu bemerken oder gar davon Bescheid zu wissen, verwenden und verlassen sich Milliarden von Menschen auf solche Sytemen.
 
 \subsection{Grundbegriffe der Kryptologie}
 
-Um die folgenden Kapitel verstehen zu können, müssen die Grundbegriffe der Kryptologie erst definiert werden. In dieser Arbeit werden folgende Begriffe deklariert:
+Um die folgenden Kapitel verstehen zu können, müssen die Grundbegriffe der Kryptologie erst definiert werden. In dieser Arbeit werden folgende Begriffe deklariert: [107] [108]
 
 \begin{itemize}
 \item \textbf{Cipher}: Der Cipher ist der mathemathische Algorithmus auf der das kryptographische System aufbaut.
@@ -2136,7 +2140,7 @@ Um die folgenden Kapitel verstehen zu können, müssen die Grundbegriffe der Kry
 \section{Kryptographie}
 
 Die Kryptographie befasst sich mit der Entwicklung von kryptographischen Systemen und das Ziel dieser Entwicklungen ist es, die Schutzziele der Informationssicherheit einzuhalten (siehe Kryptologie). \\
-Die Sicherheit eines kryptographischen Systems darf nicht von der Geheimhaltung des Algorithmus abhängen. Nur die Geheimhaltung der Eingangsgrößen des Algorithmus soll die Sicherheit gewehrleisten. \textbf{Security through obscurity} (= Sicherheit durch Obskurität) ist einer der wichtigsten Leitgedanken für kryptographische Systeme nach dem Kerckhoffs' Prinzip (oder Kerckhoffs' Maxime). Das Kerckhoffs' Prinzip definiert weiter wichtige Grundsätze, die ein modernes kryptographisches System erfüllen sollte. (vgl. Wikipedia - Kerckhoffs' Prinzip)
+Die Sicherheit eines kryptographischen Systems darf nicht von der Geheimhaltung des Algorithmus abhängen. Nur die Geheimhaltung der Eingangsgrößen des Algorithmus soll die Sicherheit gewehrleisten. \textbf{Security through obscurity} (= Sicherheit durch Obskurität) ist einer der wichtigsten Leitgedanken für kryptographische Systeme nach dem Kerckhoffs' Prinzip (oder Kerckhoffs' Maxime). Das Kerckhoffs' Prinzip definiert weiter wichtige Grundsätze, die ein modernes kryptographisches System erfüllen sollte. [112]
 
 \subsection{Geschichte der Kryptographie}
 
@@ -2144,40 +2148,40 @@ Die Sicherheit eines kryptographischen Systems darf nicht von der Geheimhaltung 
 
 \paragraph{Monoalphabetische Chiffrierung}
 
-Vor mehr als 2500 Jahren hat man einen \textbf{Skytale} für die Verschlüsselung von Informationen verwendet. Man hat ein Pergamentband oder einen Lederstreifen spiralförmig um den Skytale gewickelt und die zu verschlüsselnde Nachricht über die einzelnen Ringe der Streifen geschrieben. Nun konnte man das Band bei der Übermittlung abgefangen werden, doch ohne den richtigen Skytale nicht entschlüsselt werden. Nur der Empfänger, der im Besitz eines Skytales mit gleichem Durchmesser war, kann die für ihn bestimmte Nachricht entschlüsseln. Dieses Verschlüsselungssystem ist symmetrisch, da für die Ver- und Entschlüsselung der Durchmesser des Skytales unverändert bleibt. Der Durchmesser des Skytales wird in diesem Verfahren als der Schlüssel bezeichnet. Kennt man den Schlüssel, so kann man, sofern das kryptografische System bekannt ist, die Nachricht entschlüsselen. \cite{krypto01}\\\\
+Vor mehr als 2500 Jahren hat man einen \textbf{Skytale} für die Verschlüsselung von Informationen verwendet. Man hat ein Pergamentband oder einen Lederstreifen spiralförmig um den Skytale gewickelt und die zu verschlüsselnde Nachricht über die einzelnen Ringe der Streifen geschrieben. Nun konnte man das Band bei der Übermittlung abgefangen werden, doch ohne den richtigen Skytale nicht entschlüsselt werden. Nur der Empfänger, der im Besitz eines Skytales mit gleichem Durchmesser war, kann die für ihn bestimmte Nachricht entschlüsseln. Dieses Verschlüsselungssystem ist symmetrisch, da für die Ver- und Entschlüsselung der Durchmesser des Skytales unverändert bleibt. Der Durchmesser des Skytales wird in diesem Verfahren als der Schlüssel bezeichnet. Kennt man den Schlüssel, so kann man, sofern das kryptografische System bekannt ist, die Nachricht entschlüsselen. [107]\\\\
 
 \begin{center}
 \includegraphics[scale=0.3]{img/krypto_skytale.png}\\
-ein Skytale \cite{wiki10}
+ein Skytale (Quelle: http://de.wikipedia.org/wiki/Skytale)
 \end{center}
 
-Ein weiteres monoalphabetisches Verfahren ist die \textbf{Caesar-Verschlüsselung}. Dieses Verfahren verschob alle Buchstaben des Klartextalphabets um eine bestimmte Zahl. Der Kommunikationspartner musste über die Anzahl der Verschiebungen informiert sein, da dieser sonst den Text nicht entschlüsseln konnte. Der Schlüssel, also die Anzahl der Verschiebungen, musste dem Kommunikationsparnter über einen sicheren Kanal übermittelt werden. \cite{krypto01}\\
+Ein weiteres monoalphabetisches Verfahren ist die \textbf{Caesar-Verschlüsselung}. Dieses Verfahren verschob alle Buchstaben des Klartextalphabets um eine bestimmte Zahl. Der Kommunikationspartner musste über die Anzahl der Verschiebungen informiert sein, da dieser sonst den Text nicht entschlüsseln konnte. Der Schlüssel, also die Anzahl der Verschiebungen, musste dem Kommunikationsparnter über einen sicheren Kanal übermittelt werden. [107]\\
 
-Die Tauschchiffre ist eine verbesserte Variante des Caesar-Verfahren. Die Buchstaben des Alphabets werden mit Zahlen dargestellt und der Buchstabe A wird meistens mit 1 dargestellt, B mit 2, X mit 25 und Z mit 0. Nun wird statt einer Addition die Buchstaben mit einer Geheimzahl multipliziert. Die Geheimzahl muss aber mit der Anzahl der möglichen Buchstaben teilerfremd sein, da sonst Kollisionen entstehen. Eine Kollision tritt auf, wenn zwei verschiedene Buchstaben gleich verschlüsselt werden. Kollisionen sind zu vermeiden, da sonst der Cipher-Text nicht mehr entschlüsselt werden kann. Bei 26 Buchstaben können wir zum Beispiel 3 als Geheimzahl nehmen. Als letztes müssen wir noch einen Modulus durchführen, damit das Ergebnis der Multiplikation auf das Alphabet mit 26 Buchstaben abgebildet wird. Dieses Verfahren ist deutlich schwieriger zu Entschlüsseln als die Caesar-Verschlüsselung. Jedoch kann dieses Verfahren auch über Häufigkeitsberechnungen entschlüsselt werden, da jeder Buchstabe gleich verschlüsselt wird.  \cite{krypto01}\\
+Die Tauschchiffre ist eine verbesserte Variante des Caesar-Verfahren. Die Buchstaben des Alphabets werden mit Zahlen dargestellt und der Buchstabe A wird meistens mit 1 dargestellt, B mit 2, X mit 25 und Z mit 0. Nun wird statt einer Addition die Buchstaben mit einer Geheimzahl multipliziert. Die Geheimzahl muss aber mit der Anzahl der möglichen Buchstaben teilerfremd sein, da sonst Kollisionen entstehen. Eine Kollision tritt auf, wenn zwei verschiedene Buchstaben gleich verschlüsselt werden. Kollisionen sind zu vermeiden, da sonst der Cipher-Text nicht mehr entschlüsselt werden kann. Bei 26 Buchstaben können wir zum Beispiel 3 als Geheimzahl nehmen. Als letztes müssen wir noch einen Modulus durchführen, damit das Ergebnis der Multiplikation auf das Alphabet mit 26 Buchstaben abgebildet wird. Dieses Verfahren ist deutlich schwieriger zu Entschlüsseln als die Caesar-Verschlüsselung. Jedoch kann dieses Verfahren auch über Häufigkeitsberechnungen entschlüsselt werden, da jeder Buchstabe gleich verschlüsselt wird. [107]\\
 
 \begin{center}
 \includegraphics[scale=0.35]{img/tauschchiffre.png}\\
-Anwendung der Tauschchiffre (Quelle: Einführung in die Kryptologie, Tino Hempel \cite{krypto01})
+Anwendung der Tauschchiffre (Quelle: [107])
 \end{center}
 
-Eine andere Art von monoalphabetische Chiffre sind die Schlüsselwörter. Für die Verschlüsselung wird ein Schlüsselwort und Schlüsselbuchstabe definiert. Nun werden gleiche Buchstaben aus dem Schlüsselwort herausgenommen und das Schlüsselwort wird in das Klartextalphabet an der Stelle des Schlüsselbuchstabe hineingesetzt. Die im Schlüsselwort enthaltenen Buchstaben müssen aus dem Klartexalphabet herausgenommen werden, weil sonst Kollisionen entstehen. Nun können Wörter in das neue Alphabet übersetzt werden.
+Eine andere Art von monoalphabetische Chiffre sind die Schlüsselwörter. Für die Verschlüsselung wird ein Schlüsselwort und Schlüsselbuchstabe definiert. Nun werden gleiche Buchstaben aus dem Schlüsselwort herausgenommen und das Schlüsselwort wird in das Klartextalphabet an der Stelle des Schlüsselbuchstabe hineingesetzt. Die im Schlüsselwort enthaltenen Buchstaben müssen aus dem Klartexalphabet herausgenommen werden, weil sonst Kollisionen entstehen. Nun können Wörter in das neue Alphabet übersetzt werden. [107]
 
 \begin{center}
 \includegraphics[scale=0.38]{img/schluesselwortes.png}\\
-Anwendung des Schlüsselwortes (Quelle: Einführung in die Kryptologie, \cite{krypto01})
+Anwendung des Schlüsselwortes (Quelle: [107])
 \end{center}
 
 \newpage
 \paragraph{Polyalphabetische Chiffrierung}
 
-Die \textbf{Vigenère-Chiffre} wurde 1586 von dem Franzonsen \textbf{Blaise de Vigenère} in die Welt gesetzt. Damit man einen Text verschlüsseln konnte, brauchte man als erstes ein Schlüsselwort und das Vigenère-Quadrat. In der ersten Zeile des Quadrats sind alle Buchstaben des Alphabets aufgelistet, beginnent mit A. In der zweiten Zeile ist das Alphabet aus der ersten Zeile um eine Stelle nach links verschoben, sodass der erste Buchstabe B ist. In der letzten Zeile ist der erste Buchstabe das Z. Nun wird das Schlüsselwort unter dem Klartext geschrieben und falls notwendig wiederholt.\\
+Die \textbf{Vigenère-Chiffre} wurde 1586 von dem Franzonsen \textbf{Blaise de Vigenère} in die Welt gesetzt. Damit man einen Text verschlüsseln konnte, brauchte man als erstes ein Schlüsselwort und das Vigenère-Quadrat. In der ersten Zeile des Quadrats sind alle Buchstaben des Alphabets aufgelistet, beginnent mit A. In der zweiten Zeile ist das Alphabet aus der ersten Zeile um eine Stelle nach links verschoben, sodass der erste Buchstabe B ist. In der letzten Zeile ist der erste Buchstabe das Z. Nun wird das Schlüsselwort unter dem Klartext geschrieben und falls notwendig wiederholt. [107]\\
 
 \begin{center}
 \includegraphics[scale=0.5]{img/vigere_quadrat.png}\\
 das Vigenère-Quadrat (Quelle: http://www.inf-schule.de/kommunikation/kryptologie/historischechiffriersysteme/station\_onetimepad)
 \end{center}
 
-Angenommen 'JamesBond' wäre das Schlüsselwort und man möchte 'Der abgeschlossene Roman' verschlüsseln, dann müssten man das Schlüsselwort wiederholend über den Klartext schreiben. Der erste Buchstabe des Schlüsselwortes ist das J und der erste Buchstabe des Klartextes ist das D. Nun sucht man den Buchstaben in der Spalte D und der Zeile J. Dieser Buchstabe ist in diesem Beispiel der Buchstabe M. Man bemerkt schnell den Vorteil der polyalphabetischen Chiffrierungen: die Verschlüsselung eines Buchstaben hängt nicht nur von ihm ab, sondern auch von der Position des Buchstaben, da der Buchstabe des Schlüsselwortes auch relevant ist.
+Angenommen 'JamesBond' wäre das Schlüsselwort und man möchte 'Der abgeschlossene Roman' verschlüsseln, dann müssten man das Schlüsselwort wiederholend über den Klartext schreiben. Der erste Buchstabe des Schlüsselwortes ist das J und der erste Buchstabe des Klartextes ist das D. Nun sucht man den Buchstaben in der Spalte D und der Zeile J. Dieser Buchstabe ist in diesem Beispiel der Buchstabe M. Man bemerkt schnell den Vorteil der polyalphabetischen Chiffrierungen: die Verschlüsselung eines Buchstaben hängt nicht nur von ihm ab, sondern auch von der Position des Buchstaben, da der Buchstabe des Schlüsselwortes auch relevant ist. [107]
 
 \begin{center}
 \includegraphics[scale=0.5]{img/vingere.png}\\
@@ -2195,7 +2199,7 @@ die Enigma (Quelle: http://de.wikipedia.org/wiki/Enigma\_\%28Maschine\%29)
 
 \subsection{Ziele der Kryptographie}
 
-Kryptographische Systeme, die in der heutigen Zeit eingesetzt werden, müssen folgende Schutzziele einhalten, da sonst die Sicherheit der Informationen nicht gegeben ist: \cite{wiki02}
+Kryptographische Systeme, die in der heutigen Zeit eingesetzt werden, müssen folgende Schutzziele einhalten, da sonst die Sicherheit der Informationen nicht gegeben ist: [108]
 
 \begin{itemize}
 
@@ -2240,7 +2244,7 @@ Heute teilt man die verschiedenen kryptographischen Systemen grob in zwei versch
 
 \subsubsection{Symmetrische Verschlüsselungsverfahren}
 
-Symmetrische Verschlüsselungsverfahren charakterisieren sich dadurch, dass bei der Ver- als auch bei der Entschlüsselung jeweils der gleiche Schlüssel verwendet wird. Diese Verfahren sind im Vergleich zu asymmetrischen Verfahren deutlich performanter und werden daher bei der Verschlüsselung von größeren Datenmengen verwendet.\\
+Symmetrische Verschlüsselungsverfahren charakterisieren sich dadurch, dass bei der Ver- als auch bei der Entschlüsselung jeweils der gleiche Schlüssel verwendet wird. Diese Verfahren sind im Vergleich zu asymmetrischen Verfahren deutlich performanter und werden daher bei der Verschlüsselung von größeren Datenmengen verwendet. [113]\\
 
 \begin{center}
 \includegraphics[scale=3]{img/sym.png}\\
@@ -2287,7 +2291,7 @@ der Verschlüsselungsvorgang bei OFB (Quelle: http://de.wikipedia.org/wiki/Outpu
 \subsubsection{Asymmetrische Verschlüsselungsverfahren}
 
 Asymmetrische Methoden benötigen für die Ent- und Verschlüsselung verschiedene Schlüssel. Diese Schlüssel werden mit \textbf{Public-Key} (=öffentlicher Schlüssel) und \textbf{Private-Key} (=privater Schlüssel) bezeichnet. Falls die Information mit dem Public-Key verschlüsselt wurden, ist eine Entschlüsselung nur mithilfe des Private-Key möglich. Werden die Informationen jedoch mit dem Private-Key verschlüsselt, ist eine Entschlüsselung nur mit dem Public-Key mehr möglich.\\
-Einen der beiden Schlüssel muss für die Verwendung veröffentlich werden, damit eine Kommunikation möglich ist. Welcher der beiden Schlüssel veröffentlich wird, ist irrelevant, da die zwei Verschlüsselungsmöglichkeiten beidseitig funktionieren. Der Schlüssel, den man veröffentlicht, wird in der Praxis als der Public-Key bezeichnet.\\
+Einen der beiden Schlüssel muss für die Verwendung veröffentlich werden, damit eine Kommunikation möglich ist. Welcher der beiden Schlüssel veröffentlich wird, ist irrelevant, da die zwei Verschlüsselungsmöglichkeiten beidseitig funktionieren. Der Schlüssel, den man veröffentlicht, wird in der Praxis als der Public-Key bezeichnet. [114]\\
 
 \begin{center}
 \includegraphics[scale=3]{img/asym.png}\\
@@ -2308,20 +2312,20 @@ Digitale Zertifikate sind Ansammlungen von Daten, die mithilfe von kryptographis
 
 \subsubsection{Hybride Verschlüsselungsverfahren}
 
-\textbf{Hybride Verschlüsselungsverfahren} sind kryptographische Verfahren, die asymmetrische und symmetrische Verschlüsselungsverfahren in Kombination einsetzten. Da die Übermittlung des Schlüssels allein mit symmetrischen Verfahren nicht möglich ist, da der Schlüssel im Klartext übertragen wird, verlassen sich hybride Verfahren bei dem Schlüsselaustausch (=key-exchange) auf asymmetrische Verschlüsselungssysteme.
+\textbf{Hybride Verschlüsselungsverfahren} sind kryptographische Verfahren, die asymmetrische und symmetrische Verschlüsselungsverfahren in Kombination einsetzten. Da die Übermittlung des Schlüssels allein mit symmetrischen Verfahren nicht möglich ist, da der Schlüssel im Klartext übertragen wird, verlassen sich hybride Verfahren bei dem Schlüsselaustausch (=key-exchange) auf asymmetrische Verschlüsselungssysteme. [115]
 
 \subsubsection{Hash-Verfahren}
 
-Eine \textbf{Hashfunktion} ist eine Funktion, die eine beliebige Menge an Eingangsinformationen auf eine fixe Länge an Ausgangsinformationen abbildet.  Das Ziel von Hashfunktionen ist das Erschweren der Suche nach Kollisionen. Kollisionen können bei Hashfunktionen nicht verhindert werden, weil die Länge der Eingangsinformationen größer als die Länge der Ausgangsinformationen sein kann. Ein weiteres Ziel von Hashfunktionen ist das Verhindern der Möglichkeit des Rückrechnens, also die Ermittlung der Eingangsgröße aus der Ausgangsgröße.\cite{wiki04}
+Eine \textbf{Hashfunktion} ist eine Funktion, die eine beliebige Menge an Eingangsinformationen auf eine fixe Länge an Ausgangsinformationen abbildet.  Das Ziel von Hashfunktionen ist das Erschweren der Suche nach Kollisionen. Kollisionen können bei Hashfunktionen nicht verhindert werden, weil die Länge der Eingangsinformationen größer als die Länge der Ausgangsinformationen sein kann. Ein weiteres Ziel von Hashfunktionen ist das Verhindern der Möglichkeit des Rückrechnens, also die Ermittlung der Eingangsgröße aus der Ausgangsgröße.[111]
 
 \newpage
 \section{Kryptoanalyse}
 
-Die Krytpoanalyse beschäftigt sich mit Methoden und Techniken aus einem verschlüsselten Text Informationen zu gewinnen. Sie ist das Gegenstück zur Kryptographie und versucht das kryptographische System durch die Anwendung von bestimmten Methoden zu umgehen.
+Die Krytpoanalyse beschäftigt sich mit Methoden und Techniken aus einem verschlüsselten Text Informationen zu gewinnen. Sie ist das Gegenstück zur Kryptographie und versucht das kryptographische System durch die Anwendung von bestimmten Methoden zu umgehen. [109]
 
 \subsection{Ziele der Kryptoanalyse}
 
-Das oberste Ziel der Kryptoanalyse ist die Ermittlung des Schlüssels, um an den Wert der Informationen zu gelangen. Damit die Kryptoanalyse das Ziel erreichen kann, muss das kryptographische System unwirksam gemacht werden, entweder durch ausprobieren des Schlüssels oder anderen Methoden. Oftmals ist das Knacken des kryptographischen Systems für die Ermittlung des Schlüssels gar nicht notwendig, da die falsche Anwendung des Systems, schwache Passwörter usw. meistens ausreichen, das kryptographische System zu umgehen.
+Das oberste Ziel der Kryptoanalyse ist die Ermittlung des Schlüssels, um an den Wert der Informationen zu gelangen. Damit die Kryptoanalyse das Ziel erreichen kann, muss das kryptographische System unwirksam gemacht werden, entweder durch ausprobieren des Schlüssels oder anderen Methoden. Oftmals ist das Knacken des kryptographischen Systems für die Ermittlung des Schlüssels gar nicht notwendig, da die falsche Anwendung des Systems, schwache Passwörter usw. meistens ausreichen, das kryptographische System zu umgehen. [109]
 
 \subsection{Methoden}
 
@@ -2339,15 +2343,15 @@ Das oberste Ziel der Kryptoanalyse ist die Ermittlung des Schlüssels, um an den
 
 \paragraph{DES}
 
-DES wurde 1975 von IBM veröffentlicht und basierte auf den Verschlüsselungsalgorithmus namens 'Lucifer'. DES verwendet für die Verschlüsselung einen 64 Bit langen Schlüssel, jedoch werden 8 davon als Prüfsumme verwendet. Dieses Verschlüsselungsverfahren ist nicht mehr sicher, da die heutigen Computer die 56 bit langen Schlüssel mit Brute-Force-Attacken innerhalb weniger Stunde knacken können.
+DES wurde 1975 von IBM veröffentlicht und basierte auf den Verschlüsselungsalgorithmus namens 'Lucifer'. DES verwendet für die Verschlüsselung einen 64 Bit langen Schlüssel, jedoch werden 8 davon als Prüfsumme verwendet. Dieses Verschlüsselungsverfahren ist nicht mehr sicher, da die heutigen Computer die 56 bit langen Schlüssel mit Brute-Force-Attacken innerhalb weniger Stunde knacken können. [116]
 
 \paragraph{3DES}
 
-Triple DES ist der Nachfolger des DES-Standarts und wendet für die Ver- und Entschlüsselung DES dreimal an. Hierbei verwendet das Verfahren zwei 64 Bit lange Schlüssel, die abwechselend eingesetzt werden. Jedoch werden von den zwei 64 Bit langen Schlüssel bei dem Verfahren nur 112 Bit effektiv eingesetzt, da die restlichen Bits für Prüfzwecke benötigt werden. Dieses Verfahren gilt grundsätzlich noch als sicher, doch es wird drigenst geraten auf einen Ersatz umzusteigen.
+Triple DES ist der Nachfolger des DES-Standarts und wendet für die Ver- und Entschlüsselung DES dreimal an. Hierbei verwendet das Verfahren zwei 64 Bit lange Schlüssel, die abwechselend eingesetzt werden. Jedoch werden von den zwei 64 Bit langen Schlüssel bei dem Verfahren nur 112 Bit effektiv eingesetzt, da die restlichen Bits für Prüfzwecke benötigt werden. Dieses Verfahren gilt grundsätzlich noch als sicher, doch es wird drigenst geraten auf einen Ersatz umzusteigen. [117]
 
 \paragraph{AES}
 
-AES, der ausgewählte Nachfolger von DES, wurde im Oktober 2000 vom 'National Institute of Standards and Technology' als neuer Standard freigegeben. AES ist ein Blockchiffre und kann für die Verschlüsselung 128, 160, 192, 224 oder 256 Bit langen Schlüssel verwenden. Bis heute ist der AES-Standard nocht im Gebrauch und auch immer noch kryptographisch sicher.
+AES, der ausgewählte Nachfolger von DES, wurde im Oktober 2000 vom 'National Institute of Standards and Technology' als neuer Standard freigegeben. AES ist ein Blockchiffre und kann für die Verschlüsselung 128, 160, 192, 224 oder 256 Bit langen Schlüssel verwenden. Bis heute ist der AES-Standard nocht im Gebrauch und auch immer noch kryptographisch sicher. [118]
 
 \subsection{Asymmetrische Verschlüsselungsverfahren}
 
@@ -2355,17 +2359,17 @@ AES, der ausgewählte Nachfolger von DES, wurde im Oktober 2000 vom 'National In
 
 \paragraph{Diffie-Hellman}
 
-Diffie-Hellman ist ein Austauschprotkoll, welches den Austausch eines geheimen Schlüssels erlaubt. Es ist praktisch unmöglich aus den gesendeten Informationen den Schlüssel zu berechen - dieses Problem wird als das Diffie-Hellman-Problem bezeichnet.
+Diffie-Hellman ist ein Austauschprotkoll, welches den Austausch eines geheimen Schlüssels erlaubt. Es ist praktisch unmöglich aus den gesendeten Informationen den Schlüssel zu berechen - dieses Problem wird als das Diffie-Hellman-Problem bezeichnet. [119]
 
 \paragraph{RSA}
 
-RSA (Rivest-Shamir-Adleman) wird für Verschlüsselungen und digitale Signaturen verwendet.
+RSA (Rivest-Shamir-Adleman) wird für Verschlüsselungen und digitale Signaturen verwendet. [120]
 
 \subsection{Hybride Verschlüsselungsverfahren}
 
 \subsubsection{Merkmale}
 
-Hybride Verschlüsselungssysteme nutzen die Vorteile der symmetrischen und asymetrischen Systeme aus. Bei diesen Verfahren wird ein geheimer Schlüssel zwischen den Parntern mithilfe eines asymmetrischen Systems ausgemacht. Dieser Vorgang ist oftmals sehr rechenintensiv und wird daher nur einmal pro Sitzung durchgeführt. Nachdem der Schlüssel ausgetauscht wurde wird mit einem symmetischen System gearbeite, da diese sehr viel weniger Leistung vüf die Ver- und Entschlüsselungen benötigen.
+Hybride Verschlüsselungssysteme nutzen die Vorteile der symmetrischen und asymetrischen Systeme aus. Bei diesen Verfahren wird ein geheimer Schlüssel zwischen den Parntern mithilfe eines asymmetrischen Systems ausgemacht. Dieser Vorgang ist oftmals sehr rechenintensiv und wird daher nur einmal pro Sitzung durchgeführt. Nachdem der Schlüssel ausgetauscht wurde wird mit einem symmetischen System gearbeite, da diese sehr viel weniger Leistung vüf die Ver- und Entschlüsselungen benötigen. [115]
 
 \subsubsection{Nenneswerte hybride Verschlüsselungssysteme}
 
@@ -2373,41 +2377,42 @@ Hybride Verschlüsselungssysteme nutzen die Vorteile der symmetrischen und asyme
 
 IPsec ist eine Ansammlung an Protokollen und Verschlüsselungssystemen, die modular verwendet werden können. IPsec kapselt und verschlüsselt gewöhnliche IP-Pakete. IPsec versucht die Lesbarkeit, Manipulation oder Weiterleitung von Paketen zu verhindern. Mit IPsec können Netzwerkgeräte, die die Pakete weiterleiten, nicht sehen an wen oder von wem die gesendeten Paket kommen.
 
-IPsec ist eine Ansammlng an verschiedenen Protokollen und Verschlüsselungssystemen, die modular verwendet werden können. IPsec kapselt und verschlüsselt IP-Pakete, damit die Pakete nicht von Netzwerkgeräten umgeleitet, gelesen oder geändert werden können. Zudem ist es für ein Netzwerkgerät dazwischen unmöglich zu ermitteln, wer das Paket verschickt hat bzw. wer das Paket empfängt.
+IPsec ist eine Ansammlng an verschiedenen Protokollen und Verschlüsselungssystemen, die modular verwendet werden können. IPsec kapselt und verschlüsselt IP-Pakete, damit die Pakete nicht von Netzwerkgeräten umgeleitet, gelesen oder geändert werden können. Zudem ist es für ein Netzwerkgerät dazwischen unmöglich zu ermitteln, wer das Paket verschickt hat bzw. wer das Paket empfängt. [121]
 
 \paragraph{TLS/SSL}
 
-TLS steht für \textbf{Transport Security Layer} (alte Bezeichnung: SSL, Secure-Socket-Layer) und wird bei HTTPS eingesetzt.
+TLS steht für \textbf{Transport Security Layer} (alte Bezeichnung: SSL, Secure-Socket-Layer) und wird bei HTTPS eingesetzt. [122]
 
 \paragraph{PGP}
 
-PGP steht für \textbf{Pretty-Good-Privacy} und ist ein Programm, welches die Verschlüsselung und Entschlüsselung von Daten erlaubt. Wird in der Praxis für das Ver- und Entschlüsseln von E-Mails verwendent.
+PGP steht für \textbf{Pretty-Good-Privacy} und ist ein Programm, welches die Verschlüsselung und Entschlüsselung von Daten erlaubt. Wird in der Praxis für das Ver- und Entschlüsseln von E-Mails verwendent. [123]
 
 \subsection{Hash-Verfahren}
 
 \paragraph{MD5}
 
-MD5 steht für \textbf{Message-Digest Algorithm 5} und gibt bei beliebiger Eingangsgröße einen 128 Bit langen Hashwert aus. Diese Methode wird oft für die Bestätigung der Vollständigkeit von Daten verwendet und ist heute nicht mehr für den Einsatz zu empfehlen.
+MD5 steht für \textbf{Message-Digest Algorithm 5} und gibt bei beliebiger Eingangsgröße einen 128 Bit langen Hashwert aus. Diese Methode wird oft für die Bestätigung der Vollständigkeit von Daten verwendet und ist heute nicht mehr für den Einsatz zu empfehlen. [124]
 
 \paragraph{SHA}
 
-SHA steht für \textbf{Seucre-Hash-Algorithm} und ist eine Ansammulung von mehreren standarisierte Hashverfahren, die heute für digitale Signaturen und Prüfsummen verwendet werden.
+SHA steht für \textbf{Seucre-Hash-Algorithm} und ist eine Ansammulung von mehreren standarisierte Hashverfahren, die heute für digitale Signaturen und Prüfsummen verwendet werden. [125]
 
 \part{Programmrealisierung}
 
-\chapter{Schnittstellen}
+\chapter{Schnittstellen (Alin Porcic / Manpreet Singh)}
 
 \section{CLI (Alin Porcic)}
 \lfoot{Alin Porcic}
 
 \subsection{Allgemeines}
 
-Das Programm bietet eine integrierte textbasierende Schnittstelle für die primäre Verwendung an. Mit der CLI lassen sich viele Befehle mit komplexen Parametern und Argumente realisieren. Der Syntax der CLI-Eingaben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden. Die Anordnung der Parameter und Argumente ist für die diese CLI-Implementierung irrelevant.\\
-Nach Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert. Ist die Interpretation der Eingabe nicht möglich, da zum Beispiel ein Paramter mehrfach definiert wurde, wird eine Fehlermeldung in roter Farbe ausgegeben. Einige Fehlermeldungen, die ausgegeben werden können, sind zum Beispiel:
+Das Programm bietet eine integrierte textbasierende Schnittstelle für die primäre Verwendung an. Der Syntax der CLI-Eingaben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden. Die Anordnung der Parameter und Argumente ist für die diese CLI-Implementierung irrelevant.\\
+
+Nach dem Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert. Ist die Interpretation der Eingabe nicht möglich, da zum Beispiel ein Paramter mehrfach definiert wurde, wird eine Fehlermeldung in roter Farbe ausgegeben. Einige Fehlermeldungen, die ausgegeben werden können, sind zum Beispiel:
 
 \begin{itemize}
 \item \textbf{Command not known}: Befehl ist nicht definiert und kann nicht ausgeführt werden.
-\item \textbf{Parameter not known}: der Befehl existiert, doch der angeführte Parameter für diesen Befehl existiert nicht.
+\item \textbf{Parameter not known}: Der Befehl existiert, doch der angeführte Parameter für diesen Befehl existiert nicht.
 \item \textbf{Argument could not be parsed}: Das eingegeben Argument konnte nicht in ein Objekt umgewandelt werden.
 \item ...
 \end{itemize}
@@ -2418,37 +2423,37 @@ Mit der linken und rechten Pfeiltaste kann die Position des Cursors im Eingabefe
 
 Die CLI ist programmtechnisch einfach aufgebaut: CLIInput, CLIFramework und CLIOutput. Die CLIInput-Komponente hat die einfache Aufgabe, die Eingabe einzulesen. Dabei soll der Cursor verschiebbar sein und eine History mit den zuletzt eingegebenen Befehle gesammelt werden.\\
 Nachdem die Eingabe-Zeile eingelesen wurde, übernimmt das CLIFramework den schwierigen Teil: das Interpretieren. Es wird versucht, die einzelnen Parameter und deren Argumente aus dem Text zu lesen, diese in Objekte umwandeln und zu überprüfen ob der Befehl überhaupt ausführbar ist. Falls die Ausführung nicht möglich ist, da ein obligatorischer Parameter fehlt oder die Argumente eines Parameters fehlen, muss das CLIFramework die passende Fehlermeldung zurückgeben und die Ausführung verweigern.\\
-Das CLIFramework spricht den Benutzer über die CLIOutput-Komponente an. Diese Komponente muss sogenannte 'Color-Tags' (also Farbmarkierungen) aus dem Text lesen können und diese mit den entsprechenden Farben ersetzen. Zum Beispiel muss der String '<color><blue>EinText' in Blau geschrieben werden.
+Das CLIFramework spricht den Benutzer über die CLIOutput-Komponente an. Diese Komponente muss sogenannte 'Color-Tags' (also Farbmarkierungen) aus dem Text lesen können und diese mit den entsprechenden Farben ersetzen. Zum Beispiel muss der String '\textless color\textgreater \textless blue\textgreater EinText' in Blau geschrieben werden.
 
 \begin{center}
 \includegraphics[scale=2.0]{img/mad_cli.png}\\
 Funktionsweise der CLI
 \end{center}
 
-\subsection{Probleme}
+\subsection{Probleme und Beschränkungen}
 
-Bei der CLI tauchten einige Probleme bei der Eingabe von Befehlen auf. Das .NET-Framework bietet eine Möglichekeit zeilenweise Eingaben einzulesen und dabei kann die Position des Cursors geändert werden. Bei Linux ist leider dies mit Mono leider nicht möglich und daher musste eine eigene Methode entwickelt werden, die zeilenweise Eingaben einlesen kann und die Möglichkeit besteht den Cursor zu verändern oder eine History aufzurufen.\\
-Ein weiters Problem bei der Implementierung ist, dass das Eingabefeld nicht über mehrer Zeilen gehen kann. Dies konnte aus Komplikationsgründen nicht erzielt werden.
-Aus komplikationsgründen ist es auch nicht möglich, interaktive Befehle für die CLI zu schreiben, da die Befehle auch über den CLI-Server funktionieren müssen.Bei der Erarbeitung der CLI wurden einige Probleme gefunden. Das erste Problem war das Einlesen der Eingaben für die CLI. Unter Windows 
+Bei der CLI tauchten einige Probleme bei der Eingabe von Befehlen auf. Das .NET-Framework bietet eine Möglichkeit zeilenweise Eingaben einzulesen und dabei kann die Position des Cursors geändert werden. Bei Linux ist leider dies mit Mono leider nicht möglich und daher musste eine eigene Methode entwickelt werden, die zeilenweise Eingaben einlesen kann. Es soll auch die Möglichkeit bestehen den Cursor zu verändern oder eine History aufzurufen.\\
+Ein weiteres Problem bei der Implementierung ist, dass das Eingabefeld nicht über mehrere Zeilen gehen kann. Dies konnte aus programmtechnischen Schwierigkeiten nicht realisiert werden.
+Es ist auch nicht möglich, interaktive Befehle für die CLI zu schreiben, da der CLI-Server diese Funktionalität nicht unterstützt.
 
 \section{CLI-Server und CLI-Client (Alin Porcic)}
 \lfoot{Alin Porcic}
 
-Über den CLI-Server und CLI-Client ist es möglich die textbasierte Schnittstelle über einen Netzwerkservice anzusprechen. Nachdem eine erfolgreiche Verbindung aufgebaut wurde, kann der Client die Befehle lokal einlesen und an den Server senden. Dieser versucht den empfangenen Befehl zu interpretieren und schick die Ausgabe wieder zurück. Vom Prinzip her arbeit die CLI als Service genau gleich wie die lokale CLI. Der Unterschied ist nur, dass die Interpretation und Ausführung nicht lokal geschieht, sondern auf dem Server.
+Über den CLI-Server und CLI-Client ist es möglich die textbasierte Schnittstelle über einen Netzwerkservice anzusprechen. Nachdem eine erfolgreiche Verbindung aufgebaut wurde, kann der Client die Befehle lokal einlesen und an den Server senden. Dieser versucht den empfangenen Befehl zu interpretieren und schick die Ausgabe wieder zurück. Die CLI als Dienst funktioniert genau gleich wie die lokale CLI. Der Unterschied ist nur, dass die Interpretation und Ausführung nicht lokal geschieht, sondern auf dem Server. 
 
 \begin{center}
 \includegraphics[scale=2.0]{img/mad_client_session.png}\\
-Funktionsweise der CLI-Server/Client
+Funktionsweise der CLI-Server/Client (CLISession ist mit CLI-Server gleichzustellen)
 \end{center}
 
 \section{CLI-Server}
 
-Der CLI-Server wartet auf einkommende TCP-Verbindungen und bearbeitet die Anfragen. Die Kommunikation zwischen Server und Client wird mit AES256 verschlüsselt ohne Schlüsselaustausch, das heißt, falls die Anfrage des Clients nicht sofort entschlüsselt werden kann, weil der AES-Schlüssel falsch ist, wird die Verbindung abgebrochen.\\
-Am Anfang der Kommunikation sendet der Server dem Client seine Versionsnummer und Servername. Anhand von diesen Informationen kann der Client entscheiden ob er sich mit diesen Server verbinden möchte. Da diese Informationen schon verschlüsselt sind, kann der Client davon ausgehen, dass er mit dem Server kommuniziert. Der AES-Schlüssel wird auf der Serverseite in der Konfigurationsdatei im Klartext abgespeichert und ist mit einem einfachen Text-Editor änderbar.
+Der CLI-Server wartet auf einkommende TCP-Verbindungen und bearbeitet die Anfragen. Die Kommunikation zwischen Server und Client wird mit AES256 verschlüsselt ohne Schlüsselaustausch, das heißt, falls die Anfrage des Clients vom Server nicht sofort entschlüsselt werden kann, weil der AES-Schlüssel falsch ist, wird die Verbindung abgebrochen. Zudem kann der Server nur einen Nutzer gleichzeitig bearbeiten.\\
+Am Beginn der Kommunikation sendet der Server dem Client seine Versionsnummer und Servername. Anhand von diesen Informationen kann der Client entscheiden ob er sich mit diesen Server verbinden möchte. Da diese Informationen schon verschlüsselt sind, kann der Client davon ausgehen, dass er mit dem Server kommuniziert. Der AES-Schlüssel wird auf der Serverseite in der Konfigurationsdatei im Klartext abgespeichert und ist mit einem einfachen Text-Editor änderbar.\\
 
 \section{CLI-Client}
 
-Der CLI-Client verbindet sich auf den Server-Dienst und vergibt Anfragen. Wie bereit oben schon erwähnt, wird sofort nach dem TCP-Handshake in AES-Verschlüsselt. Der CLI-Client liest den AES-Schlüssel aus seiner lokalen Konfiguration und ist daher auch im Klartext abgespeichert.
+Der CLI-Client verbindet sich auf den Server-Dienst und vergibt Anfragen. Wie bereit oben schon erwähnt, wird sofort nach dem TCP-Handshake in AES verschlüsselt. Der CLI-Client liest den AES-Schlüssel aus seiner lokalen Konfiguration und ist daher auch im Klartext abgespeichert.
 
 \newpage
 \section{GUI (Manpreet Singh)}
@@ -2511,17 +2516,17 @@ eine mögliche Konfiguration
 
 Das Starten der Überwachungsoperationen und die Verarbeitung der Resultate ist die Aufgabe des JobSystems. Dabei muss das JobSystem die Zeiten aller Jobs im Auge behalten und muss die zugewiesenen Aufgaben im richtigen Moment ausführen.\\
 Netzwerkgeräte werden auch als Netzwerkknoten bezeichnet, ein Knoten definieren ein bestimmtes Ziel im Netzwerk und sie sind mithilfe einer GUID eindeutig nachweisbar. Auf jeden Netzwerkknoten können Netzwerkaufgaben hinzugefügt werden. Jede dieser Netzwerkaufgaben kann einen oder mehrere Zeitpunkte oder ein Zeitintervall definieren, bei dem die Aufgabe ausgeführt werden soll. Die Resultate dieser Operationen wird anschließend in die Datenbank des Programmes geschrieben.\\
-Das JobSystem hat die Möglichkeit ein Abbild von sich zu speichern und später wieder zu laden. Daher müssen Geräte und Aufgaben nur einmal definiert werden und die Konfiguration lässt sich leicht auf andere Computer übertragen.\\
+Das JobSystem hat die Möglichkeit ein Abbild von sich zu speichern und später wieder zu laden. Daher müssen Geräte und Aufgaben nur einmal definiert werden und die Konfiguration lässt sich leicht auf andere Computer übertragen.
 
 \section{Allgemeines}
 
-Das Jobsystem oranisiert die Netzwerkaufgaben (=Jobs) und Netzwerkgeräte (=Netzwerkknoten, =Knoten, =Nodes) innerhalb des Programmes und bietet eine Schnittstelle an, um diese zu entfernen, hinzuzufügen oder zu konfigurieren. Das JobSystem ist nicht an einer textbasierten oder grafischen Schnittestelle gebunden, sondern kann auf Programmebene über Methodenaufrufe angesteuert werden. Alle Methodenaufrufe werden intern über Locks vor Race-Conditions und weiteren Multithreading-Problemen geschützt.\\
-Das JobSystem besitzt die Möglichkeit die derzeitig initalisierten Aufgaben und Geräte in einer Datei abzuspeichern und diese zu einem späteren Zeitpunkt wieder zu laden. Es ist möglich ein komplettes Abbild der Geräte und Aufgaben abzuspeichern und zu laden. Doch auch einzelne Netzwerkgeräte inklusive Netzwerkaufgaben können abgespeichert und geladen werden.\\
-Das JobSystem kann sich mit dem Device-Finder syncronisieren, um die IP-Adressen der Netzwerkknoten zu aktualisieren.
+Das Jobsystem organisiert die Netzwerkaufgaben (=Jobs) und Netzwerkgeräte (=Netzwerkknoten, =Knoten, =Nodes) innerhalb des Programmes und bietet eine Schnittstelle an, um diese zu entfernen, hinzuzufügen oder zu konfigurieren. Das JobSystem ist nicht an einer textbasierten oder grafischen Schnittestelle gebunden, sondern kann auf Programmebene über Methodenaufrufe angesteuert werden. Alle Methodenaufrufe werden intern über Locks vor Race-Conditions und weiteren Multithreading-Problemen geschützt.\\
+Das JobSystem besitzt die Möglichkeit die derzeitig initialisierten Aufgaben und Geräte in einer Datei abzuspeichern und diese zu einem späteren Zeitpunkt wieder zu laden. Es ist möglich ein komplettes Abbild der Geräte und Aufgaben abzuspeichern und zu laden. Doch auch einzelne Netzwerkgeräte inklusive deren Netzwerkaufgaben können abgespeichert und geladen werden.\\
+Das JobSystem kann sich mit dem Device-Finder synchronisieren, um die IP-Adressen der Netzwerkknoten zu aktualisieren.
 
 \section{Netzwerkknoten}
 
-Ein Netzwerkknoten (oder Knoten, Node)  stellt ein Netzwerkgerät dar. Diese Gerät wird durch die folgenden Eigenschaften charakterisiert:
+Ein Netzwerkknoten stellt ein Netzwerkgerät dar, welches durch die folgenden Eigenschaften charakterisiert werden kann:
 
 \begin{itemize}
 \item \textbf{Name}: Dem Netzwerkknoten muss ein Name zugeordnet werden (meistens wird hier der Hostname eingetragen).
@@ -2529,30 +2534,103 @@ Ein Netzwerkknoten (oder Knoten, Node)  stellt ein Netzwerkgerät dar. Diese Ger
 \item \textbf{MAC-Adresse}: Hier wird die MAC-Adresse des Knotens eingetragen.
 \end{itemize}
 
-Die Aufgaben, die auf einem Knoten ausgeführt werden sollen, müssen an dem Knoten hinzugefügt werden. Programmtechnisch wird das Hinzufügen einer neuen Aufgabe mit dem Aufruf der AddJob-Methode erreicht. Für das Enternen von Jobs stellt das JobSystem die RemoveJob-Methode bereit.
+Die Aufgaben, die auf einem Knoten ausgeführt werden sollen, müssen an dem Knoten hinzugefügt werden. Programmtechnisch wird das Hinzufügen einer neuen Aufgabe mit dem Aufruf der AddJob-Methode erreicht. Für das Entfernen von Jobs stellt das JobSystem die RemoveJob-Methode bereit.
 
 \section{JobSchedule}
 
 Der JobSchedule ist eine interne Komponente des JobSystems und stellt einen Zeitplaner dar, der die Netzwerkaufgaben und Netzwerkgeräte überprüft und entscheidet, ob eine Aufgabe für die Ausführung bereit ist.\\
-Bei der Auswertung der Netzwerkaufgaben müssen viele Dinge vom Zeitplaner berücksichtigt werden:
+Bei der Auswertung der Netzwerkaufgaben müssen diese Dinge vom Zeitplaner berücksichtigt werden:
 
 \begin{itemize}
 \item \textbf{Netzwerkknoten}: Ist der Knoten aktiv?
-\item \textbf{Netzwerkaufgabe}: Ist die Aufgabe aktiv? Hat er den definierten Zeitpunkt / die definierte Zeitspanne erreicht? Ist die Aufgabe  bereits in der Ausführung?
+\item \textbf{Netzwerkaufgabe}: Ist die Aufgabe aktiv? Hat er den definierten Zeitpunkt / die definierte Zeitspanne erreicht? Ist die Aufgabe bereits in der Ausführung?
 \end{itemize}
 
-Der JobSchedule besitzt einen internen Threadpool. Bei diesem Threadpool wurde der SmartThreadPool statt dem Threadpool aus dem .NET-Framework. Der große Vorteil des SmartThreadPools ist, dass er eine fixe Anzahl an Threads initalisiert und die zugewiesenen Aufgaben automatisch auf diesen Threads aufteilt. Somit ist es nicht notwendig für jeden Job einen eigenen Thread vom Betriebssystem erstellen zu lassen. Der zweite Vorteil des SmartThreadPools ist, dass mehrere Instanzen erstellt werden können. Jedoch verwenden wir nur eine, doch falls das Programm erweitert werden soll, ist das sicherlich nicht hinderlich.\\
-Nachdem der Job im Threadpool gestartet wurde, wird die jeweilige Operation im Netzwerk erledigt und vom Job selbst ausgewertet. Nach der Ausführung des Jobs, schreibt der Job die Resultate in die Datenbank und ist wieder für eine neue Ausführung bereit.
+Der JobSchedule besitzt einen internen Threadpool. Die Wahl eines geeigneten Threadpools fiel auf den SmartThreadPool statt der .NET-Variante des Threadpools. Der große Vorteil des SmartThreadPools ist, dass er eine fixe Anzahl an Threads initialisiert und die zugewiesenen Aufgaben automatisch auf diesen Threads aufteilt. Somit ist es nicht notwendig für jeden Job einen eigenen Thread vom Betriebssystem erstellen zu lassen. Der zweite Vorteil des SmartThreadPools ist, dass mehrere Instanzen erstellt werden können.\\
+Nachdem der Job im Threadpool gestartet wurde, wird die jeweilige Operation im Netzwerk erledigt und vom Job selbst ausgewertet. Dann schreibt der Job die Resultate in die Datenbank, gibt den Thread wieder frei und ist
+für eine neue Ausführung bereit.
 
 \section{JobRules}
 
 Jeder Job kann JobRules definieren. Diese Regeln werden nach der Ausführung überprüft und falls mindestens eine Regel nicht eingehalten wird, dann wird eine Benachrichtigung versendet. Diese Benachrichtigung beinhaltet alle wichtigen Daten über die Ausführung und über den Grund der Benachrichtigung.\\
-Die Regeln überprüfen die Resultate der Jobs auf bestimmte Kriterien, zum Beispiel kann eine Regel definiert werden, die besagt, dass die Ausführungsdauer nicht länger als 2s betragen darf. Nun wird jedes mal wenn die Ausführungsdauer größer als 2s ist, eine Benachrichtigung versendet.
+Die Regeln überprüfen die Resultate der Jobs auf bestimmte Kriterien, zum Beispiel kann eine Regel definiert werden, die besagt, dass die Ausführungsdauer nicht länger als 2s betragen darf. Nun wird jedes mal wenn die Ausführungsdauer größer als 2s ist, eine Benachrichtigung versendet.\\
+
+\section{Benachrichtigung}
+
+Nach der Ausführung werten die Jobs ihre Regeln aus und falls mindestens eine Regel nicht eingehalten wird, wird eine E-Mail generiert und versendet. In dieser E-Mail sind alle relevanten Informationen über die Ausführung enthalten.\\ 
+Hier ist eine Benachrichtigung zu sehen. Die E-Mail wurde gesendet, da der Job länger als 100ms in der Ausführung war. Der Job konnte aber seine Aufgabe erledigen, doch die definierte Regel konnte nicht eingehalten werden.\\
+
+\begin{lstlisting}
+JobNode-GUID: 'b44b0238-e764-4664-bc5d-39462eb8682c'
+JobNode-ID:   '0'
+JobNode-IP:   '127.0.0.1'
+JobNode-MAC:  'FF'
+
+Job-GUID:     '5d52508f-2fab-4d93-807f-4ade3cde47ef'
+Job-ID:       '0'
+Job-Name:     'TestPing'
+Job-Type:     'Ping'
+Job-OutState: 'Success'.
+Job-TStart:   '27.11.2014 19:28:22'
+Job-TStop:    '27.11.2014 19:28:22'
+Job-TSpan:    '0s0ms'
+
+#0.) Broken-Rule
+-> OutDescriptor: ExDuration
+-> Operation:     Bigger
+-> CompareValue:  '100'
+=> CurrentValue:  '1255'
+\end{lstlisting}
+
+\newpage
+\section{Probleme und Beschränkungen}
+
+Während der Entwicklung des JobSystems und des JobSchedules sind einige kritische Probleme aufgetreten. Der JobSchedule arbeitet in einem eigenen Thread und ruft alle 10ms alle Netzwerkknoten und Netzwerkaufgaben ab, um deren Status zu überprüfen. Dabei muss der JobSchedule dem JobSystem mitteilen, dass die Netzwerkknoten und Netzwerkaufgaben mit denen er gerade arbeitet, nicht von anderen verändert oder gelesen werden können, da dies sonst unter Umständen zu metastabilen Zuständen führen kann. Um gleichzeitiges Lesen und Schreiben auf gleichen Objekten zu vermeiden, wurde ein internes Lock-System für das JobSystem konzipiert. Der Nachteil dieses Systems ist, dass nur einer zugleich am JobSystem operieren kann. Es wurde daher versucht, sogenannte ReadWrite-Locks zu implementieren. Diese haben den Vorteil, dass mehrere gleichzeitig lesen können, aber nur einer gleichzeitig schreiben kann. Jedoch ist die Implementierung von ReadWrite-Locks sehr schwierig, die Fehlersuche ist sehr schwierig und daher wurde diese Idee aus zeitlichen Gründen verworfen.\\
+
+Bestimmte Aufrufe auf das JobSystem, zum Beispiel die RemoveNode-Methode, kann unter bestimmten Umständen nicht ordnungsgemäß durchgeführt werden. Bei der RemoveNode-Methode, zum Beispiel, kann es sein, dass der Knoten gerade laufende Aufgaben besitzt und daher nicht entfernt werden kann. Die Wahrscheinlichkeit, dass ein solcher Fall eintritt, ist sehr gering und wird im Normalfall nie eintreffen. Falls der Aufruf nicht möglich ist, wird der Nutzer darüber informiert.
 
 \chapter{Jobs}
 \lfoot{Alin Porcic}
 
-Jobs definieren bestimmte Aufgaben, die im Netwerk zu erledigen sind. Das Ziel der Aufgabe ist immer die IP-Adresse des Netzwerkknotens, an der der Job drangehängt wurde. Erst wenn der definierte Zeitpunkt erreicht wurde, wird der Job vom JobSystem in einem eigenen Thread ausgeführt. Nachdem der Job die Aufgabe erledigt hat, überprüft er selbstständig ob er die definierten Regeln gebrochen hat und schreibt die Resultate der Ausführung in die Datenbank. Welche Operationen der Job beim Start im Netzwerk ausführt, hängt vom Job-Typ ab. Auch die Resultate der Ausführung sind vom Typ abhängig.
+Jobs definieren bestimmte Aufgaben, die im Netzwerk zu erledigen sind. Das Ziel der Aufgabe ist immer die IP-Adresse des Netzwerkknotens, an der der Job angehängt wurde. Erst wenn der definierte Zeitpunkt erreicht wurde, wird der Job vom JobSchedule in einem eigenen Thread ausgeführt. Nachdem der Job die Aufgabe erledigt hat, überprüft er selbstständig ob er die definierten Regeln gebrochen hat, generiert und sendet gegebenfalls eine E-Mail und schreibt die Resultate der Ausführung in die Datenbank. Welche Operationen der Job beim Start im Netzwerk ausführt, hängt vom Job-Typ ab. Auch die Resultate der Ausführung sind vom Typ abhängig.\\
+
+Hier ist die private Methode zu sehen, die der JobSchedule beim Start eines Jobs ausführt. Es wird die Startzeit, Stopzeit und die Dauer der Ausführung errechnet und gesetzt. Der Job wird ausgeführt und er schreibt sich selbst in die lokale Datenbank und beendet die Ausführung.
+
+\begin{lstlisting}
+  
+        private object JobInvoke(object holder)
+        {
+            JobHolder _holder = (JobHolder)holder;
+            JobNode _node = _holder.node;
+            Job _job = _holder.job;
+
+            try
+            {
+                _job.tStart = DateTime.Now;
+                _job.Execute(_node.ip);
+                _job.tStop = DateTime.Now;
+                _job.tSpan = _job.tStop.Subtract(_job.tStart);
+
+              	...
+
+                _db.InsertJob(_node, _job);
+
+              	...
+            }
+            catch (Exception e)
+            {
+                Logger.Log("Job threw a exception: " + e.StackTrace, Logger.MessageType.ERROR);
+            }
+            finally
+            {
+                _job.state = 1;
+                _node.uWorker--;
+            }
+
+            return null;
+        }
+  
+\end{lstlisting}
 
 \section{Job-Typen}
 
@@ -2564,23 +2642,32 @@ Jeder Job (egal welcher Typ) muss folgende Eigenschaften definieren:\\
 \item \textbf{Zeit}: Jeder Job muss eine Zeit definieren, in der er ausgeführt werden soll (Zeitintervall oder mehrere Zeitpunkte).
 \end{itemize}
 
+Jeder Job-Typ hat individuelle Eigenschaften, die nur für diesen Job-Typ gesetzt und verwendet werden können.
+
 \subsection{Ping (Alin Porcic)} Dieser Job führt einen Ping-Anfrage auf den jeweiligen Netzwerkknoten aus.
 
-\subsection{HTTP (Alin Porcic} Die Aufgabe dieses Jobs ist das Senden einer HTTP-Anfrage und das Empfangen der Anwort. Für diesen Job kann eine Port-Nummer definiert werden, falls keine definiert wird, wird 80 als Port-Nummer genommen.
+\subsection{HTTP (Alin Porcic)} Die Aufgabe dieses Jobs ist das Senden einer HTTP-Anfrage und das Empfangen der Anwort. Für diesen Job kann eine Port-Nummer definiert werden, falls keine definiert wird, wird 80 als Port-Nummer genommen.
 
-\subsection{Port (Alin Porcic)} Die Ausführung dieses Jobs bewirkt einen Verbindung auf einen Dienst (Dienst muss auf TCP aufbauen). Nach dem 'Drei-Wege-Handschlag' wird die Verbindung wieder abgebaut. Dieser Job kann nur herausfinden, ob ein Dienst erreichbar ist, nicht ob dieser die Anfragen auch ordnungsgemäß beantwortet.
+\subsection{Port (Alin Porcic)} Die Ausführung dieses Jobs bewirkt einen Verbindungaufbau auf einen Dienst (TCP). Nach dem 'Three-Way-Handshake' wird die Verbindung wieder abgebaut. Dieser Job kann nur herausfinden, ob ein Dienst erreichbar ist, nicht ob dieser die Anfragen auch ordnungsgemäß beantwortet.
 
 \newpage
 \lfoot{Ranalter Daniel}%--------------------------------------------------------------------------------------------
 
 \subsection{Traffic auslesen über SNMP (Daniel Ranalter)}
-Auch hier werden wieder nur SNMP Versionen größer gleich 2 erlaubt.\\
-Das Auslesen des Traffics über SNMP geschieht über die Objekt ID 1.3.6.1.2.1.2.2.1.16.x, wobei x für das Interface steht. Mit dieser Objekt ID kommt man zu den ausgegangenen Paketen eines Interfaces.\\
-Da SNMP mehr Interfaces kennt als Windows, beziehungsweise Windows Interfaces zusammenfasst, ist es für den User notwendig, vorher den Befehl \textbf{snmp interfaces} anzuwenden. Hierbei werden ihm dann alle Interfaces aufgelistet, welche die abgefragte Maschine hat. Das richtige Interface zu finden ist nun dem User überlassen. Jedoch gibt es die Möglichkeit, das Interface in der Configfile zu speichern, um es nicht jedesmal aufs neue wieder raussuchen zu müssen. SNMP verwendet, wenn kein anderes Interface angegeben wird, automatisch jenes aus der Configfile.\\
-Es ist sehr wichtig zu beachten, dass, aus Gründen der Komfortabilität für den Community String \textbf{public} und für Authentification bzw. Privacy, die Phrase \textbf{MADMADMAD} zu wählen ist, damit es funktioniert.\\
+\subsubsection{Idee}
+Bereits bei er Planung des Projektes stieß ich auf dieses Protokoll, welches in dem Monitoring von Netzwerken verwendet wurde. Es faszinierte mich bereits von Anfang an und ich wollte es unbedingt in das Projekt einbauen, jedoch riet mir unser Betreuer, es nur einzubauen wenn ich noch Zeit hätte dazu, da es alles andere als "Simple" sei.\\
+Ursprünglich war der Wunsch vorhanden eine Möglichkeit zu geben, herauszufinden wie viel Traffic ein einzelner Host erzeugt. Dadurch kam ich zurück auf die Idee mit SNMP welches die Möglichkeit dazu bot.\\
 
-Der ausgelesene Wert wird dann zwischengespeichert und nach einem einzustellenden Zeitintervall wird erneut eine Anfrage gemacht. MAD subtrahiert die beiden Werte voneinander, um an den gesendeten Traffic an diesem Interface zu kommen.\\
-Es wird in Octets angegeben, also Bytes.
+\subsubsection{Realisierung und Probleme}
+Für die Realisierung wurde auf die Library SNMPSharpNet (snmpsharpnet.com) zurückgegriffen.\\
+
+Die Library, welche verwendet wird, kann über mehrere Interfaces arbeiten. Zuallererst musste ich also dem user eine Liste der zur Auswahl stehenden Interfaces bieten. Dies geschieht durch einen GETBULK Request auf die Object-ID 1.3.6.1.2.1.2.2, welche die Tabelle für die Interfaces darstellt. Wenn also der User den Befehl \textbf{snmp interfaces} eingibt, wird ein SNMP GETBULK Request zusammengebaut, welcher die Interfaces zurückgibt um damit weiter arbeiten zu können.\\
+Um es wenigstens etwas komfortabler zu machen gibt es die Möglichkeit dieses Interfaces als Defaultinterfaces in die Konfigurationsdatei zu schreiben.\\
+
+Der eigentliche Befehl frägt nach dem Inhalt der OID 1.3.6.1.2.1.2.2.x.16. Zu der OID von dem Interface Befehl kommt also noch .x.16 dazu. X stellt dabei das ausgewählte Interface dar. Der 16ste Eintrag in diesem Teil des Baumes sind die ausgesendeten Octete. Diese werden dann ausgelesen, welches von der verwendeten Library sehr vereinfacht wird, und dann abgespeichert.\\
+Da man diese Werte unverarbeitet nicht verwenden kann, sie zeigen schließlich nur alle bisher gesendeten Bytes an, wird jeder wert von dem alten wert Subtrahiert um die Differenz über eine gewisse Zeit zu erhalten. Die Zeit, wie oft abgefragt werden soll, kann durch die üblichen Job Parameter bestimmt werden.\\
+
+Für alle SNMP Operationen gilt, dass nur SNMP Versionen \textbf{über} 1 verwendet werden. SNMPv1 ist zu Unsicher als, dass es weiterhin unterstützt werden sollte. Für den Community String muss \textbf{public} und für die Authentification/Privacy Phrase \textbf{MADMADMAD} gewählt werden. 
 
 \subsection{Internet Verbindungs Check (Daniel Ranalter)}
 Es gibt die Möglichkeit, durch ein Command den Connectivity Check zu starten, der sich von den herkömmlichen Jobs insoweit unterscheidet, dass er nicht an eine Node gebunden ist, sondern direkt auf dem Rechner, auf dem MAD läuft, ausgeführt wird.\\
@@ -2620,9 +2707,11 @@ Bei dem FTP Check wird im Grunde einfach nur das momentane Arbeitsverzeichnis ab
 Der Programmteil, welcher das Netzwerk auf Geräte überprüft, ist jener, den ich persönlich wohl am Öftesten neu geschrieben habe. Im Folgenden wird auf alle drei Versionen, die durchlaufen worden sind, eingegangen. Sie alle befinden sich weiterhin im Projekt, werden jedoch nicht verwendet.\\
 Im Projekt selbst werden sie ab der zweiten Version als \glqq MacFinder\grqq bezeichnet. 
 \section{MacFinder Version 1 - host find job}
+\subsection{Idee}
 Die erste Version des MacFinders basierte auf dem Grundgedanken berühmter IP-Scanner wie zum Beispiel dem \textbf{Angry IP Scanner}, deren Arbeitsweise sich auf das ICMP Echo Paket stützt.\\
 Durch ein fluten des Netzwerkes mit ICMP Echo Requests wird bezweckt, dass theoretisch jeder sich angesprochene Host mit einem Echo Reply meldet. Dieses Verhalten versuchte ich nachzuahmen.\\
 
+\subsection{Realisierung und Probleme}
 Die erste Schwierigkeit fand ich darin, herausfinden zu müssen wieviele und welche IP-Adressen ich anpingen muss, unter der Berücksichtigung, dass der User sowenig wie möglich einzugeben hat.\\
 Als ersten Schritt rechnete ich mir dir Nummer an Hosts aus der Subnetzmaske aus. Dann konvertierte ich die Netzaddresse in ein Format mit dem ich umgehen konnte und überprüfte ob das System eine LittleEndian oder eine BigEndian Architektur verwendet, damit ich die Byte-Arrays nicht durcheinander mischte.\\
 Als letzten Schritt wandelte ich das Ergebnis in einen Zahlenwert um, um damit besser rechnen zu können.
@@ -3354,7 +3443,7 @@ Nun werden alle Ausführung von allen Jobs, die zwischen dem 10.01.2015 00:00 un
 \chapter{CLIClient (Alin Porcic)}
 
 Der CLI-Client erstellt bei der ersten Ausführung eine Konfigurationsdatei im gleichen Ordner wie die ausführbare Datei. Dort kann der Zieladresse und Authentifikations-Passwort eingegeben werden. Sobald die Verbindung steht, kann die CLI ganz normal verwendet werden.\\
-Die Konfigurationsdatei wird im XML-Syntax gespeichert und beim Start eingelesen. Hier ist eine mögliche Konfiguration zu sehen:
+Die Konfigurationsdatei wird im XML-Syntax gespeichert und beim Start eingelesen. Hier ist eine mögliche Konfiguration zu sehen:\\
 \begin{lstlisting}
 <?xml version="1.0" encoding="utf-8"?>
 <MadClient>
@@ -3436,71 +3525,23 @@ Die letzte Funktion der graphischen Oberfläche ist das Informationsfenster. Die
 \part{Zeiteinteilung}
 
 \chapter{Alin Porcic}
-\lfoot{Alin Poric}
+\lfoot{Alin Porcic}
 \begin{center}
 \begin{tabular}{|l|c|l|}
 
 \hline
 \textbf{Zeitraum} & \textbf{Zeitdauer} & \textbf{Aufgaben} \\ \hline
-06.04.2014 bis 10.04.2014 & 4h & CLI-Framework: Idee und Konzept\\
-11.04.2014 bis 12.04.2014 & 3h & CLI-Server und CLI-Client: Idee und Konzept\\
-13.04.2014 bis 14.04.2014 & 6h & CLI-Framework: Überlegungen/Umsetzung\\
-14.04.2014 bis 15.04.2014 & 4h & CLI-Server und CLI-Client: Überlegungen/Umsetzung\\
-16.04.2014 bis 18.04.2014 & 13h & Socketserver / Socketclient: Idee und Konzept\\
-19.04.2014 bis 25.04.2014 & 9h & Clean-Coding\\
-25.04.2014 & 2h & Socketserver / Socketclient rausgenommen\\
-19.05.2014 & 2h & CLI-Framework und CLI, Fehlersuche\\
-20.05.2014 bis 21.05.2014 & 9h & CLI-Session/CLI-Server/CLI-Client Überarbeitung\\
-21.05.2014 & 4h & CLI-Befehle geschrieben, Fehlersuche\\
-22.05.2014 & 2h & Socketserver/Socketclient vollständig ersetzt\\
-28.05.2014 & 3h & Implementierung der Konsolenausgabe, -eingabe\\
-29.05.2014 & 3h & CLI-Server/CLI-Client Überarbeitung\\
-06.06.2014 & 4h & CLI-Framework verbessert, Fehler ausgebessert\\
-08.06.2014 & 2h & CLI-Framework verbessert, Clean-Coding\\
-15.06.2014 & 1h & CLI-Server/CLI-Client verbessert\\
-17.06.2014 & 3h & JobSystem: Konzept + Überlegungen\\
-18.06.2014 bis 20.06.2014 & 10h & JobSystem funktionsfähig\\
-21.06.2014 bis 28.06.2014 & 9h & JobSystem überarbeitet + Clean-Coding\\
-03.07.2014 bis 06.07.2014 & 7h & AES hinzugefügt, viele Programmfehler ausgebessert\\
-10.07.2014 bis 14.07.2014 & 8h & Serializierung hinzugefügt, Fehler ausgebessert\\
-15.07.2014 & 3h & Programmteile überarbeitet\\
-22.07.2014 bis 23.07.2014 & 6h & RSA implementiert\\
-31.07.2014 & 5h & Paket-orientierte Netzwerkverbindungen hinzugefügt\\ \hline
-  
-\end{tabular}
-\end{center}
-
-\newpage
-
-\begin{center}
-\begin{tabular}{|l|c|l|}
-
-\hline
-\textbf{Zeitraum} & \textbf{Zeitdauer} & \textbf{Aufgaben} \\ \hline
-01.08.2014 & 3h & allegmeine Verbesserungen am Programm, Fehlersuche\\
-03.08.2014 & 3h & JobSystem überarbeitet, Fehlersuche\\
-04.08.2014 bis 06.08.2014 & 5h & Probleme mit der RSA-Implementierung\\
-06.08.2014 & 2h & RSA entfernt\\
-10.08.2014 bis 14.08.2014 & 6h & JobSystem unterstützt Benachrichtigungen\\
-15.08.2014 & 2h & JobSystem verbessert, Fehlersuche\\
-17.08.2014 & 4h & einige neue Befehle hinzugefügt\\
-20.08.2014 bis 21.08.2014 & 6h & XML-Serializer hinzugefügt, Clean-Coding\\
-23.08.2014 bis 24.08.2014 & 4h & MADConf hinzugefügt, Fehlersuche\\
-26.08.2014 bis 27.08.2014 & 4h & Eventhandler hinzugefügt, Clean-Coding\\
-06.09.2014 & 4h & Befehle verbessert\\
-12.09.2014 bis 14.09.2014 & 10h & SSL hinzugefügt, viele Verbesserungen\\
-18.09.2014 bis 19.09.2014 & 5h & CLI und JobSystem überarbeitet\\
-22.09.2014 bis 26.09.2014 & 8h & SSL enfernt, Verbesserungen am CLI-Server\\
-27.09.2014 bis 29.09.2014 & 4h & CLI-Client überarbeitet, Fehlersuche\\
-05.10.2014 bis 08.10.2014 & 8h & JobSystem mit ReadWrite-Locks\\
-09.10.2014 & 2h & JobSystem überarbeitet, Fehlersuche\\
-11.10.2014 & 3h & ReadWrite-Locks entfernt, Fehlersuche\\
-12.10.2014 & 2h & JobSystem vereinfacht, Clean-Coding\\
-18.12.2014 bis 20.12.2014 & 8h &CLI-Befehle für Datenbank implementiert\\
-27.12.2014 & 2h & CLI-Befehle verbessert und erweitert\\
-05.02.2015 & 4h &letzte Verbesserungen am Programm\\
- \hline \hline
-06.04.2014 bis 05.02.2015 &205h&\\ \hline
+Oktober 2014 & 42h & CLI-Framework: Idee und Konzept\\
+September 2014 & 29h & CLI-Framework: Umsetzung / Tests\\
+November 2014 & 25h & CLI-Server / CLI-Client: Konzept / Umsetzung\\
+Dezember 2014 & 32h & CLI-Befehle / Tests\\
+Januar 2015 & 24h & CleanCoding, JobSystem: Idee und Konzept\\
+Febuar 2015 & 18h & JobSystem verbessert, CLI verbessert\\
+März 2015 & 15h & JobSystem funktionsfähig, CLI funktionsfähig\\
+April 2015 & 25h & Fehlersuche, zahlreiche Verbesserungen \\
+Mai 2015 & 10h & Fehlersuche, zahlreiche Verbesserungen\\
+\hline \hline
+Oktober 2014 bis Mai 2015 & 210h &\\ \hline
 
 \end{tabular}
 \end{center}
@@ -3509,29 +3550,118 @@ Die letzte Funktion der graphischen Oberfläche ist das Informationsfenster. Die
 
 \chapter{Alin Porcic}
 
-\begin{singlespace}
-\begin{tabular}{| m{7mm} | m{40mm} | m{20mm} | m{27mm} | m{65mm} |}
-\hline
-\textbf{Ref.} & \textbf{Titel} & \textbf{Autor} & \textbf{Aufrufdatum} & \textbf{Quelle}\\ \hline \small
-{[}100{]} & Unix-Shell & Wikipedia & 29.04.2015 & \begin{scriptsize}http://de.wikipedia.org/wiki/ Unix-Shell\end{scriptsize}\\
-{[}101{]} & Terminalemulation & Wikipedia & 29.04.2015 & \begin{scriptsize}http://de.wikipedia.org/wiki/Terminalemulation\end{scriptsize}\\
-{[}102{]} & Command-line-interface & Wikipedia & 29.04.2015 & \begin{scriptsize}http://en.wikipedia.org/wiki/Command-line-interface\end{scriptsize}\\
-{[}103{]} & Kommandozeilen-interpreter & Wikipedia & 29.04.2015 & \begin{scriptsize}http://de.wikipedia.org/wiki/Kommandozeilen interpreter\end{scriptsize}\\
-{[}104{]} & Terminal & Wikipedia & 29.04.2015 & \begin{scriptsize}http://de.wikipedia.org/wiki/Terminal\_(Computer)\end{scriptsize}\\
-{[}105{]} & ASR-33 & Wikipedia & 29.04.2015 & \begin{scriptsize}http://de.wikipedia.org/wiki/ASR-33\end{scriptsize}\\
-{[}106{]} & Kommandozeile &  Wikipedia & 29.04.2015 & \begin{scriptsize}http://de.wikipedia.org/wiki/Kommandozeile\end{scriptsize}\\
+\noindent
+\textbf{[100]} $\rightarrow$ Unix Shell, Wikipedia (29.04.2015)\\
+http://de.wikipedia.org/wiki/ Unix-Shell\\
 
-{[}120{]} & Kryptologie & Thomas Imboden & 29.04.2015 & http://www.tinohempel.de/info/info/ kryptografie/download/krypto.pdf\\
-{[}121{]} & Kryptographie & Wikipedia & 29.04.2015 & http://de.wikipedia.org/wiki/ Kryptographie\\
-{[}122{]} & Kryptoanalyse & Wikipedia & 29.04.2015 & http://de.wikipedia.org/wiki/ Kryptoanalyse\\
-{[}124{]} & Informationssicherheit & Wikipedia & 29.04.2015 & https://de.wikipedia.org/wiki/ Informationssicherheit\\
-{[}125{]} & - & - & - & http://de.wikipedia.org/wiki/ Kryptologische\_Hashfunktion
+\noindent
+\textbf{[101]} $\rightarrow$ Terminalemulation, Wikipedia (29.04.2015)\\
+http://de.wikipedia.org/wiki/Terminalemulation\\
 
-\end{tabular}
-\end{singlespace}
+\noindent
+\textbf{[102]} $\rightarrow$ Command-line-interface, Wikipedia (29.04.2015)\\
+http://en.wikipedia.org/wiki/Command-line-interface\\
 
-\bibliography{lit}
-\nocite{*}
-\bibliographystyle{abbrv}
+\noindent
+\textbf{[103]} $\rightarrow$ Kommandozeileninterpreter, Wikipedia (29.04.2015)\\
+http://de.wikipedia.org/wiki/Kommandozeileninterpreter\\
+
+\noindent
+\textbf{[104]} $\rightarrow$ Terminal, Wikipedia (29.04.2015)\\
+http://de.wikipedia.org/wiki/Terminal\_(Computer)\\
+
+\noindent
+\textbf{[105]} $\rightarrow$ ASR-33 , Wikipedia (29.04.2015)\\
+http://de.wikipedia.org/wiki/ASR-33\\
+
+\noindent
+\textbf{[106]} $\rightarrow$ Kommandozeile, Wikipedia (29.04.2015)\\
+http://de.wikipedia.org/wiki/Kommandozeile\\
+
+\noindent
+\textbf{[107]} $\rightarrow$ Einführung in die
+Kryptologie, Tino Hempel (29.04.2015)\\
+http://www.tinohempel.de/info/info/ kryptografie/download/krypto.pdf\\
+
+\noindent
+\textbf{[108]} $\rightarrow$ Kryptographie, Wikipedia (29.04.2015)\\
+http://de.wikipedia.org/wiki/ Kryptographie\\
+
+\newpage
+
+\noindent
+\textbf{[109]} $\rightarrow$ Kryptoanalyse, Wikipedia (29.04.2015)\\
+http://de.wikipedia.org/wiki/ Kryptoanalyse\\
+
+\noindent
+\textbf{[110]} $\rightarrow$ Informationssicherheit, Wikipedia (29.04.2015)\\
+https://de.wikipedia.org/wiki/ Informationssicherheit\\
+
+\noindent
+\textbf{[111]} $\rightarrow$ Kryptologische Hashfunktion, Wikipedia (29.04.2015)\\
+http://de.wikipedia.org/wiki/ Kryptologische\_Hashfunktion\\
+
+\noindent
+\textbf{[112]} $\rightarrow$ Kerckhoffs' Prinzip, Wikipedia (29.04.2015)\\
+http://de.wikipedia.org/wiki/Kerckhoffs'\_Prinzip\\
+
+\noindent
+\textbf{[113]} $\rightarrow$ Symmetrisches Verschlüsselungssystem, Wikipedia (29.04.2015)\\
+http://de.wikipedia.org/wiki/Symmetrisches\_Kryptosystem\\
+
+\noindent
+\textbf{[114]} $\rightarrow$ Asymmetrisches Verschlüsselungssystem, Wikipedia (29.04.2015)\\
+http://de.wikipedia.org/wiki/Asymmetrisches\_Kryptosystem\\
+
+\noindent
+\textbf{[115]} $\rightarrow$ Hybride Verschlüsselung, Wikipedia (29.04.2015)\\
+http://de.wikipedia.org/wiki/Hybride\_Verschlüsselung\\
+
+\noindent
+\textbf{[116]} $\rightarrow$ DES, Wikipedia (29.04.2015)\\
+http://en.wikipedia.org/wiki/Data\_Encryption\_Standard\\
+
+\noindent
+\textbf{[117]} $\rightarrow$ Triple-DES, Wikipedia (29.04.2015)\\
+http://en.wikipedia.org/wiki/Triple\_DES\\
+
+\noindent
+\textbf{[118]} $\rightarrow$ AES, Wikipedia (29.04.2015)\\
+http://en.wikipedia.org/wiki/Advanced\_Encryption\_Standard\\
+
+\noindent
+\textbf{[119]} $\rightarrow$ Diffie-Hellman-Schlüsselaustausch, Wikipedia (29.04.2015)\\
+http://de.wikipedia.org/wiki/Diffie-Hellman-Schlüsselaustausch\\
+
+\noindent
+\textbf{[120]} $\rightarrow$ RSA, Wikipedia (29.04.2015)\\
+http://en.wikipedia.org/wiki/RSA\\
+
+\noindent
+\textbf{[121]} $\rightarrow$ IPsec, Wikipedia (29.04.2015)\\
+http://de.wikipedia.org/wiki/IPsec\\
+
+\noindent
+\textbf{[122]} $\rightarrow$ TLS, Wikipedia (29.04.2015)\\
+http://en.wikipedia.org/wiki/Transport\_Layer\_Security\\
+
+\noindent
+\textbf{[123]} $\rightarrow$ PGP, Wikipedia (29.04.2015)\\
+http://en.wikipedia.org/wiki/Pretty\_Good\_Privacy\\
+
+\noindent
+\textbf{[124]} $\rightarrow$ MD5, Wikipedia (29.04.2015)\\
+http://en.wikipedia.org/wiki/MD5\\
+
+\noindent
+\textbf{[125]} $\rightarrow$ SHA, Wikipedia (29.04.2015)\\
+http://en.wikipedia.org/wiki/Secure\_Hash\_Algorithm\\
+
+\chapter{Daniel Ranalter}
+
+\chapter{Manpreet Singh}
+
+\chapter{STOJ}
+
 \end{onehalfspace}
 \end{document}
