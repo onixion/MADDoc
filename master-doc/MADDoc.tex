@@ -2646,7 +2646,7 @@ Jeder Job-Typ hat individuelle Eigenschaften, die nur für diesen Job-Typ gesetz
 
 \subsection{Ping (Alin Porcic)} Dieser Job führt einen Ping-Anfrage auf den jeweiligen Netzwerkknoten aus.
 
-\subsection{HTTP (Alin Porcic)} Die Aufgabe dieses Jobs ist das Senden einer HTTP-Anfrage und das Empfangen der Anwort. Für diesen Job kann eine Port-Nummer definiert werden, falls keine definiert wird, wird 80 als Port-Nummer genommen.
+\subsection{HTTP (Alin Porcic)}\label{ssec:httpcheck} Die Aufgabe dieses Jobs ist das Senden einer HTTP-Anfrage und das Empfangen der Anwort. Für diesen Job kann eine Port-Nummer definiert werden, falls keine definiert wird, wird 80 als Port-Nummer genommen.
 
 \subsection{Port (Alin Porcic)} Die Ausführung dieses Jobs bewirkt einen Verbindungaufbau auf einen Dienst (TCP). Nach dem 'Three-Way-Handshake' wird die Verbindung wieder abgebaut. Dieser Job kann nur herausfinden, ob ein Dienst erreichbar ist, nicht ob dieser die Anfragen auch ordnungsgemäß beantwortet.
 
@@ -2670,8 +2670,14 @@ Da man diese Werte unverarbeitet nicht verwenden kann, sie zeigen schließlich n
 Für alle SNMP Operationen gilt, dass nur SNMP Versionen \textbf{über} 1 verwendet werden. SNMPv1 ist zu Unsicher als, dass es weiterhin unterstützt werden sollte. Für den Community String muss \textbf{public} und für die Authentification/Privacy Phrase \textbf{MADMADMAD} gewählt werden. 
 
 \subsection{Internet Verbindungs Check (Daniel Ranalter)}
-Es gibt die Möglichkeit, durch ein Command den Connectivity Check zu starten, der sich von den herkömmlichen Jobs insoweit unterscheidet, dass er nicht an eine Node gebunden ist, sondern direkt auf dem Rechner, auf dem MAD läuft, ausgeführt wird.\\
-Wie der Name vermuten lässt, überprüft er, ob eine Verbindung zum Internet besteht. Dies kann er auf 5 verschiedenen Intensitätsstufen machen.\\
+\subsubsection{Idee}
+Die Idee war es, dem Benutzer die Möglichkeit zu bieten, zu überprüfen und Protokollieren ob eine Verbindung zum Internet besteht oder nicht. Durch diesen Job soll es möglich sein schneller herauszufinden ob, sollte ein Problem bestehen, dieses intern liegt, oder einfach keine Verbindung zum Internet da ist.\\
+Während der Implementierung viel mir auf, dass ein einfacher Ping an eine theoretisch zuverlässige Adresse zwar ein Anfang, jedoch nicht der Weisheit letzter Schluss ist, da auch zuverlässige Seiten irgendwann einmal nicht mehr da sein könnten.\\
+Also wurde die Möglichkeit eingebaut zwischen 5 verschiedenen Intensitäten zu wählen von 1 welche die Schwächste ist bis 5 die mehr verschiedene Checks durchführt. 
+
+\subsubsection{Realisierung und Probleme}
+Die Verbindungsüberprüfung ist überaus simpel aufgebaut. Aus dem Command wird von dem -i Parameter herausgelesen wie Intensiv der Check sein soll. Darauf aufbauend wird dann eine von 5 Funktionen aufgerufen welche je nach Intensität verschiedene Checks durchführt.\\
+Diese wäre folgende:
 \begin{itemize}
 \item Stufe 1:\\
 Hierbei wird ein ICMP Echo Request an die IP 8.8.8.8 geschickt. Dies ist der Google Primary DNS Server, welcher sehr zuverlässig immer erreichbar sein sollte.
@@ -2684,23 +2690,69 @@ Da rein ICMP etwas unzuverlässig ist, wird in der Stufe 4 alles der Stufe 3 ver
 \item Stufe 5:\\
 Stufe 4 + einen HTTP Request auf eine vom User selbst bestimmte Seite. Damit sollten alle Eventualitäten ausgeschlossen werden. 
 \end{itemize}
-
-Es gibt die verschiedenen Stufen aus dem Grund, dass falls sich in der Struktur des Netzwerkes einmal so viel ändern sollte, dass einzelne Dinge nicht mehr vorhanden sind, immernoch etwas dabei ist das funktioniert.
+Die Antworten werden dann ausgewertet und dem Benutzer angezeigt.
 
 \subsection{Check Jobs (Daniel Ranalter)}
-Es gibt eine Untergruppierung von Jobs, deren Aufgabe darin besteht, Dienste zu überprüfen. Zwar ist das auch mit dem Port Scan möglich, manchmal gibt es jedoch Fälle, bei denen ein Dienst in einen unkontrollierten Zustand verfällt.\\
-Ein Beispiel ist ein nicht sauber heruntergefahrener Dienst. Der Port ist dann zwar noch offen, jedoch liegt keiner dahinter, welcher Anfragen beantworten würde. Ein solcher fehlerhafter Dienst wird als \textbf{Zombie} bezeichnet.\\
+\subsubsection{Idee}
+Die Idee hinter den Check Jobs bestand daraus eine Möglichkeit zu besitzen sich nicht nur auf einen offenen Port zu verlassen. Dieser reicht zwar in den meisten Fällen aus, doch es gibt Umstände unter welchen Dienste nicht mehr reagieren obwohl sie nach außen hin scheinbar noch funktionieren und den Port offen halten.\\
+Um diese sogenannten \glqq Zombies\grqq zu erkennen wurden für die vier wichtigen Protokolle HTTP (wurde von Alin Porcic realisiert, siehe \ref{ssec:httpcheck} auf Seite \pageref{ssec:httpcheck}) DNS, FTP und SNMP eigene Check Jobs geschrieben. Diese begnügen sich nicht mit einem offenen Port sondern fragen auch um eine Antwort. Erst wenn diese als Gültig erkannt wird, gilt der Job als Aktiv.
 
-Es gibt drei verschiedene Check Jobs:\\
+\subsubsection{Realisierung und Probleme}
 \paragraph{DNS}
-Der DNS Check funktioniert über eine Methode, welche eine zuvor bestimmte Domain aufzulösen versucht. Sollte kein Name angegeben werden, wird www.google.com versucht aufzulösen. Dies kann jedoch zu Problemen führen, wenn man einen lokalen DNS Server überprüfen will, weshalb es die Option gibt, den Namen selbst anzugeben.
+Der DNS Check hat einen optionalen Parameter, bei welchem man eine gezielte Adresse mit geben kann die man auflösen will. Sollte dieser Parameter nicht verwendet werden wird die Domain www.google.at aufgelöst.\\
+Die Möglichkeit eine andere Adresse anzugeben dient dazu private oder lokale DNS Server zu überprüfen.\\
+Die gewählte/default Domain wird daraufhin an den eingetragenen DNS Server gesendet. Funktioniert das Auflösen, ohne dass eine Exception geworfen wird, wird die Anfrage als Erfolg gewertet da diese auch den Fehlschlag abdecken.
+
+\begin{lstlisting}
+public override void Execute(System.Net.IPAddress targetAddress)
+	{
+    try
+    {
+    	IPHostEntry _tmp = Dns.GetHostEntry(_hostname);
+        Logger.Log("DNS Service seems to work", Logger.MessageType.INFORM);
+        outp.outState = JobOutput.OutState.Success;
+    }
+    catch (Exception)
+    {
+    	Logger.Log("DNS Service seems to be dead", Logger.MessageType.ERROR);
+        outp.outState = JobOutput.OutState.Failed;
+    }
+}
+\end{lstlisting}
 
 \paragraph{SNMP}
-Da SNMP ein so sensibles Protokoll ist, gibt es auch die Möglichkeit zu überprüfen ob SNMP läuft. Dafür wird an die zu überprüfende Maschine ein GET Request für seinen Namen gestellt. Bei SNMP wird, wie bei dem traffic check auch, nur SNMP Version größer gleich 2 unterstützt.
+SNMP zählt zwar nicht zu den viel verwendeten Protokollen und ist somit eigentlich bei den genaueren Überprüfungen von den großen, häufig verwendeten Protokollen fehl am Platz, jedoch ist ein wichtiger Teil des Projektes an SNMP gebunden und ist vom Aufbau sehr ähnlich zum Auslesen des Traffics, mit dem Unterschied dass eine andere OID verwendet wird.\\
+Es wird ein GET Request für die OID 1.3.6.1.2.1.1.5.0 an den Host gesendet. Dieses Feld beinhaltet den Namen des Systems. Sollte die Anfrage ohne Probleme funktionieren wird es als Erfolg gewertet.\\
+
+Ein Problem welches sich ergeben hat, war dass ursprünglich geplant war, den Namen welchen SNMP zurück liefert mit dem Hostnamen zu vergleichen und daraus zu schließen ob es funktioniert hat oder nicht. Dies funktioniert jedoch nicht, da der Eintrag in 1.3.6.1.2.1.1.5.0 nicht dem Namen entspricht wie ihn beispielsweise Windows selbst darstellt.\\
+Außerdem zeigte sich, dass bei nicht funktionieren des SNMP Agents, ohnehin immer eine Exception geworfen wird.
 
 \paragraph{FTP}
-Bei dem FTP Check wird im Grunde einfach nur das momentane Arbeitsverzeichnis abgefragt. Es ist zu beachten, dass ein Passwort und ein Username benötigt werden. 
+Der FTP Check ist überaus simpel. Zuerst wird die Operation gewählt welche durchgeführt werden soll. In diesem Fall ist dies die Frage nach dem momentanen Arbeitsverzeichnis. Danach werden noch username und password mitgegeben welche für FTP notwendig sind.\\
+Wie bereits zuvor wird auch hier nur bei einer Exception ein Fehlschlag gewertet. 
+\begin{lstlisting}
+public override void Execute(IPAddress targetAddress)
+{
+	FtpWebRequest _requestDir = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + targetAddress.ToString()));		
+    _requestDir.Credentials = new NetworkCredential(username, password);
+    _requestDir.Method = WebRequestMethods.Ftp.PrintWorkingDirectory;
 
+    try
+    {
+    	FtpWebResponse _response = (FtpWebResponse)_requestDir.GetResponse();
+        Logger.Log("FTP Service seems to work", Logger.MessageType.INFORM);
+        outp.outState = JobOutput.OutState.Success;
+        outp.GetOutputDesc("Additional Information").dataObject = _response.StatusDescription;
+    }
+
+    catch (Exception ex)
+    {
+    	Logger.Log("FTP Service seems to be dead", Logger.MessageType.ERROR);
+        outp.outState = JobOutput.OutState.Exception;
+        outp.GetOutputDesc("Additional Information").dataObject = ex.Data.ToString();
+   	}
+}
+\end{lstlisting}
 
 \chapter{Devicefinder (Daniel Ranalter)}
 \lfoot{Daniel Ranalter}
@@ -2867,7 +2919,7 @@ Durch die Ähnlichkeit zu den vorherigen Versionen verzichte ich hier auf weiter
 Jedoch bleibt auch diese Version von Problematiken nicht sicher:\\
 \begin{enumerate}
 \item Die SharpPCAP Library gibt mehrere Interfaces zur Auswahl welche zum Absenden der ARP Pakete. Diese kann ich jedoch Programmtechnisch nicht selbst auswählen und so entsteht zusätzlicher Aufwand für den Benutzer. Um es trotzdem dem Benutzer zu erleihtern wird es
-\item Es gibt einen Bug bei welchen die Interfaces nicht sauber geschlossen werden. Dies bedeutet keinen Einfluss auf die Funktionalität, ist nur nicht wirklich schön und sauber.
+\item Es gibt einen Bug bei welchen die Interfaces nicht sauber geschlossen werden. Dies bedeutet keinen Einfluss auf die Funktionalität, ist nur nicht wirklich schön oder sauber.
 \end{enumerate}
 
 \chapter{Notification (Manpreet Singh)}
@@ -3032,11 +3084,21 @@ Wenn eine dieser Kriterien positiv ist kann keine Zusammenfassung der Daten stat
 Es gibt jedoch die Möglichkeit den Vorgang abzubrechen, wenn die Angegebene Zeitspanne nicht ausreicht und eine andere angegeben werden will.
 
 Ein Beispiel und weitere Informationen zur Zusammenfassung sind im Kapitel 19 unter Anwendungsbeispiel (19.4.2 Zusammenfassung der Datenbank) zu finden.
-\lfoot{Ranalter Daniel}%--------------------------------------------------------------------------------------------
+
 
 \chapter{Logging (Daniel Ranalter)}
-Damit bei Problemen mit MAD eine Möglichkeit besteht, Fehler im Nachhinein zu finden und zu beheben, wurde ein Logger eingebaut. Der Speicherort der Logfile kann in der Configfile verändert werden. Per default ist er in dem Ordner, in dem MAD ausgeführt wird.\\
-Damit schnell unterschieden werden kann zwischen wichtigen und unwichtigen Nachrichten, gibt es 5 verschiedene \glqq Level\grqq . Diese lauten:
+\lfoot{Ranalter Daniel}
+\section{Idee}
+Ein Logger ist für jede größere Software von Nutzen. Da auch unser Projekt nicht vor Fehlschlägen und Fehlern im Code geschützt ist, besonders da es für den Großteil der Gruppe das erste Projekt in diesem Ausmaß ist, ist ein Logger in diesem Falle von besonderer Bedeutung. Dieser Log soll in eine .txt File geschrieben werden, da es unter Windows einfacher ist mit .txt Dateien zu arbeiten.\\
+Der Logger soll außerdem verschiedene, an Syslog angelehnte, Dringlichkeitsstufen besitzen. Diese erhöhen die Lesbarkeit des Logs.
+
+\section{Realisierung und Probleme}
+Um etwas in die Logfile zu schreiben, gibt es die statische Funktion Log. Zum Beispiel:
+\begin{lstlisting}
+Logger.Log("(JS) Error while saving table: " + e.Message, Logger.MessageType.ERROR);
+\end{lstlisting}
+Hier ist bereits eine der Stufen zu erkennen. Die Stufen, wie erwähnt an Syslog angelehnt, lauten wie folgt:
+
 \begin{itemize}
 \item Debug, Level 1\\
 Debug Messages sind alle Nachrichten, welche wirklich nur benötigt werden, wenn sehr tiefer Einblick benötigt wird. 
@@ -3049,9 +3111,8 @@ Hier ist bereits ein Fehler aufgetreten. Irgendetwas von den Dingen, die zu tun 
 \item Emergency, Level 5\\
 Der hier aufgetretene Fehler bedroht die Integrität des Programmes und kann oder hat zum Absturz geführt. 
 \end{itemize}
-Außerdem kann die Stufe, ab welcher geloggt werden soll, bestimmt werden. Per default wird erst ab 2 aufwärts in die Logfile geschrieben.\\
-
-Die Logfile selbst hat das .txt Format, damit man unter Windows leichter damit arbeiten kann, und heißt log.txt. Der Name kann jedoch geändert werden, um Verwirrung mit anderen Log Dateien zu vermeiden. 
+Diese Nachricht welche man der Logger Klasse übergibt, wird daraufhin zwischen gespeichert. Nachdem 10 Nachrichten zusammengekommen sind werden diese dann gesammelt in die File geschrieben, welche sich per default im Ausführungsordner von dem Projekt befindet. Diese Zahl ist für sehr kleine Firmen und Heimnetze geeignet kann jedoch über einen Befehl geändert werden, ebenso der Speicherort und der Name der LogFile. (siehe \ref{sec:commands} auf Seite \pageref{sec:commands}).\\
+Für besonders wichtige Nachrichten (zB bei einem Emergency Fall) können auch die Funktion ForceWriteToLog aufrufen um sicherzustellen dass ihre Lognachricht nicht im Buffer verloren geht, weil sich das Programm beendet bevor der buffer geschrieben worden ist.\\
 
 \part{User Manual}
 \lfoot{Alin Porcic}
@@ -3278,7 +3339,7 @@ Folgende Parameter sind verfügbar:
 
 Sendet einen ARP Request an jedes in der Liste verzeichnete Gerät und löscht es gegebenenfalls heraus.
 
-\section{Sonstige Befehle (Daniel Ranalter)}
+\section{Sonstige Befehle (Daniel Ranalter)}\label{sec:commands}
 
 \subsubsection{check connection}
 
@@ -3299,7 +3360,7 @@ Mögliche Parameter:
 
 Zeigt alle für den SNMP Job geeigneten Interfaces an.
 
-\subsubsection{change logBuffer}
+\subsubsection{change logBuffer} 
 
 Ändert die Anzahl gesammelter Nachrichten bevor sie in die Datei geschrieben werden.
 Parameter:\\
