@@ -2872,6 +2872,7 @@ Jedoch bleibt auch diese Version von Problematiken nicht sicher:\\
 
 \chapter{Notification (Manpreet Singh)}
 \lfoot{Manpreet Singh}
+\section{Allgemeiner Verlauf}
 Notification war mir ein großes Anliegen. Für mich war es wichtig, dass der User bei Bedarf die Möglichkeit hat benachrichtigt zu werden. Nach kurzer Diskussion mit meinen Kollegen entschieden wir uns für die E-Mail.\\
 
 Es war mein erster Kontakt mit C\#, deshalb hat es mich anfänglich mehr Zeit gekostet. Als ich die Sprache etwas beherrschte, war die erste Version zur Benachrichtigung schnell geschrieben. \\
@@ -2881,6 +2882,78 @@ Nach ewigem testen, stellte sich heraus, dass das, das ich programmiert hatte le
 Nach dem Hinzufügen anderer Erweiterungen wie z.B. dem Que System, welches dem Hauptprogramm erlaubt, unabhängig von Wartezeiten, E-Mails and das Notification System zu übergeben. Ques (Warteschlangen) ermöglichten dieses Feature. Aber auch andere Funktion wie die optionalen E-Mail Felder wurden implementiert. Optionale E-Mail Felder sind beispielsweise Dateianhang, CC, BCC, Priorität.\\
 
 Im Großen und Ganzen war dies eine einfache Aufgabe.
+\newpage
+\section{Technische Realisierung}
+Die technische Realisierung besteht aus 2 Teilen:
+\begin{itemize}
+\item \textbf{Get Parameter - Zuweisen der Parameter}\\
+In diesem Programmteil wird eine Methode (SetSendMail) geboten. Mit dieser Methode kann man die für eine E-Mail notwendigen Parameter (Betreff, Inhalt, Anzahl der Fehlversuche beim Senden) zuweisen. Falls aber noch andere Parameter gesetzt werden sollen, wie z.B. vom Standard abweichende Empfänger oder Sender Adresse, uvm..
+Nachdem alle Parameter übergeben worden sind wird ein sogenanntes NotficPackIn erstellt, dies ist ein Paket mit allen möglichen Parametern.\\
+Immer wenn ein solches Paket zusammengestellt wird, wird es der Warteschlange hinzugefügt, wo es dann darauf wartet, verarbeitet zu werden.\\
+Anschließend wird, falls nicht bereits vorhanden, ein Thread gestartet, welcher die Warteschlange abarbeitet. Der Warteschlange können laufend Pakete hinzugefügt werden, der Thread stoppt erst wieder wenn die Warteschlange leer ist.\\
+
+\begin{lstlisting}
+//#1 for default Source and Receiver
+public static bool SetSendMail(string subject, string body, int retryCounter,
+	bool highPriority = false, MailAddress[] eMailToCC = null, 
+    MailAddress[] eMailToBCC = null, Attachment[] eMailAttachment = null)
+    {
+    	return NotificationGetParams.SetSendMail(null, subject, body, retryCounter, null, null, null, null,
+        highPriority, eMailToCC, eMailToBCC, eMailAttachment);
+    } 
+        
+//#2 for Special Orign and Reveiver
+public static bool SetSendMail(MailAddress[] eMailTo, string subject, string body, 
+	int retryCounter, string smtpClient_special, MailAddress eMailFrom_special, 
+    string password_special, int? port_special, bool highPriority = false, 
+    MailAddress[] eMailToCC = null, MailAddress[] eMailToBCC = null, Attachment[] eMailAttachment = null)
+    {
+    	NotificPackIn NotificPackIn = new NotificPackIn();
+
+        NotificPackIn.eMailToPackIn = eMailTo;
+        NotificPackIn.subjectPackIn = subject;
+        NotificPackIn.bodyPackIn = body;
+        NotificPackIn.retryCounterPackIn = retryCounter;
+        NotificPackIn.smtpClient_specialPackIn = smtpClient_special;
+        NotificPackIn.eMailFrom_specialPackIn = eMailFrom_special;
+        NotificPackIn.password_specialPackIn = password_special;
+        NotificPackIn.port_specialPackIn = port_special;
+        NotificPackIn.highPriorityPackIn = highPriority;
+        NotificPackIn.eMailToCCPackIn = eMailToCC;
+        NotificPackIn.eMailToBCCPackIn = eMailToBCC;
+        NotificPackIn.eMailAttachmentPackIn = eMailAttachment;
+
+        lock (lockObject)
+        {
+            NotificPackQueue.Enqueue(NotificPackIn);
+        }
+
+        if (sendMailThread == null || (sendMailThread.ThreadState == ThreadState.Stopped))
+        {
+        	try
+            {
+                sendMailThread = new Thread(new ThreadStart(NotificationSend.SendMail));
+                sendMailThread.Start();
+                return true;
+            }
+
+            catch(Exception ex)
+            {
+                Logging.Logger.Log("Sorry sir but I failed to send the Mail because:" + ex,
+                Logging.Logger.MessageType.ERROR);
+                return true;
+            }
+        }
+
+        else
+        {
+            return true;
+         }  
+	}
+\end{lstlisting}
+\item \textbf{Senden}
+\end{itemize}
+
 
 \chapter{Datenbank (Marko Stojanovi\'{c})}
 \lfoot{Marko Stojanovi\'{c}}
