@@ -484,7 +484,7 @@ Dieser Teil der Abhandlung wird die Netzwerkgrundlagen, die auf das Ethernet Pro
 \section{Grundlagen}
 In der Netzwerktechnik gibt es mehrere verschiedene grundlegende Konzepte, auf welche hier eingegangen werden soll.
 
-\subsection{Übersicht: Netzwerkdevices}
+\subsection{Übersicht: Netzwerkdevices$^{[204]}$}
 Um ein Netzwerk aufzubauen, werden verschiedene Devices benötigt. Je nach Größe und Art des Netzwerkes kann man auch auf einzelne Komponenten verzichten. 
 
 \subsubsection{Router}
@@ -550,7 +550,7 @@ Während Stateful Inspection sich nur den Header des Paketes ansieht, greift die
 Vorteilhaft daran ist die relativ hohe Sicherheit, da auch Pakete, welche auf einem scheinbar harmlosen Port kommen und auch das passende Protokoll haben, manipuliert sein können. Nachteilig jedoch, dass die Firewall damit in der Lage ist, absolut alles an Informationen über den Netzwerkverkehr aufsammeln zu können, was sie will. Die Anonymität ist damit nicht länger gewährleistet.
 \end{itemize}
 
-\subsection{Übersicht: Netzwerktypen}
+\subsection{Übersicht: Netzwerktypen$^{[205]}$}
 Hier soll auf die wichtigsten Netzwerktypen kurz eingegangen werden. Es gibt einige mehr als jene, die im Folgenden erwähnt werden, jedoch sollten sie die Wichtigsten abdecken.
 \subsubsection{LAN}
 Das \textbf{LAN}, oder Local Area Network, bezeichnet ein Netzwerk, welches von seinen Ausdehnungen her nicht mehr als 500 Meter überschreitet. Als LANs werden zum Beispiel Heimnetzwerke, Netzwerke in Schulen oder Arbeitsplätzen, besonders Büros, oder Bürogebäuden bezeichnet.
@@ -572,12 +572,12 @@ Beim statischen VLAN werden einzelne Ports an einem Switch, dediziert einem VLAN
 Beim dynamischen VLAN versucht der Switch anhand von Zusammenhängen im Datenverkehr zu entscheiden, in welches VLAN ein Paket gehört. 
 \end{itemize}
 
-\subsection{Der Host}
+\subsection{Der Host$^{[206]}$}
 Mit dem Term \textbf{Host} wird im Zusammenhang der Netzwerktechnik ein Gerät beschrieben, welches über das Netzwerk mit anderen Hosts verbunden ist und theoretisch die Möglichkeit hat an der Kommunikation teilzunehmen. Damit ein Host zur Kommunikation in der Lage ist, benötigt er mehrere Dinge.\\
 Zu diesen gehört Hardware technisch gesehen, mindestens eine \textbf{Netzwerkkarte} mit einer Art von Möglichkeit sich in das Netz einzuklinken. Diese Möglichkeit kann aus einem Ethernet Anschluss oder einer Antenne bestehen, welche in der Lage ist, das 2,4 GHz Band und/oder das 5GHz Band zu empfangen und in diesem Band zu senden.\\
 Auf der Softwareseite benötigt ein Host im Grunde drei Dinge, welche ihn dazu ermöglichen eine Konversation mit einem anderen Host über das Internet zu führen. Es gibt natürlich auch andere Arten von Kommunikation in Netzwerken, jedoch ist das TCP/IP (siehe Kapitel \ref{sssec:tcpip} auf Seite \pageref{sssec:tcpip}) Modell das am häufigsten vorkommende. 
 
-\subsubsection{MAC-Adressen}\label{sssec:macaddr}
+\subsubsection{MAC-Adressen${[200]}$}\label{sssec:macaddr}
 \textbf{MAC-Adresse} steht für Media Access Controll Adresse und ist dem \textbf{Layer 2} zugewiesen. Die MAC-Adresse heißt in Apple Systemen auch \glqq Ethernet-ID\grqq , \glqq Airport-ID\grqq \ oder \glqq Wi-Fi-Adresse\grqq . Sie sollte theoretisch jedes Netzwerkinterface eindeutig kennzeichnen, jedoch ist es mit moderner Software möglich, die MAC-Adresse zu ändern.\\
 Da die MAC-Adresse nicht mehr, wie ursprünglich gedacht, in die Netzwerkkarte \glqq eingebrannt\grqq ist, kann sie von Crackern eingesetzt werden, um Schaden anzurichten (siehe Kapitel \ref{ssec:mspoof} und \ref{ssec:mflood} auf den Seiten \pageref{ssec:mspoof} und \pageref{ssec:mflood})\\
 
@@ -588,7 +588,7 @@ Das zweite Bit steht dafür, ob es eine global administrierte (0) oder eine loka
 
 Ohne Kenntnis über die MAC-Adresse wäre es nicht möglich, in einem Netzwerk zu kommunizieren, da das Ethernetframe die Sender und die Empfänger MAC-Adresse verlangt.\\
 Für den Fall, dass sich der Zielhost nicht im gleichen Netz befindet, sich also in einem durch einen Router getrennten, anderen Netz befindet, würde für die Ziel MAC-Adresse jene des Routers angegeben. Sollte sich die Adresse des Ziels nicht im Cache des Rechners befinden, wird das Protokoll ARP verwendet (siehe Kapitel \ref{ssec:arp} Seite \pageref{ssec:arp}). 
-\subsubsection{IP-Adressen}\label{sssec:ipaddr}
+\subsubsection{IP-Adressen${[201]}$}\label{sssec:ipaddr}
 Im folgenden wird nur auf IP version 4 eingegangen. Informationen zu IP version 6 können in Kapitel \ref{ssec:ip} auf Seite \pageref{ssec:ip} gefunden werden.\\
 
 Die zweite Adresse, die ein Host benötigt, um mit anderen zu kommunizieren oder Daten auszutauschen, ist die \textbf{IP-Adresse}, was für Internet Protokoll Adresse steht. Diese wird dem \textbf{Layer 3} des OSI-Schichtenmodells zugewiesen. Es gibt auch noch einige andere Protokolle auf Layer 3, jedoch setzen Netzwerke, wie sie im Projekt bearbeitet wurden, sowie das Internet hauptsächlich auf IP auf.\\
@@ -599,7 +599,7 @@ Wie bereits zuvor beschrieben wird die MAC-Adresse verwendet, um im gleichen Net
 
 Eine IP-Adresse wird normal ein zwei Teile gespalten. Es gibt den \textbf{Netzteil} und den \textbf{Hostteil} einer IP-Adresse. Der Netzteil einer Adresse kennzeichnet, wie der Name bereits sagt, in welchem Netz sich ein Host befindet. Der Hostteil hingegen kennzeichnet einen einzelnen Host in diesem Netz.\\
 Um zu erkennen welcher Teil einer IP-Adresse der Netzteil und welcher der Hostteil ist, verwendet man sogenannte \textbf{Subnetzmasken}. Die Subnetzmaske besteht aus einer dezimalen Zahl zwischen 1 und (theoretisch) 32 und gibt an, wieviele Bits der IP-Addresse zum Netzteil gehören. So wäre zum Beispiel bei der Adresse \textit{192.168.1.1/24} ein Anteil von 24 bit dem Netzteil zugehörig. 24 bit entsprechen 3 byte, also die ersten 3 dezimalen Zahlen 192.168.1 sind das Netz und .1 ist der Host.
-\subsubsection{Ports}
+\subsubsection{Ports$^{[202]}$}
 Werden auf der Transportschicht, also \textbf{Layer 4}, die Protokolle \textbf{TCP oder UDP} verwendet, werden jedem Host, zusätzlich zu den zuvorgenannten Werten, auch noch sogenannte Ports zugewiesen. Diese kennzeichnen \textbf{zu welcher Anwendung} ein Paket gehört. Es gibt immer einen Source-Port und einen Destination-Port.\\
 Ports bewegen sich in einem Raum von 0 bis 65535. Dieser Bereich wird aufgeteilt in drei kleinere Bereiche.\\
 Ersterer sind die sogenannten \textbf{well-known Ports}, also jene, welche von allen gekannt und anerkannt werden. Er erstreckt sich von den Nummern 0 bis 1023. Ports in diesem Bereich sind von der IETF (Internet Engineering Task Force) mit bestimmten, wichtigen Anwendungen verknüpft worden. So ist das File Transport Protocol ftp auf Port 21 zu finden.\\
@@ -611,7 +611,7 @@ Ohne Ports wäre es nicht möglich, mehrere Netzwerkanwendungen gleichzeitig zu 
 
 Wie erwähnt gibt es, wie bei den zuvor genannten Werten, auch hier Source und Destination. Während der Destination Port bei einem Client meistens anhand der Art von Anwendung vorbestimmt ist, ist der Source Port frei zu wählen, solange er über 1024 liegt. Meistens wird jedoch ein Port über 30000 verwendet. 
 
-\subsection{Schichtenmodel}
+\subsection{Schichtenmodel${[203]}$}
 Das \textbf{Schichtenmodel} ist ein im Bereich der Softwarearchitektur häufig verwendetes Strukturierungsprinzip, indem Schichten immer auf die Resourcen der unteren Schicht zugreifen können, ohne sich Gedanken um deren Format oder ähnliches machen zu müssen, während sie selbst der next höheren Schicht fixierte Objekte zur Verfügung stellen. In der Netzwerktechnik gibt es zwei etablierte Schichtenmodelle.
 \subsubsection{OSI}
 Das \textbf{OSI-Layer Modell} wurde 1984 von der International Organization for Standardization (ISO) als Standardreferenzmodell für Telekommunikation in Netzwerken festgelegt.\\
@@ -731,7 +731,7 @@ Gegenüberstellung OSI - TCP/IP:\\
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/ositcpip.png}
 \end{center}
-\subsection{Client-Server Verhältnis}\label{ssec:client-server}
+\subsection{Client-Server Verhältnis$^{[207]}$}\label{ssec:client-server}
 Das Client-Server Modell ist das bekannteste und am öftesten verwendete Muster für Aufgabenverteilung in einem Netzwerk.\\ 
 Bei diesem Modell gibt es denjenigen, der die \textbf{Dienste anbietet, den Server}, und jenen, der die \textbf{Dienste nutzt, den Client}.\\
 
@@ -782,7 +782,7 @@ Nun, da er über die IP-Adresse des Webservers verfügt, durchläuft der Rechner
 \item Schritt:\\
 Wenn er sich sämtliche Informationen, welche für diese Anfrage benötigt werden, gesammelt hat, baut er das HTTP-Request Paket zusammen, mit MAC- und IP-Adresse, diesesmal TCP Port 80, und der Seite im HTTP Teil des Paketes. Er wartet auf die Antwort Pakete, baut die Seite im Browser auf und der User bekommt, was er will.
 \end{enumerate}
-\section{Protokolle}
+\section{Protokolle${[208]}$}
 Es gibt unzählige verschiedene Protokolle, hier soll nur auf ein paar wenige Wichtige eingegangen werden, welche auch Verwendung im praktischen Teil der Diplomarbeit gefunden haben.
 \subsection{Ethernet}\label{ssec:eth}
 \textbf{Ethernet} ist ein sowohl ein Layer1 als auch ein Layer2 Protokoll im OSI-Modell und damit für die unterste Schicht und den grundlegenden Kommunikationsmöglichkeiten zuständig.\\
@@ -3732,6 +3732,101 @@ https://github.com/amibar/SmartThreadPool\\
 
 \chapter{Daniel Ranalter}
 \lfoot{Daniel Ranalter}
+
+\noindent
+\textbf{[200]} $\rightarrow$  MAC Adresse, (30.1.2015)\\
+de.wikipedia.org/wiki/MAC-Adresse\\
+en.wikipedia.org/wiki/Mac\_address\\
+www.elektronik-kompendium.de/sites/net/1406201.htm
+
+\noindent
+\textbf{[201]} $\rightarrow$  IP Adresse, (31.1.2015)\\
+de.wikipedia.org/wiki/IP-Adresse\\
+en.wikipedia.org/wiki/IP\_address\\
+
+\noindent
+\textbf{[202]} $\rightarrow$  Ports, (4.2.2015)\\
+de.wikipedia.org/wiki/Port\_(Protokoll)\\
+en.wikipedia.org/wiki/Port\_(computer\_networking)\\
+
+\noindent
+\textbf{[203]} $\rightarrow$  Schichtenmodelle, (8.2.2015)\\
+de.wikipedia.org/wiki/OSI-Modell\\
+de.wikipedia.org/wiki/Schichtenarchitektur\\
+de.wikipedia.org/wiki/Internetprotokollfamilie\\
+en.wikipedia.org/wiki/Internet\_protocol\_suite\\
+en.wikipedia.org/Wiki/Multitier\_architecture\\
+en.wikipedia.org/wiki/OSI\_model\\
+en.wikipedia.org/wiki/TCP/IP\_model\\
+en.wikipedia.org/wiki/Physical\_layer\\
+en.wikipedia.org/wiki/Data\_link\_layer\\
+en.wikipedia.org/wiki/Network\_layer\\
+en.wikipedia.org/wiki/Transport\_layer\\
+en.wikipedia.org/wiki/Session\_layer\\
+en.wikipedia.org/wiki/Presentation\_layer\\
+en.wikipedia.org/wiki/Application\_layer\\
+
+\noindent
+\textbf{[204]} $\rightarrow$  Netzwerkdevices, (12.2.2015)\\
+de.wikipedia.org/wiki/Router\\
+en.wikipedia.org/wiki/Router\_(computing)\\
+de.wikipedia.org/wiki/Open\_Shortest\_Path\_First \\
+en.wikipedia.org/wiki/Open\_Shortest\_Path\_First 1\\
+de.wikipedia.org/wiki/Routing\_Information\_Protocol \\
+en.wikipedia.org/wiki/Routing\_Information\_Protocol \\
+de.wikipedia.org/wiki/Switch\_(Netzwerktechnik) \\
+en.wikipedia.org/wiki/Network\_switch \\
+de.wikipedia.org/wiki/Firewall \\
+en.wikipedia.org/wiki/Firewall\_(computing) \\
+de.wikipedia.org/wiki/Deep\_Packet\_Inspection \\
+en.wikipedia.org/wiki/Deep\_packet\_inspection \\
+
+\noindent
+\textbf{[205]} $\rightarrow$  Netzwerktypen, (16.2.2015)\\
+de.wikipedia.org/wiki/Virtual\_Local\_Area\_Network \\
+en.wikipedia.org/wiki/Virtual\_LAN \\
+de.wikipedia.org/wiki/Wide\_Area\_Network\\
+en.wikipedia.org/wiki/Wide\_area\_network \\
+de.wikipedia.org/wiki/Local\_Area\_Network \\
+en.wikipedia.org/wiki/Local\_area\_network \\
+de.wikipedia.org/wiki/Wireless\_Local\_Area\_Network \\
+en.wikipedia.org/wiki/Wireless\_LAN \\
+
+\noindent
+\textbf{[206]} $\rightarrow$  Host, (14.2.2015)\\
+de.wikipedia.org/wiki/Host\_(Informationstechnik) \\
+
+\noindent
+\textbf{[207]} $\rightarrow$  Client-Server, (16.2.2015)\\
+de.wikipedia.org/wiki/Rack\\
+en.wikipedia.org/wiki/19-inch-rack\\
+de.wikipedia.org/wiki/Client-Server\_Modell\\
+en.wikipedia.org/wiki/Client-server\_model \\
+
+\noindent
+\textbf{[208]} $\rightarrow$ Protokolle, (16.2-1.3.2015)\\
+de.wikipedia.org/wiki/Ethernet 16.2 \\
+en.wikipedia.org/wiki/Ethernet 16.2 \\
+en.wikipedia.org/wiki/Ethernet\_frame 17.2 \\
+de.wikipedia.org/wiki/Internet\_Protocol 20.2\\
+en.wikipedia.org/wiki/Internet\_Protocol 20.2\\
+de.wikipedia.org/wiki/IPv6 23.2\\
+en.wikipedia.org/wiki/IPv6 23.2\\
+en.wikipedia.org/wiki/IPv6\_address 23.2\\
+de.wikipedia.org/wiki/IP-Framentierung 23.2\\
+en.wikipedia.org/wiki/IP\_fragmentation 23.2\\
+tools.ietf.org/html/rfc791\\
+tools.ietf.org/html/rfc1918\\
+tools.ietf.org/html/rfc2460\\
+tools.ietf.org/html/rfc6598\\
+tools.ietf.org/html/rfc6890\\
+de.wikipedia.org/wiki/Dynamic\_Host\_Configuration\_Protocol\\
+en.wikipedia.org/wiki/Dynamic\_Host\_Configuration\_Protocol\\
+de.wikipedia.org/wiki/Transmission\_Control\_Protocol\\
+en.wikipedia.org/wiki/Transmission\_Control\_Protocol\\
+tools.ietf.org/html/rfc793\\
+tools.ietf.org/html/rfc2131\\
+
 
 \chapter{Manpreet Singh}
 \lfoot{Manpreet Singh}
