@@ -79,7 +79,6 @@ to be written
 
 Das Ziel dieser Diplomarbeit ist das Erstellen eines Programmes, welches in einem kleinen Netzwerk (max. 50 Netzwerkgeräte) Netzwerkgeräte und Netzwerkdienste überwachen kann. Dabei soll der Benutzer die Möglichkeit haben, Regeln für die Überwachung zu definieren, damit er bei einer Missachtung sofort per E-Mail darüber informiert werden kann.
 
-
 \section{Schnittstellen}
 
 Für die Benutzung des Programmes soll eine textbasierende Schnittstelle eingebaut werden, die die primäre Interaktion mit dem Programm sicherstellen soll. Die vollständige Überwachung sowie die Konfiguration aller Aufgaben und Geräte soll über diese Schnittstelle möglich sein.\\
@@ -94,7 +93,6 @@ Die Resulate der Überwachungen sollen in einer lokalen Datenbank abgespeichert 
 Zudem soll das Programm bei Änderungen der IP-Adressen von Netzwerkgeräten informiert werden, damit dieser die neuen IP-Adressen nachtragen kann.
 
 \part{Theorie zu den einzelnen Gebieten der Arbeit}
-
 
 \lfoot{Marko Stojanovi\'{c}}
 \chapter{Informatik (Marko Stojanovi\'{c})}
@@ -486,7 +484,7 @@ Dieser Teil der Abhandlung wird die Netzwerkgrundlagen, die auf das Ethernet Pro
 \section{Grundlagen}
 In der Netzwerktechnik gibt es mehrere verschiedene grundlegende Konzepte, auf welche hier eingegangen werden soll.
 
-\subsection{Übersicht: Netzwerkdevices}
+\subsection{Übersicht: Netzwerkdevices$^{[204]}$}
 Um ein Netzwerk aufzubauen, werden verschiedene Devices benötigt. Je nach Größe und Art des Netzwerkes kann man auch auf einzelne Komponenten verzichten. 
 
 \subsubsection{Router}
@@ -552,7 +550,7 @@ Während Stateful Inspection sich nur den Header des Paketes ansieht, greift die
 Vorteilhaft daran ist die relativ hohe Sicherheit, da auch Pakete, welche auf einem scheinbar harmlosen Port kommen und auch das passende Protokoll haben, manipuliert sein können. Nachteilig jedoch, dass die Firewall damit in der Lage ist, absolut alles an Informationen über den Netzwerkverkehr aufsammeln zu können, was sie will. Die Anonymität ist damit nicht länger gewährleistet.
 \end{itemize}
 
-\subsection{Übersicht: Netzwerktypen}
+\subsection{Übersicht: Netzwerktypen$^{[205]}$}
 Hier soll auf die wichtigsten Netzwerktypen kurz eingegangen werden. Es gibt einige mehr als jene, die im Folgenden erwähnt werden, jedoch sollten sie die Wichtigsten abdecken.
 \subsubsection{LAN}
 Das \textbf{LAN}, oder Local Area Network, bezeichnet ein Netzwerk, welches von seinen Ausdehnungen her nicht mehr als 500 Meter überschreitet. Als LANs werden zum Beispiel Heimnetzwerke, Netzwerke in Schulen oder Arbeitsplätzen, besonders Büros, oder Bürogebäuden bezeichnet.
@@ -574,12 +572,12 @@ Beim statischen VLAN werden einzelne Ports an einem Switch, dediziert einem VLAN
 Beim dynamischen VLAN versucht der Switch anhand von Zusammenhängen im Datenverkehr zu entscheiden, in welches VLAN ein Paket gehört. 
 \end{itemize}
 
-\subsection{Der Host}
+\subsection{Der Host$^{[206]}$}
 Mit dem Term \textbf{Host} wird im Zusammenhang der Netzwerktechnik ein Gerät beschrieben, welches über das Netzwerk mit anderen Hosts verbunden ist und theoretisch die Möglichkeit hat an der Kommunikation teilzunehmen. Damit ein Host zur Kommunikation in der Lage ist, benötigt er mehrere Dinge.\\
 Zu diesen gehört Hardware technisch gesehen, mindestens eine \textbf{Netzwerkkarte} mit einer Art von Möglichkeit sich in das Netz einzuklinken. Diese Möglichkeit kann aus einem Ethernet Anschluss oder einer Antenne bestehen, welche in der Lage ist, das 2,4 GHz Band und/oder das 5GHz Band zu empfangen und in diesem Band zu senden.\\
 Auf der Softwareseite benötigt ein Host im Grunde drei Dinge, welche ihn dazu ermöglichen eine Konversation mit einem anderen Host über das Internet zu führen. Es gibt natürlich auch andere Arten von Kommunikation in Netzwerken, jedoch ist das TCP/IP (siehe Kapitel \ref{sssec:tcpip} auf Seite \pageref{sssec:tcpip}) Modell das am häufigsten vorkommende. 
 
-\subsubsection{MAC-Adressen}\label{sssec:macaddr}
+\subsubsection{MAC-Adressen${[200]}$}\label{sssec:macaddr}
 \textbf{MAC-Adresse} steht für Media Access Controll Adresse und ist dem \textbf{Layer 2} zugewiesen. Die MAC-Adresse heißt in Apple Systemen auch \glqq Ethernet-ID\grqq , \glqq Airport-ID\grqq \ oder \glqq Wi-Fi-Adresse\grqq . Sie sollte theoretisch jedes Netzwerkinterface eindeutig kennzeichnen, jedoch ist es mit moderner Software möglich, die MAC-Adresse zu ändern.\\
 Da die MAC-Adresse nicht mehr, wie ursprünglich gedacht, in die Netzwerkkarte \glqq eingebrannt\grqq ist, kann sie von Crackern eingesetzt werden, um Schaden anzurichten (siehe Kapitel \ref{ssec:mspoof} und \ref{ssec:mflood} auf den Seiten \pageref{ssec:mspoof} und \pageref{ssec:mflood})\\
 
@@ -590,7 +588,7 @@ Das zweite Bit steht dafür, ob es eine global administrierte (0) oder eine loka
 
 Ohne Kenntnis über die MAC-Adresse wäre es nicht möglich, in einem Netzwerk zu kommunizieren, da das Ethernetframe die Sender und die Empfänger MAC-Adresse verlangt.\\
 Für den Fall, dass sich der Zielhost nicht im gleichen Netz befindet, sich also in einem durch einen Router getrennten, anderen Netz befindet, würde für die Ziel MAC-Adresse jene des Routers angegeben. Sollte sich die Adresse des Ziels nicht im Cache des Rechners befinden, wird das Protokoll ARP verwendet (siehe Kapitel \ref{ssec:arp} Seite \pageref{ssec:arp}). 
-\subsubsection{IP-Adressen}\label{sssec:ipaddr}
+\subsubsection{IP-Adressen${[201]}$}\label{sssec:ipaddr}
 Im folgenden wird nur auf IP version 4 eingegangen. Informationen zu IP version 6 können in Kapitel \ref{ssec:ip} auf Seite \pageref{ssec:ip} gefunden werden.\\
 
 Die zweite Adresse, die ein Host benötigt, um mit anderen zu kommunizieren oder Daten auszutauschen, ist die \textbf{IP-Adresse}, was für Internet Protokoll Adresse steht. Diese wird dem \textbf{Layer 3} des OSI-Schichtenmodells zugewiesen. Es gibt auch noch einige andere Protokolle auf Layer 3, jedoch setzen Netzwerke, wie sie im Projekt bearbeitet wurden, sowie das Internet hauptsächlich auf IP auf.\\
@@ -601,7 +599,7 @@ Wie bereits zuvor beschrieben wird die MAC-Adresse verwendet, um im gleichen Net
 
 Eine IP-Adresse wird normal ein zwei Teile gespalten. Es gibt den \textbf{Netzteil} und den \textbf{Hostteil} einer IP-Adresse. Der Netzteil einer Adresse kennzeichnet, wie der Name bereits sagt, in welchem Netz sich ein Host befindet. Der Hostteil hingegen kennzeichnet einen einzelnen Host in diesem Netz.\\
 Um zu erkennen welcher Teil einer IP-Adresse der Netzteil und welcher der Hostteil ist, verwendet man sogenannte \textbf{Subnetzmasken}. Die Subnetzmaske besteht aus einer dezimalen Zahl zwischen 1 und (theoretisch) 32 und gibt an, wieviele Bits der IP-Addresse zum Netzteil gehören. So wäre zum Beispiel bei der Adresse \textit{192.168.1.1/24} ein Anteil von 24 bit dem Netzteil zugehörig. 24 bit entsprechen 3 byte, also die ersten 3 dezimalen Zahlen 192.168.1 sind das Netz und .1 ist der Host.
-\subsubsection{Ports}
+\subsubsection{Ports$^{[202]}$}
 Werden auf der Transportschicht, also \textbf{Layer 4}, die Protokolle \textbf{TCP oder UDP} verwendet, werden jedem Host, zusätzlich zu den zuvorgenannten Werten, auch noch sogenannte Ports zugewiesen. Diese kennzeichnen \textbf{zu welcher Anwendung} ein Paket gehört. Es gibt immer einen Source-Port und einen Destination-Port.\\
 Ports bewegen sich in einem Raum von 0 bis 65535. Dieser Bereich wird aufgeteilt in drei kleinere Bereiche.\\
 Ersterer sind die sogenannten \textbf{well-known Ports}, also jene, welche von allen gekannt und anerkannt werden. Er erstreckt sich von den Nummern 0 bis 1023. Ports in diesem Bereich sind von der IETF (Internet Engineering Task Force) mit bestimmten, wichtigen Anwendungen verknüpft worden. So ist das File Transport Protocol ftp auf Port 21 zu finden.\\
@@ -613,7 +611,7 @@ Ohne Ports wäre es nicht möglich, mehrere Netzwerkanwendungen gleichzeitig zu 
 
 Wie erwähnt gibt es, wie bei den zuvor genannten Werten, auch hier Source und Destination. Während der Destination Port bei einem Client meistens anhand der Art von Anwendung vorbestimmt ist, ist der Source Port frei zu wählen, solange er über 1024 liegt. Meistens wird jedoch ein Port über 30000 verwendet. 
 
-\subsection{Schichtenmodel}
+\subsection{Schichtenmodel${[203]}$}
 Das \textbf{Schichtenmodel} ist ein im Bereich der Softwarearchitektur häufig verwendetes Strukturierungsprinzip, indem Schichten immer auf die Resourcen der unteren Schicht zugreifen können, ohne sich Gedanken um deren Format oder ähnliches machen zu müssen, während sie selbst der next höheren Schicht fixierte Objekte zur Verfügung stellen. In der Netzwerktechnik gibt es zwei etablierte Schichtenmodelle.
 \subsubsection{OSI}
 Das \textbf{OSI-Layer Modell} wurde 1984 von der International Organization for Standardization (ISO) als Standardreferenzmodell für Telekommunikation in Netzwerken festgelegt.\\
@@ -733,7 +731,7 @@ Gegenüberstellung OSI - TCP/IP:\\
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/ositcpip.png}
 \end{center}
-\subsection{Client-Server Verhältnis}\label{ssec:client-server}
+\subsection{Client-Server Verhältnis$^{[207]}$}\label{ssec:client-server}
 Das Client-Server Modell ist das bekannteste und am öftesten verwendete Muster für Aufgabenverteilung in einem Netzwerk.\\ 
 Bei diesem Modell gibt es denjenigen, der die \textbf{Dienste anbietet, den Server}, und jenen, der die \textbf{Dienste nutzt, den Client}.\\
 
@@ -784,7 +782,7 @@ Nun, da er über die IP-Adresse des Webservers verfügt, durchläuft der Rechner
 \item Schritt:\\
 Wenn er sich sämtliche Informationen, welche für diese Anfrage benötigt werden, gesammelt hat, baut er das HTTP-Request Paket zusammen, mit MAC- und IP-Adresse, diesesmal TCP Port 80, und der Seite im HTTP Teil des Paketes. Er wartet auf die Antwort Pakete, baut die Seite im Browser auf und der User bekommt, was er will.
 \end{enumerate}
-\section{Protokolle}
+\section{Protokolle${[208]}$}
 Es gibt unzählige verschiedene Protokolle, hier soll nur auf ein paar wenige Wichtige eingegangen werden, welche auch Verwendung im praktischen Teil der Diplomarbeit gefunden haben.
 \subsection{Ethernet}\label{ssec:eth}
 \textbf{Ethernet} ist ein sowohl ein Layer1 als auch ein Layer2 Protokoll im OSI-Modell und damit für die unterste Schicht und den grundlegenden Kommunikationsmöglichkeiten zuständig.\\
@@ -1531,7 +1529,7 @@ E-Mails könnten zwar rein theoretisch unbegrenzte Datenmengen übertragen, dies
 Jeder empfängt unzählige E-Mails. Diese variieren von wichtigem Informationsaustausch, über überflüssige Werbung, bis zu gefährlichen E-Mails. Zwangsweise führt dies zu einer Informationsüberflutung. 
 \subsection{Spam}\label{sssec:Spam}
 Als Spam werden jene E-Mails bezeichnet, welche meist einen werbenden Inhalt haben. 2010 lag der Prozentsatz von Spam-Mails bei knapp 90\%, bei 107 Billionen versendeten E-Mails weltweit.  (vgl.http://de.wikipedia.org/wiki/E-Mail\#Spam) 
-\chapter{Schnittstellen}
+\chapter{Schnittstellen (Alin Porcic / Manpreet Singh)}
 
 \section{Command Line Interface (Alin Porcic)}
 \lfoot{Alin Porcic}
@@ -2514,21 +2512,21 @@ eine mögliche Konfiguration
 \chapter{JobSystem (Alin Porcic)}
 \lfoot{Alin Porcic}
 
-Das Starten der Überwachungsoperationen und die Verarbeitung der Resultate ist die Aufgabe des JobSystems. Dabei muss das JobSystem die Zeiten aller Jobs im Auge behalten und muss die zugewiesenen Aufgaben im richtigen Moment ausführen.\\
-Netzwerkgeräte werden auch als Netzwerkknoten bezeichnet, ein Knoten definieren ein bestimmtes Ziel im Netzwerk und sie sind mithilfe einer GUID eindeutig nachweisbar. Auf jeden Netzwerkknoten können Netzwerkaufgaben hinzugefügt werden. Jede dieser Netzwerkaufgaben kann einen oder mehrere Zeitpunkte oder ein Zeitintervall definieren, bei dem die Aufgabe ausgeführt werden soll. Die Resultate dieser Operationen wird anschließend in die Datenbank des Programmes geschrieben.\\
-Das JobSystem hat die Möglichkeit ein Abbild von sich zu speichern und später wieder zu laden. Daher müssen Geräte und Aufgaben nur einmal definiert werden und die Konfiguration lässt sich leicht auf andere Computer übertragen.
-
 \section{Allgemeines}
 
-Das Jobsystem organisiert die Netzwerkaufgaben (=Jobs) und Netzwerkgeräte (=Netzwerkknoten, =Knoten, =Nodes) innerhalb des Programmes und bietet eine Schnittstelle an, um diese zu entfernen, hinzuzufügen oder zu konfigurieren. Das JobSystem ist nicht an einer textbasierten oder grafischen Schnittestelle gebunden, sondern kann auf Programmebene über Methodenaufrufe angesteuert werden. Alle Methodenaufrufe werden intern über Locks vor Race-Conditions und weiteren Multithreading-Problemen geschützt.\\
-Das JobSystem besitzt die Möglichkeit die derzeitig initialisierten Aufgaben und Geräte in einer Datei abzuspeichern und diese zu einem späteren Zeitpunkt wieder zu laden. Es ist möglich ein komplettes Abbild der Geräte und Aufgaben abzuspeichern und zu laden. Doch auch einzelne Netzwerkgeräte inklusive deren Netzwerkaufgaben können abgespeichert und geladen werden.\\
+Das Jobsystem organisiert die Netzwerkaufgaben (oder auch Jobs) und Netzwerkgeräte (oder auch Netzwerkknoten, Knoten, Nodes) innerhalb des Programmes und bietet eine Schnittstelle an, um diese zu entfernen, hinzuzufügen oder zu konfigurieren. Das JobSystem ist nicht an einer textbasierten oder grafischen Schnittestelle gebunden, sondern kann auf Programmebene über Methodenaufrufe angesteuert werden. Alle Methodenaufrufe werden intern über Locks vor Race-Conditions und weiteren Multithreading-Problemen geschützt.\\
+Das Starten der Überwachungsoperationen und die Verarbeitung der Resultate ist die Aufgabe des JobSystems. Dabei muss das JobSystem die Zeiten aller Jobs im Auge behalten und muss die zugewiesenen Aufgaben im richtigen Moment starten.\\
+Ein Netzwerkknoten definiert ein bestimmtes Ziel im Netzwerk und kann Netzwerkaufgaben definieren. Diese Netzwerkaufgaben können jeweils einen oder mehrere Zeitpunkte oder ein Zeitintervall definieren, bei dem die Aufgabe ausgeführt werden soll. Die Resultate dieser Operationen werden anschließend in die Datenbank des Programmes geschrieben.\\
+Das JobSystem besitzt die Möglichkeit die derzeitig initialisierten Aufgaben und Geräte in einer Datei abzuspeichern und diese zu einem späteren Zeitpunkt wieder zu laden. Doch auch einzelne Netzwerkgeräte inklusive deren Netzwerkaufgaben können abgespeichert und geladen werden.\\
 Das JobSystem kann sich mit dem Device-Finder synchronisieren, um die IP-Adressen der Netzwerkknoten zu aktualisieren.
 
+\newpage
 \section{Netzwerkknoten}
 
 Ein Netzwerkknoten stellt ein Netzwerkgerät dar, welches durch die folgenden Eigenschaften charakterisiert werden kann:
 
 \begin{itemize}
+\item \textbf{GUID}: Die GUID stellt sicher, dass der Netzwerkknoten eindeutig zuweisbar ist und das es zu keinen Verwechslungen kommen kann.
 \item \textbf{Name}: Dem Netzwerkknoten muss ein Name zugeordnet werden (meistens wird hier der Hostname eingetragen).
 \item \textbf{IP-Adresse}: Hier wird die IPv4-Adresse des Knotens eingetragen.
 \item \textbf{MAC-Adresse}: Hier wird die MAC-Adresse des Knotens eingetragen.
@@ -2546,14 +2544,13 @@ Bei der Auswertung der Netzwerkaufgaben müssen diese Dinge vom Zeitplaner berü
 \item \textbf{Netzwerkaufgabe}: Ist die Aufgabe aktiv? Hat er den definierten Zeitpunkt / die definierte Zeitspanne erreicht? Ist die Aufgabe bereits in der Ausführung?
 \end{itemize}
 
-Der JobSchedule besitzt einen internen Threadpool. Die Wahl eines geeigneten Threadpools fiel auf den SmartThreadPool statt der .NET-Variante des Threadpools. Der große Vorteil des SmartThreadPools ist, dass er eine fixe Anzahl an Threads initialisiert und die zugewiesenen Aufgaben automatisch auf diesen Threads aufteilt. Somit ist es nicht notwendig für jeden Job einen eigenen Thread vom Betriebssystem erstellen zu lassen. Der zweite Vorteil des SmartThreadPools ist, dass mehrere Instanzen erstellt werden können.\\
-Nachdem der Job im Threadpool gestartet wurde, wird die jeweilige Operation im Netzwerk erledigt und vom Job selbst ausgewertet. Dann schreibt der Job die Resultate in die Datenbank, gibt den Thread wieder frei und ist
-für eine neue Ausführung bereit.
+Der JobSchedule besitzt einen internen Threadpool. Dieser Threadpool ist der SmartThreadPool. Der große Vorteil des SmartThreadPools ist, dass er eine fixe Anzahl an Threads initialisiert und die zugewiesenen Aufgaben automatisch auf diesen Threads aufteilt. Somit ist es nicht notwendig für jeden Job einen eigenen Thread vom Betriebssystem erstellen zu lassen. Der zweite Vorteil des SmartThreadPools ist, dass mehrere Instanzen erstellt werden können. [126]\\
+Nachdem der Job im Threadpool gestartet wurde, wird die jeweilige Operation im Netzwerk erledigt und vom Job selbst ausgewertet. Dann schreibt der Job die Resultate in die Datenbank, gibt den Thread wieder frei und ist für eine neue Ausführung bereit.
 
 \section{JobRules}
 
 Jeder Job kann JobRules definieren. Diese Regeln werden nach der Ausführung überprüft und falls mindestens eine Regel nicht eingehalten wird, dann wird eine Benachrichtigung versendet. Diese Benachrichtigung beinhaltet alle wichtigen Daten über die Ausführung und über den Grund der Benachrichtigung.\\
-Die Regeln überprüfen die Resultate der Jobs auf bestimmte Kriterien, zum Beispiel kann eine Regel definiert werden, die besagt, dass die Ausführungsdauer nicht länger als 2s betragen darf. Nun wird jedes mal wenn die Ausführungsdauer größer als 2s ist, eine Benachrichtigung versendet.\\
+Die Regeln überprüfen die Resultate der Jobs auf bestimmte Kriterien, zum Beispiel kann eine Regel definiert werden, die besagt, dass die Ausführungsdauer nicht länger als 2s betragen darf. Nun wird jedes mal wenn die Ausführungsdauer größer als 2s ist, eine Benachrichtigung versendet.
 
 \section{Benachrichtigung}
 
@@ -2585,7 +2582,7 @@ Job-TSpan:    '0s0ms'
 \newpage
 \section{Probleme und Beschränkungen}
 
-Während der Entwicklung des JobSystems und des JobSchedules sind einige kritische Probleme aufgetreten. Der JobSchedule arbeitet in einem eigenen Thread und ruft alle 10ms alle Netzwerkknoten und Netzwerkaufgaben ab, um deren Status zu überprüfen. Dabei muss der JobSchedule dem JobSystem mitteilen, dass die Netzwerkknoten und Netzwerkaufgaben mit denen er gerade arbeitet, nicht von anderen verändert oder gelesen werden können, da dies sonst unter Umständen zu metastabilen Zuständen führen kann. Um gleichzeitiges Lesen und Schreiben auf gleichen Objekten zu vermeiden, wurde ein internes Lock-System für das JobSystem konzipiert. Der Nachteil dieses Systems ist, dass nur einer zugleich am JobSystem operieren kann. Es wurde daher versucht, sogenannte ReadWrite-Locks zu implementieren. Diese haben den Vorteil, dass mehrere gleichzeitig lesen können, aber nur einer gleichzeitig schreiben kann. Jedoch ist die Implementierung von ReadWrite-Locks sehr schwierig, die Fehlersuche ist sehr schwierig und daher wurde diese Idee aus zeitlichen Gründen verworfen.\\
+Während der Entwicklung des JobSystems und des JobSchedules sind einige kritische Probleme aufgetreten. Der JobSchedule arbeitet in einem eigenen Thread und ruft alle 100ms alle Netzwerkknoten und Netzwerkaufgaben ab, um deren Status zu überprüfen. Dabei muss der JobSchedule dem JobSystem mitteilen, dass die Netzwerkknoten und Netzwerkaufgaben mit denen er gerade arbeitet, nicht von anderen verändert oder gelesen werden können, da dies sonst unter Umständen zu metastabilen Zuständen führen kann. Um gleichzeitiges Lesen und Schreiben auf gleichen Objekten zu vermeiden, wurde ein internes Lock-System für das JobSystem konzipiert. Der Nachteil dieses Systems ist, dass nur einer zugleich am JobSystem operieren kann. Es wurde daher versucht, sogenannte ReadWrite-Locks zu implementieren. Diese haben den Vorteil, dass mehrere gleichzeitig lesen können, aber nur einer gleichzeitig schreiben kann. Jedoch ist die Implementierung von ReadWrite-Locks sehr schwierig, die Fehlersuche ist sehr schwierig und daher wurde diese Idee aus zeitlichen Gründen verworfen.\\
 
 Bestimmte Aufrufe auf das JobSystem, zum Beispiel die RemoveNode-Methode, kann unter bestimmten Umständen nicht ordnungsgemäß durchgeführt werden. Bei der RemoveNode-Methode, zum Beispiel, kann es sein, dass der Knoten gerade laufende Aufgaben besitzt und daher nicht entfernt werden kann. Die Wahrscheinlichkeit, dass ein solcher Fall eintritt, ist sehr gering und wird im Normalfall nie eintreffen. Falls der Aufruf nicht möglich ist, wird der Nutzer darüber informiert.
 
@@ -2593,7 +2590,6 @@ Bestimmte Aufrufe auf das JobSystem, zum Beispiel die RemoveNode-Methode, kann u
 \lfoot{Alin Porcic}
 
 Jobs definieren bestimmte Aufgaben, die im Netzwerk zu erledigen sind. Das Ziel der Aufgabe ist immer die IP-Adresse des Netzwerkknotens, an der der Job angehängt wurde. Erst wenn der definierte Zeitpunkt erreicht wurde, wird der Job vom JobSchedule in einem eigenen Thread ausgeführt. Nachdem der Job die Aufgabe erledigt hat, überprüft er selbstständig ob er die definierten Regeln gebrochen hat, generiert und sendet gegebenfalls eine E-Mail und schreibt die Resultate der Ausführung in die Datenbank. Welche Operationen der Job beim Start im Netzwerk ausführt, hängt vom Job-Typ ab. Auch die Resultate der Ausführung sind vom Typ abhängig.\\
-
 Hier ist die private Methode zu sehen, die der JobSchedule beim Start eines Jobs ausführt. Es wird die Startzeit, Stopzeit und die Dauer der Ausführung errechnet und gesetzt. Der Job wird ausgeführt und er schreibt sich selbst in die lokale Datenbank und beendet die Ausführung.
 
 \begin{lstlisting}
@@ -2634,9 +2630,10 @@ Hier ist die private Methode zu sehen, die der JobSchedule beim Start eines Jobs
 
 \section{Job-Typen}
 
-Jeder Job (egal welcher Typ) muss folgende Eigenschaften definieren:\\
+Jeder Job muss folgende Eigenschaften definieren:\\
 
 \begin{itemize}
+\item \textbf{GUID}: Jeder Job bekommt eine eindeutige Identifikationszahl, damit wird sichergestellt, dass der Job nicht mit anderen ähnlichen Jobs verwechselt werden kann.
 \item \textbf{Name}: Jeder Job besitzt einen Namen, damit der Job indentifiziert werden kann.
 \item \textbf{Node-ID}: Jeder Job muss einen Knoten definieren, damit der Job ein Ziel hat.
 \item \textbf{Zeit}: Jeder Job muss eine Zeit definieren, in der er ausgeführt werden soll (Zeitintervall oder mehrere Zeitpunkte).
@@ -2646,9 +2643,9 @@ Jeder Job-Typ hat individuelle Eigenschaften, die nur für diesen Job-Typ gesetz
 
 \subsection{Ping (Alin Porcic)} Dieser Job führt einen Ping-Anfrage auf den jeweiligen Netzwerkknoten aus.
 
-\subsection{HTTP (Alin Porcic)} Die Aufgabe dieses Jobs ist das Senden einer HTTP-Anfrage und das Empfangen der Anwort. Für diesen Job kann eine Port-Nummer definiert werden, falls keine definiert wird, wird 80 als Port-Nummer genommen.
+\subsection{Port (Alin Porcic)} Die Ausführung dieses Jobs bewirkt einen Verbindungaufbau auf einen TCP-Dienst. Nach einem erfolgreichen Verbindungsaufbau (Three-Way-Handshake) wird die Verbindung sofort wieder abgebaut. Dieser Job kann nur herausfinden, ob ein Dienst auft TCP-Ebene erreichbar ist, nicht ob dieser die Anfragen auch ordnungsgemäß beantwortet.
 
-\subsection{Port (Alin Porcic)} Die Ausführung dieses Jobs bewirkt einen Verbindungaufbau auf einen Dienst (TCP). Nach dem 'Three-Way-Handshake' wird die Verbindung wieder abgebaut. Dieser Job kann nur herausfinden, ob ein Dienst erreichbar ist, nicht ob dieser die Anfragen auch ordnungsgemäß beantwortet.
+\subsection{HTTP (Alin Porcic)}\label{ssec:httpcheck} Die Aufgabe dieses Jobs ist das Senden einer HTTP-Anfrage und das Empfangen der Antwort. Für diesen Job kann eine Port-Nummer definiert werden, falls keine definiert wird, wird 80 als Port-Nummer genommen.
 
 \newpage
 \lfoot{Ranalter Daniel}%--------------------------------------------------------------------------------------------
@@ -2670,8 +2667,14 @@ Da man diese Werte unverarbeitet nicht verwenden kann, sie zeigen schließlich n
 Für alle SNMP Operationen gilt, dass nur SNMP Versionen \textbf{über} 1 verwendet werden. SNMPv1 ist zu Unsicher als, dass es weiterhin unterstützt werden sollte. Für den Community String muss \textbf{public} und für die Authentification/Privacy Phrase \textbf{MADMADMAD} gewählt werden. 
 
 \subsection{Internet Verbindungs Check (Daniel Ranalter)}
-Es gibt die Möglichkeit, durch ein Command den Connectivity Check zu starten, der sich von den herkömmlichen Jobs insoweit unterscheidet, dass er nicht an eine Node gebunden ist, sondern direkt auf dem Rechner, auf dem MAD läuft, ausgeführt wird.\\
-Wie der Name vermuten lässt, überprüft er, ob eine Verbindung zum Internet besteht. Dies kann er auf 5 verschiedenen Intensitätsstufen machen.\\
+\subsubsection{Idee}
+Die Idee war es, dem Benutzer die Möglichkeit zu bieten, zu überprüfen und Protokollieren ob eine Verbindung zum Internet besteht oder nicht. Durch diesen Job soll es möglich sein schneller herauszufinden ob, sollte ein Problem bestehen, dieses intern liegt, oder einfach keine Verbindung zum Internet da ist.\\
+Während der Implementierung viel mir auf, dass ein einfacher Ping an eine theoretisch zuverlässige Adresse zwar ein Anfang, jedoch nicht der Weisheit letzter Schluss ist, da auch zuverlässige Seiten irgendwann einmal nicht mehr da sein könnten.\\
+Also wurde die Möglichkeit eingebaut zwischen 5 verschiedenen Intensitäten zu wählen von 1 welche die Schwächste ist bis 5 die mehr verschiedene Checks durchführt. 
+
+\subsubsection{Realisierung und Probleme}
+Die Verbindungsüberprüfung ist überaus simpel aufgebaut. Aus dem Command wird von dem -i Parameter herausgelesen wie Intensiv der Check sein soll. Darauf aufbauend wird dann eine von 5 Funktionen aufgerufen welche je nach Intensität verschiedene Checks durchführt.\\
+Diese wäre folgende:
 \begin{itemize}
 \item Stufe 1:\\
 Hierbei wird ein ICMP Echo Request an die IP 8.8.8.8 geschickt. Dies ist der Google Primary DNS Server, welcher sehr zuverlässig immer erreichbar sein sollte.
@@ -2684,23 +2687,69 @@ Da rein ICMP etwas unzuverlässig ist, wird in der Stufe 4 alles der Stufe 3 ver
 \item Stufe 5:\\
 Stufe 4 + einen HTTP Request auf eine vom User selbst bestimmte Seite. Damit sollten alle Eventualitäten ausgeschlossen werden. 
 \end{itemize}
-
-Es gibt die verschiedenen Stufen aus dem Grund, dass falls sich in der Struktur des Netzwerkes einmal so viel ändern sollte, dass einzelne Dinge nicht mehr vorhanden sind, immernoch etwas dabei ist das funktioniert.
+Die Antworten werden dann ausgewertet und dem Benutzer angezeigt.
 
 \subsection{Check Jobs (Daniel Ranalter)}
-Es gibt eine Untergruppierung von Jobs, deren Aufgabe darin besteht, Dienste zu überprüfen. Zwar ist das auch mit dem Port Scan möglich, manchmal gibt es jedoch Fälle, bei denen ein Dienst in einen unkontrollierten Zustand verfällt.\\
-Ein Beispiel ist ein nicht sauber heruntergefahrener Dienst. Der Port ist dann zwar noch offen, jedoch liegt keiner dahinter, welcher Anfragen beantworten würde. Ein solcher fehlerhafter Dienst wird als \textbf{Zombie} bezeichnet.\\
+\subsubsection{Idee}
+Die Idee hinter den Check Jobs bestand daraus eine Möglichkeit zu besitzen sich nicht nur auf einen offenen Port zu verlassen. Dieser reicht zwar in den meisten Fällen aus, doch es gibt Umstände unter welchen Dienste nicht mehr reagieren obwohl sie nach außen hin scheinbar noch funktionieren und den Port offen halten.\\
+Um diese sogenannten \glqq Zombies\grqq zu erkennen wurden für die vier wichtigen Protokolle HTTP (wurde von Alin Porcic realisiert, siehe \ref{ssec:httpcheck} auf Seite \pageref{ssec:httpcheck}) DNS, FTP und SNMP eigene Check Jobs geschrieben. Diese begnügen sich nicht mit einem offenen Port sondern fragen auch um eine Antwort. Erst wenn diese als Gültig erkannt wird, gilt der Job als Aktiv.
 
-Es gibt drei verschiedene Check Jobs:\\
+\subsubsection{Realisierung und Probleme}
 \paragraph{DNS}
-Der DNS Check funktioniert über eine Methode, welche eine zuvor bestimmte Domain aufzulösen versucht. Sollte kein Name angegeben werden, wird www.google.com versucht aufzulösen. Dies kann jedoch zu Problemen führen, wenn man einen lokalen DNS Server überprüfen will, weshalb es die Option gibt, den Namen selbst anzugeben.
+Der DNS Check hat einen optionalen Parameter, bei welchem man eine gezielte Adresse mit geben kann die man auflösen will. Sollte dieser Parameter nicht verwendet werden wird die Domain www.google.at aufgelöst.\\
+Die Möglichkeit eine andere Adresse anzugeben dient dazu private oder lokale DNS Server zu überprüfen.\\
+Die gewählte/default Domain wird daraufhin an den eingetragenen DNS Server gesendet. Funktioniert das Auflösen, ohne dass eine Exception geworfen wird, wird die Anfrage als Erfolg gewertet da diese auch den Fehlschlag abdecken.
+
+\begin{lstlisting}
+public override void Execute(System.Net.IPAddress targetAddress)
+	{
+    try
+    {
+    	IPHostEntry _tmp = Dns.GetHostEntry(_hostname);
+        Logger.Log("DNS Service seems to work", Logger.MessageType.INFORM);
+        outp.outState = JobOutput.OutState.Success;
+    }
+    catch (Exception)
+    {
+    	Logger.Log("DNS Service seems to be dead", Logger.MessageType.ERROR);
+        outp.outState = JobOutput.OutState.Failed;
+    }
+}
+\end{lstlisting}
 
 \paragraph{SNMP}
-Da SNMP ein so sensibles Protokoll ist, gibt es auch die Möglichkeit zu überprüfen ob SNMP läuft. Dafür wird an die zu überprüfende Maschine ein GET Request für seinen Namen gestellt. Bei SNMP wird, wie bei dem traffic check auch, nur SNMP Version größer gleich 2 unterstützt.
+SNMP zählt zwar nicht zu den viel verwendeten Protokollen und ist somit eigentlich bei den genaueren Überprüfungen von den großen, häufig verwendeten Protokollen fehl am Platz, jedoch ist ein wichtiger Teil des Projektes an SNMP gebunden und ist vom Aufbau sehr ähnlich zum Auslesen des Traffics, mit dem Unterschied dass eine andere OID verwendet wird.\\
+Es wird ein GET Request für die OID 1.3.6.1.2.1.1.5.0 an den Host gesendet. Dieses Feld beinhaltet den Namen des Systems. Sollte die Anfrage ohne Probleme funktionieren wird es als Erfolg gewertet.\\
+
+Ein Problem welches sich ergeben hat, war dass ursprünglich geplant war, den Namen welchen SNMP zurück liefert mit dem Hostnamen zu vergleichen und daraus zu schließen ob es funktioniert hat oder nicht. Dies funktioniert jedoch nicht, da der Eintrag in 1.3.6.1.2.1.1.5.0 nicht dem Namen entspricht wie ihn beispielsweise Windows selbst darstellt.\\
+Außerdem zeigte sich, dass bei nicht funktionieren des SNMP Agents, ohnehin immer eine Exception geworfen wird.
 
 \paragraph{FTP}
-Bei dem FTP Check wird im Grunde einfach nur das momentane Arbeitsverzeichnis abgefragt. Es ist zu beachten, dass ein Passwort und ein Username benötigt werden. 
+Der FTP Check ist überaus simpel. Zuerst wird die Operation gewählt welche durchgeführt werden soll. In diesem Fall ist dies die Frage nach dem momentanen Arbeitsverzeichnis. Danach werden noch username und password mitgegeben welche für FTP notwendig sind.\\
+Wie bereits zuvor wird auch hier nur bei einer Exception ein Fehlschlag gewertet. 
+\begin{lstlisting}
+public override void Execute(IPAddress targetAddress)
+{
+	FtpWebRequest _requestDir = (FtpWebRequest)FtpWebRequest.Create(new Uri("ftp://" + targetAddress.ToString()));		
+    _requestDir.Credentials = new NetworkCredential(username, password);
+    _requestDir.Method = WebRequestMethods.Ftp.PrintWorkingDirectory;
 
+    try
+    {
+    	FtpWebResponse _response = (FtpWebResponse)_requestDir.GetResponse();
+        Logger.Log("FTP Service seems to work", Logger.MessageType.INFORM);
+        outp.outState = JobOutput.OutState.Success;
+        outp.GetOutputDesc("Additional Information").dataObject = _response.StatusDescription;
+    }
+
+    catch (Exception ex)
+    {
+    	Logger.Log("FTP Service seems to be dead", Logger.MessageType.ERROR);
+        outp.outState = JobOutput.OutState.Exception;
+        outp.GetOutputDesc("Additional Information").dataObject = ex.Data.ToString();
+   	}
+}
+\end{lstlisting}
 
 \chapter{Devicefinder (Daniel Ranalter)}
 \lfoot{Daniel Ranalter}
@@ -2867,7 +2916,7 @@ Durch die Ähnlichkeit zu den vorherigen Versionen verzichte ich hier auf weiter
 Jedoch bleibt auch diese Version von Problematiken nicht sicher:\\
 \begin{enumerate}
 \item Die SharpPCAP Library gibt mehrere Interfaces zur Auswahl welche zum Absenden der ARP Pakete. Diese kann ich jedoch Programmtechnisch nicht selbst auswählen und so entsteht zusätzlicher Aufwand für den Benutzer. Um es trotzdem dem Benutzer zu erleihtern wird es
-\item Es gibt einen Bug bei welchen die Interfaces nicht sauber geschlossen werden. Dies bedeutet keinen Einfluss auf die Funktionalität, ist nur nicht wirklich schön und sauber.
+\item Es gibt einen Bug bei welchen die Interfaces nicht sauber geschlossen werden. Dies bedeutet keinen Einfluss auf die Funktionalität, ist nur nicht wirklich schön oder sauber.
 \end{enumerate}
 
 \chapter{Notification (Manpreet Singh)}
@@ -3105,11 +3154,21 @@ Wenn eine dieser Kriterien positiv ist kann keine Zusammenfassung der Daten stat
 Es gibt jedoch die Möglichkeit den Vorgang abzubrechen, wenn die Angegebene Zeitspanne nicht ausreicht und eine andere angegeben werden will.
 
 Ein Beispiel und weitere Informationen zur Zusammenfassung sind im Kapitel 19 unter Anwendungsbeispiel (19.4.2 Zusammenfassung der Datenbank) zu finden.
-\lfoot{Ranalter Daniel}%--------------------------------------------------------------------------------------------
+
 
 \chapter{Logging (Daniel Ranalter)}
-Damit bei Problemen mit MAD eine Möglichkeit besteht, Fehler im Nachhinein zu finden und zu beheben, wurde ein Logger eingebaut. Der Speicherort der Logfile kann in der Configfile verändert werden. Per default ist er in dem Ordner, in dem MAD ausgeführt wird.\\
-Damit schnell unterschieden werden kann zwischen wichtigen und unwichtigen Nachrichten, gibt es 5 verschiedene \glqq Level\grqq . Diese lauten:
+\lfoot{Ranalter Daniel}
+\section{Idee}
+Ein Logger ist für jede größere Software von Nutzen. Da auch unser Projekt nicht vor Fehlschlägen und Fehlern im Code geschützt ist, besonders da es für den Großteil der Gruppe das erste Projekt in diesem Ausmaß ist, ist ein Logger in diesem Falle von besonderer Bedeutung. Dieser Log soll in eine .txt File geschrieben werden, da es unter Windows einfacher ist mit .txt Dateien zu arbeiten.\\
+Der Logger soll außerdem verschiedene, an Syslog angelehnte, Dringlichkeitsstufen besitzen. Diese erhöhen die Lesbarkeit des Logs.
+
+\section{Realisierung und Probleme}
+Um etwas in die Logfile zu schreiben, gibt es die statische Funktion Log. Zum Beispiel:
+\begin{lstlisting}
+Logger.Log("(JS) Error while saving table: " + e.Message, Logger.MessageType.ERROR);
+\end{lstlisting}
+Hier ist bereits eine der Stufen zu erkennen. Die Stufen, wie erwähnt an Syslog angelehnt, lauten wie folgt:
+
 \begin{itemize}
 \item Debug, Level 1\\
 Debug Messages sind alle Nachrichten, welche wirklich nur benötigt werden, wenn sehr tiefer Einblick benötigt wird. 
@@ -3122,9 +3181,8 @@ Hier ist bereits ein Fehler aufgetreten. Irgendetwas von den Dingen, die zu tun 
 \item Emergency, Level 5\\
 Der hier aufgetretene Fehler bedroht die Integrität des Programmes und kann oder hat zum Absturz geführt. 
 \end{itemize}
-Außerdem kann die Stufe, ab welcher geloggt werden soll, bestimmt werden. Per default wird erst ab 2 aufwärts in die Logfile geschrieben.\\
-
-Die Logfile selbst hat das .txt Format, damit man unter Windows leichter damit arbeiten kann, und heißt log.txt. Der Name kann jedoch geändert werden, um Verwirrung mit anderen Log Dateien zu vermeiden. 
+Diese Nachricht welche man der Logger Klasse übergibt, wird daraufhin zwischen gespeichert. Nachdem 10 Nachrichten zusammengekommen sind werden diese dann gesammelt in die File geschrieben, welche sich per default im Ausführungsordner von dem Projekt befindet. Diese Zahl ist für sehr kleine Firmen und Heimnetze geeignet kann jedoch über einen Befehl geändert werden, ebenso der Speicherort und der Name der LogFile. (siehe \ref{sec:commands} auf Seite \pageref{sec:commands}).\\
+Für besonders wichtige Nachrichten (zB bei einem Emergency Fall) können auch die Funktion ForceWriteToLog aufrufen um sicherzustellen dass ihre Lognachricht nicht im Buffer verloren geht, weil sich das Programm beendet bevor der buffer geschrieben worden ist.\\
 
 \part{User Manual}
 \lfoot{Alin Porcic}
@@ -3351,7 +3409,7 @@ Folgende Parameter sind verfügbar:
 
 Sendet einen ARP Request an jedes in der Liste verzeichnete Gerät und löscht es gegebenenfalls heraus.
 
-\section{Sonstige Befehle (Daniel Ranalter)}
+\section{Sonstige Befehle (Daniel Ranalter)}\label{sec:commands}
 
 \subsubsection{check connection}
 
@@ -3372,7 +3430,7 @@ Mögliche Parameter:
 
 Zeigt alle für den SNMP Job geeigneten Interfaces an.
 
-\subsubsection{change logBuffer}
+\subsubsection{change logBuffer} 
 
 Ändert die Anzahl gesammelter Nachrichten bevor sie in die Datei geschrieben werden.
 Parameter:\\
@@ -3599,6 +3657,7 @@ Die letzte Funktion der graphischen Oberfläche ist das Informationsfenster. Die
 
 \chapter{Alin Porcic}
 \lfoot{Alin Porcic}
+
 \begin{center}
 \begin{tabular}{|l|c|l|}
 
@@ -3619,9 +3678,35 @@ Oktober 2014 bis Mai 2015 & 210h &\\ \hline
 \end{tabular}
 \end{center}
 
+\chapter{Daniel Ranalter}
+\lfoot{Daniel Ranalter}
+
+\begin{tabular}{|l|c|l|}
+
+\hline
+\textbf{Zeitraum} & \textbf{Zeitdauer} & \textbf{Aufgaben} \\ \hline
+September 2014 & ~23h & MAC-Finder Version 1 Nachforschung, Umsetzung, Test\\
+Oktober 2014 & ~41h & FTP Checkjob Nachforschung, Umsetzung, Test; MAC-Finder Version 2 start Nachforschung\\
+November 2014 & ~31h & MAC-Finder Version 2 Nachforschung, Umsetzung, Test\\
+Dezember 2014 & ~29h & SNMP Nachforschung\\
+Januar 2015 & ~29h & SNMP Umsetzung, start Test\\
+Febuar 2015 & ~12h & SNMP Test, Logging Nachforschung\\
+März 2015 & ~5h & Logger Umsetzung, Test, MAC-Finder Version 3 start Nachforschung\\
+April 2015 & ~34h & MAC-Finder Version 3 Nachforschung, Umsetzung, Test 
+Mai 2015 & ~20h & Cleancoding\\
+\hline \hline
+Oktober 2014 bis Mai 2015 & 224h &\\ \hline
+
+\chapter{Manpreet Singh}
+\lfoot{Manpreet Singh}
+
+\chapter{Marko Stojanovic}
+\lfoot{Marko Stojanovic}
+
 \part{Quellverzeichnis}
 
 \chapter{Alin Porcic}
+\lfoot{Alin Porcic}
 
 \noindent
 \textbf{[100]} $\rightarrow$ Unix Shell, Wikipedia (29.04.2015)\\
@@ -3730,11 +3815,113 @@ http://en.wikipedia.org/wiki/MD5\\
 \textbf{[125]} $\rightarrow$ SHA, Wikipedia (29.04.2015)\\
 http://en.wikipedia.org/wiki/Secure\_Hash\_Algorithm\\
 
+\noindent
+\textbf{[126]} $\rightarrow$ SmartThreadPool, Bits Bender (29.04.2015)\\
+https://github.com/amibar/SmartThreadPool\\
+
 \chapter{Daniel Ranalter}
+\lfoot{Daniel Ranalter}
+
+\noindent
+\textbf{[200]} $\rightarrow$  MAC Adresse, (30.1.2015)\\
+de.wikipedia.org/wiki/MAC-Adresse\\
+en.wikipedia.org/wiki/Mac\_address\\
+www.elektronik-kompendium.de/sites/net/1406201.htm
+
+\noindent
+\textbf{[201]} $\rightarrow$  IP Adresse, (31.1.2015)\\
+de.wikipedia.org/wiki/IP-Adresse\\
+en.wikipedia.org/wiki/IP\_address\\
+
+\noindent
+\textbf{[202]} $\rightarrow$  Ports, (4.2.2015)\\
+de.wikipedia.org/wiki/Port\_(Protokoll)\\
+en.wikipedia.org/wiki/Port\_(computer\_networking)\\
+
+\noindent
+\textbf{[203]} $\rightarrow$  Schichtenmodelle, (8.2.2015)\\
+de.wikipedia.org/wiki/OSI-Modell\\
+de.wikipedia.org/wiki/Schichtenarchitektur\\
+de.wikipedia.org/wiki/Internetprotokollfamilie\\
+en.wikipedia.org/wiki/Internet\_protocol\_suite\\
+en.wikipedia.org/Wiki/Multitier\_architecture\\
+en.wikipedia.org/wiki/OSI\_model\\
+en.wikipedia.org/wiki/TCP/IP\_model\\
+en.wikipedia.org/wiki/Physical\_layer\\
+en.wikipedia.org/wiki/Data\_link\_layer\\
+en.wikipedia.org/wiki/Network\_layer\\
+en.wikipedia.org/wiki/Transport\_layer\\
+en.wikipedia.org/wiki/Session\_layer\\
+en.wikipedia.org/wiki/Presentation\_layer\\
+en.wikipedia.org/wiki/Application\_layer\\
+
+\noindent
+\textbf{[204]} $\rightarrow$  Netzwerkdevices, (12.2.2015)\\
+de.wikipedia.org/wiki/Router\\
+en.wikipedia.org/wiki/Router\_(computing)\\
+de.wikipedia.org/wiki/Open\_Shortest\_Path\_First \\
+en.wikipedia.org/wiki/Open\_Shortest\_Path\_First 1\\
+de.wikipedia.org/wiki/Routing\_Information\_Protocol \\
+en.wikipedia.org/wiki/Routing\_Information\_Protocol \\
+de.wikipedia.org/wiki/Switch\_(Netzwerktechnik) \\
+en.wikipedia.org/wiki/Network\_switch \\
+de.wikipedia.org/wiki/Firewall \\
+en.wikipedia.org/wiki/Firewall\_(computing) \\
+de.wikipedia.org/wiki/Deep\_Packet\_Inspection \\
+en.wikipedia.org/wiki/Deep\_packet\_inspection \\
+
+\noindent
+\textbf{[205]} $\rightarrow$  Netzwerktypen, (16.2.2015)\\
+de.wikipedia.org/wiki/Virtual\_Local\_Area\_Network \\
+en.wikipedia.org/wiki/Virtual\_LAN \\
+de.wikipedia.org/wiki/Wide\_Area\_Network\\
+en.wikipedia.org/wiki/Wide\_area\_network \\
+de.wikipedia.org/wiki/Local\_Area\_Network \\
+en.wikipedia.org/wiki/Local\_area\_network \\
+de.wikipedia.org/wiki/Wireless\_Local\_Area\_Network \\
+en.wikipedia.org/wiki/Wireless\_LAN \\
+
+\noindent
+\textbf{[206]} $\rightarrow$  Host, (14.2.2015)\\
+de.wikipedia.org/wiki/Host\_(Informationstechnik) \\
+
+\noindent
+\textbf{[207]} $\rightarrow$  Client-Server, (16.2.2015)\\
+de.wikipedia.org/wiki/Rack\\
+en.wikipedia.org/wiki/19-inch-rack\\
+de.wikipedia.org/wiki/Client-Server\_Modell\\
+en.wikipedia.org/wiki/Client-server\_model \\
+
+\noindent
+\textbf{[208]} $\rightarrow$ Protokolle, (16.2-1.3.2015)\\
+de.wikipedia.org/wiki/Ethernet 16.2 \\
+en.wikipedia.org/wiki/Ethernet 16.2 \\
+en.wikipedia.org/wiki/Ethernet\_frame 17.2 \\
+de.wikipedia.org/wiki/Internet\_Protocol 20.2\\
+en.wikipedia.org/wiki/Internet\_Protocol 20.2\\
+de.wikipedia.org/wiki/IPv6 23.2\\
+en.wikipedia.org/wiki/IPv6 23.2\\
+en.wikipedia.org/wiki/IPv6\_address 23.2\\
+de.wikipedia.org/wiki/IP-Framentierung 23.2\\
+en.wikipedia.org/wiki/IP\_fragmentation 23.2\\
+tools.ietf.org/html/rfc791\\
+tools.ietf.org/html/rfc1918\\
+tools.ietf.org/html/rfc2460\\
+tools.ietf.org/html/rfc6598\\
+tools.ietf.org/html/rfc6890\\
+de.wikipedia.org/wiki/Dynamic\_Host\_Configuration\_Protocol\\
+en.wikipedia.org/wiki/Dynamic\_Host\_Configuration\_Protocol\\
+de.wikipedia.org/wiki/Transmission\_Control\_Protocol\\
+en.wikipedia.org/wiki/Transmission\_Control\_Protocol\\
+tools.ietf.org/html/rfc793\\
+tools.ietf.org/html/rfc2131\\
+
 
 \chapter{Manpreet Singh}
+\lfoot{Manpreet Singh}
 
-\chapter{STOJ}
+\chapter{Marko Stojanovic}
+\lfoot{Marko Stojanovic}
 
 \end{onehalfspace}
 \end{document}
