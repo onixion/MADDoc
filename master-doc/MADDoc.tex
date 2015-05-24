@@ -3000,7 +3000,182 @@ public static bool SetSendMail(MailAddress[] eMailTo, string subject, string bod
          }  
 	}
 \end{lstlisting}
-\item \textbf{Senden}
+\item \textbf{Recive Package \& Send - Der eigentliche Sendevorgang}
+Diese Klasse hat 2 Methoden, eine die mit der Klasse der Parameterkonfiguration arbeitet und die eine die den Sendevorgang schlussendlich ausführt.\\
+Die Methode SendMail greift nun auf die Warteschlange aus Paketen zu und holt sich schritt für schritt ein Paket raus und ruft mit den Parametern jenes Paketes die SendMailReal Methode auf. SendMailReal sendet nun wirklich die E-Mail.
+
+Man sieht in der SendMailReal Methode den Verbindungsaufbau zu den jeweiligen SMTP-Servern der Benutzer. Nachdem eine E-Mail versandt wurde bzw. nach gewünschten versuchen scheitert gesendet zu werden, wird die Verbindung zum Server beendet.
+
+Im Log steht bei einem Fehlversuch der Grund dessen.
+\begin{lstlisting}
+private static void SendMailReal(MailAddress[] eMailTo, string subject, string body, 
+            int retryCounter, MailAddress eMailFrom_special, string smtpClient_special, 
+            string password_special, int? port_special, bool highPriority, 
+            MailAddress[] eMailToCC, MailAddress[] eMailToBCC, Attachment[] eMailAttachment)
+        {
+            //Declaration of Variables
+            int tryCounter = 1;
+            int port_special_intern;
+
+            #region settings
+
+            mail = new MailMessage();
+            mail.Subject = subject;
+            mail.Body = body;
+
+            if (eMailTo == null)
+            {
+                foreach (MailAddress element in MAD.MadConf.conf.MAIL_DEFAULT)
+                {
+                    mail.To.Add(element);
+                }
+            }
+
+            else
+            {
+                foreach (MailAddress element in eMailTo)
+                {
+                    mail.To.Add(element);
+                }
+            }
+
+            if (eMailToCC != null)
+            {
+                foreach (MailAddress element in eMailToCC)
+                {
+                    mail.CC.Add(element);
+                }
+            }
+
+            if (eMailToBCC != null)
+            {
+                foreach (MailAddress element in eMailToBCC)
+                {
+                    mail.Bcc.Add(element);
+                }
+            }
+
+            if (eMailAttachment != null)
+            {
+                foreach (Attachment element in eMailAttachment)
+                {
+                    mail.Attachments.Add(element);
+                }
+            }
+            
+            if (highPriority == true)
+            {
+                mail.Priority = MailPriority.High;
+            }
+
+            if (eMailFrom_special == null)
+            {
+                eMailFrom_special = MAD.MadConf.conf.SMTP_USER;
+                mail.From = eMailFrom_special;
+            }
+
+            else
+            {
+                mail.From = eMailFrom_special;
+            }
+
+            if (smtpClient_special == null)
+            {
+                smtpClient_special = MAD.MadConf.conf.SMTP_SERVER;
+            }
+
+            if (password_special == null)
+            {
+                password_special = MAD.MadConf.conf.SMTP_PASS;
+            }
+
+            if (port_special == null)
+            {
+                port_special = MAD.MadConf.conf.SMTP_PORT;
+            }
+
+            port_special_intern = port_special.GetValueOrDefault();
+
+            
+            
+            #endregion
+
+            #region Authentification and sending process
+            
+            for (;tryCounter <= retryCounter; tryCounter++)//to retry because shit happens
+            {
+                try
+                {
+
+                    eMailSendingAttempt = tryCounter + ".Attempt";
+                    Logger.Log(eMailSendingAttempt, Logger.MessageType.INFORM);
+                    
+                    SmtpClient client = new SmtpClient();
+                    client.Port = port_special_intern;
+                    client.Host = smtpClient_special;
+                    client.Credentials = new NetworkCredential(eMailFrom_special.ToString(),
+                    password_special);
+                    client.EnableSsl = true;
+
+                    //Linux begin | certificate for assurance
+					ServicePointManager.ServerCertificateValidationCallback = delegate(object sender,
+                    X509Certificate certificate, X509Chain chain, 
+                    System.Net.Security.SslPolicyErrors sslPolicyErrors)
+					{return true;};
+                    //Linux end | certificate for assurance
+					
+                    client.Send(mail);
+                    
+                    eMailSendingSucceed = "(" + tryCounter + ".Attempt) Success Sir";
+                    Logger.Log(eMailSendingSucceed, Logger.MessageType.INFORM);
+                    
+                    client.Dispose();
+                    
+                    break;
+                }
+
+                catch (Exception ex)
+                {
+                    eMailSendingFailed = "(" + tryCounter + ".Attempt) Sending mail failed Sir becuase: " 
+                    + ex.Message;
+                    Logger.Log(eMailSendingFailed, Logger.MessageType.ERROR);
+					Logger.ForceWriteToLog();
+					
+                    try
+					{
+						client.Dispose();
+						continue;
+					}
+
+					catch
+					{
+                    	continue;
+					}
+                }
+            }
+
+            #endregion
+
+        }
+
+        public static void SendMail()
+        {
+            for(;NotificationGetParams.NotificPackQueue.Count != 0;)
+            {
+                lock (NotificationGetParams.lockObject)
+                {
+                    tempNotificPackIn = (NotificPackIn)NotificationGetParams.NotificPackQueue.Dequeue();
+                }
+
+                SendMailReal(tempNotificPackIn.eMailToPackIn, tempNotificPackIn.subjectPackIn, 
+                    tempNotificPackIn.bodyPackIn, tempNotificPackIn.retryCounterPackIn, 
+                    tempNotificPackIn.eMailFrom_specialPackIn,tempNotificPackIn.smtpClient_specialPackIn, 
+                    tempNotificPackIn.password_specialPackIn, tempNotificPackIn.port_specialPackIn, 
+                    tempNotificPackIn.highPriorityPackIn, tempNotificPackIn.eMailToCCPackIn, 
+                    tempNotificPackIn.eMailToBCCPackIn, tempNotificPackIn.eMailAttachmentPackIn); 
+            }            
+        }
+\end{lstlisting}
 \end{itemize}
 
 
