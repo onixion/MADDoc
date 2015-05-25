@@ -51,12 +51,10 @@
 \vspace{2cm}
 \\Mit dem Wachstum des Internets wird die Bedeutung von Netzwerken immer größer. Damit steigt auch die Notwendigkeit, durchgehend so gut wie möglich über den Zustand desselben informiert zu sein. Dies wird durch Monitoring bewerkstelligt, wessen Aufgabe es ist, das Netzwerk zu beobachten und den Admin über diverse Missstände zu informieren. Man kann zwischen zahlreichen kommerziellen und freien Lösungen wählen. Kommerzielle Lösungen sind jedoch überaus kostspielig und selbst die kostenlosen Varianten sind meistens bereits zuviel des Guten. 
 
-Die damals anstehende Diplomarbeit, welche uns mit einer großen Herausforderung und wertvollen Erfahrungen lockte, sowie das bestehende Interesse in der Netzwerktechnik und der Programmierung waren der Anstoß für erste Gespräche innerhalb des Freundeskreises.\\
-Die zahlreichen Projekte, welche wir bereits gemeinsam bestritten, stimmten uns aufeinander ab. Zusammen mit der Freundschaft, die sich über die Jahre bildete, fiel es uns leicht, ein Team zu bilden.\\
-
+Die damals anstehende Diplomarbeit, welche uns mit einer großen Herausforderung und wertvollen Erfahrungen lockte, sowie das bestehende Interesse in der Netzwerktechnik und der Programmierung waren der Anstoß für erste Gespräche innerhalb des Freundeskreises.Die zahlreichen Projekte, welche wir bereits gemeinsam bestritten, stimmten uns aufeinander ab. Zusammen mit der Freundschaft, die sich über die Jahre bildete, fiel es uns leicht, ein Team zu bilden.\\
 Als Nächstes war es an uns, einen geeigneten Betreuer zu finden. Nach einigen Gesprächen und Überlegungen fiel die Entscheidung schlussendlich auf Prof. Dr. Weiss, welchen wir bereits im Jahr zuvor kennenlernten.\\
-
 Als wir ihm bei einem ersten Gespräch unsere bisherigen Gedankengänge aufzeigten, entwickelte er mit uns zusammen schließlich die Idee, unsere Interessen zu kombinieren und ein Projekt zu entwerfen, dessen Aufgaben darin bestehen, ein Netzwerk zu überwachen.
+
 \end{onehalfspace}
 \begin{singlespace}
 %\setcounter{tocdepth}{6}
@@ -2404,18 +2402,18 @@ SHA steht für \textbf{Seucre-Hash-Algorithm} und ist eine Ansammulung von mehre
 
 \subsection{Allgemeines}
 
-Das Programm bietet eine integrierte textbasierende Schnittstelle für die primäre Verwendung an. Der Syntax der CLI-Eingaben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden. Die Anordnung der Parameter und Argumente ist für die diese CLI-Implementierung irrelevant.\\
+Das Programm bietet eine integrierte textbasierende Schnittstelle für die primäre Verwendung an. Der Syntax der CLI-Eingaben setzen sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden. Die Anordnung der Parameter und Argumente ist für die diese CLI-Implementierung irrelevant.\\
 
 Nach dem Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert. Ist die Interpretation der Eingabe nicht möglich, da zum Beispiel ein Paramter mehrfach definiert wurde, wird eine Fehlermeldung in roter Farbe ausgegeben. Einige Fehlermeldungen, die ausgegeben werden können, sind zum Beispiel:
 
 \begin{itemize}
-\item \textbf{Command not known}: Befehl ist nicht definiert und kann nicht ausgeführt werden.
-\item \textbf{Parameter not known}: Der Befehl existiert, doch der angeführte Parameter für diesen Befehl existiert nicht.
+\item \textbf{Command not found}: Befehl ist nicht definiert und kann nicht ausgeführt werden.
+\item \textbf{Parameter not found}: Der Befehl existiert, doch der angeführte Parameter für diesen Befehl existiert nicht.
 \item \textbf{Argument could not be parsed}: Das eingegeben Argument konnte nicht in ein Objekt umgewandelt werden.
 \item ...
 \end{itemize}
 
-Mit der linken und rechten Pfeiltaste kann die Position des Cursors im Eingabefeld verändert werden und über die Backspace-Taste (Rücktaste) kann ein Zeichen in der Eingabe entfernt werden. Die CLI führt eine History über die zuletzt eingegebenen Befehle. Mit der Oben- und Unten-Taste können die Einträge der History in das Eingabefeld eingesetzt werden.
+Mit der linken und rechten Pfeiltaste kann die Position des Cursors im Eingabefeld verändert werden und mit der Backspace-Taste (Rücktaste) kann ein Zeichen in der Eingabe entfernt werden. Die CLI führt eine History über die zuletzt eingegebenen Befehle. Mit der Oben- und Unten-Taste können die Einträge der History in das Eingabefeld eingesetzt werden.
 
 \subsection{Programmstruktur}
 
