@@ -3484,28 +3484,34 @@ public static void SendMail()
 \end{lstlisting}
 \end{itemize}
 
-
 \chapter{Datenbank (Marko Stojanovi\'{c})}
 \lfoot{Marko Stojanovi\'{c}}
 
-\section{MAD-DB}
-Die Realisierung der Datenbank erfolge über SQLite. SQLite verwendet ein relationales Datenbankmanagementsystem, welches in C\# durch das Einbinden der "{}sqlite3.dll"{} konfigurierbar ist. Es werden dadurch alle Befehle von SQLite verwendet und es sind keine weiteren Installationen notwendig. Die gesamte Datenbank wird anschließend als eine Datei gespeichert.
+\section{Erklärung}
+Um dem Benutzer die Möglichkeit zu geben, bereits aufgenommene Daten wieder anzusehen, werden diese gespeichert. Das Speichern erfolgt in einer SQLite basierenden Datenbank.\\
+Es wurde ein Wrapper in C\# programmiert, welcher eine relationale Datenbank erstellt und der restlichen Software ermöglicht Daten in diese zu speichern und zu lesen.\\
+Für die Programmierung des Wrappers wurde nur "{}sqlite3.dll"{} eingebunden, weitere Installationen sind nicht notwendig.\\
+Die gesamte Datenbank wird anschließend als eine Datei gespeichert.\\
 
-\subsection{Erklärung}
-Befor das Datenbankmanagementsystem erstellt werden konnte musste geklärt werden, welche Daten gespeichert werden und in welcher Form.\\
+Bevor das Datenbankmanagementsystem erstellt werden konnte, musste geklärt werden, welche Daten gespeichert werden und in welcher Form.\\
 
-Die Datenbank besteht aus zwölf verschiedenen Tabellen. Die Namen der Tabellen sagen aus, welche Inhalte in ihnen gespeicher werden. Es wurden zwölf Tabellen erstellt um das System deterministisch zu halten, damit keine weiteren Veränderung in der Datenbank vorgenommen werden müssen (erstellen weiterer Tabellen).\\
+Es gab viele Ideen zur Realisierung der Datenbank. 
+\\Ein Ansatz war es, eine einzigen Tabelle, die alle Informationen enthält, zu erstellen. Ein anderer war es, dass Tabellen und die benötigten Spalten je nachdem, welche benötigt werden erst dann erstellt werden. Dies waren jedoch nicht optimal, weil sich schnell heraustellte, dass es nicht effizient war, an einer Datenbank weitere Änderungen, nach der Erstellung, vorzunehmen. Auch der vorherige Ansatz war nicht sinnvoll, weil dadurch automatisch eine große Menge an Speicherplatz benötigt wurde.\\
 
-Alle Tabellen, bis auf die Tabellen JobTable und MemoTable, bestehen aus zwei Datenfelden. Das erste Datenfeld ist immer eine ID, welche den primary key vom Typ Integer darstellt, das zweite ist immer ein Feld vom Typ Text, dessen Inhalt gleich dem jeweiligen Namen der Tabelle entspricht.\\
+Es wurde lange überlegt und es wurde anschließend folgendes realisiert.\\
 
-Zur eindeutigen Identifikation wurden sogenannte Globally Unique Identifier (GUID) vergeben. Diese sind Integers mit einer Länge von 128 Bit (16 Byte), dadurch konnte man garantieren, dass bei einer Vielzahl an Geräten immer noch jedes eindeutig identifizierbar ist und damit die dazugehörigen Informationen.
-\subsection{Tabellen}
+Die Datenbank besteht aus zwölf verschiedenen Tabellen. Die Namen der Tabellen sagen aus, welche Inhalte in ihnen gespeichert werden. Es wurden zwölf Tabellen erstellt, um das System deterministisch zu halten, damit keine weiteren Veränderung in der Datenbank, vorgenommen werden müssen (erstellen weiterer Tabellen).\\
+
+Alle Tabellen, bis auf die Tabellen JobTable und MemoTable, bestehen aus zwei Datenfeldern. Das erste Datenfeld ist immer eine ID, welche den primary key vom Typ Integer darstellt, das zweite Datenfeld ist immer vom Typ Text, dessen Inhalt gleich dem jeweiligen Namen der Tabelle entspricht.\\
+
+Zur eindeutigen Identifikation wurden sogenannte Globally Unique Identifier (GUID) vergeben. Diese sind Integers mit einer Länge von 128 Bit (16 Byte), dadurch konnte garantiert werden, dass selbst bei einer Vielzahl an Geräten, immer noch jedes eindeutig identifizierbar ist und damit die dazugehörigen Informationen zugeordnet werden.
+\section{Tabellen}
 \subsubsection{GUIDNodeTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item GUID\_ NODE vom Typ Text
 \end{enumerate}
-In dieser Tabelle wird jeder GUID von jeder Node eine ID zugewiesen. Dieser Schritt ist von Vorteil, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
+In dieser Tabelle wird jeder GUID, von jeder Node, eine ID zugewiesen. Dieser Schritt ist von Vorteil, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-guid-node.png}\\
 GUIDNodeTable mit drei Nodes (bzw. deren GUID) und der dazugehörigen ID.
@@ -3515,7 +3521,7 @@ GUIDNodeTable mit drei Nodes (bzw. deren GUID) und der dazugehörigen ID.
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item GUID\_ JOB vom Typ Text
 \end{enumerate}
-In dieser Tabelle wird jeder GUID von jedem Job eine ID zugewiesen. Der Vorteil ist der gleiche wie bei der GUIDNodeTable, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
+In dieser Tabelle wird jeder GUID, von jedem Job, eine ID zugewiesen. Der Vorteil ist der gleiche wie bei der GUIDNodeTable, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-guid-job.png}\\
 GUIDJobTable mit drei Jobs (bzw. deren GUID) und der dazugehörigen ID. 
@@ -3525,7 +3531,7 @@ GUIDJobTable mit drei Jobs (bzw. deren GUID) und der dazugehörigen ID.
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item HOST vom Typ Text
 \end{enumerate}
-Alle sich im Netzwerk befinden Hosts werden in dieser Tabelle gespeichert. Jedem Host wird eine ID zugeordnet. Diese wird verwendet um die Hosts mit den dazugehörigen Informationen miteinander in der Tabelle JobTable zu verknöpfen.
+Alle, sich im Netzwerk befindenden Hosts, werden in dieser Tabelle gespeichert. Jedem Host wird eine ID zugeordnet. Über diese ID werden Hosts, den dazugehörigen Informationen, in der Tabelle JobTable, zugeordnet.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-host.png}\\
 HostTable mit zwei Einträgen.
@@ -3535,7 +3541,7 @@ HostTable mit zwei Einträgen.
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item IP vom Typ Text
 \end{enumerate}
-In dieser Tabelle werden IP- Adressen gespeichert. Diese werden dann einer ID zugeordnet um dann in der JobTable mit den restlichen Daten verknüpft werden zu können.
+In dieser Tabelle werden IP- Adressen gespeichert. Diese werden dann einer ID zugeordnet, um dann in der JobTable mit den restlichen Daten verknüpft werden zu können.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-ip.png}\\
 IPTable mit nur einem Eintrag der lokalen IP- Adresse.
@@ -3548,24 +3554,24 @@ IPTable mit nur einem Eintrag der lokalen IP- Adresse.
 In dieser Tabelle werden MAC- Adressen (Hardware- Adressen), der im Netzwerk sich befindenden Geräte, gespeichert. Jede MAC- Adresse wird einer ID zugeordnet, welche zur späteren Verknüpfung in der JobTable dient.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-mac.png}\\
-MACTable mit bisher nur einem Eintrag, da nur ein Gerät im Netzwerk vorhanden.
+MACTable mit bisher nur einem Eintrag, da nur ein Gerät im Netzwerk vorhanden ist.
 \end{center}
 \subsubsection{JobNameTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item JOBNAME vom Typ Text
 \end{enumerate}
-Jobnamen werden vom Administrator übergeben, welche in dieser Tabelle gespeichert werden. Die Zuweisung zu einer ID erfolg ebenfalls um die Verknüpfung der Daten in der JobTable zu gewährleisten.
+Jobnamen werden vom Administrator übergeben, welche in dieser Tabelle gespeichert werden. Die Zuweisung zu einer ID erfolg ebenfalls, um die Verknüpfung der Daten in der JobTable zu gewährleisten.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-jobname.png}\\
-JobNameTable mit bisher zwei Einträgen (TEST, TEST2).
+JobNameTable mit bisher zwei Einträgen (TEST1, TEST2).
 \end{center}
 \subsubsection{JobTypeTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item JOBTYPE vom Typ Text
 \end{enumerate}
-In dieser Tabelle werden Jobtypen abgespeichert (Ping, SNTP, ...) und einer ID zugeordnet um die Verknüpfung der Daten in der JobTable zu ermöglichen.
+In dieser Tabelle werden Jobtypen abgespeichert (Ping, SNTP, ...) und einer ID zugeordnet, um die Verknüpfung der Daten in der JobTable zu ermöglichen.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-jobtype.png}\\
 JobTypeTable mit einem bisher verwendeten JobType Eintrag (Ping), da beide bisher verwendeten Jobs vom gleichen Typ waren.
@@ -3575,10 +3581,10 @@ JobTypeTable mit einem bisher verwendeten JobType Eintrag (Ping), da beide bishe
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item PROTOCOL vom Typ Text
 \end{enumerate}
-In dieser Tabelle werden Protokolle einer ID zugewiesen. Diese werden dann wieder in der JobTabele mit den restlichen dazugehörigen Informationen verbunden.
+In dieser Tabelle werden Protokolle einer ID zugewiesen. Diese werden wieder in der JobTabele, mit den restlichen dazugehörigen Informationen, verbunden.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-protocol.png}\\
-ProtocolTable mit dem einem Eintrag, da nur gepingt wurde.
+ProtocolTable mit einem Eintrag, da nur ein Ping bisher ausgeführt wurde.
 \end{center}
 \subsubsection{OutStateTable}
 \begin{enumerate}
@@ -3593,8 +3599,8 @@ OutStateTable mit einem success Eintrag, da bisher keine Fehlversuche.
 \subsubsection{MemoTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer
-\item MEMO1 vom Typ Text, hier werden kurze Notizen vom Administrator zu besimmten Geräten gespeichert, dies soll eine Hilfe darstellen, welche mit einem Blick zu entnehmen ist (z.B.: Name eines Computers)
-\item MEMO2 vom Typ Text, hier werden lange Notizen vom Administragor gespeichert, dies soll eine weitere Hilfe für den Administrator darstellen, da hier dateiliertere Informationen gespeichert werden können (z.B.: genaue Angaben zu einem Gerät: genauer Standort, technische Daten, Nutzer, ...)
+\item MEMO1 vom Typ Text, hier werden kurze Notizen vom Administrator zu bestimmten Geräten gespeichert, dies soll eine Hilfe darstellen, welche mit einem Blick zu entnehmen ist (z.B.: Name eines Computers)
+\item MEMO2 vom Typ Text, hier werden lange Notizen vom Administrator gespeichert, dies soll eine weitere Hilfe für den Administrator darstellen, da hier detailliertere Informationen gespeichert werden können (z.B.: genaue Angaben zu einem Gerät: genauer Standort, technische Daten, Nutzer, ...)
 \end{enumerate}
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-memo.png}\\
@@ -3603,9 +3609,9 @@ MemoTable mit einem Eintrag über einen Computer.
 \subsubsection{JobTable}
 Diese Tabelle besteht aus 14 Feldern:
 \begin{enumerate}
-\item ID als primary key vom Integer (AUTOINCREMENT)
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item weitere Felder vom Typ Integer: ID\_ NODE, ID\_ HOST, ID\_ IP, ID\_ MAC, ID\_ JOB, ID\_ JOBNAME, ID\_ JOBTYPE, ID\_ PROTOCOL, ID\_ OUTDESC\\
-Diese Felder werden verwendet, um alle Daten aus den anderen Tabellen zu den dazugehörigen Daten zuzuordnen und diese später leichter auszugeben. In allen Feldern vom Typ Integer werden die jeweiligen IDs der jeweiligen Information gespeichert, nur beim Alslesen der Datenbank wird dann eine Verknüpfung zu den Informationen mit der dazugehörigen ID erstellt und diese werden statt der ID ausgegeben.  Diese Verknüpfung erfolgt über eine Join-Funktione. Die Dynamik und Effizienz der Datenbank wird auf diese Weise gesteigert.
+Diese Felder werden verwendet, um alle Daten aus den anderen Tabellen zu den dazugehörigen Daten zuzuordnen und diese später leichter auszugeben. In allen Feldern vom Typ Integer werden die jeweiligen IDs, der jeweiligen Information gespeichert, nur beim Auslesen der Datenbank, wird dann eine Verknüpfung zu den Informationen, mit der dazugehörigen ID erstellt und diese werden statt der ID ausgegeben.  Diese Verknüpfung erfolgt über eine Join-Funktion. Die Dynamik und Effizienz der Datenbank wird auf diese Weise gesteigert.
 \item Felder vom Typ Text: STARTTIME, STOPTIME, DELAYTIME, OUTDESC\\
 Hier werden alle grundlegenden Informationen zu Jobs gespeichert, welche alle Jobs betreffen.
 \end{enumerate}
@@ -3624,18 +3630,126 @@ JobTable mit echten Einträgen - durch das Auslesen der Tabelle im Programm werd
 \item MAX\_ DURATION vom Typ Text
 \item MIN\_ DURATION vom Typ Text
 \end{enumerate}
-Das ist eine zusätzliche Tabelle, welche nur im Fall einer Zusammenfassung der Datenbank mit Daten gefüllt wird.  Durch diese Tabelle wird gewährleistet, dass der Speicherplatz gering gehalten werden kann, weil beim Vorgang der Zusammenfassung bestimmte Daten aus den anderen Tabellen gelöscht werden und als komprimierte Ergebnisse in der SummaryTable gespeichert werden. Bei der Zusammenfassung wird eine bestimmte Zeitspanne und eine Blockgröße angegeben, durch welche die Komprimierung stattfindet. Befor zusammengefasst werden kann, werden bestimmte Kriterien überprüfen:
+Das ist eine zusätzliche Tabelle, welche nur im Fall einer Zusammenfassung der Datenbank mit Daten gefüllt wird.  Durch diese Tabelle wird gewährleistet, dass der Speicherplatz gering gehalten werden kann, weil beim Vorgang der Zusammenfassung bestimmte Daten aus den anderen Tabellen gelöscht werden und als komprimierte Ergebnisse in der SummaryTable gespeichert werden. Bei der Zusammenfassung wird eine bestimmte Zeitspanne und eine Blockgröße angegeben, durch welche die Komprimierung stattfindet. Bevor zusammengefasst werden kann, werden bestimmte Kriterien überprüfen:
 \begin{itemize}
 \item Ist die gegebene Zeitspanne bereits zusammengefasst worden?
-\item Ist der gegebene Block größer, als die Zeitspanne nach welche die Ausführung der Jobs stattfindet?
+\item Ist der gegebene Block größer, als die Zeitspanne, nach welcher die Ausführung der Jobs stattfindet?
 \end{itemize}
-Wenn eine dieser Kriterien positiv ist kann keine Zusammenfassung der Daten stattfinden.
-\\Ist eine Zusammenfassung der Daten möglich muss beachtet werden, dass sämtliche Daten in der JobTable im angegebenen Zeitraum gelöscht werden.\\
+Wenn eine dieser Kriterien positiv ist, kann keine Zusammenfassung der Daten stattfinden.
+Ist eine Zusammenfassung der Daten möglich, muss beachtet werden, dass sämtliche Daten in der JobTable im angegebenen Zeitraum gelöscht werden.\\
 
-Es gibt jedoch die Möglichkeit den Vorgang abzubrechen, wenn die Angegebene Zeitspanne nicht ausreicht und eine andere angegeben werden will.
+Es gibt jedoch die Möglichkeit den Vorgang abzubrechen, wenn die angegebene Zeitspanne nicht ausreicht und eine andere angegeben werden soll.\\
 
-Ein Beispiel und weitere Informationen zur Zusammenfassung sind im Kapitel 19 unter Anwendungsbeispiel (19.4.2 Zusammenfassung der Datenbank) zu finden.
+Ein Beispiel und weitere Informationen zur Zusammenfassung sind im Kapitel 18 unter Anwendungsbeispiel (18.6.2 Zusammenfassung der Datenbank) zu finden.\\
 
+Befehle zur allgemeinen Nutzung der Datenbank in der CLI, sind im Kapitel 18.3 zu finden.
+
+\section{Wrapper}
+\subsection{Allgemeines}
+Ein Wrapper ist ein Stück Software, welches ein anderes Stück Software umgibt. Es handelt sich dabei um eine sogenannte "{}Umhüllung"{} (Schnittstelle oder auch Adapter). Es können inviduelle Programmteile sein oder auch ganze Klassen.\\
+Wrapper finden ihren Einsatz aus verschiedensten Gründen: Kompatibilitätsprobleme (z.B. wenn Programmteile aus einer anderen Programmiersprache verwendet werden sollen), Sicherheitsgründe (Einschränkung der Zugriffe auf bestimmte Programmteile), architektonische Gründe, ...
+
+\subsection{Realisierung}
+Die gesamte Realisierung erfolgte in einer Datei.
+\\Am beginn des Quellcodes wird eine Verbindung zur Datenbank und eine Zeitkonstante (später noch von Bedeutung) definiert . Als nächstes wird die Existenz der Datenbank geprüft. Wenn die Datenbank bereits exestiert, wird durch den nächsten Schritt eine Verbindung zu dieser erstellt.
+Wenn diese nicht exestiert gibt es eine Fehlermeldung und eine neue wird erstellt, bevor eine Verbingung aufgebaut wird.\\
+Im nächsten Schritt werden 12 Tabellen erstellt. Um welche Tabellen es sich genau handelt siehe Kapitel 16.2.
+Für eine bessere Übersicht und für ein besseres Verständnis wurde der restliche Code in acht Regionen aufgeteil.
+\subsubsection{basic methods}
+In dieser Region werden grundsätzliche Methoden definiert. In diesem Fall handelt es sich um Methoden, welche die Funktion zum schreiben und auswählen von Daten ermöglichen.
+\subsubsection{read tables}
+In dieser Region sind Methoden, welche das auslesen von Tabellen ermöglichen.
+Es sind zwei Methoden definiert:
+\begin{itemize}
+\item Die erste Methode erlaubt das Auslesen von allen Tabellen in der Datenbank, nicht deren Inhalt.
+\item Die zweite Methode erlaubt das Auslesen des Inhaltes einer bestimmten Tabelle, jedoch unverfälscht. Damit wird der echte Inhalt der Tabelle gezeigt und nicht der Inhalt, der durch eine Verknüpfung gezeigt werden sollte.
+\end{itemize}
+\subsubsection{get joined tables}
+In dieser Region sind zwei Methoden definiert. Jede von ihnen bezieht sich auf eine bestimmte Tabelle.
+\begin{itemize}
+\item Die erste Methode bezieht sich auf die Tabelle JobTable. Mit dieser Methode wird der "{}zulesende"{} Inhalt der JobTable angezeigt und nicht der echte. Damit ist gemeint, dass der Inhalt so gelesen wird, dass sämtliche Verknüfungen, welche durch einen sogenannten "{}Join"{} erstellt wurden, den Inhalt aus der verknüpften Tabellen anzeigen und nicht die ID, welche zur Verknüpfung notwendig ist.
+\item Die zweite Methode erlaubt das gleiche nur auf die Tabelle SummaryTable bezogen. Damit wird hier auch der "{}zulesende"{} Inhalt angezeigt, da in der Tabelle SummaryTable Verknüpfungen zu anderen Tabellen bestehen.
+\end{itemize}
+Der Quellcode, um die Tabelle JobTable, welche durch Join- Funktionen mit anderen Tabellen verknüpft wurde, mit den Informationen, statt den Verknüpfungen, anzugeigen sieht folgendermaßen aus:
+\begin{lstlisting}
+public DataTable GetJobTable(string subcommand)
+        {
+            string sql = "select " +
+                         "JobTable.ID, " +
+                         "GUIDNodeTable.GUID_NODE, " +
+                         "HostTable.HOST, " +
+                         "IPTable.IP, " +
+                         "MacTable.MAC, " +
+                         "GUIDJobTable.GUID_JOB, " +
+                         "JobNameTable.JOBNAME, " +
+                         "JobTypeTable.JOBTYPE, " +
+                         "ProtocolTable.PROTOCOL, " +
+                         "OutStateTable.OUTSTATE, " +
+                         "JobTable.STARTTIME, " +
+                         "JobTable.STOPTIME, " +
+                         "JobTable.DELAYTIME, " +
+                         "MemoTable.MEMO1, " +
+                         "MemoTable.MEMO2 " +
+                         "from JobTable " +
+                         "inner join GUIDNodeTable on JobTable.ID_NODE = GUIDNodeTable.ID " +
+                         "inner join HostTable on JobTable.ID_HOST = HostTable.ID " +
+                         "inner join IPTable on JobTable.ID_IP = IPTable.ID " +
+                         "inner join MACTable on JobTable.ID_MAC = MACTable.ID " +
+                         "inner join GUIDJobTable on JobTable.ID_JOB = GUIDJobTable.ID " +
+                         "inner join JobNameTable on JobTable.ID_JOBNAME = JobNameTable.ID " +
+                         "inner join JobTypeTable on JobTable.ID_JOBTYPE = JobTypeTable.ID " +
+                         "inner join ProtocolTable on JobTable.ID_PROTOCOL = ProtocolTable.ID " +
+                         "inner join OutStateTable on JobTable.ID_OUTSTATE = OutStateTable.ID " +
+                         "left join MemoTable on JobTable.ID_NODE = MemoTable.ID " + subcommand + ";"; ;
+
+            using (SQLiteCommand command = new SQLiteCommand(sql, _con))
+            using (SQLiteDataReader reader = command.ExecuteReader())
+            {
+                DataTable TempResult = new DataTable();
+                TempResult.Load(reader);
+                return TempResult;
+            }
+        }
+\end{lstlisting}
+\subsubsection{job method}
+Diese Region besteht aus zwei Methoden, welche für die Tabelle JobTable notwendig sind.
+\begin{itemize}
+\item Da die Daten sich im Typ manchmal unterscheiden, werden diese als erstes in den richtigen Typ umformatiert. Als nächstes werden Daten in die JobTable geschrieben.
+\item Die zweite Methode erlaubt es, den gesamten Inhalt der Tabelle JobTable zu löschen.
+\end{itemize}
+\subsubsection{job / node database operations}
+In dieser Region sind zwei Methoden, welche für das Schreiben und Lesen von IDs notwendig sind.
+Des Weiteren sind viele kleinere Methoden, welche für das Lesen und Schreiben der IDs von Jobs und Nodes für die jeweiligen Tabellen, vorzufinden. Diese sind jedoch wieder in Regionen zusammengefasst.
+\subsubsection{summarize methods}
+In dieser Region sind Methoden, welche für das Zusammenfassen der Daten benötigt werden.
+Die Beschreibung des Quellcodes ist im Kapitel 16.2 Tabellen (SummaryTable) vorzufinden.
+\subsubsection{memos}
+In dieser Region sind zwei Methode enthalten.
+\begin{itemize}
+\item Die erste Methode ermöglicht das Schreiben von Memos (Kurznotizen) in die Tabellen ID, MEMO1, MEMO2 der Tabelle MemoTable. Auf diese Weise können Kurznotizen des Benutzers gespeichert werden.
+\item Die zweite Methode ermöglicht das Lesen der Inhalte aus der Tabelle MemoTable. Damit können die Kurznotizen, welche der Benutzer gespeichert hat, ausgelesen werden.
+\end{itemize}
+\subsubsection{timestamp}
+In dieser Region wurde ein eigener Zeitstempel definiert.
+Durch diesen Zeitstempel ist es möglich einen Zeitpunkt, durch Datum und Uhrzeit darzustellen. Durch die Definition der Zeitkonstante, am Anfang des Quellcodes, ist es möglich jeden Zeitpunkt in Millisekunden, seit dem 1.1.2010, darzustellen.
+Quelltext vom Zeitstempel:
+\begin{lstlisting}
+ #region timstamp
+
+        // We use our own timestamp. It counts the milliseconds since 1.1.2010.
+
+        public static DateTime MADTimestampToDateTime(Int64 MADTimeStamp)
+        {
+            return _timeconst.AddMilliseconds(MADTimeStamp);
+        }
+
+        public static Int64 DateTimeToMADTimestamp(DateTime date)
+        {
+            return Convert.ToInt64((date - _timeconst).TotalMilliseconds);
+        }
+
+        #endregion
+\end{lstlisting}
 
 \chapter{Logging (Daniel Ranalter)}
 \lfoot{Ranalter Daniel}
@@ -4513,8 +4627,179 @@ en.wikipedia.org/wiki/Transmission\_Control\_Protocol\\
 tools.ietf.org/html/rfc793\\
 tools.ietf.org/html/rfc2131\\
 
-\chapter{Marko Stojanovic}
-\lfoot{Marko Stojanovic}
+
+\chapter{Marko Stojanovi\'{c}}
+\lfoot{Marko Stojanovi\'{c}}
+
+\noindent
+\textbf{[400]} $\rightarrow$ Informatik, Wikipedia (28.03.2015)\\
+http://de.wikipedia.org/wiki/Informatik\\
+
+\noindent
+\textbf{[401]} $\rightarrow$ Definition von einer Programmiersprache, Wikipedia (28.03.2015)\\
+http://de.wikipedia.org/wiki/Programmiersprache\\
+
+\noindent
+\textbf{[402]} $\rightarrow$ Definition von einer Programmiersprache, Wikipedia (28.03.2015)\\
+http://www.hki.uni-koeln.de/wisem-2012/basisinformationstechnologie-i/programmiersprachen-i/definition-von-programmiersprachen\\
+
+\noindent
+\textbf{[403]} $\rightarrow$ Lexik, Wikipedia (28.03.2015)\\
+http://www.pixelx.de/glossar/lexik.html\\
+
+\noindent
+\textbf{[404]} $\rightarrow$ Minimalanforderungen an Programmiersprachen, Wikipedia (28.03.2015)\\
+http://de.wikipedia.org/wiki/Programmiersprache\# .C3.9Cbersicht
+
+\noindent
+\textbf{[405]} $\rightarrow$ Wichtige Begriffe - Quelltext, Wikipedia (29.03.2015)\\
+http://de.wikipedia.org/wiki/Programmiersprache\# .C3.9Cbersicht\\
+
+\textbf{[406]} $\rightarrow$ Wichtige Begriffe, Ansgar Schiffler (29.03.2015)\\
+http://fbmathe.bbs-bingen.de/Informatik/C\_ plusplus/grundbegriffe.htm\# P\_ Sprache\\
+
+\noindent
+\textbf{[407]} $\rightarrow$ Arten von Programmiersprachen, Ansgar Schiffler (30.03.2015)\\
+http://fbmathe.bbs-bingen.de/Informatik/C\_ plusplus/grundbegriffe.htm\# P\_ Sprache\\
+
+\noindent
+\textbf{[408]} $\rightarrow$ Arten von Programmiersprachen - Skriptsprachen, Wikipedia (30.03.2015)\\
+http://de.wikipedia.org/wiki/Skriptsprache\\
+
+\noindent
+\textbf{[409]} $\rightarrow$ Programmierparadigmen, Wikipedia (03.04.2015)\\
+http://de.wikipedia.org/wiki/Programmierparadigma\\
+
+\noindent
+\textbf{[410]} $\rightarrow$ Programmierparadigmen - strukturiert, Wikipedia (03.04.2015)\\
+http://de.wikipedia.org/wiki/Strukturierte\_ Programmierung\\
+
+\noindent
+\textbf{[411]} $\rightarrow$ Programmierparadigmen - imperativ, Wikipedia (03.04.2015)\\
+http://de.wikipedia.org/wiki/Imperative\_ Programmierung\\
+
+\noindent
+\textbf{[412]} $\rightarrow$ Programmierparadigmen - deklarativ, Wikipedia (03.04.2015)\\
+http://de.wikipedia.org/wiki/Deklarative\_ Programmierung\\
+
+\noindent
+\textbf{[413]} $\rightarrow$ Programmierparadigmen - objektorientiert, Wikipedia (03.04.2015)\\
+http://de.wikipedia.org/wiki/Objektorientierte\_ Programmierung\# Objektorientierte\_ Programmiersprachen\\
+http://de.wikipedia.org/wiki/Objektorientierte\_ Programmierung\# Objekt-Konzepte\_ in\_ Programmiersprachen\\
+
+\noindent
+\textbf{[414]} $\rightarrow$ Visual C\# , msdn.microsoft (01.04.2015)\\
+https://msdn.microsoft.com/de-de/library/aa292164\% 28v=vs.71\% 29.aspx\\
+
+\noindent
+\textbf{[415]} $\rightarrow$ Visual C\# - Wichtige Eigenschaften , msdn.microsoft (01.04.2015)\\
+https://msdn.microsoft.com/de-de/library/z1zx9t92.aspx\\
+
+\noindent
+\textbf{[416]} $\rightarrow$ Visual C\# - Vorteile von C\# , msdn.microsoft (01.04.2015)\\
+https://msdn.microsoft.com/de-de/library/aa287554(v=vs.71).aspx\\
+
+\noindent
+\textbf{[417]} $\rightarrow$ Multithreading , Wikipedia (06.03.2015)\\
+http://de.wikipedia.org/wiki/Multithreading\\
+
+\noindent
+\textbf{[418]} $\rightarrow$ Multithreading - Threads , Wikipedia (07.03.2015)\\
+http://de.wikipedia.org/wiki/Thread\_ \% 28Informatik\% 29\\
+
+\noindent
+\textbf{[419]} $\rightarrow$ Multithreading - hardwareseitiges, Wikipedia (07.03.2015)\\
+http://de.wikipedia.org/wiki/Multithreading\\
+http://de.wikipedia.org/wiki/Hardwareseitiges\_ Multithreading\\
+
+\noindent
+\textbf{[420]} $\rightarrow$ Multithreading - softwareseitiges, Wikipedia (06.04.2015)\\
+http://de.wikipedia.org/wiki/Multithreading\\
+http://de.wikipedia.org/wiki/Softwareseitiges\_ Multithreading\\
+
+\noindent
+\textbf{[421]} $\rightarrow$ Datenbank - Allgemeines, Wikipedia (14.02.2015)\\
+http://de.wikipedia.org/wiki/Datenbank\\
+
+\noindent
+\textbf{[422]} $\rightarrow$ Datenbank - Geschichte, Wikipedia (13.02.2015)\\
+http://de.wikipedia.org/wiki/Datenbank\# Geschichte\\
+
+\noindent
+\textbf{[423]} $\rightarrow$ Datenbank - Definitionen, Wikipedia (03.04.2015)\\
+http://www.datenbanken-verstehen.de/datenbanken/datenmodellierung/primaerschluessel/\\
+http://de.wikipedia.org/wiki/Schl\% C3\% BCssel\_ \% 28Datenbank\% 29\# Sekund.C3.A4rschl.C3.BCssel\\
+http://de.wikipedia.org/wiki/Schl\% C3\% BCssel\_ \% 28Datenbank\% 29\# Stellvertretender\_ Schl.C3.BCssel\\
+http://de.wikipedia.org/wiki/Schl\% C3\% BCssel\_ \% 28Datenbank\% 29\# Fremdschl.C3.BCssel\\
+
+\noindent
+\textbf{[424]} $\rightarrow$ Datenbank - Funktionen, Wikipedia (03.04.2015)\\
+http://de.wikipedia.org/wiki/Datenbank\# Funktionen\_ eines\_ DBMS\\
+
+\noindent
+\textbf{[425]} $\rightarrow$ Datenbank - Datenbanksysteme, Wikipedia (03.04.2015)\\
+http://de.wikipedia.org/wiki/Datenbank\# Komponenten\_ eines\_ Datenbanksystems\\
+
+\noindent
+\textbf{[426]} $\rightarrow$ Datenbank - RDBMS, Wikipedia (05.04.2015)\\
+http://de.wikipedia.org/wiki/Relationale\_ Datenbank\\
+
+\noindent
+\textbf{[427]} $\rightarrow$ Datenbank - Datenbankschema und Modellierung, Wikipedia (05.04.2015)\\
+http://de.wikipedia.org/wiki/Datenmodellierung\\
+
+\noindent
+\textbf{[428]} $\rightarrow$ Datenbank - objekorientiert, Wikipedia (06.04.2015)\\
+http://de.wikipedia.org/wiki/Objektdatenbank\\
+
+\noindent
+\textbf{[429]} $\rightarrow$ Datenbank - dokumentenorientiert, Wikipedia (06.04.2015)\\
+http://de.wikipedia.org/wiki/Dokumentenorientierte\_ Datenbank\\
+
+\noindent
+\textbf{[430]} $\rightarrow$ Datenbank - netzwerkartiges, Markus Begerow von Datenbanken-verstehen.de (06.04.2015)\\
+http://www.datenbanken-verstehen.de/datenbanken/datenbank-grundlagen/datenbankmodell/netzwerkdatenbankmodell/\\
+
+\noindent
+\textbf{[431]} $\rightarrow$ Datenbank - hierarchisches, Wikipedia (06.04.2015)\\
+http://de.wikipedia.org/wiki/Hierarchisches\_ Datenbankmodell\\
+
+\noindent
+\textbf{[432]} $\rightarrow$ Datenbank - Sicherheit, Wikipedia (04.04.2015)\\
+http://de.wikipedia.org/wiki/Datenbank\# Datensicherheit\\
+http://de.wikipedia.org/wiki/Datenbank\# Transaktionen\\
+http://de.wikipedia.org/wiki/Datenbank\# Datenintegrit.C3.A4t\\
+http://de.wikipedia.org/wiki/Datenbank\# Anwendungsunterst.C3.BCtzung\\
+
+\noindent
+\textbf{[433]} $\rightarrow$ Datenbank - Gleichzeitige Zugriffe, Wikipedia (04.04.2015)
+http://de.wikipedia.org/wiki/Datenbank\# Anfrageoptimierung\\
+http://de.wikipedia.org/wiki/Datenbank\# Mehrbenutzerf.C3.A4higkeit\\
+
+\noindent
+\textbf{[434]} $\rightarrow$ Datenbank - Sprachen, Wikipedia (05.04.2015)\\
+http://de.wikipedia.org/wiki/Datenbank\# Sprachen\\
+
+\noindent
+\textbf{[435]} $\rightarrow$ Datenbank - SQLite, Wikipedia (06.04.2015)\\
+http://en.wikipedia.org/wiki/SQLite\\
+
+\noindent
+\textbf{[436]} $\rightarrow$ Datenbank - SQLite- Geschichte, Wikipedia (07.04.2015)\\
+http://en.wikipedia.org/wiki/SQLite\# History\\
+
+\noindent
+\textbf{[437]} $\rightarrow$ Datenbank - SQLite- Eigenschaften, sqlite.org (06.04.2015)\\
+https://www.sqlite.org/features.html\\
+
+\noindent
+\textbf{[438]} $\rightarrow$ Datenbank - SQLite- Syntax, sqlite.org (07.04.2015)\\
+http://sqlite.org/lang.html\\
+http://www.tutorialspoint.com/sqlite/sqlite\_ using\_ joins.htm\\
+
+\noindent
+\textbf{[439]} $\rightarrow$ Datenbank - SQLite- Vor- und Nachteile,  Webspan (07.04.2015)\\
+http://www.webspan.de/mysql-oder-sqlite/\\
 
 \end{onehalfspace}
 
