@@ -51,12 +51,10 @@
 \vspace{2cm}
 \\Mit dem Wachstum des Internets wird die Bedeutung von Netzwerken immer größer. Damit steigt auch die Notwendigkeit, durchgehend so gut wie möglich über den Zustand desselben informiert zu sein. Dies wird durch Monitoring bewerkstelligt, wessen Aufgabe es ist, das Netzwerk zu beobachten und den Admin über diverse Missstände zu informieren. Man kann zwischen zahlreichen kommerziellen und freien Lösungen wählen. Kommerzielle Lösungen sind jedoch überaus kostspielig und selbst die kostenlosen Varianten sind meistens bereits zuviel des Guten. 
 
-Die damals anstehende Diplomarbeit, welche uns mit einer großen Herausforderung und wertvollen Erfahrungen lockte, sowie das bestehende Interesse in der Netzwerktechnik und der Programmierung waren der Anstoß für erste Gespräche innerhalb des Freundeskreises.\\
-Die zahlreichen Projekte, welche wir bereits gemeinsam bestritten, stimmten uns aufeinander ab. Zusammen mit der Freundschaft, die sich über die Jahre bildete, fiel es uns leicht, ein Team zu bilden.\\
-
+Die damals anstehende Diplomarbeit, welche uns mit einer großen Herausforderung und wertvollen Erfahrungen lockte, sowie das bestehende Interesse in der Netzwerktechnik und der Programmierung waren der Anstoß für erste Gespräche innerhalb des Freundeskreises.Die zahlreichen Projekte, welche wir bereits gemeinsam bestritten, stimmten uns aufeinander ab. Zusammen mit der Freundschaft, die sich über die Jahre bildete, fiel es uns leicht, ein Team zu bilden.\\
 Als Nächstes war es an uns, einen geeigneten Betreuer zu finden. Nach einigen Gesprächen und Überlegungen fiel die Entscheidung schlussendlich auf Prof. Dr. Weiss, welchen wir bereits im Jahr zuvor kennenlernten.\\
-
 Als wir ihm bei einem ersten Gespräch unsere bisherigen Gedankengänge aufzeigten, entwickelte er mit uns zusammen schließlich die Idee, unsere Interessen zu kombinieren und ein Projekt zu entwerfen, dessen Aufgaben darin bestehen, ein Netzwerk zu überwachen.
+
 \end{onehalfspace}
 \begin{singlespace}
 %\setcounter{tocdepth}{6}
@@ -2404,18 +2402,18 @@ SHA steht für \textbf{Seucre-Hash-Algorithm} und ist eine Ansammulung von mehre
 
 \subsection{Allgemeines}
 
-Das Programm bietet eine integrierte textbasierende Schnittstelle für die primäre Verwendung an. Der Syntax der CLI-Eingaben setzt sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden. Die Anordnung der Parameter und Argumente ist für die diese CLI-Implementierung irrelevant.\\
+Das Programm bietet eine integrierte textbasierende Schnittstelle für die primäre Verwendung an. Der Syntax der CLI-Eingaben setzen sich aus drei Bestandteile zusammen: dem Hauptbefehl, den Parametern und den Argumenten. Jede Eingabe muss einen Hauptbefehl definieren und darf nicht mehrere definieren. Jeder Hauptbefehl kann mehrere Parameter definieren und jeder dieser Parameter kann Argumente definieren. Die CLI unterscheidet die Parameter in obligatorische und optionale Parameter. Die obligatorischen Parameter müssen angegeben werden, da sonst die Ausführung des Befehles nicht erfolgen kann. Die optionalen Parameter hingegen können weggelassen werden. Die Anordnung der Parameter und Argumente ist für die diese CLI-Implementierung irrelevant.\\
 
 Nach dem Drücken der ENTER-Taste wird die CLI-Eingabe eingelesen und interpretiert. Ist die Interpretation der Eingabe nicht möglich, da zum Beispiel ein Paramter mehrfach definiert wurde, wird eine Fehlermeldung in roter Farbe ausgegeben. Einige Fehlermeldungen, die ausgegeben werden können, sind zum Beispiel:
 
 \begin{itemize}
-\item \textbf{Command not known}: Befehl ist nicht definiert und kann nicht ausgeführt werden.
-\item \textbf{Parameter not known}: Der Befehl existiert, doch der angeführte Parameter für diesen Befehl existiert nicht.
+\item \textbf{Command not found}: Befehl ist nicht definiert und kann nicht ausgeführt werden.
+\item \textbf{Parameter not found}: Der Befehl existiert, doch der angeführte Parameter für diesen Befehl existiert nicht.
 \item \textbf{Argument could not be parsed}: Das eingegeben Argument konnte nicht in ein Objekt umgewandelt werden.
 \item ...
 \end{itemize}
 
-Mit der linken und rechten Pfeiltaste kann die Position des Cursors im Eingabefeld verändert werden und über die Backspace-Taste (Rücktaste) kann ein Zeichen in der Eingabe entfernt werden. Die CLI führt eine History über die zuletzt eingegebenen Befehle. Mit der Oben- und Unten-Taste können die Einträge der History in das Eingabefeld eingesetzt werden.
+Mit der linken und rechten Pfeiltaste kann die Position des Cursors im Eingabefeld verändert werden und mit der Backspace-Taste (Rücktaste) kann ein Zeichen in der Eingabe entfernt werden. Die CLI führt eine History über die zuletzt eingegebenen Befehle. Mit der Oben- und Unten-Taste können die Einträge der History in das Eingabefeld eingesetzt werden.
 
 \subsection{Programmstruktur}
 
@@ -3369,7 +3367,7 @@ Für besonders wichtige Nachrichten (zB bei einem Emergency Fall) können auch d
 \lfoot{Alin Porcic}
 \chapter{CLI (Alin Porcic)} \label{chap:CLI_UM}
 
-Wenn das Programm mit dem Argument \textbf{-cli} gestartet wird, so wird statt der graphischen Oberfälche die integrierte CLI gestartet. Diese gibt am Start eine kurze Zusammenfassung über der aktuellen Version und der Uhrzeit aus. Nachdem der Cursor sichtbar ist, kann die CLI auch schon verwendet werden.
+Wenn das Programm mit dem Argument \textbf{-cli} gestartet wird, so wird statt der graphischen Oberfläche die integrierte CLI gestartet. Diese gibt am Start eine kurze Zusammenfassung über der aktuellen Version und der Uhrzeit aus. Nachdem der Cursor sichtbar ist, kann die CLI auch schon verwendet werden.
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_mad.png}\\
@@ -3380,14 +3378,14 @@ der Start der CLI auf Linux
 
 \subsubsection{help}
 
-Durch den Aufruf dieses Befehles ohne Parameter werden alle von der CLI bekannten Befehle aufgelistet. Jeder Befehl hat eine eindeutige Identifikationszahl.\\
+Durch den Aufruf dieses Befehls ohne Parameter werden alle von der CLI bekannten Befehle aufgelistet. Jeder Befehl hat eine eindeutige Identifikationszahl.\\
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_help.png}\\
-Adie usgabe des Help-Befehles
+die Ausgabe des Help-Befehles
 \end{center}
 
-Mit dem Parameter \textbf{-id} können Informationen zu einem bestimmten Befehl angefragt werden. Der \textbf{-id} Parameter benötigt die Indentifikationszahl des Befehls als Argument.
+Mit dem Parameter \textbf{-id} können Informationen zu einem bestimmten Befehl angefragt werden. Der \textbf{-id} Parameter benötigt die Identifikationszahl des Befehls als Argument.
 
 \begin{center}
 \includegraphics[scale=0.5]{img/cli_help_id.png}\\
@@ -3427,15 +3425,15 @@ Mit dieser Funktion kann ein zuvor abgespeichertes Abbild des JobSystems geladen
 
 \subsubsection{js nodes}
 
-Dieser Befehl gibt eine Tabelle der initalisierten Netzwerkknoten auf die Konsole aus.
+Dieser Befehl gibt eine Tabelle der initialisierten Netzwerkknoten auf die Konsole aus.
 
 \subsubsection{js jobs}
 
-Die Ausführung diese Befehls gibt eine Tabelle der initalisierten Netzwerkoperationen aus.
+Die Ausführung diese Befehls gibt eine Tabelle der initialisierten Netzwerkoperationen aus.
 
 \subsubsection{schedule start}
 
-Dieser Befehl startet den Zeitplaner des JobSystems. Nach der Ausführung von diesem Befehl werden die Netzwerkknoten und Netzwerkaufgaben analisiert und bei passender Zeitangabe ausgeführt.
+Dieser Befehl startet den Zeitplaner des JobSystems. Nach der Ausführung von diesem Befehl werden die Netzwerkknoten und Netzwerkaufgaben analysiert und bei passender Zeitangabe ausgeführt.
 
 \subsubsection{schedule stop}
 
@@ -3443,11 +3441,11 @@ Dieser Befehlt stoppt den Zeitplaner des JobSystems.
 
 \subsubsection{node add}
 
-Netzwerkknoten können manuell mit diesem Befehl eingebunden werden. Dieser Befehl hat ingesamt drei Parameter: Name, IP-Adresse und MAC-Adresse. Der Name kann als Argument des Parameter \textbf{-n} mitgeteilt werden, die IP-Adresse mit \textbf{-ip} und die MAC-Adresse mit \textbf{-mac}. Bei der Ausführung des Befehles, erhält der Knoten eine automatisch zugewiesene Indentifikationszahl und eine globale eindeutige Indentifkationsnummer (GUID).
+Netzwerkknoten können manuell mit diesem Befehl eingebunden werden. Dieser Befehl hat ingesamt drei Parameter: Name, IP-Adresse und MAC-Adresse. Der Name kann als Argument des Parameter \textbf{-n} mitgeteilt werden, die IP-Adresse mit \textbf{-ip} und die MAC-Adresse mit \textbf{-mac}. Bei der Ausführung des Befehls, erhält der Knoten eine automatisch zugewiesene Identifikationszahl und eine globale eindeutige Identifikationsnummer (GUID).
 
 \subsubsection{node remove}
 
-Dieser Befehl entfernt einen Netzwerkknoten und die angehängten Netzwerkoperationen. Mit dem Parameter \textbf{-id} kann die Indentifkationszahl des Knoten mitgeteilt werden.
+Dieser Befehl entfernt einen Netzwerkknoten und die angehängten Netzwerkoperationen. Mit dem Parameter \textbf{-id} kann die Identifikationszahl des Knoten mitgeteilt werden.
 
 \subsubsection{node edit}
 
@@ -3455,11 +3453,11 @@ Hiermit können bereits erstellte Netzwerkknoten editiert werden. Dieser Befehl 
 
 \subsubsection{node start}
 
-Dieser Befehl ändert den Status eines Netzwerkknotens auf 'aktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl des Netzwerkknotens muss angegeben werden.
+Dieser Befehl ändert den Status eines Netzwerkknotens auf 'aktiv'. Der Parameter \textbf{-id} mit der Identifikationszahl des Netzwerkknotens muss angegeben werden.
 
 \subsubsection{node stop}
 
-Dieser Befehl ändert den Status eines Netzwerkknotens auf 'inaktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl des Netzwerkknotens muss angegeben werden.
+Dieser Befehl ändert den Status eines Netzwerkknotens auf 'inaktiv'. Der Parameter \textbf{-id} mit der Identifikationszahl des Netzwerkknotens muss angegeben werden.
 
 \subsubsection{job info}
 
@@ -3471,20 +3469,20 @@ Jeder Aufgabentyp den ein Netzwerkknoten haben kann, definiert einen eigenen Bef
 
 \begin{itemize}
 \item \textbf{-n}: Dieser Parameter gibt den Jobnamen an. Daher benötigt dieser Befehl den Namen als Argument.
-\item \textbf{-id}: Die ID des Netzwerkknoten an dem diese Aufgabe drangehängt werden soll. Der Netzwerkknoten muss existieren, sonst kann der Job nicht hinzugefügt werden.
-\item \textbf{-t}: Diese Parameter ist optional, sollte aber trotzdem definiert werden. Das Argument bzw. die Argumente dieses Parameters geben an, wann der Job ausgeführt werden soll. Möchte man zum Beispiel, dass der Job alle 2000ms ausgeführt wird gibt man '2000' als Argument an. Möchte man einen bestimmen Zeitpunkt oder mehrer Zeitpunkte angeben, so kann man das mit den folgenden Argumenten erreichen:
+\item \textbf{-id}: Die ID des Netzwerkknoten an dem diese Aufgabe angehängt werden soll. Der Netzwerkknoten muss existieren, sonst kann der Job nicht hinzugefügt werden.
+\item \textbf{-t}: Diese Parameter ist optional, sollte aber trotzdem definiert werden. Das Argument bzw. die Argumente dieses Parameters geben an, wann der Job ausgeführt werden soll. Möchte man zum Beispiel, dass der Job alle 2000ms ausgeführt wird gibt man '2000' als Argument an. Möchte man einen bestimmen Zeitpunkt oder mehrere Zeitpunkte angeben, so kann man das mit den folgenden Argumenten erreichen:
   \begin{itemize}
   \item 20:15 $\rightarrow$ startet den Job jeden Tag um 20:15 Uhr.
   \item 20:15 21:00 $\rightarrow$ startet den Job jeden Tag um 20:15 und 21:00 Uhr.
   \item 5;20:15 $\rightarrow$ startet den Job jeden Monat am Fünften um 20:15 Uhr.
-  \item 5.2;20:15 $\rightarrow$ startet den Job jedes Jahr am Fünften Febuar um 20:15 Uhr.
-  \item 5.2.2015;20:15 $\rightarrow$ startet den Job am Fünften Febuar 2015 um 20:15 Uhr.
+  \item 5.2;20:15 $\rightarrow$ startet den Job jedes Jahr am Fünften Februar um 20:15 Uhr.
+  \item 5.2.2015;20:15 $\rightarrow$ startet den Job am Fünften Februar 2015 um 20:15 Uhr.
   \end{itemize}
 \end{itemize}
 
 \subsubsection{job remove}
 
-Dieser Befehl benötigt \textbf{-id} als Parameter. Als Argument muss die Indentikiationszahl des Jobs angegeben werden. Jobs, die während der Ausführung dieses Befehles in Ausführung sind, können nicht entfernt werden.
+Dieser Befehl benötigt \textbf{-id} als Parameter. Als Argument muss die Identifikationszahl des Jobs angegeben werden. Jobs, die während der Ausführung dieses Befehles in Ausführung sind, können nicht entfernt werden.
 
 \subsubsection{job edit}
 
@@ -3492,11 +3490,11 @@ Dieser Befehl kann bereits erstellte Jobs modifizieren.
 
 \subsubsection{job start}
 
-Dieser Befehl ändert den Status einer Netzwerkaufgabe auf 'aktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl der Netzwerkaufgabe muss angegeben werden.
+Dieser Befehl ändert den Status einer Netzwerkaufgabe auf 'aktiv'. Der Parameter \textbf{-id} mit der Identifikationszahl der Netzwerkaufgabe muss angegeben werden.
 
 \subsubsection{job stop}
 
-Dieser Befehl ändert den Status einer Netzwerkaufgabe auf 'inaktiv'. Der Parameter \textbf{-id} mit der Indentifikationszahl der Netzwerkaufgabe muss angegeben werden.
+Dieser Befehl ändert den Status einer Netzwerkaufgabe auf 'inaktiv'. Der Parameter \textbf{-id} mit der Identifikationszahl der Netzwerkaufgabe muss angegeben werden.
 
 \section{Datenbank Befehle (Alin Porcic)}
 
@@ -3526,7 +3524,7 @@ Die Berechnung und das Schreiben der Zusammenfassung kann durch eingeben dieses 
 
 \subsubsection{db summary remove}
 
-Das Entfernen von Datensätze aus der 'SummaryTable' erfolgt durch die Ausführung diese Befehles.
+Das Entfernen von Datensätze aus der 'SummaryTable' erfolgt durch die Ausführung diese Befehls.
 
 \subsubsection{db summary remove all}
 
@@ -3538,7 +3536,7 @@ Gibt den Inhalt der Memos aus der Datenbank auf die Konsole aus.
 
 \subsubsection{db memo add}
 
-Durch die Ausführung dieses Befehls können Memos hinzugefügt werden.
+Durch die Ausführung dieses Befehls können Memos hinzugefügt oder alte überschrieben werden.
 
 \subsubsection{db memo remove}
 
@@ -3669,22 +3667,22 @@ Das wird mithilfe der folgenden Befehle erreicht:\\
 \item \textbf{job add http -n MeinHttp -id 0 -t 1;20:00 -p 80}
 \end{itemize}
 
-Das Argument des Parameters '-id' gibt die ID des Netzwerkknoten an, an dem die Aufgabe drangehängt werden soll. Der Parameter '-t' definiert, wann diese Aufgabe ausgeführt werden soll. Port-Scans und HTTP-Anfragen können auch einen Port über den Parameter '-p' definieren.\\\\
+Das Argument des Parameters '-id' gibt die ID des Netzwerkknoten an, an dem die Aufgabe angehängt werden soll. Der Parameter '-t' definiert, wann diese Aufgabe ausgeführt werden soll. Port-Scans und HTTP-Anfragen können auch einen Port über den Parameter '-p' definieren.\\\\
 
-Um die derzeitige Konfiguration abzuspeicher gibt es zwei Möglichkeiten:
+Um die derzeitige Konfiguration abzuspeichern, gibt es zwei Möglichkeiten:
 
 \begin{itemize}
 \item Die Netzwerkknoten einzeln abspeichern.
 \item Alle Netzwerkknoten abspeichern.
 \end{itemize}
 
-Da die jetztige Konfiguration nur einen Netzwerkknoten hat, kann der Netzwerkknoten einzeln abgespeichert werden. Dies geschieht mit dem \textbf{node save} Befehl:\\
+Da die jetzige Konfiguration nur einen Netzwerkknoten hat, kann der Netzwerkknoten einzeln abgespeichert werden. Dies geschieht mit dem \textbf{node save} Befehl:\\
 
 \begin{itemize}
 \item \textbf{node save -id 0 -file node.json}
 \end{itemize}
 
-Der Paramter 'id' gibt den Netzwerkknoten an, der gespeichert werden soll und 'file' gibt den Dateinamen an. Bei einem Neustart des Programmes kann die Konfiguration des Nodes mithilfe des Befehls 'node load -file node.json' geladen werden.\\\\
+Der Parameter 'id' gibt den Netzwerkknoten an, der gespeichert werden soll und 'file' gibt den Dateinamen an. Bei einem Neustart des Programmes kann die Konfiguration des Nodes mithilfe des Befehls 'node load -file node.json' geladen werden.\\\\
 Zurzeit ist der Zeitplaner des JobSystems ausgeschalten, der Netzwerkknoten ist 'inaktiv' und die drei Aufgaben ebenfalls. Damit die Aufgaben ausgeführt werden können muss der Zeitplaner aktiviert werden. Das geschieht durch den folgenden Befehl:\\
 
 \begin{itemize}
@@ -3752,9 +3750,9 @@ Nun werden alle Ausführung von allen Jobs, die zwischen dem 10.01.2015 00:00 un
 \includegraphics[scale=0.5]{img/db_summary.png}
 \end{center}
 
-\chapter{CLIClient (Alin Porcic)}
+\chapter{CLI-Client (Alin Porcic)}
 
-Der CLI-Client erstellt bei der ersten Ausführung eine Konfigurationsdatei im gleichen Ordner wie die ausführbare Datei. Dort kann der Zieladresse und Authentifikations-Passwort eingegeben werden. Sobald die Verbindung steht, kann die CLI ganz normal verwendet werden.\\
+Der CLI-Client erstellt bei der ersten Ausführung eine Konfigurationsdatei im gleichen Ordner wie die ausführbare Datei. Dort kann der Zieladresse und Authentifizierungspasswort eingegeben werden. Sobald die Verbindung steht, kann die CLI ganz normal verwendet werden.\\
 Die Konfigurationsdatei wird im XML-Syntax gespeichert und beim Start eingelesen. Hier ist eine mögliche Konfiguration zu sehen:\\
 \begin{lstlisting}
 <?xml version="1.0" encoding="utf-8"?>
@@ -3765,9 +3763,9 @@ Die Konfigurationsdatei wird im XML-Syntax gespeichert und beim Start eingelesen
 </MadClient>>
 \end{lstlisting}
 
-\chapter{CLIServer (Alin Porcic)}
+\chapter{CLI-Server (Alin Porcic)}
 
-Der CLI-Server ist im Hauptprogramm integriert und kann mit dem Argument \textbf{-cliserver} gestartet werden. Der Port lässt sich über die Konfigurationsdatei \textbf{data/mad.conf} verändern. Standardmäßig läuft der Server-Dienst auf Port 2222 und der AES-Schlüssel mit dem sich der CLIClient authentifizeren muss, kann im Feld \textbf{AES-PASS} ebenfalls eingerichtet werden.
+Der CLI-Server ist im Hauptprogramm integriert und kann mit dem Argument \textbf{-cliserver} gestartet werden. Der Port lässt sich über die Konfigurationsdatei \textbf{data/mad.conf} verändern. Standardmäßig läuft der Server-Dienst auf Port 2222 und der AES-Schlüssel mit dem sich der CLI-Client authentifizieren muss, kann im Feld \textbf{AES-PASS} ebenfalls eingerichtet werden.
 
 \begin{center}
 \includegraphics[scale=0.6]{img/cli_server.png}\\
@@ -3802,7 +3800,7 @@ Hier wird nach der Größe des Subnetzes gefragt.
 \item \textbf{Fakultativ:}
 \begin{itemize}
 \item Network Device\\
-Hier wird nach der Netzwerkarte gefragt, wobei nur aus den verfügbaren Netzwerkkarten ausgewählt werden kann. Falls nichts ausgewählt wird, wird automatisch, die in der Konfiguration vermerkte Netzwerkkarte, verwendet.
+Hier wird nach der Netzwerkkarte gefragt, wobei nur aus den verfügbaren Netzwerkkarten ausgewählt werden kann. Falls nichts ausgewählt wird, wird automatisch, die in der Konfiguration vermerkte Netzwerkkarte, verwendet.
 \item Single Scan\\
 Hier wird gefragt ob nur ein einzelner Scan gemacht werden soll oder ein sich immer wiederholender.
 \end{itemize}
@@ -4098,7 +4096,6 @@ en.wikipedia.org/wiki/Transmission\_Control\_Protocol\\
 tools.ietf.org/html/rfc793\\
 tools.ietf.org/html/rfc2131\\
 
-
 \chapter{Manpreet Singh}
 \lfoot{Manpreet Singh}
 
@@ -4110,9 +4107,9 @@ tools.ietf.org/html/rfc2131\\
 \part{Reflexion}
 \chapter{Alin Porcic}
 
-Da wir schon öfters im Team zusammengearbeitet hatten, wussten wir, dass die Kommunikation zwischen den einzelnen Teammitgliedern stimmen muss. Fehlkommunikationen führen zu Verwirrung und das Kostet Zeit und Nerven. Daher haben wir versucht schon vor Beginn der Diplomarbeit für das zu schreibende Programm Regelungen aufzustellen, damit wir ein Ziel vor Augen haben. Mir ist während der Arbeit aber aufgefallen, dass das Aufstellen von diesen umfassenden Regeln nicht immer was gebracht hatte. Erstens haben sich einige nicht streng an die Regeln gehalten, die wir mühevoll aufgestellt und beschlossen hatten. Ich eingeschlossen fühle mich betroffen, da manchmal einige Regeln, die vor der Diplomarbeit beschlossen werden, sich nicht leicht umsetzen lassen und daher kleine Veränderungen notwendig sind. Das zweite Problem war, dass wir für einige Dinge gar keine Regeln aufgestellt hatten. Das führte dazu, dass einige einfach ihre eigenen aufstellten, die natürlich von den der anderen abwichen. Diese Abweichungen sind oftmals nicht der Weltuntergang, aber viele Probleme, denen wir im Laufe der Erarbeitung gegenüberstanden, hätten wir durch bessere Planung und Kommunikation schneller und einfacher lösen können.\\
-Die Schnittstellen für das Programm haben wir nicht in die Regeln mit eingeschlossen. Diese haben wir erst im Laufe der Erarbeitung austauschen können, weil wir nicht genau wussten, wie sie aussehen bzw. designt werden sollen. Die Schnittstellen hätte man am Anfang schon vorausplanen können und sich viel Denkarbeit und Zeit ersparen können.\\\\
-Im Großen und Ganzen muss ich sagen, haben wir trotz einiger Fehler bei der Planung ein solides funktionierendes Produkt abgeliefert haben. Natürlich ist unsere Produkt nicht mit professionellen Softwarelösungen vergleichbar, aber wir haben bewiesen, dass es in so kurzer Zeit möglich, ein Programm zu entwickeln, das einfache Aufgaben im Netzwerk zu definierten Zeitpunkten erledigen kann. Ich bin über das entstanden Programm überaus zufrieden und denke, dass allen an diesem Projekt einen wichtigen Teil beigegesteuert haben. 
+Da wir schon öfters im Team zusammengearbeitet hatten, wussten wir, dass die Kommunikation zwischen den einzelnen Teammitgliedern stimmen muss. Fehlkommunikationen führen zu Verwirrung und das kostet Zeit und Nerven. Daher haben wir versucht schon vor Beginn der Diplomarbeit für das zu schreibende Programm Regeln aufzustellen, damit wir ein klares Ziel vor Augen haben. Mir ist während der Arbeit aber aufgefallen, dass das Aufstellen von diesen umfassenden Regeln nicht immer was gebracht hatte. Erstens haben sich einige nicht streng an die Regeln gehalten, die wir mühevoll aufgestellt und beschlossen hatten. Ich eingeschlossen fühle mich betroffen, da manchmal einige Regeln, die vor der Diplomarbeit beschlossen werden, sich nicht leicht umsetzen lassen und daher kleine Veränderungen notwendig sind. Das zweite Problem war, dass wir für einige Dinge gar keine Regeln aufgestellt hatten. Das führte dazu, dass einige einfach ihre eigenen aufstellten, die natürlich von den der anderen abwichen. Diese Abweichungen sind oftmals nicht der Weltuntergang, aber viele Probleme, denen wir im Laufe der Erarbeitung gegenüberstanden, hätten wir durch bessere Planung und Kommunikation schneller und einfacher lösen können.\\
+Die Schnittstellen für das Programm haben wir nicht in die Regeln mit eingeschlossen. Diese haben wir erst im Laufe der Erarbeitung austauschen können, weil wir nicht genau wussten, wie sie aussehen werden. Die Schnittstellen hätte man am Anfang schon vorausplanen können und sich viel Denkarbeit und Zeit ersparen können.\\\\
+Im Großen und Ganzen muss ich sagen, haben wir trotz einiger Fehler bei der Planung ein solides funktionierendes Produkt abgeliefert haben. Natürlich ist unsere Produkt nicht mit professionellen Softwarelösungen vergleichbar, aber wir haben bewiesen, dass es in so kurzer Zeit möglich, ein Programm zu entwickeln, das einfache Aufgaben im Netzwerk zu definierten Zeitpunkten erledigen kann. Ich bin über das entstanden Programm überaus zufrieden und denke, dass alle an diesem Projekt einen wichtigen Teil beigegesteuert haben. 
 
 \chapter{Daniel Ranalter}
 lorem ipsum
