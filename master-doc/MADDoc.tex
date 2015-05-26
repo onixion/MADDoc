@@ -1,11 +1,11 @@
 % Diplomarbeit - Lan Monitoring 5BHEL 14/15
+% Betreuer:
+%	Dr. Michael Weiss
 % Autoren:
 %	Alin Porcic
 % 	Daniel Ranalter
 % 	Manpreet Singh
 %	Marko Stojanovic
-% Betreuer:
-%	Dr. Michael Weiss
 % -----------------------------------------------
 
 \documentclass[12pt,a4paper]{report}
@@ -3455,7 +3455,7 @@ Dieser Befehl ändert den Status eines Netzwerkknotens auf 'inaktiv'. Der Parame
 
 \subsubsection{job info}
 
-Mithilfe dieses Befehles können Informationen zu einem bestimmten Job ausgegeben werden.
+Mithilfe dieses Befehls können Informationen zu einem bestimmten Job ausgegeben werden.
 
 \subsubsection{job add}
 
@@ -3476,7 +3476,7 @@ Jeder Aufgabentyp den ein Netzwerkknoten haben kann, definiert einen eigenen Bef
 
 \subsubsection{job remove}
 
-Dieser Befehl benötigt \textbf{-id} als Parameter. Als Argument muss die Identifikationszahl des Jobs angegeben werden. Jobs, die während der Ausführung dieses Befehles in Ausführung sind, können nicht entfernt werden.
+Dieser Befehl benötigt \textbf{-id} als Parameter. Als Argument muss die Identifikationszahl des Jobs angegeben werden. Jobs, die während der Ausführung dieses Befehls in Ausführung sind, können nicht entfernt werden.
 
 \subsubsection{job edit}
 
@@ -3498,7 +3498,7 @@ Dieser Befehl gibt die Datenbank-Tabellen aus. Falls der Befehl ohne Parameter a
 
 \subsubsection{db jobs}
 
-Durch die Eingabe dieses Befehles wird die Datenbank-Tabelle der 'JobTable' ausgegeben.
+Durch die Eingabe dieses Befehls wird die Datenbank-Tabelle der 'JobTable' ausgegeben.
 
 \subsubsection{db jobs remove}
 
@@ -3550,7 +3550,7 @@ Beendet den dhcp reader.
 
 \subsubsection{dhcp reader set time - obsolet}
 
-Setzt einen neuen Wert für das aktuallisieren der Hosts.
+Setzt einen neuen Wert für das aktualisieren der Hosts.
 
 \subsubsection{print list - obsolet}
 
@@ -3677,13 +3677,13 @@ Da die jetzige Konfiguration nur einen Netzwerkknoten hat, kann der Netzwerkknot
 \end{itemize}
 
 Der Parameter 'id' gibt den Netzwerkknoten an, der gespeichert werden soll und 'file' gibt den Dateinamen an. Bei einem Neustart des Programmes kann die Konfiguration des Nodes mithilfe des Befehls 'node load -file node.json' geladen werden.\\\\
-Zurzeit ist der Zeitplaner des JobSystems ausgeschalten, der Netzwerkknoten ist 'inaktiv' und die drei Aufgaben ebenfalls. Damit die Aufgaben ausgeführt werden können muss der Zeitplaner aktiviert werden. Das geschieht durch den folgenden Befehl:\\
+Zurzeit ist der Zeitplaner des JobSystems ausgeschaltet, der Netzwerkknoten ist 'inaktiv' und die drei Aufgaben ebenfalls. Damit die Aufgaben ausgeführt werden können muss der Zeitplaner aktiviert werden. Das geschieht durch den folgenden Befehl:\\
 
 \begin{itemize}
 \item \textbf{schedule start}
 \end{itemize}
 
-Nun läuft der Zeitplaner, jedoch ignoriert er den Netzwerkknoten und alle darunterliegenden Aufgaben, da der Netzwerkknoten inaktiv ist. Um einen Netzwerkknoten zu aktivieren, reicht die Ausführung des folgenen Befehls:\\
+Nun läuft der Zeitplaner, jedoch ignoriert er den Netzwerkknoten und alle darunterliegenden Aufgaben, da der Netzwerkknoten inaktiv ist. Um einen Netzwerkknoten zu aktivieren, reicht die Ausführung des folgenden Befehls:\\
 
 \begin{itemize}
 \item \textbf{node start -id 0}
@@ -3708,7 +3708,7 @@ Nach der Ausführung wird eine Tabelle mit den Aufgaben ausgegeben.
 \subsection{Zusammenfassung der Datenbank}
 
 Nachdem einige Daten durch unzählige Ausführungen der Netzwerkaufgaben gesammelt wurden, besteht die Möglichkeit, diese Zusammenzufassen. Bei der Zusammenfassung werden die Daten auf Mittelwerte, Maximal- und Minimalwerte zusammengefasst. Wie viele Datensätze zu einem neuen Datensatz zusammengefasst werden, hängt von der Blockgröße ab.\\\\
-Damit die Daten zusmmaengefasst werden können müssen erst ein paar Daten gesammelt werden:
+Damit die Daten zusammengefasst werden können müssen erst ein paar Daten gesammelt werden:
 
 \begin{center}
 \includegraphics[scale=0.6]{img/db_jobs2.png}
