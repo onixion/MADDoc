@@ -1824,7 +1824,7 @@ Tabelle (in RDMS)
 \end{itemize}
 \subsubsection{Fremdschlüssel}
 \begin{itemize}
-\item Attribut oder Attributkombination einer Tabelle
+\item Attribut oder Attributkombinationen einer Tabelle
 \item zeigt auf den Primärschlüssel einer anderen oder der gleichen Tabelle
 \end{itemize}
 [423]
@@ -1947,7 +1947,7 @@ Das Objektdatenbankmanagementsystem hat, neben den grundsätzlichen Anforderunge
 \begin{itemize}
 \item Da sich ein Objekt aus beliebig vielen verschiedenen Datentypen ergibt ist die Verwaltung komplexer Objekte zu gewährleisten
 \item Allen Objekten wird eine einmalige Identifikation OID zugeordnet, zur Sicherstellung der einzelnen Objektidentitäten
-\item Da das Zugreifen mittels Methoden ermöglicht wird, ist die Kapselung der Objekte (Konzept der objektorientierten Programmierung) einzuhalten
+\item Da Zugriffe mittels Methoden ermöglicht werden, ist die Kapselung der Objekte (Konzept der objektorientierten Programmierung) einzuhalten
 \item Objekte werden Objektklassen zugeteilt.
 \item Klassenhierarchien dienen zur Anordnung von Objektklassen.
 \item Bei vererbten Objekten werden überladene Methoden benutzt, dies kommt durch späte Bindungen zustande.
@@ -2053,7 +2053,7 @@ Die Basis der Syntax und Semantik holte sich Hipp aus der PstgreSQL 6.5 Dokument
 \subsection{Eigenschaften}
 SQLite hat viel wichtige Eigenschaften, zu den wichtigsten Eigenschaften zählen:
 \begin{itemize}
-\item atomare, konsistente, isolierte und langlebige (ACID) Transaktionen, selbst im Fall eines Systemabsturzes oder eines Stromausfalles
+\item (Atomarität, Konsistenz, Isolation und Dauerhaftigkeit (ACID) von Transaktionen, selbst im Fall eines Systemabsturzes oder eines Stromausfalles
 \item keine Installation oder weitere Verwaltungen oder Konfigurationen nötig
 \item komplette SQL- Implementierung mit Erweiterungen: Teilindizes, allgemeine Tabellenausdrücke, ...
 \item gesamte Datenbank ist in eine Datei gespeichert ("{}single disk file"{}), optial für den Einsatz in Anwendungen
@@ -2069,7 +2069,7 @@ einfache Portierung auf andere Systeme
 \end{itemize}
 [437]
 \subsection{Syntax}
-Die Syntax von SQLite ist der Syntax von SQL identisch. Die kleinen Unterschiede liegen darin, dass einige Fähigkeiten von SQL nicht unterstützt werden und dafür eigene eingebaut sind. Die Syntax wird mithilfe von Syntaxdiagrammen erklärt.
+Die Syntax von SQLite ist der Syntax von SQL weitgehend identisch. Die Unterscheidung liegen darin, dass einige Fähigkeiten von SQL nicht unterstützt werden und dafür eigene eingebaut sind. Die Syntax wird mithilfe von Syntaxdiagrammen erklärt.
 Diese sind sehr einfach zu lesen und im Prinzip selbsterklärend. Es werden Argumente in der richtigen Reihenfolge aufgelistet und auch die verschiedenen dazugehörigen Optionen. Es gibt zur jeder möglichen Funktion ein entsprechendes Syntaxdiagramm. Die wichtigsten und grundlegendsten Diagramme, welche zur Realisierung der Datenbank nötig waren, werden im Folgenden aufgelistet. [438]
 
 \begin{center}
@@ -2103,7 +2103,7 @@ Bei Verwendung von SQLite entscheidet der Einsatzbereich ob es sich bei einer Ei
 \end{itemize}
 \subsubsection{Nachteile}
 \begin{itemize}
-\item Speicherung der Datenbankdatei auf dem Webserver, kein zusätzliche Anwendung nötig
+\item Speicherung der Datenbankdatei auf dem Webserver, keine zusätzliche Anwendung nötig
 \item keine echten gleichzeitigen Datenbankzugriffe möglich, nur darauf folgende
 \item keine Integrität der Daten
 \end{itemize}
