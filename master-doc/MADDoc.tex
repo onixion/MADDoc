@@ -1188,7 +1188,8 @@ Im folgenden Kapitel wird versucht, das Konzept von E-Mail zu erklären.\\\\
 Die 'electronic mail', kurz E-Mail, wird nun schon seit einigen Jahren dazu verwendet, um vor allem Text, aber auch beliebige Dateien auf elektronischem Wege von A nach B zu senden. \\
 Die elektronische Post ist ein sehr wichtiger Teil des heutigen Kommunikationssystems. Nahezu jeder, unabhängig von Alter und Beruf, hat eine E-Mail-Adresse. E-Mails ermöglichen nun schon seit geraumer Zeit, sowohl das Senden als auch das Empfangen von Text, Dokumenten, Bildern, etc.. Es gibt auch andere Mittel zum Kommunizieren auf elektronischem Wege, aber im Großen und Ganzen ist die E-Mail wohl das einfachste und auch praktischste.\\\\
 Es ist teilweise mit der Post vergleichbar (im weiteren Verlauf wird dieser Vergleich öfter angestellt), da es weitgehend den traditionellen 'Brief' abgelöst hat.  
-\section{Allgemein}
+\section*{Allgemein $^{[204]}$}
+\addcontentsline{toc}{section}{Allgemein}
 \subsubsection{Entstehung}\label{sssec:Entstehung}
 Der Entstehungsweg der E-Mail startet in den 1960er Jahren, als Ray Tomlinson, ein Computertechniker bei Bolt Beranek and Newman (BBN), neben seiner eigentlichen Arbeit, sich einem anderen Projekt widmete. Mithilfe dessen wollte er es schafften, die bis dato noch nicht vorhandene Übertragung und auch das Hinterlassen von Nachrichten bzw. Dateien zwischen zwei im gleichen Netzwerk befindlichen Rechnern zu ermöglichen. Es war noch die Zeit vor dem Internet, die Zeit des sog. Arpanets, welches als Vorgänger des Internets gilt. Damals versuchte Tomlinson, mithilfe schon vorhandener Systeme, wie dem SNDMSG und dem CPYNET, ein neues System zu schaffen.\\\\
 
@@ -2589,6 +2590,9 @@ private System.Windows.Forms.Label labelInfoJobsTitleMemo2;
 private System.Windows.Forms.Label labelInfoJobsTitleMemo1;
 public System.Windows.Forms.Button buttonScan;
 \end{lstlisting}
+
+Zusätzlich muss die im Hintergrund ablaufende „Logik“ programmiert werden, wie zum Beispiel welches Ereignis aufgrund einer Interaktion stattfindet.\\\\
+Die in der Region Logic befindliche Methode InitGUI sorgt dafür, dass das Jobsystem, die Datenbank und der DHCP Reader mitgegeben werden können.\\
 \begin{lstlisting}
 public partial class MainWindow : Form
     {
@@ -2726,8 +2730,66 @@ public partial class MainWindow : Form
 
     }
 \end{lstlisting}
+Weiters wichtig ist das Scan-Fenster. Dieses sorgt dafür, dass die Geräte im LAN eingelesen und aufgelistet werden. Die wichtige Methode hier ist die InvokeArpReader-Methode, sie wird aufgerufen sobald auf 'Start Scan' gedrückt wird. Sie ruft dann den ArpReader auf der dann den eigentlichen Scan durchführt.\\
+\begin{lstlisting}
+private void InvokeArpReader()
+        {
 
+            try
+            {
+                ARPReader.srcAddress = IPAddress.Parse(textBoxLocalIP.Text);
+                ARPReader.netAddress = IPAddress.Parse(textBoxNetwork.Text);
+                ARPReader.subnetMask = Convert.ToUInt32(comboBoxSubnetmask.SelectedItem);
+                if (this.comboBoxNWD.Text != "Default")
+                {
+                    ARPReader.networkInterface =
+                    	 Convert.ToUInt16(this.comboBoxNWD.SelectedItem.ToString()) - (uint)1;
+                }
 
+                if (checkBoxOneScan.Checked)
+                {
+                    ARPReader.SetWindow(this);
+                    ARPReader.FloodStart();
+                    _js.SyncNodes(ModelHost.hostList);
+                    ARPReader.ResetWindow();
+                }
+
+                else
+                {
+                    ARPReader.SteadyStart(_js);
+                    GUILogic.SteadyActivated = true;
+                    _mw.buttonScan.Enabled = false;
+                }
+                validEntering = true;
+            }
+
+            catch
+            {
+                MessageBox.Show("Please check the fields again, your enterings seem to be incorrect",
+                	 "Ups...Something went wrong", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                validEntering = false;
+            }
+
+            
+            return;
+        }
+\end{lstlisting}
+Die letzte wichtige Klasse der graphischen Oberfläche ist die GUILogic. Sie selbst wird als erstes von der Main aufgerufen, und dann ruft die sie selbst die InitGUI des MainWindows und des ArpScanWindows auf. Anschließend ladet sie das MainWindow.\\
+\begin{lstlisting}
+public static class GUILogic
+    {
+        public static bool SteadyActivated;
+        public static MainWindow _MainWindow = new MainWindow();
+        public static ArpScanWindow _ArpScanWindow = new ArpScanWindow();
+
+        public static void RunGUI(JobSystem jobSys, DB dataBase, DHCPReader dhcp)
+        {
+            ArpScanWindow.InitGUI(jobSys, dataBase, _MainWindow);
+            MainWindow.InitGUI(jobSys, dataBase, dhcp);
+            Application.Run(_MainWindow);           
+        }
+    }
+\end{lstlisting}
 \chapter{Konfiguration (Alin Porcic)}
 \lfoot{Alin Porcic}
 
@@ -3174,13 +3236,13 @@ Nach dem Hinzufügen anderer Erweiterungen wie z.B. dem Que System, welches dem 
 Im Großen und Ganzen war dies eine einfache Aufgabe.
 \newpage
 \section{Technische Realisierung}
-Die technische Realisierung besteht aus 2 Teilen:
+Die technische Realisierung beinhaltet 2 Teile:
 \begin{itemize}
 \item \textbf{Get Parameter - Zuweisen der Parameter}\\
-In diesem Programmteil wird eine Methode (SetSendMail) geboten. Mit dieser Methode kann man die für eine E-Mail notwendigen Parameter (Betreff, Inhalt, Anzahl der Fehlversuche beim Senden) zuweisen. Falls aber noch andere Parameter gesetzt werden sollen, wie z.B. vom Standard abweichende Empfänger oder Sender Adresse, uvm..
-Nachdem alle Parameter übergeben worden sind wird ein sogenanntes NotficPackIn erstellt, dies ist ein Paket mit allen möglichen Parametern.\\
-Immer wenn ein solches Paket zusammengestellt wird, wird es der Warteschlange hinzugefügt, wo es dann darauf wartet, verarbeitet zu werden.\\
-Anschließend wird, falls nicht bereits vorhanden, ein Thread gestartet, welcher die Warteschlange abarbeitet. Der Warteschlange können laufend Pakete hinzugefügt werden, der Thread stoppt erst wieder wenn die Warteschlange leer ist.\\
+In diesem Programmteil wird eine Methode (SetSendMail) geboten, mit der man die für eine E-Mail notwendigen Parameter (Betreff, Inhalt, Anzahl der Fehlversuche beim Senden) zuweisen kann. Falls aber noch andere Parameter gesetzt werden sollen, wie z.B. vom Standard abweichende Empfänger oder Sender Adresse, wird die überlagerte Methode verwendet, welche volle Konfigurierbarkeit mit sich bringt.
+Nachdem alle Parameter übergeben worden sind wird ein sogenanntes NotficPackIn erstellt, dies ist ein Paket mit allen, für eine E-Mail, möglichen Parametern.\\
+Immer wenn ein solches Paket zusammengestellt wird, wird es der Warteschlange hinzugefügt und daraufhin nach der Reihe verarbeitet.\\
+Anschließend wird, falls nicht bereits vorhanden, ein Thread gestartet, welcher die Warteschlange abarbeitet. Der Warteschlange können laufend Pakete hinzugefügt werden, dies sorgt für eine Effizienzsteigerung des Hauptprogrammes, da es nun nicht mehr auf das Notification System warten muss. Der Thread stoppt erst wieder wenn die Warteschlange leer ist.\\
 
 \begin{lstlisting}
 //#1 for default Source and Receiver
@@ -3241,13 +3303,13 @@ public static bool SetSendMail(MailAddress[] eMailTo, string subject, string bod
          }  
 	}
 \end{lstlisting}
-\item \textbf{Recive Package \& Send - Der eigentliche Sendevorgang}
-Diese Klasse hat 2 Methoden, eine die mit der Klasse der Parameterkonfiguration arbeitet und die eine die den Sendevorgang schlussendlich ausführt.\\
-Die Methode SendMail greift nun auf die Warteschlange aus Paketen zu und holt sich schritt für schritt ein Paket raus und ruft mit den Parametern jenes Paketes die SendMailReal Methode auf. SendMailReal sendet nun wirklich die E-Mail.
+\item \textbf{Receive Package \& Send - Der eigentliche Sendevorgang}\\
+Diese Klasse beinhaltet 2 Methoden, die erste arbeitet mit der Parameterkonfiguration und die zweite führt den Sendevorgang schlussendlich aus.\\
+Die Methode SendMail greift auf die Warteschlange aus Paketen zu und holt sich schritt für schritt ein Paket raus und ruft mit den Parametern jenes Paketes die SendMailReal Methode auf. SendMailReal sendet nun wirklich die E-Mail.
 
-Man sieht in der SendMailReal Methode den Verbindungsaufbau zu den jeweiligen SMTP-Servern der Benutzer. Nachdem eine E-Mail versandt wurde bzw. nach gewünschten versuchen scheitert gesendet zu werden, wird die Verbindung zum Server beendet.
+Man sieht in der SendMailReal Methode den Verbindungsaufbau zu den jeweiligen SMTP-Servern der Benutzer. Nachdem eine E-Mail versandt wurde oder nach gescheitertem Versenden, wird die Verbindung zum Server beendet.
 
-Im Log steht bei einem Fehlversuch der Grund dessen.
+Nach einem Fehlversuch ist im Log die Begründung ersichtlich.
 \begin{lstlisting}
 private static void SendMailReal(MailAddress[] eMailTo, string subject, string body, 
             int retryCounter, MailAddress eMailFrom_special, string smtpClient_special, 
@@ -4338,6 +4400,100 @@ tools.ietf.org/html/rfc2131\\
 
 \chapter{Manpreet Singh}
 \lfoot{Manpreet Singh}
+
+\noindent
+\textbf{[200]} $\rightarrow$  MAC Adresse, (30.1.2015)\\
+de.wikipedia.org/wiki/MAC-Adresse\\
+en.wikipedia.org/wiki/Mac\_address\\
+www.elektronik-kompendium.de/sites/net/1406201.htm
+
+\noindent
+\textbf{[201]} $\rightarrow$  IP Adresse, (31.1.2015)\\
+de.wikipedia.org/wiki/IP-Adresse\\
+en.wikipedia.org/wiki/IP\_address\\
+
+\noindent
+\textbf{[202]} $\rightarrow$  Ports, (4.2.2015)\\
+de.wikipedia.org/wiki/Port\_(Protokoll)\\
+en.wikipedia.org/wiki/Port\_(computer\_networking)\\
+
+\noindent
+\textbf{[203]} $\rightarrow$  Schichtenmodelle, (8.2.2015)\\
+de.wikipedia.org/wiki/OSI-Modell\\
+de.wikipedia.org/wiki/Schichtenarchitektur\\
+de.wikipedia.org/wiki/Internetprotokollfamilie\\
+en.wikipedia.org/wiki/Internet\_protocol\_suite\\
+en.wikipedia.org/Wiki/Multitier\_architecture\\
+en.wikipedia.org/wiki/OSI\_model\\
+en.wikipedia.org/wiki/TCP/IP\_model\\
+en.wikipedia.org/wiki/Physical\_layer\\
+en.wikipedia.org/wiki/Data\_link\_layer\\
+en.wikipedia.org/wiki/Network\_layer\\
+en.wikipedia.org/wiki/Transport\_layer\\
+en.wikipedia.org/wiki/Session\_layer\\
+en.wikipedia.org/wiki/Presentation\_layer\\
+en.wikipedia.org/wiki/Application\_layer\\
+
+\noindent
+\textbf{[204]} $\rightarrow$  Netzwerkdevices, (12.2.2015)\\
+de.wikipedia.org/wiki/Router\\
+en.wikipedia.org/wiki/Router\_(computing)\\
+de.wikipedia.org/wiki/Open\_Shortest\_Path\_First \\
+en.wikipedia.org/wiki/Open\_Shortest\_Path\_First 1\\
+de.wikipedia.org/wiki/Routing\_Information\_Protocol \\
+en.wikipedia.org/wiki/Routing\_Information\_Protocol \\
+de.wikipedia.org/wiki/Switch\_(Netzwerktechnik) \\
+en.wikipedia.org/wiki/Network\_switch \\
+de.wikipedia.org/wiki/Firewall \\
+en.wikipedia.org/wiki/Firewall\_(computing) \\
+de.wikipedia.org/wiki/Deep\_Packet\_Inspection \\
+en.wikipedia.org/wiki/Deep\_packet\_inspection \\
+
+\noindent
+\textbf{[205]} $\rightarrow$  Netzwerktypen, (16.2.2015)\\
+de.wikipedia.org/wiki/Virtual\_Local\_Area\_Network \\
+en.wikipedia.org/wiki/Virtual\_LAN \\
+de.wikipedia.org/wiki/Wide\_Area\_Network\\
+en.wikipedia.org/wiki/Wide\_area\_network \\
+de.wikipedia.org/wiki/Local\_Area\_Network \\
+en.wikipedia.org/wiki/Local\_area\_network \\
+de.wikipedia.org/wiki/Wireless\_Local\_Area\_Network \\
+en.wikipedia.org/wiki/Wireless\_LAN \\
+
+\noindent
+\textbf{[206]} $\rightarrow$  Host, (14.2.2015)\\
+de.wikipedia.org/wiki/Host\_(Informationstechnik) \\
+
+\noindent
+\textbf{[207]} $\rightarrow$  Client-Server, (16.2.2015)\\
+de.wikipedia.org/wiki/Rack\\
+en.wikipedia.org/wiki/19-inch-rack\\
+de.wikipedia.org/wiki/Client-Server\_Modell\\
+en.wikipedia.org/wiki/Client-server\_model \\
+
+\noindent
+\textbf{[208]} $\rightarrow$ Protokolle, (16.2-1.3.2015)\\
+de.wikipedia.org/wiki/Ethernet 16.2 \\
+en.wikipedia.org/wiki/Ethernet 16.2 \\
+en.wikipedia.org/wiki/Ethernet\_frame 17.2 \\
+de.wikipedia.org/wiki/Internet\_Protocol 20.2\\
+en.wikipedia.org/wiki/Internet\_Protocol 20.2\\
+de.wikipedia.org/wiki/IPv6 23.2\\
+en.wikipedia.org/wiki/IPv6 23.2\\
+en.wikipedia.org/wiki/IPv6\_address 23.2\\
+de.wikipedia.org/wiki/IP-Framentierung 23.2\\
+en.wikipedia.org/wiki/IP\_fragmentation 23.2\\
+tools.ietf.org/html/rfc791\\
+tools.ietf.org/html/rfc1918\\
+tools.ietf.org/html/rfc2460\\
+tools.ietf.org/html/rfc6598\\
+tools.ietf.org/html/rfc6890\\
+de.wikipedia.org/wiki/Dynamic\_Host\_Configuration\_Protocol\\
+en.wikipedia.org/wiki/Dynamic\_Host\_Configuration\_Protocol\\
+de.wikipedia.org/wiki/Transmission\_Control\_Protocol\\
+en.wikipedia.org/wiki/Transmission\_Control\_Protocol\\
+tools.ietf.org/html/rfc793\\
+tools.ietf.org/html/rfc2131\\
 
 \chapter{Marko Stojanovic}
 \lfoot{Marko Stojanovic}
