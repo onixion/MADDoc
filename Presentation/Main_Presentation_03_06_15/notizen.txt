@@ -1,0 +1,19 @@
+Wir begrüßen euch alle recht herzlich. Wir haben uns mit dem Projekt "Lan-Monitoring" beschäftigt und wir sind Marko Stojanovic, Manpreet Singh, Daniel 
+Ranalter und Alin Porcic.
+
+Vor ca. einem Jahr haben wir vier die Möglichkeit bekommen im Zuge einer Diplomarbeit beim Herr Professor Weiss eine Software zu entwickeln, mit deren Hilfe es 
+möglich ist ein Netzwerk zu überwachen.
+
+Jedes Unternehmen heute organisiert im Hintergrund in irgendeiner Weise ein IT-Netzwerk. Diese Netzwerk dienen als Schnittstellen für Kunden, aber auch für den 
+internen Datenaustausch.
+Doch auch im privaten Bereich spielen Netzwerke eine immer wichtigere Rolle. Jeder von uns hat sicherlich zuhause einen Router stehen, vieleicht sogar einen 
+Server. Die neuen Fernsehen können ins Internet oder auch Dienste anbieten. Es gibt auch schon Kühlschränkte, die Internet-fähig sind. 
+
+Bei so vielen Geräten und Diensten verliert man als Privat-Person oder als Unternehmen schnell die Übersicht und da kommt unser Programm ins Spiel.
+Mithilfe von dieser Software ist es möglich, die Geräte zu erfassen und deren Dienste in Zeitlichen Abständen oder zu bestimmten Zeitpunkten auf ihre Funktion 
+zu überprüfen. Der Benutzer ist in der Lage Regeln zu definieren, damit dieser bei einer Missachtung sofort benachrichtigit werden kann.
+
+Die unter euch, die genaueres Wissen möchten, laden wir herzlichst ein bei uns im Raum H212 vorbeizuschauen. Wir haben einen Testaufbau vorbereitet und wären 
+bereit euch, die Software in der Praxis zu zeigen.
+
+Wir bedanken uns für eure Aufmerksamkeit.
