@@ -64,10 +64,11 @@ Als wir ihm bei einem ersten Gespräch unsere bisherigen Gedankengänge aufzeigt
 \pagestyle{fancy}
 \begin{onehalfspace}
 \chapter{Abstract}
-Mit den immer größer werdenden Anforderungen an die Netzwerktechnik ist es zur Herausforderung geworden, den Überblick in einem Netzwerk zu behalten. Große Firmen wie z.B. Cisco und HP bieten Lösungen für dieses Problem, allerdings kosten die Produkte, welche solch große Hersteller anbieten, ein Vermögen. Es gibt aber auch einige kostenlose Produkte, die auch dabei helfen ein Netzwerk zu überwachen, wie z.B. Nagios. Die kostenlose Variante hat jedoch einen anderen großen Nachteil, die Konfiguration. Diese ist teilweise so komplex, dass trotzdem hohe Kosten alleine durch den Einsatz von benötigtem Fachkräften entstehen.
-\paragraph{Problemstellung/Ziel:} Für das Überwachen von kleineren Netzwerken sind die oben genannten Lösungen ungeeignet, da nur ganz wenige, von den eigentlich verfügbaren Funktionen, verwendet werden. Diese Diplomarbeit hatte das Ziel, eine kompakte Lösungen zu entwickeln, die kleine Netzwerke (max. 50 Netzwerkgeräte) überwachen kann. Zum Beispiel, dass die in einem Netzwerk vorhanden Geräte anzeigt werden können, oder dass auch Überprüfungen auf z.B. die Erreichbarkeit einzelner Geräte im Netzwerk durchgeführt werden können. Außerdem soll diese Lösung auf Windows und Linux funktionsfähig sein.
-\paragraph{Methodik:} Das Produkt Nagios war uns ein erstes Vorbild. Unser Ansatz bestand darin, dass nur grundlegende Funktionen zur Netzwerktechnik überwacht wurden. Die Wahl der Programmiersprache, fiel auf C\#, welche unter Windows auf das .net Framework und unter Linux auf Mono Framework aufbaut. Als die Programmziele festgelegt waren, teilten wir die Aufgabe in mehrere Teilbereiche auf. Als jeder seine Teilbereiche zugewiesen bekam, programmierte er für sich. Durch das Nutzen von Git, einem Versionsverwaltungsprogramm, war eine weitgehend reibungslose Zusammenarbeit möglich.
-\paragraph{Resultat:} Das Ergebnis war ein Programm mit einem CLI (text basierte Schnittstelle), einem GUI (graphische Benutzeroberfläche) und interner Datenverwaltung. Das LAN - Networkmonitoring stellt eine Lösung für grundlegende und kompakte Netzwerküberwachung dar. Mit Funktionen wie beispielsweise einem Portscanner oder Dienstüberprüfungen wie z.B. dem HTTP-checker.
+Mit den immer größer werdenden Anforderungen an die Netzwerktechnik ist es zur Herausforderung geworden, in einem Netzwerk den Überblick zu behalten. Große Firmen wie z.B. Cisco oder HP bieten Lösungen für dieses Problem, allerdings kosten die Produkte ein Vermögen. Es gibt auch einige kostenlose Produkte, wie z.B. Nagios. Die kostenlosen Varianten haben oft den Nachteil, dass die Konfiguration sehr komplex ist. Dadurch wird der Einsatz von Fachkräften nötig, und es entstehen auch hier hohe Kosten.
+\paragraph{Problemstellung/Ziel:} Für das Überwachen von kleineren Netzwerken sind die oben genannten professionellen Lösungen nicht gut geeignet, da ihr Potential nicht annähernd ausgeschöpft wird. Unsere Diplomarbeit hat das Ziel, eine kompakte Lösung zu entwickeln, die kleine Netzwerke (max. 50 Netzwerkgeräte) überwachen kann. Gewünschte Funktionen sind zum Beispiel, das Scannen eines LANs oder das Überprüfen von Services. Außerdem soll diese Lösung auf Windows und Linux funktionsfähig sein.
+\paragraph{Methodik:}Das Produkt Nagios ist uns ein erstes Vorbild gewesen. Unser prinzipieller Ansatz bestand darin, nur grundlegende Funktionen zu überwachen, wie z.B. einen HTTP-Dienst.
+Die Wahl der Programmiersprache, fiel auf C\#, welche unter Windows auf das .net Framework und unter Linux auf Mono Framework aufbaut. Nachdem wir die Ziele definiert hatten, teilten wir das Projekt in mehrere Teilbereiche. Mit Hilfe des Versionsverwaltungsprogramms „Git“ war eine weitgehend reibungslose Zusammenarbeit möglich.
+\paragraph{Resultat:} Das Ergebnis unserer Arbeiten ist ein Programm mit einem CLI (Command Line Interface), einem GUI (Graphical User Interface) und einer internen Datenverwaltung. Unser  LAN-Network-Monitoring stellt eine Lösung für grundlegende und kompakte Netzwerküberwachung dar. Es enthält verschiedene nützliche Funktionen (z.B. einen Portscanner) oder einige Dienstüberprüfungen (z.B. unseren HTTP-Checker). 
 \chapter{Abstract (English)}
 to be written
 
@@ -1194,7 +1195,7 @@ Im folgenden Kapitel wird versucht, das Konzept von E-Mail zu erklären.\\\\
 Die 'electronic mail', kurz E-Mail, wird nun schon seit einigen Jahren dazu verwendet, um vor allem Text, aber auch beliebige Dateien auf elektronischem Wege von A nach B zu senden. \\
 Die elektronische Post ist ein sehr wichtiger Teil des heutigen Kommunikationssystems. Nahezu jeder, unabhängig von Alter und Beruf, hat eine E-Mail-Adresse. E-Mails ermöglichen nun schon seit geraumer Zeit, sowohl das Senden als auch das Empfangen von Text, Dokumenten, Bildern, etc.. Es gibt auch andere Mittel zum Kommunizieren auf elektronischem Wege, aber im Großen und Ganzen ist die E-Mail wohl das einfachste und auch praktischste.\\\\
 Es ist teilweise mit der Post vergleichbar (im weiteren Verlauf wird dieser Vergleich öfter angestellt), da es weitgehend den traditionellen 'Brief' abgelöst hat.  
-\section*{Allgemein $^{[204]}$}
+\section*{Allgemein$^{[300]}$} %Dani du gay check des out
 \addcontentsline{toc}{section}{Allgemein}
 \subsubsection{Entstehung}\label{sssec:Entstehung}
 Der Entstehungsweg der E-Mail startet in den 1960er Jahren, als Ray Tomlinson, ein Computertechniker bei Bolt Beranek and Newman (BBN), neben seiner eigentlichen Arbeit, sich einem anderen Projekt widmete. Mithilfe dessen wollte er es schafften, die bis dato noch nicht vorhandene Übertragung und auch das Hinterlassen von Nachrichten bzw. Dateien zwischen zwei im gleichen Netzwerk befindlichen Rechnern zu ermöglichen. Es war noch die Zeit vor dem Internet, die Zeit des sog. Arpanets, welches als Vorgänger des Internets gilt. Damals versuchte Tomlinson, mithilfe schon vorhandener Systeme, wie dem SNDMSG und dem CPYNET, ein neues System zu schaffen.\\\\
@@ -1210,7 +1211,8 @@ Während der Entwicklungsphase, meinte Tomlinson, während er es seinen Kollegen
 Nachdem dieser Grundstein gelegt wurde, war 'E-Mail' entstanden. Mit der Weiterentwicklung des Arpanets (später Telenet) und der Entstehung des Internets, wuchs auch die elektronische Post immer weiter mit. Im Jahr 1975 war es dank dem Programmierer John Vittal erstmals möglich E-Mails etwas übersichtlicher darzustellen. Damit wurde alles wesentlich benutzerfreundlicher und somit verbreitete es sich noch weiter unter Bevölkerung. Das Programm wurde 'MSG' genannt. Neben der übersichtlichen Darstellung, ermöglichte MSG mitunter auch das Weiterleiten, die Vorschau und das Antworten und einige weitere Funktionen.\\
 
 FAX und SMS sind weitere Entwicklungen zur Übertragung von Nachrichten. Die E-Mail hat sich im Vergleich sehr gut durchgesetzt und ist kaum noch wegzudenken. 
-\section{Funktionsweise}
+\section*{Funktionsweise$^{[301]}$}
+\addcontentsline{toc}{section}{Funktionsweise}
 Die Funktionsweise die dem Versenden und Empfangen von E-Mails zu Grunde liegt, ist relativ einfach. Auch hier wird das schon bekannte Client-Server Prinzip angewendet (siehe Kapitel \ref{ssec:client-server} Seite \pageref{ssec:client-server}).\\
 
 \begin{center}
@@ -1512,7 +1514,8 @@ Eine durchgehende Verbindung zum Server ist notwendig & $\rightarrow$ & Da die E
 \paragraph{IMAP und POP im Vergleich mit der Post:}
 \subparagraph{IMAP:} IMAP: Die Post wird direkt am Briefkasten gelesen und vom Briefkasten nach Belieben sortiert und entsorgt.
 \subparagraph{POP:} POP: Die Post wird direkt am Briefkasten entsorgt oder kopiert. Die Kopien können mit nach Hause genommen werden. Dort können sie gelesen und verwaltet werden. 
-\section{Bedeutung im Alltag}
+\section*{Bedeutung im Alltag$^{[302]}$}
+\addcontentsline{toc}{section}{Bedeutung im Alltag}
 \subsubsection{Heute}
 E-Mails sind heute eine der meistgenutzten Kommunikationsmöglichkeiten überhaupt. Vor allem Firmen senden massenhaft E-Mails. Die elektrische Post ist aus dem heutigen Alltag kaum mehr wegzudenken.\\\\
 Viele Geräte unterstützen diese Technik, wie z.B. Smartuhren, Smartphones, Tablets, Laptops, und viele mehr. Dadurch wird die schnelle Abrufbarkeit gewährleistet.
@@ -1526,7 +1529,8 @@ Viele Geräte unterstützen diese Technik, wie z.B. Smartuhren, Smartphones, Tab
 \end{itemize} 
 \subsubsection{Zukünftig}
 Analysten zufolge wird der E-Mail-Verkehr sich immer mehr in den wirtschaftlichen Sektor verschieben, da die Menschen immer mehr ihre Sozialen Kontakte über soziale Netwerke, wie Facebook, Whatsapp und Twitter aufrecht erhalten. E-Mails zwischen zwei Freunden werden voraussichtlich immer seltener. (vgl.http://de.wikipedia.org/wiki/E-Mail)
-\section{Probleme}
+\section*{Probleme$^{[303]}$}
+\addcontentsline{toc}{section}{Probleme}
 Beim Versand von E-Mails gibt es nach wie vor auch einige Probleme, die schwer zu bewältigen sind. Dieses sind z.B. Spam und Informations-Overloads. Auf einige bekannte Probleme wird im folgenden eingegangen.
 \subsection{Begrenzungen}
 E-Mails könnten zwar rein theoretisch unbegrenzte Datenmengen übertragen, dies ist jedoch in der Praxis nicht umsetzbar. Viele Betreiber von Mailservern limitieren die Datenmengen um die Auslastung so gering wie möglich zu halten. 
@@ -1597,7 +1601,8 @@ Ein weiterer Problem ist das Nutzen von graphischen Diensten wie zum Beispiel da
 \lfoot{Manpreet Singh}
 Die graphische Benutzeroberfläche begleitet uns tagtäglich. Sie bietet uns viel Komfort und ermöglicht auch Laien den Zugang zur Informationstechnik.\\\\
 GUIs (Graphical User Interface) werden auch häufig in Firmen eingesetzt um Personal, welches der Informationstechnik nicht sehr mächtig ist, trotzdem eine Möglichkeit zu bieten darauf zuzugreifen.
-\subsection{Geschichte}
+\subsection*{Geschichte$^{[304]}$}
+\addcontentsline{toc}{subsection}{Geschichte}
 Die Geschichte des GUI begann in den 70er Jahren in Kalifornien mit der Firma Xerox. Dort wurde erstmals an Graphischen Oberflächen gearbeitet. Nach einer langen Entwicklungsphase kam der Xerox Star auf den Markt. Dieser schaffte jedoch nicht den erhofften Durchbruch. Die Firma Apple präsentierte 1983 ihren ersten Computer mit graphischer Oberfläche. Er trug den Namen 'Apple Lisa', jedoch war das Preis-Leistungs-Verhältnis nicht ausgeglichen. Der Apple Macintosh aus dem Jahre 1984 war Apples Durchbruch. Er wurde unter Steve Jobs Leitung entwickelt. \\\\
 Aus dem Hause Microsoft kam 1985 das Betriebssystem Windows 1.3 mit graphischer Oberfläche, welches nur mit IBM PCs kompatibel war. Mit diesem Betriebssystem konnte Microsoft jedoch nicht überzeugen.\\
 
@@ -1678,7 +1683,8 @@ Quelle: http://de.wikipedia.org/w/index.php?title=Datei:Windows\_8.1\_ModernUI\_
 \end{scriptsize}
 \end{center}
 
-\subsection{Technischer Hintergrund}
+\subsection*{Technischer Hintergrund$^{[305]}$}
+\addcontentsline{toc}{subsection}{Technischer Hintergrund}
 Die Benutzeroberfläche ist die Schnittstelle zum System. Mit dieser kann der Benutzer interagieren
 \begin{center}
 \includegraphics[scale=0.7]{../docs/lyaton/graphics/Graph.png}\\
@@ -1701,7 +1707,8 @@ Die Grafische Shell kommuniziert mit dem Anzeige Server und teilt diesem mit was
 \item \textbf{Benutzer}\\
 Zuletzt kommt der Benutzer, welcher durch die dargestellte Oberfläche mit Komfort seinen Rechner bedienen kann. 
 \end{itemize}
-\subsection{Normen}
+\subsection*{Normen$^{[306]}$}
+\addcontentsline{toc}{subsection}{Normen}
 Die europäische Norm ISO 9241-110 beschreibt welche Aspekte ein graphische Benutzeroberfläche abdecken muss. (vgl. http://de.wikipedia.org/wiki/Grafische\_Benutzeroberfläche\#Technik)\\
 Folgende Punkte werden in dieser Norm behandelt:
 \begin{itemize}
@@ -3490,28 +3497,34 @@ public static void SendMail()
 \end{lstlisting}
 \end{itemize}
 
-
 \chapter{Datenbank (Marko Stojanovi\'{c})}
 \lfoot{Marko Stojanovi\'{c}}
 
-\section{MAD-DB}
-Die Realisierung der Datenbank erfolge über SQLite. SQLite verwendet ein relationales Datenbankmanagementsystem, welches in C\# durch das Einbinden der "{}sqlite3.dll"{} konfigurierbar ist. Es werden dadurch alle Befehle von SQLite verwendet und es sind keine weiteren Installationen notwendig. Die gesamte Datenbank wird anschließend als eine Datei gespeichert.
+\section{Erklärung}
+Um dem Benutzer die Möglichkeit zu geben, bereits aufgenommene Daten wieder anzusehen, werden diese gespeichert. Das Speichern erfolgt in einer SQLite basierenden Datenbank.\\
+Es wurde ein Wrapper in C\# programmiert, welcher eine relationale Datenbank erstellt und der restlichen Software ermöglicht Daten in diese zu speichern und zu lesen.\\
+Für die Programmierung des Wrappers wurde nur "{}sqlite3.dll"{} eingebunden, weitere Installationen sind nicht notwendig.\\
+Die gesamte Datenbank wird anschließend als eine Datei gespeichert.\\
 
-\subsection{Erklärung}
-Befor das Datenbankmanagementsystem erstellt werden konnte musste geklärt werden, welche Daten gespeichert werden und in welcher Form.\\
+Bevor das Datenbankmanagementsystem erstellt werden konnte, musste geklärt werden, welche Daten gespeichert werden und in welcher Form.\\
 
-Die Datenbank besteht aus zwölf verschiedenen Tabellen. Die Namen der Tabellen sagen aus, welche Inhalte in ihnen gespeicher werden. Es wurden zwölf Tabellen erstellt um das System deterministisch zu halten, damit keine weiteren Veränderung in der Datenbank vorgenommen werden müssen (erstellen weiterer Tabellen).\\
+Es gab viele Ideen zur Realisierung der Datenbank. 
+\\Ein Ansatz war es, eine einzigen Tabelle, die alle Informationen enthält, zu erstellen. Ein anderer war es, dass Tabellen und die benötigten Spalten je nachdem, welche benötigt werden erst dann erstellt werden. Dies waren jedoch nicht optimal, weil sich schnell heraustellte, dass es nicht effizient war, an einer Datenbank weitere Änderungen, nach der Erstellung, vorzunehmen. Auch der vorherige Ansatz war nicht sinnvoll, weil dadurch automatisch eine große Menge an Speicherplatz benötigt wurde.\\
 
-Alle Tabellen, bis auf die Tabellen JobTable und MemoTable, bestehen aus zwei Datenfelden. Das erste Datenfeld ist immer eine ID, welche den primary key vom Typ Integer darstellt, das zweite ist immer ein Feld vom Typ Text, dessen Inhalt gleich dem jeweiligen Namen der Tabelle entspricht.\\
+Es wurde lange überlegt und es wurde anschließend folgendes realisiert.\\
 
-Zur eindeutigen Identifikation wurden sogenannte Globally Unique Identifier (GUID) vergeben. Diese sind Integers mit einer Länge von 128 Bit (16 Byte), dadurch konnte man garantieren, dass bei einer Vielzahl an Geräten immer noch jedes eindeutig identifizierbar ist und damit die dazugehörigen Informationen.
-\subsection{Tabellen}
+Die Datenbank besteht aus zwölf verschiedenen Tabellen. Die Namen der Tabellen sagen aus, welche Inhalte in ihnen gespeichert werden. Es wurden zwölf Tabellen erstellt, um das System deterministisch zu halten, damit keine weiteren Veränderung in der Datenbank, vorgenommen werden müssen (erstellen weiterer Tabellen).\\
+
+Alle Tabellen, bis auf die Tabellen JobTable und MemoTable, bestehen aus zwei Datenfeldern. Das erste Datenfeld ist immer eine ID, welche den primary key vom Typ Integer darstellt, das zweite Datenfeld ist immer vom Typ Text, dessen Inhalt gleich dem jeweiligen Namen der Tabelle entspricht.\\
+
+Zur eindeutigen Identifikation wurden sogenannte Globally Unique Identifier (GUID) vergeben. Diese sind Integers mit einer Länge von 128 Bit (16 Byte), dadurch konnte garantiert werden, dass selbst bei einer Vielzahl an Geräten, immer noch jedes eindeutig identifizierbar ist und damit die dazugehörigen Informationen zugeordnet werden.
+\section{Tabellen}
 \subsubsection{GUIDNodeTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item GUID\_ NODE vom Typ Text
 \end{enumerate}
-In dieser Tabelle wird jeder GUID von jeder Node eine ID zugewiesen. Dieser Schritt ist von Vorteil, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
+In dieser Tabelle wird jeder GUID, von jeder Node, eine ID zugewiesen. Dieser Schritt ist von Vorteil, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-guid-node.png}\\
 GUIDNodeTable mit drei Nodes (bzw. deren GUID) und der dazugehörigen ID.
@@ -3521,7 +3534,7 @@ GUIDNodeTable mit drei Nodes (bzw. deren GUID) und der dazugehörigen ID.
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item GUID\_ JOB vom Typ Text
 \end{enumerate}
-In dieser Tabelle wird jeder GUID von jedem Job eine ID zugewiesen. Der Vorteil ist der gleiche wie bei der GUIDNodeTable, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
+In dieser Tabelle wird jeder GUID, von jedem Job, eine ID zugewiesen. Der Vorteil ist der gleiche wie bei der GUIDNodeTable, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-guid-job.png}\\
 GUIDJobTable mit drei Jobs (bzw. deren GUID) und der dazugehörigen ID. 
@@ -3531,7 +3544,7 @@ GUIDJobTable mit drei Jobs (bzw. deren GUID) und der dazugehörigen ID.
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item HOST vom Typ Text
 \end{enumerate}
-Alle sich im Netzwerk befinden Hosts werden in dieser Tabelle gespeichert. Jedem Host wird eine ID zugeordnet. Diese wird verwendet um die Hosts mit den dazugehörigen Informationen miteinander in der Tabelle JobTable zu verknöpfen.
+Alle, sich im Netzwerk befindenden Hosts, werden in dieser Tabelle gespeichert. Jedem Host wird eine ID zugeordnet. Über diese ID werden Hosts, den dazugehörigen Informationen, in der Tabelle JobTable, zugeordnet.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-host.png}\\
 HostTable mit zwei Einträgen.
@@ -3541,7 +3554,7 @@ HostTable mit zwei Einträgen.
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item IP vom Typ Text
 \end{enumerate}
-In dieser Tabelle werden IP- Adressen gespeichert. Diese werden dann einer ID zugeordnet um dann in der JobTable mit den restlichen Daten verknüpft werden zu können.
+In dieser Tabelle werden IP- Adressen gespeichert. Diese werden dann einer ID zugeordnet, um dann in der JobTable mit den restlichen Daten verknüpft werden zu können.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-ip.png}\\
 IPTable mit nur einem Eintrag der lokalen IP- Adresse.
@@ -3554,24 +3567,24 @@ IPTable mit nur einem Eintrag der lokalen IP- Adresse.
 In dieser Tabelle werden MAC- Adressen (Hardware- Adressen), der im Netzwerk sich befindenden Geräte, gespeichert. Jede MAC- Adresse wird einer ID zugeordnet, welche zur späteren Verknüpfung in der JobTable dient.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-mac.png}\\
-MACTable mit bisher nur einem Eintrag, da nur ein Gerät im Netzwerk vorhanden.
+MACTable mit bisher nur einem Eintrag, da nur ein Gerät im Netzwerk vorhanden ist.
 \end{center}
 \subsubsection{JobNameTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item JOBNAME vom Typ Text
 \end{enumerate}
-Jobnamen werden vom Administrator übergeben, welche in dieser Tabelle gespeichert werden. Die Zuweisung zu einer ID erfolg ebenfalls um die Verknüpfung der Daten in der JobTable zu gewährleisten.
+Jobnamen werden vom Administrator übergeben, welche in dieser Tabelle gespeichert werden. Die Zuweisung zu einer ID erfolg ebenfalls, um die Verknüpfung der Daten in der JobTable zu gewährleisten.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-jobname.png}\\
-JobNameTable mit bisher zwei Einträgen (TEST, TEST2).
+JobNameTable mit bisher zwei Einträgen (TEST1, TEST2).
 \end{center}
 \subsubsection{JobTypeTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item JOBTYPE vom Typ Text
 \end{enumerate}
-In dieser Tabelle werden Jobtypen abgespeichert (Ping, SNTP, ...) und einer ID zugeordnet um die Verknüpfung der Daten in der JobTable zu ermöglichen.
+In dieser Tabelle werden Jobtypen abgespeichert (Ping, SNTP, ...) und einer ID zugeordnet, um die Verknüpfung der Daten in der JobTable zu ermöglichen.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-jobtype.png}\\
 JobTypeTable mit einem bisher verwendeten JobType Eintrag (Ping), da beide bisher verwendeten Jobs vom gleichen Typ waren.
@@ -3581,10 +3594,10 @@ JobTypeTable mit einem bisher verwendeten JobType Eintrag (Ping), da beide bishe
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item PROTOCOL vom Typ Text
 \end{enumerate}
-In dieser Tabelle werden Protokolle einer ID zugewiesen. Diese werden dann wieder in der JobTabele mit den restlichen dazugehörigen Informationen verbunden.
+In dieser Tabelle werden Protokolle einer ID zugewiesen. Diese werden wieder in der JobTabele, mit den restlichen dazugehörigen Informationen, verbunden.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-protocol.png}\\
-ProtocolTable mit dem einem Eintrag, da nur gepingt wurde.
+ProtocolTable mit einem Eintrag, da nur ein Ping bisher ausgeführt wurde.
 \end{center}
 \subsubsection{OutStateTable}
 \begin{enumerate}
@@ -3599,8 +3612,8 @@ OutStateTable mit einem success Eintrag, da bisher keine Fehlversuche.
 \subsubsection{MemoTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer
-\item MEMO1 vom Typ Text, hier werden kurze Notizen vom Administrator zu besimmten Geräten gespeichert, dies soll eine Hilfe darstellen, welche mit einem Blick zu entnehmen ist (z.B.: Name eines Computers)
-\item MEMO2 vom Typ Text, hier werden lange Notizen vom Administragor gespeichert, dies soll eine weitere Hilfe für den Administrator darstellen, da hier dateiliertere Informationen gespeichert werden können (z.B.: genaue Angaben zu einem Gerät: genauer Standort, technische Daten, Nutzer, ...)
+\item MEMO1 vom Typ Text, hier werden kurze Notizen vom Administrator zu bestimmten Geräten gespeichert, dies soll eine Hilfe darstellen, welche mit einem Blick zu entnehmen ist (z.B.: Name eines Computers)
+\item MEMO2 vom Typ Text, hier werden lange Notizen vom Administrator gespeichert, dies soll eine weitere Hilfe für den Administrator darstellen, da hier detailliertere Informationen gespeichert werden können (z.B.: genaue Angaben zu einem Gerät: genauer Standort, technische Daten, Nutzer, ...)
 \end{enumerate}
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-memo.png}\\
@@ -3609,9 +3622,9 @@ MemoTable mit einem Eintrag über einen Computer.
 \subsubsection{JobTable}
 Diese Tabelle besteht aus 14 Feldern:
 \begin{enumerate}
-\item ID als primary key vom Integer (AUTOINCREMENT)
+\item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item weitere Felder vom Typ Integer: ID\_ NODE, ID\_ HOST, ID\_ IP, ID\_ MAC, ID\_ JOB, ID\_ JOBNAME, ID\_ JOBTYPE, ID\_ PROTOCOL, ID\_ OUTDESC\\
-Diese Felder werden verwendet, um alle Daten aus den anderen Tabellen zu den dazugehörigen Daten zuzuordnen und diese später leichter auszugeben. In allen Feldern vom Typ Integer werden die jeweiligen IDs der jeweiligen Information gespeichert, nur beim Alslesen der Datenbank wird dann eine Verknüpfung zu den Informationen mit der dazugehörigen ID erstellt und diese werden statt der ID ausgegeben.  Diese Verknüpfung erfolgt über eine Join-Funktione. Die Dynamik und Effizienz der Datenbank wird auf diese Weise gesteigert.
+Diese Felder werden verwendet, um alle Daten aus den anderen Tabellen zu den dazugehörigen Daten zuzuordnen und diese später leichter auszugeben. In allen Feldern vom Typ Integer werden die jeweiligen IDs, der jeweiligen Information gespeichert, nur beim Auslesen der Datenbank, wird dann eine Verknüpfung zu den Informationen, mit der dazugehörigen ID erstellt und diese werden statt der ID ausgegeben.  Diese Verknüpfung erfolgt über eine Join-Funktion. Die Dynamik und Effizienz der Datenbank wird auf diese Weise gesteigert.
 \item Felder vom Typ Text: STARTTIME, STOPTIME, DELAYTIME, OUTDESC\\
 Hier werden alle grundlegenden Informationen zu Jobs gespeichert, welche alle Jobs betreffen.
 \end{enumerate}
@@ -3630,18 +3643,126 @@ JobTable mit echten Einträgen - durch das Auslesen der Tabelle im Programm werd
 \item MAX\_ DURATION vom Typ Text
 \item MIN\_ DURATION vom Typ Text
 \end{enumerate}
-Das ist eine zusätzliche Tabelle, welche nur im Fall einer Zusammenfassung der Datenbank mit Daten gefüllt wird.  Durch diese Tabelle wird gewährleistet, dass der Speicherplatz gering gehalten werden kann, weil beim Vorgang der Zusammenfassung bestimmte Daten aus den anderen Tabellen gelöscht werden und als komprimierte Ergebnisse in der SummaryTable gespeichert werden. Bei der Zusammenfassung wird eine bestimmte Zeitspanne und eine Blockgröße angegeben, durch welche die Komprimierung stattfindet. Befor zusammengefasst werden kann, werden bestimmte Kriterien überprüfen:
+Das ist eine zusätzliche Tabelle, welche nur im Fall einer Zusammenfassung der Datenbank mit Daten gefüllt wird.  Durch diese Tabelle wird gewährleistet, dass der Speicherplatz gering gehalten werden kann, weil beim Vorgang der Zusammenfassung bestimmte Daten aus den anderen Tabellen gelöscht werden und als komprimierte Ergebnisse in der SummaryTable gespeichert werden. Bei der Zusammenfassung wird eine bestimmte Zeitspanne und eine Blockgröße angegeben, durch welche die Komprimierung stattfindet. Bevor zusammengefasst werden kann, werden bestimmte Kriterien überprüfen:
 \begin{itemize}
 \item Ist die gegebene Zeitspanne bereits zusammengefasst worden?
-\item Ist der gegebene Block größer, als die Zeitspanne nach welche die Ausführung der Jobs stattfindet?
+\item Ist der gegebene Block größer, als die Zeitspanne, nach welcher die Ausführung der Jobs stattfindet?
 \end{itemize}
-Wenn eine dieser Kriterien positiv ist kann keine Zusammenfassung der Daten stattfinden.
-\\Ist eine Zusammenfassung der Daten möglich muss beachtet werden, dass sämtliche Daten in der JobTable im angegebenen Zeitraum gelöscht werden.\\
+Wenn eine dieser Kriterien positiv ist, kann keine Zusammenfassung der Daten stattfinden.
+Ist eine Zusammenfassung der Daten möglich, muss beachtet werden, dass sämtliche Daten in der JobTable im angegebenen Zeitraum gelöscht werden.\\
 
-Es gibt jedoch die Möglichkeit den Vorgang abzubrechen, wenn die Angegebene Zeitspanne nicht ausreicht und eine andere angegeben werden will.
+Es gibt jedoch die Möglichkeit den Vorgang abzubrechen, wenn die angegebene Zeitspanne nicht ausreicht und eine andere angegeben werden soll.\\
 
-Ein Beispiel und weitere Informationen zur Zusammenfassung sind im Kapitel 19 unter Anwendungsbeispiel (19.4.2 Zusammenfassung der Datenbank) zu finden.
+Ein Beispiel und weitere Informationen zur Zusammenfassung sind im Kapitel 18 unter Anwendungsbeispiel (18.6.2 Zusammenfassung der Datenbank) zu finden.\\
 
+Befehle zur allgemeinen Nutzung der Datenbank in der CLI, sind im Kapitel 18.3 zu finden.
+
+\section{Wrapper}
+\subsection{Allgemeines}
+Ein Wrapper ist ein Stück Software, welches ein anderes Stück Software umgibt. Es handelt sich dabei um eine sogenannte "{}Umhüllung"{} (Schnittstelle oder auch Adapter). Es können inviduelle Programmteile sein oder auch ganze Klassen.\\
+Wrapper finden ihren Einsatz aus verschiedensten Gründen: Kompatibilitätsprobleme (z.B. wenn Programmteile aus einer anderen Programmiersprache verwendet werden sollen), Sicherheitsgründe (Einschränkung der Zugriffe auf bestimmte Programmteile), architektonische Gründe, ...
+
+\subsection{Realisierung}
+Die gesamte Realisierung erfolgte in einer Datei.
+\\Am beginn des Quellcodes wird eine Verbindung zur Datenbank und eine Zeitkonstante (später noch von Bedeutung) definiert . Als nächstes wird die Existenz der Datenbank geprüft. Wenn die Datenbank bereits exestiert, wird durch den nächsten Schritt eine Verbindung zu dieser erstellt.
+Wenn diese nicht exestiert gibt es eine Fehlermeldung und eine neue wird erstellt, bevor eine Verbingung aufgebaut wird.\\
+Im nächsten Schritt werden 12 Tabellen erstellt. Um welche Tabellen es sich genau handelt siehe Kapitel 16.2.
+Für eine bessere Übersicht und für ein besseres Verständnis wurde der restliche Code in acht Regionen aufgeteil.
+\subsubsection{basic methods}
+In dieser Region werden grundsätzliche Methoden definiert. In diesem Fall handelt es sich um Methoden, welche die Funktion zum schreiben und auswählen von Daten ermöglichen.
+\subsubsection{read tables}
+In dieser Region sind Methoden, welche das auslesen von Tabellen ermöglichen.
+Es sind zwei Methoden definiert:
+\begin{itemize}
+\item Die erste Methode erlaubt das Auslesen von allen Tabellen in der Datenbank, nicht deren Inhalt.
+\item Die zweite Methode erlaubt das Auslesen des Inhaltes einer bestimmten Tabelle, jedoch unverfälscht. Damit wird der echte Inhalt der Tabelle gezeigt und nicht der Inhalt, der durch eine Verknüpfung gezeigt werden sollte.
+\end{itemize}
+\subsubsection{get joined tables}
+In dieser Region sind zwei Methoden definiert. Jede von ihnen bezieht sich auf eine bestimmte Tabelle.
+\begin{itemize}
+\item Die erste Methode bezieht sich auf die Tabelle JobTable. Mit dieser Methode wird der "{}zulesende"{} Inhalt der JobTable angezeigt und nicht der echte. Damit ist gemeint, dass der Inhalt so gelesen wird, dass sämtliche Verknüfungen, welche durch einen sogenannten "{}Join"{} erstellt wurden, den Inhalt aus der verknüpften Tabellen anzeigen und nicht die ID, welche zur Verknüpfung notwendig ist.
+\item Die zweite Methode erlaubt das gleiche nur auf die Tabelle SummaryTable bezogen. Damit wird hier auch der "{}zulesende"{} Inhalt angezeigt, da in der Tabelle SummaryTable Verknüpfungen zu anderen Tabellen bestehen.
+\end{itemize}
+Der Quellcode, um die Tabelle JobTable, welche durch Join- Funktionen mit anderen Tabellen verknüpft wurde, mit den Informationen, statt den Verknüpfungen, anzugeigen sieht folgendermaßen aus:
+\begin{lstlisting}
+public DataTable GetJobTable(string subcommand)
+        {
+            string sql = "select " +
+                         "JobTable.ID, " +
+                         "GUIDNodeTable.GUID_NODE, " +
+                         "HostTable.HOST, " +
+                         "IPTable.IP, " +
+                         "MacTable.MAC, " +
+                         "GUIDJobTable.GUID_JOB, " +
+                         "JobNameTable.JOBNAME, " +
+                         "JobTypeTable.JOBTYPE, " +
+                         "ProtocolTable.PROTOCOL, " +
+                         "OutStateTable.OUTSTATE, " +
+                         "JobTable.STARTTIME, " +
+                         "JobTable.STOPTIME, " +
+                         "JobTable.DELAYTIME, " +
+                         "MemoTable.MEMO1, " +
+                         "MemoTable.MEMO2 " +
+                         "from JobTable " +
+                         "inner join GUIDNodeTable on JobTable.ID_NODE = GUIDNodeTable.ID " +
+                         "inner join HostTable on JobTable.ID_HOST = HostTable.ID " +
+                         "inner join IPTable on JobTable.ID_IP = IPTable.ID " +
+                         "inner join MACTable on JobTable.ID_MAC = MACTable.ID " +
+                         "inner join GUIDJobTable on JobTable.ID_JOB = GUIDJobTable.ID " +
+                         "inner join JobNameTable on JobTable.ID_JOBNAME = JobNameTable.ID " +
+                         "inner join JobTypeTable on JobTable.ID_JOBTYPE = JobTypeTable.ID " +
+                         "inner join ProtocolTable on JobTable.ID_PROTOCOL = ProtocolTable.ID " +
+                         "inner join OutStateTable on JobTable.ID_OUTSTATE = OutStateTable.ID " +
+                         "left join MemoTable on JobTable.ID_NODE = MemoTable.ID " + subcommand + ";"; ;
+
+            using (SQLiteCommand command = new SQLiteCommand(sql, _con))
+            using (SQLiteDataReader reader = command.ExecuteReader())
+            {
+                DataTable TempResult = new DataTable();
+                TempResult.Load(reader);
+                return TempResult;
+            }
+        }
+\end{lstlisting}
+\subsubsection{job method}
+Diese Region besteht aus zwei Methoden, welche für die Tabelle JobTable notwendig sind.
+\begin{itemize}
+\item Da die Daten sich im Typ manchmal unterscheiden, werden diese als erstes in den richtigen Typ umformatiert. Als nächstes werden Daten in die JobTable geschrieben.
+\item Die zweite Methode erlaubt es, den gesamten Inhalt der Tabelle JobTable zu löschen.
+\end{itemize}
+\subsubsection{job / node database operations}
+In dieser Region sind zwei Methoden, welche für das Schreiben und Lesen von IDs notwendig sind.
+Des Weiteren sind viele kleinere Methoden, welche für das Lesen und Schreiben der IDs von Jobs und Nodes für die jeweiligen Tabellen, vorzufinden. Diese sind jedoch wieder in Regionen zusammengefasst.
+\subsubsection{summarize methods}
+In dieser Region sind Methoden, welche für das Zusammenfassen der Daten benötigt werden.
+Die Beschreibung des Quellcodes ist im Kapitel 16.2 Tabellen (SummaryTable) vorzufinden.
+\subsubsection{memos}
+In dieser Region sind zwei Methode enthalten.
+\begin{itemize}
+\item Die erste Methode ermöglicht das Schreiben von Memos (Kurznotizen) in die Tabellen ID, MEMO1, MEMO2 der Tabelle MemoTable. Auf diese Weise können Kurznotizen des Benutzers gespeichert werden.
+\item Die zweite Methode ermöglicht das Lesen der Inhalte aus der Tabelle MemoTable. Damit können die Kurznotizen, welche der Benutzer gespeichert hat, ausgelesen werden.
+\end{itemize}
+\subsubsection{timestamp}
+In dieser Region wurde ein eigener Zeitstempel definiert.
+Durch diesen Zeitstempel ist es möglich einen Zeitpunkt, durch Datum und Uhrzeit darzustellen. Durch die Definition der Zeitkonstante, am Anfang des Quellcodes, ist es möglich jeden Zeitpunkt in Millisekunden, seit dem 1.1.2010, darzustellen.
+Quelltext vom Zeitstempel:
+\begin{lstlisting}
+ #region timstamp
+
+        // We use our own timestamp. It counts the milliseconds since 1.1.2010.
+
+        public static DateTime MADTimestampToDateTime(Int64 MADTimeStamp)
+        {
+            return _timeconst.AddMilliseconds(MADTimeStamp);
+        }
+
+        public static Int64 DateTimeToMADTimestamp(DateTime date)
+        {
+            return Convert.ToInt64((date - _timeconst).TotalMilliseconds);
+        }
+
+        #endregion
+\end{lstlisting}
 
 \chapter{Logging (Daniel Ranalter)}
 \lfoot{Ranalter Daniel}
@@ -4149,15 +4270,15 @@ Die letzte Funktion der graphischen Oberfläche ist das Informationsfenster. Die
 \begin{tabular}{|l|c|l|}
 
 \hline
-\textbf{Zeitraum} & \textbf{Zeitdauer} & \textbf{Aufgaben} \\ \hline
-Oktober 2014 & 42h & CLI-Framework: Idee und Konzept\\
-September 2014 & 29h & CLI-Framework: Umsetzung / Tests\\
-November 2014 & 25h & CLI-Server / CLI-Client: Konzept / Umsetzung\\
-Dezember 2014 & 32h & CLI-Befehle / Tests\\
-Januar 2015 & 24h & CleanCoding, JobSystem: Idee und Konzept\\
-Febuar 2015 & 18h & JobSystem verbessert, CLI verbessert\\
-März 2015 & 21h & JobSystem funktionsfähig, \\&& CLI funktionsfähig, Dokumentation\\
-April 2015 & 28h & Fehlersuche, zahlreiche Verbesserungen, \\&& Dokumentation \\
+\textbf{Zeitraum} & \textbf{Zeitdauer} & \textbf{Aufgaben} \\ \hline \hline
+Oktober 2014 & 42h & CLI-Framework: Idee und Konzept\\ \hline
+September 2014 & 29h & CLI-Framework: Umsetzung / Tests\\ \hline
+November 2014 & 25h & CLI-Server / CLI-Client: Konzept / Umsetzung\\ \hline
+Dezember 2014 & 32h & CLI-Befehle / Tests\\ \hline
+Januar 2015 & 24h & CleanCoding, JobSystem: Idee und Konzept\\ \hline
+Febuar 2015 & 18h & JobSystem verbessert, CLI verbessert\\ \hline
+März 2015 & 21h & JobSystem funktionsfähig, \\&& CLI funktionsfähig, Datenbank, Dokumentation\\ \hline
+April 2015 & 28h & Befehle für die Datenbank, \\&& Fehlersuche, zahlreiche Verbesserungen,  Dokumentation \\ \hline
 Mai 2015 & 20h & Fehlersuche,\\&& zahlreiche Verbesserungen, Dokumentation\\
 \hline \hline
 Oktober 2014 bis Mai 2015 & 239h &\\ \hline
@@ -4187,10 +4308,44 @@ Oktober 2014 bis Mai 2015 & 224h &\\ \hline
 
 \chapter{Manpreet Singh}
 \lfoot{Manpreet Singh}
+\begin{tabular}{|l|c|l|}
 
-\chapter{Marko Stojanovic}
-\lfoot{Marko Stojanovic}
+\hline
+\textbf{Zeitraum} & \textbf{Zeitdauer} & \textbf{Aufgaben} \\ \hline \hline
+September 2014 & ~26h & Recherche bezüglich E-Mail, Beginn Version 1\\&&Notification System \\ \hline
+Oktober 2014 & ~22h & Notfication System Version 1 Fertigstellung\\&&und Tests \\ \hline
+November 2014 & ~36h & Recherche, Umsetzung, \\&&Tests - Notification System Version 2\\ \hline
+Dezember 2014 & ~55h & Recherche GUI, GUI Version 1 \& 2 \\&&Umsetzung, Tests\\ \hline
+Januar 2015 & ~41h & GUI Version 3 Umsetzung, Test\\ \hline
+Febuar 2015 & ~14h & Bugfixing\\ \hline
+März 2015 & ~6h & Testphase \& Bugfixing\\ \hline
+April 2015 & ~19h & Dokumentation\\ \hline
+Mai 2015 & ~8h & Finishing (Präsentationen erstellen \\&&und sonstiges organisatorisches)\\
+\hline \hline
+September 2014 bis Mai 2015 & 227h &\\ \hline
+\end{tabular}
 
+\chapter{MarkoStojanovi\'{c}}
+\lfoot{Marko Stojanovi\'{c}}
+\begin{center}
+\begin{tabular}{|l|c|l|}
+
+\hline
+\textbf{Zeitraum} & \textbf{Zeitdauer} & \textbf{Aufgaben} \\ \hline \hline
+Oktober 2014 & 25h & C\# lernen und Datenbankrecherchern\\ \hline
+September 2014 & 16h & SQLite und MySQLite einlesen\\ \hline
+November 2014 & 18h & SQLite weiter einlesen \\&& und 1. Entwurf für Datenbank\\ \hline
+Dezember 2014 & 24h & Testen des 1. Entwurfs der Datenbank \\&& und Ideensammlung für 2. Entwurf\\ \hline
+Januar 2015 & 14h & Fertigstellung des 2. Entwurfts, testen \\&& und Ideensammlung für neue Lösung\\ \hline
+Febuar 2015 & 42h & Programmierung des 3. Entwurfs,\\&& Dokumentation angefangen\\ \hline
+März 2015 & 23h & Programmierung der Summary und Tests,\\&& Fortsetzung der Dokumentation\\ \hline
+April 2015 & 44h & Fertigstellung der Dokumentation\\ \hline
+Mai 2015 & 22h & Update der Dokumentation\\
+\hline \hline
+Oktober 2014 bis Mai 2015 & 228h &\\ \hline
+
+\end{tabular}
+\end{center}
 \part{Quellverzeichnis}
 
 \chapter{Alin Porcic}
@@ -4408,110 +4563,233 @@ tools.ietf.org/html/rfc2131\\
 \lfoot{Manpreet Singh}
 
 \noindent
-\textbf{[200]} $\rightarrow$  MAC Adresse, (30.1.2015)\\
-de.wikipedia.org/wiki/MAC-Adresse\\
-en.wikipedia.org/wiki/Mac\_address\\
-www.elektronik-kompendium.de/sites/net/1406201.htm
+\textbf{[300]} $\rightarrow$  Allgemein | Notification\\
+http://en.wikipedia.org/wiki/Email (26.04.2015)\\
+http://de.wikipedia.org/wiki/Email (26.04.2015)\\
+http://www.telespiegel.de/internet/geschichte-der-email.html (27.04.2015)\\
 
 \noindent
-\textbf{[201]} $\rightarrow$  IP Adresse, (31.1.2015)\\
-de.wikipedia.org/wiki/IP-Adresse\\
-en.wikipedia.org/wiki/IP\_address\\
+\textbf{[301]} $\rightarrow$  Funktionsweise | Notification\\
+http://en.wikipedia.org/wiki/Email (26.04.2015)\\
+http://de.wikipedia.org/wiki/Email (26.04.2015)\\
+http://en.wikipedia.org/wiki/Mail\_submission\_agent (30.04.2015)\\
+http://en.wikipedia.org/wiki/Email\_client (30.04.2015)\\
+http://en.wikipedia.org/wiki/Message\_transfer\_agent (30.04.2015)\\
+http://en.wikipedia.org/wiki/Mail\_delivery\_agent (30.04.2015)\\
+http://de.wikipedia.org/wiki/SMTP-Auth (30.04.2015)\\
+http://de.wikipedia.org/wiki/Simple\_Mail\_Transfer\_Protocol (30.04.2015)\\
+http://en.wikipedia.org/wiki/Internet\_Message\_Access\_Protocol (30.04.2015)\\
+http://de.wikipedia.org/wiki/Internet\_Message\_Access\_Protocol (30.04.2015)\\
+http://www.elektronik-kompendium.de/sites/net/0903081.htm (30.04.2015)\\
 
 \noindent
-\textbf{[202]} $\rightarrow$  Ports, (4.2.2015)\\
-de.wikipedia.org/wiki/Port\_(Protokoll)\\
-en.wikipedia.org/wiki/Port\_(computer\_networking)\\
+\textbf{[302]} $\rightarrow$  Bedeutung im Alltag | Notification\\
+http://en.wikipedia.org/wiki/Email (26.04.2015)\\
+http://de.wikipedia.org/wiki/Email (26.04.2015)\\
 
 \noindent
-\textbf{[203]} $\rightarrow$  Schichtenmodelle, (8.2.2015)\\
-de.wikipedia.org/wiki/OSI-Modell\\
-de.wikipedia.org/wiki/Schichtenarchitektur\\
-de.wikipedia.org/wiki/Internetprotokollfamilie\\
-en.wikipedia.org/wiki/Internet\_protocol\_suite\\
-en.wikipedia.org/Wiki/Multitier\_architecture\\
-en.wikipedia.org/wiki/OSI\_model\\
-en.wikipedia.org/wiki/TCP/IP\_model\\
-en.wikipedia.org/wiki/Physical\_layer\\
-en.wikipedia.org/wiki/Data\_link\_layer\\
-en.wikipedia.org/wiki/Network\_layer\\
-en.wikipedia.org/wiki/Transport\_layer\\
-en.wikipedia.org/wiki/Session\_layer\\
-en.wikipedia.org/wiki/Presentation\_layer\\
-en.wikipedia.org/wiki/Application\_layer\\
+\textbf{[303]} $\rightarrow$ Probleme | Notification \\
+http://en.wikipedia.org/wiki/Email (26.04.2015)\\
+http://de.wikipedia.org/wiki/Email (26.04.2015)\\
 
 \noindent
-\textbf{[204]} $\rightarrow$  Netzwerkdevices, (12.2.2015)\\
-de.wikipedia.org/wiki/Router\\
-en.wikipedia.org/wiki/Router\_(computing)\\
-de.wikipedia.org/wiki/Open\_Shortest\_Path\_First \\
-en.wikipedia.org/wiki/Open\_Shortest\_Path\_First 1\\
-de.wikipedia.org/wiki/Routing\_Information\_Protocol \\
-en.wikipedia.org/wiki/Routing\_Information\_Protocol \\
-de.wikipedia.org/wiki/Switch\_(Netzwerktechnik) \\
-en.wikipedia.org/wiki/Network\_switch \\
-de.wikipedia.org/wiki/Firewall \\
-en.wikipedia.org/wiki/Firewall\_(computing) \\
-de.wikipedia.org/wiki/Deep\_Packet\_Inspection \\
-en.wikipedia.org/wiki/Deep\_packet\_inspection \\
+\textbf{[304]} $\rightarrow$ Geschichte | GUI \\
+http://de.wikipedia.org/wiki/Grafische\_Benutzeroberfläche - (01.05.2015)\\
 
 \noindent
-\textbf{[205]} $\rightarrow$  Netzwerktypen, (16.2.2015)\\
-de.wikipedia.org/wiki/Virtual\_Local\_Area\_Network \\
-en.wikipedia.org/wiki/Virtual\_LAN \\
-de.wikipedia.org/wiki/Wide\_Area\_Network\\
-en.wikipedia.org/wiki/Wide\_area\_network \\
-de.wikipedia.org/wiki/Local\_Area\_Network \\
-en.wikipedia.org/wiki/Local\_area\_network \\
-de.wikipedia.org/wiki/Wireless\_Local\_Area\_Network \\
-en.wikipedia.org/wiki/Wireless\_LAN \\
+\textbf{[305]} $\rightarrow$ Technischer Hintergrund | GUI \\
+http://de.wikipedia.org/wiki/Grafische\_Benutzeroberfläche - (01.05.2015)\\
+http://en.wikipedia.org/wiki/Graphical\_user\_interface - (01.05.2015\\
 
 \noindent
-\textbf{[206]} $\rightarrow$  Host, (14.2.2015)\\
-de.wikipedia.org/wiki/Host\_(Informationstechnik) \\
+\textbf{[306]} $\rightarrow$ Normen | GUI \\
+http://de.wikipedia.org/wiki/Grafische\_Benutzeroberfläche - (01.05.2015)\\
+http://de.wikipedia.org/wiki/Lernförderlichkeit - (01.05.2015)
+
+
+\chapter{Marko Stojanovi\'{c}}
+\lfoot{Marko Stojanovi\'{c}}
 
 \noindent
-\textbf{[207]} $\rightarrow$  Client-Server, (16.2.2015)\\
-de.wikipedia.org/wiki/Rack\\
-en.wikipedia.org/wiki/19-inch-rack\\
-de.wikipedia.org/wiki/Client-Server\_Modell\\
-en.wikipedia.org/wiki/Client-server\_model \\
+\textbf{[400]} $\rightarrow$ Informatik, Wikipedia (28.03.2015)\\
+http://de.wikipedia.org/wiki/Informatik\\
 
 \noindent
-\textbf{[208]} $\rightarrow$ Protokolle, (16.2-1.3.2015)\\
-de.wikipedia.org/wiki/Ethernet 16.2 \\
-en.wikipedia.org/wiki/Ethernet 16.2 \\
-en.wikipedia.org/wiki/Ethernet\_frame 17.2 \\
-de.wikipedia.org/wiki/Internet\_Protocol 20.2\\
-en.wikipedia.org/wiki/Internet\_Protocol 20.2\\
-de.wikipedia.org/wiki/IPv6 23.2\\
-en.wikipedia.org/wiki/IPv6 23.2\\
-en.wikipedia.org/wiki/IPv6\_address 23.2\\
-de.wikipedia.org/wiki/IP-Framentierung 23.2\\
-en.wikipedia.org/wiki/IP\_fragmentation 23.2\\
-tools.ietf.org/html/rfc791\\
-tools.ietf.org/html/rfc1918\\
-tools.ietf.org/html/rfc2460\\
-tools.ietf.org/html/rfc6598\\
-tools.ietf.org/html/rfc6890\\
-de.wikipedia.org/wiki/Dynamic\_Host\_Configuration\_Protocol\\
-en.wikipedia.org/wiki/Dynamic\_Host\_Configuration\_Protocol\\
-de.wikipedia.org/wiki/Transmission\_Control\_Protocol\\
-en.wikipedia.org/wiki/Transmission\_Control\_Protocol\\
-tools.ietf.org/html/rfc793\\
-tools.ietf.org/html/rfc2131\\
+\textbf{[401]} $\rightarrow$ Definition von einer Programmiersprache, Wikipedia (28.03.2015)\\
+http://de.wikipedia.org/wiki/Programmiersprache\\
 
-\chapter{Marko Stojanovic}
-\lfoot{Marko Stojanovic}
+\noindent
+\textbf{[402]} $\rightarrow$ Definition von einer Programmiersprache, Wikipedia (28.03.2015)\\
+http://www.hki.uni-koeln.de/wisem-2012/basisinformationstechnologie-i/programmiersprachen-i/definition-von-programmiersprachen\\
+
+\noindent
+\textbf{[403]} $\rightarrow$ Lexik, Wikipedia (28.03.2015)\\
+http://www.pixelx.de/glossar/lexik.html\\
+
+\noindent
+\textbf{[404]} $\rightarrow$ Minimalanforderungen an Programmiersprachen, Wikipedia (28.03.2015)\\
+http://de.wikipedia.org/wiki/Programmiersprache\# .C3.9Cbersicht
+
+\noindent
+\textbf{[405]} $\rightarrow$ Wichtige Begriffe - Quelltext, Wikipedia (29.03.2015)\\
+http://de.wikipedia.org/wiki/Programmiersprache\# .C3.9Cbersicht\\
+
+\textbf{[406]} $\rightarrow$ Wichtige Begriffe, Ansgar Schiffler (29.03.2015)\\
+http://fbmathe.bbs-bingen.de/Informatik/C\_ plusplus/grundbegriffe.htm\# P\_ Sprache\\
+
+\noindent
+\textbf{[407]} $\rightarrow$ Arten von Programmiersprachen, Ansgar Schiffler (30.03.2015)\\
+http://fbmathe.bbs-bingen.de/Informatik/C\_ plusplus/grundbegriffe.htm\# P\_ Sprache\\
+
+\noindent
+\textbf{[408]} $\rightarrow$ Arten von Programmiersprachen - Skriptsprachen, Wikipedia (30.03.2015)\\
+http://de.wikipedia.org/wiki/Skriptsprache\\
+
+\noindent
+\textbf{[409]} $\rightarrow$ Programmierparadigmen, Wikipedia (03.04.2015)\\
+http://de.wikipedia.org/wiki/Programmierparadigma\\
+
+\noindent
+\textbf{[410]} $\rightarrow$ Programmierparadigmen - strukturiert, Wikipedia (03.04.2015)\\
+http://de.wikipedia.org/wiki/Strukturierte\_ Programmierung\\
+
+\noindent
+\textbf{[411]} $\rightarrow$ Programmierparadigmen - imperativ, Wikipedia (03.04.2015)\\
+http://de.wikipedia.org/wiki/Imperative\_ Programmierung\\
+
+\noindent
+\textbf{[412]} $\rightarrow$ Programmierparadigmen - deklarativ, Wikipedia (03.04.2015)\\
+http://de.wikipedia.org/wiki/Deklarative\_ Programmierung\\
+
+\noindent
+\textbf{[413]} $\rightarrow$ Programmierparadigmen - objektorientiert, Wikipedia (03.04.2015)\\
+http://de.wikipedia.org/wiki/Objektorientierte\_ Programmierung\# Objektorientierte\_ Programmiersprachen\\
+http://de.wikipedia.org/wiki/Objektorientierte\_ Programmierung\# Objekt-Konzepte\_ in\_ Programmiersprachen\\
+
+\noindent
+\textbf{[414]} $\rightarrow$ Visual C\# , msdn.microsoft (01.04.2015)\\
+https://msdn.microsoft.com/de-de/library/aa292164\% 28v=vs.71\% 29.aspx\\
+
+\noindent
+\textbf{[415]} $\rightarrow$ Visual C\# - Wichtige Eigenschaften , msdn.microsoft (01.04.2015)\\
+https://msdn.microsoft.com/de-de/library/z1zx9t92.aspx\\
+
+\noindent
+\textbf{[416]} $\rightarrow$ Visual C\# - Vorteile von C\# , msdn.microsoft (01.04.2015)\\
+https://msdn.microsoft.com/de-de/library/aa287554(v=vs.71).aspx\\
+
+\noindent
+\textbf{[417]} $\rightarrow$ Multithreading , Wikipedia (06.03.2015)\\
+http://de.wikipedia.org/wiki/Multithreading\\
+
+\noindent
+\textbf{[418]} $\rightarrow$ Multithreading - Threads , Wikipedia (07.03.2015)\\
+http://de.wikipedia.org/wiki/Thread\_ \% 28Informatik\% 29\\
+
+\noindent
+\textbf{[419]} $\rightarrow$ Multithreading - hardwareseitiges, Wikipedia (07.03.2015)\\
+http://de.wikipedia.org/wiki/Multithreading\\
+http://de.wikipedia.org/wiki/Hardwareseitiges\_ Multithreading\\
+
+\noindent
+\textbf{[420]} $\rightarrow$ Multithreading - softwareseitiges, Wikipedia (06.04.2015)\\
+http://de.wikipedia.org/wiki/Multithreading\\
+http://de.wikipedia.org/wiki/Softwareseitiges\_ Multithreading\\
+
+\noindent
+\textbf{[421]} $\rightarrow$ Datenbank - Allgemeines, Wikipedia (14.02.2015)\\
+http://de.wikipedia.org/wiki/Datenbank\\
+
+\noindent
+\textbf{[422]} $\rightarrow$ Datenbank - Geschichte, Wikipedia (13.02.2015)\\
+http://de.wikipedia.org/wiki/Datenbank\# Geschichte\\
+
+\noindent
+\textbf{[423]} $\rightarrow$ Datenbank - Definitionen, Wikipedia (03.04.2015)\\
+http://www.datenbanken-verstehen.de/datenbanken/datenmodellierung/primaerschluessel/\\
+http://de.wikipedia.org/wiki/Schl\% C3\% BCssel\_ \% 28Datenbank\% 29\# Sekund.C3.A4rschl.C3.BCssel\\
+http://de.wikipedia.org/wiki/Schl\% C3\% BCssel\_ \% 28Datenbank\% 29\# Stellvertretender\_ Schl.C3.BCssel\\
+http://de.wikipedia.org/wiki/Schl\% C3\% BCssel\_ \% 28Datenbank\% 29\# Fremdschl.C3.BCssel\\
+
+\noindent
+\textbf{[424]} $\rightarrow$ Datenbank - Funktionen, Wikipedia (03.04.2015)\\
+http://de.wikipedia.org/wiki/Datenbank\# Funktionen\_ eines\_ DBMS\\
+
+\noindent
+\textbf{[425]} $\rightarrow$ Datenbank - Datenbanksysteme, Wikipedia (03.04.2015)\\
+http://de.wikipedia.org/wiki/Datenbank\# Komponenten\_ eines\_ Datenbanksystems\\
+
+\noindent
+\textbf{[426]} $\rightarrow$ Datenbank - RDBMS, Wikipedia (05.04.2015)\\
+http://de.wikipedia.org/wiki/Relationale\_ Datenbank\\
+
+\noindent
+\textbf{[427]} $\rightarrow$ Datenbank - Datenbankschema und Modellierung, Wikipedia (05.04.2015)\\
+http://de.wikipedia.org/wiki/Datenmodellierung\\
+
+\noindent
+\textbf{[428]} $\rightarrow$ Datenbank - objekorientiert, Wikipedia (06.04.2015)\\
+http://de.wikipedia.org/wiki/Objektdatenbank\\
+
+\noindent
+\textbf{[429]} $\rightarrow$ Datenbank - dokumentenorientiert, Wikipedia (06.04.2015)\\
+http://de.wikipedia.org/wiki/Dokumentenorientierte\_ Datenbank\\
+
+\noindent
+\textbf{[430]} $\rightarrow$ Datenbank - netzwerkartiges, Markus Begerow von Datenbanken-verstehen.de (06.04.2015)\\
+http://www.datenbanken-verstehen.de/datenbanken/datenbank-grundlagen/datenbankmodell/netzwerkdatenbankmodell/\\
+
+\noindent
+\textbf{[431]} $\rightarrow$ Datenbank - hierarchisches, Wikipedia (06.04.2015)\\
+http://de.wikipedia.org/wiki/Hierarchisches\_ Datenbankmodell\\
+
+\noindent
+\textbf{[432]} $\rightarrow$ Datenbank - Sicherheit, Wikipedia (04.04.2015)\\
+http://de.wikipedia.org/wiki/Datenbank\# Datensicherheit\\
+http://de.wikipedia.org/wiki/Datenbank\# Transaktionen\\
+http://de.wikipedia.org/wiki/Datenbank\# Datenintegrit.C3.A4t\\
+http://de.wikipedia.org/wiki/Datenbank\# Anwendungsunterst.C3.BCtzung\\
+
+\noindent
+\textbf{[433]} $\rightarrow$ Datenbank - Gleichzeitige Zugriffe, Wikipedia (04.04.2015)
+http://de.wikipedia.org/wiki/Datenbank\# Anfrageoptimierung\\
+http://de.wikipedia.org/wiki/Datenbank\# Mehrbenutzerf.C3.A4higkeit\\
+
+\noindent
+\textbf{[434]} $\rightarrow$ Datenbank - Sprachen, Wikipedia (05.04.2015)\\
+http://de.wikipedia.org/wiki/Datenbank\# Sprachen\\
+
+\noindent
+\textbf{[435]} $\rightarrow$ Datenbank - SQLite, Wikipedia (06.04.2015)\\
+http://en.wikipedia.org/wiki/SQLite\\
+
+\noindent
+\textbf{[436]} $\rightarrow$ Datenbank - SQLite- Geschichte, Wikipedia (07.04.2015)\\
+http://en.wikipedia.org/wiki/SQLite\# History\\
+
+\noindent
+\textbf{[437]} $\rightarrow$ Datenbank - SQLite- Eigenschaften, sqlite.org (06.04.2015)\\
+https://www.sqlite.org/features.html\\
+
+\noindent
+\textbf{[438]} $\rightarrow$ Datenbank - SQLite- Syntax, sqlite.org (07.04.2015)\\
+http://sqlite.org/lang.html\\
+http://www.tutorialspoint.com/sqlite/sqlite\_ using\_ joins.htm\\
+
+\noindent
+\textbf{[439]} $\rightarrow$ Datenbank - SQLite- Vor- und Nachteile,  Webspan (07.04.2015)\\
+http://www.webspan.de/mysql-oder-sqlite/\\
 
 \end{onehalfspace}
 
 \part{Reflexion}
 \chapter{Alin Porcic}
 
-Da wir schon öfters im Team zusammengearbeitet hatten, wussten wir, dass die Kommunikation zwischen den einzelnen Teammitgliedern stimmen muss. Fehlkommunikationen führen zu Verwirrung und das kostet Zeit und Nerven. Daher haben wir versucht schon vor Beginn der Diplomarbeit für das zu schreibende Programm Regeln aufzustellen, damit wir ein klares Ziel vor Augen haben. Mir ist während der Arbeit aber aufgefallen, dass das Aufstellen von diesen umfassenden Regeln nicht immer was gebracht hatte. Erstens haben sich einige nicht streng an die Regeln gehalten, die wir mühevoll aufgestellt und beschlossen hatten. Ich eingeschlossen fühle mich betroffen, da manchmal einige Regeln, die vor der Diplomarbeit beschlossen werden, sich nicht leicht umsetzen lassen und daher kleine Veränderungen notwendig sind. Das zweite Problem war, dass wir für einige Dinge gar keine Regeln aufgestellt hatten. Das führte dazu, dass einige einfach ihre eigenen aufstellten, die natürlich von den der anderen abwichen. Diese Abweichungen sind oftmals nicht der Weltuntergang, aber viele Probleme, denen wir im Laufe der Erarbeitung gegenüberstanden, hätten wir durch bessere Planung und Kommunikation schneller und einfacher lösen können.\\
-Die Schnittstellen für das Programm haben wir nicht in die Regeln mit eingeschlossen. Diese haben wir erst im Laufe der Erarbeitung austauschen können, weil wir nicht genau wussten, wie sie aussehen werden. Die Schnittstellen hätte man am Anfang schon vorausplanen können und sich viel Denkarbeit und Zeit ersparen können.\\\\
-Im Großen und Ganzen muss ich sagen, haben wir trotz einiger Fehler bei der Planung ein solides funktionierendes Produkt abgeliefert haben. Natürlich ist unsere Produkt nicht mit professionellen Softwarelösungen vergleichbar, aber wir haben bewiesen, dass es in so kurzer Zeit möglich, ein Programm zu entwickeln, das einfache Aufgaben im Netzwerk zu definierten Zeitpunkten erledigen kann. Ich bin über das entstanden Programm überaus zufrieden und denke, dass alle an diesem Projekt einen wichtigen Teil beigegesteuert haben. 
+Da wir schon öfters im Team zusammengearbeitet hatten, wussten wir, dass die Kommunikation zwischen den einzelnen Teammitgliedern stimmen muss. Fehlkommunikationen führen zu Verwirrung und das kostet Zeit und Nerven. Daher haben wir versucht schon vor Beginn der Diplomarbeit für das zu schreibende Programm Regeln aufzustellen, damit wir ein klares Ziel vor Augen haben.\\ 
+Mir ist während der Arbeit aber aufgefallen, dass das Aufstellen von diesen umfassenden Regeln nicht immer etwas gebracht hatte. Erstens haben sich einige nicht streng an die Regeln gehalten, die wir mühevoll aufgestellt haben. Das zweite Problem war, dass wir für einige Dinge gar keine Regeln aufgestellt hatten. Das führte dazu, dass jeder einfach seine eigenen Regeln aufstellte, die natürlich von denen der anderen abwichen. Diese Abweichungen waren oftmals nicht der Weltuntergang, aber viele Probleme, denen wir im Laufe der Erarbeitung gegenüberstanden, hätten wir durch bessere Planung und Kommunikation schneller und einfacher lösen können.\\
+Die Schnittstellen für das Programm haben wir nicht in das Regelwerk mit eingeschlossen. Diese haben wir erst im Laufe der Erarbeitung austauschen können, weil wir nicht genau wussten, wie sie aussehen werden. Die Schnittstellen hätte man am Anfang schon vorausplanen können und sich viel Denkarbeit und Zeit ersparen können.\\
+Obwohl wir uns alle gegenseitig gut kannten und die Stärken und Schwächen jedes einzelnen bekannt waren, hätten wir mehr Zeit in die Planung investieren müssen. Wir hätten alle Schnittstellen des Programme schon vor der eigentlichen Programmierung vollständig definieren müssen.\\\\
+Im Großen und Ganzen muss ich sagen, dass wir trotz einiger Fehler bei der Planung ein solides funktionierendes Produkt abgeliefert haben. Natürlich ist unsere Produkt nicht mit professionellen Softwarelösungen vergleichbar, aber wir haben bewiesen, dass es in so kurzer Zeit möglich, ein Programm zu entwickeln, das einfache Aufgaben im Netzwerk zu definierten Zeitpunkten erledigen kann. Ich bin über das entstanden Programm überaus zufrieden und denke, dass alle an diesem Projekt einen wichtigen Teil beigesteuert haben.
 
 \chapter{Daniel Ranalter}
 Diese Diplomarbeit war ja nicht das erste Projekt das wir als Gruppe gemeinsam in Angriff nahmen, wohl aber das größte bisher. Jeder von uns war im Grunde mit den Schwächen der anderen vertraut. Unser Betreuer machte uns wiederholt darauf Aufmerksam viel Zeit in die Planung zustecken, damit wir nicht von Lücken in derselben später eingeholt werden würden. Ich war dann am Ende der Planungsphase der Meinung wir hätten uns auch sehr gut darauf vorbereitet, denn wir legten ein umfangreiches Set an Regeln zurecht welche uns vor Stresssituationen und sinnlosen Streitigkeiten während des Projektes schützen sollten.\\
@@ -4523,7 +4801,18 @@ Ein anderes Problem, was jedoch bereits von Anfang an klar war, war der Untersch
 Alles in allem bin ich jedoch sehr zufrieden, auch wenn es sich hier nicht so anhören sollte. Schlussendlich ist hier ein lauffähiges Programm herausgekommen, in welchem man sehr gut den Fortschritt der einzelnen Teilnehmer sehen kann. Klar, es ist bei weitem nicht ernsthaft einsatzfähig für Firmen, höchstens zu gebrauchen für einen Hobbynetzwerktechniker der auf Open Source steht, doch unter Anbetracht der Tatsache, dass wir nicht sehr viel Zeit hatten und dies unser erstes großes Software Projekt ist, kann es sich durchaus sehen lassen. Am wertvollsten jedoch erachte ich die Erfahrungen welche gemacht wurden. Sie werden für zukünftige Projekte eine überaus wertvolle Ressource sein und im Endeffekt kommt es ja nur darauf an.
 
 \chapter{Manpreet Singh}
-lorem ipsum
-\chapter{Marko Stojanovic}
-lorem ipsum
+''Wie soll ich sagen...Es war ein Abenteuer. Welches letztes Jahr startete. 4 Freunde nahmen daran teil. Diese 4 Freunde durchlebten eine turbulente Zeit in diesen wenigen Monaten. Aber ich glaube, dass jede einzelne Sekunde davon wertvoll und belehrend war. \\\\
+Angefangen hat es eigentlich schon am Ende der 4.Klasse, denn wir 4 waren uns einig, wir machen eine Diplomarbeit. Nachdem einige organisatorische Aspekte, wie die Wahl eines Betreuers, die Wahl des Themas und einigen anderen Sachen geklärt waren, fing die eigentliche Arbeit an. Da standen wir nun, 4 ungeschriebene Blätter in der Informatik, obwohl gerechter Weise gesagt werden muss, dass die Kollegen Porcic und Ranalter sich bedeutend besser auskannten als ich und dies auch immer noch tun, nichtsdestotrotz waren wir alle blutige Anfänger. Wobei nicht das Projektmanagement, zumindest anfänglich, das Problem war, sondern das Programmieren. Ich hatte bis dato noch keine Zeile in C\# programmiert. Dieses Wissen, dass man Ahnungslos ist, baut schnell eine Blockade auf, welche das Ganze nur noch schwieriger macht. Nachdem Kollege Porcic ein paar Anregungen gegeben hat, löste sich diese Blockade rasch.\\\\
+Als ich meinen ersten Entwurf des Notification Systems stolz präsentierte, fiel dieser recht schnell durch, doch diesmal war es eine Motivation. Die 2. Version war schon viel besser und hat mich auch einiges an Zeit gekostet. Aber in dieser Zeit lernte ich so einiges über C\# und tat mir dadurch leichter mit dem GUI, welches aber auch 3 Versionen hervorbrachte.\\\\
+Der nächste, mir wichtige Punkt ist dann aber doch das Projektmanagement. Die Projekte die wir in der Schule über die Jahre gemacht haben, waren eine schlechte Vorbereitung auf das, das uns in der Diplomarbeit erwartete. Denn diesmal mussten wir uns beweisen, da uns unser Betreuer viele Freiheiten gelassen hat. Wir mussten zeigen was wir erreichen konnten und uns wurde nichts vorgekaut. Dies war meiner Meinung nach einer der wichtigsten Erfahrungen. So wurden wir gefordert, teilweise war dies sehr hart, denn alles parallel zur Schule zu machen war eine große Herausforderung. Um nochmal auf den Punkt zu kommen, Projektmanagement. Ein sehr wichtiger Teil eines jeden Projektes. Denn umso besser das Management ist, desto besser ist der Output. Ich würde nicht sagen das unser Management schlecht war, aber es hätte schon ein klein wenig besser sein können.\\\\
+Abschließend würde ich sagen, dass ich sehr zufrieden bin mit der Arbeit die mein Team und ich vollbracht haben.''
+
+\chapter{Marko Stojanovi\'{c}}
+Am Anfang der Diplomarbeit, war es ersichtlich, dass wir zumindest, was die Kommunikation angeht, gut miteinander auskommen werden, da wir uns alle bereits seit dem Beginn unserer HTL-Karriere gut kennen und verstehen. Die Planung der Diplomarbeit und weitere wichtige Entscheidungen, welche getroffen werden mussten, wie z.B. Betreuerwahl, waren aufgrund der gemeinsamen Interessen schnell und eindeutig geklärt. \\\\
+Als die Realisierung begann, konnte man sehen, dass nur am Beginn alle den gleichen Fortschritt erzielen konnten. Die Unterschiede konnten dann festgestellt werden, als es immer tiefer in die Realisierung ging. Das sorgte für einige organisationstechnische Probleme. Aufgrund der unterschiedlichen, bereits vorhanden Fähigkeiten, die jeder mit sich brachte, konnten einige nicht mit ihren gestellten Aufgaben bis zum vereinbarten Zeitpunkt fertig werden, mich eingeschlossen.\\
+Dies war jedoch kein sehr großes Problem, da wir unsere Termine immer etwas früher setzten, damit es in diesen Fällen zu keiner großen Verzögerung, für den Rest der Gruppen, kommen würde. Es war nämlich schon von allen bereits erwartet worden. Ich selbst konnte den Zeitplan auch nicht einhalten. Durch die Hilfe von Alin Porcic konnte ich aber doch mit dem Rest mithalten.\\\\
+Durch GitHub wurde uns das Zusammensetzen des Quellcodes und der Dokumentation sehr erleichtert, jedoch ist zu erwähnen, dass trotzdem Probleme auftraten, z.B. ist bei der Dokumentation durch einen Fehler ein Teil meiner Dokumentation gelöscht worden und musste deshalb neu geschrieben werden.\\\\
+Trotz einiger kleinen Problem mit den ungleichen Fähigkeiten, welche Verzögerungen hervorbrachten, konnten wir pünktlich zum Schluss ein stabiles und nach unseren Vorstellungen (und der Aufgabenstellung) gerechtes Programm erstellen und es auch dokumentieren.\\\\
+Durch diese Diplomarbeit habe ich meine Programmierfähigkeiten vertieft und habe auch vieles über Datenbanken gelernt, was auch mein Ziel war.
+
 \end{document}
