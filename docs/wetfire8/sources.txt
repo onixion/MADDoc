@@ -1,135 +1,131 @@
 Informatik:
 ===========
-http://de.wikipedia.org/wiki/Informatik - 05.04.2015
-programmiersprachen - 02.04.2015:
-Definition:
+http://de.wikipedia.org/wiki/Informatik - 28.03.2015
+Programmiersprachen - 28.03.2015
+Definition - 28.03.2015
 http://de.wikipedia.org/wiki/Programmiersprache
 http://www.hki.uni-koeln.de/wisem-2012/basisinformationstechnologie-i/programmiersprachen-i/definition-von-programmiersprachen
-Lexik:
+Lexik - 28.03.2015
 http://www.pixelx.de/glossar/lexik.html
 http://de.wikipedia.org/wiki/Programmiersprache
-Übersicht:
+Übersicht - 28.03.2015
 http://de.wikipedia.org/wiki/Programmiersprache#.C3.9Cbersicht
-
 
 Wichtige Begriffe
-Quelltext:
+Quelltext - 29.03.2015
 http://de.wikipedia.org/wiki/Programmiersprache#.C3.9Cbersicht
 http://fbmathe.bbs-bingen.de/Informatik/C_plusplus/grundbegriffe.htm#P_Sprache
 
-Arten von Programmiersprachen
+Arten von Programmiersprachen - 30.03.2015
 http://fbmathe.bbs-bingen.de/Informatik/C_plusplus/grundbegriffe.htm#P_Sprache
-Skriptsprachen
+Skriptsprachen - 30.03.2015
 http://de.wikipedia.org/wiki/Skriptsprache
 
 
-Programmierparadigmen 04.04.2015:
+Programmierparadigmen - 03.04.2015
 http://de.wikipedia.org/wiki/Programmierparadigma
-objektorientiert
+objektorientiert - 03.04.2015
 http://de.wikipedia.org/wiki/Objektorientierte_Programmierung#Objektorientierte_Programmiersprachen
 http://de.wikipedia.org/wiki/Objektorientierte_Programmierung#Objekt-Konzepte_in_Programmiersprachen
-deklarativ
+deklarativ - 03.04.2015
 http://de.wikipedia.org/wiki/Deklarative_Programmierung
-imperativ
+imperativ - 03.04.2015
 http://de.wikipedia.org/wiki/Imperative_Programmierung
-strukturierte
+strukturierte - 03.04.2015
 http://de.wikipedia.org/wiki/Strukturierte_Programmierung
 
 
-Wahl einer Programmiersprache:
+Wahl einer Programmiersprache - 31.03.2015
 https://msdn.microsoft.com/de-de/library/aa292164%28v=vs.71%29.aspx
 https://msdn.microsoft.com/de-de/hh126387.aspx
 
 
-c# - 07.03.2015:
+c# - 01.04.2015
 https://msdn.microsoft.com/de-de/library/aa292164%28v=vs.71%29.aspx
-c# - Funktion:
+c# - Funktion - 01.04.2015
 https://msdn.microsoft.com/de-de/library/z1zx9t92.aspx
 	
-Was spricht für C#?
+Was spricht für C#? - 01.04.2015
 https://msdn.microsoft.com/de-de/library/aa287554(v=vs.71).aspx
 
-Multithreading -07.03.2015:
-Thread - 07.03.2015:
+Multithreading -06.03.2015
+http://de.wikipedia.org/wiki/Multithreading
+Thread - 07.03.2015
 http://de.wikipedia.org/wiki/Thread_%28Informatik%29
 
-implementierung 07.03.2015:
+Implementierung 07.03.2015
 http://de.wikipedia.org/wiki/User-Thread#Implementierungen
 
-hardware - 07.03.2015:
+hardware - 07.03.2015
 http://de.wikipedia.org/wiki/Multithreading
 http://de.wikipedia.org/wiki/Hardwareseitiges_Multithreading
 
-software - 07.03.2015
+software - 06.04.2015
 http://de.wikipedia.org/wiki/Multithreading
 http://de.wikipedia.org/wiki/Softwareseitiges_Multithreading
 
-scheduler - 03.04.2015:
+scheduler - 03.04.2015
 http://www.math.uni-hamburg.de/doc/java/tutorial/essential/threads/priority.html
 http://de.wikipedia.org/wiki/Prozess-Scheduler
 
 
 Database:
 =========
-Allgemeines:
+Allgemeines - 14.02.2015
 http://de.wikipedia.org/wiki/Datenbank
 
-Geschichte - :
+Geschichte - 13.02.2015
 http://de.wikipedia.org/wiki/Datenbank#Geschichte
 
-Definitionen:
+Definitionen - 03.04.2015
 http://www.datenbanken-verstehen.de/datenbanken/datenmodellierung/primaerschluessel/
 http://de.wikipedia.org/wiki/Schl%C3%BCssel_%28Datenbank%29#Sekund.C3.A4rschl.C3.BCssel
 http://de.wikipedia.org/wiki/Schl%C3%BCssel_%28Datenbank%29#Stellvertretender_Schl.C3.BCssel
 http://de.wikipedia.org/wiki/Schl%C3%BCssel_%28Datenbank%29#Fremdschl.C3.BCssel
 
-
-
-Datenbanksysteme:
+Datenbanksysteme - 03.04.2015
 http://de.wikipedia.org/wiki/Datenbank#Komponenten_eines_Datenbanksystems
 
 
-Zugriffe:
-Zugriffsmöglichkeiten:
+Zugriffe - 04.04.2015
+Zugriffsmöglichkeiten
 http://de.wikipedia.org/wiki/Datenbank#Anfrageoptimierung
 
-Sicherheit:
+Sicherheit - 04.04.2015
 http://de.wikipedia.org/wiki/Datenbank#Datensicherheit
 http://de.wikipedia.org/wiki/Datenbank#Transaktionen
 http://de.wikipedia.org/wiki/Datenbank#Datenintegrit.C3.A4t
 http://de.wikipedia.org/wiki/Datenbank#Anwendungsunterst.C3.BCtzung
 
-Gleichzeitiger Zugriff:
+Gleichzeitiger Zugriff - 05.04.2015
 http://de.wikipedia.org/wiki/Datenbank#Mehrbenutzerf.C3.A4higkeit
 
-Sprachen:
+Sprachen - 05.04.2015
 http://de.wikipedia.org/wiki/Datenbank#Sprachen
 
 
-RDBMS:
+RDBMS - 05.04.2015
 http://de.wikipedia.org/wiki/Relationale_Datenbank
 
-Alternative DBMS:
+Alternative DBMS - 06.04.2015
 http://de.wikipedia.org/wiki/Objektdatenbank
 http://de.wikipedia.org/wiki/Dokumentenorientierte_Datenbank
 http://www.datenbanken-verstehen.de/datenbanken/datenbank-grundlagen/datenbankmodell/netzwerkdatenbankmodell/
 http://de.wikipedia.org/wiki/Hierarchisches_Datenbankmodell
 
-SQLite:
+SQLite - 06.04.2015
 http://en.wikipedia.org/wiki/SQLite
 
 
-Eigenschaften-SQLite:
+Eigenschaften-SQLite - 06.04.2015
 https://www.sqlite.org/features.html
 
-SQLite-Geschichte:
+SQLite-Geschichte - 07.04.2015
 http://en.wikipedia.org/wiki/SQLite#History
 
-SQLite-Syntax:
-
-SQLite-Syntax:
+SQLite-Syntax - 07.04.2015
 http://www.tutorialspoint.com/sqlite/sqlite_using_joins.htm
 
-SQLite: Vor- und Nachteile
+SQLite: Vor- und Nachteile - 07.04.2015
 http://www.webspan.de/mysql-oder-sqlite/
 
