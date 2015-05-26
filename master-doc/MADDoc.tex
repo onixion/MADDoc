@@ -482,7 +482,8 @@ Dieser Teil der Abhandlung wird die Netzwerkgrundlagen, die auf das Ethernet Pro
 \section{Grundlagen}
 In der Netzwerktechnik gibt es mehrere verschiedene grundlegende Konzepte, auf welche hier eingegangen werden soll.
 
-\subsection{Übersicht: Netzwerkdevices$^{[204]}$}
+\subsection*{Übersicht: Netzwerkdevices$^{[204]}$}
+\addcontentsline{toc}{subsection}{Übersicht: Netzwerkdevices}
 Um ein Netzwerk aufzubauen, werden verschiedene Devices benötigt. Je nach Größe und Art des Netzwerkes kann man auch auf einzelne Komponenten verzichten. 
 
 \subsubsection{Router}
@@ -548,7 +549,8 @@ Während Stateful Inspection sich nur den Header des Paketes ansieht, greift die
 Vorteilhaft daran ist die relativ hohe Sicherheit, da auch Pakete, welche auf einem scheinbar harmlosen Port kommen und auch das passende Protokoll haben, manipuliert sein können. Nachteilig jedoch, dass die Firewall damit in der Lage ist, absolut alles an Informationen über den Netzwerkverkehr aufsammeln zu können, was sie will. Die Anonymität ist damit nicht länger gewährleistet.
 \end{itemize}
 
-\subsection{Übersicht: Netzwerktypen$^{[205]}$}
+\subsection*{Übersicht: Netzwerktypen$^{[205]}$}
+\addcontentsline{toc}{subsection}{Übersicht: Netzwerktypen}
 Hier soll auf die wichtigsten Netzwerktypen kurz eingegangen werden. Es gibt einige mehr als jene, die im Folgenden erwähnt werden, jedoch sollten sie die Wichtigsten abdecken.
 \subsubsection{LAN}
 Das \textbf{LAN}, oder Local Area Network, bezeichnet ein Netzwerk, welches von seinen Ausdehnungen her nicht mehr als 500 Meter überschreitet. Als LANs werden zum Beispiel Heimnetzwerke, Netzwerke in Schulen oder Arbeitsplätzen, besonders Büros, oder Bürogebäuden bezeichnet.
@@ -570,7 +572,8 @@ Beim statischen VLAN werden einzelne Ports an einem Switch, dediziert einem VLAN
 Beim dynamischen VLAN versucht der Switch anhand von Zusammenhängen im Datenverkehr zu entscheiden, in welches VLAN ein Paket gehört. 
 \end{itemize}
 
-\subsection{Der Host$^{[206]}$}
+\subsection*{Der Host$^{[206]}$}
+\addcontentsline{toc}{subsection}{Der Host}
 Mit dem Term \textbf{Host} wird im Zusammenhang der Netzwerktechnik ein Gerät beschrieben, welches über das Netzwerk mit anderen Hosts verbunden ist und theoretisch die Möglichkeit hat an der Kommunikation teilzunehmen. Damit ein Host zur Kommunikation in der Lage ist, benötigt er mehrere Dinge.\\
 Zu diesen gehört Hardware technisch gesehen, mindestens eine \textbf{Netzwerkkarte} mit einer Art von Möglichkeit sich in das Netz einzuklinken. Diese Möglichkeit kann aus einem Ethernet Anschluss oder einer Antenne bestehen, welche in der Lage ist, das 2,4 GHz Band und/oder das 5GHz Band zu empfangen und in diesem Band zu senden.\\
 Auf der Softwareseite benötigt ein Host im Grunde drei Dinge, welche ihn dazu ermöglichen eine Konversation mit einem anderen Host über das Internet zu führen. Es gibt natürlich auch andere Arten von Kommunikation in Netzwerken, jedoch ist das TCP/IP (siehe Kapitel \ref{sssec:tcpip} auf Seite \pageref{sssec:tcpip}) Modell das am häufigsten vorkommende. 
@@ -609,7 +612,8 @@ Ohne Ports wäre es nicht möglich, mehrere Netzwerkanwendungen gleichzeitig zu 
 
 Wie erwähnt gibt es, wie bei den zuvor genannten Werten, auch hier Source und Destination. Während der Destination Port bei einem Client meistens anhand der Art von Anwendung vorbestimmt ist, ist der Source Port frei zu wählen, solange er über 1024 liegt. Meistens wird jedoch ein Port über 30000 verwendet. 
 
-\subsection{Schichtenmodel${[203]}$}
+\subsection*{Schichtenmodel${[203]}$}
+\addcontentsline{toc}{subsection}{Schichtenmodel}
 Das \textbf{Schichtenmodel} ist ein im Bereich der Softwarearchitektur häufig verwendetes Strukturierungsprinzip, indem Schichten immer auf die Resourcen der unteren Schicht zugreifen können, ohne sich Gedanken um deren Format oder ähnliches machen zu müssen, während sie selbst der next höheren Schicht fixierte Objekte zur Verfügung stellen. In der Netzwerktechnik gibt es zwei etablierte Schichtenmodelle.
 \subsubsection{OSI}
 Das \textbf{OSI-Layer Modell} wurde 1984 von der International Organization for Standardization (ISO) als Standardreferenzmodell für Telekommunikation in Netzwerken festgelegt.\\
@@ -729,7 +733,8 @@ Gegenüberstellung OSI - TCP/IP:\\
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/ositcpip.png}
 \end{center}
-\subsection{Client-Server Verhältnis$^{[207]}$}\label{ssec:client-server}
+\subsection*{Client-Server Verhältnis$^{[207]}$}\label{ssec:client-server}
+\addcontentsline{toc}{subsection}{Client-Server Verhältnis}
 Das Client-Server Modell ist das bekannteste und am öftesten verwendete Muster für Aufgabenverteilung in einem Netzwerk.\\ 
 Bei diesem Modell gibt es denjenigen, der die \textbf{Dienste anbietet, den Server}, und jenen, der die \textbf{Dienste nutzt, den Client}.\\
 
@@ -780,7 +785,8 @@ Nun, da er über die IP-Adresse des Webservers verfügt, durchläuft der Rechner
 \item Schritt:\\
 Wenn er sich sämtliche Informationen, welche für diese Anfrage benötigt werden, gesammelt hat, baut er das HTTP-Request Paket zusammen, mit MAC- und IP-Adresse, diesesmal TCP Port 80, und der Seite im HTTP Teil des Paketes. Er wartet auf die Antwort Pakete, baut die Seite im Browser auf und der User bekommt, was er will.
 \end{enumerate}
-\section{Protokolle${[208]}$}
+\section*{Protokolle$^{[208]}$}
+\addcontentsline{toc}{section}{Protokolle}
 Es gibt unzählige verschiedene Protokolle, hier soll nur auf ein paar wenige Wichtige eingegangen werden, welche auch Verwendung im praktischen Teil der Diplomarbeit gefunden haben.
 \subsection{Ethernet}\label{ssec:eth}
 \textbf{Ethernet} ist ein sowohl ein Layer1 als auch ein Layer2 Protokoll im OSI-Modell und damit für die unterste Schicht und den grundlegenden Kommunikationsmöglichkeiten zuständig.\\
@@ -4308,7 +4314,7 @@ https://github.com/amibar/SmartThreadPool\\
 \textbf{[200]} $\rightarrow$  MAC Adresse, (30.1.2015)\\
 de.wikipedia.org/wiki/MAC-Adresse\\
 en.wikipedia.org/wiki/Mac\_address\\
-www.elektronik-kompendium.de/sites/net/1406201.htm
+www.elektronik-kompendium.de/sites/net/1406201.htm\\
 
 \noindent
 \textbf{[201]} $\rightarrow$  IP Adresse, (31.1.2015)\\
@@ -4508,7 +4514,14 @@ Die Schnittstellen für das Programm haben wir nicht in die Regeln mit eingeschl
 Im Großen und Ganzen muss ich sagen, haben wir trotz einiger Fehler bei der Planung ein solides funktionierendes Produkt abgeliefert haben. Natürlich ist unsere Produkt nicht mit professionellen Softwarelösungen vergleichbar, aber wir haben bewiesen, dass es in so kurzer Zeit möglich, ein Programm zu entwickeln, das einfache Aufgaben im Netzwerk zu definierten Zeitpunkten erledigen kann. Ich bin über das entstanden Programm überaus zufrieden und denke, dass alle an diesem Projekt einen wichtigen Teil beigegesteuert haben. 
 
 \chapter{Daniel Ranalter}
-lorem ipsum
+Diese Diplomarbeit war ja nicht das erste Projekt das wir als Gruppe gemeinsam in Angriff nahmen, wohl aber das größte bisher. Jeder von uns war im Grunde mit den Schwächen der anderen vertraut. Unser Betreuer machte uns wiederholt darauf Aufmerksam viel Zeit in die Planung zustecken, damit wir nicht von Lücken in derselben später eingeholt werden würden. Ich war dann am Ende der Planungsphase der Meinung wir hätten uns auch sehr gut darauf vorbereitet, denn wir legten ein umfangreiches Set an Regeln zurecht welche uns vor Stresssituationen und sinnlosen Streitigkeiten während des Projektes schützen sollten.\\
+
+Ich lag sehr weit daneben. Mehr als nur einmal gab es grundsätzliche Meinungsverschiedenheiten oder Auffassungsunterschiede. Auch waren des Öfteren wichtige Dinge garnicht, und eher unwichtige Dinge viel zu viel definiert worden. Ich war überrascht wie leicht Missverständnisse auftreten können, doch hier kam uns unsere langjährige Freundschaft zugute und wir konnten alle Probleme mit mehr oder weniger hitzigen Diskussionen beseitigen.\\
+
+Ein anderes Problem, was jedoch bereits von Anfang an klar war, war der Unterschied im Vorwissen. Während mancher bereits von Anfang an einiges an Programmiererfahrung vorweisen konnte, hatte ein anderer seine Müh und Not damit sich in dieses Thema einzulesen. Dies erzeugte eine Verzögerung von Terminen in welcher derjenige der bewandert war im Umgang mit C\# lange Zeit keine Möglichkeit hatte weiter zu arbeiten. Wir versuchten dies zwar in unserem Zeitplan zu berücksichtigen, hatten uns aber doch ziemlich verschätzt.\\
+
+Alles in allem bin ich jedoch sehr zufrieden, auch wenn es sich hier nicht so anhören sollte. Schlussendlich ist hier ein lauffähiges Programm herausgekommen, in welchem man sehr gut den Fortschritt der einzelnen Teilnehmer sehen kann. Klar, es ist bei weitem nicht ernsthaft einsatzfähig für Firmen, höchstens zu gebrauchen für einen Hobbynetzwerktechniker der auf Open Source steht, doch unter Anbetracht der Tatsache, dass wir nicht sehr viel Zeit hatten und dies unser erstes großes Software Projekt ist, kann es sich durchaus sehen lassen. Am wertvollsten jedoch erachte ich die Erfahrungen welche gemacht wurden. Sie werden für zukünftige Projekte eine überaus wertvolle Ressource sein und im Endeffekt kommt es ja nur darauf an.
+
 \chapter{Manpreet Singh}
 lorem ipsum
 \chapter{Marko Stojanovic}
