@@ -486,8 +486,12 @@ Dieser Teil der Abhandlung wird die Netzwerkgrundlagen, die auf das Ethernet Pro
 \section{Grundlagen}
 In der Netzwerktechnik gibt es mehrere verschiedene grundlegende Konzepte, auf welche hier eingegangen werden soll.
 
-\subsection*{Übersicht: Netzwerkdevices$^{[204]}$}
-\addcontentsline{toc}{subsection}{Übersicht: Netzwerkdevices}
+\subsection{Übersicht: Netzwerkdevices}
+\begin{flushright}
+\begin{tiny}
+Quellen: [204]
+\end{tiny}
+\end{flushright}
 Um ein Netzwerk aufzubauen, werden verschiedene Devices benötigt. Je nach Größe und Art des Netzwerkes kann man auch auf einzelne Komponenten verzichten. 
 
 \subsubsection{Router}
@@ -553,8 +557,12 @@ Während Stateful Inspection sich nur den Header des Paketes ansieht, greift die
 Vorteilhaft daran ist die relativ hohe Sicherheit, da auch Pakete, welche auf einem scheinbar harmlosen Port kommen und auch das passende Protokoll haben, manipuliert sein können. Nachteilig jedoch, dass die Firewall damit in der Lage ist, absolut alles an Informationen über den Netzwerkverkehr aufsammeln zu können, was sie will. Die Anonymität ist damit nicht länger gewährleistet.
 \end{itemize}
 
-\subsection*{Übersicht: Netzwerktypen$^{[205]}$}
-\addcontentsline{toc}{subsection}{Übersicht: Netzwerktypen}
+\subsection{Übersicht: Netzwerktypen}
+\begin{flushright}
+\begin{tiny}
+Quellen: [205]
+\end{tiny}
+\end{flushright}
 Hier soll auf die wichtigsten Netzwerktypen kurz eingegangen werden. Es gibt einige mehr als jene, die im Folgenden erwähnt werden, jedoch sollten sie die Wichtigsten abdecken.
 \subsubsection{LAN}
 Das \textbf{LAN}, oder Local Area Network, bezeichnet ein Netzwerk, welches von seinen Ausdehnungen her nicht mehr als 500 Meter überschreitet. Als LANs werden zum Beispiel Heimnetzwerke, Netzwerke in Schulen oder Arbeitsplätzen, besonders Büros, oder Bürogebäuden bezeichnet.
@@ -576,13 +584,22 @@ Beim statischen VLAN werden einzelne Ports an einem Switch, dediziert einem VLAN
 Beim dynamischen VLAN versucht der Switch anhand von Zusammenhängen im Datenverkehr zu entscheiden, in welches VLAN ein Paket gehört. 
 \end{itemize}
 
-\subsection*{Der Host$^{[206]}$}
-\addcontentsline{toc}{subsection}{Der Host}
+\subsection{Der Host}
+\begin{flushright}
+\begin{tiny}
+Quellen: [206]
+\end{tiny}
+\end{flushright}
 Mit dem Term \textbf{Host} wird im Zusammenhang der Netzwerktechnik ein Gerät beschrieben, welches über das Netzwerk mit anderen Hosts verbunden ist und theoretisch die Möglichkeit hat an der Kommunikation teilzunehmen. Damit ein Host zur Kommunikation in der Lage ist, benötigt er mehrere Dinge.\\
 Zu diesen gehört Hardware technisch gesehen, mindestens eine \textbf{Netzwerkkarte} mit einer Art von Möglichkeit sich in das Netz einzuklinken. Diese Möglichkeit kann aus einem Ethernet Anschluss oder einer Antenne bestehen, welche in der Lage ist, das 2,4 GHz Band und/oder das 5GHz Band zu empfangen und in diesem Band zu senden.\\
 Auf der Softwareseite benötigt ein Host im Grunde drei Dinge, welche ihn dazu ermöglichen eine Konversation mit einem anderen Host über das Internet zu führen. Es gibt natürlich auch andere Arten von Kommunikation in Netzwerken, jedoch ist das TCP/IP (siehe Kapitel \ref{sssec:tcpip} auf Seite \pageref{sssec:tcpip}) Modell das am häufigsten vorkommende. 
 
-\subsubsection{MAC-Adressen${[200]}$}\label{sssec:macaddr}
+\subsubsection{MAC-Adressen}\label{sssec:macaddr}
+\begin{flushright}
+\begin{tiny}
+Quellen: [200]
+\end{tiny}
+\end{flushright}
 \textbf{MAC-Adresse} steht für Media Access Controll Adresse und ist dem \textbf{Layer 2} zugewiesen. Die MAC-Adresse heißt in Apple Systemen auch \glqq Ethernet-ID\grqq , \glqq Airport-ID\grqq \ oder \glqq Wi-Fi-Adresse\grqq . Sie sollte theoretisch jedes Netzwerkinterface eindeutig kennzeichnen, jedoch ist es mit moderner Software möglich, die MAC-Adresse zu ändern.\\
 Da die MAC-Adresse nicht mehr, wie ursprünglich gedacht, in die Netzwerkkarte \glqq eingebrannt\grqq ist, kann sie von Crackern eingesetzt werden, um Schaden anzurichten (siehe Kapitel \ref{ssec:mspoof} und \ref{ssec:mflood} auf den Seiten \pageref{ssec:mspoof} und \pageref{ssec:mflood})\\
 
@@ -593,7 +610,12 @@ Das zweite Bit steht dafür, ob es eine global administrierte (0) oder eine loka
 
 Ohne Kenntnis über die MAC-Adresse wäre es nicht möglich, in einem Netzwerk zu kommunizieren, da das Ethernetframe die Sender und die Empfänger MAC-Adresse verlangt.\\
 Für den Fall, dass sich der Zielhost nicht im gleichen Netz befindet, sich also in einem durch einen Router getrennten, anderen Netz befindet, würde für die Ziel MAC-Adresse jene des Routers angegeben. Sollte sich die Adresse des Ziels nicht im Cache des Rechners befinden, wird das Protokoll ARP verwendet (siehe Kapitel \ref{ssec:arp} Seite \pageref{ssec:arp}). 
-\subsubsection{IP-Adressen${[201]}$}\label{sssec:ipaddr}
+\subsubsection{IP-Adressen}\label{sssec:ipaddr}
+\begin{flushright}
+\begin{tiny}
+Quellen: [201]
+\end{tiny}
+\end{flushright}
 Im folgenden wird nur auf IP version 4 eingegangen. Informationen zu IP version 6 können in Kapitel \ref{ssec:ip} auf Seite \pageref{ssec:ip} gefunden werden.\\
 
 Die zweite Adresse, die ein Host benötigt, um mit anderen zu kommunizieren oder Daten auszutauschen, ist die \textbf{IP-Adresse}, was für Internet Protokoll Adresse steht. Diese wird dem \textbf{Layer 3} des OSI-Schichtenmodells zugewiesen. Es gibt auch noch einige andere Protokolle auf Layer 3, jedoch setzen Netzwerke, wie sie im Projekt bearbeitet wurden, sowie das Internet hauptsächlich auf IP auf.\\
@@ -604,7 +626,12 @@ Wie bereits zuvor beschrieben wird die MAC-Adresse verwendet, um im gleichen Net
 
 Eine IP-Adresse wird normal ein zwei Teile gespalten. Es gibt den \textbf{Netzteil} und den \textbf{Hostteil} einer IP-Adresse. Der Netzteil einer Adresse kennzeichnet, wie der Name bereits sagt, in welchem Netz sich ein Host befindet. Der Hostteil hingegen kennzeichnet einen einzelnen Host in diesem Netz.\\
 Um zu erkennen welcher Teil einer IP-Adresse der Netzteil und welcher der Hostteil ist, verwendet man sogenannte \textbf{Subnetzmasken}. Die Subnetzmaske besteht aus einer dezimalen Zahl zwischen 1 und (theoretisch) 32 und gibt an, wieviele Bits der IP-Addresse zum Netzteil gehören. So wäre zum Beispiel bei der Adresse \textit{192.168.1.1/24} ein Anteil von 24 bit dem Netzteil zugehörig. 24 bit entsprechen 3 byte, also die ersten 3 dezimalen Zahlen 192.168.1 sind das Netz und .1 ist der Host.
-\subsubsection{Ports$^{[202]}$}
+\subsubsection{Ports}
+\begin{flushright}
+\begin{tiny}
+Quellen: [202]
+\end{tiny}
+\end{flushright}
 Werden auf der Transportschicht, also \textbf{Layer 4}, die Protokolle \textbf{TCP oder UDP} verwendet, werden jedem Host, zusätzlich zu den zuvorgenannten Werten, auch noch sogenannte Ports zugewiesen. Diese kennzeichnen \textbf{zu welcher Anwendung} ein Paket gehört. Es gibt immer einen Source-Port und einen Destination-Port.\\
 Ports bewegen sich in einem Raum von 0 bis 65535. Dieser Bereich wird aufgeteilt in drei kleinere Bereiche.\\
 Ersterer sind die sogenannten \textbf{well-known Ports}, also jene, welche von allen gekannt und anerkannt werden. Er erstreckt sich von den Nummern 0 bis 1023. Ports in diesem Bereich sind von der IETF (Internet Engineering Task Force) mit bestimmten, wichtigen Anwendungen verknüpft worden. So ist das File Transport Protocol ftp auf Port 21 zu finden.\\
@@ -616,8 +643,12 @@ Ohne Ports wäre es nicht möglich, mehrere Netzwerkanwendungen gleichzeitig zu 
 
 Wie erwähnt gibt es, wie bei den zuvor genannten Werten, auch hier Source und Destination. Während der Destination Port bei einem Client meistens anhand der Art von Anwendung vorbestimmt ist, ist der Source Port frei zu wählen, solange er über 1024 liegt. Meistens wird jedoch ein Port über 30000 verwendet. 
 
-\subsection*{Schichtenmodel${[203]}$}
-\addcontentsline{toc}{subsection}{Schichtenmodel}
+\subsection*{Schichtenmodel}
+\begin{flushright}
+\begin{tiny}
+Quellen: [203]
+\end{tiny}
+\end{flushright}
 Das \textbf{Schichtenmodel} ist ein im Bereich der Softwarearchitektur häufig verwendetes Strukturierungsprinzip, indem Schichten immer auf die Resourcen der unteren Schicht zugreifen können, ohne sich Gedanken um deren Format oder ähnliches machen zu müssen, während sie selbst der next höheren Schicht fixierte Objekte zur Verfügung stellen. In der Netzwerktechnik gibt es zwei etablierte Schichtenmodelle.
 \subsubsection{OSI}
 Das \textbf{OSI-Layer Modell} wurde 1984 von der International Organization for Standardization (ISO) als Standardreferenzmodell für Telekommunikation in Netzwerken festgelegt.\\
@@ -736,9 +767,16 @@ In der Praxis wird das TCP/IP-Modell verwendet, solange die Abstrahierung nicht 
 Gegenüberstellung OSI - TCP/IP:\\
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/ositcpip.png}
+\begin{scriptsize}
+Quelle: www.rvs.uni-bielefeld.de/heiko/tcpip/tcpip\_html\_alt/kap\_1\_3.html
+\end{scriptsize}
 \end{center}
-\subsection*{Client-Server Verhältnis$^{[207]}$}\label{ssec:client-server}
-\addcontentsline{toc}{subsection}{Client-Server Verhältnis}
+\subsection{Client-Server Verhältnis}\label{ssec:client-server}
+\begin{flushright}
+\begin{tiny}
+Quellen: [207]
+\end{tiny}
+\end{flushright}
 Das Client-Server Modell ist das bekannteste und am öftesten verwendete Muster für Aufgabenverteilung in einem Netzwerk.\\ 
 Bei diesem Modell gibt es denjenigen, der die \textbf{Dienste anbietet, den Server}, und jenen, der die \textbf{Dienste nutzt, den Client}.\\
 
@@ -750,7 +788,9 @@ Ein Rack ist ein Gestell, in welches man Blade-Server einfach hineinschieben kan
 
 \begin{center}
 \includegraphics[scale=0.8]{../docs/tarkes/pics/ServerRack.jpg}\\
-Ein Rack mit mehreren Blade-Servern 
+\begin{scriptsize}
+Quelle: http://upload.wikipedia.org/wikipdia/commons/7/70/Enclosure\_proliant.jpg
+\end{scriptsize}
 \end{center}
 
 Als \textbf{Software-Server} werden Programme bezeichnet, welche Dienste anbieten. Zu solchen zählt zum Beispiel der Webserver Apache, der FTP-Server Filezilla oder auch bind, die Referenzimplementierung eines DNS-Servers.\\
@@ -789,8 +829,12 @@ Nun, da er über die IP-Adresse des Webservers verfügt, durchläuft der Rechner
 \item Schritt:\\
 Wenn er sich sämtliche Informationen, welche für diese Anfrage benötigt werden, gesammelt hat, baut er das HTTP-Request Paket zusammen, mit MAC- und IP-Adresse, diesesmal TCP Port 80, und der Seite im HTTP Teil des Paketes. Er wartet auf die Antwort Pakete, baut die Seite im Browser auf und der User bekommt, was er will.
 \end{enumerate}
-\section*{Protokolle$^{[208]}$}
-\addcontentsline{toc}{section}{Protokolle}
+\section{Protokolle}
+\begin{flushright}
+\begin{tiny}
+Quellen: [208]
+\end{tiny}
+\end{flushright}
 Es gibt unzählige verschiedene Protokolle, hier soll nur auf ein paar wenige Wichtige eingegangen werden, welche auch Verwendung im praktischen Teil der Diplomarbeit gefunden haben.
 \subsection{Ethernet}\label{ssec:eth}
 \textbf{Ethernet} ist ein sowohl ein Layer1 als auch ein Layer2 Protokoll im OSI-Modell und damit für die unterste Schicht und den grundlegenden Kommunikationsmöglichkeiten zuständig.\\
@@ -842,7 +886,9 @@ Eine andere Option ist Verschlüsselung, auf welchen im Kapitel \ref{chap:krypto
 
 \begin{center}
 \includegraphics[scale=0.35]{../docs/tarkes/pics/Ethernetpaket.png}
-Ethernetframe
+\begin{scriptsize}
+Quelle: de.wikipedia.org/wiki/Datei:Ethernetpacket.svg
+\end{scriptsize}
 \end{center}
 
 Das Frame wird serialisiert und mit dem niederwertigsten Bit zuerst übertragen. Das EthernetframeF besteht aus folgenden Teilen:
@@ -940,6 +986,9 @@ Warum die Verwendung des IPv6 Standards trotzdem soweit hinausgezögert wird, li
 Der IP-Header sieht wie folgt aus:\\
 \begin{center}
 \includegraphics[scale=1]{../docs/tarkes/pics/ipheader.jpg}
+\begin{scriptsize}
+www.rvs.uni-bielefeld.de/~heiko/tcpip/tcpip\_html\_alt/kap\_2\_3.htm
+\end{scriptsize}
 \end{center}
 \subsubsection{IPv6}
 IPv6 ist der offizielle Nachfolger von IPv4. Er ist seit 1998 von der IETF standardisiert und bringt einige Neuerungen in das Internet Protocol welche die Fehler, die durch das unterschätzte Wachstum des Internets hervorgerufen wurden, aufheben soll.\\
@@ -1001,6 +1050,9 @@ Die Entwicklung von TCP dauerte einige Jahre. Es begann bereits 1973, endete abe
 
 \begin{center}
 \includegraphics[scale=0.6]{../docs/tarkes/pics/TcpHandshake.png}
+\begin{scriptsize}
+Quelle: de.wikipedia.org/wiki/Transmission\_Control\_Protocol\#/media/File:Tcp-handshake.svg
+\end{scriptsize}
 \end{center}
 
 Da TCP ein verbindungsorientiertes Protokoll ist, gibt es auch einen Verbindungsaufbau.\\
@@ -1047,6 +1099,9 @@ Der Server, welchem der Request gilt, kann dieser nun mit \textbf{DHCPACK} für 
 DHCP Header:\\
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/dhcpheader.jpg}
+\begin{scriptsize}
+Quelle: www.cisco.com/web/about/ac123/ac147/images/ipj/ipj\_5-2/figure\_1\_dhcp.gif
+\end{scriptsize}
 \end{center}
 \subsection{Domain Name System - DNS} \label{ssec:DNS}
 DNS ist ein Protokoll, welches zwar nicht zwingend notwendig ist für das Funktionieren des Internets, aber uns Menschen es sehr komfortabel macht damit zu arbeiten.\\
@@ -1074,6 +1129,9 @@ Dies wird auch vom Staat genutzt, um Zensur zu betreiben. Die Filme und Serien S
 DNS Header:\\
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/dnsheader.png}
+\begin{scriptsize}
+www.tcpipguide.com/free/diagrams/dnsheaderformat.png
+\end{scriptsize}
 \end{center}
 \subsection{Internet Control Message Protocol - ICMP}
 Das Internet Control Message Protocol bewegt sich auf Layer 3 zusammen mit IP. Es dient dazu, anderen Geräten \textbf{Informationen über ihren Status} zukommen zu lassen. Es gibt eine Variante für IPv6, das sogenannte ICMPv6. Es verwendet zum Transport IP, obwohl es auf dem gleichen Layer liegt, da es sich als ein Protokoll höherer Ebene interpretiert.\\
@@ -1114,6 +1172,9 @@ Die Informationen, welche damit abgerufen werden können, sind unglaublich vielf
 Die MIB:
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/mib.jpg}
+\begin{scriptsize}
+Quelle: sourcedaddy.com/networking/images/inmg2.gif
+\end{scriptsize}
 \end{center}
 
 Es gibt inzwischen \textbf{drei Versionen} von SNMP. Der Hauptkritikpunkt an den ersten Versionen war die Unsicherheit. Es ging so weit, dass im Scherz behauptet wurde, SNMP stehe eigentlich für \textbf{S}ecurity? \textbf{N}ot \textbf{m}y \textbf{P}roblem. Dies wurde auch erst mit der letzten Version, Version 3 wirklich ausgebessert.\\
@@ -1122,6 +1183,9 @@ Dies wurde in Version 3 dann verbessert und mit zwei zusätzlichen Passphrasen, 
 
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/snmpheader.jpg}
+\begin{scriptsize}
+Quelle: verticalhorizions.in/wp-content/uploads/2011/09/SNMPv3\_Message\_Format.bmp
+\end{scriptsize}
 \end{center}
 
 Es gibt mehrere Möglichkeiten wie SNMP Informationen aus einer MIB bekommt. Der Standard ist die \textbf{GET Methode}, bei der er ein Feld abfrägt. Doch gibt es auch die Methoden \textbf{GETNEXT und GETBULK}.\\
@@ -4296,12 +4360,12 @@ Oktober 2014 & ~41h & FTP Checkjob Nachforschung, Umsetzung,\\&& Test; MAC-Finde
 November 2014 & ~31h & MAC-Finder Version 2 Nachforschung,\\&& Umsetzung, Test\\ \hline
 Dezember 2014 & ~29h & SNMP Nachforschung\\ \hline
 Januar 2015 & ~29h & SNMP Umsetzung, start Test\\ \hline
-Febuar 2015 & ~12h & SNMP Test; Logging Nachforschung\\ \hline
-März 2015 & ~5h & Logger Umsetzung, Test; MAC-Finder Version 3\\&& start Nachforschung\\ \hline
-April 2015 & ~34h & MAC-Finder Version 3 Nachforschung,\\&& Umsetzung, Test\\ \hline
-Mai 2015 & ~20h & Cleancoding\\
+Febuar 2015 & ~12h & SNMP Test; Logging Nachforschung; Dokumentation\\ \hline
+März 2015 & ~5h & Logger Umsetzung, Test; MAC-Finder Version 3\\&& start Nachforschung; Dokumentation\\ \hline
+April 2015 & ~34h & MAC-Finder Version 3 Nachforschung,\\&& Umsetzung, Test; Dokumentation\\ \hline
+Mai 2015 & ~20h & Cleancoding; Dokumentation\\
 \hline \hline
-Oktober 2014 bis Mai 2015 & 224h &\\ \hline
+September 2014 bis Mai 2015 & 224h &\\ \hline
 \end{tabular}
 
 \chapter{Manpreet Singh}
