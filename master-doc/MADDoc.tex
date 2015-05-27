@@ -122,7 +122,7 @@ Die Pragmatik einer Programmiersprache bestimmt den Einsatzbereich, damit werden
 \end{itemize}
 
 \subsubsection{Minimalanforderungen an Programmiersprachen}
-Programmiersprachen bieten viele Möglichkeiten an, folgende Eigenschaften zählen zu den Minimalanforderungen an Programmiersprachen:
+Programmiersprachen stellen viele Möglichkeiten zur Verfügung, folgende Eigenschaften zählen zu den Minimalanforderungen an Programmiersprachen:
 \begin{itemize}
 \item Ein- und Ausgabebefehle\\
 Auf diese Weise wird eine Eingabe und Ausgabe von Daten realisiert.
@@ -164,7 +164,7 @@ Allgemeine Deklarationsverwendungen von Bibliotheken sind in einer Header-Datei 
 \\Funktionen, wie zum Beispiel "{}cin"{} und "{}cout{}", sind keine integrierten Bestandteile der verwendeten Programmiersprachen (z.B.: C++), wie im Gegensatz die Befehle "{}if "{} oder "{}else "{}. Funktionen, welche keine Bestandteile der Programmiersprache sind, können mit der Anweisung "{}\# include \textless stdio.h\textgreater "{} (eine Header-Datei namens "{}stdio.h "{}) eingekapselt werden. Dadurch wird gewährleistet, dass der Präprozessor (auch Präcompiler, ein Programm, welches vor der Übersetzung durch den Compiler wirksam ist) den Quelltext nach Zeilen kontrolliert, welche mit "{}\#"{} anfangen und Zeile, welche mit dem Inhalt der Header-Datei ersetzt. [406]
 
 \subsubsection{Libraries}
-Mit Libraries werden Sammlungen (Bibliotheken) von Programmfunktionalitäten, für passende Aufgaben, bezeichnet. Dabei handelt es sich um Hilfsmodule (keine eingeständige Einheit) für Programme.\\
+Mit Libraries werden Sammlungen (Bibliotheken) von Programmfunktionalitäten, für passende Aufgaben, bezeichnet. Dabei handelt es sich um Hilfsmodule (keine eigenständige Einheit) für Programme.\\
 In der Programmiersprache C++ enthält die Library namens "{}stdio.lib"{} die Funktion zur Ein- und Ausgabe von Daten auf dem Bildschirm ("{}cin"{} und "{}cout "{}).\\
 Dabei muss auch zwischen Static und Dynamic Libraries unterschieden werden.
 
@@ -1764,7 +1764,7 @@ In der obigen Abbildung wird ein üblicher Aufbau von Linux Systemen dargestellt
 Die einzelnen Schichten werden im Folgenden genauer erläutert: \\
 \begin{itemize}
 \item \textbf{Hardware}\\
-Die Hardware kann durchaus varieren. Es gibt unzählige Hersteller für Grafikkarten. Auch die Hersteller von Prozessoren haben bereits Grafikkarten integriert (Onboard Grafikkarten). 
+Die Hardware kann durchaus variieren. Es gibt unzählige Hersteller für Grafikkarten. Auch die Hersteller von Prozessoren haben bereits Grafikkarten integriert (Onboard Grafikkarten). 
 \item \textbf{Kernel}\\
 Als Kernel wird das System bezeichnet, auf dem alles aufbaut.(z.B. Linux Kernel)
 \item \textbf{Anzeige Server}\\
@@ -1820,7 +1820,7 @@ Bereits in den 1960er Jahren gab es Probleme beim Verarbeiten von Daten. Damals 
 
 Zur gleichen Zeit wurde von CODASYL (COnference on DAta SYstems Languages) ein Netzwerk- Datenbanksystem entwickelt.\\
 
-1970 wurde ein weiterer Fortschritt von Edgar Frank Codd erzielt. Im Rahmen einer Forschungsarbeit am IBM Almaden Research Center wurden die Grundlagen des ersten relationalen Datenbanksystems (System R) von Codd vorgestellt. Mit Open Source relationalem Datenbanksystem Ingres ( interactive graphics retrieval system) und der Abfragesprache QUEL folgte die Berkeley Groupe.\\
+1970 wurde ein weiterer Fortschritt von Edgar Frank Codd erzielt. Im Rahmen einer Forschungsarbeit, am IBM Almaden Research Center, wurden die Grundlagen des ersten relationalen Datenbanksystems (System R) von Codd vorgestellt. Mit Open Source relationalem Datenbanksystem Ingres ( interactive graphics retrieval system) und der Abfragesprache QUEL folgte die Berkeley Groupe.\\
 
 Oracle (damals SDL und RSI) nutzte Ergebnisse von System R und brachte SQL den Erfolgt.  Von IBM folgte SQL/DS und DB2.\\
 
@@ -3579,14 +3579,14 @@ Die Datenbank besteht aus zwölf verschiedenen Tabellen. Die Namen der Tabellen 
 
 Alle Tabellen, bis auf die Tabellen JobTable und MemoTable, bestehen aus zwei Datenfeldern. Das erste Datenfeld ist immer eine ID, welche den primary key vom Typ Integer darstellt, das zweite Datenfeld ist immer vom Typ Text, dessen Inhalt gleich dem jeweiligen Namen der Tabelle entspricht.\\
 
-Zur eindeutigen Identifikation wurden sogenannte Globally Unique Identifier (GUID) vergeben. Diese sind Integers mit einer Länge von 128 Bit (16 Byte), dadurch konnte garantiert werden, dass selbst bei einer Vielzahl an Geräten, immer noch jedes eindeutig identifizierbar ist und damit die dazugehörigen Informationen zugeordnet werden.
+Zur eindeutigen Identifikation wurden sogenannte Globally Unique Identifier (GUID) vergeben. Diese sind Integer mit einer Länge von 128 Bit (16 Byte), dadurch konnte garantiert werden, dass selbst bei einer Vielzahl an Geräten, immer noch jedes eindeutig identifizierbar ist und damit die dazugehörigen Informationen zugeordnet werden.
 \section{Tabellen}
 \subsubsection{GUIDNodeTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item GUID\_ NODE vom Typ Text
 \end{enumerate}
-In dieser Tabelle wird jeder GUID, von jeder Node, eine ID zugewiesen. Dieser Schritt ist von Vorteil, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
+In dieser Tabelle wird jeder GUID, von jeder Node, eine ID zugewiesen. Dieser Schritt ist von Vorteil, da anschließend nicht mehr mit einer 128-Bit-Zahl weiter gerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-guid-node.png}\\
 GUIDNodeTable mit drei Nodes (bzw. deren GUID) und der dazugehörigen ID.
@@ -3596,7 +3596,7 @@ GUIDNodeTable mit drei Nodes (bzw. deren GUID) und der dazugehörigen ID.
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item GUID\_ JOB vom Typ Text
 \end{enumerate}
-In dieser Tabelle wird jeder GUID, von jedem Job, eine ID zugewiesen. Der Vorteil ist der gleiche wie bei der GUIDNodeTable, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
+In dieser Tabelle wird jeder GUID, von jedem Job, eine ID zugewiesen. Der Vorteil ist der gleiche wie bei der GUIDNodeTable, da anschließend nicht mehr mit einer 128-Bit-Zahl weiter gerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-guid-job.png}\\
 GUIDJobTable mit drei Jobs (bzw. deren GUID) und der dazugehörigen ID. 
@@ -3636,7 +3636,7 @@ MACTable mit bisher nur einem Eintrag, da nur ein Gerät im Netzwerk vorhanden i
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item JOBNAME vom Typ Text
 \end{enumerate}
-Jobnamen werden vom Administrator übergeben, welche in dieser Tabelle gespeichert werden. Die Zuweisung zu einer ID erfolg ebenfalls, um die Verknüpfung der Daten in der JobTable zu gewährleisten.
+Jobnamen werden vom Administrator übergeben, welche in dieser Tabelle gespeichert werden. Die Zuweisung zu einer ID erfolgt ebenfalls, um die Verknüpfung der Daten in der JobTable zu gewährleisten.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-jobname.png}\\
 JobNameTable mit bisher zwei Einträgen (TEST1, TEST2).
@@ -3721,15 +3721,15 @@ Befehle zur allgemeinen Nutzung der Datenbank in der CLI, sind im Kapitel 18.3 z
 
 \section{Wrapper}
 \subsection{Allgemeines}
-Ein Wrapper ist ein Stück Software, welches ein anderes Stück Software umgibt. Es handelt sich dabei um eine sogenannte "{}Umhüllung"{} (Schnittstelle oder auch Adapter). Es können inviduelle Programmteile sein oder auch ganze Klassen.\\
+Ein Wrapper ist ein Stück Software, welches ein anderes Stück Software umgibt. Es handelt sich dabei um eine sogenannte "{}Umhüllung"{} (Schnittstelle oder auch Adapter). Es können individuelle Programmteile sein oder auch ganze Klassen.\\
 Wrapper finden ihren Einsatz aus verschiedensten Gründen: Kompatibilitätsprobleme (z.B. wenn Programmteile aus einer anderen Programmiersprache verwendet werden sollen), Sicherheitsgründe (Einschränkung der Zugriffe auf bestimmte Programmteile), architektonische Gründe, ...
 
 \subsection{Realisierung}
 Die gesamte Realisierung erfolgte in einer Datei.
-\\Am beginn des Quellcodes wird eine Verbindung zur Datenbank und eine Zeitkonstante (später noch von Bedeutung) definiert . Als nächstes wird die Existenz der Datenbank geprüft. Wenn die Datenbank bereits exestiert, wird durch den nächsten Schritt eine Verbindung zu dieser erstellt.
-Wenn diese nicht exestiert gibt es eine Fehlermeldung und eine neue wird erstellt, bevor eine Verbingung aufgebaut wird.\\
+\\Am beginn des Quellcodes wird eine Verbindung zur Datenbank und eine Zeitkonstante (später noch von Bedeutung) definiert . Als nächstes wird die Existenz der Datenbank geprüft. Wenn die Datenbank bereits existiert, wird durch den nächsten Schritt eine Verbindung zu dieser erstellt.
+Wenn diese nicht existiert gibt es eine Fehlermeldung und eine neue wird erstellt, bevor eine Verbindung aufgebaut wird.\\
 Im nächsten Schritt werden 12 Tabellen erstellt. Um welche Tabellen es sich genau handelt siehe Kapitel 16.2.
-Für eine bessere Übersicht und für ein besseres Verständnis wurde der restliche Code in acht Regionen aufgeteil.
+Für eine bessere Übersicht und für ein besseres Verständnis wurde der restliche Code in acht Regionen aufgeteilt.
 \subsubsection{basic methods}
 In dieser Region werden grundsätzliche Methoden definiert. In diesem Fall handelt es sich um Methoden, welche die Funktion zum schreiben und auswählen von Daten ermöglichen.
 \subsubsection{read tables}
@@ -3742,10 +3742,10 @@ Es sind zwei Methoden definiert:
 \subsubsection{get joined tables}
 In dieser Region sind zwei Methoden definiert. Jede von ihnen bezieht sich auf eine bestimmte Tabelle.
 \begin{itemize}
-\item Die erste Methode bezieht sich auf die Tabelle JobTable. Mit dieser Methode wird der "{}zulesende"{} Inhalt der JobTable angezeigt und nicht der echte. Damit ist gemeint, dass der Inhalt so gelesen wird, dass sämtliche Verknüfungen, welche durch einen sogenannten "{}Join"{} erstellt wurden, den Inhalt aus der verknüpften Tabellen anzeigen und nicht die ID, welche zur Verknüpfung notwendig ist.
-\item Die zweite Methode erlaubt das gleiche nur auf die Tabelle SummaryTable bezogen. Damit wird hier auch der "{}zulesende"{} Inhalt angezeigt, da in der Tabelle SummaryTable Verknüpfungen zu anderen Tabellen bestehen.
+\item Die erste Methode bezieht sich auf die Tabelle JobTable. Mit dieser Methode wird der "{}zu lesende"{} Inhalt der JobTable angezeigt und nicht der echte. Damit ist gemeint, dass der Inhalt so gelesen wird, dass sämtliche Verknüpfungen, welche durch einen sogenannten "{}Join"{} erstellt wurden, den Inhalt aus der verknüpften Tabellen anzeigen und nicht die ID, welche zur Verknüpfung notwendig ist.
+\item Die zweite Methode erlaubt das gleiche nur auf die Tabelle SummaryTable bezogen. Damit wird hier auch der "{}zu lesende"{} Inhalt angezeigt, da in der Tabelle SummaryTable Verknüpfungen zu anderen Tabellen bestehen.
 \end{itemize}
-Der Quellcode, um die Tabelle JobTable, welche durch Join- Funktionen mit anderen Tabellen verknüpft wurde, mit den Informationen, statt den Verknüpfungen, anzugeigen sieht folgendermaßen aus:
+Der Quellcode, um die Tabelle JobTable, welche durch Join- Funktionen mit anderen Tabellen verknüpft wurde, mit den Informationen anzuzeigen (statt den Verknüpfungen), sieht folgendermaßen aus:
 \begin{lstlisting}
 public DataTable GetJobTable(string subcommand)
         {
@@ -4869,11 +4869,11 @@ Der nächste, mir wichtige Punkt ist dann aber doch das Projektmanagement. Die P
 Abschließend würde ich sagen, dass ich sehr zufrieden bin mit der Arbeit die mein Team und ich vollbracht haben.''
 
 \chapter{Marko Stojanovi\'{c}}
-Am Anfang der Diplomarbeit, war es ersichtlich, dass wir zumindest, was die Kommunikation angeht, gut miteinander auskommen werden, da wir uns alle bereits seit dem Beginn unserer HTL-Karriere gut kennen und verstehen. Die Planung der Diplomarbeit und weitere wichtige Entscheidungen, welche getroffen werden mussten, wie z.B. Betreuerwahl, waren aufgrund der gemeinsamen Interessen schnell und eindeutig geklärt. \\\\
+Am Anfang der Diplomarbeit, war es ersichtlich, dass wir zumindest, was die Kommunikation angeht, gut miteinander auskommen werden, da wir uns alle bereits seit dem Beginn unserer HTL-Karriere gut kennen. Die Planung der Diplomarbeit und weitere wichtige Entscheidungen, welche getroffen werden mussten, wie z.B. Wahl unseres Betreuers, waren aufgrund der gemeinsamen Interessen schnell und eindeutig geklärt. \\\\
 Als die Realisierung begann, konnte man sehen, dass nur am Beginn alle den gleichen Fortschritt erzielen konnten. Die Unterschiede konnten dann festgestellt werden, als es immer tiefer in die Realisierung ging. Das sorgte für einige organisationstechnische Probleme. Aufgrund der unterschiedlichen, bereits vorhanden Fähigkeiten, die jeder mit sich brachte, konnten einige nicht mit ihren gestellten Aufgaben bis zum vereinbarten Zeitpunkt fertig werden, mich eingeschlossen.\\
-Dies war jedoch kein sehr großes Problem, da wir unsere Termine immer etwas früher setzten, damit es in diesen Fällen zu keiner großen Verzögerung, für den Rest der Gruppen, kommen würde. Es war nämlich schon von allen bereits erwartet worden. Ich selbst konnte den Zeitplan auch nicht einhalten. Durch die Hilfe von Alin Porcic konnte ich aber doch mit dem Rest mithalten.\\\\
-Durch GitHub wurde uns das Zusammensetzen des Quellcodes und der Dokumentation sehr erleichtert, jedoch ist zu erwähnen, dass trotzdem Probleme auftraten, z.B. ist bei der Dokumentation durch einen Fehler ein Teil meiner Dokumentation gelöscht worden und musste deshalb neu geschrieben werden.\\\\
-Trotz einiger kleinen Problem mit den ungleichen Fähigkeiten, welche Verzögerungen hervorbrachten, konnten wir pünktlich zum Schluss ein stabiles und nach unseren Vorstellungen (und der Aufgabenstellung) gerechtes Programm erstellen und es auch dokumentieren.\\\\
-Durch diese Diplomarbeit habe ich meine Programmierfähigkeiten vertieft und habe auch vieles über Datenbanken gelernt, was auch mein Ziel war.
+Dies war jedoch kein sehr großes Problem, da wir unsere Termine immer etwas früher setzten, damit es in diesen Fällen zu keiner großen Verzögerung, für den Rest der Gruppen kommen konnte. Es war nämlich schon von allen bereits erwartet worden, dass dieser Fall eintreffen würde. Ich selbst konnte den Zeitplan auch nicht einhalten. Durch die Hilfe von Alin Porcic, konnte ich aber doch mit dem Rest der Gruppe mithalten.\\\\
+Durch GitHub wurde uns das Zusammensetzen des Quellcodes und der Dokumentation sehr erleichtert, jedoch ist zu erwähnen, dass trotzdem Probleme auftraten, z.B. ist bei der Dokumentation, durch einen Fehler ein Teil meiner Dokumentation gelöscht worden, welcher erneut geschrieben werden musste.\\\\
+Trotz einiger kleiner Probleme mit den ungleichen Fähigkeiten, welche Verzögerungen hervorbrachten, konnten wir pünktlich zum Schluss ein stabiles und nach unseren Vorstellungen (und der Aufgabenstellung) gerechtes Programm erstellen und es auch dokumentieren.\\\\
+Durch diese Diplomarbeit habe ich meine Programmierfähigkeiten vertieft und ich habe auch vieles über Datenbanken gelernt, was auch mein Ziel war. Zusätzlich konnte ich feststellen, dass die Planung bei aufwändigen Projekten, wie diesem, sehr wichtig ist. Wir haben durch die relativ genaue Planung, am Beginn des Projekts, viel Stress erspart.
 
 \end{document}
