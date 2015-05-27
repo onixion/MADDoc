@@ -1,0 +1,9 @@
+
+1. Welche Arten von Schlüssel gibt es und welche besonderen Definitionen gibt es bei Datenbanken?
+
+2. Welche Arten von Datenbankmodellen gibt es?
+
+3. Was ist ein Datenbanksystem, wichtigste Funktionen von DBMS und welche Eigenschaften hat SQLite?
+
+4. Welche Arten von Programmiersprachen gibt es und welche Programmierparadigmen gibt es?
+
