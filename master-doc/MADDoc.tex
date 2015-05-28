@@ -122,7 +122,7 @@ Die Pragmatik einer Programmiersprache bestimmt den Einsatzbereich, damit werden
 \end{itemize}
 
 \subsubsection{Minimalanforderungen an Programmiersprachen}
-Programmiersprachen bieten viele Möglichkeiten an, folgende Eigenschaften zählen zu den Minimalanforderungen an Programmiersprachen:
+Programmiersprachen stellen viele Möglichkeiten zur Verfügung, folgende Eigenschaften zählen zu den Minimalanforderungen an Programmiersprachen:
 \begin{itemize}
 \item Ein- und Ausgabebefehle\\
 Auf diese Weise wird eine Eingabe und Ausgabe von Daten realisiert.
@@ -164,7 +164,7 @@ Allgemeine Deklarationsverwendungen von Bibliotheken sind in einer Header-Datei 
 \\Funktionen, wie zum Beispiel "{}cin"{} und "{}cout{}", sind keine integrierten Bestandteile der verwendeten Programmiersprachen (z.B.: C++), wie im Gegensatz die Befehle "{}if "{} oder "{}else "{}. Funktionen, welche keine Bestandteile der Programmiersprache sind, können mit der Anweisung "{}\# include \textless stdio.h\textgreater "{} (eine Header-Datei namens "{}stdio.h "{}) eingekapselt werden. Dadurch wird gewährleistet, dass der Präprozessor (auch Präcompiler, ein Programm, welches vor der Übersetzung durch den Compiler wirksam ist) den Quelltext nach Zeilen kontrolliert, welche mit "{}\#"{} anfangen und Zeile, welche mit dem Inhalt der Header-Datei ersetzt. [406]
 
 \subsubsection{Libraries}
-Mit Libraries werden Sammlungen (Bibliotheken) von Programmfunktionalitäten, für passende Aufgaben, bezeichnet. Dabei handelt es sich um Hilfsmodule (keine eingeständige Einheit) für Programme.\\
+Mit Libraries werden Sammlungen (Bibliotheken) von Programmfunktionalitäten, für passende Aufgaben, bezeichnet. Dabei handelt es sich um Hilfsmodule (keine eigenständige Einheit) für Programme.\\
 In der Programmiersprache C++ enthält die Library namens "{}stdio.lib"{} die Funktion zur Ein- und Ausgabe von Daten auf dem Bildschirm ("{}cin"{} und "{}cout "{}).\\
 Dabei muss auch zwischen Static und Dynamic Libraries unterschieden werden.
 
@@ -486,8 +486,12 @@ Dieser Teil der Abhandlung wird die Netzwerkgrundlagen, die auf das Ethernet Pro
 \section{Grundlagen}
 In der Netzwerktechnik gibt es mehrere verschiedene grundlegende Konzepte, auf welche hier eingegangen werden soll.
 
-\subsection*{Übersicht: Netzwerkdevices$^{[204]}$}
-\addcontentsline{toc}{subsection}{Übersicht: Netzwerkdevices}
+\subsection{Übersicht: Netzwerkdevices}
+\begin{flushright}
+\begin{tiny}
+Quellen: [204]
+\end{tiny}
+\end{flushright}
 Um ein Netzwerk aufzubauen, werden verschiedene Devices benötigt. Je nach Größe und Art des Netzwerkes kann man auch auf einzelne Komponenten verzichten. 
 
 \subsubsection{Router}
@@ -553,8 +557,12 @@ Während Stateful Inspection sich nur den Header des Paketes ansieht, greift die
 Vorteilhaft daran ist die relativ hohe Sicherheit, da auch Pakete, welche auf einem scheinbar harmlosen Port kommen und auch das passende Protokoll haben, manipuliert sein können. Nachteilig jedoch, dass die Firewall damit in der Lage ist, absolut alles an Informationen über den Netzwerkverkehr aufsammeln zu können, was sie will. Die Anonymität ist damit nicht länger gewährleistet.
 \end{itemize}
 
-\subsection*{Übersicht: Netzwerktypen$^{[205]}$}
-\addcontentsline{toc}{subsection}{Übersicht: Netzwerktypen}
+\subsection{Übersicht: Netzwerktypen}
+\begin{flushright}
+\begin{tiny}
+Quellen: [205]
+\end{tiny}
+\end{flushright}
 Hier soll auf die wichtigsten Netzwerktypen kurz eingegangen werden. Es gibt einige mehr als jene, die im Folgenden erwähnt werden, jedoch sollten sie die Wichtigsten abdecken.
 \subsubsection{LAN}
 Das \textbf{LAN}, oder Local Area Network, bezeichnet ein Netzwerk, welches von seinen Ausdehnungen her nicht mehr als 500 Meter überschreitet. Als LANs werden zum Beispiel Heimnetzwerke, Netzwerke in Schulen oder Arbeitsplätzen, besonders Büros, oder Bürogebäuden bezeichnet.
@@ -576,13 +584,22 @@ Beim statischen VLAN werden einzelne Ports an einem Switch, dediziert einem VLAN
 Beim dynamischen VLAN versucht der Switch anhand von Zusammenhängen im Datenverkehr zu entscheiden, in welches VLAN ein Paket gehört. 
 \end{itemize}
 
-\subsection*{Der Host$^{[206]}$}
-\addcontentsline{toc}{subsection}{Der Host}
+\subsection{Der Host}
+\begin{flushright}
+\begin{tiny}
+Quellen: [206]
+\end{tiny}
+\end{flushright}
 Mit dem Term \textbf{Host} wird im Zusammenhang der Netzwerktechnik ein Gerät beschrieben, welches über das Netzwerk mit anderen Hosts verbunden ist und theoretisch die Möglichkeit hat an der Kommunikation teilzunehmen. Damit ein Host zur Kommunikation in der Lage ist, benötigt er mehrere Dinge.\\
 Zu diesen gehört Hardware technisch gesehen, mindestens eine \textbf{Netzwerkkarte} mit einer Art von Möglichkeit sich in das Netz einzuklinken. Diese Möglichkeit kann aus einem Ethernet Anschluss oder einer Antenne bestehen, welche in der Lage ist, das 2,4 GHz Band und/oder das 5GHz Band zu empfangen und in diesem Band zu senden.\\
 Auf der Softwareseite benötigt ein Host im Grunde drei Dinge, welche ihn dazu ermöglichen eine Konversation mit einem anderen Host über das Internet zu führen. Es gibt natürlich auch andere Arten von Kommunikation in Netzwerken, jedoch ist das TCP/IP (siehe Kapitel \ref{sssec:tcpip} auf Seite \pageref{sssec:tcpip}) Modell das am häufigsten vorkommende. 
 
-\subsubsection{MAC-Adressen${[200]}$}\label{sssec:macaddr}
+\subsubsection{MAC-Adressen}\label{sssec:macaddr}
+\begin{flushright}
+\begin{tiny}
+Quellen: [200]
+\end{tiny}
+\end{flushright}
 \textbf{MAC-Adresse} steht für Media Access Controll Adresse und ist dem \textbf{Layer 2} zugewiesen. Die MAC-Adresse heißt in Apple Systemen auch \glqq Ethernet-ID\grqq , \glqq Airport-ID\grqq \ oder \glqq Wi-Fi-Adresse\grqq . Sie sollte theoretisch jedes Netzwerkinterface eindeutig kennzeichnen, jedoch ist es mit moderner Software möglich, die MAC-Adresse zu ändern.\\
 Da die MAC-Adresse nicht mehr, wie ursprünglich gedacht, in die Netzwerkkarte \glqq eingebrannt\grqq ist, kann sie von Crackern eingesetzt werden, um Schaden anzurichten (siehe Kapitel \ref{ssec:mspoof} und \ref{ssec:mflood} auf den Seiten \pageref{ssec:mspoof} und \pageref{ssec:mflood})\\
 
@@ -593,7 +610,12 @@ Das zweite Bit steht dafür, ob es eine global administrierte (0) oder eine loka
 
 Ohne Kenntnis über die MAC-Adresse wäre es nicht möglich, in einem Netzwerk zu kommunizieren, da das Ethernetframe die Sender und die Empfänger MAC-Adresse verlangt.\\
 Für den Fall, dass sich der Zielhost nicht im gleichen Netz befindet, sich also in einem durch einen Router getrennten, anderen Netz befindet, würde für die Ziel MAC-Adresse jene des Routers angegeben. Sollte sich die Adresse des Ziels nicht im Cache des Rechners befinden, wird das Protokoll ARP verwendet (siehe Kapitel \ref{ssec:arp} Seite \pageref{ssec:arp}). 
-\subsubsection{IP-Adressen${[201]}$}\label{sssec:ipaddr}
+\subsubsection{IP-Adressen}\label{sssec:ipaddr}
+\begin{flushright}
+\begin{tiny}
+Quellen: [201]
+\end{tiny}
+\end{flushright}
 Im folgenden wird nur auf IP version 4 eingegangen. Informationen zu IP version 6 können in Kapitel \ref{ssec:ip} auf Seite \pageref{ssec:ip} gefunden werden.\\
 
 Die zweite Adresse, die ein Host benötigt, um mit anderen zu kommunizieren oder Daten auszutauschen, ist die \textbf{IP-Adresse}, was für Internet Protokoll Adresse steht. Diese wird dem \textbf{Layer 3} des OSI-Schichtenmodells zugewiesen. Es gibt auch noch einige andere Protokolle auf Layer 3, jedoch setzen Netzwerke, wie sie im Projekt bearbeitet wurden, sowie das Internet hauptsächlich auf IP auf.\\
@@ -604,7 +626,12 @@ Wie bereits zuvor beschrieben wird die MAC-Adresse verwendet, um im gleichen Net
 
 Eine IP-Adresse wird normal ein zwei Teile gespalten. Es gibt den \textbf{Netzteil} und den \textbf{Hostteil} einer IP-Adresse. Der Netzteil einer Adresse kennzeichnet, wie der Name bereits sagt, in welchem Netz sich ein Host befindet. Der Hostteil hingegen kennzeichnet einen einzelnen Host in diesem Netz.\\
 Um zu erkennen welcher Teil einer IP-Adresse der Netzteil und welcher der Hostteil ist, verwendet man sogenannte \textbf{Subnetzmasken}. Die Subnetzmaske besteht aus einer dezimalen Zahl zwischen 1 und (theoretisch) 32 und gibt an, wieviele Bits der IP-Addresse zum Netzteil gehören. So wäre zum Beispiel bei der Adresse \textit{192.168.1.1/24} ein Anteil von 24 bit dem Netzteil zugehörig. 24 bit entsprechen 3 byte, also die ersten 3 dezimalen Zahlen 192.168.1 sind das Netz und .1 ist der Host.
-\subsubsection{Ports$^{[202]}$}
+\subsubsection{Ports}
+\begin{flushright}
+\begin{tiny}
+Quellen: [202]
+\end{tiny}
+\end{flushright}
 Werden auf der Transportschicht, also \textbf{Layer 4}, die Protokolle \textbf{TCP oder UDP} verwendet, werden jedem Host, zusätzlich zu den zuvorgenannten Werten, auch noch sogenannte Ports zugewiesen. Diese kennzeichnen \textbf{zu welcher Anwendung} ein Paket gehört. Es gibt immer einen Source-Port und einen Destination-Port.\\
 Ports bewegen sich in einem Raum von 0 bis 65535. Dieser Bereich wird aufgeteilt in drei kleinere Bereiche.\\
 Ersterer sind die sogenannten \textbf{well-known Ports}, also jene, welche von allen gekannt und anerkannt werden. Er erstreckt sich von den Nummern 0 bis 1023. Ports in diesem Bereich sind von der IETF (Internet Engineering Task Force) mit bestimmten, wichtigen Anwendungen verknüpft worden. So ist das File Transport Protocol ftp auf Port 21 zu finden.\\
@@ -616,8 +643,12 @@ Ohne Ports wäre es nicht möglich, mehrere Netzwerkanwendungen gleichzeitig zu 
 
 Wie erwähnt gibt es, wie bei den zuvor genannten Werten, auch hier Source und Destination. Während der Destination Port bei einem Client meistens anhand der Art von Anwendung vorbestimmt ist, ist der Source Port frei zu wählen, solange er über 1024 liegt. Meistens wird jedoch ein Port über 30000 verwendet. 
 
-\subsection*{Schichtenmodel${[203]}$}
-\addcontentsline{toc}{subsection}{Schichtenmodel}
+\subsection*{Schichtenmodel}
+\begin{flushright}
+\begin{tiny}
+Quellen: [203]
+\end{tiny}
+\end{flushright}
 Das \textbf{Schichtenmodel} ist ein im Bereich der Softwarearchitektur häufig verwendetes Strukturierungsprinzip, indem Schichten immer auf die Resourcen der unteren Schicht zugreifen können, ohne sich Gedanken um deren Format oder ähnliches machen zu müssen, während sie selbst der next höheren Schicht fixierte Objekte zur Verfügung stellen. In der Netzwerktechnik gibt es zwei etablierte Schichtenmodelle.
 \subsubsection{OSI}
 Das \textbf{OSI-Layer Modell} wurde 1984 von der International Organization for Standardization (ISO) als Standardreferenzmodell für Telekommunikation in Netzwerken festgelegt.\\
@@ -736,9 +767,16 @@ In der Praxis wird das TCP/IP-Modell verwendet, solange die Abstrahierung nicht 
 Gegenüberstellung OSI - TCP/IP:\\
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/ositcpip.png}
+\begin{scriptsize}
+Quelle: www.rvs.uni-bielefeld.de/heiko/tcpip/tcpip\_html\_alt/kap\_1\_3.html
+\end{scriptsize}
 \end{center}
-\subsection*{Client-Server Verhältnis$^{[207]}$}\label{ssec:client-server}
-\addcontentsline{toc}{subsection}{Client-Server Verhältnis}
+\subsection{Client-Server Verhältnis}\label{ssec:client-server}
+\begin{flushright}
+\begin{tiny}
+Quellen: [207]
+\end{tiny}
+\end{flushright}
 Das Client-Server Modell ist das bekannteste und am öftesten verwendete Muster für Aufgabenverteilung in einem Netzwerk.\\ 
 Bei diesem Modell gibt es denjenigen, der die \textbf{Dienste anbietet, den Server}, und jenen, der die \textbf{Dienste nutzt, den Client}.\\
 
@@ -750,7 +788,9 @@ Ein Rack ist ein Gestell, in welches man Blade-Server einfach hineinschieben kan
 
 \begin{center}
 \includegraphics[scale=0.8]{../docs/tarkes/pics/ServerRack.jpg}\\
-Ein Rack mit mehreren Blade-Servern 
+\begin{scriptsize}
+Quelle: http://upload.wikipedia.org/wikipdia/commons/7/70/Enclosure\_proliant.jpg
+\end{scriptsize}
 \end{center}
 
 Als \textbf{Software-Server} werden Programme bezeichnet, welche Dienste anbieten. Zu solchen zählt zum Beispiel der Webserver Apache, der FTP-Server Filezilla oder auch bind, die Referenzimplementierung eines DNS-Servers.\\
@@ -789,8 +829,12 @@ Nun, da er über die IP-Adresse des Webservers verfügt, durchläuft der Rechner
 \item Schritt:\\
 Wenn er sich sämtliche Informationen, welche für diese Anfrage benötigt werden, gesammelt hat, baut er das HTTP-Request Paket zusammen, mit MAC- und IP-Adresse, diesesmal TCP Port 80, und der Seite im HTTP Teil des Paketes. Er wartet auf die Antwort Pakete, baut die Seite im Browser auf und der User bekommt, was er will.
 \end{enumerate}
-\section*{Protokolle$^{[208]}$}
-\addcontentsline{toc}{section}{Protokolle}
+\section{Protokolle}
+\begin{flushright}
+\begin{tiny}
+Quellen: [208]
+\end{tiny}
+\end{flushright}
 Es gibt unzählige verschiedene Protokolle, hier soll nur auf ein paar wenige Wichtige eingegangen werden, welche auch Verwendung im praktischen Teil der Diplomarbeit gefunden haben.
 \subsection{Ethernet}\label{ssec:eth}
 \textbf{Ethernet} ist ein sowohl ein Layer1 als auch ein Layer2 Protokoll im OSI-Modell und damit für die unterste Schicht und den grundlegenden Kommunikationsmöglichkeiten zuständig.\\
@@ -842,7 +886,9 @@ Eine andere Option ist Verschlüsselung, auf welchen im Kapitel \ref{chap:krypto
 
 \begin{center}
 \includegraphics[scale=0.35]{../docs/tarkes/pics/Ethernetpaket.png}
-Ethernetframe
+\begin{scriptsize}
+Quelle: de.wikipedia.org/wiki/Datei:Ethernetpacket.svg
+\end{scriptsize}
 \end{center}
 
 Das Frame wird serialisiert und mit dem niederwertigsten Bit zuerst übertragen. Das EthernetframeF besteht aus folgenden Teilen:
@@ -940,6 +986,9 @@ Warum die Verwendung des IPv6 Standards trotzdem soweit hinausgezögert wird, li
 Der IP-Header sieht wie folgt aus:\\
 \begin{center}
 \includegraphics[scale=1]{../docs/tarkes/pics/ipheader.jpg}
+\begin{scriptsize}
+www.rvs.uni-bielefeld.de/~heiko/tcpip/tcpip\_html\_alt/kap\_2\_3.htm
+\end{scriptsize}
 \end{center}
 \subsubsection{IPv6}
 IPv6 ist der offizielle Nachfolger von IPv4. Er ist seit 1998 von der IETF standardisiert und bringt einige Neuerungen in das Internet Protocol welche die Fehler, die durch das unterschätzte Wachstum des Internets hervorgerufen wurden, aufheben soll.\\
@@ -1001,6 +1050,9 @@ Die Entwicklung von TCP dauerte einige Jahre. Es begann bereits 1973, endete abe
 
 \begin{center}
 \includegraphics[scale=0.6]{../docs/tarkes/pics/TcpHandshake.png}
+\begin{scriptsize}
+Quelle: de.wikipedia.org/wiki/Transmission\_Control\_Protocol\#/media/File:Tcp-handshake.svg
+\end{scriptsize}
 \end{center}
 
 Da TCP ein verbindungsorientiertes Protokoll ist, gibt es auch einen Verbindungsaufbau.\\
@@ -1047,6 +1099,9 @@ Der Server, welchem der Request gilt, kann dieser nun mit \textbf{DHCPACK} für 
 DHCP Header:\\
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/dhcpheader.jpg}
+\begin{scriptsize}
+Quelle: www.cisco.com/web/about/ac123/ac147/images/ipj/ipj\_5-2/figure\_1\_dhcp.gif
+\end{scriptsize}
 \end{center}
 \subsection{Domain Name System - DNS} \label{ssec:DNS}
 DNS ist ein Protokoll, welches zwar nicht zwingend notwendig ist für das Funktionieren des Internets, aber uns Menschen es sehr komfortabel macht damit zu arbeiten.\\
@@ -1074,6 +1129,9 @@ Dies wird auch vom Staat genutzt, um Zensur zu betreiben. Die Filme und Serien S
 DNS Header:\\
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/dnsheader.png}
+\begin{scriptsize}
+www.tcpipguide.com/free/diagrams/dnsheaderformat.png
+\end{scriptsize}
 \end{center}
 \subsection{Internet Control Message Protocol - ICMP}
 Das Internet Control Message Protocol bewegt sich auf Layer 3 zusammen mit IP. Es dient dazu, anderen Geräten \textbf{Informationen über ihren Status} zukommen zu lassen. Es gibt eine Variante für IPv6, das sogenannte ICMPv6. Es verwendet zum Transport IP, obwohl es auf dem gleichen Layer liegt, da es sich als ein Protokoll höherer Ebene interpretiert.\\
@@ -1114,6 +1172,9 @@ Die Informationen, welche damit abgerufen werden können, sind unglaublich vielf
 Die MIB:
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/mib.jpg}
+\begin{scriptsize}
+Quelle: sourcedaddy.com/networking/images/inmg2.gif
+\end{scriptsize}
 \end{center}
 
 Es gibt inzwischen \textbf{drei Versionen} von SNMP. Der Hauptkritikpunkt an den ersten Versionen war die Unsicherheit. Es ging so weit, dass im Scherz behauptet wurde, SNMP stehe eigentlich für \textbf{S}ecurity? \textbf{N}ot \textbf{m}y \textbf{P}roblem. Dies wurde auch erst mit der letzten Version, Version 3 wirklich ausgebessert.\\
@@ -1122,6 +1183,9 @@ Dies wurde in Version 3 dann verbessert und mit zwei zusätzlichen Passphrasen, 
 
 \begin{center}
 \includegraphics[scale=0.7]{../docs/tarkes/pics/snmpheader.jpg}
+\begin{scriptsize}
+Quelle: verticalhorizions.in/wp-content/uploads/2011/09/SNMPv3\_Message\_Format.bmp
+\end{scriptsize}
 \end{center}
 
 Es gibt mehrere Möglichkeiten wie SNMP Informationen aus einer MIB bekommt. Der Standard ist die \textbf{GET Methode}, bei der er ein Feld abfrägt. Doch gibt es auch die Methoden \textbf{GETNEXT und GETBULK}.\\
@@ -1198,8 +1262,12 @@ Im folgenden Kapitel wird versucht, das Konzept von E-Mail zu erklären.\\\\
 Die 'electronic mail', kurz E-Mail, wird nun schon seit einigen Jahren dazu verwendet, um vor allem Text, aber auch beliebige Dateien auf elektronischem Wege von A nach B zu senden. \\
 Die elektronische Post ist ein sehr wichtiger Teil des heutigen Kommunikationssystems. Nahezu jeder, unabhängig von Alter und Beruf, hat eine E-Mail-Adresse. E-Mails ermöglichen nun schon seit geraumer Zeit, sowohl das Senden als auch das Empfangen von Text, Dokumenten, Bildern, etc.. Es gibt auch andere Mittel zum Kommunizieren auf elektronischem Wege, aber im Großen und Ganzen ist die E-Mail wohl das einfachste und auch praktischste.\\\\
 Es ist teilweise mit der Post vergleichbar (im weiteren Verlauf wird dieser Vergleich öfter angestellt), da es weitgehend den traditionellen 'Brief' abgelöst hat.  
-\section*{Allgemein$^{[300]}$} %Dani du gay check des out
-\addcontentsline{toc}{section}{Allgemein}
+\section{Allgemein}
+\begin{flushright}
+\begin{tiny}
+Quellen: [300]
+\end{tiny}
+\end{flushright}
 \subsubsection{Entstehung}\label{sssec:Entstehung}
 Der Entstehungsweg der E-Mail startet in den 1960er Jahren, als Ray Tomlinson, ein Computertechniker bei Bolt Beranek and Newman (BBN), neben seiner eigentlichen Arbeit, sich einem anderen Projekt widmete. Mithilfe dessen wollte er es schafften, die bis dato noch nicht vorhandene Übertragung und auch das Hinterlassen von Nachrichten bzw. Dateien zwischen zwei im gleichen Netzwerk befindlichen Rechnern zu ermöglichen. Es war noch die Zeit vor dem Internet, die Zeit des sog. Arpanets, welches als Vorgänger des Internets gilt. Damals versuchte Tomlinson, mithilfe schon vorhandener Systeme, wie dem SNDMSG und dem CPYNET, ein neues System zu schaffen.\\\\
 
@@ -1214,8 +1282,12 @@ Während der Entwicklungsphase, meinte Tomlinson, während er es seinen Kollegen
 Nachdem dieser Grundstein gelegt wurde, war 'E-Mail' entstanden. Mit der Weiterentwicklung des Arpanets (später Telenet) und der Entstehung des Internets, wuchs auch die elektronische Post immer weiter mit. Im Jahr 1975 war es dank dem Programmierer John Vittal erstmals möglich E-Mails etwas übersichtlicher darzustellen. Damit wurde alles wesentlich benutzerfreundlicher und somit verbreitete es sich noch weiter unter Bevölkerung. Das Programm wurde 'MSG' genannt. Neben der übersichtlichen Darstellung, ermöglichte MSG mitunter auch das Weiterleiten, die Vorschau und das Antworten und einige weitere Funktionen.\\
 
 FAX und SMS sind weitere Entwicklungen zur Übertragung von Nachrichten. Die E-Mail hat sich im Vergleich sehr gut durchgesetzt und ist kaum noch wegzudenken. 
-\section*{Funktionsweise$^{[301]}$}
-\addcontentsline{toc}{section}{Funktionsweise}
+\section{Funktionsweise}
+\begin{flushright}
+\begin{tiny}
+Quellen: [301]
+\end{tiny}
+\end{flushright}
 Die Funktionsweise die dem Versenden und Empfangen von E-Mails zu Grunde liegt, ist relativ einfach. Auch hier wird das schon bekannte Client-Server Prinzip angewendet (siehe Kapitel \ref{ssec:client-server} Seite \pageref{ssec:client-server}).\\
 
 \begin{center}
@@ -1258,9 +1330,9 @@ Der Body beinhaltet die eigentliche Nachricht
 \begin{center}
 \includegraphics[scale=0.9]{../docs/lyaton/graphics/E-Mail-Header.png}\\
 \textbf{E-Mail Header}\\
-\begin{scriptsize}
+\begin{tiny}
 Konvertiertes Bild - Quelle:\\http://de.wikipedia.org/wiki/Header\_(E-Mail)\#/media/File:FromToCcBCC-Who\_sees\_what.svg
-\end{scriptsize}
+\end{tiny}
 \end{center}
 \vspace{0.5cm}
 Der Header, ist wieder im Vergleich mit der Post, das Briefkuvert. Er enthält das für das Versenden notwendige Informationsmaterial. Im Gegensatz zu anderen Nachrichtensystemen ist es bei E-Mails möglich, eine Nachricht an mehrere Empfänger gleichzeitig zu senden.\\
@@ -1517,8 +1589,12 @@ Eine durchgehende Verbindung zum Server ist notwendig & $\rightarrow$ & Da die E
 \paragraph{IMAP und POP im Vergleich mit der Post:}
 \subparagraph{IMAP:} IMAP: Die Post wird direkt am Briefkasten gelesen und vom Briefkasten nach Belieben sortiert und entsorgt.
 \subparagraph{POP:} POP: Die Post wird direkt am Briefkasten entsorgt oder kopiert. Die Kopien können mit nach Hause genommen werden. Dort können sie gelesen und verwaltet werden. 
-\section*{Bedeutung im Alltag$^{[302]}$}
-\addcontentsline{toc}{section}{Bedeutung im Alltag}
+\section{Bedeutung im Alltag}
+\begin{flushright}
+\begin{tiny}
+Quellen: [302]
+\end{tiny}
+\end{flushright}
 \subsubsection{Heute}
 E-Mails sind heute eine der meistgenutzten Kommunikationsmöglichkeiten überhaupt. Vor allem Firmen senden massenhaft E-Mails. Die elektrische Post ist aus dem heutigen Alltag kaum mehr wegzudenken.\\\\
 Viele Geräte unterstützen diese Technik, wie z.B. Smartuhren, Smartphones, Tablets, Laptops, und viele mehr. Dadurch wird die schnelle Abrufbarkeit gewährleistet.
@@ -1532,8 +1608,12 @@ Viele Geräte unterstützen diese Technik, wie z.B. Smartuhren, Smartphones, Tab
 \end{itemize} 
 \subsubsection{Zukünftig}
 Analysten zufolge wird der E-Mail-Verkehr sich immer mehr in den wirtschaftlichen Sektor verschieben, da die Menschen immer mehr ihre Sozialen Kontakte über soziale Netwerke, wie Facebook, Whatsapp und Twitter aufrecht erhalten. E-Mails zwischen zwei Freunden werden voraussichtlich immer seltener. (vgl.http://de.wikipedia.org/wiki/E-Mail)
-\section*{Probleme$^{[303]}$}
-\addcontentsline{toc}{section}{Probleme}
+\section{Probleme}
+\begin{flushright}
+\begin{tiny}
+Quellen: [303]
+\end{tiny}
+\end{flushright}
 Beim Versand von E-Mails gibt es nach wie vor auch einige Probleme, die schwer zu bewältigen sind. Dieses sind z.B. Spam und Informations-Overloads. Auf einige bekannte Probleme wird im folgenden eingegangen.
 \subsection{Begrenzungen}
 E-Mails könnten zwar rein theoretisch unbegrenzte Datenmengen übertragen, dies ist jedoch in der Praxis nicht umsetzbar. Viele Betreiber von Mailservern limitieren die Datenmengen um die Auslastung so gering wie möglich zu halten. 
@@ -1604,14 +1684,18 @@ Ein weiterer Problem ist das Nutzen von graphischen Diensten wie zum Beispiel da
 \lfoot{Manpreet Singh}
 Die graphische Benutzeroberfläche begleitet uns tagtäglich. Sie bietet uns viel Komfort und ermöglicht auch Laien den Zugang zur Informationstechnik.\\\\
 GUIs (Graphical User Interface) werden auch häufig in Firmen eingesetzt um Personal, welches der Informationstechnik nicht sehr mächtig ist, trotzdem eine Möglichkeit zu bieten darauf zuzugreifen.
-\subsection*{Geschichte$^{[304]}$}
-\addcontentsline{toc}{subsection}{Geschichte}
+\subsection{Geschichte}
+\begin{flushright}
+\begin{tiny}
+Quellen: [304]
+\end{tiny}
+\end{flushright}
 Die Geschichte des GUI begann in den 70er Jahren in Kalifornien mit der Firma Xerox. Dort wurde erstmals an Graphischen Oberflächen gearbeitet. Nach einer langen Entwicklungsphase kam der Xerox Star auf den Markt. Dieser schaffte jedoch nicht den erhofften Durchbruch. Die Firma Apple präsentierte 1983 ihren ersten Computer mit graphischer Oberfläche. Er trug den Namen 'Apple Lisa', jedoch war das Preis-Leistungs-Verhältnis nicht ausgeglichen. Der Apple Macintosh aus dem Jahre 1984 war Apples Durchbruch. Er wurde unter Steve Jobs Leitung entwickelt. \\\\
 Aus dem Hause Microsoft kam 1985 das Betriebssystem Windows 1.3 mit graphischer Oberfläche, welches nur mit IBM PCs kompatibel war. Mit diesem Betriebssystem konnte Microsoft jedoch nicht überzeugen.\\
 
 Die Entwicklung des GUIs war sehr stark abhängig von der Entwicklung der Hardware, denn ohne Leistung  kann es auch keine aufwendige Software geben.\\
 
-Die Entwicklung  ist in den letzten 10 bis 15 Jahren nahezu exponentiell angestiegen. Dies ermöglicht heute genug vorhandene Leistung und dadurch problemlose Produktion komplizierter graphischer Programme.  (vgl. http://de.wikipedia.org/wiki/Grafische\_Benutzeroberfläche\#Geschichte)
+Die Entwicklung  ist in den letzten 10 bis 15 Jahren nahezu exponentiell angestiegen. Dies ermöglicht heute genug vorhandene Leistung und dadurch problemlose Produktion komplizierter graphischer Programme.
 
 \subsubsection{Überblick- Graphische Oberflächen}
 \begin{center}
@@ -1686,8 +1770,12 @@ Quelle: http://de.wikipedia.org/w/index.php?title=Datei:Windows\_8.1\_ModernUI\_
 \end{scriptsize}
 \end{center}
 
-\subsection*{Technischer Hintergrund$^{[305]}$}
-\addcontentsline{toc}{subsection}{Technischer Hintergrund}
+\subsection{Technischer Hintergrund}
+\begin{flushright}
+\begin{tiny}
+Quellen: [305]
+\end{tiny}
+\end{flushright}
 Die Benutzeroberfläche ist die Schnittstelle zum System. Mit dieser kann der Benutzer interagieren
 \begin{center}
 \includegraphics[scale=0.7]{../docs/lyaton/graphics/Graph.png}\\
@@ -1700,7 +1788,7 @@ In der obigen Abbildung wird ein üblicher Aufbau von Linux Systemen dargestellt
 Die einzelnen Schichten werden im Folgenden genauer erläutert: \\
 \begin{itemize}
 \item \textbf{Hardware}\\
-Die Hardware kann durchaus varieren. Es gibt unzählige Hersteller für Grafikkarten. Auch die Hersteller von Prozessoren haben bereits Grafikkarten integriert (Onboard Grafikkarten). 
+Die Hardware kann durchaus variieren. Es gibt unzählige Hersteller für Grafikkarten. Auch die Hersteller von Prozessoren haben bereits Grafikkarten integriert (Onboard Grafikkarten). 
 \item \textbf{Kernel}\\
 Als Kernel wird das System bezeichnet, auf dem alles aufbaut.(z.B. Linux Kernel)
 \item \textbf{Anzeige Server}\\
@@ -1710,8 +1798,12 @@ Die Grafische Shell kommuniziert mit dem Anzeige Server und teilt diesem mit was
 \item \textbf{Benutzer}\\
 Zuletzt kommt der Benutzer, welcher durch die dargestellte Oberfläche mit Komfort seinen Rechner bedienen kann. 
 \end{itemize}
-\subsection*{Normen$^{[306]}$}
-\addcontentsline{toc}{subsection}{Normen}
+\subsection{Normen}
+\begin{flushright}
+\begin{tiny}
+Quellen: [306]
+\end{tiny}
+\end{flushright}
 Die europäische Norm ISO 9241-110 beschreibt welche Aspekte ein graphische Benutzeroberfläche abdecken muss. (vgl. http://de.wikipedia.org/wiki/Grafische\_Benutzeroberfläche\#Technik)\\
 Folgende Punkte werden in dieser Norm behandelt:
 \begin{itemize}
@@ -1756,7 +1848,7 @@ Bereits in den 1960er Jahren gab es Probleme beim Verarbeiten von Daten. Damals 
 
 Zur gleichen Zeit wurde von CODASYL (COnference on DAta SYstems Languages) ein Netzwerk- Datenbanksystem entwickelt.\\
 
-1970 wurde ein weiterer Fortschritt von Edgar Frank Codd erzielt. Im Rahmen einer Forschungsarbeit am IBM Almaden Research Center wurden die Grundlagen des ersten relationalen Datenbanksystems (System R) von Codd vorgestellt. Mit Open Source relationalem Datenbanksystem Ingres ( interactive graphics retrieval system) und der Abfragesprache QUEL folgte die Berkeley Groupe.\\
+1970 wurde ein weiterer Fortschritt von Edgar Frank Codd erzielt. Im Rahmen einer Forschungsarbeit, am IBM Almaden Research Center, wurden die Grundlagen des ersten relationalen Datenbanksystems (System R) von Codd vorgestellt. Mit Open Source relationalem Datenbanksystem Ingres ( interactive graphics retrieval system) und der Abfragesprache QUEL folgte die Berkeley Groupe.\\
 
 Oracle (damals SDL und RSI) nutzte Ergebnisse von System R und brachte SQL den Erfolgt.  Von IBM folgte SQL/DS und DB2.\\
 
@@ -1980,7 +2072,7 @@ Alle Dokumente werden für einen einmaligen und eindeutigen Identifikator gekenn
 \end{itemize}
 [429]
 \subsubsection{Netzwerkdatenbankmodell}
-Die Veröffentlichung des Netzwerk- Datenbankmodells erfolgte ca. zur gleichen Zeit wie die des relationale Datenbankmodells.\\
+Die Veröffentlichung des Netzwerk- Datenbankmodells erfolgte ca. zur gleichen Zeit wie die des relationalen Datenbankmodells.\\
 \\Eigenschaften eines Netzwerkdatenbankmodells:
 \begin{itemize}
 \item keine strenge Hierarchie
@@ -1988,7 +2080,7 @@ Die Veröffentlichung des Netzwerk- Datenbankmodells erfolgte ca. zur gleichen Z
 \item m:n Beziehungen sind möglich (Datensätze können mehrere Vorgänger besitzen)
 \item mehrere Datensätze können an erster Stelle stehen
 \end{itemize}
-Der große Vorteil bei diesem Modell ist, dass verschiedene Suchwege zur Verfügung stehen. Dies kann, aber auch zum Nachteil werden und wenn vom Programmierer ein bestimmter Lösungsweg vorgesehen ist. Die Übersichtlichkeit wird schlechter mit der zunehmenden Größe des Modells immer geringer.\\
+Der große Vorteil bei diesem Modell ist, dass verschiedene Suchwege zur Verfügung stehen. Dies kann, aber auch zum Nachteil werden und wenn vom Programmierer ein bestimmter Lösungsweg vorgesehen ist. Die Übersichtlichkeit wird mit der zunehmenden Größe des Modells immer geringer.\\
 
 Das Netzwerkdatenbankmodell gilt heute als Verallgemeinerung des hierarchischen Datenbankmodells. [430]
 
@@ -2005,7 +2097,7 @@ Das hierarchische Datenbankmodell ist das älteste Datenbankmodell das es gibt. 
 Das hierarchische Datenbankmodell konnte in den letzten Jahren wieder einen Erfolg feiern, weil es im Bereich der XML- Entwicklung effizient genutzt wird. [431]
 
 \subsection{Sicherheit}
-Bei einem relationalen Datenbankmanagementsystem werden relatioanle Daten auf einem Speichermedium abglegt. Es werden zu den eigentlichen Daten auch Informationen über das Datenschema und Berechtigungen gespeichert. Durch das Abspeichern der Berechtigungen wird Datensicherheit (Schutz gegen Datenverlust und verbotet Zugriffe) gewährleistet. Metadaten werden als "{}data dictionary"{} bei Datenbankmanagementsystemen bezeichnet.\\
+Bei einem relationalen Datenbankmanagementsystem werden relatioanle Daten auf einem Speichermedium abglegt. Es werden zu den eigentlichen Daten auch Informationen über das Datenschema und Berechtigungen gespeichert. Durch das Abspeichern der Berechtigungen wird Datensicherheit (Schutz gegen Datenverlust und verbotene Zugriffe) gewährleistet. Metadaten werden als "{}data dictionary"{} bei Datenbankmanagementsystemen bezeichnet.\\
 
 Das Sichern des Datenbankinhaltes durch Backups ist ebenfalls zu gewähleisten. Probleme bei der Performance sind in Praxis bei diesen Vorgängen zu beobachten, da die Manipulation von Daten beschränkt wird.\\
 %http://de.wikipedia.org/wiki/Datenbank#Datensicherheit
@@ -2053,7 +2145,7 @@ Die Basis der Syntax und Semantik holte sich Hipp aus der PstgreSQL 6.5 Dokument
 \subsection{Eigenschaften}
 SQLite hat viel wichtige Eigenschaften, zu den wichtigsten Eigenschaften zählen:
 \begin{itemize}
-\item (Atomarität, Konsistenz, Isolation und Dauerhaftigkeit (ACID) von Transaktionen, selbst im Fall eines Systemabsturzes oder eines Stromausfalles
+\item Atomarität, Konsistenz, Isolation und Dauerhaftigkeit (ACID) von Transaktionen, selbst im Fall eines Systemabsturzes oder eines Stromausfalles
 \item keine Installation oder weitere Verwaltungen oder Konfigurationen nötig
 \item komplette SQL- Implementierung mit Erweiterungen: Teilindizes, allgemeine Tabellenausdrücke, ...
 \item gesamte Datenbank ist in eine Datei gespeichert ("{}single disk file"{}), optial für den Einsatz in Anwendungen
@@ -3515,14 +3607,14 @@ Die Datenbank besteht aus zwölf verschiedenen Tabellen. Die Namen der Tabellen 
 
 Alle Tabellen, bis auf die Tabellen JobTable und MemoTable, bestehen aus zwei Datenfeldern. Das erste Datenfeld ist immer eine ID, welche den primary key vom Typ Integer darstellt, das zweite Datenfeld ist immer vom Typ Text, dessen Inhalt gleich dem jeweiligen Namen der Tabelle entspricht.\\
 
-Zur eindeutigen Identifikation wurden sogenannte Globally Unique Identifier (GUID) vergeben. Diese sind Integers mit einer Länge von 128 Bit (16 Byte), dadurch konnte garantiert werden, dass selbst bei einer Vielzahl an Geräten, immer noch jedes eindeutig identifizierbar ist und damit die dazugehörigen Informationen zugeordnet werden.
+Zur eindeutigen Identifikation wurden sogenannte Globally Unique Identifier (GUID) vergeben. Diese sind Integer mit einer Länge von 128 Bit (16 Byte), dadurch konnte garantiert werden, dass selbst bei einer Vielzahl an Geräten, immer noch jedes eindeutig identifizierbar ist und damit die dazugehörigen Informationen zugeordnet werden.
 \section{Tabellen}
 \subsubsection{GUIDNodeTable}
 \begin{enumerate}
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item GUID\_ NODE vom Typ Text
 \end{enumerate}
-In dieser Tabelle wird jeder GUID, von jeder Node, eine ID zugewiesen. Dieser Schritt ist von Vorteil, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
+In dieser Tabelle wird jeder GUID, von jeder Node, eine ID zugewiesen. Dieser Schritt ist von Vorteil, da anschließend nicht mehr mit einer 128-Bit-Zahl weiter gerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-guid-node.png}\\
 GUIDNodeTable mit drei Nodes (bzw. deren GUID) und der dazugehörigen ID.
@@ -3532,7 +3624,7 @@ GUIDNodeTable mit drei Nodes (bzw. deren GUID) und der dazugehörigen ID.
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item GUID\_ JOB vom Typ Text
 \end{enumerate}
-In dieser Tabelle wird jeder GUID, von jedem Job, eine ID zugewiesen. Der Vorteil ist der gleiche wie bei der GUIDNodeTable, da anschließend nicht mehr mit einer 128-Bit-Zahl weitergerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
+In dieser Tabelle wird jeder GUID, von jedem Job, eine ID zugewiesen. Der Vorteil ist der gleiche wie bei der GUIDNodeTable, da anschließend nicht mehr mit einer 128-Bit-Zahl weiter gerechnet wird und damit die Geschwindigkeit erhöht und der Leistungsverbrauch verringert wird.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-guid-job.png}\\
 GUIDJobTable mit drei Jobs (bzw. deren GUID) und der dazugehörigen ID. 
@@ -3572,7 +3664,7 @@ MACTable mit bisher nur einem Eintrag, da nur ein Gerät im Netzwerk vorhanden i
 \item ID als primary key vom Typ Integer (AUTOINCREMENT)
 \item JOBNAME vom Typ Text
 \end{enumerate}
-Jobnamen werden vom Administrator übergeben, welche in dieser Tabelle gespeichert werden. Die Zuweisung zu einer ID erfolg ebenfalls, um die Verknüpfung der Daten in der JobTable zu gewährleisten.
+Jobnamen werden vom Administrator übergeben, welche in dieser Tabelle gespeichert werden. Die Zuweisung zu einer ID erfolgt ebenfalls, um die Verknüpfung der Daten in der JobTable zu gewährleisten.
 \begin{center}
 \includegraphics[scale=0.8]{img/db-tb-jobname.png}\\
 JobNameTable mit bisher zwei Einträgen (TEST1, TEST2).
@@ -3657,15 +3749,15 @@ Befehle zur allgemeinen Nutzung der Datenbank in der CLI, sind im Kapitel 18.3 z
 
 \section{Wrapper}
 \subsection{Allgemeines}
-Ein Wrapper ist ein Stück Software, welches ein anderes Stück Software umgibt. Es handelt sich dabei um eine sogenannte "{}Umhüllung"{} (Schnittstelle oder auch Adapter). Es können inviduelle Programmteile sein oder auch ganze Klassen.\\
+Ein Wrapper ist ein Stück Software, welches ein anderes Stück Software umgibt. Es handelt sich dabei um eine sogenannte "{}Umhüllung"{} (Schnittstelle oder auch Adapter). Es können individuelle Programmteile sein oder auch ganze Klassen.\\
 Wrapper finden ihren Einsatz aus verschiedensten Gründen: Kompatibilitätsprobleme (z.B. wenn Programmteile aus einer anderen Programmiersprache verwendet werden sollen), Sicherheitsgründe (Einschränkung der Zugriffe auf bestimmte Programmteile), architektonische Gründe, ...
 
 \subsection{Realisierung}
 Die gesamte Realisierung erfolgte in einer Datei.
-\\Am beginn des Quellcodes wird eine Verbindung zur Datenbank und eine Zeitkonstante (später noch von Bedeutung) definiert . Als nächstes wird die Existenz der Datenbank geprüft. Wenn die Datenbank bereits exestiert, wird durch den nächsten Schritt eine Verbindung zu dieser erstellt.
-Wenn diese nicht exestiert gibt es eine Fehlermeldung und eine neue wird erstellt, bevor eine Verbingung aufgebaut wird.\\
+\\Am beginn des Quellcodes wird eine Verbindung zur Datenbank und eine Zeitkonstante (später noch von Bedeutung) definiert . Als nächstes wird die Existenz der Datenbank geprüft. Wenn die Datenbank bereits existiert, wird durch den nächsten Schritt eine Verbindung zu dieser erstellt.
+Wenn diese nicht existiert gibt es eine Fehlermeldung und eine neue wird erstellt, bevor eine Verbindung aufgebaut wird.\\
 Im nächsten Schritt werden 12 Tabellen erstellt. Um welche Tabellen es sich genau handelt siehe Kapitel 16.2.
-Für eine bessere Übersicht und für ein besseres Verständnis wurde der restliche Code in acht Regionen aufgeteil.
+Für eine bessere Übersicht und für ein besseres Verständnis wurde der restliche Code in acht Regionen aufgeteilt.
 \subsubsection{basic methods}
 In dieser Region werden grundsätzliche Methoden definiert. In diesem Fall handelt es sich um Methoden, welche die Funktion zum schreiben und auswählen von Daten ermöglichen.
 \subsubsection{read tables}
@@ -3678,10 +3770,10 @@ Es sind zwei Methoden definiert:
 \subsubsection{get joined tables}
 In dieser Region sind zwei Methoden definiert. Jede von ihnen bezieht sich auf eine bestimmte Tabelle.
 \begin{itemize}
-\item Die erste Methode bezieht sich auf die Tabelle JobTable. Mit dieser Methode wird der "{}zulesende"{} Inhalt der JobTable angezeigt und nicht der echte. Damit ist gemeint, dass der Inhalt so gelesen wird, dass sämtliche Verknüfungen, welche durch einen sogenannten "{}Join"{} erstellt wurden, den Inhalt aus der verknüpften Tabellen anzeigen und nicht die ID, welche zur Verknüpfung notwendig ist.
-\item Die zweite Methode erlaubt das gleiche nur auf die Tabelle SummaryTable bezogen. Damit wird hier auch der "{}zulesende"{} Inhalt angezeigt, da in der Tabelle SummaryTable Verknüpfungen zu anderen Tabellen bestehen.
+\item Die erste Methode bezieht sich auf die Tabelle JobTable. Mit dieser Methode wird der "{}zu lesende"{} Inhalt der JobTable angezeigt und nicht der echte. Damit ist gemeint, dass der Inhalt so gelesen wird, dass sämtliche Verknüpfungen, welche durch einen sogenannten "{}Join"{} erstellt wurden, den Inhalt aus der verknüpften Tabellen anzeigen und nicht die ID, welche zur Verknüpfung notwendig ist.
+\item Die zweite Methode erlaubt das gleiche nur auf die Tabelle SummaryTable bezogen. Damit wird hier auch der "{}zu lesende"{} Inhalt angezeigt, da in der Tabelle SummaryTable Verknüpfungen zu anderen Tabellen bestehen.
 \end{itemize}
-Der Quellcode, um die Tabelle JobTable, welche durch Join- Funktionen mit anderen Tabellen verknüpft wurde, mit den Informationen, statt den Verknüpfungen, anzugeigen sieht folgendermaßen aus:
+Der Quellcode, um die Tabelle JobTable, welche durch Join- Funktionen mit anderen Tabellen verknüpft wurde, mit den Informationen anzuzeigen (statt den Verknüpfungen), sieht folgendermaßen aus:
 \begin{lstlisting}
 public DataTable GetJobTable(string subcommand)
         {
@@ -4295,12 +4387,12 @@ Oktober 2014 & ~41h & FTP Checkjob Nachforschung, Umsetzung,\\&& Test; MAC-Finde
 November 2014 & ~31h & MAC-Finder Version 2 Nachforschung,\\&& Umsetzung, Test\\ \hline
 Dezember 2014 & ~29h & SNMP Nachforschung\\ \hline
 Januar 2015 & ~29h & SNMP Umsetzung, start Test\\ \hline
-Febuar 2015 & ~12h & SNMP Test; Logging Nachforschung\\ \hline
-März 2015 & ~5h & Logger Umsetzung, Test; MAC-Finder Version 3\\&& start Nachforschung\\ \hline
-April 2015 & ~34h & MAC-Finder Version 3 Nachforschung,\\&& Umsetzung, Test\\ \hline
-Mai 2015 & ~20h & Cleancoding\\
+Febuar 2015 & ~12h & SNMP Test; Logging Nachforschung; Dokumentation\\ \hline
+März 2015 & ~5h & Logger Umsetzung, Test; MAC-Finder Version 3\\&& start Nachforschung; Dokumentation\\ \hline
+April 2015 & ~34h & MAC-Finder Version 3 Nachforschung,\\&& Umsetzung, Test; Dokumentation\\ \hline
+Mai 2015 & ~20h & Cleancoding; Dokumentation\\
 \hline \hline
-Oktober 2014 bis Mai 2015 & 224h &\\ \hline
+September 2014 bis Mai 2015 & 224h &\\ \hline
 \end{tabular}
 
 \chapter{Manpreet Singh}
@@ -4314,12 +4406,12 @@ Oktober 2014 & ~22h & Notfication System Version 1 Fertigstellung\\&&und Tests \
 November 2014 & ~36h & Recherche, Umsetzung, \\&&Tests - Notification System Version 2\\ \hline
 Dezember 2014 & ~55h & Recherche GUI, GUI Version 1 \& 2 \\&&Umsetzung, Tests\\ \hline
 Januar 2015 & ~41h & GUI Version 3 Umsetzung, Test\\ \hline
-Febuar 2015 & ~14h & Bugfixing\\ \hline
-März 2015 & ~6h & Testphase \& Bugfixing\\ \hline
+Febuar 2015 & ~14h & Bugfixing, Dokumentation\\ \hline
+März 2015 & ~11h & Testphase, Bugfixing,\\&& Dokumentation\\ \hline
 April 2015 & ~19h & Dokumentation\\ \hline
-Mai 2015 & ~8h & Finishing (Präsentationen erstellen \\&&und sonstiges organisatorisches)\\
+Mai 2015 & ~12h & Dokumentation, Finishing \\&&(Präsentationen erstellen und \\&&sonstiges organisatorisches)\\
 \hline \hline
-September 2014 bis Mai 2015 & 227h &\\ \hline
+September 2014 bis Mai 2015 & 236h &\\ \hline
 \end{tabular}
 
 \chapter{MarkoStojanovi\'{c}}
@@ -4797,18 +4889,18 @@ Ein anderes Problem, was jedoch bereits von Anfang an klar war, war der Untersch
 Alles in allem bin ich jedoch sehr zufrieden, auch wenn es sich hier nicht so anhören sollte. Schlussendlich ist hier ein lauffähiges Programm herausgekommen, in welchem man sehr gut den Fortschritt der einzelnen Teilnehmer sehen kann. Klar, es ist bei weitem nicht ernsthaft einsatzfähig für Firmen, höchstens zu gebrauchen für einen Hobbynetzwerktechniker der auf Open Source steht, doch unter Anbetracht der Tatsache, dass wir nicht sehr viel Zeit hatten und dies unser erstes großes Software Projekt ist, kann es sich durchaus sehen lassen. Am wertvollsten jedoch erachte ich die Erfahrungen welche gemacht wurden. Sie werden für zukünftige Projekte eine überaus wertvolle Ressource sein und im Endeffekt kommt es ja nur darauf an.
 
 \chapter{Manpreet Singh}
-''Wie soll ich sagen...Es war ein Abenteuer. Welches letztes Jahr startete. 4 Freunde nahmen daran teil. Diese 4 Freunde durchlebten eine turbulente Zeit in diesen wenigen Monaten. Aber ich glaube, dass jede einzelne Sekunde davon wertvoll und belehrend war. \\\\
-Angefangen hat es eigentlich schon am Ende der 4.Klasse, denn wir 4 waren uns einig, wir machen eine Diplomarbeit. Nachdem einige organisatorische Aspekte, wie die Wahl eines Betreuers, die Wahl des Themas und einigen anderen Sachen geklärt waren, fing die eigentliche Arbeit an. Da standen wir nun, 4 ungeschriebene Blätter in der Informatik, obwohl gerechter Weise gesagt werden muss, dass die Kollegen Porcic und Ranalter sich bedeutend besser auskannten als ich und dies auch immer noch tun, nichtsdestotrotz waren wir alle blutige Anfänger. Wobei nicht das Projektmanagement, zumindest anfänglich, das Problem war, sondern das Programmieren. Ich hatte bis dato noch keine Zeile in C\# programmiert. Dieses Wissen, dass man Ahnungslos ist, baut schnell eine Blockade auf, welche das Ganze nur noch schwieriger macht. Nachdem Kollege Porcic ein paar Anregungen gegeben hat, löste sich diese Blockade rasch.\\\\
+Wie soll ich sagen,...es war ein Abenteuer, welches letztes Jahr startete. Vier Freunde nahmen daran teil. Diese vier Freunde durchlebten eine turbulente Zeit in diesen wenigen Monaten. Aber ich glaube, dass jede einzelne Sekunde davon wertvoll und belehrend war. \\\\
+Angefangen hat es eigentlich schon am Ende der 4.Klasse, denn wir vier waren uns einig, wir machen eine Diplomarbeit. Nachdem einige organisatorische Aspekte, wie die Wahl eines Betreuers, die Wahl des Themas und einigen anderen Sachen geklärt waren, fing die eigentliche Arbeit an. Da standen wir nun, vier unbeschriebene Blätter in der Informatik, obwohl gerechter Weise gesagt werden muss, dass die Kollegen Porcic und Ranalter sich bedeutend besser auskannten als ich und dies auch immer noch tun, nichtsdestotrotz waren wir alle blutige Anfänger. Wobei nicht das Projektmanagement, zumindest anfänglich, das Problem war, sondern das Programmieren. Ich hatte bis dato noch keine Zeile in C\# programmiert. Dieses Wissen, dass man Ahnungslos ist, baut schnell eine Blockade auf, welche das Ganze nur noch schwieriger macht. Nachdem Kollege Porcic ein paar Anregungen gegeben hat, löste sich diese Blockade rasch.\\\\
 Als ich meinen ersten Entwurf des Notification Systems stolz präsentierte, fiel dieser recht schnell durch, doch diesmal war es eine Motivation. Die 2. Version war schon viel besser und hat mich auch einiges an Zeit gekostet. Aber in dieser Zeit lernte ich so einiges über C\# und tat mir dadurch leichter mit dem GUI, welches aber auch 3 Versionen hervorbrachte.\\\\
 Der nächste, mir wichtige Punkt ist dann aber doch das Projektmanagement. Die Projekte die wir in der Schule über die Jahre gemacht haben, waren eine schlechte Vorbereitung auf das, das uns in der Diplomarbeit erwartete. Denn diesmal mussten wir uns beweisen, da uns unser Betreuer viele Freiheiten gelassen hat. Wir mussten zeigen was wir erreichen konnten und uns wurde nichts vorgekaut. Dies war meiner Meinung nach einer der wichtigsten Erfahrungen. So wurden wir gefordert, teilweise war dies sehr hart, denn alles parallel zur Schule zu machen war eine große Herausforderung. Um nochmal auf den Punkt zu kommen, Projektmanagement. Ein sehr wichtiger Teil eines jeden Projektes. Denn umso besser das Management ist, desto besser ist der Output. Ich würde nicht sagen das unser Management schlecht war, aber es hätte schon ein klein wenig besser sein können.\\\\
-Abschließend würde ich sagen, dass ich sehr zufrieden bin mit der Arbeit die mein Team und ich vollbracht haben.''
+Abschließend würde ich sagen, dass ich sehr zufrieden bin mit der Arbeit die mein Team und ich geleistet haben.
 
 \chapter{Marko Stojanovi\'{c}}
-Am Anfang der Diplomarbeit, war es ersichtlich, dass wir zumindest, was die Kommunikation angeht, gut miteinander auskommen werden, da wir uns alle bereits seit dem Beginn unserer HTL-Karriere gut kennen und verstehen. Die Planung der Diplomarbeit und weitere wichtige Entscheidungen, welche getroffen werden mussten, wie z.B. Betreuerwahl, waren aufgrund der gemeinsamen Interessen schnell und eindeutig geklärt. \\\\
+Am Anfang der Diplomarbeit, war es ersichtlich, dass wir zumindest, was die Kommunikation angeht, gut miteinander auskommen werden, da wir uns alle bereits seit dem Beginn unserer HTL-Karriere gut kennen. Die Planung der Diplomarbeit und weitere wichtige Entscheidungen, welche getroffen werden mussten, wie z.B. Wahl unseres Betreuers, waren aufgrund der gemeinsamen Interessen schnell und eindeutig geklärt. \\\\
 Als die Realisierung begann, konnte man sehen, dass nur am Beginn alle den gleichen Fortschritt erzielen konnten. Die Unterschiede konnten dann festgestellt werden, als es immer tiefer in die Realisierung ging. Das sorgte für einige organisationstechnische Probleme. Aufgrund der unterschiedlichen, bereits vorhanden Fähigkeiten, die jeder mit sich brachte, konnten einige nicht mit ihren gestellten Aufgaben bis zum vereinbarten Zeitpunkt fertig werden, mich eingeschlossen.\\
-Dies war jedoch kein sehr großes Problem, da wir unsere Termine immer etwas früher setzten, damit es in diesen Fällen zu keiner großen Verzögerung, für den Rest der Gruppen, kommen würde. Es war nämlich schon von allen bereits erwartet worden. Ich selbst konnte den Zeitplan auch nicht einhalten. Durch die Hilfe von Alin Porcic konnte ich aber doch mit dem Rest mithalten.\\\\
-Durch GitHub wurde uns das Zusammensetzen des Quellcodes und der Dokumentation sehr erleichtert, jedoch ist zu erwähnen, dass trotzdem Probleme auftraten, z.B. ist bei der Dokumentation durch einen Fehler ein Teil meiner Dokumentation gelöscht worden und musste deshalb neu geschrieben werden.\\\\
-Trotz einiger kleinen Problem mit den ungleichen Fähigkeiten, welche Verzögerungen hervorbrachten, konnten wir pünktlich zum Schluss ein stabiles und nach unseren Vorstellungen (und der Aufgabenstellung) gerechtes Programm erstellen und es auch dokumentieren.\\\\
-Durch diese Diplomarbeit habe ich meine Programmierfähigkeiten vertieft und habe auch vieles über Datenbanken gelernt, was auch mein Ziel war.
+Dies war jedoch kein sehr großes Problem, da wir unsere Termine immer etwas früher setzten, damit es in diesen Fällen zu keiner großen Verzögerung, für den Rest der Gruppen kommen konnte. Es war nämlich schon von allen bereits erwartet worden, dass dieser Fall eintreffen würde. Ich selbst konnte den Zeitplan auch nicht einhalten. Durch die Hilfe von Alin Porcic, konnte ich aber doch mit dem Rest der Gruppe mithalten.\\\\
+Durch GitHub wurde uns das Zusammensetzen des Quellcodes und der Dokumentation sehr erleichtert, jedoch ist zu erwähnen, dass trotzdem Probleme auftraten, z.B. ist bei der Dokumentation, durch einen Fehler ein Teil meiner Dokumentation gelöscht worden, welcher erneut geschrieben werden musste.\\\\
+Trotz einiger kleiner Probleme mit den ungleichen Fähigkeiten, welche Verzögerungen hervorbrachten, konnten wir pünktlich zum Schluss ein stabiles und nach unseren Vorstellungen (und der Aufgabenstellung) gerechtes Programm erstellen und es auch dokumentieren.\\\\
+Durch diese Diplomarbeit habe ich meine Programmierfähigkeiten vertieft und ich habe auch vieles über Datenbanken gelernt, was auch mein Ziel war. Zusätzlich konnte ich feststellen, dass die Planung bei aufwändigen Projekten (wie diesem) sehr wichtig ist. Wir haben uns durch die relativ genaue Planung, am Beginn des Projekts, viel Stress erspart.
 
 \end{document}

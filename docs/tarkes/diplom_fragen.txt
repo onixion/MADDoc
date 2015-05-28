@@ -1,0 +1,7 @@
+1) Was ist der Unterschied zwischen den MACFinder Versionen? 
+
+2) Wie funktioniert die Implementation der SNMP Traffic Abfrage?
+
+3) Warum musste für die Dritte Version des MACFinders die externe Bibliothek LibPcap?
+
+4) Wie funktionieren die implementierten Jobs zur Überprüfung der Erreichbarkeit von FTP, DNS und SNMP?
