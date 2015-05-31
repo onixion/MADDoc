@@ -1,3 +1,5 @@
+Fragen zur Theorie:
+==================
 
 1. Welche Arten von Schlüssel gibt es und welche besonderen Definitionen gibt es bei Datenbanken?
 
@@ -7,3 +9,14 @@
 
 4. Welche Arten von Programmiersprachen gibt es und welche Programmierparadigmen gibt es?
 
+
+Fragen zur Realisierung:
+=======================
+
+1. Wie ist die Datenbank aufgebaut, welche Unterschiede gibt es gegenüber den Vorgängerversionen der Datenbankrealisierung?
+
+2. Wie werden Zeitdaten in die Datenbank geschrieben?
+
+3. Wieso gibt es eine Möglichkeit die Datenbank zusammen zu fassen und wie funktioniert diese?
+
+4. Wieso wurde SQLite zur Realisierung der Datenbank gewählt, welche weiteren Möglichkeiten gibt es noch?
