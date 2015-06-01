@@ -4,16 +4,22 @@ Ranalter und Alin Porcic.
 Vor ca. einem Jahr haben wir vier die Möglichkeit bekommen im Zuge einer Diplomarbeit beim Herr Professor Weiss eine Software zu entwickeln, mit deren Hilfe es 
 möglich ist ein Netzwerk zu überwachen.
 
-Jedes Unternehmen heute organisiert im Hintergrund in irgendeiner Weise ein IT-Netzwerk. Diese Netzwerk dienen als Schnittstellen für Kunden, aber auch für den 
-internen Datenaustausch.
+Jedes Unternehmen heute organisiert und managed im Hintergrund in irgendeiner Weise ein IT-Netzwerk. Netzwerke sind für Unternehmen heute essentielle, da sie als 
+Schnittstelle zum Kunden genutzt werden können, aber auch für interne Kommunikationen gebrauch finden.
+
 Doch auch im privaten Bereich spielen Netzwerke eine immer wichtigere Rolle. Jeder von uns hat sicherlich zuhause einen Router stehen, vieleicht sogar einen 
-Server. Die neuen Fernsehen können ins Internet oder auch Dienste anbieten. Es gibt auch schon Kühlschränkte, die Internet-fähig sind. 
+Server. Die neuen Fernsehen können über Netzwerke updates runterladen oder andere Dienste anbieten. Es gibt sogar Kühlschränke die über das Netzwerk angesprochen 
+werden können. In der Zukunft werden die Haushaltsgeräte untereinander vernetzt werden. 
 
-Bei so vielen Geräten und Diensten verliert man als Privat-Person oder als Unternehmen schnell die Übersicht und da kommt unser Programm ins Spiel.
-Mithilfe von dieser Software ist es möglich, die Geräte zu erfassen und deren Dienste in Zeitlichen Abständen oder zu bestimmten Zeitpunkten auf ihre Funktion 
-zu überprüfen. Der Benutzer ist in der Lage Regeln zu definieren, damit dieser bei einer Missachtung sofort benachrichtigit werden kann.
+Bei so vielen Geräten und Diensten verliert man als Privat-Person oder als Unternehmen schnell die Übersicht. Für dieses Problem gibt es heute zahlreiche teure, 
+exotische oder komplexe Softwarelösungen. 
 
-Die unter euch, die genaueres Wissen möchten, laden wir herzlichst ein bei uns im Raum H212 vorbeizuschauen. Wir haben einen Testaufbau vorbereitet und wären 
-bereit euch, die Software in der Praxis zu zeigen.
+Wir haben in dieser Diplomarbeit uns genau mit einer solchen Lösung beschäftigt. Wir haben versucht ein möglichst einfaches Programm zu entwickeln, dass die 
+grundlegensten Dienste in zeitlichen Abständen oder zu bestimmten Zeitpunkten überprüfen kann.
+
+Bei der Entwicklung haben wir versucht, dass Programm auf Windows als auch auf Linux lauffähig zu machen.
+
+Die unter euch diese Thematik interessieren, aber auch die die es nicht tun, laden wir recht herzlich ein, bei uns im Raum XX vorbeizukommen. Wir haben einen 
+Versuchsaufbau vorbereitet und würden uns freuen wenn wir mit dem einen oder anderen unsere Erfahrungen austauschen können.
 
 Wir bedanken uns für eure Aufmerksamkeit.
