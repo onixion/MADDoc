@@ -1,14 +1,20 @@
 1.) Wie wurde die Kommunikation CLI-Server/Client realisiert?
 	-> TCP/IP
-	-> AES256
+	-> Verschlüsselung -> AES256
 	-> kein Key-Exchange
 
 2.) Wie werden die Netzwerkaufgaben vom Programm gestartet?
+	-> Zeitplaner
 	-> Threadpool
-	-> SmartThreadPool
+		-> SmartThreadPool
 
 3.) Wie haben Sie die CLI umgesetzt? Wie funktioniert sie?
 	-> Allgemeiens
+		-> Kommandozeileninterpreter
+		-> Terminal
 	-> Reflektions
 
 4.) Wie lädt das Programm die Konfiguration? Hätte es andere Möglichkeiten gegeben?
+	-> Wozu Konfiguration?
+		-> Registry, /etc
+	-> Serialisieren
