@@ -1,0 +1,8 @@
+1.) Was sind die Unterschiede zwischen der 1.Version und der 2. Version
+	des Notification Systems ?
+
+2.) Wieso brauchte es 3 Versionen bis zur finalen Version des GUIs ?
+
+3.) Wieso bietet das Notification System so viele Einstellungsmölichkeiten an ?
+
+4.) Wie reagiert das Notification System auf Fehlversuche ?
